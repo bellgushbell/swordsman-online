@@ -151,9 +151,14 @@ Primary use: Multipurpose Template
     }
 }
 
+
+
+
 /* ==============================
    Home sections
    ============================== */
+
+
 
 /*
  * Header common styles
@@ -900,8 +905,8 @@ input.form-control {
    ============================== */
 :root {
     scroll-behavior: auto;
-    --font-global: HK_Grotesk, arial, sans-serif;
-    --font-global-alt: HK_Grotesk_alt, arial, sans-serif;
+    --font-global: 'Prompt', sans-serif;
+    --font-global-alt: 'Prompt', sans-serif;
 }
 
 html {
@@ -1448,8 +1453,7 @@ hr.white {
 }
 
 .serif {
-    font-family: "Times New Roman", Times, serif;
-    font-style: italic;
+    font-family: "Prompt", sans-serif;
     font-weight: normal;
 }
 
