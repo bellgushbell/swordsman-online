@@ -145,8 +145,8 @@ Primary use: Multipurpose Template
 
 @media (max-width: 576px) {
     .swal2-popup {
-        width: 70%;
-        height: 60%;
+        width: 80%;
+        height: 80%;
         /* ปรับความกว้างสำหรับหน้าจอเล็ก */
     }
 }
