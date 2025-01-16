@@ -772,7 +772,7 @@ input.form-control {
 
 
 /* ==============================
-  footer sticky ติดอยู่ทุกหน้า
+  footer Nav sticky ติดอยู่ทุกหน้า
    ============================== */
 
 /* Bottom Navigation Bar */
@@ -792,6 +792,9 @@ input.form-control {
 
 .bottom-nav .nav-item {
     margin: 0 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
