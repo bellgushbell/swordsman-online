@@ -189,12 +189,15 @@ Primary use: Multipurpose Template
 
 /*video promote*/
 /* วีดีโอพื้นฐาน */
+
 .video-container {
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 400px;
+    height: 180px;
+    /* ปรับให้สัมพันธ์กับอัตราส่วนวีดีโอ */
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -202,7 +205,9 @@ Primary use: Multipurpose Template
 
 .video-container video {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
+    /* ปรับให้วีดีโอขยายเต็มกรอบ */
 }
 
 /* สำหรับหน้าจอขนาดเล็ก */
