@@ -195,12 +195,12 @@ Primary use: Multipurpose Template
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 400px;
-    height: 180px;
+    width: 500px;
+    height: 281px;
     /* ปรับให้สัมพันธ์กับอัตราส่วนวีดีโอ */
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .video-container video {
@@ -215,11 +215,27 @@ Primary use: Multipurpose Template
     .video-container {
         top: 27%;
         width: 300px;
-        /* ปรับตำแหน่งให้อยู่สูงขึ้น */
+        height: auto;
+        /* ให้ปรับตามอัตราส่วน */
+        border-radius: 10px;
+        /* ขอบมน */
+        overflow: hidden;
+        /* ซ่อนส่วนเกินที่อยู่นอกกรอบ */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        /* เพิ่มเงาให้ดูสวยงาม */
+    }
+
+    .video-container video {
+        width: 100%;
+        /* ขยายเต็มความกว้าง */
+        height: 100%;
+        /* ขยายเต็มความสูงของกรอบ */
+        object-fit: cover;
+        /* ปรับวิดีโอให้ครอบคลุมกรอบ */
+        display: block;
+        /* ป้องกัน margin/padding */
     }
 }
-
-
 
 
 
