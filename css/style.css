@@ -831,7 +831,7 @@ input.form-control {
 /* สำหรับจอขนาดเล็กมาก */
 @media (max-width: 480px) {
     .bottom-nav {
-        padding: 5px;
+        padding: 0;
     }
 
     .bottom-nav .nav-item img {
