@@ -193,7 +193,7 @@ Primary use: Multipurpose Template
     top: 65%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 500px;
+    width: auto;
     height: 281px;
     /* ปรับให้สัมพันธ์กับอัตราส่วนวีดีโอ */
     border-radius: 10px;
@@ -212,10 +212,10 @@ Primary use: Multipurpose Template
 @media (max-width: 768px) {
     .video-container {
         top: 60%;
-        width: 300px;
+        width: 100vw;
         height: auto;
         /* ให้ปรับตามอัตราส่วน */
-        border-radius: 10px;
+        /* border-radius: 10px; */
         /* ขอบมน */
         overflow: hidden;
         /* ซ่อนส่วนเกินที่อยู่นอกกรอบ */
@@ -234,7 +234,29 @@ Primary use: Multipurpose Template
         /* ป้องกัน margin/padding */
     }
 
+    /* สำหรับหน้าจอเล็กในแนวนอน (landscape) */
+    @media (max-width: 768px) and (orientation: landscape) {
+        .video-container {
+            top: 60%;
+            left: 0;
+            width: 100vw;
+            /* ใช้ความกว้างเต็มจอ */
+            height: 35.25vw;
+            /* รักษาอัตราส่วน 16:9 */
+            /* border-radius: 10px; */
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transform: translateY(-50%);
+        }
 
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+            /* ปรับวิดีโอให้ครอบคลุมพื้นที่ */
+            display: block;
+        }
+    }
 
 }
 
@@ -251,7 +273,7 @@ Primary use: Multipurpose Template
     justify-content: center;
     align-items: center;
     position: relative;
-    margin-top: 100px;
+    margin-top: 250px;
     /* ปรับขนาดระยะห่างตามที่เหมาะสม */
 }
 
