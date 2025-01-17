@@ -289,6 +289,29 @@ Primary use: Multipurpose Template
 
 }
 
+/**/
+.bg-video {
+    width: 100%;
+    height: auto;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    cursor: pointer;
+}
+
+.left-overlay {
+    left: 0;
+}
+
+.right-overlay {
+    right: 0;
+}
+
+
 
 
 /* ==============================
