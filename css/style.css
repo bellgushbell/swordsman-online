@@ -316,6 +316,7 @@ Primary use: Multipurpose Template
         padding: 10px;
         display: flex;
         justify-content: center;
+
     }
 
     .download-buttons {
@@ -356,8 +357,51 @@ Primary use: Multipurpose Template
 
 
 
+/* สำหรับ iPad Landscape หรือหน้าจอระหว่าง 769px ถึง 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .game-buttons-container {
+        margin-top: 50%;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
 
+    }
 
+    .download-buttons {
+        display: flex;
+        flex-direction: row;
+        /* เรียงปุ่มในแนวนอน */
+        justify-content: space-around;
+        /* ใช้ space-around แทน space-between */
+        align-items: center;
+        /* จัดกึ่งกลางในแนวตั้ง */
+        width: 90%;
+        /* กำหนดความกว้างของพื้นที่ทั้งหมด */
+
+    }
+
+    .download-buttons a {
+        flex: 0 1 auto;
+        /* ปรับขนาดตามเนื้อหาของปุ่ม */
+        max-width: 45%;
+        /* ให้แต่ละปุ่มครอบครองพื้นที่ประมาณครึ่งหนึ่ง */
+        text-align: center;
+    }
+
+    .download-buttons img {
+        width: 100%;
+        /* รูปภาพขยายเต็มปุ่ม */
+        height: auto;
+        border-radius: 10px;
+        /* ขอบมน */
+    }
+
+    .ios-button img,
+    .android-button img {
+        max-width: 140px;
+        /* จำกัดขนาดของภาพ */
+    }
+}
 
 
 
@@ -438,7 +482,7 @@ Primary use: Multipurpose Template
     top: 0%;
     left: 0;
     overflow: hidden;
-    background: black;
+    background: rgba(0, 0, 0, 0.9);
 
 }
 
@@ -531,6 +575,11 @@ a.bg-video-button-muted {
     opacity: .75;
     z-index: 1000;
 }
+
+
+
+
+
 
 /* ==============================
    News And Event
