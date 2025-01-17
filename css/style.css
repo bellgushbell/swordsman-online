@@ -158,8 +158,6 @@ Primary use: Multipurpose Template
    Home sections
    ============================== */
 
-
-
 /*
  * Header common styles
  */
@@ -192,7 +190,7 @@ Primary use: Multipurpose Template
 
 .video-container {
     position: absolute;
-    top: 50%;
+    top: 65%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 500px;
@@ -213,7 +211,7 @@ Primary use: Multipurpose Template
 /* สำหรับหน้าจอขนาดเล็ก */
 @media (max-width: 768px) {
     .video-container {
-        top: 27%;
+        top: 60%;
         width: 300px;
         height: auto;
         /* ให้ปรับตามอัตราส่วน */
@@ -235,6 +233,9 @@ Primary use: Multipurpose Template
         display: block;
         /* ป้องกัน margin/padding */
     }
+
+
+
 }
 
 
@@ -249,47 +250,41 @@ Primary use: Multipurpose Template
     display: flex;
     justify-content: center;
     align-items: center;
-
-
-
+    position: relative;
+    margin-top: 100px;
+    /* ปรับขนาดระยะห่างตามที่เหมาะสม */
 }
 
-.qr-code-section,
-.age-warning {
+.download-buttons {
+    display: flex;
+    flex-direction: row;
+    /* เรียงปุ่มในแนวนอน */
+    gap: 10px;
+    /* ระยะห่างระหว่างปุ่ม */
+    justify-content: center;
+    /* จัดปุ่มให้อยู่กึ่งกลาง */
+    align-items: center;
+    margin-left: 50px 0;
+}
+
+.download-buttons a {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    width: 250px;
-    /* Width equal to buttons */
-    height: calc(50px * 2 + 10px);
-    /* Height = 2 button heights + gap */
-    background-color: #f5f5f5;
-    border-radius: 5px;
-    text-align: center;
-    box-sizing: border-box;
-    gap: 5px;
-    margin: 0;
-    /* Reset default margin */
-}
-
-.qr-code-section img,
-.age-warning img {
-    max-width: 40px;
-    /* Icon size */
+    max-width: 200px;
+    /* ขนาดปุ่มในหน้าจอปกติ */
+    width: 200px;
     height: auto;
 }
 
-.download-buttons,
-.action-buttons {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    /* Align buttons to the top and bottom */
-    height: 100%;
-
-    /* Full height of the container */
+.download-buttons img {
+    width: 100%;
+    /* ปรับภาพให้เต็มปุ่ม */
+    height: auto;
+    border-radius: 10px;
+    /* ขอบมน */
 }
+
 
 .download-buttons .btn,
 .action-buttons .btn {
@@ -311,6 +306,64 @@ Primary use: Multipurpose Template
     box-sizing: border-box;
 
 }
+
+
+
+/* สำหรับหน้าจอขนาดเล็ก */
+@media (max-width: 768px) {
+    .game-buttons-container {
+        margin-top: 80%;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .download-buttons {
+        display: flex;
+        flex-direction: row;
+        /* เรียงปุ่มในแนวนอน */
+        justify-content: space-around;
+        /* ใช้ space-around แทน space-between */
+        align-items: center;
+        /* จัดกึ่งกลางในแนวตั้ง */
+        width: 90%;
+        /* กำหนดความกว้างของพื้นที่ทั้งหมด */
+
+    }
+
+    .download-buttons a {
+        flex: 0 1 auto;
+        /* ปรับขนาดตามเนื้อหาของปุ่ม */
+        max-width: 45%;
+        /* ให้แต่ละปุ่มครอบครองพื้นที่ประมาณครึ่งหนึ่ง */
+        text-align: center;
+    }
+
+    .download-buttons img {
+        width: 100%;
+        /* รูปภาพขยายเต็มปุ่ม */
+        height: auto;
+        border-radius: 10px;
+        /* ขอบมน */
+    }
+
+    .ios-button img,
+    .android-button img {
+        max-width: 140px;
+        /* จำกัดขนาดของภาพ */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
 
 .btn-android {
     background: linear-gradient(45deg, #DEBB67, #E8C77A);
@@ -382,9 +435,11 @@ Primary use: Multipurpose Template
     position: absolute;
     width: 100%;
     height: 100%;
-    top: 0;
+    top: 0%;
     left: 0;
     overflow: hidden;
+    background: black;
+
 }
 
 .bg-image-overlay {
@@ -403,7 +458,7 @@ Primary use: Multipurpose Template
     left: 0;
     min-width: 100%;
     min-height: 100%;
-    object-fit: cover;
+    object-fit: fill;
 }
 
 a.bg-image-button-muted {
@@ -418,6 +473,19 @@ a.bg-image-button-muted {
     color: #fff;
     opacity: 0.75;
     z-index: 1000;
+}
+
+@media (max-width: 768px) {
+    .bg-image-wrapper>img {
+        object-fit: contain;
+        /* ให้รูปอยู่ในกรอบ */
+        object-position: center 20%;
+        /* จัดตำแหน่งให้อยู่ตรงกลางและขยับลง */
+        width: 100%;
+        /* ครอบคลุมความกว้าง */
+        height: auto;
+        /* รักษาอัตราส่วน */
+    }
 }
 
 /*สำหรับพื้นหลังที่เป็นวีดีโอ*/
@@ -919,6 +987,56 @@ input.form-control {
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
 }
+
+/* ==============================
+  Highlight ภาพเลื่อน swiper.js
+   ============================== */
+
+.swiper-container {
+    width: 100%;
+    /* ให้ขยายเต็ม width ของ container */
+    max-width: 1200px;
+    /* ปรับขนาดตามความเหมาะสม */
+    margin: 0 auto;
+    /* จัดให้อยู่กึ่งกลาง */
+}
+
+.swiper-slide img {
+    width: 50%;
+    /* ให้รูปขยายเต็มสไลด์ */
+    height: auto;
+    /* รักษาอัตราส่วน */
+    object-fit: cover;
+    /* ปรับให้รูปภาพพอดีขนาด container */
+    border-radius: 10px;
+    /* เพิ่มขอบมน (ถ้าต้องการ) */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    /* เพิ่มเงา */
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* ==============================
