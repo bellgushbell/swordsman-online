@@ -136,18 +136,45 @@ Primary use: Multipurpose Template
     font-display: swap;
 }
 
-/*sweetalert2 ตั้งค่า*/
-
+/* SweetAlert2 ตั้งค่า */
 .custom-swal-popup {
+    border-radius: 20px;
     margin: 0 auto;
-
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
     .swal2-popup {
-        width: 95%;
-        height: 95%;
-        /* ปรับความกว้างสำหรับหน้าจอเล็ก */
+        width: 50%;
+        height: auto;
+
+
+        font-size: 14px;
+        /* ลดขนาดฟอนต์ของเนื้อหาภายใน */
+    }
+
+    .swal2-title {
+        font-size: 16px;
+        /* ลดขนาดฟอนต์ของ Title */
+    }
+
+    .swal2-content {
+        font-size: 12px;
+
+    }
+
+    .swal2-icon {
+        width: 20px;
+        /* ลดขนาดไอคอน */
+        height: 20px;
+        font-size: 20px;
+        line-height: 40px;
+    }
+
+    .swal2-actions .swal2-confirm {
+        font-size: 12px;
+        /* ลดขนาดฟอนต์ปุ่ม */
+        /* padding: 5px 10px; */
+        /* ลด padding ของปุ่ม */
     }
 }
 
@@ -209,7 +236,7 @@ Primary use: Multipurpose Template
 }
 
 /* สำหรับหน้าจอขนาดเล็ก */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .video-container {
         top: 60%;
         width: 100vw;
@@ -546,7 +573,6 @@ Primary use: Multipurpose Template
     .bg-image-wrapper>img {
         object-fit: contain;
         /* ให้รูปอยู่ในกรอบ */
-
         object-position: center 20%;
         /* จัดตำแหน่งให้อยู่ตรงกลางและขยับลง */
         width: 100%;
