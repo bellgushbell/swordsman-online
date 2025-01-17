@@ -190,7 +190,7 @@ Primary use: Multipurpose Template
 
 .video-container {
     position: absolute;
-    top: 65%;
+    top: 59%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: auto;
@@ -234,6 +234,8 @@ Primary use: Multipurpose Template
         /* ป้องกัน margin/padding */
     }
 
+
+
     /* สำหรับหน้าจอเล็กในแนวนอน (landscape) */
     @media (max-width: 768px) and (orientation: landscape) {
         .video-container {
@@ -273,7 +275,7 @@ Primary use: Multipurpose Template
     justify-content: center;
     align-items: center;
     position: relative;
-    margin-top: 250px;
+
     /* ปรับขนาดระยะห่างตามที่เหมาะสม */
 }
 
@@ -496,55 +498,55 @@ Primary use: Multipurpose Template
 
 
 
-/*สำหรับพื้นหลังที่เป็นรูปภาพ*/
+
+
+
+/* สำหรับพื้นหลังที่เป็นรูปภาพ */
 .bg-image-wrapper {
     position: absolute;
     width: 100%;
     height: 100%;
-    top: 0%;
+    top: 0;
     left: 0;
     overflow: hidden;
     background: rgba(0, 0, 0, 0.9);
-
+    /* เพิ่มความโปร่งใส */
 }
 
+/* รูปภาพพื้นหลัง */
+.bg-image-wrapper>img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: contain;
+    /* ปรับให้ครอบคลุม container โดยไม่โดนตัด */
+}
+
+/* Overlay */
 .bg-image-overlay {
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    background: rgba(0, 0, 0, 0.1);
-
+    background: rgba(0, 0, 0, 0.08);
+    /* เพิ่มความเข้ม overlay */
+    z-index: 1;
+    /* ซ้อนเลเยอร์ให้อยู่ด้านบน */
+    pointer-events: none;
+    /* ป้องกันการคลิกบน overlay */
 }
 
-.bg-image-wrapper>img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    min-width: 100%;
-    min-height: 100%;
-    object-fit: fill;
-}
-
-a.bg-image-button-muted {
-    display: block;
-    width: 1em;
-    height: 1em;
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    font-size: 28px;
-    line-height: 1;
-    color: #fff;
-    opacity: 0.75;
-    z-index: 1000;
-}
 
 @media (max-width: 768px) {
+
     .bg-image-wrapper>img {
         object-fit: contain;
         /* ให้รูปอยู่ในกรอบ */
+
         object-position: center 20%;
         /* จัดตำแหน่งให้อยู่ตรงกลางและขยับลง */
         width: 100%;
