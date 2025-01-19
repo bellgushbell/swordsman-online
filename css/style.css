@@ -289,7 +289,7 @@ Primary use: Multipurpose Template
 
 }
 
-/**/
+/*ืทำเป็นสามารถเข้าเฟสบุ๊ค ยูทูป จากวีดีโอได้*/
 .bg-video {
     width: 100%;
     height: auto;
@@ -546,9 +546,9 @@ Primary use: Multipurpose Template
 }
 
 
-
-
-
+/* ==============================
+  Home BG Image
+   ============================== */
 
 
 /* สำหรับพื้นหลังที่เป็นรูปภาพ */
@@ -590,6 +590,9 @@ Primary use: Multipurpose Template
     /* ป้องกันการคลิกบน overlay */
 }
 
+.bg-image-with-text {
+    display: none;
+}
 
 @media (max-width: 768px) {
 
@@ -602,6 +605,14 @@ Primary use: Multipurpose Template
         /* ครอบคลุมความกว้าง */
         height: auto;
         /* รักษาอัตราส่วน */
+    }
+
+    .bg-image {
+        display: none;
+    }
+
+    .bg-image-with-text {
+        display: block;
     }
 }
 
@@ -7969,7 +7980,7 @@ table.shopping-cart-table tr td {
 .tpl-progress-alt {
     height: 20px;
     line-height: 20px;
-    badding-bottom: 1px;
+    padding-bottom: 1px;
     margin-bottom: 30px;
     background: #f2f2f2;
 
