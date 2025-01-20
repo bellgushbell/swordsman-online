@@ -1218,8 +1218,7 @@ input.form-control {
 @media (max-width: 768px) {
     .swiper-container {
         width: 100%;
-        max-width: 1700px;
-        height: 60vh;
+        height: 100vw;
         /* ใช้ 100% ของความสูงหน้าจอ */
         margin: 0 auto;
         position: relative;
