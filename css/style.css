@@ -205,15 +205,14 @@ Primary use: Multipurpose Template
 
 
 
-/*video promote*/
+/* video promote */
 /* วีดีโอพื้นฐาน */
-
 .video-container {
     position: absolute;
     top: 59%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: auto;
+    width: 30%;
     height: 281px;
     /* ปรับให้สัมพันธ์กับอัตราส่วนวีดีโอ */
     border-radius: 10px;
@@ -221,11 +220,14 @@ Primary use: Multipurpose Template
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.video-container video {
+/* ปรับสำหรับ iframe */
+.video-container iframe.bg-video {
     width: 100%;
     height: 100%;
+    border: none;
+    /* ลบขอบ iframe */
     object-fit: cover;
-    /* ปรับให้วีดีโอขยายเต็มกรอบ */
+    /* ครอบคลุมกรอบ */
 }
 
 /* สำหรับหน้าจอขนาดเล็ก */
@@ -234,82 +236,41 @@ Primary use: Multipurpose Template
         top: 60%;
         width: 100vw;
         height: auto;
-        /* ให้ปรับตามอัตราส่วน */
-        /* border-radius: 10px; */
-        /* ขอบมน */
         overflow: hidden;
-        /* ซ่อนส่วนเกินที่อยู่นอกกรอบ */
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        /* เพิ่มเงาให้ดูสวยงาม */
     }
 
-    .video-container video {
+    .video-container iframe.bg-video {
         width: 100%;
-        /* ขยายเต็มความกว้าง */
         height: 100%;
-        /* ขยายเต็มความสูงของกรอบ */
         object-fit: cover;
-        /* ปรับวิดีโอให้ครอบคลุมกรอบ */
         display: block;
-        /* ป้องกัน margin/padding */
+    }
+}
+
+/* สำหรับหน้าจอระหว่าง 768px ถึง 1024px (Landscape) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .video-container {
+        top: 50%;
+        left: 0;
+        width: 100vw;
+        height: 56.25vw;
+        /* รักษาอัตราส่วน 16:9 */
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        transform: translateY(-50%);
     }
 
-
-
-    /* สำหรับหน้าจอระหว่าง 768px ถึง 1024px (Landscape) */
-    @media (min-width: 768px) and (max-width: 1024px) {
-        .video-container {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            width: 100vw;
-            /* ใช้ความกว้างเต็มจอ */
-            height: 56.25vw;
-            /* รักษาอัตราส่วน 16:9 */
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            transform: translateY(-50%);
-        }
-
-        .video-container video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            /* ปรับวิดีโอให้ครอบคลุมพื้นที่ */
-        }
+    .video-container iframe.bg-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
-
-
 }
 
 
 
-}
 
-/*ืทำเป็นสามารถเข้าเฟสบุ๊ค ยูทูป จากวีดีโอได้*/
-.bg-video {
-    width: 100%;
-    height: auto;
-}
-
-.video-overlay {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: 50%;
-    cursor: pointer;
-}
-
-.left-overlay {
-    left: 0;
-}
-
-.right-overlay {
-    right: 0;
-}
 
 
 
@@ -535,7 +496,7 @@ Primary use: Multipurpose Template
 }
 
 .apk-button .apk-title {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
     /* ทำข้อความหลักตัวหนา */
     color: #fff;

@@ -85,12 +85,12 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 <div class="inner-nav desktop-nav">
                     <ul class="clearlist scroll-nav local-scroll ">
                         <li class="active"><a href="#home">หน้าหลัก</a></li>
-                        <li><a href="#news" class="notify">ข่าวสาร</a></li>
-                        <li><a href="#class" class="notify">ข้อมูลอาชีพ</a></li>
-                        <li><a href="#guide" class="notify">ไกด์</a></li>
-                        <li><a href="#shop" class="notify">ร้านค้า</a></li>
-                        <li><a href="#download" class="notify">ดาวน์โหลด</a></li>
-                        <li><a href="#contact" class="notify">ติดต่อ</a></li>
+                        <li><a href="#news" class="notify">เร็วๆนี้</a></li>
+                        <li><a href="#class" class="notify">เร็วๆนี้</a></li>
+                        <li><a href="#guide" class="notify">เร็วๆนี้</a></li>
+                        <li><a href="#shop" class="notify">เร็วๆนี้</a></li>
+                        <li><a href="#download" class="notify">เร็วๆนี้</a></li>
+                        <li><a href="#contact" class="notify">เร็วๆนี้</a></li>
                     </ul>
                 </div>
 
@@ -107,21 +107,17 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                 event.preventDefault(); // ยกเลิกการคลิกลิงก์
                                 // แสดง SweetAlert2
                                 Swal.fire({
-
                                     html: `
                     <div style="text-align: center;">
                         <img src="images/fail-red.gif" alt="Error Icon" style="width: 200px; height: auto; " />
-     
-                        <h4 style="color: red;">ขออภัย</h4>
-                        <h5>ฟีเจอร์นี้กำลังจะมาเร็วๆ นี้!</h5>
+                        <h5>เร็วๆ นี้!</h5>
                     </div>
                 `,
                                     customClass: {
                                         popup: 'custom-swal-popup' // ตั้ง class custom
                                     },
-                                    showConfirmButton: true,
-                                    confirmButtonText: "ตกลง",
-                                    confirmButtonColor: "#3085d6",
+                                    showConfirmButton: false,
+
 
                                 });
                             });
@@ -224,19 +220,16 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
                     <!-- Video Promote Content -->
                     <div class="video-container">
-                        <video id="background-video" class="bg-video" preload="auto" autoplay loop muted playsinline>
-                            <source src="video/SwordsMan3-Videoเปิดตัว-no-darktab.mp4" type="video/mp4">
-                        </video>
-                        <!-- ส่วนกดลิ้งต์ท้ายคลิปโปรฏมท สำหรับคลิกส่วนซ้าย facebook-->
-                        <!-- Overlay สำหรับคลิกส่วนซ้าย facebook-->
-                        <a href="https://www.facebook.com/profile.php?id=61570578922652"
-                            class="video-overlay left-overlay"></a>
-                        <!-- Overlay สำหรับคลิกส่วนขวา youtube-->
-                        <a href="https://www.youtube.com/@%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B5%E0%B9%88%E0%B9%80%E0%B8%A2%E0%B9%89%E0%B8%A2%E0%B8%A2%E0%B8%B8%E0%B8%97%E0%B8%98%E0%B8%88%E0%B8%B1%E0%B8%81%E0%B8%A33"
-                            class="video-overlay right-overlay"></a>
+                        <!-- เปลี่ยนจาก <video> เป็น <iframe> -->
+                        <iframe id="background-video" class="bg-video"
+                            src="https://www.youtube.com/embed/_jVcmdtyp-o?autoplay=1&mute=1&loop=1&playlist=_jVcmdtyp-o&rel=0&controls=0"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
                     </div>
-
                     <!-- End Video Promote Content -->
+
 
 
                     <!-- Home Content Download Button -->
@@ -341,6 +334,14 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                     <div class="apk-text">
                                         <span class="apk-get-it">GET IT ON</span>
                                         <span class="apk-title">Download APK</span>
+                                    </div>
+                                </a>
+                                <!-- Pc Download Button -->
+                                <a href="#" class="apk-button notify">
+                                    <img src="images/emulator-icon.png" alt="APK Download Icon" class="apk-icon " />
+                                    <div class="apk-text">
+                                        <span class="apk-get-it">GET IT ON</span>
+                                        <span class="apk-title ">PC Version</span>
                                     </div>
                                 </a>
 
