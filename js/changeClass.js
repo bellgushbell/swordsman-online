@@ -56,7 +56,7 @@ $(document).ready(function () {
             stats: 'images/ClassStatus/class8-status.png'
         },
         class9: {
-            video: 'video/class9.mp4',
+            video: 'video/video.mp4',
             title: 'อาชีพที่ 9',
             description: 'รายละเอียดเกี่ยวกับอาชีพที่ 9...',
             image: 'images/class9.png',
