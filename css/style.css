@@ -203,14 +203,7 @@ Primary use: Multipurpose Template
     background-size: cover;
 }
 
-/* Home content */
 
-.home-content {
-    width: 100%;
-    position: relative;
-    text-align: center;
-    margin-top: 45%;
-}
 
 /*video promote*/
 /* วีดีโอพื้นฐาน */
@@ -316,6 +309,17 @@ Primary use: Multipurpose Template
 
 .right-overlay {
     right: 0;
+}
+
+
+
+/* Home content */
+
+.home-content {
+    width: 100%;
+    position: relative;
+    text-align: center;
+    margin-top: 45%;
 }
 
 
@@ -486,9 +490,146 @@ Primary use: Multipurpose Template
 
 
 
+/* ปุ่ม APK Download */
+.apk-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 20px;
+    background-color: #000;
+    border-radius: 8px;
+    color: #fff;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ไอคอนในปุ่ม */
+.apk-button .apk-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+/* ข้อความในปุ่ม */
+.apk-button .apk-text {
+    display: flex;
+    flex-direction: column;
+    /* จัดข้อความเป็น 2 บรรทัด */
+    align-items: flex-start;
+    /* จัดข้อความให้ชิดซ้าย */
+    line-height: 1.5;
+    /* ระยะห่างระหว่างบรรทัด */
+}
+
+.apk-button .apk-get-it {
+    font-size: 10px;
+    /* ขนาดเล็กกว่าข้อความหลัก */
+    font-weight: normal;
+    /* น้ำหนักปกติ */
+    color: white;
+    /* สีจางกว่าข้อความหลัก */
+}
+
+.apk-button .apk-title {
+    font-size: 16px;
+    font-weight: bold;
+    /* ทำข้อความหลักตัวหนา */
+    color: #fff;
+    /* สีหลัก */
+}
+
+/* เอฟเฟกต์เมื่อ hover */
+.apk-button:hover {
+
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+/* เอฟเฟกต์เมื่อคลิก */
+.apk-button:active {
+    transform: scale(0.95);
+}
+
+/* ปุ่ม APK เวอร์ชันมือถือ */
+@media (max-width: 768px) {
+    .apk-button {
+        padding: 1px 6px;
+        /* ลด padding รอบๆ ปุ่ม */
+        font-size: 12px;
+        /* ขนาดข้อความหลัก */
+        border-radius: 2px;
+        /* ลดมุมโค้ง */
+        border: 1px solid #fff;
+        /* กรอบสีขาวขนาดเล็ก */
+        box-sizing: border-box;
+        /* ทำให้กรอบไม่กระทบขนาด */
+    }
+
+    .apk-button .apk-icon {
+        width: 18px;
+        /* ลดขนาดไอคอน */
+        height: 18px;
+        margin-right: 3px;
+        /* ลดระยะห่างระหว่างไอคอนและข้อความ */
+    }
+
+    .apk-button .apk-text {
+        line-height: 1.5;
+        /* ลดระยะห่างระหว่างบรรทัด */
+    }
+
+    .apk-button .apk-get-it {
+        font-size: 6px;
+        /* ลดขนาดข้อความบรรทัดแรก */
+    }
+
+    .apk-button .apk-title {
+        font-size: 6px;
+        /* ลดขนาดข้อความบรรทัดหลัก */
+    }
+}
+
+/* ปรับแต่งสำหรับ Landscape Mode */
+@media (max-width: 768px) and (orientation: landscape) {
+    .apk-button {
+        padding: 5px 8px;
+        /* เพิ่ม padding สำหรับ landscape */
+        font-size: 14px;
+        /* เพิ่มขนาดข้อความ */
+        border-radius: 5px;
+        /* เพิ่มมุมโค้งเล็กน้อย */
+        border: 1px solid #fff;
+        box-sizing: border-box;
+    }
+
+    .apk-button .apk-icon {
+        width: 30px;
+        /* เพิ่มขนาดไอคอน */
+        height: 30px;
+        margin-right: 4px;
+    }
+
+    .apk-button .apk-text {
+        line-height: 2;
+        /* เพิ่มระยะห่างระหว่างบรรทัด */
+    }
+
+    .apk-button .apk-get-it {
+        font-size: 8px;
+        /* ขยายขนาดข้อความเล็กน้อย */
+    }
+
+    .apk-button .apk-title {
+        font-size: 10px;
+    }
+}
 
 
-
+/*ปุ่มเก่ายังไมไ่ด้ใช้*/
 
 .btn-android {
     background: linear-gradient(45deg, #DEBB67, #E8C77A);
