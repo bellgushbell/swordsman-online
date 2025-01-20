@@ -232,7 +232,7 @@ Primary use: Multipurpose Template
 }
 
 /* สำหรับหน้าจอขนาดเล็ก */
-@media (max-width: 900px) {
+@media (max-width: 764px) {
     .video-container {
         top: 60%;
         width: 100vw;
@@ -249,10 +249,10 @@ Primary use: Multipurpose Template
     }
 }
 
-/* สำหรับหน้าจอระหว่าง 768px ถึง 1024px (Landscape) */
-@media (min-width: 768px) and (max-width: 1024px) {
+/* สำหรับหน้าจอระหว่าง xx px ถึง 1024px (Landscape) */
+@media (min-width: 600px) and (max-width: 1400px) {
     .video-container {
-        top: 50%;
+        top: 60%;
         left: 0;
         width: 100vw;
         height: 56.25vw;
@@ -593,12 +593,12 @@ Primary use: Multipurpose Template
     }
 
     .apk-button .apk-get-it {
-        font-size: 8px;
+        font-size: 6px;
         /* ขยายขนาดข้อความเล็กน้อย */
     }
 
     .apk-button .apk-title {
-        font-size: 10px;
+        font-size: 6px;
     }
 }
 
@@ -719,11 +719,11 @@ Primary use: Multipurpose Template
     }
 
     .pc-button .pc-get-it {
-        font-size: 8px;
+        font-size: 6px;
     }
 
     .pc-button .pc-title {
-        font-size: 10px;
+        font-size: 6px;
     }
 }
 
