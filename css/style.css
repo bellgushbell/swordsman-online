@@ -250,12 +250,12 @@ Primary use: Multipurpose Template
 }
 
 /* สำหรับหน้าจอระหว่าง xx px ถึง 1024px (Landscape) */
-@media (min-width: 600px) and (max-width: 1400px) {
+@media (min-width: 600px) and (max-width: 1024px) {
     .video-container {
         top: 60%;
         left: 0;
         width: 100vw;
-        height: 56.25vw;
+        height: 51.25vw;
         /* รักษาอัตราส่วน 16:9 */
         overflow: hidden;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -808,8 +808,9 @@ Primary use: Multipurpose Template
     left: 0;
     overflow: hidden;
     background: rgba(0, 0, 0, 0.9);
-    /* เพิ่มความโปร่งใส */
+
 }
+
 
 /* รูปภาพพื้นหลัง */
 .bg-image-wrapper>img {
@@ -820,7 +821,9 @@ Primary use: Multipurpose Template
     min-width: 100%;
     min-height: 100%;
     object-fit: contain;
-    /* ปรับให้ครอบคลุม container โดยไม่โดนตัด */
+    z-index: 0;
+    /* ไม่ให้บังส่วนคลิก */
+
 }
 
 /* Overlay */
@@ -831,11 +834,13 @@ Primary use: Multipurpose Template
     top: 0;
     left: 0;
     background: rgba(0, 0, 0, 0.08);
-    /* เพิ่มความเข้ม overlay */
-    z-index: 1;
-    /* ซ้อนเลเยอร์ให้อยู่ด้านบน */
+
+    z-index: 0;
+    /* Overlay อยู่ล่างสุด */
     pointer-events: none;
-    /* ป้องกันการคลิกบน overlay */
+    /* ป้องกันการคลิกที่ overlay */
+
+
 }
 
 .bg-image-with-text {
@@ -863,6 +868,11 @@ Primary use: Multipurpose Template
         display: block;
     }
 }
+
+/* ==============================
+ Animation Home BG Image
+   ============================== */
+
 
 /*สำหรับพื้นหลังที่เป็นวีดีโอ*/
 /*

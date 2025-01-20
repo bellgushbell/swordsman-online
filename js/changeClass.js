@@ -143,28 +143,28 @@ $(document).ready(function () {
     });
 
     // Scroll Event สำหรับ Sidebar
-    $('#classSidebar').on('scroll', function () {
-        const sidebar = $(this);
-        const items = $('.class-menu li');
-        let currentActive = null;
+    // $('#classSidebar').on('scroll', function () {
+    //     const sidebar = $(this);
+    //     const items = $('.class-menu li');
+    //     let currentActive = null;
 
-        // ตรวจสอบตำแหน่ง Scroll
-        items.each(function () {
-            const itemTop = $(this).position().top + sidebar.scrollTop(); // คำนวณตำแหน่ง top
-            const itemHeight = $(this).outerHeight();
-            const sidebarScroll = sidebar.scrollTop();
-            const sidebarHeight = sidebar.height();
+    //     // ตรวจสอบตำแหน่ง Scroll
+    //     items.each(function () {
+    //         const itemTop = $(this).position().top + sidebar.scrollTop(); // คำนวณตำแหน่ง top
+    //         const itemHeight = $(this).outerHeight();
+    //         const sidebarScroll = sidebar.scrollTop();
+    //         const sidebarHeight = sidebar.height();
 
-            if (itemTop >= sidebarScroll && itemTop + itemHeight <= sidebarScroll + sidebarHeight) {
-                currentActive = $(this);
-                return false; // หยุด loop เมื่อเจอ item ที่แสดงอยู่
-            }
-        });
+    //         if (itemTop >= sidebarScroll && itemTop + itemHeight <= sidebarScroll + sidebarHeight) {
+    //             currentActive = $(this);
+    //             return false; // หยุด loop เมื่อเจอ item ที่แสดงอยู่
+    //         }
+    //     });
 
-        if (currentActive) {
-            updateActiveClass(currentActive);
-        }
-    });
+    //     if (currentActive) {
+    //         updateActiveClass(currentActive);
+    //     }
+    // });
 
     // Scroll Buttons
     $('#scrollUp').on('click', function () {
