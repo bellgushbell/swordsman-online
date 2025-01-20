@@ -1099,6 +1099,7 @@ input.form-control {
     height: 100vh;
     object-fit: cover;
     z-index: -1;
+    pointer-events: none;
 }
 
 
