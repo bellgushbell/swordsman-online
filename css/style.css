@@ -1246,6 +1246,12 @@ input.form-control {
     /* จัดแนวไอคอนกับข้อความ */
 }
 
+@media (max-width: 768px) {
+    .bg-video-class {
+        pointer-events: none;
+        /* ปิดการโต้ตอบบนมือถือ */
+    }
+}
 
 /* ==============================
   footer Nav sticky ติดอยู่ทุกหน้า

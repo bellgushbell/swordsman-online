@@ -179,10 +179,3 @@ $(document).ready(function () {
 });
 
 
-
-document.addEventListener('DOMContentLoaded', function () {
-    const videoElement = document.getElementById('classVideo');
-    videoElement.addEventListener('click', function (event) {
-        event.preventDefault(); // ปิดการตอบสนองของวิดีโอ
-    });
-});
