@@ -263,29 +263,36 @@ Primary use: Multipurpose Template
 
 
 
-    /* สำหรับหน้าจอเล็กในแนวนอน (landscape) */
-    @media (max-width: 768px) and (orientation: landscape) {
+    /* สำหรับหน้าจอระหว่าง 768px ถึง 1024px (Landscape) */
+    @media (min-width: 768px) and (max-width: 1024px) {
         .video-container {
-            top: 60%;
+            position: absolute;
+            top: 50%;
             left: 0;
             width: 100vw;
             /* ใช้ความกว้างเต็มจอ */
-            height: 35.25vw;
+            height: 56.25vw;
             /* รักษาอัตราส่วน 16:9 */
-            /* border-radius: 10px; */
             overflow: hidden;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             transform: translateY(-50%);
         }
 
         .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            object-fit: fill;
+            object-fit: cover;
             /* ปรับวิดีโอให้ครอบคลุมพื้นที่ */
-            display: block;
         }
     }
+
+
+}
+
+
 
 }
 
@@ -1121,45 +1128,80 @@ input.form-control {
     opacity: 1;
 }
 
+
+
+
+
+
+
 /* ==============================
   Highlight ภาพเลื่อน swiper.js
    ============================== */
 
 .swiper-container {
     width: 100%;
-    /* ให้ขยายเต็ม width ของ container */
     max-width: 1200px;
-    /* ปรับขนาดตามความเหมาะสม */
+    height: 60vh;
+    /* ใช้ 100% ของความสูงหน้าจอ */
     margin: 0 auto;
-    /* จัดให้อยู่กึ่งกลาง */
-}
-
-.swiper-slide img {
-    width: 50%;
-    /* ให้รูปขยายเต็มสไลด์ */
-    height: auto;
-    /* รักษาอัตราส่วน */
-    object-fit: cover;
-    /* ปรับให้รูปภาพพอดีขนาด container */
-    border-radius: 10px;
-    /* เพิ่มขอบมน (ถ้าต้องการ) */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    /* เพิ่มเงา */
-}
-
-.swiper-slide {
+    position: relative;
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.swiper-wrapper {
+    height: 100%;
+    display: flex !important;
+    /* บังคับให้เป็น Flex */
+}
 
+.swiper-slide {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    height: auto !important;
+    /* ปรับให้ความสูงเป็นอัตโนมัติ */
+    flex-shrink: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
 
+.swiper-slide img {
+    width: 80%;
+    /* เพิ่มขนาดรูปภาพ */
+    max-width: 80%;
+    /* จำกัดขนาดของรูปภาพ */
+    height: auto;
+    object-fit: cover;
+    border-radius: 15px;
+    /* เพิ่มขอบมน */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    /* เพิ่มเงา */
+}
 
+.swiper-slide-active img {
+    transform: scale(1.8);
+    /* เพิ่มขนาดรูปตรงกลาง */
+}
 
+.swiper-button-next,
+.swiper-button-prev {
+    color: #007bff;
+    position: absolute;
+    top: 50%;
+    /* จัดให้อยู่ตรงกลางแนวตั้ง */
+    transform: translateY(-50%);
+    z-index: 10;
+}
 
+.swiper-button-next {
+    right: 10px;
+}
 
-
+.swiper-button-prev {
+    left: 10px;
+}
 
 
 
