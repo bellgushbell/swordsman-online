@@ -1290,6 +1290,38 @@ input.form-control {
         left: 10px;
     }
 
+    /* ปรับตำแหน่งของ pagination */
+    .swiper-pagination {
+        position: absolute;
+        bottom: 10px;
+        /* ระยะห่างจากด้านล่างของ Swiper container */
+        left: 50%;
+        /* จัดให้อยู่ตรงกลางแนวนอน */
+        transform: translateX(-50%);
+        /* จัดให้อยู่กึ่งกลาง */
+        z-index: 5;
+        /* ให้อยู่ด้านหน้าของรูปภาพ */
+    }
+
+    /* ปรับแต่งจุด (dot) */
+    .swiper-pagination-bullet {
+        width: 10px;
+        height: 10px;
+        background-color: #ccc;
+        /* สีของจุดที่ไม่ได้เลือก */
+        border-radius: 50%;
+        opacity: 0.7;
+        transition: opacity 0.3s ease;
+    }
+
+    .swiper-pagination-bullet-active {
+        background-color: #007bff;
+        /* สีของจุดที่ถูกเลือก */
+        opacity: 1;
+    }
+
+
+
 }
 
 /* สำหรับหน้าจอขนาดเล็ก (แนวนอน) */
