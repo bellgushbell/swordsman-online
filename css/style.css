@@ -138,6 +138,7 @@ Primary use: Multipurpose Template
 
 /* SweetAlert2 ตั้งค่า */
 .custom-swal-popup {
+    width: 200px;
     border-radius: 20px;
     margin: 0 auto;
 }
