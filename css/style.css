@@ -212,8 +212,8 @@ Primary use: Multipurpose Template
     top: 59%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 30%;
-    height: 281px;
+    width: 28%;
+    height: 28%;
     /* ปรับให้สัมพันธ์กับอัตราส่วนวีดีโอ */
     border-radius: 10px;
     overflow: hidden;
@@ -453,10 +453,11 @@ Primary use: Multipurpose Template
 
 /* ปุ่ม APK Download */
 .apk-button {
+    width: 170px !important;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 8px 20px;
+    padding: 6px 5px;
     background-color: #000;
     border-radius: 8px;
     color: #fff;
@@ -518,22 +519,23 @@ Primary use: Multipurpose Template
 /* ปุ่ม APK เวอร์ชันมือถือ */
 @media (max-width: 768px) {
     .apk-button {
+        width: 150px !important;
         padding: 1px 6px;
         /* ลด padding รอบๆ ปุ่ม */
-        font-size: 12px;
+        font-size: 10px;
         /* ขนาดข้อความหลัก */
         border-radius: 2px;
         /* ลดมุมโค้ง */
-        border: 1px solid #fff;
+        border: 0.1px solid #fff;
         /* กรอบสีขาวขนาดเล็ก */
         box-sizing: border-box;
         /* ทำให้กรอบไม่กระทบขนาด */
     }
 
     .apk-button .apk-icon {
-        width: 18px;
+        width: 12px;
         /* ลดขนาดไอคอน */
-        height: 18px;
+        height: 12px;
         margin-right: 3px;
         /* ลดระยะห่างระหว่างไอคอนและข้อความ */
     }
@@ -544,13 +546,21 @@ Primary use: Multipurpose Template
     }
 
     .apk-button .apk-get-it {
-        font-size: 6px;
+        font-size: 4px;
         /* ลดขนาดข้อความบรรทัดแรก */
     }
 
     .apk-button .apk-title {
-        font-size: 6px;
+        font-size: 4px;
         /* ลดขนาดข้อความบรรทัดหลัก */
+    }
+
+    /* ปรับระยะห่างกลุ่มปุ่ม */
+    .button-group {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        /* ลดหรือเพิ่มระยะห่างระหว่างปุ่ม */
     }
 }
 
@@ -565,6 +575,7 @@ Primary use: Multipurpose Template
         /* เพิ่มมุมโค้งเล็กน้อย */
         border: 1px solid #fff;
         box-sizing: border-box;
+        height: 40px !important;
     }
 
     .apk-button .apk-icon {
@@ -588,6 +599,132 @@ Primary use: Multipurpose Template
         font-size: 10px;
     }
 }
+
+/* ปุ่ม PC Download */
+.pc-button {
+    width: 170px !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 5px;
+    background-color: #000;
+    border-radius: 8px;
+    color: #fff;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-left: 20px;
+}
+
+/* ไอคอนในปุ่ม PC */
+.pc-button .pc-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+/* ข้อความในปุ่ม PC */
+.pc-button .pc-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.5;
+}
+
+.pc-button .pc-get-it {
+    font-size: 10px;
+    font-weight: normal;
+    color: white;
+}
+
+.pc-button .pc-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* เอฟเฟกต์เมื่อ hover */
+.pc-button:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+/* เอฟเฟกต์เมื่อคลิก */
+.pc-button:active {
+    transform: scale(0.95);
+}
+
+/* ปุ่ม PC เวอร์ชันมือถือ */
+@media (max-width: 768px) {
+    .pc-button {
+        width: 150px !important;
+        padding: 1px 6px;
+        font-size: 10px;
+        border-radius: 2px;
+        border: 0.1px solid #fff;
+        box-sizing: border-box;
+        margin-left: 3%;
+    }
+
+    .pc-button .pc-icon {
+        width: 12px;
+        height: 12px;
+        margin-right: 3px;
+    }
+
+    .pc-button .pc-text {
+        line-height: 1.5;
+    }
+
+    .pc-button .pc-get-it {
+        font-size: 4px;
+    }
+
+    .pc-button .pc-title {
+        font-size: 4px;
+    }
+
+    /* ปรับระยะห่างกลุ่มปุ่ม */
+    .button-group {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+}
+
+/* ปรับแต่งสำหรับ Landscape Mode */
+@media (max-width: 768px) and (orientation: landscape) {
+    .pc-button {
+        height: 40px !important;
+        padding: 5px 8px;
+        font-size: 14px;
+        border-radius: 5px;
+        border: 1px solid #fff;
+        box-sizing: border-box;
+    }
+
+    .pc-button .pc-icon {
+        width: 30px;
+        height: 30px;
+        margin-right: 4px;
+    }
+
+    .pc-button .pc-text {
+        line-height: 2;
+    }
+
+    .pc-button .pc-get-it {
+        font-size: 8px;
+    }
+
+    .pc-button .pc-title {
+        font-size: 10px;
+    }
+}
+
 
 
 /*ปุ่มเก่ายังไมไ่ด้ใช้*/
