@@ -3713,6 +3713,12 @@ a.logo:hover {
     margin-top: 5px;
 }
 
+/* ป้องกันเมนูย่อยแสดงเมื่อคลิก */
+.inner-nav ul li a.menu-link {
+    pointer-events: all;
+    /* คงการทำงานของลิงก์ */
+}
+
 /* ปรับตำแหน่ง Dropdown Menu สำหรับมือถือ */
 @media (max-width: 768px) {
     .dropdown-menu-mainnav {
