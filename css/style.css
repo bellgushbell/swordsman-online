@@ -3731,6 +3731,8 @@ a.logo:hover {
         width: 100%;
         display: none;
         /* ซ่อนเมนูย่อยเป็นค่าเริ่มต้น */
+        margin-left: 20px !important;
+        /* เพิ่มระยะห่างทางซ้าย */
     }
 
     .dropdown-menu-mainnav.active {
