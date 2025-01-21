@@ -3723,39 +3723,35 @@ a.logo:hover {
     display: none;
 }
 
-/* ปรับตำแหน่ง Dropdown Menu สำหรับมือถือ */
 @media (max-width: 768px) {
+
+    /* Dropdown Menu */
     .dropdown-menu-mainnav {
+        position: static;
+        width: 100%;
+        display: none;
+        /* ซ่อนเมนูย่อยเป็นค่าเริ่มต้น */
         left: 70%;
         /* เยื้องไปทางขวา */
         transform: translateX(-60%);
-        /* เลื่อนกลับไปให้ตรงกึ่งกลางในมือถือ */
+        /* เลื่อนกลับให้ตรงกลาง */
     }
 
+    .dropdown-menu-mainnav.active {
+        display: flex;
+        /* แสดงเมนูย่อยเมื่อมีคลาส active */
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 20px;
+        /* เพิ่มระยะห่างข้อความเมนูย่อย */
+    }
+
+    /* เมนูหลัก */
     .inner-nav ul li {
         margin-right: 10px;
         /* ลดระยะห่างเมนูหลักสำหรับมือถือ */
         text-align: left;
         /* จัดชิดซ้ายสำหรับเมนูหลัก */
-    }
-
-    .dropdown-menu-mainnav li a {
-        text-align: left;
-        /* จัดข้อความในเมนูย่อยชิดซ้าย */
-        padding-left: 20px;
-        /* เพิ่มระยะห่างด้านซ้าย */
-    }
-
-    .submenu-toggle {
-        display: inline-block;
-    }
-
-    .dropdown-menu-mainnav {
-        position: static;
-        width: 100%;
-    }
-
-    .inner-nav ul li {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -3769,41 +3765,23 @@ a.logo:hover {
         font-size: 16px;
         cursor: pointer;
         margin-left: 5px;
-    }
-
-    .submenu-toggle i {
+        display: inline-block;
         transition: transform 0.3s ease;
+        /* ย้าย transition มารวม */
     }
 
     .submenu-toggle.open i {
         transform: rotate(180deg);
-        /* หมุนลูกศรลงกลับขึ้น */
+        /* หมุนลูกศรเมื่อเปิดเมนู */
     }
 
-    /* เมนูย่อย */
-    .dropdown-menu-mainnav {
-        display: none;
-        position: absolute;
-        top: calc(100% + 5px);
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: #333;
-        list-style: none;
-        padding: 0;
-        border-radius: 5px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        width: 150px;
-        text-align: center;
-    }
-
-    /* แสดงเมนูย่อย */
-    .dropdown-menu-mainnav.active {
-        display: block;
+    /* ข้อความในเมนูย่อย */
+    .dropdown-menu-mainnav li a {
+        text-align: left;
+        padding-left: 20px;
+        /* ระยะห่างข้อความในเมนูย่อย */
     }
 }
-
-
-
 
 
 /*--------------------------------------------*/
