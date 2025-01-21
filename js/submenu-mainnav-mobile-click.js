@@ -72,7 +72,9 @@
 $(document).ready(function () {
     // จัดการการคลิกที่ <span> ลูกศร
     $(".submenu-toggle").on("click", function (e) {
+        e.preventDefault(); // ป้องกันพฤติกรรมเริ่มต้น
         e.stopPropagation(); // หยุดการส่งต่อเหตุการณ์
+
         const $dropdown = $(this).siblings(".dropdown-menu-mainnav"); // เลือกเมนูย่อย (ul)
         const isActive = $dropdown.hasClass("active");
 
@@ -91,6 +93,12 @@ $(document).ready(function () {
         }
     });
 
+    // ป้องกันการคลิกที่ <a> ทำงานเมื่อเป็นมือถือ
+    $(".menu-item.has-submenu > .menu-link").on("click", function (e) {
+        e.preventDefault(); // ป้องกันลิงก์ทำงาน
+        e.stopPropagation(); // หยุดการส่งต่อเหตุการณ์
+    });
+
     // ปิดเมนูย่อยเมื่อคลิกนอกเมนู
     $(document).on("click", function (e) {
         if (!$(e.target).closest(".menu-item").length) {
@@ -99,3 +107,4 @@ $(document).ready(function () {
         }
     });
 });
+
