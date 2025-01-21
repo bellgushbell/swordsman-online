@@ -1,6 +1,8 @@
 document.querySelectorAll(".submenu-toggle").forEach((toggle) => {
     toggle.addEventListener("click", (e) => {
-        e.stopPropagation(); // ป้องกันการปิดเมนูเมื่อคลิกปุ่ม
+        e.preventDefault(); // ป้องกันพฤติกรรมเริ่มต้นของปุ่ม
+        e.stopPropagation(); // หยุดการส่งต่อเหตุการณ์ไปยังลิงก์ a
+
         const dropdown = toggle.nextElementSibling; // เมนูย่อย
         const isOpen = dropdown.classList.contains("active");
 
@@ -29,12 +31,9 @@ document.querySelectorAll(".submenu-toggle").forEach((toggle) => {
 // ปิดเมนูย่อยเมื่อคลิกนอกเมนู
 document.addEventListener("click", (e) => {
     if (!e.target.closest(".menu-item")) {
-        // ปิดเมนูย่อยทั้งหมด
         document.querySelectorAll(".dropdown-menu-mainnav").forEach((menu) => {
             menu.classList.remove("active");
         });
-
-        // รีเซ็ตสถานะลูกศรทั้งหมด
         document.querySelectorAll(".submenu-toggle").forEach((btn) => {
             btn.classList.remove("open");
         });
