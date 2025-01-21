@@ -3774,6 +3774,11 @@ a.logo:hover {
         font-size: 16px;
         cursor: pointer;
         transition: transform 0.3s ease;
+        z-index: 10;
+        /* ให้ปุ่มลูกศรอยู่เหนือแท็ก a */
+        padding: 5px;
+        /* เพิ่มพื้นที่คลิก */
+
     }
 
     .submenu-toggle i {
