@@ -3774,10 +3774,7 @@ a.logo:hover {
         font-size: 16px;
         cursor: pointer;
         transition: transform 0.3s ease;
-        z-index: 10;
-        /* ให้อยู่เหนือแท็ก a */
-        pointer-events: auto;
-        /* ทำให้ปุ่มรับคลิกได้ */
+
 
     }
 
