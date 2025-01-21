@@ -1,8 +1,6 @@
-// ฟังก์ชันสำหรับจัดการการแสดงเมนูย่อยและลูกศร
 document.querySelectorAll(".submenu-toggle").forEach((toggle) => {
     toggle.addEventListener("click", (e) => {
-        e.preventDefault();
-
+        e.stopPropagation(); // ป้องกันการปิดเมนูเมื่อคลิกปุ่ม
         const dropdown = toggle.nextElementSibling; // เมนูย่อย
         const isOpen = dropdown.classList.contains("active");
 

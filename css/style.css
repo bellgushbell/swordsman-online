@@ -3731,10 +3731,6 @@ a.logo:hover {
         width: 100%;
         display: none;
         /* ซ่อนเมนูย่อยเป็นค่าเริ่มต้น */
-        left: 70%;
-        /* เยื้องไปทางขวา */
-        transform: translateX(-60%);
-        /* เลื่อนกลับให้ตรงกลาง */
     }
 
     .dropdown-menu-mainnav.active {
@@ -3748,40 +3744,51 @@ a.logo:hover {
 
     /* เมนูหลัก */
     .inner-nav ul li {
+        position: relative;
+        /* กำหนดให้ li เป็น relative */
         margin-right: 10px;
-        /* ลดระยะห่างเมนูหลักสำหรับมือถือ */
         text-align: left;
-        /* จัดชิดซ้ายสำหรับเมนูหลัก */
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+    }
+
+    .inner-nav ul li a {
+        flex-grow: 1;
+        /* ใช้พื้นที่ด้านซ้ายให้สุด */
+        text-align: left;
+        /* จัดข้อความชิดซ้าย */
+        padding-right: 40px;
+        /* เพิ่มพื้นที่เผื่อปุ่มลูกศร */
     }
 
     /* ปุ่มลูกศร */
     .submenu-toggle {
+        display: block;
+        position: absolute;
+        /* ตรึงตำแหน่ง */
+        top: 50%;
+        right: 10px;
+        /* ตรึงชิดขวา */
+        transform: translateY(-50%);
         background: none;
         border: none;
         color: white;
         font-size: 16px;
         cursor: pointer;
-        margin-left: 5px;
-        display: inline-block;
         transition: transform 0.3s ease;
-        /* ย้าย transition มารวม */
+    }
+
+    .submenu-toggle i {
+        font-size: 16px;
+        /* ขนาดลูกศร */
+        color: white;
+        /* กำหนดสี */
     }
 
     .submenu-toggle.open i {
         transform: rotate(180deg);
         /* หมุนลูกศรเมื่อเปิดเมนู */
     }
-
-    /* ข้อความในเมนูย่อย */
-    .dropdown-menu-mainnav li a {
-        text-align: left;
-        padding-left: 20px;
-        /* ระยะห่างข้อความในเมนูย่อย */
-    }
 }
+
 
 
 /*--------------------------------------------*/
