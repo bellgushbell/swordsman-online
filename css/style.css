@@ -3713,6 +3713,29 @@ a.logo:hover {
     margin-top: 5px;
 }
 
+/* ปรับตำแหน่ง Dropdown Menu สำหรับมือถือ */
+@media (max-width: 768px) {
+    .dropdown-menu-mainnav {
+        left: 70%;
+        /* เยื้องไปทางขวา */
+        transform: translateX(-60%);
+        /* เลื่อนกลับไปให้ตรงกึ่งกลางในมือถือ */
+    }
+
+    .inner-nav ul li {
+        margin-right: 10px;
+        /* ลดระยะห่างเมนูหลักสำหรับมือถือ */
+        text-align: left;
+        /* จัดชิดซ้ายสำหรับเมนูหลัก */
+    }
+
+    .dropdown-menu-mainnav li a {
+        text-align: left;
+        /* จัดข้อความในเมนูย่อยชิดซ้าย */
+        padding-left: 20px;
+        /* เพิ่มระยะห่างด้านซ้าย */
+    }
+}
 
 /*--------------------------------------------*/
 
