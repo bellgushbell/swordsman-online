@@ -83,13 +83,16 @@
 //     }
 // });
 // ฟังก์ชันสำหรับจัดการเมนูย่อยในมือถือ
+// ฟังก์ชันสำหรับจัดการเมนูย่อยในมือถือ
 function initMobileDropdown() {
     if (window.innerWidth <= 768) { // ตรวจสอบขนาดหน้าจอ
         document.querySelectorAll(".menu-item.has-submenu > .menu-link").forEach((link) => {
             let clickedOnce = false; // ตัวแปรเก็บสถานะการคลิกครั้งแรก
             link.addEventListener("click", (e) => {
+                e.preventDefault(); // ป้องกันไม่ให้ <a> ทำงาน
+                e.stopPropagation(); // หยุดการส่งต่อเหตุการณ์
+
                 const dropdown = link.nextElementSibling.nextElementSibling; // เมนูย่อย (ul)
-                e.preventDefault(); // ยกเลิกการนำลิ้งค์ไปทำงานทันที
 
                 if (!clickedOnce) {
                     // แสดงเมนูย่อยถ้าคลิกครั้งแรก
@@ -97,10 +100,15 @@ function initMobileDropdown() {
                         menu.classList.remove("active"); // ปิดเมนูอื่น
                     });
 
+                    document.querySelectorAll(".submenu-toggle").forEach((btn) => {
+                        btn.classList.remove("open"); // รีเซ็ตลูกศรทั้งหมด
+                    });
+
                     dropdown.classList.add("active"); // เปิดเมนูย่อยปัจจุบัน
+                    link.nextElementSibling.classList.add("open"); // หมุนลูกศร
                     clickedOnce = true; // อัปเดตสถานะการคลิก
                 } else {
-                    // ถ้าคลิกครั้งที่สอง ให้ไปยัง href ปกติ
+                    // คลิกครั้งที่สอง ให้ไปยัง href ปกติ
                     window.location.href = link.getAttribute("href");
                 }
             });
@@ -109,8 +117,9 @@ function initMobileDropdown() {
         // จัดการการคลิกที่ปุ่มลูกศร
         document.querySelectorAll(".submenu-toggle").forEach((toggle) => {
             toggle.addEventListener("click", (e) => {
-                e.preventDefault();
-                e.stopPropagation(); // หยุดการส่งต่อเหตุการณ์ไปยังลิงก์ a
+                e.preventDefault(); // ป้องกันพฤติกรรมเริ่มต้น
+                e.stopPropagation(); // หยุดการส่งต่อเหตุการณ์
+
                 const dropdown = toggle.nextElementSibling; // เมนูย่อย (ul)
                 const isOpen = dropdown.classList.contains("active");
 
