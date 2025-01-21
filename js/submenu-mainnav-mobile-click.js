@@ -7,16 +7,15 @@ function initMobileDropdown() {
                 const dropdown = link.nextElementSibling;
 
                 if (dropdown && dropdown.classList.contains("dropdown-menu-mainnav")) {
-                    e.preventDefault(); // ป้องกันลิงก์ทำงานทันที
                     if (!clickedOnce) {
-                        // แสดงเมนูย่อยเมื่อคลิกครั้งแรก
+                        // ยกเลิกการนำไปยัง href ครั้งแรก
+                        e.preventDefault();
+                        // แสดงเมนูย่อย
                         dropdown.style.display = "flex";
-                        clickedOnce = true; // บันทึกว่าคลิกครั้งแรกแล้ว
+                        clickedOnce = true; // บันทึกสถานะว่าคลิกครั้งแรกแล้ว
                     } else {
-                        // ให้เข้าไปยัง href เมื่อคลิกครั้งที่สอง
-                        dropdown.style.display = "none"; // ปิดเมนูย่อย
-                        clickedOnce = false; // รีเซ็ตการคลิก
-                        window.location.href = link.getAttribute("href"); // ไปยัง href
+                        // คลิกครั้งที่สองไปยัง href ตามปกติ
+                        resetDropdowns(); // ปิดเมนูย่อยทั้งหมด
                     }
                 }
             });
@@ -28,6 +27,11 @@ function initMobileDropdown() {
 function resetDropdowns() {
     document.querySelectorAll(".dropdown-menu-mainnav").forEach((dropdown) => {
         dropdown.style.display = "none";
+    });
+
+    // รีเซ็ตสถานะการคลิก
+    document.querySelectorAll(".menu-item.has-submenu > .menu-link").forEach((link) => {
+        link.clickedOnce = false;
     });
 }
 
@@ -46,6 +50,6 @@ window.addEventListener("resize", () => {
 });
 
 // ปิดเมนูย่อยเมื่อคลิก Hamburger Bar เพื่อหุบ
-document.querySelector(".hamburger-menu").addEventListener("click", () => {
+document.querySelector(".mobile-nav").addEventListener("click", () => {
     resetDropdowns(); // รีเซ็ตเมนูย่อยทั้งหมด
 });
