@@ -3743,14 +3743,6 @@ a.logo:hover {
     }
 }
 
-/* Dropdown Menu เปิดเมื่อ hover หรือ tap */
-@media (max-width: 768px) {
-
-    .inner-nav ul li:hover .dropdown-menu-mainnav,
-    .inner-nav ul li:focus-within .dropdown-menu-mainnav {
-        display: block;
-    }
-}
 
 /*--------------------------------------------*/
 
