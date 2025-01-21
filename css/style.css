@@ -1268,54 +1268,36 @@ input.form-control {
   Gallery Section
    ============================== */
 /* Gallery Container */
+/* Gallery Container */
 .gallery {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    /* Adjust columns based on desired layout */
     grid-auto-rows: 200px;
-    /* Default row height */
     gap: 10px;
-    /* Spacing between items */
     padding: 20px;
+    perspective: 1000px;
+    /* เพิ่ม perspective ใน container */
 }
 
-/* Specific card sizes */
 .card {
     position: relative;
     overflow: hidden;
     border-radius: 10px;
     cursor: pointer;
     transform-style: preserve-3d;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.3s ease-in-out;
 }
 
-.card.big {
-    grid-column: span 2;
-    /* Big cards take 2 columns */
-    grid-row: span 2;
-    /* Big cards take 2 rows */
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-.card.medium {
-    grid-column: span 2;
-    /* Medium cards take 2 columns */
-    grid-row: span 1;
-    /* Medium cards take 1 row */
-}
-
-.card.small {
-    grid-column: span 1;
-    /* Small cards take 1 column */
-    grid-row: span 1;
-    /* Small cards take 1 row */
-}
-
-/* Card Image */
 .card-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.3s ease-in-out;
 }
 
 .card:hover .card-image {
@@ -3668,6 +3650,90 @@ a.logo:hover {
     height: 65px !important;
     line-height: 62px !important;
 }
+
+
+/* ==============================
+  Sub Menu ย่อยnav bar
+   ============================== */
+/* เมนูหลัก */
+.inner-nav ul li {
+    position: relative;
+    margin-right: 35px;
+    z-index: 10;
+    text-align: center;
+}
+
+/* Dropdown Menu */
+.dropdown-menu-mainnav {
+    display: none;
+    /* ซ่อนเมนูย่อยเป็นค่าเริ่มต้น */
+    position: absolute;
+    top: calc(60% + 5px);
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    list-style: none;
+    padding: 0;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+    width: 110px;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Dropdown Menu Item */
+.dropdown-menu-mainnav li {
+    width: 100%;
+    /* ให้ item เต็มความกว้าง */
+    text-align: center;
+    /* จัดข้อความใน li ให้อยู่ตรงกลาง */
+}
+
+.dropdown-menu-mainnav li a {
+    padding: 8px 0;
+    /* ระยะห่างภายใน */
+    display: block;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    transition: background 0.3s ease, color 0.3s ease;
+    text-align: center;
+    /* จัดข้อความกึ่งกลาง */
+    width: 100%;
+    /* เต็มความกว้าง */
+}
+
+/* แสดงเมนูย่อยเมื่อ hover */
+.inner-nav ul li:hover .dropdown-menu-mainnav {
+    display: flex;
+    /* แสดงเมนูเฉพาะเมื่อ hover */
+    margin-top: 5px;
+}
+
+
+/*--------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Member Button */
 .member-btn {
