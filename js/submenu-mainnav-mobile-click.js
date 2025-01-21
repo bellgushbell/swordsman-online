@@ -6,18 +6,22 @@ document.querySelectorAll(".submenu-toggle").forEach((toggle) => {
         const dropdown = toggle.nextElementSibling; // เมนูย่อย
         const isOpen = dropdown.classList.contains("active");
 
-        // ปิดเมนูย่อยทั้งหมดก่อน
-        document.querySelectorAll(".dropdown-menu-mainnav").forEach((menu) => {
-            menu.classList.remove("active");
-        });
+        if (isOpen) {
+            // ถ้าเมนูย่อยเปิดอยู่ ให้ปิด
+            dropdown.classList.remove("active");
+            toggle.classList.remove("open");
+        } else {
+            // ปิดเมนูย่อยทั้งหมดก่อน
+            document.querySelectorAll(".dropdown-menu-mainnav").forEach((menu) => {
+                menu.classList.remove("active");
+            });
 
-        // รีเซ็ตสถานะลูกศรทั้งหมด
-        document.querySelectorAll(".submenu-toggle").forEach((btn) => {
-            btn.classList.remove("open");
-        });
+            // รีเซ็ตสถานะลูกศรทั้งหมด
+            document.querySelectorAll(".submenu-toggle").forEach((btn) => {
+                btn.classList.remove("open");
+            });
 
-        // เปิดเมนูย่อยและเปลี่ยนทิศทางลูกศร
-        if (!isOpen) {
+            // เปิดเมนูย่อยและเปลี่ยนทิศทางลูกศร
             dropdown.classList.add("active");
             toggle.classList.add("open");
         }
