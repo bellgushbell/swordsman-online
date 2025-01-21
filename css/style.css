@@ -3719,6 +3719,10 @@ a.logo:hover {
     /* คงการทำงานของลิงก์ */
 }
 
+.submenu-toggle {
+    display: none;
+}
+
 /* ปรับตำแหน่ง Dropdown Menu สำหรับมือถือ */
 @media (max-width: 768px) {
     .dropdown-menu-mainnav {
@@ -3741,7 +3745,64 @@ a.logo:hover {
         padding-left: 20px;
         /* เพิ่มระยะห่างด้านซ้าย */
     }
+
+    .submenu-toggle {
+        display: inline-block;
+    }
+
+    .dropdown-menu-mainnav {
+        position: static;
+        width: 100%;
+    }
+
+    .inner-nav ul li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    /* ปุ่มลูกศร */
+    .submenu-toggle {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        margin-left: 5px;
+    }
+
+    .submenu-toggle i {
+        transition: transform 0.3s ease;
+    }
+
+    .submenu-toggle.open i {
+        transform: rotate(180deg);
+        /* หมุนลูกศรลงกลับขึ้น */
+    }
+
+    /* เมนูย่อย */
+    .dropdown-menu-mainnav {
+        display: none;
+        position: absolute;
+        top: calc(100% + 5px);
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #333;
+        list-style: none;
+        padding: 0;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 150px;
+        text-align: center;
+    }
+
+    /* แสดงเมนูย่อย */
+    .dropdown-menu-mainnav.active {
+        display: block;
+    }
 }
+
+
 
 
 
