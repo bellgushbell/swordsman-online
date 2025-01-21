@@ -3723,93 +3723,55 @@ a.logo:hover {
     display: none;
 }
 
+
+
 @media (max-width: 768px) {
-
-    /* Dropdown Menu */
-    .dropdown-menu-mainnav {
-        position: static;
-        width: 100%;
-        display: none;
-        /* ซ่อนเมนูย่อยเป็นค่าเริ่มต้น */
-        margin-left: 20px !important;
-        /* เพิ่มระยะห่างทางซ้าย */
-    }
-
-    .dropdown-menu-mainnav.active {
-        display: flex;
-        /* แสดงเมนูย่อยเมื่อมีคลาส active */
-        flex-direction: column;
-        align-items: flex-start;
-        padding-left: 20px;
-        /* เพิ่มระยะห่างข้อความเมนูย่อย */
-    }
-
-    /* เมนูหลัก */
-    .inner-nav ul li {
-        position: relative;
-        /* กำหนดให้ li เป็น relative */
-        margin-right: 10px;
-        text-align: left;
-    }
-
-    .inner-nav ul li a {
-        flex-grow: 1;
-        /* ใช้พื้นที่ด้านซ้ายให้สุด */
-        text-align: left;
-        /* จัดข้อความชิดซ้าย */
-        padding-right: 40px;
-        /* เพิ่มพื้นที่เผื่อปุ่มลูกศร */
-    }
 
     /* ปุ่มลูกศร */
     .submenu-toggle {
-        display: block;
-        position: absolute;
-        /* ตรึงตำแหน่ง */
-        top: 50%;
-        right: 10px;
-        /* ตรึงชิดขวา */
-        transform: translateY(-50%);
-        background: none;
-        border: none;
-        color: white;
-        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        /* กำหนดความกว้าง */
+        height: 40px;
+        /* กำหนดความสูง */
+        background-color: transparent;
+        /* สีพื้นหลัง */
+        border: 2px solid white;
+        /* กรอบรอบปุ่ม */
+        border-radius: 50%;
+        /* ทำให้เป็นวงกลม */
         cursor: pointer;
-        transition: transform 0.3s ease;
-
-
+        /* เปลี่ยนเคอร์เซอร์เมื่อ hover */
+        transition: all 0.3s ease;
+        /* เพิ่มแอนิเมชันเมื่อเปลี่ยนสถานะ */
     }
 
+    /* เพิ่มเอฟเฟกต์เมื่อ hover */
+    .submenu-toggle:hover {
+        background-color: white;
+        /* พื้นหลังเปลี่ยนเป็นสีขาว */
+        color: black;
+        /* เปลี่ยนสีไอคอน */
+        transform: scale(1.1);
+        /* ขยายขนาดเล็กน้อย */
+    }
 
-
+    /* ไอคอนในปุ่มลูกศร */
     .submenu-toggle i {
         font-size: 16px;
-        /* ขนาดลูกศร */
+        /* ขนาดไอคอน */
         color: white;
-        /* กำหนดสี */
-    }
-
-    .submenu-toggle.open i {
-        transform: rotate(180deg);
-        /* หมุนลูกศรเมื่อเปิดเมนู */
-    }
-}
-
-@media (max-width: 768px) {
-
-    /* ปรับตำแหน่งปุ่มลูกศร */
-    .submenu-toggle {
-        cursor: pointer;
-        background: none;
-        border: none;
-        font-size: 16px;
-        color: white;
-    }
-
-    .submenu-toggle.open i {
-        transform: rotate(180deg);
-        /* หมุนลูกศร */
+        /* สีไอคอน */
         transition: transform 0.3s ease;
+        /* เพิ่มแอนิเมชันเมื่อหมุน */
+    }
+
+    /* ไอคอนหมุนเมื่อเมนูเปิด */
+    .submenu-toggle.open i {
+        transform: rotate(180deg);
+        /* หมุนไอคอน 180 องศา */
     }
 
     /* แสดง Dropdown Menu เมื่อ active */
