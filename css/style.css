@@ -3780,6 +3780,8 @@ a.logo:hover {
 
     }
 
+
+
     .submenu-toggle i {
         font-size: 16px;
         /* ขนาดลูกศร */
@@ -3793,7 +3795,37 @@ a.logo:hover {
     }
 }
 
+@media (max-width: 768px) {
 
+    /* ปรับตำแหน่งปุ่มลูกศร */
+    .submenu-toggle {
+        cursor: pointer;
+        background: none;
+        border: none;
+        font-size: 16px;
+        color: white;
+    }
+
+    .submenu-toggle.open i {
+        transform: rotate(180deg);
+        /* หมุนลูกศร */
+        transition: transform 0.3s ease;
+    }
+
+    /* แสดง Dropdown Menu เมื่อ active */
+    .dropdown-menu-mainnav {
+        display: none;
+        /* ซ่อนเมนูย่อย */
+        flex-direction: column;
+        background: #333;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .dropdown-menu-mainnav.active {
+        display: flex;
+    }
+}
 
 /*--------------------------------------------*/
 
