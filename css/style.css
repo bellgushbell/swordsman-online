@@ -3710,7 +3710,7 @@ a.logo:hover {
 .inner-nav ul li:hover .dropdown-menu-mainnav {
     display: flex;
     /* แสดงเมนูเฉพาะเมื่อ hover */
-    margin-top: 5px;
+
 }
 
 /* ป้องกันเมนูย่อยแสดงเมื่อคลิก */
@@ -3787,14 +3787,9 @@ a.logo:hover {
         /* กำหนดสี */
     }
 
-    .submenu-toggle {
-        cursor: pointer;
-    }
-
     .submenu-toggle.open i {
         transform: rotate(180deg);
-        /* หมุนลูกศร */
-        transition: transform 0.3s ease;
+        /* หมุนลูกศรเมื่อเปิดเมนู */
     }
 }
 
