@@ -87,17 +87,16 @@
 
 
 document.querySelectorAll(".menu-item.has-submenu > .menu-link").forEach((link) => {
-    let clickCount = 0; // ตัวแปรนับจำนวนการคลิก
+    let clickedOnce = false; // ตัวแปรสำหรับสถานะการคลิก
 
     link.addEventListener("click", (e) => {
-        e.preventDefault(); // ป้องกันการทำงานของลิงก์
+        e.preventDefault(); // ป้องกันไม่ให้ลิงก์ทำงาน
         e.stopPropagation(); // หยุดการส่งต่อเหตุการณ์
 
         const dropdown = link.nextElementSibling.nextElementSibling; // เมนูย่อย (ul)
 
-        clickCount++; // เพิ่มจำนวนการคลิก
-        if (clickCount % 2 === 1) {
-            // คลิกครั้งที่ 1 (เลขคี่)
+        if (!clickedOnce) {
+            // ถ้าเป็นการคลิกครั้งแรก (เลขคี่)
             document.querySelectorAll(".dropdown-menu-mainnav").forEach((menu) => {
                 menu.classList.remove("active"); // ปิดเมนูอื่น
             });
@@ -106,13 +105,15 @@ document.querySelectorAll(".menu-item.has-submenu > .menu-link").forEach((link) 
                 btn.classList.remove("open"); // รีเซ็ตลูกศรทั้งหมด
             });
 
-            dropdown.classList.add("active"); // เปิดเมนูย่อย
+            dropdown.classList.add("active"); // เปิดเมนูย่อยปัจจุบัน
             link.nextElementSibling.classList.add("open"); // หมุนลูกศร
+            clickedOnce = true; // ตั้งค่าสถานะการคลิกเป็น true
         } else {
-            // คลิกครั้งที่ 2 (เลขคู่)
+            // ถ้าเป็นการคลิกครั้งที่สอง (เลขคู่)
             dropdown.classList.remove("active"); // ปิดเมนูย่อย
             link.nextElementSibling.classList.remove("open"); // รีเซ็ตลูกศร
-            clickCount = 0; // รีเซ็ตการนับคลิก
+            clickedOnce = false; // รีเซ็ตสถานะการคลิก
+            window.location.href = link.getAttribute("href"); // นำไปยังลิงก์
         }
     });
 });
