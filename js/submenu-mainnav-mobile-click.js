@@ -2,17 +2,18 @@ function initMobileDropdown() {
     // ตรวจสอบขนาดหน้าจอ
     if (window.innerWidth <= 768) {
         document.querySelectorAll(".menu-item.has-submenu > .menu-link").forEach((link) => {
-            let clickedOnce = false; // ติดตามว่าคลิกครั้งแรกหรือไม่
             link.addEventListener("click", (e) => {
                 const dropdown = link.nextElementSibling;
 
                 if (dropdown && dropdown.classList.contains("dropdown-menu-mainnav")) {
-                    if (!clickedOnce) {
-                        // ยกเลิกการนำไปยัง href ครั้งแรก
+                    // ตรวจสอบว่าคลิกครั้งแรกหรือยัง
+                    const isClicked = link.getAttribute("data-clicked") === "true";
+
+                    if (!isClicked) {
+                        // ยกเลิกการนำไปยัง href และแสดงเมนูย่อย
                         e.preventDefault();
-                        // แสดงเมนูย่อย
                         dropdown.style.display = "flex";
-                        clickedOnce = true; // บันทึกสถานะว่าคลิกครั้งแรกแล้ว
+                        link.setAttribute("data-clicked", "true"); // บันทึกสถานะว่าคลิกแล้ว
                     } else {
                         // คลิกครั้งที่สองไปยัง href ตามปกติ
                         resetDropdowns(); // ปิดเมนูย่อยทั้งหมด
@@ -26,12 +27,12 @@ function initMobileDropdown() {
 // ฟังก์ชันปิดเมนูย่อยทั้งหมด
 function resetDropdowns() {
     document.querySelectorAll(".dropdown-menu-mainnav").forEach((dropdown) => {
-        dropdown.style.display = "none";
+        dropdown.style.display = "none"; // ซ่อนเมนูย่อย
     });
 
     // รีเซ็ตสถานะการคลิก
     document.querySelectorAll(".menu-item.has-submenu > .menu-link").forEach((link) => {
-        link.clickedOnce = false;
+        link.setAttribute("data-clicked", "false");
     });
 }
 
