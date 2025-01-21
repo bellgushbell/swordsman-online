@@ -1,6 +1,6 @@
 document.querySelectorAll(".submenu-toggle").forEach((toggle) => {
     toggle.addEventListener("click", (e) => {
-        e.preventDefault(); // ป้องกันพฤติกรรมเริ่มต้นของปุ่ม
+        e.preventDefault(); // ป้องกันพฤติกรรมเริ่มต้น
         e.stopPropagation(); // หยุดการส่งต่อเหตุการณ์ไปยังลิงก์ a
 
         const dropdown = toggle.nextElementSibling; // เมนูย่อย
