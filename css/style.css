@@ -4274,10 +4274,10 @@ a.logo:hover {
 
 .mobile-on .desktop-nav {
     display: none;
-    width: 100%;
+    width: 50%;
     position: absolute;
     top: 100%;
-    left: 0;
+    left: 50%;
     padding: 0 15px;
 
     z-index: 100;
