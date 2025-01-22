@@ -3732,9 +3732,9 @@ a.logo:hover {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 15px;
+        width: 20px;
         /* กำหนดความกว้าง */
-        height: 15px;
+        height: 20px;
         /* กำหนดความสูง */
         background-color: transparent;
         /* สีพื้นหลัง */
@@ -3791,14 +3791,13 @@ a.logo:hover {
         display: flex;
     }
 
+    .dropdown-menu-mainnav li a {
+        padding: 0px;
+    }
 
     .menu-link.notify {
         padding: 0px !important;
         margin-left: 10px;
-    }
-
-    li.menu-item.has-submenu {
-        height: 68px !important;
     }
 }
 
