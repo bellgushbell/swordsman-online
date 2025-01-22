@@ -1263,6 +1263,16 @@ input.form-control {
         pointer-events: none;
         /* ปิดการโต้ตอบบนมือถือ */
     }
+
+    .class-sidebar-wrapper {
+        position: relative;
+        width: 200px;
+        height: 80vh;
+        overflow: hidden;
+        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
 }
 
 /* ==============================
