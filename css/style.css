@@ -1416,7 +1416,7 @@ input.form-control {
 .card-image {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     /* ครอบภาพให้เต็มพื้นที่การ์ดโดยไม่เปลี่ยนอัตราส่วน */
     transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.3s ease-in-out;
 }
@@ -1697,24 +1697,74 @@ input.form-control {
     /* เพิ่มขนาดรูปตรงกลาง */
 }
 
-.swiper-button-next,
+/* .swiper-button-next,
 .swiper-button-prev {
     color: #007bff;
     position: absolute;
     top: 54% !important;
-    /* จัดให้อยู่ตรงกลางแนวตั้ง */
+   
     transform: translateY(-50%);
     z-index: 10;
-}
+} */
 
-.swiper-button-next {
+/* .swiper-button-next {
     right: 10px;
 }
 
 .swiper-button-prev {
     left: 10px;
+} */
+
+/* ปุ่ม Next และ Prev */
+.swiper-button-next,
+.swiper-button-prev {
+    background-color: rgba(0, 0, 0, 0.3);
+    /* สีพื้นหลังแบบโปร่งใส */
+    border-radius: 50%;
+    /* ทำให้เป็นวงกลม */
+    padding: 10px;
+    /* เพิ่ม Padding ภายใน */
+    width: 40px !important;
+    /* กำหนดขนาดปุ่ม */
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    /* เพิ่มเงา */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    /* เพิ่ม Transition */
 }
 
+/* เปลี่ยนสีปุ่มเมื่อ Hover */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    /* เพิ่มความเข้มเมื่อ Hover */
+    transform: scale(1.1);
+    /* ขยายปุ่มเล็กน้อย */
+}
+
+/* ไอคอนลูกศรของปุ่ม */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 16px !important;
+    /* ปรับขนาดลูกศรให้เล็กลง */
+    color: #fff;
+    /* สีของไอคอน */
+    font-weight: bold;
+}
+
+/* ระยะห่างและการจัดวาง */
+.swiper-button-next::after {
+    margin-left: 2px;
+    /* เพิ่มระยะห่างระหว่างลูกศรกับปุ่ม */
+}
+
+.swiper-button-prev::after {
+    margin-right: 2px;
+    /* เพิ่มระยะห่างระหว่างลูกศรกับปุ่ม */
+}
 
 /* ปรับแต่งสำหรับหน้าจอมือถือ */
 @media (max-width: 768px) {
@@ -1784,13 +1834,7 @@ input.form-control {
         z-index: 10;
     }
 
-    .swiper-button-next {
-        right: 10px;
-    }
 
-    .swiper-button-prev {
-        left: 10px;
-    }
 
     /* ปรับตำแหน่งของ pagination */
     .swiper-pagination {
