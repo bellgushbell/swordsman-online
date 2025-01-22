@@ -287,9 +287,10 @@ Primary use: Multipurpose Template
 .home-content {
     width: 100%;
 
-    position: relative;
+    position: absolute;
     text-align: center;
-    margin-top: 45%;
+    top: 75%;
+    right: 0%;
 }
 
 .game-buttons-container {
@@ -357,9 +358,22 @@ Primary use: Multipurpose Template
 }
 
 
+.video-button {
+    width: 80px !important;
+}
+
 
 /* สำหรับหน้าจอขนาดเล็ก */
 @media (max-width: 768px) {
+    .home-content {
+        width: 100%;
+
+        position: absolute;
+        text-align: center;
+        top: 30%;
+        right: 0%;
+    }
+
     .game-buttons-container {
         margin-top: 80%;
         padding: 10px;
@@ -809,7 +823,7 @@ Primary use: Multipurpose Template
     top: 0;
     left: 0;
     overflow: hidden;
-    background: rgba(0, 0, 0, 0.1);
+
 
 }
 
