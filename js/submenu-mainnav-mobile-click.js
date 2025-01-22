@@ -113,7 +113,6 @@
 
 
 
-
 document.addEventListener("DOMContentLoaded", function () {
     if (window.innerWidth <= 768) {
         // จัดการการคลิกที่ปุ่มลูกศร
@@ -122,16 +121,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 e.preventDefault();
                 e.stopPropagation();
 
-                const dropdown = this.nextElementSibling; // เมนูย่อย
+                const dropdown = this.nextElementSibling; // เมนูย่อย (ul)
                 const isActive = dropdown.classList.contains("active");
 
                 if (isActive) {
-                    // ปิดเมนูปัจจุบัน
+                    // ถ้าปุ่มเปิดอยู่ ให้ปิด (ซ่อนเมนู)
+                    dropdown.style.display = "none"; // ซ่อน dropdown
                     dropdown.classList.remove("active");
                     this.classList.remove("open");
                 } else {
                     // ปิดเมนูอื่นทั้งหมดก่อน
                     document.querySelectorAll(".dropdown-menu-mainnav").forEach((menu) => {
+                        menu.style.display = "none"; // ซ่อนเมนูอื่นทั้งหมด
                         menu.classList.remove("active");
                     });
                     document.querySelectorAll(".submenu-toggle").forEach((btn) => {
@@ -139,6 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     });
 
                     // เปิดเมนูปัจจุบัน
+                    dropdown.style.display = "flex"; // แสดง dropdown
                     dropdown.classList.add("active");
                     this.classList.add("open");
                 }
@@ -149,6 +151,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.addEventListener("click", function (e) {
             if (!e.target.closest(".menu-item")) {
                 document.querySelectorAll(".dropdown-menu-mainnav").forEach((menu) => {
+                    menu.style.display = "none"; // ซ่อน dropdown
                     menu.classList.remove("active");
                 });
                 document.querySelectorAll(".submenu-toggle").forEach((btn) => {
@@ -158,3 +161,4 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+

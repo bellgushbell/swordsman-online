@@ -3735,82 +3735,56 @@ a.logo:hover {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 20px;
-        /* กำหนดความกว้าง */
-        height: 20px;
-        /* กำหนดความสูง */
+        width: 30px;
+        height: 30px;
         background-color: transparent;
-        /* สีพื้นหลัง */
         border: 2px solid white;
-        /* กรอบรอบปุ่ม */
         border-radius: 50%;
-        /* ทำให้เป็นวงกลม */
         cursor: pointer;
-        /* เปลี่ยนเคอร์เซอร์เมื่อ hover */
         transition: all 0.3s ease;
-        /* เพิ่มแอนิเมชันเมื่อเปลี่ยนสถานะ */
-        margin-left: 5%;
-
+        margin-left: 10px;
     }
 
-    /* เพิ่มเอฟเฟกต์เมื่อ hover */
-    .submenu-toggle:hover {
-        background-color: white;
-        /* พื้นหลังเปลี่ยนเป็นสีขาว */
-        color: black;
-        /* เปลี่ยนสีไอคอน */
-        transform: scale(1.1);
-        /* ขยายขนาดเล็กน้อย */
-    }
-
-    /* กำหนดสีพื้นฐานของไอคอน */
+    /* สีพื้นฐานของไอคอน */
     .submenu-toggle i {
-        font-size: 10px;
-        /* ขนาดไอคอน */
+        font-size: 12px;
         color: white;
-        /* สีไอคอนเป็นสีขาว */
         transition: transform 0.3s ease, color 0.3s ease;
-        /* เพิ่มการแอนิเมชัน */
     }
 
-    /* เมื่อปุ่มลูกศรอยู่ในสถานะ open */
+    /* สถานะ open */
     .submenu-toggle.open {
         background-color: white;
-        /* พื้นหลังเปลี่ยนเป็นสีขาว */
         color: black;
-        /* เปลี่ยนสีตัวไอคอน */
     }
 
+    /* สีของไอคอนในสถานะ open */
     .submenu-toggle.open i {
         color: black;
-        /* สีไอคอนเปลี่ยนเป็นสีดำในสถานะ open */
-    }
-
-    /* แก้ไข hover และ open ให้เข้ากัน */
-    .submenu-toggle:hover i,
-    .submenu-toggle.open:hover i {
-        color: black;
-        /* เปลี่ยนสีไอคอนเป็นสีดำเมื่อ hover หรือ open */
-    }
-
-
-
-    /* ไอคอนหมุนเมื่อเมนูเปิด */
-    .submenu-toggle.open i {
         transform: rotate(180deg);
-        color: #333;
-        /* หมุนไอคอน 180 องศา */
     }
 
+    /* hover */
+    .submenu-toggle:hover {
+        background-color: white;
+        color: black;
+        transform: scale(1.1);
+    }
 
-    /* แสดง Dropdown Menu เมื่อ active */
+    /* hover ไอคอน */
+    .submenu-toggle:hover i {
+        color: black;
+    }
+
+    /* เมนูย่อย */
     .dropdown-menu-mainnav {
         display: none;
-        /* ซ่อนเมนูย่อย */
         flex-direction: column;
         background: #333;
         padding: 10px;
         border-radius: 5px;
+        margin-left: 10px !important;
+        transition: all 0.3s ease;
     }
 
     .dropdown-menu-mainnav.active {
@@ -3818,13 +3792,16 @@ a.logo:hover {
     }
 
     .dropdown-menu-mainnav li a {
-        padding: 0px;
+        padding: 5px 10px;
+        color: white;
+        text-decoration: none;
     }
 
     .menu-link.notify {
-        padding: 0px !important;
-        margin-left: 10px;
+        padding: 0 10px;
     }
+
+
 
 
 }
