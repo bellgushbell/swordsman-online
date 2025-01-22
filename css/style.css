@@ -3759,8 +3759,8 @@ a.logo:hover {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 30px;
-        height: 30px;
+        width: 20px;
+        height: 20px;
         background-color: transparent;
         border: 2px solid white;
         border-radius: 50%;
