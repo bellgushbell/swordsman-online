@@ -1472,7 +1472,7 @@ input.form-control {
 
 @media (max-width: 961px) {
     .gallery {
-        grid-template-columns: repeat(6, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         /* ลดจำนวนคอลัมน์ */
         grid-auto-rows: auto;
         /* ให้ความสูงของการ์ดปรับตามภาพ */
