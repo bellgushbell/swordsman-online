@@ -163,7 +163,7 @@
 // });
 
 document.addEventListener("DOMContentLoaded", function () {
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 961) {
         // จัดการการคลิกที่ปุ่มลูกศร
         document.querySelectorAll(".submenu-toggle").forEach((toggle) => {
             toggle.addEventListener("click", function (e) {

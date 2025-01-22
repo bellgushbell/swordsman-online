@@ -3768,6 +3768,7 @@ a.logo:hover {
         transition: all 0.3s ease;
         flex-shrink: 0;
         /* ป้องกันการย่อขนาด */
+        margin-right: 10px;
     }
 
     .submenu-toggle i {
