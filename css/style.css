@@ -3723,6 +3723,9 @@ a.logo:hover {
     display: none;
 }
 
+.dropdown-menu-mainnav {
+    display: none;
+}
 
 
 @media (max-width: 768px) {
@@ -3760,19 +3763,42 @@ a.logo:hover {
         /* ขยายขนาดเล็กน้อย */
     }
 
-    /* ไอคอนในปุ่มลูกศร */
+    /* กำหนดสีพื้นฐานของไอคอน */
     .submenu-toggle i {
         font-size: 10px;
         /* ขนาดไอคอน */
         color: white;
-        /* สีไอคอน */
-        transition: transform 0.3s ease;
-        /* เพิ่มแอนิเมชันเมื่อหมุน */
+        /* สีไอคอนเป็นสีขาว */
+        transition: transform 0.3s ease, color 0.3s ease;
+        /* เพิ่มการแอนิเมชัน */
     }
+
+    /* เมื่อปุ่มลูกศรอยู่ในสถานะ open */
+    .submenu-toggle.open {
+        background-color: white;
+        /* พื้นหลังเปลี่ยนเป็นสีขาว */
+        color: black;
+        /* เปลี่ยนสีตัวไอคอน */
+    }
+
+    .submenu-toggle.open i {
+        color: black;
+        /* สีไอคอนเปลี่ยนเป็นสีดำในสถานะ open */
+    }
+
+    /* แก้ไข hover และ open ให้เข้ากัน */
+    .submenu-toggle:hover i,
+    .submenu-toggle.open:hover i {
+        color: black;
+        /* เปลี่ยนสีไอคอนเป็นสีดำเมื่อ hover หรือ open */
+    }
+
+
 
     /* ไอคอนหมุนเมื่อเมนูเปิด */
     .submenu-toggle.open i {
         transform: rotate(180deg);
+        color: #333;
         /* หมุนไอคอน 180 องศา */
     }
 
@@ -3799,7 +3825,12 @@ a.logo:hover {
         padding: 0px !important;
         margin-left: 10px;
     }
+
+
 }
+
+
+
 
 /*--------------------------------------------*/
 
