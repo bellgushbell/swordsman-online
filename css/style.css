@@ -1824,16 +1824,37 @@ input.form-control {
         /* เพิ่มขนาดรูปตรงกลาง */
     }
 
+    /*ปรับปุ่มเลื่อน มือถือ*/
+    /* ปุ่ม Next และ Prev */
     .swiper-button-next,
     .swiper-button-prev {
-        color: #007bff;
-        position: absolute;
-        top: 55% !important;
-        /* จัดให้อยู่ตรงกลางแนวตั้ง */
-        transform: translateY(-50%);
-        z-index: 10;
+        background-color: rgba(0, 0, 0, 0.3);
+        /* สีพื้นหลังแบบโปร่งใส */
+        border-radius: 50%;
+        /* ทำให้เป็นวงกลม */
+        padding: 10px;
+        /* เพิ่ม Padding ภายใน */
+        width: 30px !important;
+        /* กำหนดขนาดปุ่ม */
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        /* เพิ่มเงา */
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        /* เพิ่ม Transition */
     }
 
+    /* ไอคอนลูกศรของปุ่ม */
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+        font-size: 14px !important;
+        /* ปรับขนาดลูกศรให้เล็กลง */
+        color: #fff;
+        /* สีของไอคอน */
+        font-weight: bold;
+    }
 
 
     /* ปรับตำแหน่งของ pagination */
