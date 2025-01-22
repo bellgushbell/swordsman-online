@@ -1033,7 +1033,77 @@ a.bg-video-button-muted {
 }
 
 
+@media (max-width: 961px) {
+    .page-section-news {
+        padding: 20px !important;
+    }
 
+    .page-section-news {
+        padding: 100px 10px;
+        /* ลด Padding ด้านบน-ล่าง */
+        background-attachment: scroll;
+        /* ปิดเอฟเฟกต์ fixed */
+    }
+
+    #news .container {
+        max-width: 100%;
+        /* ใช้พื้นที่ให้เต็ม */
+        padding: 0 15px;
+        /* เพิ่ม Padding ด้านข้างเล็กน้อย */
+    }
+
+    #imageCarousel {
+        border-radius: 5px;
+        /* ลดความโค้ง */
+    }
+
+    #imageCarousel img {
+        height: 200px;
+        width: 100%;
+        /* ลดความสูงของภาพ */
+        object-fit: cover;
+        /* ปรับภาพให้ครอบคลุม */
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        padding: 5px;
+        /* ลดขนาดปุ่มเลื่อน */
+    }
+
+    .nav-tabs .nav-link {
+        font-size: 1rem;
+        /* ลดขนาดตัวอักษร */
+        padding: 8px 15px;
+        /* ลด Padding */
+        margin-right: 3px;
+        /* ลดช่องว่างระหว่าง Tab */
+    }
+
+    .tab-content {
+        padding: 15px;
+        /* ลด Padding ด้านใน */
+    }
+
+    .list-group-item {
+        font-size: 0.9rem;
+        /* ลดขนาดตัวอักษร */
+        padding: 8px 10px;
+        /* ลด Padding */
+    }
+
+    #newsTabsContent {
+        box-shadow: none;
+        /* ปิด Shadow เพื่อให้ดูเรียบง่าย */
+    }
+
+    .carousel-inner img,
+    .nav-tabs .nav-link,
+    .list-group-item {
+        transition: all 0.2s ease-in-out;
+        /* ลดระยะเวลา Transition */
+    }
+}
 
 
 /* ==============================
