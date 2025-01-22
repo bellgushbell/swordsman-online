@@ -264,10 +264,10 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                     <a href="#" role="button" class="bg-video-button-muted"><i class="fa fa-volume-off"></i></a> -->
                     <!-- End Video BG Init -->
 
-                    <!-- Image BG Init -->
+                    <!--พื้นหลังภาพ BG Image Init -->
                     <div class="bg-image-wrapper">
 
-                        <img src="images/bgimg.jpg" class="bg-image" alt="Background Image">
+                        <img src="images/background-pic.jpg" class="bg-image" alt="Background Image">
                         <img src="images/bgimg-withText.jpg" class="bg-image-with-text" alt="Background Image">
                         <div class="bg-image-overlay"></div>
                     </div>
@@ -438,10 +438,11 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
             <!-- News and Promotion Section -->
+
             <section class="page-section-news" id="news">
                 <div class="container">
                     <div class="row gy-4">
-                        <!-- Carousel Section -->
+
                         <div class="col-12 col-lg-8">
                             <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
                                 <div class="carousel-inner">
@@ -455,7 +456,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                         <img src="images/imageCarousel3.jpg" class="d-block w-100" alt="Image 3">
                                     </div>
                                 </div>
-                                <!-- Carousel Controls -->
+
+
                                 <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel"
                                     data-bs-slide="prev">
                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -469,29 +471,25 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                             </div>
                         </div>
 
-                        <!-- News and Tabs Section -->
+
                         <div class="col-12 col-lg-4 d-flex flex-column align-items-center">
                             <ul class="nav nav-tabs justify-content-center w-100" id="newsTabs" role="tablist">
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link active text-center" id="news-tab" data-bs-toggle="tab"
-                                        data-bs-target="#news" type="button" role="tab" aria-controls="news"
-                                        aria-selected="true">ข่าว</button>
+                                    <button class="nav-link text-center active" id="news-tab" data-tab="news"
+                                        type="button">ข่าว</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link text-center" id="events-tab" data-bs-toggle="tab"
-                                        data-bs-target="#events" type="button" role="tab" aria-controls="events"
-                                        aria-selected="false">กิจกรรม</button>
+                                    <button class="nav-link text-center" id="events-tab" data-tab="events"
+                                        type="button">กิจกรรม</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link text-center" id="promotions-tab" data-bs-toggle="tab"
-                                        data-bs-target="#promotions" type="button" role="tab" aria-controls="promotions"
-                                        aria-selected="false">โปรโมชั่น</button>
+                                    <button class="nav-link text-center" id="promotions-tab" data-tab="promotions"
+                                        type="button">โปรโมชั่น</button>
                                 </li>
                             </ul>
+
                             <div class="tab-content mt-3 w-100" id="newsTabsContent">
-                                <!-- News List -->
-                                <div class="tab-pane fade show active" id="news" role="tabpanel"
-                                    aria-labelledby="news-tab">
+                                <div id="news" class="tab-pane" style="display: block;">
                                     <ul class="list-group">
                                         <li class="list-group-item">
                                             <a href="#" class="text-decoration-none">ข่าวที่ 1 - รายละเอียด...</a>
@@ -504,8 +502,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                         </li>
                                     </ul>
                                 </div>
-                                <!-- Events List -->
-                                <div class="tab-pane fade" id="events" role="tabpanel" aria-labelledby="events-tab">
+                                <div id="events" class="tab-pane" style="display: none;">
                                     <ul class="list-group">
                                         <li class="list-group-item">
                                             <a href="#" class="text-decoration-none">กิจกรรมที่ 1 - รายละเอียด...</a>
@@ -515,9 +512,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                         </li>
                                     </ul>
                                 </div>
-                                <!-- Promotions List -->
-                                <div class="tab-pane fade" id="promotions" role="tabpanel"
-                                    aria-labelledby="promotions-tab">
+                                <div id="promotions" class="tab-pane" style="display: none;">
                                     <ul class="list-group">
                                         <li class="list-group-item">
                                             <a href="#" class="text-decoration-none">โปรโมชั่นที่ 1 - รายละเอียด...</a>
@@ -528,6 +523,10 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                     </ul>
                                 </div>
                             </div>
+
+
+
+
                         </div>
                     </div>
                 </div>
@@ -730,8 +729,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             <div class="card" onclick="openModal('images/1.jpg')">
                 <img src="images/1.jpg" alt="Card 1" class="card-image">
             </div>
-            <div class="card" onclick="openModal('images/2.jpg')">
-                <img src="images/2.jpg" alt="Card 2" class="card-image">
+            <div class="card" onclick="openModal('images/1.jpg')">
+                <img src="images/1.jpg" alt="Card 2" class="card-image">
             </div>
             <div class="card" onclick="openModal('images/3.jpg')">
                 <img src="images/3.jpg" alt="Card 3" class="card-image">
@@ -742,14 +741,14 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             <div class="card" onclick="openModal('images/5.jpg')">
                 <img src="images/5.jpg" alt="Card 5" class="card-image">
             </div>
-            <div class="card" onclick="openModal('images/6.jpg')">
-                <img src="images/6.jpg" alt="Card 6" class="card-image">
+            <div class="card" onclick="openModal('images/4.jpg')">
+                <img src="images/4.jpg" alt="Card 6" class="card-image">
             </div>
-            <div class="card" onclick="openModal('images/7.jpg')">
-                <img src="images/7.jpg" alt="Card 7" class="card-image">
+            <div class="card" onclick="openModal('images/5.jpg')">
+                <img src="images/5.jpg" alt="Card 7" class="card-image">
             </div>
-            <div class="card" onclick="openModal('images/8.jpg')">
-                <img src="images/8.jpg" alt="Card 8" class="card-image">
+            <div class="card" onclick="openModal('images/3.jpg')">
+                <img src="images/3.jpg" alt="Card 8" class="card-image">
             </div>
             <div class="card" onclick="openModal('images/9.jpg')">
                 <img src="images/9.jpg" alt="Card 9" class="card-image">
@@ -757,11 +756,11 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             <div class="card" onclick="openModal('images/10.jpg')">
                 <img src="images/10.jpg" alt="Card 10" class="card-image">
             </div>
-            <div class="card" onclick="openModal('images/11.jpg')">
-                <img src="images/11.jpg" alt="Card 11" class="card-image">
+            <div class="card" onclick="openModal('images/5.jpg')">
+                <img src="images/5.jpg" alt="Card 11" class="card-image">
             </div>
-            <div class="card" onclick="openModal('images/12.jpg')">
-                <img src="images/12.jpg" alt="Card 12" class="card-image">
+            <div class="card" onclick="openModal('images/9.jpg')">
+                <img src="images/9.jpg" alt="Card 12" class="card-image">
             </div>
         </div>
     </section>
@@ -1739,9 +1738,14 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             <!-- <script src="js/homebg-img-animation.js"></script> -->
             <script src="js/gallery-animation.js"></script>
             <script src="js/submenu-mainnav-mobile-click.js"></script>
+            <script src="js/news-and-promotion-tab.js"></script>
 
+            <!-- tab news and promotion vanilla.js -->
+            <script src="https://cdn.jsdelivr.net/npm/tabbyjs@12.0.0/dist/tabby.min.js"></script>
 
             <!-- <script src="background-resize.js"></script> -->
+
+
 
 
 </body>

@@ -1384,7 +1384,7 @@ input.form-control {
 /* ==============================
   Gallery Section
    ============================== */
-/* Gallery Container */
+
 /* Gallery Container */
 .gallery {
     display: grid;
@@ -1396,12 +1396,28 @@ input.form-control {
     /* เพิ่ม perspective ใน container */
 }
 
+/* ปรับการ์ดให้มีขนาดคงที่ */
 .card {
     position: relative;
     overflow: hidden;
     border-radius: 10px;
     cursor: pointer;
+    width: 100%;
+    /* การ์ดเต็มพื้นที่คอลัมน์ */
+    height: 200px;
+    /* ความสูงคงที่ของการ์ด */
     transform-style: preserve-3d;
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.3s ease-in-out;
+    background-color: #f0f0f0;
+    /* สีพื้นหลังเผื่อกรณีภาพไม่โหลด */
+}
+
+/* ปรับภาพในการ์ด */
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* ครอบภาพให้เต็มพื้นที่การ์ดโดยไม่เปลี่ยนอัตราส่วน */
     transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.3s ease-in-out;
 }
 
@@ -1410,12 +1426,7 @@ input.form-control {
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-.card-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.3s ease-in-out;
-}
+
 
 .card:hover .card-image {
     transform: scale(1.05);
@@ -1451,8 +1462,6 @@ input.form-control {
     margin: auto;
 }
 
-
-
 /*ห้วข้อ*/
 .gallery-title {
     text-align: center;
@@ -1461,7 +1470,39 @@ input.form-control {
     color: #333;
 }
 
+@media (max-width: 961px) {
+    .gallery {
+        grid-template-columns: repeat(6, 1fr);
+        /* ลดจำนวนคอลัมน์ */
+        grid-auto-rows: auto;
+        /* ให้ความสูงของการ์ดปรับตามภาพ */
+        gap: 10px;
+    }
 
+    .card {
+        height: auto;
+        /* ยกเลิกความสูงคงที่ */
+    }
+
+    .card-image {
+        width: auto;
+        height: auto;
+        /* ให้ภาพปรับตามอัตราส่วน */
+        object-fit: cover;
+    }
+
+    .modal-content {
+        max-width: 50%;
+        /* ลดความกว้างหากต้องการ */
+        max-height: 50%;
+        /* ลดความสูงของภาพ */
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        margin: auto;
+    }
+
+}
 
 
 /* ==============================
