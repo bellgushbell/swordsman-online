@@ -3727,10 +3727,34 @@ a.logo:hover {
     display: none;
 }
 
+.menu-header {
+    display: none;
+}
 
-@media (max-width: 768px) {
+@media (max-width: 961px) {
 
-    /* ปุ่มลูกศร */
+    .menu-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        /* ระยะห่างระหว่างลูกศรกับข้อความ */
+        width: 100%;
+        /* ใช้พื้นที่ให้เต็ม */
+    }
+
+    .menu-link.notify {
+        flex-grow: 1;
+        /* ขยายข้อความให้เต็มพื้นที่ */
+        text-align: left;
+        /* จัดข้อความให้อยู่ทางซ้าย */
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        margin-right: 10px;
+        /* เพิ่มระยะห่างจากลูกศร */
+    }
+
     .submenu-toggle {
         display: flex;
         align-items: center;
@@ -3742,42 +3766,26 @@ a.logo:hover {
         border-radius: 50%;
         cursor: pointer;
         transition: all 0.3s ease;
-        margin-left: 10px;
-        margin-bottom: 10px;
+        flex-shrink: 0;
+        /* ป้องกันการย่อขนาด */
     }
 
-    /* สีพื้นฐานของไอคอน */
     .submenu-toggle i {
         font-size: 12px;
         color: white;
         transition: transform 0.3s ease, color 0.3s ease;
     }
 
-    /* สถานะ open */
     .submenu-toggle.open {
         background-color: white;
         color: black;
     }
 
-    /* สีของไอคอนในสถานะ open */
     .submenu-toggle.open i {
         color: black;
         transform: rotate(180deg);
     }
 
-    /* hover */
-    .submenu-toggle:hover {
-        background-color: white;
-        color: black;
-        transform: scale(1.1);
-    }
-
-    /* hover ไอคอน */
-    .submenu-toggle:hover i {
-        color: black;
-    }
-
-    /* เมนูย่อย */
     .dropdown-menu-mainnav {
         display: none;
         flex-direction: column;
@@ -3785,7 +3793,6 @@ a.logo:hover {
         padding: 10px;
         border-radius: 5px;
         margin-left: 10px !important;
-        transition: all 0.3s ease;
     }
 
     .dropdown-menu-mainnav.active {
@@ -3798,14 +3805,13 @@ a.logo:hover {
         text-decoration: none;
     }
 
-    .menu-link.notify {
-        padding: 0 10px;
+    /*close tag ซ้ำ*/
+    .nav-tag-desktop {
+        display: none !important;
     }
-
-
-
-
 }
+
+
 
 
 
