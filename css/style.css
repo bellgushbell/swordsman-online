@@ -3732,9 +3732,9 @@ a.logo:hover {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 40px;
+        width: 15px;
         /* กำหนดความกว้าง */
-        height: 40px;
+        height: 15px;
         /* กำหนดความสูง */
         background-color: transparent;
         /* สีพื้นหลัง */
@@ -3746,6 +3746,8 @@ a.logo:hover {
         /* เปลี่ยนเคอร์เซอร์เมื่อ hover */
         transition: all 0.3s ease;
         /* เพิ่มแอนิเมชันเมื่อเปลี่ยนสถานะ */
+        margin-left: 5%;
+
     }
 
     /* เพิ่มเอฟเฟกต์เมื่อ hover */
@@ -3760,7 +3762,7 @@ a.logo:hover {
 
     /* ไอคอนในปุ่มลูกศร */
     .submenu-toggle i {
-        font-size: 16px;
+        font-size: 10px;
         /* ขนาดไอคอน */
         color: white;
         /* สีไอคอน */
@@ -3774,6 +3776,7 @@ a.logo:hover {
         /* หมุนไอคอน 180 องศา */
     }
 
+
     /* แสดง Dropdown Menu เมื่อ active */
     .dropdown-menu-mainnav {
         display: none;
@@ -3786,6 +3789,16 @@ a.logo:hover {
 
     .dropdown-menu-mainnav.active {
         display: flex;
+    }
+
+
+    .menu-link.notify {
+        padding: 0px !important;
+        margin-left: 10px;
+    }
+
+    li.menu-item.has-submenu {
+        height: 68px !important;
     }
 }
 
