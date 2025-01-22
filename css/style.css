@@ -1258,16 +1258,30 @@ input.form-control {
     /* จัดแนวไอคอนกับข้อความ */
 }
 
-@media (max-width: 768px) {
+@media (max-width: 961px) {
     .bg-video-class {
         pointer-events: none;
         /* ปิดการโต้ตอบบนมือถือ */
     }
 
+    /* คอนเทนต์ */
+    .class-content {
+        position: relative;
+        display: flex;
+        height: 87vh;
+        justify-content: space-between;
+        align-items: flex-end;
+        z-index: 2;
+        padding: 0 20px;
+
+    }
+
     .class-sidebar-wrapper {
         position: relative;
-        width: 200px;
-        height: 80vh;
+        width: 100px;
+        height: 87vh;
+
+
         overflow: hidden;
         border-radius: 10px;
         background-color: rgba(0, 0, 0, 0.1);
