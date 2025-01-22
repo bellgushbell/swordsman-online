@@ -1058,7 +1058,7 @@ a.bg-video-button-muted {
     }
 
     #imageCarousel img {
-        height: 200px;
+        height: 160px;
         width: 100%;
         /* ลดความสูงของภาพ */
         object-fit: cover;
