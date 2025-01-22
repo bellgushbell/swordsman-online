@@ -23,3 +23,12 @@ $(document).ready(function () {
     // บังคับแสดงลิสต์ "ข่าว" ตอนเริ่มต้น
     activateTab("news");
 });
+
+function activateTab(tabId) {
+    console.log(`Activating tab: ${tabId}`);
+    tabPanes.hide();
+    $(`#${tabId}`).show();
+    tabButtons.removeClass("active");
+    $(`[data-tab="${tabId}"]`).addClass("active");
+}
+

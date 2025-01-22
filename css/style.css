@@ -809,7 +809,7 @@ Primary use: Multipurpose Template
     top: 0;
     left: 0;
     overflow: hidden;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.1);
 
 }
 
@@ -1024,6 +1024,17 @@ a.bg-video-button-muted {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
 }
+
+
+#news {
+    display: block !important;
+}
+
+
+
+
+
+
 
 /* Smooth Transition */
 .carousel-inner img,
