@@ -926,6 +926,28 @@ a.bg-video-button-muted {
 /* ==============================
    News And Event
    ============================== */
+.page-section-news {
+    width: 100%;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    padding: 140px 10px;
+}
+
+
 #news .container {
     max-width: 100%;
     padding: 0;
