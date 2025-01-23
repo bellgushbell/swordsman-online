@@ -390,7 +390,7 @@ Primary use: Multipurpose Template
         /* ใช้ space-around แทน space-between */
         align-items: center;
         /* จัดกึ่งกลางในแนวตั้ง */
-        width: 90%;
+        width: 100%;
         /* กำหนดความกว้างของพื้นที่ทั้งหมด */
         gap: 10px;
 
