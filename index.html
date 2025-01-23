@@ -249,8 +249,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         <main id="main">
 
             <!-- Home Section -->
-            <section class="home-section bg-dark-alfa-30 light-content relative" data-background="video/ปก-Web.mp4"
-                id="home">
+            <section class="home-section bg-dark-alfa-30 light-content relative"
+                data-background="images/background-pic.jpg" id="home">
                 <div class="container min-height-100vh d-flex align-items-center pt-100 pb-100">
 
                     <!-- Video BG Init -->
@@ -278,15 +278,35 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
                     <!-- Video Promote Content -->
-                    <!-- <div class="video-container"> -->
-                    <!-- เปลี่ยนจาก <video> เป็น <iframe> -->
-                    <!-- <iframe id="background-video" class="bg-video"
+
+                    <div class="video-container" id="videoContainer" style="display: none;">
+                        <!-- เปลี่ยนจาก <video> เป็น <iframe> -->
+                        <iframe id="background-video" class="bg-video"
                             src="https://www.youtube.com/embed/_jVcmdtyp-o?autoplay=1&mute=1&loop=1&playlist=_jVcmdtyp-o&rel=0&controls=0"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen>
                         </iframe>
-                    </div> -->
+                    </div>
+
+                    <!-- JavaScript สำหรับ Toggle -->
+                    <script>
+                        function toggleVideo(event) {
+                            event.preventDefault(); // ป้องกันไม่ให้ลิงก์รีโหลดหน้าเว็บ
+                            const videoContainer = document.getElementById("videoContainer");
+
+                            // Toggle เปิด/ปิดเนื้อหา
+                            if (videoContainer.style.display === "none" || videoContainer.style.display === "") {
+                                videoContainer.style.display = "block"; // แสดงเนื้อหา
+                            } else {
+                                videoContainer.style.display = "none"; // ซ่อนเนื้อหา
+                            }
+                        }
+                    </script>
+
+
+
+
                     <!-- End Video Promote Content -->
 
 
@@ -379,7 +399,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                         <div class="game-buttons-container">
                             <div class="download-buttons">
                                 <!-- Play Video Button -->
-                                <a href="#" class="video-button notify">
+                                <a href="#" class="video-button" onclick="toggleVideo(event)">
                                     <img src="images/PlayVideo.png" alt="Video Icon" />
                                 </a>
                                 <!-- iOS Button -->
