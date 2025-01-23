@@ -309,7 +309,7 @@ Primary use: Multipurpose Template
     display: flex;
     flex-direction: row;
     /* เรียงปุ่มในแนวนอน */
-    gap: 10px;
+    gap: 30px;
     /* ระยะห่างระหว่างปุ่ม */
     justify-content: center;
     /* จัดปุ่มให้อยู่กึ่งกลาง */
@@ -392,6 +392,7 @@ Primary use: Multipurpose Template
         /* จัดกึ่งกลางในแนวตั้ง */
         width: 90%;
         /* กำหนดความกว้างของพื้นที่ทั้งหมด */
+        gap: 10px;
 
     }
 
@@ -445,6 +446,7 @@ Primary use: Multipurpose Template
             align-items: center;
             width: 80%;
             /* ลดความกว้างใน landscape */
+            gap: 10px;
         }
 
         .download-buttons a {
@@ -494,6 +496,7 @@ Primary use: Multipurpose Template
             align-items: center;
             width: 70%;
             /* ลดความกว้างใน iPad Portrait */
+            gap: 20px;
         }
 
         .download-buttons a {
@@ -540,6 +543,7 @@ Primary use: Multipurpose Template
             align-items: center;
             width: 60%;
             /* ลดความกว้างใน Landscape */
+            gap: 5px;
         }
 
         .download-buttons a {
@@ -1042,6 +1046,20 @@ a.bg-video-button-muted {
     z-index: 1000;
 }
 
+.bg-video-mobile {
+    display: none;
+}
+
+/*mobile*/
+@media (max-width: 768px) {
+    .bg-video {
+        display: none;
+    }
+
+    .bg-video-mobile {
+        display: block;
+    }
+}
 
 
 
