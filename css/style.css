@@ -313,7 +313,7 @@ Primary use: Multipurpose Template
 
     position: absolute;
     text-align: center;
-    top: 75%;
+    top: 85%;
     right: 0%;
 }
 
@@ -1404,7 +1404,7 @@ input.form-control {
 .bg-video-class {
     position: absolute;
     top: 0;
-    left: 0;
+    left: 0%;
     width: 100%;
     height: 87vh;
     object-fit: cover;
