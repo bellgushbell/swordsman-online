@@ -197,16 +197,7 @@ Primary use: Multipurpose Template
     /* ให้แสดงเป็นบล็อก */
 }
 
-@media (max-width: 961px) {
-    .loading-icon {
-        width: 100vw;
-        /* ความกว้างเท่ากับหน้าจอ */
-        height: 100vh;
-        /* ความสูงเท่ากับหน้าจอ */
-        object-fit: cover;
-        /* ปรับภาพให้ครอบคลุมพื้นที่ */
-    }
-}
+
 
 
 /* ==============================
