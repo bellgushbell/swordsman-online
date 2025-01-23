@@ -216,7 +216,7 @@ Primary use: Multipurpose Template
     width: 28%;
     height: 28%;
     /* ปรับให้สัมพันธ์กับอัตราส่วนวีดีโอ */
-    border-radius: 10px;
+
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -238,7 +238,7 @@ Primary use: Multipurpose Template
         width: 100vw;
         height: auto;
         overflow: hidden;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 4px 10px rgba(31, 5, 5, 0.3);
     }
 
     .video-container iframe.bg-video {
