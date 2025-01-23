@@ -207,17 +207,14 @@ Primary use: Multipurpose Template
 }
 
 
+/* Loading Icon Style */
 .loading-icon {
-    width: 1000px;
-    /* ปรับขนาดโลโก้ */
-    height: auto;
-}
-
-/* Loading Video Style */
-.loading-video {
     width: 100%;
+    /* ขยายความกว้างให้เต็มหน้าจอ */
     height: 100%;
+    /* ขยายความสูงให้เต็มหน้าจอ */
     object-fit: cover;
+    /* ครอบคลุมทั้งหน้าจอ */
 }
 
 .loading-screen.hidden {
