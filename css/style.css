@@ -407,8 +407,8 @@ Primary use: Multipurpose Template
         width: 100%;
         /* รูปภาพขยายเต็มปุ่ม */
         height: auto;
-        border-radius: 10px;
-        /* ขอบมน */
+
+
     }
 
     .ios-button img,
