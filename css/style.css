@@ -1161,6 +1161,10 @@ Primary use: Multipurpose Template
  * HTML5 BG VIdeo
  */
 
+
+
+
+
 .bg-video-wrapper {
     position: absolute;
     width: 100%;
@@ -1204,6 +1208,7 @@ a.bg-video-button-muted {
     display: none;
 }
 
+
 /*mobile*/
 @media (max-width: 768px) {
     .bg-video {
@@ -1213,6 +1218,7 @@ a.bg-video-button-muted {
     .bg-video-mobile {
         display: block;
     }
+
 }
 
 
@@ -1894,7 +1900,7 @@ input.form-control {
 @media (max-width: 768px) {
     .bottom-nav {
         flex-wrap: wrap;
-        justify-content: space-around;
+        justify-content: center;
         padding: 8px 0;
     }
 
@@ -1911,7 +1917,9 @@ input.form-control {
 /* สำหรับจอขนาดเล็กมาก */
 @media (max-width: 480px) {
     .bottom-nav {
-        padding: 0;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 8px 0;
     }
 
     .bottom-nav .nav-item img {
@@ -1922,6 +1930,8 @@ input.form-control {
     .bottom-nav .nav-item {
         margin: 0 5px;
     }
+
+
 }
 
 
