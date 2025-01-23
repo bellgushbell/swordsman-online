@@ -423,7 +423,7 @@ Primary use: Multipurpose Template
             width: 100%;
             position: absolute;
             text-align: center;
-            top: -10%;
+            top: -15%;
             /* ลดตำแหน่งในแนวตั้ง */
             right: 0;
         }
@@ -466,56 +466,105 @@ Primary use: Multipurpose Template
         }
     }
 
+    /* iPad Portrait (ความกว้าง 768px) */
+    @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+        .home-content {
+            width: 100%;
+            position: absolute;
+            text-align: center;
+            top: 60%;
+            /* ปรับตำแหน่งในแนวตั้ง */
+            right: 0;
+        }
+
+        .game-buttons-container {
+            margin-top: 20%;
+            padding: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            /* ให้ปุ่มล้นไปยังแถวถัดไป */
+            justify-content: center;
+        }
+
+        .download-buttons {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            /* กระจายปุ่มให้มีช่องว่างสม่ำเสมอ */
+            align-items: center;
+            width: 70%;
+            /* ลดความกว้างใน iPad Portrait */
+        }
+
+        .download-buttons a {
+            flex: 0 1 auto;
+            max-width: 40%;
+            /* จำกัดขนาดปุ่ม */
+            text-align: center;
+        }
+
+        .download-buttons img {
+            width: 100%;
+            height: auto;
+        }
+
+        .ios-button img,
+        .android-button img {
+            max-width: 120px;
+            /* ลดขนาดรูปภาพของปุ่ม */
+        }
+    }
+
+    /* iPad Landscape (ความกว้าง 1024px) */
+    @media (min-width: 1024px) and (orientation: landscape) {
+        .home-content {
+            width: 100%;
+            position: absolute;
+            text-align: center;
+            top: 30%;
+            /* ลดตำแหน่งในแนวตั้ง */
+            right: 0;
+        }
+
+        .game-buttons-container {
+            margin-top: 10%;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .download-buttons {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 60%;
+            /* ลดความกว้างใน Landscape */
+        }
+
+        .download-buttons a {
+            flex: 0 1 auto;
+            max-width: 25%;
+            /* ลดความกว้างของปุ่ม */
+            text-align: center;
+        }
+
+        .download-buttons img {
+            width: 100%;
+            height: auto;
+        }
+
+        .ios-button img,
+        .android-button img {
+            max-width: 100px;
+            /* ลดขนาดรูปภาพของปุ่มใน Landscape */
+        }
+    }
 
 }
 
 
 
-/* สำหรับ iPad Landscape หรือหน้าจอระหว่าง 769px ถึง 1024px */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .game-buttons-container {
-        margin-top: 50%;
-        padding: 10px;
-        display: flex;
-        justify-content: center;
-
-    }
-
-    .download-buttons {
-        display: flex;
-        flex-direction: row;
-        /* เรียงปุ่มในแนวนอน */
-        justify-content: space-around;
-        /* ใช้ space-around แทน space-between */
-        align-items: center;
-        /* จัดกึ่งกลางในแนวตั้ง */
-        width: 90%;
-        /* กำหนดความกว้างของพื้นที่ทั้งหมด */
-
-    }
-
-    .download-buttons a {
-        flex: 0 1 auto;
-        /* ปรับขนาดตามเนื้อหาของปุ่ม */
-        max-width: 45%;
-        /* ให้แต่ละปุ่มครอบครองพื้นที่ประมาณครึ่งหนึ่ง */
-        text-align: center;
-    }
-
-    .download-buttons img {
-        width: 100%;
-        /* รูปภาพขยายเต็มปุ่ม */
-        height: auto;
-        border-radius: 10px;
-        /* ขอบมน */
-    }
-
-    .ios-button img,
-    .android-button img {
-        max-width: 140px;
-        /* จำกัดขนาดของภาพ */
-    }
-}
 
 
 
@@ -860,6 +909,14 @@ Primary use: Multipurpose Template
 
 }
 
+.video-button img {
+    transition: transform 0.3s ease;
+}
+
+.video-button img:hover {
+    transform: scale(1.1);
+
+}
 
 /* ==============================
   Home BG Image
