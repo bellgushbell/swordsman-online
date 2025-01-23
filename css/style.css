@@ -370,7 +370,7 @@ Primary use: Multipurpose Template
 
         position: absolute;
         text-align: center;
-        top: 30%;
+        top: 40%;
         right: 0%;
     }
 
@@ -416,6 +416,57 @@ Primary use: Multipurpose Template
         max-width: 140px;
         /* จำกัดขนาดของภาพ */
     }
+
+    /* สำหรับหน้าจอขนาดเล็กในแนวนอน (landscape) */
+    @media (max-width: 768px) and (orientation: landscape) {
+        .home-content {
+            width: 100%;
+            position: absolute;
+            text-align: center;
+            top: -10%;
+            /* ลดตำแหน่งในแนวตั้ง */
+            right: 0;
+        }
+
+        .game-buttons-container {
+            margin-top: 50%;
+            padding: 5px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            /* อนุญาตให้ปุ่มล้นไปยังแถวถัดไป */
+        }
+
+        .download-buttons {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            /* กระจายปุ่มในพื้นที่ */
+            align-items: center;
+            width: 80%;
+            /* ลดความกว้างใน landscape */
+        }
+
+        .download-buttons a {
+            flex: 0 1 auto;
+            max-width: 30%;
+            /* ลดความกว้างของปุ่ม */
+            text-align: center;
+        }
+
+        .download-buttons img {
+            width: 100%;
+            height: auto;
+        }
+
+        .ios-button img,
+        .android-button img {
+            max-width: 100px;
+            /* ลดขนาดปุ่มใน landscape */
+        }
+    }
+
+
 }
 
 
@@ -886,7 +937,9 @@ Primary use: Multipurpose Template
 }
 
 
-
+/* ==============================
+  Home BG Video
+   ============================== */
 
 /*สำหรับพื้นหลังที่เป็นวีดีโอ*/
 /*
@@ -931,7 +984,6 @@ a.bg-video-button-muted {
     opacity: .75;
     z-index: 1000;
 }
-
 
 
 
