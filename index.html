@@ -40,13 +40,29 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
           },
         });
       </script>
+
+    <!-- framer motion -->
+    <script src="https://unpkg.com/framer-motion/dist/framer-motion.umd.min.js"></script>
+
+
+    <!-- Motion One -->
+    <script src="https://cdn.jsdelivr.net/npm/@motionone/dom/dist/motion.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@motionone/dom"></script>
+
+
 </head>
+
+
+
 
 <body class="appear-animate">
 
+
+
     <!-- Page Loader -->
     <div class="page-loader">
-        <div class="loader">Loading...</div>
+        <img src="images/Logo Sword Man 3 Final 2 เเถว สำหรับพื้นขาว Drop shadow.png" alt="Loading Icon"
+            class="loading-icon">
     </div>
     <!-- End Page Loader -->
 
@@ -262,7 +278,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 data-background="images/background-pic.jpg" id="home">
                 <div class="container min-height-100vh d-flex align-items-center pt-100 pb-100">
 
-                    <!-- Video BG Init -->
+                    <!-- BG Video BG Init -->
                     <!-- Please replace the video files in folder "video" with your own videos -->
                     <div class="bg-video-wrapper">
                         <video class="bg-video" preload="auto" autoplay loop muted playsinline data-object-fit="cover">
@@ -276,7 +292,15 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                         <!-- <div class="bg-video-overlay bg-dark-alfa-1"></div> -->
                     </div>
                     <!-- <a href="#" role="button" class="bg-video-button-muted"><i class="fa fa-volume-off"></i></a> -->
+
+
+
+
                     <!-- End Video BG Init -->
+
+
+
+
 
                     <!--พื้นหลังภาพ BG Image Init -->
                     <!-- <div class="bg-image-wrapper"> -->
@@ -413,23 +437,23 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                         <div class="game-buttons-container">
                             <div class="download-buttons">
                                 <!-- Play Video Button -->
-                                <a href="#" class="video-button" onclick="toggleVideo(event)">
+                                <a href="#" class="video-button button" onclick="toggleVideo(event)">
                                     <img src="images/PlayVideo.png" alt="Video Icon" />
                                 </a>
                                 <!-- iOS Button -->
-                                <a href="#" class="ios-button notify">
+                                <a href="#" class="ios-button notify button">
                                     <img src="images/download_ios.png" alt="iOS Icon" />
                                 </a>
                                 <!-- Android Button -->
-                                <a href="#" class="android-button notify">
+                                <a href="#" class="android-button notify button">
                                     <img src="images/download_google.png" alt="Android Icon" />
                                 </a>
                                 <!-- APK Button -->
-                                <a href="#" class="android-button notify">
+                                <a href="#" class="android-button notify button">
                                     <img src="images/download_APK.png" alt="APK Icon" />
                                 </a>
                                 <!-- Windows Button -->
-                                <a href="#" class="android-button notify">
+                                <a href="#" class="android-button notify button">
                                     <img src="images/windows_play_on.png" alt="Windows Icon" />
                                 </a>
                                 <!-- APK Download Button -->
@@ -455,7 +479,6 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
                             </div>
                         </div>
-
 
 
 
@@ -1828,6 +1851,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
             <!-- <script src="background-resize.js"></script> -->
 
+            <!-- loading screen -->
+            <script src="js/loading-screen-animation.js"></script>
 
 
 
