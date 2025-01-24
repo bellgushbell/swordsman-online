@@ -1957,11 +1957,11 @@ input.form-control {
     .class-stats img {
         width: 50px !important;
         /* ปรับขนาดให้เหมาะสม */
-        height: 50px !important;
+        height: auto !important;
     }
 
     .class-image img {
-        width: auto !important;
+        width: 200px !important;
         /* ปรับขนาดให้สมดุล */
         height: auto !important;
 
