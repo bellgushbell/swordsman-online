@@ -1806,6 +1806,15 @@ input.form-control {
     /* จัดแนวไอคอนกับข้อความ */
 }
 
+.class-title {
+    margin-right: 10px;
+}
+
+.class-description {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
 @media(max-width: 961px) {
     .bg-video-class {
         position: absolute;
@@ -1883,7 +1892,13 @@ input.form-control {
     }
 
     .class-title {
+        margin-right: 10px;
         font-size: 15px;
+    }
+
+    .class-description {
+        margin-right: 10px;
+        font-size: 10px;
     }
 }
 
