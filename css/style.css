@@ -1607,12 +1607,14 @@ input.form-control {
 .bg-video-class {
     position: absolute;
     top: 0;
-    left: 0%;
-    width: 100%;
+    left: 0.7;
+
+    width: 100vw !important;
     height: 87vh;
     object-fit: cover;
     z-index: -1;
     pointer-events: none;
+    border-radius: 10px;
 
 }
 
@@ -1622,8 +1624,8 @@ input.form-control {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 87vh;
+    width: 100vw !important;
+    height: 100vh !important;
     z-index: 1;
 }
 
@@ -1807,6 +1809,56 @@ input.form-control {
         border-radius: 10px;
         background-color: rgba(0, 0, 0, 0.1);
     }
+}
+
+@media (max-width: 961px) {
+    .bg-video-class {
+        pointer-events: none;
+        /* ปิดการโต้ตอบบนมือถือ */
+    }
+
+    .class-title {
+        font-size: 15px;
+    }
+
+    /* คอนเทนต์ */
+    .class-content {
+        position: relative;
+        display: flex;
+        height: 87vh;
+        justify-content: space-between;
+        align-items: flex-end;
+        z-index: 2;
+        padding-left: 20px;
+        padding-right: 0px;
+        font-size: 10px;
+
+
+    }
+
+    .class-stats img {
+        width: 70px !important;
+        height: 70px !important;
+    }
+
+    .class-image img {
+        width: 150px !important;
+        height: 150px !important;
+
+    }
+
+    .class-sidebar-wrapper {
+        position: relative;
+        width: 100px !important;
+        height: 87vh;
+        font-size: 10px;
+
+
+        overflow: hidden;
+        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
 
 }
 
