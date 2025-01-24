@@ -1950,42 +1950,32 @@ input.form-control {
 }
 
 /* สำหรับจอขนาดเล็ก */
-@media (max-width: 768px) {
+@media (max-width: 961px) {
+    .game-icon-bottom-nav img {
+        width: 20px;
+    }
+
+    .logo-icon-bottom-nav img {
+        width: 70px;
+    }
+
     .bottom-nav {
         flex-wrap: wrap;
         justify-content: center;
-        padding: 8px 0;
+        padding: 2px 0 !important;
+
     }
 
     .bottom-nav .nav-item {
-        margin: 8px 0;
+        margin: 2px 0;
     }
 
     .bottom-nav .nav-item img {
-        width: 25px;
+        width: 20px !important;
         /* ลดขนาดไอคอน */
     }
 }
 
-/* สำหรับจอขนาดเล็กมาก */
-@media (max-width: 480px) {
-    .bottom-nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 8px 0;
-    }
-
-    .bottom-nav .nav-item img {
-        width: 20px;
-        /* ลดขนาดไอคอนให้เล็กลงอีก */
-    }
-
-    .bottom-nav .nav-item {
-        margin: 0 5px;
-    }
-
-
-}
 
 
 /*ปุ่มregister */
