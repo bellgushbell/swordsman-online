@@ -1229,7 +1229,7 @@ a.bg-video-button-muted {
 
 
 /* ==============================
-   News And Event
+   News And Promotion Event
    ============================== */
 .page-section-news {
     width: 100%;
@@ -1498,6 +1498,63 @@ a.bg-video-button-muted {
         background-color: transparent;
         padding: 8px;
     }
+
+    @media (max-width: 961px) and (orientation: landscape) {
+        .page-section-news {
+            padding: 10px 20px;
+            background-attachment: scroll;
+        }
+
+        #news .container {
+            max-width: 100%;
+            padding: 0 10px;
+        }
+
+        #imageCarousel {
+            border-radius: 10px;
+        }
+
+        #imageCarousel img {
+            height: auto;
+            /* ลดความสูงสำหรับ landscape */
+            object-fit: cover;
+        }
+
+        .nav-tabs .nav-link {
+            font-size: 0.85rem;
+            /* ลดขนาดตัวอักษรเพิ่มเติม */
+            padding: 6px 10px;
+            margin-right: 2px;
+        }
+
+        .tab-content {
+            padding: 10px;
+        }
+
+        .list-group-item {
+            font-size: 0.85rem;
+            padding: 6px 8px;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 25px;
+            height: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            font-size: 18px;
+            padding: 6px;
+        }
+    }
+
+
+
+
 
 
 }
