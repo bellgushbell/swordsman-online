@@ -576,157 +576,111 @@ Primary use: Multipurpose Template
         max-width: 140px;
         /* จำกัดขนาดของภาพ */
     }
-
-    /* สำหรับหน้าจอขนาดเล็กในแนวนอน (landscape) */
-    @media (max-width: 768px) and (orientation: landscape) {
-        .home-content {
-            width: 100%;
-            height: 100vh !important;
-            position: absolute;
-            text-align: center;
-            top: 0;
-            /* ลดตำแหน่งในแนวตั้ง */
-            right: 0;
-        }
-
-        .game-buttons-container {
-            margin-top: 40%;
-            padding: 5px;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            /* อนุญาตให้ปุ่มล้นไปยังแถวถัดไป */
-        }
-
-        .download-buttons {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-evenly;
-            /* กระจายปุ่มในพื้นที่ */
-            align-items: center;
-            width: 80%;
-            /* ลดความกว้างใน landscape */
-            gap: 10px;
-        }
-
-        .download-buttons a {
-            flex: 0 1 auto;
-            max-width: 30%;
-            /* ลดความกว้างของปุ่ม */
-            text-align: center;
-        }
-
-        .download-buttons img {
-            width: 100%;
-            height: auto;
-        }
-
-        .ios-button img,
-        .android-button img {
-            max-width: 100px;
-            /* ลดขนาดปุ่มใน landscape */
-        }
-    }
-
-    /* iPad Portrait (ความกว้าง 768px) */
-    @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-        .home-content {
-            width: 100%;
-            position: absolute;
-            text-align: center;
-            top: 60%;
-            /* ปรับตำแหน่งในแนวตั้ง */
-            right: 0;
-        }
-
-        .game-buttons-container {
-            margin-top: 20%;
-            padding: 15px;
-            display: flex;
-            flex-wrap: wrap;
-            /* ให้ปุ่มล้นไปยังแถวถัดไป */
-            justify-content: center;
-        }
-
-        .download-buttons {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-evenly;
-            /* กระจายปุ่มให้มีช่องว่างสม่ำเสมอ */
-            align-items: center;
-            width: 90%;
-            /* ลดความกว้างใน iPad Portrait */
-            gap: 20px;
-        }
-
-        .download-buttons a {
-            flex: 0 1 auto;
-            max-width: 40%;
-            /* จำกัดขนาดปุ่ม */
-            text-align: center;
-        }
-
-        .download-buttons img {
-            width: 100%;
-            height: auto;
-        }
-
-        .ios-button img,
-        .android-button img {
-            max-width: 120px;
-            /* ลดขนาดรูปภาพของปุ่ม */
-        }
-    }
-
-    /* iPad Landscape (ความกว้าง 1024px) */
-    @media (min-width: 1024px) and (orientation: landscape) {
-        .home-content {
-            width: 100%;
-            height: 100vh !important;
-            position: absolute;
-            text-align: center;
-            top: 20%;
-            /* ลดตำแหน่งในแนวตั้ง */
-            right: 0;
-        }
-
-        .game-buttons-container {
-            margin-top: 10%;
-            padding: 10px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .download-buttons {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-evenly;
-            align-items: center;
-            width: 60%;
-            /* ลดความกว้างใน Landscape */
-            gap: 5px;
-        }
-
-        .download-buttons a {
-            flex: 0 1 auto;
-            max-width: 25%;
-            /* ลดความกว้างของปุ่ม */
-            text-align: center;
-        }
-
-        .download-buttons img {
-            width: 100%;
-            height: auto;
-        }
-
-        .ios-button img,
-        .android-button img {
-            max-width: 100px;
-            /* ลดขนาดรูปภาพของปุ่มใน Landscape */
-        }
-    }
-
 }
+
+/* สำหรับหน้าจอขนาดเล็กในแนวนอน (landscape) */
+@media (max-width: 768px) and (orientation: landscape) {
+    .home-content {
+        width: 100%;
+        height: 100vh !important;
+        position: absolute;
+        text-align: center;
+        top: 0;
+        /* ลดตำแหน่งในแนวตั้ง */
+        right: 0;
+    }
+
+    .game-buttons-container {
+        margin-top: 40%;
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        /* อนุญาตให้ปุ่มล้นไปยังแถวถัดไป */
+    }
+
+    .download-buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        /* กระจายปุ่มในพื้นที่ */
+        align-items: center;
+        width: 80%;
+        /* ลดความกว้างใน landscape */
+        gap: 10px;
+    }
+
+    .download-buttons a {
+        flex: 0 1 auto;
+        max-width: 30%;
+        /* ลดความกว้างของปุ่ม */
+        text-align: center;
+    }
+
+    .download-buttons img {
+        width: 100%;
+        height: auto;
+    }
+
+    .ios-button img,
+    .android-button img {
+        max-width: 100px;
+        /* ลดขนาดปุ่มใน landscape */
+    }
+}
+
+/* iPad Portrait (ความกว้าง 768px) */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .home-content {
+        width: 100%;
+        position: absolute;
+        text-align: center;
+        top: 60%;
+        /* ปรับตำแหน่งในแนวตั้ง */
+        right: 0;
+    }
+
+    .game-buttons-container {
+        margin-top: 20%;
+        padding: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        /* ให้ปุ่มล้นไปยังแถวถัดไป */
+        justify-content: center;
+    }
+
+    .download-buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        /* กระจายปุ่มให้มีช่องว่างสม่ำเสมอ */
+        align-items: center;
+        width: 90%;
+        /* ลดความกว้างใน iPad Portrait */
+        gap: 20px;
+    }
+
+    .download-buttons a {
+        flex: 0 1 auto;
+        max-width: 40%;
+        /* จำกัดขนาดปุ่ม */
+        text-align: center;
+    }
+
+    .download-buttons img {
+        width: 100%;
+        height: auto;
+    }
+
+    .ios-button img,
+    .android-button img {
+        max-width: 120px;
+        /* ลดขนาดรูปภาพของปุ่ม */
+    }
+}
+
+
+
 
 
 
