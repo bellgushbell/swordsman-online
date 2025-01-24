@@ -1649,7 +1649,7 @@ input.form-control {
     top: 0;
     left: 0;
     width: 100vw !important;
-    height: 100vh !important;
+    height: 87vh !important;
     z-index: 1;
 }
 
@@ -1665,13 +1665,37 @@ input.form-control {
 
 }
 
+/* ข้อมูลคลาส */
+.class-details {
+    position: absolute;
+    /* ใช้ absolute เพื่ออ้างอิงจาก .class-content */
+    bottom: 0;
+    /* ชิดขอบล่าง */
+    right: 0;
+    /* ชิดขอบขวา */
+    width: 500px;
+    /* กำหนดความกว้าง */
+    text-align: right;
+    z-index: 3;
+    /* เพื่อให้อยู่เหนือ element อื่นถ้าจำเป็น */
+}
+
 /* แถบ Class Sidebar */
 .class-sidebar-wrapper {
-    position: relative;
-    width: 200px;
-    height: 87vh;
+    position: absolute;
+    left: 10px;
+    /* ระยะห่างจากด้านซ้าย */
+    top: 50%;
+    /* ตรงกลางในแนวตั้ง */
+    transform: translateY(-50%);
+    /* ปรับให้อยู่ตรงกลางพอดี */
+    width: 80px !important;
+    /* ลดความกว้างให้สมดุล */
+    height: 600px !important;
+    /* ความสูงที่กำหนด */
+    font-size: 10px;
     overflow: hidden;
-    border-radius: 10px;
+    border-radius: 8px;
     background-color: rgba(0, 0, 0, 0.1);
 }
 
@@ -1725,12 +1749,6 @@ input.form-control {
     /* สำหรับเบราว์เซอร์ Chrome, Edge และ Safari */
 }
 
-/* ข้อมูลคลาส */
-.class-details {
-    width: 500px;
-    text-align: right;
-
-}
 
 .class-image img {
     width: 100%;
@@ -1786,7 +1804,7 @@ input.form-control {
     /* จัดแนวไอคอนกับข้อความ */
 }
 
-@media (max-width: 961px) {
+@media(max-width: 961px) {
     .bg-video-class {
         position: absolute;
         top: 0;
@@ -1867,56 +1885,6 @@ input.form-control {
 }
 
 
-@media (max-width: 961px) and (orientation: landscape) {
-    .bg-video-class {
-        pointer-events: none;
-        /* ปิดการโต้ตอบบนมือถือ */
-    }
-
-    .class-title {
-        font-size: 18px;
-        /* ปรับขนาดตัวอักษรให้ใหญ่ขึ้นสำหรับ Landscape */
-    }
-
-    /* คอนเทนต์ */
-    .class-content {
-        position: relative;
-        display: flex;
-        height: 70vh;
-        /* ลดความสูงลงสำหรับ Landscape */
-        justify-content: space-between;
-        align-items: flex-end;
-        z-index: 2;
-        padding-left: 15px;
-        padding-right: 15px;
-        font-size: 12px;
-        /* ขนาดตัวอักษรเพิ่มเล็กน้อย */
-    }
-
-    .class-stats img {
-        width: 60px !important;
-        height: 60px !important;
-    }
-
-    .class-image img {
-        width: 120px !important;
-        height: 120px !important;
-    }
-
-    .class-sidebar-wrapper {
-        position: relative;
-        width: 90px !important;
-        /* ลดความกว้าง */
-        height: 70vh;
-        /* ลดความสูงลงใน Landscape */
-        font-size: 12px;
-
-        overflow: hidden;
-        border-radius: 8px;
-        /* ลดมุมโค้งเล็กน้อย */
-        background-color: rgba(0, 0, 0, 0.1);
-    }
-}
 
 
 
