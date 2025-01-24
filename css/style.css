@@ -1634,7 +1634,7 @@ input.form-control {
     left: 0;
 
     width: 100vw !important;
-    height: 90vh;
+    height: 100vh;
     object-fit: cover;
     z-index: -1;
     pointer-events: none;
@@ -1669,12 +1669,13 @@ input.form-control {
 .class-details {
     position: absolute;
     /* ใช้ absolute เพื่ออ้างอิงจาก .class-content */
-    bottom: 10%;
+    bottom: 0%;
     /* ชิดขอบล่าง */
     right: 0;
     /* ชิดขอบขวา */
     width: 500px;
     /* กำหนดความกว้าง */
+    height: auto;
     text-align: right;
     z-index: 3;
     /* เพื่อให้อยู่เหนือ element อื่นถ้าจำเป็น */
@@ -1683,15 +1684,15 @@ input.form-control {
 /* แถบ Class Sidebar */
 .class-sidebar-wrapper {
     position: absolute;
-    left: 10px;
+    left: 30px;
     /* ระยะห่างจากด้านซ้าย */
     top: 50%;
     /* ตรงกลางในแนวตั้ง */
     transform: translateY(-50%);
     /* ปรับให้อยู่ตรงกลางพอดี */
-    width: 80px !important;
+    width: 100px !important;
     /* ลดความกว้างให้สมดุล */
-    height: 500px !important;
+    height: 600px !important;
     /* ความสูงที่กำหนด */
     font-size: 10px;
     overflow: hidden;
@@ -1751,8 +1752,9 @@ input.form-control {
 
 
 .class-image img {
-    width: 100%;
-    height: 400px !important;
+
+    height: auto !important;
+    width: auto !important;
     margin-left: 20px;
 }
 
@@ -1865,6 +1867,8 @@ input.form-control {
         background-color: rgba(0, 0, 0, 0.1);
     }
 
+
+
     .class-stats img {
         width: 90px !important;
         /* ปรับขนาดให้เหมาะสม */
@@ -1888,7 +1892,6 @@ input.form-control {
         position: absolute;
         top: 0;
         left: 0;
-
         width: 100vw !important;
         height: 100vh !important;
         object-fit: cover;
@@ -1902,6 +1905,7 @@ input.form-control {
         position: relative;
         display: flex;
         height: 100vh;
+
         /* ปรับให้สมดุลกับ bg-video-class */
         justify-content: space-between;
         align-items: flex-end;
@@ -1912,17 +1916,17 @@ input.form-control {
         font-size: 10px;
     }
 
+    /* รายละเอียดคลาส */
     .class-details {
         position: absolute;
         right: 0;
-        /* ระยะห่างจากด้านขวา */
+        /* ชิดขวา */
         bottom: 0;
-        /* ชิดขอบล่างของ .class-content */
-        width: 300px !important;
-        /* ลดความกว้างให้สมดุล */
-        height: 300px !important;
-        /* ความสูง */
-        font-size: 10px;
+        /* ชิดล่าง */
+        width: 250px;
+        /* กำหนดความกว้างตามความเหมาะสม */
+        height: auto;
+        font-size: 12px;
         overflow: hidden;
     }
 
@@ -1936,12 +1940,18 @@ input.form-control {
         /* ปรับให้อยู่ตรงกลางพอดี */
         width: 90px !important;
         /* ลดความกว้างให้สมดุล */
-        height: 300px !important;
+        height: 250px !important;
         /* ความสูงที่กำหนด */
-        font-size: 10px;
+        font-size: 8px;
         overflow: hidden;
         border-radius: 8px;
         background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .menu-icon {
+        width: 30px !important;
+        height: 30px !important;
+        margin: 0 auto;
     }
 
     .class-stats img {
@@ -1951,9 +1961,9 @@ input.form-control {
     }
 
     .class-image img {
-        width: 100px !important;
+        width: auto !important;
         /* ปรับขนาดให้สมดุล */
-        height: 100px !important;
+        height: auto !important;
 
     }
 
