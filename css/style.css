@@ -1870,9 +1870,9 @@ input.form-control {
 
 
     .class-stats img {
-        width: 90px !important;
+        width: 50px !important;
         /* ปรับขนาดให้เหมาะสม */
-        height: auto !important;
+        height: 50px !important;
     }
 
     .class-image img {
@@ -1957,7 +1957,7 @@ input.form-control {
     .class-stats img {
         width: 50px !important;
         /* ปรับขนาดให้เหมาะสม */
-        height: auto !important;
+        height: 50px !important;
     }
 
     .class-image img {
