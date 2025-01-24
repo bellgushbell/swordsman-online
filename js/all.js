@@ -2,6 +2,7 @@
     "use strict"; // Start of use strict
 
 
+
     /* ---------------------------------------------
      Scripts initialization
      --------------------------------------------- */
@@ -523,20 +524,20 @@
      Parallax
      --------------------------------------------- */
 
-    // function init_parallax() {
-    //     if (($(window).width() >= 1024) && (mobileTest == false) && $("html").hasClass("no-touch")) {
-    //         $(".parallax-1").each(function () { $(this).parallax("50%", 0.1); });
-    //         $(".parallax-2").each(function () { $(this).parallax("50%", 0.2); });
-    //         $(".parallax-3").each(function () { $(this).parallax("50%", 0.3); });
-    //         $(".parallax-4").each(function () { $(this).parallax("50%", 0.4); });
-    //         $(".parallax-5").each(function () { $(this).parallax("50%", 0.5); });
-    //         $(".parallax-6").each(function () { $(this).parallax("50%", 0.6); });
-    //         $(".parallax-7").each(function () { $(this).parallax("50%", 0.7); });
-    //         $(".parallax-8").each(function () { $(this).parallax("50%", 0.8); });
-    //         $(".parallax-9").each(function () { $(this).parallax("50%", 0.9); });
-    //         $(".parallax-10").each(function () { $(this).parallax("50%", 0.1); });
-    //     }
-    // }
+    function init_parallax() {
+        if (($(window).width() >= 1024) && (mobileTest == false) && $("html").hasClass("no-touch")) {
+            $(".parallax-1").each(function () { $(this).parallax("50%", 0.1); });
+            $(".parallax-2").each(function () { $(this).parallax("50%", 0.2); });
+            $(".parallax-3").each(function () { $(this).parallax("50%", 0.3); });
+            $(".parallax-4").each(function () { $(this).parallax("50%", 0.4); });
+            $(".parallax-5").each(function () { $(this).parallax("50%", 0.5); });
+            $(".parallax-6").each(function () { $(this).parallax("50%", 0.6); });
+            $(".parallax-7").each(function () { $(this).parallax("50%", 0.7); });
+            $(".parallax-8").each(function () { $(this).parallax("50%", 0.8); });
+            $(".parallax-9").each(function () { $(this).parallax("50%", 0.9); });
+            $(".parallax-10").each(function () { $(this).parallax("50%", 0.1); });
+        }
+    }
 
 
     /* -------------------------------------------
