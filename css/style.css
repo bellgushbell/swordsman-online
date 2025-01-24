@@ -1176,6 +1176,30 @@ a.bg-video-button-muted {
 
     .bg-video-mobile {
         display: block;
+
+    }
+
+    .bg-image-mobile {
+        display: block;
+        width: 100% !important;
+        height: 100vh !important;
+    }
+
+    @media (max-width: 768px) and (orientation: landscape) {
+        .bg-video {
+            display: none;
+        }
+
+        .bg-image-mobile {
+            display: none;
+
+        }
+
+        .bg-image-landscape {
+            display: block;
+            width: 100% !important;
+            height: 100vh !important;
+        }
     }
 
 }
@@ -1773,25 +1797,36 @@ input.form-control {
         object-fit: cover;
         z-index: -1;
         pointer-events: none;
-        border-radius: 10px;
-    }
-
-    .class-title {
-        font-size: 15px;
     }
 
     /* คอนเทนต์ */
     .class-content {
         position: relative;
         display: flex;
-        height: 45vh;
+        height: 55vh;
         /* ปรับให้สมดุลกับ bg-video-class */
         justify-content: space-between;
         align-items: flex-end;
+        /* ชิดล่าง */
         z-index: 2;
         padding-left: 20px;
         padding-right: 10px;
         font-size: 10px;
+    }
+
+    .class-details {
+        position: absolute;
+        right: 10px;
+        /* เว้นจากด้านขวา */
+        bottom: 10px;
+        /* ชิดด้านล่าง */
+        width: 300px !important;
+        /* ลดความกว้างให้สมดุล */
+        height: 300px !important;
+        /* ความสูงเท่ากับ bg-video-class */
+        font-size: 10px;
+        overflow: hidden;
+
     }
 
     .class-stats img {
@@ -1804,14 +1839,15 @@ input.form-control {
         width: 180px !important;
         /* ปรับขนาดให้สมดุล */
         height: 180px !important;
+
     }
 
     .class-sidebar-wrapper {
         position: absolute;
-        top: 10%;
+        top: 0;
         width: 80px !important;
         /* ลดความกว้างให้สมดุล */
-        height: 300px !important;
+        height: 280px !important;
         /* ความสูงเท่ากับ bg-video-class */
         font-size: 10px;
         overflow: hidden;
@@ -1819,17 +1855,8 @@ input.form-control {
         background-color: rgba(0, 0, 0, 0.1);
     }
 
-    .class-details {
-        position: absolute;
-        right: 0%;
-        top: 15%;
-        width: 300px !important;
-        /* ลดความกว้างให้สมดุล */
-        height: 300px !important;
-        /* ความสูงเท่ากับ bg-video-class */
-        font-size: 10px;
-        overflow: hidden;
-
+    .class-title {
+        font-size: 15px;
     }
 }
 
