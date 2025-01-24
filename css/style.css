@@ -315,13 +315,7 @@ Primary use: Multipurpose Template
 /* ==============================
    Home sections
    ============================== */
-@media screen and (max-width: 768px) {
-    .home-section {
-        background-attachment: scroll;
-        transition: none !important;
-        animation: none !important;
-    }
-}
+
 
 /*
  * Header common styles
