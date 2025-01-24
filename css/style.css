@@ -682,9 +682,10 @@ Primary use: Multipurpose Template
     @media (min-width: 1024px) and (orientation: landscape) {
         .home-content {
             width: 100%;
+            height: 100vh !important;
             position: absolute;
             text-align: center;
-            top: 30%;
+            top: 50%;
             /* ลดตำแหน่งในแนวตั้ง */
             right: 0;
         }
