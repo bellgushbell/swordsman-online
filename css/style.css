@@ -1769,7 +1769,7 @@ input.form-control {
         left: 0;
 
         width: 100vw !important;
-        height: 50vh !important;
+        height: 55vh !important;
         object-fit: cover;
         z-index: -1;
         pointer-events: none;
