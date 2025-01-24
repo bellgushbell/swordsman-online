@@ -322,12 +322,12 @@ Primary use: Multipurpose Template
 
 .home-section {
     width: 100%;
-    min-height: calc(var(--vh, 1vh) * 100);
+    min-height: 100vh;
     display: block;
     position: relative;
     overflow: hidden;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: scroll;
     background-position: center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
