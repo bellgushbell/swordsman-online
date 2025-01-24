@@ -2,6 +2,12 @@
     "use strict"; // Start of use strict
 
 
+    window.addEventListener('scroll', () => {
+        const homeSection = document.querySelector('.home-section');
+        if (window.scrollY > 0) {
+            homeSection.style.height = '100vh'; // ล็อกความสูงไม่ให้เปลี่ยน
+        }
+    });
 
 
     /* ---------------------------------------------
