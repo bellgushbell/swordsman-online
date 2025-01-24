@@ -583,7 +583,7 @@ Primary use: Multipurpose Template
             width: 100%;
             position: absolute;
             text-align: center;
-            top: -20%;
+            top: -25%;
             /* ลดตำแหน่งในแนวตั้ง */
             right: 0;
         }
