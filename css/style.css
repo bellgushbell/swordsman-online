@@ -1817,16 +1817,35 @@ input.form-control {
     .class-details {
         position: absolute;
         right: 10px;
-        /* เว้นจากด้านขวา */
-        bottom: 10px;
-        /* ชิดด้านล่าง */
+        /* ระยะห่างจากด้านขวา */
+        top: 60%;
+        /* ตรงกลางในแนวตั้ง */
+        transform: translateY(-50%);
+        /* ปรับให้อยู่ตรงกลางพอดี */
         width: 300px !important;
         /* ลดความกว้างให้สมดุล */
         height: 300px !important;
         /* ความสูงเท่ากับ bg-video-class */
         font-size: 10px;
         overflow: hidden;
+    }
 
+    .class-sidebar-wrapper {
+        position: absolute;
+        left: 10px;
+        /* ระยะห่างจากด้านซ้าย */
+        top: 50%;
+        /* ตรงกลางในแนวตั้ง */
+        transform: translateY(-50%);
+        /* ปรับให้อยู่ตรงกลางพอดี */
+        width: 80px !important;
+        /* ลดความกว้างให้สมดุล */
+        height: 300px !important;
+        /* ความสูงที่กำหนด */
+        font-size: 10px;
+        overflow: hidden;
+        border-radius: 8px;
+        background-color: rgba(0, 0, 0, 0.1);
     }
 
     .class-stats img {
@@ -1842,18 +1861,7 @@ input.form-control {
 
     }
 
-    .class-sidebar-wrapper {
-        position: absolute;
-        top: 0;
-        width: 80px !important;
-        /* ลดความกว้างให้สมดุล */
-        height: 280px !important;
-        /* ความสูงเท่ากับ bg-video-class */
-        font-size: 10px;
-        overflow: hidden;
-        border-radius: 8px;
-        background-color: rgba(0, 0, 0, 0.1);
-    }
+
 
     .class-title {
         font-size: 15px;
