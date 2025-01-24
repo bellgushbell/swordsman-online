@@ -529,12 +529,12 @@ Primary use: Multipurpose Template
         height: 100vh !important;
         position: absolute;
         text-align: center;
-        top: 20%;
+        bottom: 40%;
         right: 0%;
     }
 
     .game-buttons-container {
-        margin-top: 80%;
+        margin-top: 0%;
         padding: 10px;
         display: flex;
         justify-content: center;
