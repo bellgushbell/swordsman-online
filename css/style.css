@@ -584,13 +584,13 @@ Primary use: Multipurpose Template
             height: 100vh !important;
             position: absolute;
             text-align: center;
-            top: -35%;
+            top: 0;
             /* ลดตำแหน่งในแนวตั้ง */
             right: 0;
         }
 
         .game-buttons-container {
-            margin-top: 50%;
+            margin-top: 40%;
             padding: 5px;
             display: flex;
             justify-content: center;
@@ -685,7 +685,7 @@ Primary use: Multipurpose Template
             height: 100vh !important;
             position: absolute;
             text-align: center;
-            top: 50%;
+            top: 20%;
             /* ลดตำแหน่งในแนวตั้ง */
             right: 0;
         }
