@@ -1841,9 +1841,9 @@ input.form-control {
         /* ระยะห่างจากด้านขวา */
         bottom: 0;
         /* ชิดขอบล่างของ .class-content */
-        width: 300px !important;
+        width: auto !important;
         /* ลดความกว้างให้สมดุล */
-        height: 300px !important;
+        height: auto !important;
         /* ความสูง */
         font-size: 10px;
         overflow: hidden;
@@ -1872,13 +1872,13 @@ input.form-control {
     .class-stats img {
         width: 90px !important;
         /* ปรับขนาดให้เหมาะสม */
-        height: 90px !important;
+        height: auto !important;
     }
 
     .class-image img {
-        width: 180px !important;
-        /* ปรับขนาดให้สมดุล */
-        height: 180px !important;
+        width: 200px !important;
+
+        height: auto !important;
 
     }
 
