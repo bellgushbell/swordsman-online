@@ -526,10 +526,10 @@ Primary use: Multipurpose Template
 @media (max-width: 768px) {
     .home-content {
         width: 100%;
-
+        height: 100vh !important;
         position: absolute;
         text-align: center;
-        top: 30%;
+        top: 20%;
         right: 0%;
     }
 
