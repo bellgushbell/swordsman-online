@@ -529,7 +529,7 @@ Primary use: Multipurpose Template
 
         position: absolute;
         text-align: center;
-        top: 40%;
+        top: 30%;
         right: 0%;
     }
 
@@ -633,7 +633,7 @@ Primary use: Multipurpose Template
             width: 100%;
             position: absolute;
             text-align: center;
-            top: 70%;
+            top: 60%;
             /* ปรับตำแหน่งในแนวตั้ง */
             right: 0;
         }
