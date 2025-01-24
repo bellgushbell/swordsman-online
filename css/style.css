@@ -1906,13 +1906,13 @@ input.form-control {
     .bg-video-class {
         position: absolute;
         top: 0;
-        left: 0;
+        left: 0.7;
         width: 100vw !important;
         height: 100vh !important;
         object-fit: cover;
         z-index: -1;
         pointer-events: none;
-        border-radius: 0px;
+        border-radius: 10px;
     }
 
     /* คอนเทนต์ */
