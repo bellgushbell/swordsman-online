@@ -1625,10 +1625,31 @@ input.form-control {
 /* ==============================
   Class Preview 
    ============================== */
-
+/* กรณีเป็นภาพพื้นหลัง */
+/* รอทำแบบมือืถอ ลองทดสอบก่อน*/
+.bg-image-class {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw !important;
+    height: 100vh !important;
+    object-fit: cover;
+    /* ครอบคลุมพื้นที่ */
+    z-index: -1;
+    /* ให้อยู่ด้านหลัง */
+    pointer-events: none;
+    /* ปิดการโต้ตอบ */
+    border-radius: 0px;
+    /* ไม่มีขอบโค้ง */
+    /* ให้รูปภาพอยู่ด้านหลังวิดีโอ */
+    display: none;
+    /* เปิด/ปิด */
+}
 
 /* วีดีโอพื้นหลัง */
 .bg-video-class {
+    /* display: none; */
+    /* เปิด/ปิด */
     position: absolute;
     top: 0;
     left: 0;
