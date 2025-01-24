@@ -2,6 +2,15 @@
     "use strict"; // Start of use strict
 
 
+    // คำนวณความสูงที่แท้จริงของ viewport และตั้งค่าเป็น custom property
+    function setViewportHeight() {
+        const vh = window.innerHeight * 0.01; // คำนวณ 1% ของความสูง viewport
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+
+    // เรียกใช้ฟังก์ชันเมื่อโหลดหน้าและเมื่อปรับขนาดหน้าต่าง
+    setViewportHeight();
+    window.addEventListener('resize', setViewportHeight);
 
     /* ---------------------------------------------
      Scripts initialization
