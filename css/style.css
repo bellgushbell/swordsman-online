@@ -323,7 +323,7 @@ Primary use: Multipurpose Template
 
 .home-section {
     width: 100%;
-    height: 100vh;
+    height: 100vh !important;
     display: block;
     position: relative;
     overflow: hidden;
@@ -334,6 +334,7 @@ Primary use: Multipurpose Template
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+
 }
 
 
@@ -528,7 +529,7 @@ Primary use: Multipurpose Template
 
         position: absolute;
         text-align: center;
-        top: 30%;
+        top: 40%;
         right: 0%;
     }
 
@@ -582,7 +583,7 @@ Primary use: Multipurpose Template
             width: 100%;
             position: absolute;
             text-align: center;
-            top: -15%;
+            top: -20%;
             /* ลดตำแหน่งในแนวตั้ง */
             right: 0;
         }
@@ -632,7 +633,7 @@ Primary use: Multipurpose Template
             width: 100%;
             position: absolute;
             text-align: center;
-            top: 60%;
+            top: 70%;
             /* ปรับตำแหน่งในแนวตั้ง */
             right: 0;
         }
