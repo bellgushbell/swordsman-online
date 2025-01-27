@@ -2262,6 +2262,63 @@ input.form-control {
 }
 
 
+@media (max-width: 961px) {
+
+    /* Sidebar */
+    .sidebar {
+        height: 250px;
+        /* ลดความสูงของ Sidebar */
+        width: 35px;
+        /* ปรับความกว้าง */
+        padding: 0px;
+        /* ลด Padding */
+    }
+
+    /* Navigation Items */
+    .nav-item {
+        width: 30px;
+        /* ลดขนาดของไอเทม */
+        height: 30px;
+        /* ลดขนาดของไอเทม */
+        margin: 5px 0;
+        /* ลดระยะห่างระหว่างไอเทม */
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+        /* ลดเงา */
+    }
+
+    .nav-item i {
+        font-size: 16px;
+        /* ลดขนาดของไอคอน */
+    }
+
+    /* Toggle Button */
+    .toggle-button {
+        width: 40px;
+        /* ลดขนาดของปุ่ม */
+        height: 40px;
+        /* ลดขนาดของปุ่ม */
+    }
+
+    .toggle-button i {
+        font-size: 30px;
+        /* ลดขนาดไอคอนในปุ่ม */
+    }
+
+    /* เมื่อ Sidebar ถูกซ่อน */
+    .sidebar.collapsed {
+        height: auto;
+        /* ปรับความสูงเมื่อ Sidebar ถูกซ่อน */
+    }
+
+    /* เพิ่มเอฟเฟกต์ hover */
+    .toggle-button:hover,
+    .nav-item:hover {
+        transform: scale(1.05);
+        /* ลดเอฟเฟกต์ hover เล็กน้อย */
+    }
+}
+
+
 
 
 
