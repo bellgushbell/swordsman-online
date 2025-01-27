@@ -94,10 +94,10 @@
 particlesJS("particles-js", {
     "particles": {
         "number": {
-            "value": 2, // จำนวนของ bubble
+            "value": 1, // จำนวนของ bubble
             "density": {
                 "enable": true,
-                "value_area": 800
+                "value_area": 500
             }
         },
         "color": {
@@ -161,7 +161,7 @@ particlesJS("particles-js", {
         "modes": {
             "bubble": {
                 "distance": 150, // ระยะห่างที่เกิดเอฟเฟกต์ bubble
-                "size": 15, // ขนาดของ bubble ที่เพิ่มขึ้นเมื่อ hover
+                "size": 8, // ขนาดของ bubble ที่เพิ่มขึ้นเมื่อ hover
                 "duration": 1, // ระยะเวลาของเอฟเฟกต์
                 "opacity": 0.8, // ความโปร่งใสระหว่างเอฟเฟกต์
                 "speed": 3
@@ -171,7 +171,7 @@ particlesJS("particles-js", {
                 "duration": 0.4
             },
             "push": {
-                "particles_nb": 4
+                "particles_nb": 2
             },
             "remove": {
                 "particles_nb": 2
@@ -180,4 +180,3 @@ particlesJS("particles-js", {
     },
     "retina_detect": true
 });
-
