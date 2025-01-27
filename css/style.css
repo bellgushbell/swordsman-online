@@ -179,6 +179,20 @@ Primary use: Multipurpose Template
     }
 }
 
+/* ==============================
+   Particle JS Background Animation จุลภาค
+   ============================== */
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    /* ทำให้อนุภาคอยู่ใต้เนื้อหาหลัก */
+}
+
 
 
 /* ==============================
@@ -472,6 +486,7 @@ Primary use: Multipurpose Template
     /* จัดปุ่มให้อยู่กึ่งกลาง */
     align-items: center;
     margin-left: 50px 0;
+    z-index: 3;
 }
 
 .download-buttons a {
