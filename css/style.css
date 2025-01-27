@@ -2203,9 +2203,9 @@ input.form-control {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50px;
+    width: 20px;
     /* กำหนดขนาดเท่ากัน */
-    height: 50px !important;
+    height: 20px !important;
     background-color: rgba(0, 0, 0, 0.001);
     color: white;
     outline: none;
@@ -2225,6 +2225,7 @@ input.form-control {
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 #toggle-btn {
@@ -2295,9 +2296,9 @@ input.form-control {
 
     /* Toggle Button */
     .toggle-button {
-        width: 40px;
+        width: 20px;
         /* ลดขนาดของปุ่ม */
-        height: 40px;
+        height: 20px;
         /* ลดขนาดของปุ่ม */
     }
 
