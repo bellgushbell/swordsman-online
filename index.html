@@ -237,13 +237,13 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
         <!-- Sidebar -->
         <div id="sidebar" class="sidebar">
-            <a href="#" class="nav-item">
+            <!-- <a href="#" class="nav-item">
                 <img src="images/shortcut-icon.png" alt="Game Icon" width="30">
-            </a>
+            </a> -->
             <!-- <a href="#" class="nav-item">
                 <img src="images/Logo Sword Man 3 Final สำหรับพื้นดำ.jpg" alt="Logo Icon" width="100">
             </a> -->
-            <a href="#" class="nav-item">
+            <!-- <a href="#" class="nav-item">
                 <img src="images/Bottom-Nav-Icon/IOS.png" alt="iOS">
             </a>
             <a href="#" class="nav-item">
@@ -254,6 +254,11 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             </a>
             <a href="#" class="nav-item">
                 <img src="images/Bottom-Nav-Icon/PC.png" alt="Windows">
+            </a> -->
+
+
+            <a id="toggle-btn" href="javascript:void(0)" class="nav-item toggle-button" onclick="toggleSidebar()">
+                <i class="fas fa-angle-right"></i>
             </a>
             <a href="#" class="nav-item">
                 <img src="images/Bottom-Nav-Icon/Facebook.png" alt="Facebook">
@@ -272,10 +277,6 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             </a>
         </div>
 
-        <!-- Toggle Button -->
-        <div id="sidebar-toggle" onclick="toggleSidebar()" class="toggle-button">
-            <span><i class="fas fa-angle-right"></i> ปิด</span>
-        </div>
 
 
         <!--End Sidebar Navigation Panel -->
@@ -340,7 +341,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                     <!-- Please replace the video files in folder "video" with your own videos -->
                     <div class="bg-video-wrapper">
                         <video class="bg-video" preload="auto" autoplay loop muted playsinline data-object-fit="cover">
-                            <source src="video/ปก-Web.mp4" type="video/mp4">
+                            <source src="video/video-bg-test.mp4" type="video/mp4">
                         </video>
                         <!-- mobile -->
                         <!-- video -->
@@ -650,32 +651,40 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                 <div id="events-tab-pane" class="tab-pane" style="display: none;">
                                     <ul class="list-group">
                                         <li class="list-group-item">
-                                            <a href="#" class="text-decoration-none">กิจกรรมที่ 1 - รายละเอียด...</a>
+                                            <a href="#" class="text-decoration-none">กิจกรรมที่ 1 -
+                                                รายละเอียด...</a>
                                         </li>
                                         <li class="list-group-item">
-                                            <a href="#" class="text-decoration-none">กิจกรรมที่ 2 - รายละเอียด...</a>
+                                            <a href="#" class="text-decoration-none">กิจกรรมที่ 2 -
+                                                รายละเอียด...</a>
                                         </li>
                                         <li class="list-group-item">
-                                            <a href="#" class="text-decoration-none">กิจกรรมที่ 3 - รายละเอียด...</a>
+                                            <a href="#" class="text-decoration-none">กิจกรรมที่ 3 -
+                                                รายละเอียด...</a>
                                         </li>
                                         <li class="list-group-item">
-                                            <a href="#" class="text-decoration-none">กิจกรรมที่ 4 - รายละเอียด...</a>
+                                            <a href="#" class="text-decoration-none">กิจกรรมที่ 4 -
+                                                รายละเอียด...</a>
                                         </li>
                                         <li class="list-group-item">
-                                            <a href="#" class="text-decoration-none">กิจกรรมที่ 5 - รายละเอียด...</a>
+                                            <a href="#" class="text-decoration-none">กิจกรรมที่ 5 -
+                                                รายละเอียด...</a>
                                         </li>
                                         <li class="list-group-item">
-                                            <a href="#" class="text-decoration-none">กิจกรรมที่ 6 - รายละเอียด...</a>
+                                            <a href="#" class="text-decoration-none">กิจกรรมที่ 6 -
+                                                รายละเอียด...</a>
                                         </li>
                                     </ul>
                                 </div>
                                 <div id="promotions-tab-pane" class="tab-pane" style="display: none;">
                                     <ul class="list-group">
                                         <li class="list-group-item">
-                                            <a href="#" class="text-decoration-none">โปรโมชั่นที่ 1 - รายละเอียด...</a>
+                                            <a href="#" class="text-decoration-none">โปรโมชั่นที่ 1 -
+                                                รายละเอียด...</a>
                                         </li>
                                         <li class="list-group-item">
-                                            <a href="#" class="text-decoration-none">โปรโมชั่นที่ 2 - รายละเอียด...</a>
+                                            <a href="#" class="text-decoration-none">โปรโมชั่นที่ 2 -
+                                                รายละเอียด...</a>
                                         </li>
                                     </ul>
                                 </div>

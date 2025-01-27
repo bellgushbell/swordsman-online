@@ -2156,38 +2156,30 @@ input.form-control {
 .sidebar {
     position: fixed;
     top: 50%;
-    right: 5px;
-    /* ระยะห่างจากขอบขวาของจอ */
+    right: 0;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.2);
     border-radius: 8px;
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
     padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
+    /* จัดให้ปุ่มอยู่ตำแหน่งเดิม */
+    height: 380px;
+    /* กำหนดความสูงคงที่ */
     transition: transform 0.3s ease, opacity 0.3s ease;
     z-index: 999;
     opacity: 1;
-    pointer-events: auto;
 }
 
+/* เมื่อ Sidebar ถูกซ่อน */
 .sidebar.collapsed {
-    transform: translateX(200%);
-    /* เลื่อนออกนอกจอ */
-    opacity: 0;
-    /* ซ่อน Sidebar */
-    pointer-events: none;
-    /* ปิดการโต้ตอบ */
-}
-
-.sidebar.collapsed {
-    right: -150px;
-    /* เลื่อน Sidebar ออกจากจอไปทางขวา */
-    opacity: 0;
-    /* ซ่อน Sidebar */
-    pointer-events: none;
-    /* ปิดการโต้ตอบ */
+    height: auto;
+    /* หรือกำหนดความสูงที่เหมาะสม */
+    justify-content: center;
+    /* จัดปุ่มให้อยู่ตรงกลาง */
 }
 
 /* Navigation Items */
@@ -2196,70 +2188,81 @@ input.form-control {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 30px;
-    /* ขนาดของวงกลม */
-    height: 30px;
+    width: 40px;
+    height: 40px;
     background-color: white;
-    /* วงกลมสีขาว */
     border-radius: 50%;
-    /* ทำให้เป็นวงกลม */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    /* เพิ่มเงา */
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.nav-item img {
-    filter: grayscale(1);
-    /* ขาวดำ */
-    opacity: 0.7;
-    /* ความโปร่งแสง */
-    transition: filter 0.3s ease, opacity 0.3s ease;
-    width: 30px;
-    /* ขนาดของไอคอน */
-    height: 30px;
+/* Toggle Button */
+.toggle-button {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    /* กำหนดขนาดเท่ากัน */
+    height: 50px !important;
+    background-color: rgba(0, 0, 0, 0.001);
+    color: white;
+    outline: none;
+    /* วงกลมสมบูรณ์ */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+
+    border: none;
+    /* ลบขอบ */
+    line-height: normal;
+    /* แก้ไขปัญหา icon แสดงผิดตำแหน่ง */
+}
+
+.toggle-button i {
+    font-size: 50px;
+    /* ปรับขนาดของไอคอนให้เหมาะสม */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#toggle-btn {
+    text-decoration: none;
+    /* ลบการตกแต่งข้อความ */
+}
+
+#toggle-btn i {
+    text-decoration: none;
+    /* ลบการตกแต่งข้อความสำหรับไอคอน */
+    border: none;
+    /* ลบเส้นขอบที่อาจมี */
+    display: inline-block;
+    /* ป้องกันการเกิดบรรทัดที่ไม่ต้องการ */
+    line-height: 1;
+    /* ปรับให้ไอคอนอยู่กึ่งกลาง */
+}
+
+
+.toggle-button:hover {
+    /* background-color: #f5f6f8; */
+    transform: scale(1.1);
+    /* เพิ่มเอฟเฟกต์ hover */
 }
 
 .nav-item:hover {
+
     transform: scale(1.1);
-    /* ขยายวงกลมเมื่อ hover */
-}
-
-.nav-item:hover img {
-    filter: grayscale(0);
-    /* แสดงสีเมื่อ hover */
-    opacity: 1;
-}
-
-
-/* Toggle Button */
-.toggle-button {
-    position: fixed;
-    top: 50%;
-    right: 55px;
-    /* ชิดขอบ Sidebar */
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.2);
-    color: white;
-    padding: 10px 15px;
-    border-radius: 0 4px 4px 0;
-    cursor: pointer;
-    font-size: 14px;
-    z-index: 1000;
-    transition: background-color 0.2s ease, right 0.3s ease;
-    width: 50px;
-    text-align: center;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.toggle-button:hover {
-    background-color: #6a6e73;
+    /* เพิ่มเอฟเฟกต์ hover */
 }
 
 /* เมื่อ Sidebar ถูกซ่อน */
-.sidebar.collapsed+.toggle-button {
-    right: 0;
-    /* ให้ปุ่มเลื่อนชิดขอบจอ */
+.sidebar.collapsed .toggle-button {
+    transform: translate(0, 0);
+    background-color: rgba(0, 0, 0, 0.5);
 }
+
+
+
 
 
 /* ==============================

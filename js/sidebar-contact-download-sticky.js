@@ -1,13 +1,22 @@
 function toggleSidebar() {
     const sidebar = document.getElementById("sidebar");
-    const toggleButton = document.getElementById("sidebar-toggle");
+    const toggleBtn = document.getElementById("toggle-btn");
+    const navItems = document.querySelectorAll(".nav-item:not(.toggle-button)");
 
-    // Toggle the 'collapsed' class on the sidebar
     if (sidebar.classList.contains("collapsed")) {
-        sidebar.classList.remove("collapsed"); // แสดง Sidebar
-        toggleButton.innerHTML = '<i class="fas fa-angle-right"></i> ปิด';  // เปลี่ยนข้อความเป็น "ปิด"
+        // เปิด Sidebar
+        sidebar.classList.remove("collapsed");
+        toggleBtn.innerHTML = '<i class="fas fa-angle-right"></i>';
+        navItems.forEach((item) => (item.style.display = "flex"));
     } else {
-        sidebar.classList.add("collapsed"); // ซ่อน Sidebar
-        toggleButton.innerHTML = '<i class="fas fa-angle-left"></i> เปิด'; // เปลี่ยนข้อความเป็น "เปิด"
+        // ซ่อน Sidebar
+        sidebar.classList.add("collapsed");
+        toggleBtn.innerHTML = '<i class="fas fa-angle-left"></i>';
+        toggleBtn.style.background = 'rgba(0, 0, 0, 0.001)';
+        toggleBtn.style.boxShadow = 'none';
+        toggleBtn.style.border = 'none';
+
+
+        navItems.forEach((item) => (item.style.display = "none"));
     }
 }
