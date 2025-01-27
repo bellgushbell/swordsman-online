@@ -2316,7 +2316,7 @@ input.form-control {
     /* เพิ่มเอฟเฟกต์ hover */
     .toggle-button:hover,
     .nav-item:hover {
-        transform: scale(1.05);
+        transform: scale(1.2);
         /* ลดเอฟเฟกต์ hover เล็กน้อย */
     }
 }
