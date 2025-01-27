@@ -121,7 +121,7 @@ particlesJS("particles-js", {
             }
         },
         "size": {
-            "value": 8, // ขนาดเริ่มต้นของ bubble
+            "value": 5, // ขนาดเริ่มต้นของ bubble
             "random": true, // สุ่มขนาด
             "anim": {
                 "enable": true,
@@ -161,7 +161,7 @@ particlesJS("particles-js", {
         "modes": {
             "bubble": {
                 "distance": 150, // ระยะห่างที่เกิดเอฟเฟกต์ bubble
-                "size": 8, // ขนาดของ bubble ที่เพิ่มขึ้นเมื่อ hover
+                "size": 5, // ขนาดของ bubble ที่เพิ่มขึ้นเมื่อ hover
                 "duration": 1, // ระยะเวลาของเอฟเฟกต์
                 "opacity": 0.8, // ความโปร่งใสระหว่างเอฟเฟกต์
                 "speed": 3
