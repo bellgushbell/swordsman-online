@@ -2149,9 +2149,121 @@ input.form-control {
 
 }
 
+/* ==============================
+ Sidebar Navigation Bar Toggle Newversion ติดอยู่ทุกหน้า 
+   ============================== */
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 50%;
+    right: 5px;
+    /* ระยะห่างจากขอบขวาของจอ */
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 999;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.sidebar.collapsed {
+    transform: translateX(200%);
+    /* เลื่อนออกนอกจอ */
+    opacity: 0;
+    /* ซ่อน Sidebar */
+    pointer-events: none;
+    /* ปิดการโต้ตอบ */
+}
+
+.sidebar.collapsed {
+    right: -150px;
+    /* เลื่อน Sidebar ออกจากจอไปทางขวา */
+    opacity: 0;
+    /* ซ่อน Sidebar */
+    pointer-events: none;
+    /* ปิดการโต้ตอบ */
+}
+
+/* Navigation Items */
+.nav-item {
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    /* ขนาดของวงกลม */
+    height: 30px;
+    background-color: white;
+    /* วงกลมสีขาว */
+    border-radius: 50%;
+    /* ทำให้เป็นวงกลม */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    /* เพิ่มเงา */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-item img {
+    filter: grayscale(1);
+    /* ขาวดำ */
+    opacity: 0.7;
+    /* ความโปร่งแสง */
+    transition: filter 0.3s ease, opacity 0.3s ease;
+    width: 30px;
+    /* ขนาดของไอคอน */
+    height: 30px;
+}
+
+.nav-item:hover {
+    transform: scale(1.1);
+    /* ขยายวงกลมเมื่อ hover */
+}
+
+.nav-item:hover img {
+    filter: grayscale(0);
+    /* แสดงสีเมื่อ hover */
+    opacity: 1;
+}
+
+
+/* Toggle Button */
+.toggle-button {
+    position: fixed;
+    top: 50%;
+    right: 55px;
+    /* ชิดขอบ Sidebar */
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    font-size: 14px;
+    z-index: 1000;
+    transition: background-color 0.2s ease, right 0.3s ease;
+    width: 50px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.toggle-button:hover {
+    background-color: #6a6e73;
+}
+
+/* เมื่อ Sidebar ถูกซ่อน */
+.sidebar.collapsed+.toggle-button {
+    right: 0;
+    /* ให้ปุ่มเลื่อนชิดขอบจอ */
+}
+
 
 /* ==============================
-  footer Nav sticky ติดอยู่ทุกหน้า
+  Bottom Navigation Bar ยังไม่เอา footer Nav sticky ติดอยู่ทุกหน้า 
    ============================== */
 
 /* Bottom Navigation Bar */
