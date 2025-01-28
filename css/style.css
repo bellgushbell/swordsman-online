@@ -258,13 +258,61 @@ Primary use: Multipurpose Template
     display: block;
 
 } */
+/* ==============================
+   Page loader เปิดม่าน 
+   ============================== */
+/* Loader Container */
+.page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    /* พื้นหลังโปร่งแสง */
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.logo-container {
+    position: absolute;
+    /* ใช้ absolute เพื่อให้มันอยู่กลางหน้าจอ */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    /* ให้อยู่เหนือ 3D ประตู */
+}
+
+.loading-icon {
+    max-width: 300px;
+    /* กำหนดขนาดโลโก้ */
+    z-index: 1000;
+    /* ให้อยู่บนสุด */
+
+}
+
+@media (max-width: 961px) {
+    .loading-icon {
+        max-width: 200px;
+        /* ลดขนาดโลโก้สำหรับหน้าจอเล็ก */
+    }
+}
+
+
+
+
+
 
 
 /* ==============================
    Page loader เปิดประตู
    ============================== */
 
-.page-loader {
+/* .page-loader {
     position: fixed;
     top: 0;
     left: 0;
@@ -315,19 +363,19 @@ Primary use: Multipurpose Template
     z-index: 10000;
     width: 100vw !important;
     top: 50%;
-    /* อยู่กลางหน้าจอแนวตั้ง */
+    
     left: 50%;
-    /* อยู่กลางหน้าจอแนวนอน */
+   
     transform: translate(-50%, -50%);
-    /* ตรงกลางของหน้าจอพอดี */
+    
 }
 
 
-/* ปรับขนาดเมื่อหน้าจอเล็กลง */
+
 @media (max-width: 961px) {
     .logo {
         width: 50%;
-        /* ยังคงให้โลโก้ซ้ายขวาแบ่งพื้นที่ครึ่งจอ */
+   
         height: 100%;
     }
 
@@ -335,18 +383,18 @@ Primary use: Multipurpose Template
         width: 100%;
         height: 100%;
         object-fit: cover;
-        /* ให้ภาพยังคงครอบคลุมเต็มจอ */
+       
     }
 
     .loading-icon {
         max-width: 100vh !important;
         height: 100vh !important;
-        /* ลดขนาดโลโก้ตรงกลาง */
+     
     }
-}
+} */
 
 /* ==============================
-   Page loader
+   Page loader ปกติ
    ============================== */
 /* Responsive Style for Mobile */
 
