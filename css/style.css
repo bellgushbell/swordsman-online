@@ -309,52 +309,11 @@ Primary use: Multipurpose Template
 /* ==============================
    Page loader เปิดม่าน วิธี gasp only
    ============================== */
-/* Loader Container */
-/* .page-loader {
-     position: fixed;
-     top: 0;
-     left: 0;
-     width: 100vw;
-     height: 100vh;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     background-color: transparent;
-     overflow: hidden;
-     z-index: 9999;
- }
+/* อยู่ในhtml  เปิดม่าน Loader วิธีใหม่ gasp only */
 
+/* ------------------ */
 
- .door {
-     position: absolute;
-     width: 50%;
-     height: 100%;
-     background-size: cover;
-     background-position: center;
-     z-index: 1;
- }
-
-
-
- 
- .logo-container {
-     position: absolute;
-     top: 50%;
-     left: 50%;
-     transform: translate(-50%, -50%);
-     z-index: 2;
- }
-
- .loading-icon {
-     max-width: 300px;
-     z-index: 2;
- }
-
- @media (max-width: 961px) {
-     .loading-icon {
-         max-width: 200px;
-     }
- } */
+/* อยู่ในhtml เปิดม่าน Loader วิธีใหม่ gasp only */
 
 
 
