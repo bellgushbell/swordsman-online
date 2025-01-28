@@ -310,64 +310,51 @@ Primary use: Multipurpose Template
    Page loader เปิดม่าน วิธี gasp only
    ============================== */
 /* Loader Container */
-.page-loader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: transparent;
-    overflow: hidden;
-    z-index: 9999;
-}
+/* .page-loader {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100vw;
+     height: 100vh;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     background-color: transparent;
+     overflow: hidden;
+     z-index: 9999;
+ }
 
-/* Doors */
-.door {
-    position: absolute;
-    width: 50%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    z-index: 1;
-}
 
-.door.left {
-    background-image: url('images/PageLoad/door-left.png');
-    left: 0;
-    transform: translateX(0);
-    transform-origin: right center;
-}
+ .door {
+     position: absolute;
+     width: 50%;
+     height: 100%;
+     background-size: cover;
+     background-position: center;
+     z-index: 1;
+ }
 
-.door.right {
-    background-image: url('images/PageLoad/door-right.png');
-    right: 0;
-    transform: translateX(0);
-    transform-origin: left center;
-}
 
-/* Logo */
-.logo-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-}
 
-.loading-icon {
-    max-width: 300px;
-    z-index: 2;
-}
+ 
+ .logo-container {
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     z-index: 2;
+ }
 
-/* Responsive for small screens */
-@media (max-width: 961px) {
-    .loading-icon {
-        max-width: 200px;
-    }
-}
+ .loading-icon {
+     max-width: 300px;
+     z-index: 2;
+ }
+
+ @media (max-width: 961px) {
+     .loading-icon {
+         max-width: 200px;
+     }
+ } */
 
 
 
