@@ -200,16 +200,16 @@ Primary use: Multipurpose Template
    Loading Animation Screen
    ============================== */
 /* Loading Icon Style */
-.loading-icon {
-    width: 100vw;
-
+/* .loading-icon {
+    width: 500px;
+    margin: 0 auto;
     height: 100vh;
 
     object-fit: cover;
 
     display: block;
 
-}
+} */
 
 
 /* ==============================
@@ -264,7 +264,13 @@ Primary use: Multipurpose Template
 .loading-icon {
     position: absolute;
     z-index: 10000;
-    max-width: 200px;
+    max-width: 1200px !important;
+    top: 50%;
+    /* อยู่กลางหน้าจอแนวตั้ง */
+    left: 50%;
+    /* อยู่กลางหน้าจอแนวนอน */
+    transform: translate(-50%, -50%);
+    /* ตรงกลางของหน้าจอพอดี */
 }
 
 
