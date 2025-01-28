@@ -669,6 +669,11 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                         <source src="video/Swordsman3-Video-web-ver-Notext.mp4" type="video/mp4">
                     </video>
 
+                    <div class="text-overlay">
+                        <img src="images/text-video.png" alt="Overlay Text" class="overlay-text">
+                    </div>
+
+
                     <!-- <img src="images/ปกเว็บมือภือ.jpg" class="bg-image-mobile" alt="Background Image mobile">
                     <img src="images/ปกWeb2560x1440.jpg" class="bg-image-landscape"
                         alt="Background Image mobile landscape"> -->
@@ -676,6 +681,17 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 </div>
                 <!-- <a href="#" role="button" class="bg-video-button-muted"><i class="fa fa-volume-off"></i></a> -->
 
+                <!-- ข้อความVideo Fade -->
+                <script>
+                    window.addEventListener('load', () => {
+
+                        gsap.to('.text-overlay', {
+                            opacity: 1,
+                            duration: 1.5,
+                            ease: 'power2.inOut'
+                        });
+                    });
+                </script>
 
 
 
@@ -1487,98 +1503,9 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         <!--End Contact Section-->
 
 
-        <!--Google Map-->
-        <!-- < div class="google-map">
 
-                                <a href="#" class="map-section">
-                                    <div class="map-toggle wow fadeInUpShort" aria-hidden="true">
-                                        <div class="mt-icon">
-                                            <i class="fa fa-map-marker-alt"></i>
-                                        </div>
-                                        <div class="mt-text">
-                                            <div class="mt-open">
-                                                Open
-                                                the
-                                                map
-                                                <i class="mt-open-icon"></i>
-                                            </div>
-                                            <div class="mt-close">
-                                                Close
-                                                the
-                                                map
-                                                <i class="mt-close-icon"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
 
-                                <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d24572.368311964965!2d-75.602613!3d39.65993!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c703f3d191cf13%3A0xf4674106f987fe3a!2zMjQ1IFF1aWdsZXkgQmx2ZCBTdGUgSywgTmV3IENhc3RsZSwgREUgMTk3MjAsINCh0L_QvtC70YPRh9C10L3RliDQqNGC0LDRgtC4INCQ0LzQtdGA0LjQutC4!5e0!3m2!1suk!2sua!4v1584450429598!5m2!1suk!2sua"
-                                    width="600" height="450" style="border:0;" allowfullscreen="" aria-hidden="false"
-                                    tabindex="0"></iframe>
 
-                </div>
-                -->
-        <!--End Google Map-->
-
-        <!--Call Action Section-->
-        <!-- < section class="small-section bg-dark light-content">
-                            -->
-        <!-- < div class="container relative">
-                                <div class="row wow fadeInUpShort">
-                                    <div class="col-md-8 offset-md-2 text-center">
-                                        <h3 class="call-action-1-heading">
-                                            Want
-                                            to
-                                            discuss
-                                            your
-                                            new
-                                            project?
-                                        </h3>
-                                        <div class="call-action-1-decription mb-60 mb-sm-30">
-                                            Proin
-                                            fringilla
-                                            augue
-                                            at
-                                            maximus
-                                            vestibulum.
-                                            Nam
-                                            pulvinar
-                                            vitae
-                                            neque
-                                            et
-                                            porttitor.
-                                            Integer
-                                            non
-                                            dapibus
-                                            diam,
-                                            ac
-                                            eleifend
-                                            lectus.
-                                            Duis
-                                            placerat
-                                            ex
-                                            gravida
-                                            nibh
-                                            tristique
-                                            ultricies
-                                            eros
-                                            lorem
-                                            blandit.
-                                        </div>
-
-                                        <div class="local-scroll">
-                                            <a href="pages-contact-1.html"
-                                                class="btn btn-mod btn-w btn-large btn-round">Let's
-                                                Talk</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                </div>
-                                -->
-        <!-- </section>
-                                    -->
-        <!--End Call Action Section-->
 
     </main>
 

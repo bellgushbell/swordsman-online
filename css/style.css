@@ -1324,9 +1324,6 @@ Primary use: Multipurpose Template
  */
 
 
-
-
-
 .bg-video-wrapper {
     position: absolute;
     width: 100%;
@@ -1341,6 +1338,7 @@ Primary use: Multipurpose Template
     height: 100%;
     top: 0px;
     left: 0px;
+
 }
 
 .bg-video-wrapper>video {
@@ -1350,6 +1348,7 @@ Primary use: Multipurpose Template
     min-width: 100%;
     min-height: 100%;
     object-fit: cover;
+
 }
 
 a.bg-video-button-muted {
@@ -1369,6 +1368,30 @@ a.bg-video-button-muted {
 .bg-video-mobile {
     display: none;
 }
+
+
+/*text video*/
+.text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    /* อยู่เหนือพื้นหลังวิดีโอ */
+    opacity: 0;
+    /* ซ่อนก่อน */
+    transition: opacity 1s ease-in-out;
+    /* สำหรับเอฟเฟกต์ fade */
+}
+
+.overlay-text {
+    max-width: 80%;
+    width: auto;
+    height: auto;
+    display: block;
+}
+
+
 
 
 /*mobile*/
