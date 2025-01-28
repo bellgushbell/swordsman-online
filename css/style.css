@@ -205,7 +205,7 @@ Primary use: Multipurpose Template
     width: 100%;
     height: auto;
     /* ความสูงของ Navbar */
-    background-color: #000;
+    background-color: rgba(0, 0, 0, 0.1);
     /* พื้นหลังสีดำ */
     display: flex;
     justify-content: flex-start;
