@@ -307,9 +307,9 @@ Primary use: Multipurpose Template
         transition: opacity 0.5s ease-in-out;
     }
 
-    #loader {
-        background-color: black;
-    }
+    /* #loader { */
+    /* background-color: black; */
+    /* } */
 }
 
 
