@@ -273,8 +273,9 @@ Primary use: Multipurpose Template
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: black;
+    background: transparent;
     z-index: 9999;
+
 }
 
 .logo-container {

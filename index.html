@@ -55,7 +55,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
 
-<body class="appear-animate">
+<body class="appear-animate ">
+
     <!-- particle js จุลภาค -->
     <div id="particles-js"></div>
 
@@ -95,7 +96,12 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
             const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
             renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setClearColor(0x000000, 0); // Set background to transparent
             document.querySelector("#loader").appendChild(renderer.domElement);
+
+
+            // Set scene background to transparent
+            scene.background = null;
 
             // Load Textures
             const textureLoader = new THREE.TextureLoader();
@@ -366,19 +372,20 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         <a id="toggle-btn" href="javascript:void(0)" class="nav-item toggle-button" onclick="toggleSidebar()">
             <i class="fas fa-angle-right"></i>
         </a>
-        <a href="#" class="nav-item">
+        <a href="https://www.facebook.com/profile.php?id=61570578922652" class="nav-item">
             <img src="images/Bottom-Nav-Icon/Facebook.png" alt="Facebook">
         </a>
-        <a href="#" class="nav-item">
+        <a href="https://www.youtube.com/@%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B5%E0%B9%88%E0%B9%80%E0%B8%A2%E0%B9%89%E0%B8%A2%E0%B8%A2%E0%B8%B8%E0%B8%97%E0%B8%98%E0%B8%88%E0%B8%B1%E0%B8%81%E0%B8%A33"
+            class="nav-item">
             <img src="images/Bottom-Nav-Icon/Youtube.png" alt="YouTube">
         </a>
-        <a href="#" class="nav-item">
+        <a href="https://www.tiktok.com/@swordsman3mobile" class="nav-item">
             <img src="images/Bottom-Nav-Icon/Tiktok.png" alt="TikTok">
         </a>
-        <a href="#" class="nav-item">
+        <a href="https://x.com/Swordsman3game" class="nav-item">
             <img src="images/Bottom-Nav-Icon/x.png" alt="X">
         </a>
-        <a href="#" class="nav-item">
+        <a href="https://www.instagram.com/swordsman3.mobile" class="nav-item">
             <img src="images/Bottom-Nav-Icon/IG.png" alt="Instagram">
         </a>
     </div>
