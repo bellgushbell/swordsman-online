@@ -302,14 +302,7 @@ Primary use: Multipurpose Template
         /* ลดขนาดโลโก้สำหรับหน้าจอเล็ก */
     }
 
-    #loader canvas {
-        opacity: 0;
-        transition: opacity 0.5s ease-in-out;
-    }
 
-    /* #loader { */
-    /* background-color: black; */
-    /* } */
 }
 
 

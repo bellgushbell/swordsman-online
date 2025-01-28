@@ -247,7 +247,16 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
     </script>
 
+    <script>
+        // Show canvas after loading textures
+        textureLoader.load('images/PageLoad/door-left.png', () => {
+            document.querySelector("#loader canvas").style.opacity = '1';
+        });
 
+        textureLoader.load('images/PageLoad/door-right.png', () => {
+            document.querySelector("#loader canvas").style.opacity = '1';
+        });
+    </script>
 
 
     <!--  End  เปิดม่าน Loader -->
