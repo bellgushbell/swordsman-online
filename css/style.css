@@ -274,6 +274,13 @@ Primary use: Multipurpose Template
 }
 
 
+@media (max-width: 961px) {
+    .loading-icon {
+        max-width: 300px !important;
+
+    }
+}
+
 /* ==============================
    Page loader
    ============================== */
