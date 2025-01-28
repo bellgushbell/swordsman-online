@@ -277,32 +277,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
+    <!-- เอามาใส่ตรงนี้เพราะอ่านรูปจากcssยังไมไ่ด้ -->
     <style>
-        /* Loader Container */
-        .page-loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: transparent;
-            overflow: hidden;
-            z-index: 9999;
-        }
-
-        /* Doors */
-        .door {
-            position: absolute;
-            width: 50%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            z-index: 1;
-        }
-
         .door.left {
             background-image: url('images/PageLoad/door-left.png');
             left: 0;
@@ -315,27 +291,6 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             right: 0;
             transform: translateX(0);
             transform-origin: left center;
-        }
-
-        /* Logo */
-        .logo-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 2;
-        }
-
-        .loading-icon {
-            max-width: 300px;
-            z-index: 2;
-        }
-
-        /* Responsive for small screens */
-        @media (max-width: 961px) {
-            .loading-icon {
-                max-width: 200px;
-            }
         }
     </style>
 
