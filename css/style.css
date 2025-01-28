@@ -199,7 +199,7 @@ Primary use: Multipurpose Template
    ============================== */
 /* ตั้งค่าพื้นฐานให้กับ Navbar */
 .navbar-logo {
-    position: fixed;
+    position: absolute;
     /* ตรึง Navbar ไว้ด้านบน */
     top: 0;
     width: 100%;
