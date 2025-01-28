@@ -301,6 +301,15 @@ Primary use: Multipurpose Template
         max-width: 400px !important;
         /* ลดขนาดโลโก้สำหรับหน้าจอเล็ก */
     }
+
+    #loader canvas {
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    #loader {
+        background-color: black;
+    }
 }
 
 
