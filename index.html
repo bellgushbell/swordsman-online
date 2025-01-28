@@ -190,9 +190,21 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         document.querySelector("#loader").appendChild(renderer.domElement);
 
         // Load Textures
+        // Load Textures
         const textureLoader = new THREE.TextureLoader();
-        const leftTexture = textureLoader.load('images/PageLoad/door-left.png');
-        const rightTexture = textureLoader.load('images/PageLoad/door-right.png');
+        const leftTexture = textureLoader.load(
+            'images/PageLoad/door-left.png',
+            () => {
+                // หลังจากโหลดภาพสำเร็จ ให้เอา background-image ออก
+                document.querySelector('.page-loader').style.backgroundImage = 'none';
+            }
+        );
+        const rightTexture = textureLoader.load(
+            'images/PageLoad/door-right.png',
+            () => {
+                document.querySelector('.page-loader').style.backgroundImage = 'none';
+            }
+        );
 
         // Create Left Door
         const leftGeometry = new THREE.PlaneGeometry(10, 10);

@@ -212,7 +212,7 @@ Primary use: Multipurpose Template
     /* ตำแหน่งโลโก้อยู่ตรงกลางแนวนอน */
     align-items: center;
     /* ตำแหน่งโลโก้อยู่ตรงกลางแนวตั้ง */
-    z-index: 2;
+    z-index: 3;
     /* ซ้อนอยู่ด้านบนสุด */
 
 }
