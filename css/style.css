@@ -262,7 +262,7 @@ Primary use: Multipurpose Template
    Page loader เปิดม่าน 
    ============================== */
 /* Loader Container */
-.page-loader {
+/* .page-loader {
     position: fixed;
     top: 0;
     left: 0;
@@ -272,36 +272,38 @@ Primary use: Multipurpose Template
     justify-content: center;
     align-items: center;
     background-color: transparent;
-    /* เพิ่ม background-image ชั่วคราว */
-    background-image: url('images/PageLoad/door-left.png'), url('images/PageLoad/door-right.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: left center, right center;
+
     z-index: 9999;
+    overflow: hidden;
+
 }
 
-/* โลโก้ตรงกลาง */
 .logo-container {
     position: absolute;
-    width: 50%;
-    height: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 1000;
+
 }
 
 .loading-icon {
     max-width: 300px;
+
     z-index: 1000;
+
+
 }
 
-/* สำหรับมือถือ */
 @media (max-width: 961px) {
     .loading-icon {
-        max-width: 400px;
+        max-width: 400px !important;
+
     }
-}
+
+
+} */
 
 
 

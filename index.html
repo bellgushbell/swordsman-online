@@ -162,8 +162,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     <!--  End  Load Open Door -->
 
 
-    <!-- เปิดม่าน Loader  -->
-    <div class="page-loader" id="loader">
+    <!-- เปิดม่าน Loader วิธี three JS  -->
+    <!-- <div class="page-loader" id="loader">
         <div class="logo-container">
             <img src="images/Logo Sword Man 3 Final 2 เเถว สำหรับพื้นขาว Drop shadow.png" alt="Loading Animation"
                 class="loading-icon">
@@ -257,14 +257,102 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         });
 
 
+    </script> -->
+
+
+
+
+    <!--  End  เปิดม่าน Loader วิธี three JS -->
+
+    <!-- เปิดม่าน Loader วิธีใหม่ gasp only -->
+    <!-- เปิดม่าน Loader -->
+    <div class="page-loader" id="loader">
+        <div class="door left"></div>
+        <div class="door right"></div>
+        <div class="logo-container">
+            <img src="images/Logo Sword Man 3 Final 2 เเถว สำหรับพื้นขาว Drop shadow.png" alt="Loading Animation"
+                class="loading-icon">
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <style>
+        /* Loader Container */
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: transparent;
+            overflow: hidden;
+            z-index: 9999;
+        }
+
+        /* Doors */
+        .door {
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+
+        .door.left {
+            background-image: url('images/PageLoad/door-left.png');
+            left: 0;
+            transform: translateX(0);
+            transform-origin: right center;
+        }
+
+        .door.right {
+            background-image: url('images/PageLoad/door-right.png');
+            right: 0;
+            transform: translateX(0);
+            transform-origin: left center;
+        }
+
+        /* Logo */
+        .logo-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+        }
+
+        .loading-icon {
+            max-width: 300px;
+            z-index: 2;
+        }
+
+        /* Responsive for small screens */
+        @media (max-width: 961px) {
+            .loading-icon {
+                max-width: 200px;
+            }
+        }
+    </style>
+
+    <script>
+        // Animation with GSAP
+        window.addEventListener('load', () => {
+            const timeline = gsap.timeline();
+
+            // Slide the doors to the sides
+            timeline
+                .to('.door.left', { x: '-100%', duration: 0.5, ease: 'power2.inOut' }) // Slide left door
+                .to('.door.right', { x: '100%', duration: 0.5, ease: 'power2.inOut' }, '<') // Slide right door
+                .to('.logo-container', { opacity: 0, duration: 0.5, ease: 'power2.inOut' }) // Fade out logo
+                .to('#loader', { opacity: 0, duration: 0.5, ease: 'power2.inOut' }) // Fade out loader
+                .set('#loader', { display: 'none' }); // Remove loader
+        });
     </script>
-
-
-
-
-    <!--  End  เปิดม่าน Loader -->
-
-
 
 
 
