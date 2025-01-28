@@ -194,6 +194,55 @@ Primary use: Multipurpose Template
 
 }
 
+/* ==============================
+   Logo New Big
+   ============================== */
+/* ตั้งค่าพื้นฐานให้กับ Navbar */
+.navbar-logo {
+    position: fixed;
+    /* ตรึง Navbar ไว้ด้านบน */
+    top: 0;
+    width: 100%;
+    height: auto;
+    /* ความสูงของ Navbar */
+    background-color: #000;
+    /* พื้นหลังสีดำ */
+    display: flex;
+    justify-content: flex-start;
+    /* ตำแหน่งโลโก้อยู่ตรงกลางแนวนอน */
+    align-items: center;
+    /* ตำแหน่งโลโก้อยู่ตรงกลางแนวตั้ง */
+    z-index: 1000;
+    /* ซ้อนอยู่ด้านบนสุด */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* เงาเล็กน้อย */
+}
+
+/* โลโก้ */
+.logo-link {
+    display: inline-block;
+}
+
+.logo-image {
+    width: 400px;
+    /* ความกว้างของโลโก้ */
+    height: auto;
+    /* อัตราส่วนภาพอัตโนมัติ */
+}
+
+/* Media Query สำหรับหน้าจอเล็ก */
+@media (max-width: 768px) {
+    .navbar-logo {
+        height: 60px;
+        /* ลดความสูงของ Navbar */
+    }
+
+    .logo-image {
+        width: 150px;
+        /* ลดขนาดโลโก้ */
+    }
+}
+
 
 
 /* ==============================
@@ -238,7 +287,7 @@ Primary use: Multipurpose Template
 }
 
 .logo {
-    width: 50%;
+    width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
