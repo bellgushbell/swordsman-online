@@ -212,7 +212,7 @@ Primary use: Multipurpose Template
     /* ตำแหน่งโลโก้อยู่ตรงกลางแนวนอน */
     align-items: center;
     /* ตำแหน่งโลโก้อยู่ตรงกลางแนวตั้ง */
-    z-index: 1000;
+    z-index: 2;
     /* ซ้อนอยู่ด้านบนสุด */
 
 }
@@ -275,6 +275,7 @@ Primary use: Multipurpose Template
     /* พื้นหลังโปร่งแสง */
     z-index: 9999;
     overflow: hidden;
+
 }
 
 .logo-container {
@@ -2918,6 +2919,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+
 }
 
 iframe {
