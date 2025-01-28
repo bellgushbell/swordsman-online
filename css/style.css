@@ -298,7 +298,7 @@ Primary use: Multipurpose Template
 
 @media (max-width: 961px) {
     .loading-icon {
-        max-width: 400px;
+        max-width: 400px !important;
         /* ลดขนาดโลโก้สำหรับหน้าจอเล็ก */
     }
 }
