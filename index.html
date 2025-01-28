@@ -351,8 +351,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
             // Slide the doors to the sides
             timeline
-                .to('.door.left', { x: '-100%', duration: 1, ease: 'power2.inOut' }) // Slide left door
-                .to('.door.right', { x: '100%', duration: 1, ease: 'power2.inOut' }, '<') // Slide right door
+                .to('.door.left', { x: '-100%', duration: 0.5, ease: 'power2.inOut' }) // Slide left door
+                .to('.door.right', { x: '100%', duration: 0.5, ease: 'power2.inOut' }, '<') // Slide right door
                 .to('.logo-container', { opacity: 0, duration: 0.5, ease: 'power2.inOut' }) // Fade out logo
                 .to('#loader', { opacity: 0, duration: 0.5, ease: 'power2.inOut' }) // Fade out loader
                 .set('#loader', { display: 'none' }); // Remove loader
