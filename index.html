@@ -49,8 +49,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     <script src="https://cdn.jsdelivr.net/npm/@motionone/dom/dist/motion.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@motionone/dom"></script>
     <!-- Preload images -->
-    <link rel="preload" href="images/PageLoad/Cloud-Left.gif" as="image">
-    <link rel="preload" href="images/PageLoad/Cloud-Right.gif" as="image">
+    <link rel="preload" href="images/PageLoad/Cloud-no-Cloud-Left.gif" as="image">
+    <link rel="preload" href="images/PageLoad/Cloud-no-Cloud-Right.gif" as="image">
 
 </head>
 
@@ -460,14 +460,14 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         }
 
         .door.left {
-            background-image: url('images/PageLoad/Cloud-Left.gif');
+            background-image: url('images/PageLoad/Cloud-no-Cloud-Left.gif');
             left: 0;
             transform: translateX(0);
             transform-origin: right center;
         }
 
         .door.right {
-            background-image: url('images/PageLoad/Cloud-Right.gif');
+            background-image: url('images/PageLoad/Cloud-no-Cloud-Right.gif');
             right: 0;
             transform: translateX(0);
             transform-origin: left center;
@@ -506,7 +506,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             }
 
             .door.left {
-                background-image: url('images/PageLoad/Cloud-Left.gif');
+                background-image: url('images/PageLoad/Cloud-no-Cloud-Left.gif');
                 left: 0;
                 transform: translateX(0);
                 transform-origin: right center;
@@ -516,7 +516,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             }
 
             .door.right {
-                background-image: url('images/PageLoad/Cloud-Right.gif');
+                background-image: url('images/PageLoad/Cloud-no-Cloud-Right.gif');
                 right: 0;
                 transform: translateX(0);
                 transform-origin: left center;
@@ -549,8 +549,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             const doorRight = new Image();
 
             // Preload images for the doors
-            doorLeft.src = 'images/PageLoad/Cloud-Left.gif';
-            doorRight.src = 'images/PageLoad/Cloud-Right.gif';
+            doorLeft.src = 'images/PageLoad/Cloud-no-Cloud-Left.gif';
+            doorRight.src = 'images/PageLoad/Cloud-no-Cloud-Right.gif';
 
             // Set the random quote image for the logo container immediately on load
             const quoteImageElement = document.getElementById('quote-image');
@@ -582,8 +582,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         });
     </script>
 
-
-
+    <!-- ตั้งให้gifเล่นใหม่ทุกครั้ง ไม่ต่อจากเดิม -->
 
     <!--End ทดสอบ คำคมแบบสุ่มแทนlogo loading เปิดม่าน Loader วิธีใหม่   gasp only -->
 
@@ -886,12 +885,11 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 <!-- BG Video BG Init -->
                 <!-- Please replace the video files in folder "video" with your own videos -->
                 <div class="bg-video-wrapper">
-                    <video class="bg-video" preload="auto" autoplay loop muted playsinline data-object-fit="cover">
+                    <video class="bg-video" preload="auto" loop muted playsinline data-object-fit="cover">
                         <source src="video/Swordsman3-Video-web-ver-Notext.mp4" type="video/mp4">
                     </video>
                     <!-- mobile -->
-                    <video class="bg-video-mobile" preload="auto" autoplay loop muted playsinline
-                        data-object-fit="cover">
+                    <video class="bg-video-mobile" preload="auto" loop muted playsinline data-object-fit="cover">
                         <source src="video/Swordsman3-Video-web-ver-Notext.mp4" type="video/mp4">
                     </video>
 
@@ -924,20 +922,28 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 });
             </script>
 
-
+            <!-- วีดีโอเล่นช่้าลง -->
             <script>
                 window.addEventListener('load', () => {
-                    // กำหนดเวลาให้เริ่มเล่นวีดีโอ (ในที่นี้คือ 3 วินาที)
-                    setTimeout(() => {
-                        const videoElements = document.querySelectorAll('video');
+                    // หยุดการเล่นวีดีโอจากการเล่นโดยตั้ง autoplay ไว้เป็น false
+                    const videoElements = document.querySelectorAll('video');
 
-                        // เริ่มเล่นวีดีโอทั้งหมด
+                    // ตั้งให้ทุกๆ วีดีโอหยุดเล่นตั้งแต่เริ่ม
+                    videoElements.forEach(video => {
+                        video.pause();            // หยุดเล่นวีดีโอ
+                        video.currentTime = 0;     // ตั้งเวลาให้เริ่มต้นที่ 0
+                    });
+
+                    // กำหนดเวลาให้เริ่มเล่นวีดีโอหลังจาก 10 วินาที
+                    setTimeout(() => {
                         videoElements.forEach(video => {
-                            video.play();
+                            video.play();          // เริ่มเล่นวีดีโอหลังจาก 10 วินาที
                         });
-                    }, 3000); // ปรับดีเลย์ที่ต้องการที่นี่ (3000 มิลลิวินาที = 3 วินาที)
+                    }, 10000); // 10000 มิลลิวินาที (10 วินาที)
                 });
             </script>
+
+
 
 
             <!-- Fast Load -->
