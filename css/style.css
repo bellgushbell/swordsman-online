@@ -1489,9 +1489,25 @@ a.bg-video-button-muted {
 
         .overlay-text {
             max-width: 100%;
-            width: 500px !important;
+
+            width: auto;
             height: auto;
             display: block;
+        }
+
+        .text-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            /* อยู่เหนือพื้นหลังวิดีโอ */
+            opacity: 0;
+            /* ซ่อนก่อน */
+            transition: opacity 1s ease-in-out;
+            /* สำหรับเอฟเฟกต์ fade */
+            width: 80% !important;
+
         }
     }
 
