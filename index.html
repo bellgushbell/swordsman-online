@@ -681,7 +681,6 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                         <source src="video/Swordsman3-Video-web-ver-Notext.mp4" type="video/mp4">
                     </video>
                     <!-- mobile -->
-                    <!-- video -->
                     <video class="bg-video-mobile" preload="auto" autoplay loop muted playsinline
                         data-object-fit="cover">
                         <source src="video/Swordsman3-Video-web-ver-Notext.mp4" type="video/mp4">
@@ -690,119 +689,130 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                     <div class="text-overlay">
                         <img src="images/text-video.png" alt="Overlay Text" class="overlay-text">
                     </div>
+                </div>
 
 
-                    <!-- <img src="images/ปกเว็บมือภือ.jpg" class="bg-image-mobile" alt="Background Image mobile">
+
+                <!-- <img src="images/ปกเว็บมือภือ.jpg" class="bg-image-mobile" alt="Background Image mobile">
                     <img src="images/ปกWeb2560x1440.jpg" class="bg-image-landscape"
                         alt="Background Image mobile landscape"> -->
-                    <div class="bg-video-overlay bg-dark-alfa-30"></div>
-                </div>
-                <!-- <a href="#" role="button" class="bg-video-button-muted"><i class="fa fa-volume-off"></i></a> -->
+                <div class="bg-video-overlay bg-dark-alfa-30"></div>
+            </div>
+            <!-- <a href="#" role="button" class="bg-video-button-muted"><i class="fa fa-volume-off"></i></a> -->
 
-                <!-- ข้อความVideo Fade -->
-                <script>
-                    window.addEventListener('load', () => {
+            <!-- ข้อความVideo Fade -->
+            <script>
+                window.addEventListener('load', () => {
 
-                        gsap.to('.text-overlay', {
-                            opacity: 1,
-                            duration: 1.5,
-                            ease: 'power2.inOut'
-                        });
+                    gsap.to('.text-overlay', {
+                        opacity: 1,
+                        duration: 1.5,
+                        ease: 'power2.inOut'
                     });
-                </script>
+                });
+            </script>
 
-                <!-- End Video BG Init -->
+            <!-- Fast Load -->
+            <script>
+                window.addEventListener('load', () => {
+                    const video = document.querySelector('.bg-video');
+                    video.load();  // เริ่มโหลดวีดีโอ
+                    video.play();  // เล่นวีดีโออัตโนมัติ
+                });
+            </script>
 
-
-
-
-
-                <!--พื้นหลังภาพ BG Image Init -->
-                <!-- <div class="bg-image-wrapper"> -->
-
-                <!-- <img src="images/background-pic.jpg" class="bg-image" alt="Background Image"> -->
-                <!-- <img src="images/bgimg-withText.jpg" class="bg-image-with-text" alt="Background Image"> -->
-                <!-- <div class="bg-image-overlay"></div> -->
-                <!-- </div> -->
-
-
-                <!-- End Image BG Init -->
+            <!-- End Video BG Init -->
 
 
 
-                <!-- Video Promote Content -->
 
-                <div class="video-container" id="videoContainer" style="display: none;">
-                    <!-- เปลี่ยนจาก <video> เป็น <iframe> -->
-                    <iframe id="background-video" class="bg-video"
-                        src="https://www.youtube.com/embed/_jVcmdtyp-o?autoplay=1&mute=1&loop=1&playlist=_jVcmdtyp-o&rel=0&controls=0"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                    </iframe>
-                </div>
 
-                <!-- JavaScript สำหรับ Toggle -->
-                <script>
-                    function toggleVideo(event) {
-                        event.preventDefault(); // ป้องกันไม่ให้ลิงก์รีโหลดหน้าเว็บ
-                        const videoContainer = document.getElementById("videoContainer");
+            <!--พื้นหลังภาพ BG Image Init -->
+            <!-- <div class="bg-image-wrapper"> -->
 
-                        // Toggle เปิด/ปิดเนื้อหา
-                        if (videoContainer.style.display === "none" || videoContainer.style.display === "") {
-                            videoContainer.style.display = "block"; // แสดงเนื้อหา
-                        } else {
-                            videoContainer.style.display = "none"; // ซ่อนเนื้อหา
-                        }
+            <!-- <img src="images/background-pic.jpg" class="bg-image" alt="Background Image"> -->
+            <!-- <img src="images/bgimg-withText.jpg" class="bg-image-with-text" alt="Background Image"> -->
+            <!-- <div class="bg-image-overlay"></div> -->
+            <!-- </div> -->
+
+
+            <!-- End Image BG Init -->
+
+
+
+            <!-- Video Promote Content -->
+
+            <div class="video-container" id="videoContainer" style="display: none;">
+                <!-- เปลี่ยนจาก <video> เป็น <iframe> -->
+                <iframe id="background-video" class="bg-video"
+                    src="https://www.youtube.com/embed/_jVcmdtyp-o?autoplay=1&mute=1&loop=1&playlist=_jVcmdtyp-o&rel=0&controls=0"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <!-- JavaScript สำหรับ Toggle -->
+            <script>
+                function toggleVideo(event) {
+                    event.preventDefault(); // ป้องกันไม่ให้ลิงก์รีโหลดหน้าเว็บ
+                    const videoContainer = document.getElementById("videoContainer");
+
+                    // Toggle เปิด/ปิดเนื้อหา
+                    if (videoContainer.style.display === "none" || videoContainer.style.display === "") {
+                        videoContainer.style.display = "block"; // แสดงเนื้อหา
+                    } else {
+                        videoContainer.style.display = "none"; // ซ่อนเนื้อหา
                     }
-                </script>
+                }
+            </script>
 
 
 
 
-                <!-- End Video Promote Content -->
+            <!-- End Video Promote Content -->
 
 
 
-                <!--Home Content Download Button-->
+            <!--Home Content Download Button-->
 
 
-                <!-- <div class="home-content"> -->
+            <!-- <div class="home-content"> -->
 
-                <!--
+            <!--
                                 <div class="local-scroll mb-20 mt-20 wow fadeInUpShort" data-wow-delay=".3s">
                                     <a href="register.html" class="btn-register w-30">ลงทะเบียนล่วงหน้า</a>
                                 </div> -->
 
 
-                <!-- <div class="game-buttons-container ">
+            <!-- <div class="game-buttons-container ">
                                     <div class="row align-items-stretch justify-content-between gy-3"> -->
-                <!-- QR Code Section -->
-                <!-- <div
+            <!-- QR Code Section -->
+            <!-- <div
                                             class="col-12 col-md-3 text-center d-flex align-items-center justify-content-center mb-3 mb-md-0">
                                             <div class="qr-code-section">
                                                 <img src="" alt="QR Code" class="img-fluid" />
                                             </div>
                                         </div> -->
 
-                <!--สำรองเก่า Buttons Group -->
-                <!-- <div class="col-12 col-md-12">
+            <!--สำรองเก่า Buttons Group -->
+            <!-- <div class="col-12 col-md-12">
                                             <div class="row gx-3 gy-3"> -->
-                <!-- Download Buttons -->
-                <!-- <div class="col-12 col-lg-6 ">
+            <!-- Download Buttons -->
+            <!-- <div class="col-12 col-lg-6 ">
                                                     <div div class="download-buttons d-flex"> -->
-                <!-- <a href="#" class="btn btn-android w-200">
+            <!-- <a href="#" class="btn btn-android w-200">
                                                             <img src="images/android-white.svg" alt="Android Icon" width="20"
                                                                 class="me-2" />
                                                             ดาวน์โหลด Android
                                                         </a> -->
-                <!-- <a href="#" class="btn btn-ios w-200 mt-2">
+            <!-- <a href="#" class="btn btn-ios w-200 mt-2">
                                                             <img src="images/ios-icon.png" alt="iOS Icon" width="20"
                                                                 class="me-2" />
                                                             ดาวน์โหลด iOS
                                                         </a> -->
-                <!-- กรณีใช้อนิเมชั่นปุ่ม -->
-                <!-- <a href="#" class="ios-button d-inline-block">
+            <!-- กรณีใช้อนิเมชั่นปุ่ม -->
+            <!-- <a href="#" class="ios-button d-inline-block">
                                                             <img src="images/IOS-Download-Icon-Animation.gif" alt="iOS Icon"
                                                                 width="250" class="me-2 rounded notify" />
                                                         </a>
@@ -810,10 +820,10 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                                     </div>
                                                 </div> -->
 
-                <!-- Action Buttons -->
-                <!-- <div class="col-12 col-lg-6">
+            <!-- Action Buttons -->
+            <!-- <div class="col-12 col-lg-6">
                                                     <div class="action-buttons d-flex"> -->
-                <!-- <a href="#" class="btn btn-emulator w-200">
+            <!-- <a href="#" class="btn btn-emulator w-200">
                                                             <img src="images/emulator-icon.png" alt="Emulator Icon" width="20"
                                                                 class="me-2" />
                                                             ดาวน์โหลด Emulator
@@ -823,8 +833,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                                                 class="me-2" />
                                                             เติมเงิน
                                                         </a> -->
-                <!-- กรณีใช้อนิเมชั่นปุ่ม -->
-                <!-- <a href="#" class="android-button d-inline-block">
+            <!-- กรณีใช้อนิเมชั่นปุ่ม -->
+            <!-- <a href="#" class="android-button d-inline-block">
                                                             <img src="images/Android-Download-Icon-Animation.gif"
                                                                 alt="Android Icon" width="250" class="me-2 rounded notify" />
                                                         </a>
@@ -833,67 +843,67 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                             </div>
                                         </div> -->
 
-                <!-- Age Warning Section -->
-                <!-- <div
+            <!-- Age Warning Section -->
+            <!-- <div
                                             class="col-12 col-md-3 text-center d-flex align-items-center justify-content-center py-3 py-md-0">
                                             <div class="age-warning">
                                                 <img src="" alt="Age Recommendation" class="img-fluid" />
                                             </div>
                                         </div> -->
-                <!--
+            <!--
                                     </div>
                                 </div> -->
 
 
-                <!--ปัจจุบัน Buttons Group -->
+            <!--ปัจจุบัน Buttons Group -->
 
 
 
-                <!-- <div class="game-buttons-container"> -->
-                <!-- <div class="download-buttons"> -->
-                <!-- Play Video Button -->
-                <!-- <a href="#" class="video-button button" onclick="toggleVideo(event)">
+            <!-- <div class="game-buttons-container"> -->
+            <!-- <div class="download-buttons"> -->
+            <!-- Play Video Button -->
+            <!-- <a href="#" class="video-button button" onclick="toggleVideo(event)">
                         <img src="images/PlayVideo.png" alt="Video Icon" />
                     </a> -->
-                <!-- iOS Button -->
-                <!-- <a href="#" class="ios-button notify button">
+            <!-- iOS Button -->
+            <!-- <a href="#" class="ios-button notify button">
                         <img src="images/download_ios.png" alt="iOS Icon" />
                     </a> -->
-                <!-- Android Button -->
-                <!-- <a href="#" class="android-button notify button">
+            <!-- Android Button -->
+            <!-- <a href="#" class="android-button notify button">
                         <img src="images/download_google.png" alt="Android Icon" />
                     </a> -->
-                <!-- APK Button -->
-                <!-- <a href="#" class="android-button notify button">
+            <!-- APK Button -->
+            <!-- <a href="#" class="android-button notify button">
                         <img src="images/download_APK.png" alt="APK Icon" />
                     </a> -->
-                <!-- Windows Button -->
-                <!-- <a href="#" class="android-button notify button">
+            <!-- Windows Button -->
+            <!-- <a href="#" class="android-button notify button">
                         <img src="images/windows_play_on.png" alt="Windows Icon" />
                     </a> -->
-                <!-- APK Download Button -->
-                <!-- <a href="#" class="apk-button notify">
+            <!-- APK Download Button -->
+            <!-- <a href="#" class="apk-button notify">
                                             <img src="images/apk-file-download-animation-button.gif" alt="APK Download Icon"
                                                 class="apk-icon" />
                                             <div class="apk-text"> -->
-                <!-- <span class="apk-get-it">GET IT ON</span> -->
-                <!-- <span class="apk-title">APK</span>
+            <!-- <span class="apk-get-it">GET IT ON</span> -->
+            <!-- <span class="apk-title">APK</span>
                                             </div>
                                         </a> -->
 
-                <!-- PC Download Button -->
-                <!-- <a href="#" class="pc-button notify">
+            <!-- PC Download Button -->
+            <!-- <a href="#" class="pc-button notify">
                                             <img src="images/emulator-icon.png" alt="PC Download Icon" class="pc-icon" />
                                             <div class="pc-text"> -->
-                <!-- <span class="pc-get-it">GET IT ON</span> -->
-                <!-- <span class="pc-title">PC</span>
+            <!-- <span class="pc-get-it">GET IT ON</span> -->
+            <!-- <span class="pc-title">PC</span>
                                             </div>
                                         </a> -->
 
 
 
-                <!-- </div> -->
-                <!-- </div> -->
+            <!-- </div> -->
+            <!-- </div> -->
 
 
 
@@ -901,23 +911,23 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
 
-                <!--จบ Buttons Group -->
-                <!-- </h2> -->
+            <!--จบ Buttons Group -->
+            <!-- </h2> -->
 
-                <!-- </div> -->
-                <!--End Home Content-->
+            <!-- </div> -->
+            <!--End Home Content-->
 
 
-                <!--Scroll Down-->
-                <!-- < div class="local-scroll scroll-down-wrap wow fadeInUpShort" data - wow -
+            <!--Scroll Down-->
+            <!-- < div class="local-scroll scroll-down-wrap wow fadeInUpShort" data - wow -
                                     offset="0">
                                     <a href="#about" class="scroll-down"><i class="scroll-down-icon"></i><span
                                             class="sr-only">Scroll to
                                             the next section</span></a>
                 </div> -->
-                <!--End Scroll Down-->
+            <!--End Scroll Down-->
 
-                <!-- </div> -->
+            <!-- </div> -->
         </section>
         <!--End Home Section-->
 
