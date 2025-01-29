@@ -420,7 +420,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
 
-    <!--ทดสอบ คำคมแบบสุ่มแทนlogo loading เปิดม่าน Loader วิธีใหม่  gasp only  -->
+    <!--ทดสอบ คำคมแบบสุ่มแทนlogo loading เปิดม่านประตู Loader วิธีใหม่  gasp only  -->
     <div class="page-loader" id="loader">
         <div class="door left"></div>
         <div class="door right"></div>
@@ -510,7 +510,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 left: 0;
                 transform: translateX(0);
                 transform-origin: right center;
-                width: 50%;
+
                 background-size: cover;
                 background-position: right;
             }
@@ -520,9 +520,42 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 right: 0;
                 transform: translateX(0);
                 transform-origin: left center;
-                width: 50%;
+
                 background-size: cover;
                 background-position: left;
+            }
+
+            @media (orientation: landscape) and (max-width: 1024px) {
+
+                .door {
+                    position: absolute;
+                    width: 50%;
+                    height: 100%;
+                    background-size: cover;
+                    z-index: 1;
+                }
+
+                .door.left {
+                    background-image: url('images/PageLoad/Cloud-no-Cloud-Left.gif');
+                    left: 0;
+                    transform: translateX(0);
+                    transform-origin: right center;
+                    width: 100%;
+                    background-size: cover;
+                    background-position: right;
+                }
+
+                .door.right {
+                    background-image: url('images/PageLoad/Cloud-no-Cloud-Right.gif');
+                    right: 0;
+                    transform: translateX(0);
+                    transform-origin: left center;
+
+                    width: 100%;
+                    background-size: cover;
+                    background-position: left;
+                }
+
             }
         }
     </style>
