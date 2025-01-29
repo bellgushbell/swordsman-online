@@ -341,16 +341,47 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             z-index: 2;
         }
 
+
+
         /* Responsive for small screens */
         @media (max-width: 961px) {
             .loading-icon {
                 max-width: 200px;
             }
 
+            /* Doors mobile */
             .door {
-                background-size: contain;
+                position: absolute;
+                width: 50%;
+                height: 100%;
+                background-size: cover;
+
+                z-index: 1;
             }
 
+            .door.left {
+                background-image: url('images/PageLoad/door-left.png');
+                left: 0;
+                transform: translateX(0);
+                transform-origin: right center;
+                width: 50%;
+                /* ให้ครอบคลุมครึ่งหนึ่งของหน้าจอ */
+                background-size: cover;
+                /* ทำให้ภาพปรับขนาดและไม่ถูกตัด */
+                background-position: right;
+            }
+
+            .door.right {
+                background-image: url('images/PageLoad/door-right.png');
+                right: 0;
+                transform: translateX(0);
+                transform-origin: left center;
+                width: 50%;
+                /* ให้ครอบคลุมครึ่งหนึ่งของหน้าจอ */
+                background-size: cover;
+                /* ทำให้ภาพปรับขนาดและไม่ถูกตัด */
+                background-position: left;
+            }
         }
     </style>
 
@@ -1063,9 +1094,9 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         <!--End News and Promotion Section-->
 
 
-        <!-Divider -->
-            <!-- < hr class="mt-0 mb-10" /> -->
-            <!--End Divider-->
+        <!--Divider -->
+        <!-- < hr class="mt-0 mb-10" /> -->
+        <!--End Divider-->
 
 
 
@@ -1074,54 +1105,54 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
 
-            <!-- Highlight Game Section -->
-            <!-- <section class="page-section pt-0 pb-0 banner-section bg-dark light-content">
+        <!-- Highlight Game Section -->
+        <!-- <section class="page-section pt-0 pb-0 banner-section bg-dark light-content">
             <div class="swiper-container">
                 <div class="swiper-wrapper"> -->
-            <!-- Slide 1 -->
-            <!-- <div class="swiper-slide">
+        <!-- Slide 1 -->
+        <!-- <div class="swiper-slide">
             <img src="images/highlight-game/highlight1.jpg" alt="Promo 1" />
         </div> -->
-            <!-- Slide 2 -->
-            <!-- <div class="swiper-slide">
+        <!-- Slide 2 -->
+        <!-- <div class="swiper-slide">
             <img src="images/highlight-game/highlight2.jpg" alt="Promo 2" />
         </div> -->
-            <!-- Slide 3 -->
-            <!-- <div class="swiper-slide">
+        <!-- Slide 3 -->
+        <!-- <div class="swiper-slide">
             <img src="images/highlight-game/highlight3.jpg" alt="Promo 3" />
         </div>
         <div class="swiper-slide">
             <img src="images/highlight-game/highlight4.jpg" alt="Promo 4" />
         </div>
         </div> -->
-            <!-- Pagination -->
-            <!-- <div class="swiper-pagination"></div> -->
-            <!-- Navigation -->
-            <!-- <div class="swiper-button-next" type="button"></div>
+        <!-- Pagination -->
+        <!-- <div class="swiper-pagination"></div> -->
+        <!-- Navigation -->
+        <!-- <div class="swiper-button-next" type="button"></div>
         <div class="swiper-button-prev" type="button"></div>
         </div>
         </section> -->
 
-            <!--End Highlight Game Section-->
+        <!--End Highlight Game Section-->
 
 
 
-            <!- Class Preview Section -->
+        <!---- Class Preview Section -->
 
-                <!-- <section class="page-section" id="class">
+        <!-- <section class="page-section" id="class">
             <div class="container-fluid relative">
                 <section class="class-preview-section">
                     <div class="row"> -->
-                <!-- ใช้วิดีโอ -->
-                <!-- <div class="col-12 class-video-wrapper">
+        <!-- ใช้วิดีโอ -->
+        <!-- <div class="col-12 class-video-wrapper">
                             <video id="classVideo" autoplay muted loop playsinline class="bg-video-class"
                                 disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback">
                                 <source src="video/class1.mp4" type="video/mp4">
                             </video> -->
 
 
-                <!-- ใช้รูปภาพแทนในกรณีที่ไม่ต้องการวิดีโอ -->
-                <!-- <img src="images/background-pic.jpg" alt="Background Image Class" class="bg-image-class">
+        <!-- ใช้รูปภาพแทนในกรณีที่ไม่ต้องการวิดีโอ -->
+        <!-- <img src="images/background-pic.jpg" alt="Background Image Class" class="bg-image-class">
 
                             <div class="bg-video-overlay-class"></div>
                         </div> -->
@@ -1131,10 +1162,10 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
 
-                <!-- content-->
-                <!-- <div class="class-content"> -->
-                <!-- Sidebar Wrapper -->
-                <!-- <div class="class-sidebar-wrapper">
+        <!-- content-->
+        <!-- <div class="class-content"> -->
+        <!-- Sidebar Wrapper -->
+        <!-- <div class="class-sidebar-wrapper">
                                 <button class="scroll-btn up" id="scrollUp">▲</button>
                                 <div class="class-sidebar" id="classSidebar">
                                     <ul class="class-menu">
@@ -1229,8 +1260,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                 <button class="scroll-btn down" id="scrollDown">▼</button>
                             </div> -->
 
-                <!-- Right Details -->
-                <!-- <div class="class-details">
+        <!-- Right Details -->
+        <!-- <div class="class-details">
 
                                 <h3 class="class-title text-white" id="classTitle">อาชีพที่ 1</h3>
                                 <p class="class-description text-white" id="classDescription">
@@ -1253,20 +1284,20 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         </div>
         </section> -->
 
-                <!--End Class Preview Section-->
+        <!--End Class Preview Section-->
 
 
 
 
 
 
-                <!--Gallery Game Section-->
-                <!--Gallery Section -->
-                <!-- <section class="gallery-section">
+        <!--Gallery Game Section-->
+        <!--Gallery Section -->
+        <!-- <section class="gallery-section">
             <h2 class="gallery-title">แกลเลอรี่</h2>
             <div class="gallery"> -->
-                <!-- 12 Card Items -->
-                <!-- <div class="card" onclick="openModal('images/1.jpg')">
+        <!-- 12 Card Items -->
+        <!-- <div class="card" onclick="openModal('images/1.jpg')">
                     <img src="images/1.jpg" alt="Card 1" class="card-image">
                 </div>
                 <div class="card" onclick="openModal('images/1.jpg')">
@@ -1305,8 +1336,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             </div>
         </section> -->
 
-                <!--Modal -->
-                <!-- <div id="imageModal" class="modal" onclick="closeModal()">
+        <!--Modal -->
+        <!-- <div id="imageModal" class="modal" onclick="closeModal()">
             <img id="modalImage" class="modal-content">
         </div> -->
 
@@ -1316,7 +1347,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
 
-                <!--End Gallery Game Section-->
+        <!--End Gallery Game Section-->
 
 
 
@@ -1326,9 +1357,9 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
 
-                <!-Divider -->
-                    <!-- < hr class="mt-0 mb-0" /> -->
-                    <!--End Divider-->
+        <!--Divider -->
+        <!-- < hr class="mt-0 mb-0" /> -->
+        <!--End Divider-->
 
 
 
@@ -1341,8 +1372,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
 
-                    <!--Contact Section-->
-                    <!-- <section class="page-section" id="contact">
+        <!--Contact Section-->
+        <!-- <section class="page-section" id="contact">
             <div class="container relative">
 
                 <div class="text-center mb-80 mb-sm-50">
@@ -1364,8 +1395,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                     <div class="col-md-10 offset-md-1">
                         <div class="row"> -->
 
-                    <!-- Phone -->
-                    <!-- <div class="col-sm-6 col-lg-4 pb-20">
+        <!-- Phone -->
+        <!-- <div class="col-sm-6 col-lg-4 pb-20">
                                 <div class="contact-item wow fadeScaleIn" data-wow-delay="0" data-wow-duration="1s">
                                     <div class="ci-icon">
                                         <i class="fa fa-phone-alt"></i>
@@ -1379,10 +1410,10 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                     </div>
                                 </div>
                             </div> -->
-                    <!-- End Phone -->
+        <!-- End Phone -->
 
-                    <!-- Address -->
-                    <!-- <div class="col-sm-6 col-lg-4 pb-20">
+        <!-- Address -->
+        <!-- <div class="col-sm-6 col-lg-4 pb-20">
                                 <div class="contact-item wow fadeScaleIn" data-wow-delay=".1s" data-wow-duration="1s">
                                     <div class="ci-icon">
                                         <i class="fa fa-map-marker-alt"></i>
@@ -1402,10 +1433,10 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                     </div>
                                 </div>
                             </div> -->
-                    <!-- End Address -->
+        <!-- End Address -->
 
-                    <!-- Email -->
-                    <!-- <div class="col-sm-6 col-lg-4 pb-20">
+        <!-- Email -->
+        <!-- <div class="col-sm-6 col-lg-4 pb-20">
                                 <div class="contact-item wow fadeScaleIn" data-wow-delay=".2s" data-wow-duration="1s">
                                     <div class="ci-icon">
                                         <i class="fa fa-envelope"></i>
@@ -1422,18 +1453,18 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                     </div>
                                 </div>
                             </div> -->
-                    <!-- End Email -->
-                    <!-- 
+        <!-- End Email -->
+        <!-- 
                         </div>
                     </div>
 
                 </div> -->
-                    <!-- Footer -->
-                    <!-- <footer class="d-flex justify-center">
+        <!-- Footer -->
+        <!-- <footer class="d-flex justify-center">
                                         <div class=""> -->
 
-                    <!-- Social Links -->
-                    <!-- <div class="footer-social-links mb-90 mb-xs-40">
+        <!-- Social Links -->
+        <!-- <div class="footer-social-links mb-90 mb-xs-40">
                                                 <a href="#" title="Facebook" target="_blank"><i class="fab fa-facebook-f"></i> <span
                                                     class="sr-only">Facebook profile</span></a>
                                                 <a href="#" title="Twitter" target="_blank"><i class="fab fa-twitter"></i> <span
@@ -1448,24 +1479,24 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                                 <a href="#" title="Pinterest" target="_blank"><i class="fab fa-pinterest"></i> <span
                                                     class="sr-only">Pinterest profile</span></a>
                                             </div> -->
-                    <!-- End Social Links -->
+        <!-- End Social Links -->
 
-                    <!-- Footer Text -->
-                    <!-- <div class="footer-text"> -->
+        <!-- Footer Text -->
+        <!-- <div class="footer-text"> -->
 
-                    <!-- Copyright -->
-                    <!-- <div class="footer-copy">
+        <!-- Copyright -->
+        <!-- <div class="footer-copy">
                         <a href="index.html">©
                             กระบี่เย้ยยุทธจักร</a>.
                     </div>
                 </div> -->
-                    <!-- End Copyright -->
-                    <!-- </footer> -->
-                    <!-- End Footer -->
+        <!-- End Copyright -->
+        <!-- </footer> -->
+        <!-- End Footer -->
 
 
-                    <!-- Contact Form -->
-                    <!-- <div class="row">
+        <!-- Contact Form -->
+        <!-- <div class="row">
                                         <div class="col-md-10 offset-md-1">
 
                                             <form class="form contact-form wow fadeInUpShort" data-wow-delay=".5s"
@@ -1473,8 +1504,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
                                                 <div class="row">
                                                     <div class="col-md-6"> -->
-                    <!-- Name -->
-                    <!-- <div class="form-group">
+        <!-- Name -->
+        <!-- <div class="form-group">
                                                             <label for="name">Name</label>
                                                             <input type="text" name="name" id="name"
                                                                 class="input-lg round form-control" placeholder="Enter your name"
@@ -1482,8 +1513,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6"> -->
-                    <!-- Email -->
-                    <!-- <div class="form-group">
+        <!-- Email -->
+        <!-- <div class="form-group">
                                                             <label for="email">Email</label>
                                                             <input type="email" name="email" id="email"
                                                                 class="input-lg round form-control" placeholder="Enter your email"
@@ -1492,8 +1523,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                                     </div>
                                                 </div> -->
 
-                    <!-- Message -->
-                    <!-- <div class="form-group">
+        <!-- Message -->
+        <!-- <div class="form-group">
                                                     <label for="message">Message</label>
                                                     <textarea name="message" id="message" class="input-lg round form-control" style="height: 130px;"
                                                         placeholder="Enter your message"></textarea>
@@ -1501,14 +1532,14 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
                                                 <div class="row">
                                                     <div class="col-sm-6"> -->
-                    <!-- Inform Tip -->
-                    <!-- <div class="form-tip pt-20 pt-sm-0 mb-sm-20">
+        <!-- Inform Tip -->
+        <!-- <div class="form-tip pt-20 pt-sm-0 mb-sm-20">
                                                             All the fields are required
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-6"> -->
-                    <!-- Send Button -->
-                    <!-- <div class="text-end pt-10">
+        <!-- Send Button -->
+        <!-- <div class="text-end pt-10">
                                                             <button class="submit_btn btn btn-mod btn-large btn-round" id="submit_btn" aria-controls="result">
                                                                 Submit Message
                                                             </button>
@@ -1522,11 +1553,11 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
                                         </div>
                                     </div> -->
-                    <!-- End Contact Form -->
+        <!-- End Contact Form -->
 
-                    <!-- </div>
+        <!-- </div>
                             </section> -->
-                    <!--End Contact Section-->
+        <!--End Contact Section-->
 
 
 
