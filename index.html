@@ -559,7 +559,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             quoteImageElement.src = getRandomQuoteImage(); // Set the image immediately
 
             // Start fading in the image
-            gsap.to(quoteImageElement, { opacity: 1, duration: 0 }); // Fade in the quote image
+            gsap.to(quoteImageElement, { opacity: 1, duration: 0, scale: 1.5 }); // Fade in the quote image
 
             // Once images are loaded, run animation
             Promise.all([doorLeft.decode(), doorRight.decode()]).then(() => {
