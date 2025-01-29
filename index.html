@@ -353,18 +353,28 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     </style>
 
     <script>
+
         // Animation with GSAP
         window.addEventListener('load', () => {
-            const timeline = gsap.timeline();
+            const doorLeft = new Image();
+            const doorRight = new Image();
 
-            // Slide the doors to the sides (เพิ่มระยะเวลาให้ช้าลง)
-            timeline
-                .to('.door.left', { x: '-100%', duration: 2, ease: 'power2.inOut' }) // Slide left door
-                .to('.door.right', { x: '100%', duration: 2, ease: 'power2.inOut' }, '<') // Slide right door
-                // .to('.logo-container', { opacity: 1, duration: 0.2, ease: 'power2.inOut' }) // Fade in logo
-                .to('.logo-container', { opacity: 0, duration: 0.5, ease: 'power2.inOut' }, '-=1.5') // Fade out logo (เร็วขึ้น)
-                .to('#loader', { opacity: 0, duration: 0.5, ease: 'power2.inOut' }) // Fade out loader
-                .set('#loader', { display: 'none' }); // Remove loader
+            // Preload images
+            doorLeft.src = 'images/PageLoad/door-left.png';
+            doorRight.src = 'images/PageLoad/door-right.png';
+
+            // Once images are loaded, run animation
+            Promise.all([doorLeft.decode(), doorRight.decode()]).then(() => {
+                const timeline = gsap.timeline();
+
+                // Animation after images are loaded
+                timeline
+                    .to('.door.left', { x: '-100%', duration: 2, ease: 'power2.inOut' }) // Slide left door
+                    .to('.door.right', { x: '100%', duration: 2, ease: 'power2.inOut' }, '<') // Slide right door
+                    .to('.logo-container', { opacity: 0, duration: 0.5, ease: 'power2.inOut' }, '-=1.5') // Fade out logo
+                    .to('#loader', { opacity: 0, duration: 0.5, ease: 'power2.inOut' }) // Fade out loader
+                    .set('#loader', { display: 'none' }); // Remove loader
+            });
         });
 
     </script>
@@ -375,41 +385,40 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
 
-
     <!-- Page Loader ของ Rythm evo -->
 
 
-    <!-- <div class="page-loader"> -->
-    <!-- GIF Loader -->
-    <!-- <img src="images/Logo-ก้อนเมฆintro-loading-final.gif" alt="Loading Icon" class="loading-icon"> -->
-    <!-- </div> -->
+    <!-- < div class="page-loader" > -->
+    <!--GIF Loader-- >
+    < !-- < img src = "images/Logo-ก้อนเมฆintro-loading-final.gif" alt = "Loading Icon" class="loading-icon" > -->
+    <!-- </div > -->
 
 
-    <!-- End Page Loader -->
+    <!--End Page Loader-- >
 
-    <!-- Skip to Content -->
-    <!-- <a href="#main" class="btn skip-to-content">Skip to Content</a> -->
-    <!-- End Skip to Content -->
-
-
+    < !--Skip to Content-- >
+    < !-- < a href = "#main" class="btn skip-to-content" > Skip to Content</ > -->
+    <!--End Skip to Content-- >
 
 
-    <!-- โลโก้ใหม่ ขนาดใหญ่ -->
+
+
+    < !--โลโก้ใหม่ ขนาดใหญ่-- >
     <div class="navbar-logo">
         <a href="#" class="logo-link">
             <img src="images/Logo SwordMan3-Final-white-transparent.png" alt="Company Logo" class="logo-image" />
         </a>
     </div>
 
-    <!-- End logobig -->
+    <!-End logobig-- >
 
 
 
-    <!-- Page Wrap -->
-    <!-- <div class="page" id="top"> -->
+    < !--Page Wrap-- >
+    < !-- < div class="page" id = "top" > -->
 
-    <!-- Navigation panel -->
-    <!-- <nav class="main-nav dark dark-after-scroll transparent stick-fixed wow-menubar">
+    <!--Navigation panel-- >
+    < !-- < nav class="main-nav dark dark-after-scroll transparent stick-fixed wow-menubar" >
             <div class=" relative clearfix gradient-bg"> -->
 
     <!-- Logo ( * your text or image into link tag *) -->
@@ -422,17 +431,17 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                             width="250" height="50" class="logo-white" />
                     </a> -->
     <!-- <img src="images/Logo-SwordMan-3-Final-สำหรับพื้นดำ.png" alt="Company logo" class="logo-white" />
-    </a> -->
+                </a> -->
 
     <!-- </div> -->
 
-    <!-- Mobile Menu Button -->
-    <!-- <div class="mobile-nav" role="button" tabindex="0">
+    <!--Mobile Menu Button-- >
+    < !-- < div class="mobile-nav" role = "button" tabindex = "0" >
             <i class="fa fa-bars"></i>
             <span class="sr-only">Menu</span>
-        </div> -->
-    <!-- Main Menu -->
-    <!-- <div class="inner-nav desktop-nav">
+        </ > -->
+    <!--Main Menu-- >
+    < !-- < div class="inner-nav desktop-nav" >
             <ul class="clearlist scroll-nav local-scroll">
                 <li>
                     <a href="#home">หน้าหลัก</a>
@@ -442,100 +451,100 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     <!-- <a href="#" class="menu-link nav-tag-desktop notify">ข่าว</a> -->
     <!-- a จอมือถือ มี div class="menu-header"-->
     <!-- <div class="menu-header">
-            <a href="#" class="menu-link notify">ข่าว</a>
-            <button class="submenu-toggle" aria-label="Toggle submenu">
-                <i class="fa fa-chevron-down"></i>
-            </button>
-        </div>
+                        <a href="#" class="menu-link notify">ข่าว</a>
+                        <button class="submenu-toggle" aria-label="Toggle submenu">
+                            <i class="fa fa-chevron-down"></i>
+                        </button>
+                    </div>
 
-        <ul class="dropdown-menu-mainnav">
-            <li><a href="#" class="notify">ประกาศ</a></li>
-            <li><a href="#" class="notify">กิจกรรม</a></li>
-            <li><a href="#" class="notify">โปรโมชั่น</a></li>
-        </ul>
-        </li>
-        <li class="menu-item has-submenu"> -->
+                    <ul class="dropdown-menu-mainnav">
+                        <li><a href="#" class="notify">ประกาศ</a></li>
+                        <li><a href="#" class="notify">กิจกรรม</a></li>
+                        <li><a href="#" class="notify">โปรโมชั่น</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item has-submenu"> -->
     <!-- a จอปกติ -->
     <!-- <a href="#" class="menu-link nav-tag-desktop notify">ไกด์</a> -->
     <!-- a จอมือถือ มี div class="menu-header"-->
     <!-- <div class="menu-header">
-            <a href="#" class="menu-link notify">ไกด์</a>
-            <button class="submenu-toggle" aria-label="Toggle submenu">
-                <i class="fa fa-chevron-down"></i>
-            </button>
-        </div>
-        <ul class="dropdown-menu-mainnav">
-            <li><a href="#" class="notify">แนะนำตัวละคร</a></li>
-            <li><a href="#" class="notify">วิธีสมัครสมาชิก</a></li>
-            <li><a href="#" class="notify">วิธีดาวน์โหลดเกม</a></li>
-            <li><a href="#" class="notify">คู่มือการเล่น</a></li>
-            <li><a href="#" class="notify">วิธีเติมเงิน</a></li>
-            <li><a href="#" class="notify">วิธีใช้งานไอเท็มโค้ด</a></li>
-        </ul>
-        </li>
+                        <a href="#" class="menu-link notify">ไกด์</a>
+                        <button class="submenu-toggle" aria-label="Toggle submenu">
+                            <i class="fa fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <ul class="dropdown-menu-mainnav">
+                        <li><a href="#" class="notify">แนะนำตัวละคร</a></li>
+                        <li><a href="#" class="notify">วิธีสมัครสมาชิก</a></li>
+                        <li><a href="#" class="notify">วิธีดาวน์โหลดเกม</a></li>
+                        <li><a href="#" class="notify">คู่มือการเล่น</a></li>
+                        <li><a href="#" class="notify">วิธีเติมเงิน</a></li>
+                        <li><a href="#" class="notify">วิธีใช้งานไอเท็มโค้ด</a></li>
+                    </ul>
+                </li>
 
-        <li>
-            <a href="#" class="notify">ร้านค้า</a>
-        </li>
-        <li>
-            <a href="#" class="notify">ดาวน์โหลด</a>
-        </li>
-        <li class="menu-item has-submenu"> -->
+                <li>
+                    <a href="#" class="notify">ร้านค้า</a>
+                </li>
+                <li>
+                    <a href="#" class="notify">ดาวน์โหลด</a>
+                </li>
+                <li class="menu-item has-submenu"> -->
     <!-- a จอปกติ -->
     <!-- <a href="#" class="menu-link nav-tag-desktop notify">ติดต่อ</a> -->
     <!-- a จอมือถือ มี div class="menu-header"-->
     <!-- <div class="menu-header">
-            <a href="#" class="menu-link notify">ติดต่อ</a>
-            <button class="submenu-toggle" aria-label="Toggle submenu">
-                <i class="fa fa-chevron-down"></i>
-            </button>
-        </div>
-        <ul class="dropdown-menu-mainnav">
-            <li><a href="#" class="notify">แจ้งปัญหา</a></li>
-        </ul>
-        </li>
-        </ul>
-    </div> -->
+                        <a href="#" class="menu-link notify">ติดต่อ</a>
+                        <button class="submenu-toggle" aria-label="Toggle submenu">
+                            <i class="fa fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <ul class="dropdown-menu-mainnav">
+                        <li><a href="#" class="notify">แจ้งปัญหา</a></li>
+                    </ul>
+                </li>
+            </ul>
+    </div > -->
 
 
 
-    <!-- SweetAlert2 Script สำหรับเตือนเร็วๆนี้-->
-    <script>
+    <!--SweetAlert2 Script สำหรับเตือนเร็วๆนี้-- >
+            <script>
         // เมื่อเอกสารโหลดเสร็จ
-        document.addEventListener('DOMContentLoaded', function () {
+                document.addEventListener('DOMContentLoaded', function () {
             // เลือกทุกลิงก์ที่มี class 'notify'
             const notifyLinks = document.querySelectorAll('.notify');
 
             // เพิ่ม Event Listener ให้ทุกลิงก์ที่เลือก
             notifyLinks.forEach(link => {
-                link.addEventListener('click', function (event) {
-                    event.preventDefault(); // ยกเลิกการคลิกลิงก์
-                    // แสดง SweetAlert2
-                    Swal.fire({
-                        html: `
+                    link.addEventListener('click', function (event) {
+                        event.preventDefault(); // ยกเลิกการคลิกลิงก์
+                        // แสดง SweetAlert2
+                        Swal.fire({
+                            html: `
                     <div style="text-align: center;">
                         <img src="images/error-icon.png" alt="Error Icon" style="width: 100px; height: auto; " />
                         
                         <h5><br>เร็วๆ นี้!</h5>
                     </div>
                 `,
-                        customClass: {
-                            popup: 'custom-swal-popup' // ตั้ง class custom
-                        },
-                        showConfirmButton: false,
+                            customClass: {
+                                popup: 'custom-swal-popup' // ตั้ง class custom
+                            },
+                            showConfirmButton: false,
 
 
+                        });
                     });
-                });
             });
         });
 
-    </script>
+    </>
 
 
 
 
-    <!-- Member Button -->
+    <!- Member Button -->
     <!-- <div class="member-btn dropdown">
             <a href="#" class="btn d-flex align-items-center gap-2 dropdown-toggle" id="memberDropdown"
                 data-bs-toggle="dropdown" aria-expanded="false">
