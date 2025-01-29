@@ -357,12 +357,13 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         window.addEventListener('load', () => {
             const timeline = gsap.timeline();
 
-            // Slide the doors to the sides
+            // Slide the doors to the sides (เพิ่มระยะเวลาให้ช้าลง)
             timeline
-                .to('.door.left', { x: '-100%', duration: 0.5, ease: 'power2.inOut' }) // Slide left door
-                .to('.door.right', { x: '100%', duration: 0.5, ease: 'power2.inOut' }, '<') // Slide right door
-                .to('.logo-container', { opacity: 0, duration: 0.5, ease: 'power2.inOut' }) // Fade out logo
-                .to('#loader', { opacity: 0, duration: 0.5, ease: 'power2.inOut' }) // Fade out loader
+                .to('.door.left', { x: '-100%', duration: 2, ease: 'power2.inOut' }) // Slide left door
+                .to('.door.right', { x: '100%', duration: 2, ease: 'power2.inOut' }, '<') // Slide right door
+                .to('.logo-container', { opacity: 1, duration: 0.2, ease: 'power2.inOut' }) // Fade in logo (ทำให้โลโก้ค่อยๆ มาแสดง)
+                // .to('.logo-container', { opacity: 0, duration: 0.2, ease: 'power2.inOut' }) // ค่อยๆ หายไป (เพิ่ม delay เพื่อให้โลโก้แสดงนานขึ้น)
+                .to('#loader', { opacity: 0, duration: 1, ease: 'power2.inOut' }) // Fade out loader
                 .set('#loader', { display: 'none' }); // Remove loader
         });
 

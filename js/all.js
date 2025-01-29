@@ -17,8 +17,8 @@
     $(window).on("load", function () {
 
         // Page loader        
-        $(".page-loader div").fadeOut();
-        $(".page-loader").delay(200).fadeOut("slow");
+        // $(".page-loader div").fadeOut();
+        // $(".page-loader").delay(200).fadeOut("slow");
 
         init_text_rotator();
         initWorkFilter();
