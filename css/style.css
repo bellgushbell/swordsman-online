@@ -136,6 +136,42 @@ Primary use: Multipurpose Template
     font-display: swap;
 }
 
+/* ==============================
+ปิดสกอบาร์ เลื่อนเม้า
+   ============================== */
+
+/* ซ่อน Scrollbar แต่ยังให้ Scroll ได้ */
+body {
+    overflow: hidden;
+    /* ปิดการ Scroll */
+}
+
+/* ซ่อน Scrollbar แต่ให้ Scroll ได้ (เฉพาะแนวตั้ง) */
+body {
+    overflow-y: hidden;
+    /* ซ่อน Scrollbar แนวตั้ง */
+}
+
+/* ซ่อน Scrollbar แต่ยังให้ Scroll ได้ (ทั้งแนวตั้งและแนวนอน) */
+body {
+    overflow: auto;
+    /* เปิด Scroll */
+    scrollbar-width: none;
+    /* สำหรับ Firefox */
+    -ms-overflow-style: none;
+    /* สำหรับ Internet Explorer */
+}
+
+body::-webkit-scrollbar {
+    display: none;
+    /* สำหรับ Chrome, Safari */
+}
+
+
+
+/* ==============================
+SweetAlert2 alert
+   ============================== */
 /* SweetAlert2 ตั้งค่า */
 .custom-swal-popup {
     width: 200px;
@@ -186,12 +222,11 @@ Primary use: Multipurpose Template
 #particles-js {
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     top: 0;
     left: 0;
     z-index: 2;
-    /* ทำให้อนุภาคอยู่ใต้เนื้อหาหลัก */
-
+    overflow: hidden;
 }
 
 /* ==============================
@@ -524,6 +559,7 @@ Primary use: Multipurpose Template
  */
 
 .home-section {
+
     width: 100%;
     min-height: 100vh;
     display: block;
@@ -1330,6 +1366,7 @@ Primary use: Multipurpose Template
     height: 100%;
     top: 0px;
     left: 0px;
+
 }
 
 .bg-video-overlay {
@@ -1371,6 +1408,7 @@ a.bg-video-button-muted {
 
 
 /*text video*/
+/*text-video bg*/
 .text-overlay {
     position: absolute;
     top: 50%;
@@ -1395,7 +1433,7 @@ a.bg-video-button-muted {
 
 
 /*mobile*/
-@media (max-width: 768px) {
+@media (max-width: 961px) {
     .bg-video {
         display: none;
     }
@@ -1409,6 +1447,28 @@ a.bg-video-button-muted {
         display: block;
         width: 100% !important;
         height: 100vh !important;
+    }
+
+    .text-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+        /* อยู่เหนือพื้นหลังวิดีโอ */
+        opacity: 0;
+        /* ซ่อนก่อน */
+        transition: opacity 1s ease-in-out;
+        /* สำหรับเอฟเฟกต์ fade */
+        width: 80% !important;
+
+    }
+
+    .overlay-text {
+
+        width: auto;
+        height: auto;
+        display: block;
     }
 
     @media (max-width: 768px) and (orientation: landscape) {
@@ -1425,6 +1485,13 @@ a.bg-video-button-muted {
             display: block;
             width: 100% !important;
             height: 100vh !important;
+        }
+
+        .overlay-text {
+            max-width: 100%;
+            width: 500px !important;
+            height: auto;
+            display: block;
         }
     }
 
@@ -2940,6 +3007,7 @@ input.form-control {
 }
 
 html {
+
     overflow-y: scroll;
     -ms-overflow-style: scrollbar;
 }
