@@ -572,7 +572,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
                     .to('.door.left', { x: '-100%', duration: 8, ease: 'power2.inOut' }) // Slide left door
                     .to('.door.right', { x: '100%', duration: 8, ease: 'power2.inOut' }, '<') // Slide right door
-                    .to('.logo-container', { opacity: 0, duration: 0.5, ease: 'power2.inOut' }, '-=3') // Fade out logo
+                    .to('.logo-container', { opacity: 0, duration: 0.5, ease: 'power2.inOut' }, '-=4') // Fade out logo
                     .to('#loader', { opacity: 0, duration: 0.5, ease: 'power2.inOut' }) // Fade out loader
                     .set('#loader', { display: 'none' }); // Remove loader
 
@@ -913,36 +913,14 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
                     gsap.to('.text-overlay', {
                         opacity: 1,
-                        duration: 6,
+                        duration: 3,
                         // duration: 2,
                         ease: 'power4.inOut',
-                        delay: 8
+                        delay: 5
 
                     });
                 });
             </script>
-
-            <!-- วีดีโอเล่นช่้าลง -->
-            <script>
-                window.addEventListener('load', () => {
-                    // หยุดการเล่นวีดีโอจากการเล่นโดยตั้ง autoplay ไว้เป็น false
-                    const videoElements = document.querySelectorAll('video');
-
-                    // ตั้งให้ทุกๆ วีดีโอหยุดเล่นตั้งแต่เริ่ม
-                    videoElements.forEach(video => {
-                        video.pause();            // หยุดเล่นวีดีโอ
-                        video.currentTime = 0;     // ตั้งเวลาให้เริ่มต้นที่ 0
-                    });
-
-                    // กำหนดเวลาให้เริ่มเล่นวีดีโอหลังจาก 10 วินาที
-                    setTimeout(() => {
-                        videoElements.forEach(video => {
-                            video.play();          // เริ่มเล่นวีดีโอหลังจาก 10 วินาที
-                        });
-                    }, 10000); // 10000 มิลลิวินาที (10 วินาที)
-                });
-            </script>
-
 
 
 
