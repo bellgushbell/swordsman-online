@@ -275,19 +275,19 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     <!-- ใช้งาน -->
     <!-- เปิดม่าน Loader วิธีใหม่ gasp only ใช้งาน  -->
 
-    <div class="page-loader" id="loader">
+    <!-- <div class="page-loader" id="loader">
         <div class="door left"></div>
         <div class="door right"></div>
         <div class="logo-container">
             <img src="images/Logo Sword Man 3 Final 2 เเถว สำหรับพื้นขาว Drop shadow.png" alt="Loading Animation"
                 class="loading-icon">
         </div>
-    </div>
+    </div> -->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script> -->
 
     <!-- Style -->
-    <style>
+    <!-- <style>
         /* Loader Container */
         .page-loader {
             position: fixed;
@@ -383,9 +383,9 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 background-position: left;
             }
         }
-    </style>
+    </style> -->
 
-    <script>
+    <!-- <script>
 
         // Animation with GSAP
         window.addEventListener('load', () => {
@@ -410,7 +410,180 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             });
         });
 
+    </script> -->
+
+
+    <!-- End เปิดม่าน Loader วิธีใหม่ gasp only ใช้งาน  -->
+
+
+
+
+
+
+    <!--ทดสอบ คำคมแบบสุ่มแทนlogo loading เปิดม่าน Loader วิธีใหม่  gasp only  -->
+    <div class="page-loader" id="loader">
+        <div class="door left"></div>
+        <div class="door right"></div>
+        <div class="logo-container">
+            <!-- Placeholder for the image -->
+            <img id="quote-image" src="" class="loading-icon">
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <!-- Style -->
+    <style>
+        /* Loader Container */
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: transparent;
+            overflow: hidden;
+            z-index: 9999;
+        }
+
+        /* Doors */
+        .door {
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+
+        .door.left {
+            background-image: url('images/PageLoad/Cloud-Left.gif');
+            left: 0;
+            transform: translateX(0);
+            transform-origin: right center;
+        }
+
+        .door.right {
+            background-image: url('images/PageLoad/Cloud-Right.gif');
+            right: 0;
+            transform: translateX(0);
+            transform-origin: left center;
+        }
+
+        /* Logo */
+        .logo-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+        }
+
+        .loading-icon {
+            max-width: 300px;
+            z-index: 2;
+            opacity: 0;
+            /* Start hidden */
+            transition: opacity 0.5s ease;
+            /* Smooth fade in */
+        }
+
+        /* Responsive for small screens */
+        @media (max-width: 961px) {
+            .loading-icon {
+                max-width: 200px;
+            }
+
+            .door {
+                position: absolute;
+                width: 50%;
+                height: 100%;
+                background-size: cover;
+                z-index: 1;
+            }
+
+            .door.left {
+                background-image: url('images/PageLoad/Cloud-Left.gif');
+                left: 0;
+                transform: translateX(0);
+                transform-origin: right center;
+                width: 50%;
+                background-size: cover;
+                background-position: right;
+            }
+
+            .door.right {
+                background-image: url('images/PageLoad/Cloud-Right.gif');
+                right: 0;
+                transform: translateX(0);
+                transform-origin: left center;
+                width: 50%;
+                background-size: cover;
+                background-position: left;
+            }
+        }
+    </style>
+
+    <script>
+
+        const quoteImages = [
+            'images/SideBar-Nav-Icon/Facebook.png',
+            'images/SideBar-Nav-Icon/Youtube.png',
+            'images/SideBar-Nav-Icon/Tiktok.png',
+            'images/SideBar-Nav-Icon/x.png',
+            'images/SideBar-Nav-Icon/IG.png'
+        ];
+
+        // Function to get a random image from the array
+        function getRandomQuoteImage() {
+            const randomIndex = Math.floor(Math.random() * quoteImages.length);
+            return quoteImages[randomIndex];
+        }
+
+        // Animation with GSAP
+        window.addEventListener('load', () => {
+            const doorLeft = new Image();
+            const doorRight = new Image();
+
+            // Preload images for the doors
+            doorLeft.src = 'images/PageLoad/Cloud-Left.gif';
+            doorRight.src = 'images/PageLoad/Cloud-Right.gif';
+
+            // Set the random quote image for the logo container immediately on load
+            const quoteImageElement = document.getElementById('quote-image');
+            quoteImageElement.src = getRandomQuoteImage(); // Set the image immediately
+
+            // Start fading in the image
+            gsap.to(quoteImageElement, { opacity: 1, duration: 0 }); // Fade in the quote image
+
+            // Once images are loaded, run animation
+            Promise.all([doorLeft.decode(), doorRight.decode()]).then(() => {
+                const timeline = gsap.timeline();
+
+                // Animation after images are loaded
+                timeline
+                    .to('.door.left', { x: '-100%', duration: 2.5, ease: 'power2.inOut' }) // Slide left door
+                    .to('.door.right', { x: '100%', duration: 2.5, ease: 'power2.inOut' }, '<') // Slide right door
+                    .to('.logo-container', { opacity: 0, duration: 4.5, ease: 'power2.inOut' }, '-=1') // Fade out logo
+                    .to('#loader', { opacity: 0, duration: 0.5, ease: 'power2.inOut' }) // Fade out loader
+                    .set('#loader', { display: 'none' }); // Remove loader
+
+                // Fade out the quote image after the doors have opened
+                timeline.to(quoteImageElement, { opacity: 0, duration: 0.5, ease: 'power2.inOut' });
+            });
+        });
     </script>
+
+
+
+
+    <!--End ทดสอบ คำคมแบบสุ่มแทนlogo loading เปิดม่าน Loader วิธีใหม่   gasp only -->
+
+
+
 
 
 
@@ -737,7 +910,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
                     gsap.to('.text-overlay', {
                         opacity: 1,
-                        duration: 1.5,
+                        duration: 6,
                         ease: 'power2.inOut'
                     });
                 });

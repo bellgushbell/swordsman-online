@@ -320,6 +320,13 @@ SweetAlert2 alert
 
 
 
+
+
+
+
+
+
+
 /* ==============================
    Page loader เปิดประตู
    ============================== */
@@ -1403,10 +1410,12 @@ a.bg-video-button-muted {
 /*mobile*/
 @media (max-width: 961px) {
     .bg-video {
+
         display: none;
     }
 
     .bg-video-mobile {
+
         display: block;
 
     }
