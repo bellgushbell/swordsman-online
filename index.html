@@ -565,9 +565,14 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
                 // Animation after images are loaded
                 timeline
-                    .to('.door.left', { x: '-100%', duration: 2.5, ease: 'power2.inOut' }) // Slide left door
-                    .to('.door.right', { x: '100%', duration: 2.5, ease: 'power2.inOut' }, '<') // Slide right door
-                    .to('.logo-container', { opacity: 0, duration: 4.5, ease: 'power2.inOut' }, '-=1') // Fade out logo
+                    .set('.door.left', { x: '0' })   // Set the left door at position 0
+                    .set('.door.right', { x: '0' })  // Set the right door at position 0
+                    .to({}, { duration: 3 })          // Wait for 3 seconds (without animation)
+
+
+                    .to('.door.left', { x: '-100%', duration: 8, ease: 'power2.inOut' }) // Slide left door
+                    .to('.door.right', { x: '100%', duration: 8, ease: 'power2.inOut' }, '<') // Slide right door
+                    .to('.logo-container', { opacity: 0, duration: 4, ease: 'power2.inOut' }, '-=1') // Fade out logo
                     .to('#loader', { opacity: 0, duration: 0.5, ease: 'power2.inOut' }) // Fade out loader
                     .set('#loader', { display: 'none' }); // Remove loader
 
@@ -911,10 +916,29 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                     gsap.to('.text-overlay', {
                         opacity: 1,
                         duration: 6,
-                        ease: 'power2.inOut'
+                        // duration: 2,
+                        ease: 'power4.inOut',
+                        delay: 8
+
                     });
                 });
             </script>
+
+
+            <script>
+                window.addEventListener('load', () => {
+                    // กำหนดเวลาให้เริ่มเล่นวีดีโอ (ในที่นี้คือ 3 วินาที)
+                    setTimeout(() => {
+                        const videoElements = document.querySelectorAll('video');
+
+                        // เริ่มเล่นวีดีโอทั้งหมด
+                        videoElements.forEach(video => {
+                            video.play();
+                        });
+                    }, 3000); // ปรับดีเลย์ที่ต้องการที่นี่ (3000 มิลลิวินาที = 3 วินาที)
+                });
+            </script>
+
 
             <!-- Fast Load -->
             <script>
