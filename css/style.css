@@ -2483,6 +2483,7 @@ input.form-control {
 
 .toggle-button i {
     font-size: 25px;
+    color: white;
     /* ปรับขนาดของไอคอนให้เหมาะสม */
     display: flex;
     justify-content: center;
@@ -2558,6 +2559,7 @@ input.form-control {
 
     /* Toggle Button */
     .toggle-button {
+
         width: 20px;
         /* ลดขนาดของปุ่ม */
         height: 20px;
