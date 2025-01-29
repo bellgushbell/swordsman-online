@@ -572,7 +572,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
                     .to('.door.left', { x: '-100%', duration: 8, ease: 'power2.inOut' }) // Slide left door
                     .to('.door.right', { x: '100%', duration: 8, ease: 'power2.inOut' }, '<') // Slide right door
-                    .to('.logo-container', { opacity: 0, duration: 4, ease: 'power2.inOut' }, '-=1') // Fade out logo
+                    .to('.logo-container', { opacity: 0, duration: 0.5, ease: 'power2.inOut' }, '-=3') // Fade out logo
                     .to('#loader', { opacity: 0, duration: 0.5, ease: 'power2.inOut' }) // Fade out loader
                     .set('#loader', { display: 'none' }); // Remove loader
 
@@ -582,7 +582,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         });
     </script>
 
-    <!-- ตั้งให้gifเล่นใหม่ทุกครั้ง ไม่ต่อจากเดิม -->
+
 
     <!--End ทดสอบ คำคมแบบสุ่มแทนlogo loading เปิดม่าน Loader วิธีใหม่   gasp only -->
 
