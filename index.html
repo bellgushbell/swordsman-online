@@ -570,9 +570,9 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                     .to({}, { duration: 3 })          // Wait for 3 seconds (without animation)
 
 
-                    .to('.door.left', { x: '-100%', duration: 8, ease: 'power2.inOut' }) // Slide left door
-                    .to('.door.right', { x: '100%', duration: 8, ease: 'power2.inOut' }, '<') // Slide right door
-                    .to('.logo-container', { opacity: 0, duration: 0.5, ease: 'power2.inOut' }, '-=4') // Fade out logo
+                    .to('.door.left', { x: '-100%', duration: 4, ease: 'power2.inOut' }) // Slide left door
+                    .to('.door.right', { x: '100%', duration: 4, ease: 'power2.inOut' }, '<') // Slide right door
+                    .to('.logo-container', { opacity: 0, duration: 0.5, ease: 'power2.inOut' }, '-=2') // Fade out logo
                     .to('#loader', { opacity: 0, duration: 0.5, ease: 'power2.inOut' }) // Fade out loader
                     .set('#loader', { display: 'none' }); // Remove loader
 
@@ -878,19 +878,19 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     <main id="main">
 
         <!-- Home Section -->
-        <section class="home-section bg-dark-alfa-30 light-content relative" data-background="images/background-pic.jpg"
-            id="home">
+        <section class="home-section bg-dark-alfa-30 light-content relative"
+            data-background="video/Swordsman-3-Video-web-ver01-Final.mp4" id="home">
             <div class="container height-100vh d-flex align-items-center">
 
                 <!-- BG Video BG Init -->
                 <!-- Please replace the video files in folder "video" with your own videos -->
                 <div class="bg-video-wrapper">
                     <video class="bg-video" preload="auto" loop muted playsinline data-object-fit="cover">
-                        <source src="video/Swordsman3-Video-web-ver-Notext.mp4" type="video/mp4">
+                        <source src="video/Swordsman-3-Video-web-ver01-Final.mp4" type="video/mp4">
                     </video>
                     <!-- mobile -->
                     <video class="bg-video-mobile" preload="auto" loop muted playsinline data-object-fit="cover">
-                        <source src="video/Swordsman3-Video-web-ver-Notext.mp4" type="video/mp4">
+                        <source src="video/Swordsman-3-Video-web-ver01-Final.mp4" type="video/mp4">
                     </video>
 
                     <div class="text-overlay">
@@ -914,9 +914,9 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                     gsap.to('.text-overlay', {
                         opacity: 1,
                         duration: 3,
-                        // duration: 2,
+
                         ease: 'power4.inOut',
-                        delay: 6
+                        delay: 4
 
                     });
                 });
