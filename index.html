@@ -361,7 +361,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             timeline
                 .to('.door.left', { x: '-100%', duration: 2, ease: 'power2.inOut' }) // Slide left door
                 .to('.door.right', { x: '100%', duration: 2, ease: 'power2.inOut' }, '<') // Slide right door
-                .to('.logo-container', { opacity: 1, duration: 0.2, ease: 'power2.inOut' }) // Fade in logo
+                // .to('.logo-container', { opacity: 1, duration: 0.2, ease: 'power2.inOut' }) // Fade in logo
                 .to('.logo-container', { opacity: 0, duration: 0.5, ease: 'power2.inOut' }, '-=1.5') // Fade out logo (เร็วขึ้น)
                 .to('#loader', { opacity: 0, duration: 0.5, ease: 'power2.inOut' }) // Fade out loader
                 .set('#loader', { display: 'none' }); // Remove loader
