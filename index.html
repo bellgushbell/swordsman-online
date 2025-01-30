@@ -1153,7 +1153,33 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                         alt="Background Image mobile landscape"> -->
                 <div class="bg-video-overlay bg-dark-alfa-30"></div>
             </div>
-            <a href="#" role="button" class="bg-video-button-muted"><i class="fa fa-volume-off"></i></a>
+            <!-- Mute Button -->
+            <a href="#" role="button" class="bg-video-button-muted" onclick="toggleMute(event)">
+                <i id="volume-icon" class="fa fa-volume-off"></i>
+            </a>
+
+            <!-- เปิด/ปิดเสียง แก้ปัญหา ios Mute Button -->
+            <script>
+                // JavaScript to toggle mute
+                function toggleMute(event) {
+                    event.preventDefault();
+                    const video = document.getElementById('bg-video');
+                    const icon = document.getElementById('volume-icon');
+
+                    // Unmute and play video
+                    if (video.muted) {
+                        video.muted = false;
+                        video.play(); // Ensure video is playing
+                        icon.classList.remove('fa-volume-off');
+                        icon.classList.add('fa-volume-up');
+                    } else {
+                        // Mute video
+                        video.muted = true;
+                        icon.classList.remove('fa-volume-up');
+                        icon.classList.add('fa-volume-off');
+                    }
+                }
+            </script>
 
             <!-- ข้อความVideo Fade -->
             <script>
