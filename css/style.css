@@ -1483,7 +1483,7 @@ a.bg-video-button-muted {
             /* ซ่อนก่อน */
             transition: opacity 1s ease-in-out;
             /* สำหรับเอฟเฟกต์ fade */
-            width: 80% !important;
+            width: 50% !important;
 
         }
     }

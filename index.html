@@ -736,6 +736,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         }
 
         @media (orientation: landscape) and (max-width: 1024px) {
+
+
             .door {
                 position: absolute;
                 width: 50%;
@@ -802,7 +804,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
             const quoteImageElement = document.getElementById('quote-image');
             quoteImageElement.src = getRandomQuoteImage();
-            gsap.to(quoteImageElement, { opacity: 1, duration: 0 });
+            gsap.to(quoteImageElement, { opacity: 1, duration: 0, scale: 1.5 });
 
             preloadDoors.then(() => {
                 const timeline = gsap.timeline();
@@ -1137,7 +1139,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                         data-object-fit="cover">
                         <source src="video/Swordsman-3-Video-web-ver01-Final.mp4" type="video/mp4">
                     </video>
-
+                    <!-- text-video -->
                     <div class="text-overlay">
                         <img src="images/text-video.png" alt="Overlay Text" class="overlay-text">
                     </div>
