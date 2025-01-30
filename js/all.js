@@ -1053,34 +1053,102 @@ function init_map() {
 /* ---------------------------------------------
  HTML5 background video
  --------------------------------------------- */
-
+// โค้ดเก่า่เริ่มต้น
 function init_bg_video() {
     (function ($) {
-        // เปิดเสียงอัตโนมัติเมื่อโหลดหน้าเว็บ
-        $(document).ready(function () {
-            var bgVideo = $(".bg-video");
-            bgVideo.prop('muted', false);
-            bgVideo[0].play().catch(function (err) {
-                console.warn("iOS/Safari requires user interaction:", err);
-                $(document).one("click touchstart", function () {
-                    bgVideo[0].play();
-                });
-            });
-        });
 
         $(".bg-video-button-muted").click(function () {
-            var videoElement = $(this).prev().find(".bg-video");
-            if (videoElement.prop('muted')) {
-                videoElement.prop('muted', false);
+            if ($(this).prev().find(".bg-video").prop('muted')) {
+                $(this).prev().find(".bg-video").prop('muted', false);
                 $(this).find("i").removeClass("fa-volume-off").addClass("fa-volume-up");
-            } else {
-                videoElement.prop('muted', true);
+            }
+            else {
+                $(this).prev().find(".bg-video").prop('muted', true);
                 $(this).find("i").removeClass("fa-volume-up").addClass("fa-volume-off");
             }
+
             return false;
         });
+
     })(jQuery);
 }
+
+// function init_bg_video() {
+//     (function ($) {
+//         $(document).ready(function () {
+//             var desktopVideo = $(".bg-video").eq(0)[0]; // วิดีโอหลัก
+//             var mobileVideo = $(".bg-video-mobile").eq(0)[0]; // วิดีโอบนมือถือ
+
+//             function playWithSound(videoElement) {
+//                 if (videoElement) {
+//                     videoElement.muted = false;
+//                     videoElement.volume = 1.0;
+
+//                     var playPromise = videoElement.play();
+//                     if (playPromise !== undefined) {
+//                         playPromise.then(() => {
+//                             console.log("✅ Video started playing with sound.");
+//                         }).catch((err) => {
+//                             console.warn("⚠️ iOS/Safari requires user interaction:", err);
+//                             autoClickToEnableAudio(videoElement);
+//                         });
+//                     }
+//                 }
+//             }
+
+//             // ✅ บังคับ Auto-Click เพื่อปลดล็อกเสียง
+//             function autoClickToEnableAudio(videoElement) {
+//                 console.log("🛠 Trying Auto-Click to enable audio...");
+//                 setTimeout(() => {
+//                     var clickEvent = new MouseEvent("click", {
+//                         bubbles: true,
+//                         cancelable: true,
+//                         view: window
+//                     });
+//                     document.body.dispatchEvent(clickEvent);
+//                     videoElement.muted = false;
+//                     videoElement.volume = 1.0;
+//                     videoElement.play();
+//                 }, 500); // รอ 0.5 วิ แล้วคลิกอัตโนมัติ
+//             }
+
+//             // ✅ พยายามเล่นวิดีโอทั้ง Desktop และ Mobile
+//             playWithSound(desktopVideo);
+//             playWithSound(mobileVideo);
+//         });
+
+//         // ✅ ปุ่ม Mute / Unmute (ใช้กับทั้งสองวิดีโอ)
+//         $(".bg-video-button-muted").click(function () {
+//             var desktopVideo = $(".bg-video").eq(0)[0];
+//             var mobileVideo = $(".bg-video-mobile").eq(0)[0];
+
+//             function toggleMute(videoElement) {
+//                 if (videoElement) {
+//                     if (videoElement.muted) {
+//                         videoElement.muted = false;
+//                         videoElement.volume = 1.0;
+//                         videoElement.play();
+//                         $(this).find("i").removeClass("fa-volume-off").addClass("fa-volume-up");
+//                         console.log("🔊 Unmuted");
+//                     } else {
+//                         videoElement.muted = true;
+//                         $(this).find("i").removeClass("fa-volume-up").addClass("fa-volume-off");
+//                         console.log("🔇 Muted");
+//                     }
+//                 }
+//             }
+
+//             toggleMute(desktopVideo);
+//             toggleMute(mobileVideo);
+//             return false;
+//         });
+
+//     })(jQuery);
+// }
+
+
+
+
 
 
 /* ---------------------------------------------
