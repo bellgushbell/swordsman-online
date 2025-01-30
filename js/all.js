@@ -1114,65 +1114,97 @@ function init_map() {
 //     })(jQuery);
 // }
 
-function init_bg_video() {
-    (function ($) {
-        $(document).ready(function () {
-            var desktopVideo = $(".bg-video");
-            var mobileVideo = $(".bg-video-mobile");
-            var muteButton = $(".bg-video-button-muted i");
+// function init_bg_video() {
+//     (function ($) {
+//         $(document).ready(function () {
+//             var desktopVideo = $(".bg-video");
+//             var mobileVideo = $(".bg-video-mobile");
+//             var muteButton = $(".bg-video-button-muted i");
 
-            function isIOS() {
-                return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-            }
+//             function isIOS() {
+//                 return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+//             }
 
-            function enableAudio(video) {
-                if (video[0].muted) {
-                    video[0].muted = false;
-                    video[0].volume = 1.0;
-                    video[0].play().then(() => {
-                        console.log("🎵 Audio enabled after user interaction.");
-                    }).catch(err => {
-                        console.error("🚨 Error enabling audio:", err);
-                    });
-                }
-            }
+//             function enableAudio(video) {
+//                 if (video[0].muted) {
+//                     video[0].muted = false;
+//                     video[0].volume = 1.0;
+//                     video[0].play().then(() => {
+//                         console.log("🎵 Audio enabled after user interaction.");
+//                     }).catch(err => {
+//                         console.error("🚨 Error enabling audio:", err);
+//                     });
+//                 }
+//             }
 
-            $(".bg-video-button-muted").click(function () {
-                if (desktopVideo.length) {
-                    if (desktopVideo[0].muted) {
-                        enableAudio(desktopVideo);
-                    } else {
-                        desktopVideo[0].muted = true;
-                    }
-                }
-                if (mobileVideo.length) {
-                    if (mobileVideo[0].muted) {
-                        enableAudio(mobileVideo);
-                    } else {
-                        mobileVideo[0].muted = true;
-                    }
-                }
+//             $(".bg-video-button-muted").click(function () {
+//                 if (desktopVideo.length) {
+//                     if (desktopVideo[0].muted) {
+//                         enableAudio(desktopVideo);
+//                     } else {
+//                         desktopVideo[0].muted = true;
+//                     }
+//                 }
+//                 if (mobileVideo.length) {
+//                     if (mobileVideo[0].muted) {
+//                         enableAudio(mobileVideo);
+//                     } else {
+//                         mobileVideo[0].muted = true;
+//                     }
+//                 }
 
-                if (desktopVideo[0].muted && mobileVideo[0].muted) {
-                    muteButton.removeClass("fa-volume-up").addClass("fa-volume-off");
-                    console.log("🔇 Muted");
-                } else {
-                    muteButton.removeClass("fa-volume-off").addClass("fa-volume-up");
-                    console.log("🔊 Unmuted");
-                }
-                return false;
+//                 if (desktopVideo[0].muted && mobileVideo[0].muted) {
+//                     muteButton.removeClass("fa-volume-up").addClass("fa-volume-off");
+//                     console.log("🔇 Muted");
+//                 } else {
+//                     muteButton.removeClass("fa-volume-off").addClass("fa-volume-up");
+//                     console.log("🔊 Unmuted");
+//                 }
+//                 return false;
+//             });
+
+//             if (isIOS()) {
+//                 console.log("🎵 iOS detected, requiring interaction for audio.");
+//                 if (desktopVideo.length) desktopVideo.prop("muted", true);
+//                 if (mobileVideo.length) mobileVideo.prop("muted", true);
+//             }
+//         });
+//     })(jQuery);
+// }
+
+document.addEventListener("DOMContentLoaded", function () {
+    const desktopVideo = document.querySelector(".bg-video");
+    const mobileVideo = document.querySelector(".bg-video-mobile");
+    const muteButton = document.querySelector(".bg-video-button-muted i");
+
+    function enableAudio(videoElement) {
+        if (videoElement) {
+            videoElement.muted = false;
+            videoElement.volume = 1.0;
+            videoElement.play().then(() => {
+                muteButton.classList.remove("fa-volume-off");
+                muteButton.classList.add("fa-volume-up");
+                console.log("🎵 Audio enabled.");
+            }).catch(err => {
+                console.error("🚨 Error enabling audio:", err);
             });
+        }
+    }
 
-            if (isIOS()) {
-                console.log("🎵 iOS detected, requiring interaction for audio.");
-                if (desktopVideo.length) desktopVideo.prop("muted", true);
-                if (mobileVideo.length) mobileVideo.prop("muted", true);
-            }
-        });
-    })(jQuery);
-}
+    document.querySelector(".bg-video-button-muted").addEventListener("click", function () {
+        enableAudio(desktopVideo);
+        enableAudio(mobileVideo);
+    });
 
+    function isIOS() {
+        return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    }
 
+    // แจ้งให้ผู้ใช้ปิด Silent Mode ถ้าเป็น iOS
+    if (isIOS()) {
+        alert("📢 กรุณาปิด Silent Mode เพื่อให้เสียงทำงานบน iOS!");
+    }
+});
 
 
 
