@@ -1080,58 +1080,96 @@ function init_map() {
 
 //     })(jQuery);
 // }
-
-
 function init_bg_video() {
     (function ($) {
-        $(".bg-video-button-muted").click(function () {
-            var desktopVideo = $(this).prev().find(".bg-video")[0];
-            var mobileVideo = $(this).prev().find(".bg-video-mobile")[0];
-            var icon = $(this).find("i");
-
-            function toggleMute(videoElement) {
-                if (videoElement) {
-                    if (videoElement.muted) {
-                        videoElement.muted = false; // เปิดเสียง
-                        videoElement.volume = 1.0; // ตั้งค่าระดับเสียง
-                        videoElement.play().then(() => {
-                            console.log("🔊 Video unmuted and playing.");
-                        }).catch(err => {
-                            console.error("🚨 Error playing video:", err);
-                        });
-                    } else {
-                        videoElement.muted = true; // ปิดเสียง
-                        console.log("🔇 Video muted.");
-                    }
-                }
-            }
-
-            // สลับสถานะเสียงสำหรับ Desktop Video
-            toggleMute(desktopVideo);
-            // สลับสถานะเสียงสำหรับ Mobile Video
-            toggleMute(mobileVideo);
-
-            // อัปเดตไอคอนตามสถานะเสียง
-            if (desktopVideo.muted && mobileVideo.muted) {
-                icon.removeClass("fa-volume-up").addClass("fa-volume-off");
-            } else {
-                icon.removeClass("fa-volume-off").addClass("fa-volume-up");
-            }
-
-            return false;
-        });
-
-        // บังคับให้ iOS รอการโต้ตอบจากผู้ใช้
+        // ตรวจจับว่าเป็น iOS หรือไม่
         function isIOS() {
             return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
         }
 
-        if (isIOS()) {
-            console.log("📢 iOS detected. Waiting for user interaction to enable audio.");
-            $(".bg-video, .bg-video-mobile").prop("muted", true); // ตั้งค่าให้ปิดเสียงเริ่มต้น
-        }
+        $(document).ready(function () {
+            // หากเป็น iOS ซ่อนปุ่มเสียง
+            if (isIOS()) {
+                $(".bg-video-button-muted").hide();
+                console.log("📱 iOS detected: Mute button hidden.");
+            } else {
+                console.log("🖥 Non-iOS device detected: Mute button enabled.");
+
+                // สำหรับอุปกรณ์อื่น ให้คงการทำงานของปุ่มเสียงปกติ
+                $(".bg-video-button-muted").click(function () {
+                    if ($(this).prev().find(".bg-video").prop('muted')) {
+                        $(this).prev().find(".bg-video").prop('muted', false);
+                        $(this).find("i").removeClass("fa-volume-off").addClass("fa-volume-up");
+                    } else {
+                        $(this).prev().find(".bg-video").prop('muted', true);
+                        $(this).find("i").removeClass("fa-volume-up").addClass("fa-volume-off");
+                    }
+                    if ($(this).prev().find(".bg-video-mobile").prop('muted')) {
+                        $(this).prev().find(".bg-video-mobile").prop('muted', false);
+                        $(this).find("i").removeClass("fa-volume-off").addClass("fa-volume-up");
+                    } else {
+                        $(this).prev().find(".bg-video-mobile").prop('muted', true);
+                        $(this).find("i").removeClass("fa-volume-up").addClass("fa-volume-off");
+                    }
+
+                    return false;
+                });
+            }
+        });
     })(jQuery);
 }
+
+
+// function init_bg_video() {
+//     (function ($) {
+//         $(".bg-video-button-muted").click(function () {
+//             var desktopVideo = $(this).prev().find(".bg-video")[0];
+//             var mobileVideo = $(this).prev().find(".bg-video-mobile")[0];
+//             var icon = $(this).find("i");
+
+//             function toggleMute(videoElement) {
+//                 if (videoElement) {
+//                     if (videoElement.muted) {
+//                         videoElement.muted = false; // เปิดเสียง
+//                         videoElement.volume = 1.0; // ตั้งค่าระดับเสียง
+//                         videoElement.play().then(() => {
+//                             console.log("🔊 Video unmuted and playing.");
+//                         }).catch(err => {
+//                             console.error("🚨 Error playing video:", err);
+//                         });
+//                     } else {
+//                         videoElement.muted = true; // ปิดเสียง
+//                         console.log("🔇 Video muted.");
+//                     }
+//                 }
+//             }
+
+//             // สลับสถานะเสียงสำหรับ Desktop Video
+//             toggleMute(desktopVideo);
+//             // สลับสถานะเสียงสำหรับ Mobile Video
+//             toggleMute(mobileVideo);
+
+//             // อัปเดตไอคอนตามสถานะเสียง
+//             if (desktopVideo.muted && mobileVideo.muted) {
+//                 icon.removeClass("fa-volume-up").addClass("fa-volume-off");
+//             } else {
+//                 icon.removeClass("fa-volume-off").addClass("fa-volume-up");
+//             }
+
+//             return false;
+//         });
+
+//         // บังคับให้ iOS รอการโต้ตอบจากผู้ใช้
+//         function isIOS() {
+//             return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+//         }
+
+//         if (isIOS()) {
+//             console.log("📢 iOS detected. Waiting for user interaction to enable audio.");
+//             $(".bg-video, .bg-video-mobile").prop("muted", true); // ตั้งค่าให้ปิดเสียงเริ่มต้น
+//         }
+//     })(jQuery);
+// }
 
 
 
