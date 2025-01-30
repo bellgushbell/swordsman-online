@@ -1082,59 +1082,119 @@ function init_map() {
 // }
 
 
-document.addEventListener("DOMContentLoaded", function () {
-    const desktopVideo = document.querySelector(".bg-video");
-    const mobileVideo = document.querySelector(".bg-video-mobile");
-    const muteButton = document.querySelector(".bg-video-button-muted i");
+function init_bg_video() {
+    (function ($) {
+        $(".bg-video-button-muted").click(function () {
+            var desktopVideo = $(this).prev().find(".bg-video")[0];
+            var mobileVideo = $(this).prev().find(".bg-video-mobile")[0];
+            var icon = $(this).find("i");
 
-    // ✅ ฟังก์ชันเปิดเสียงวิดีโอ
-    function enableAudio(videoElement) {
-        if (videoElement) {
-            videoElement.muted = false; // ปิด mute
-            videoElement.volume = 1.0;  // ตั้งระดับเสียง
-            videoElement.play().then(() => {
-                console.log("🎵 Audio enabled and playing.");
-                muteButton.classList.remove("fa-volume-off");
-                muteButton.classList.add("fa-volume-up");
-            }).catch((err) => {
-                console.error("🚨 Error enabling audio:", err);
-            });
+            function toggleMute(videoElement) {
+                if (videoElement) {
+                    if (videoElement.muted) {
+                        videoElement.muted = false; // เปิดเสียง
+                        videoElement.volume = 1.0; // ตั้งค่าระดับเสียง
+                        videoElement.play().then(() => {
+                            console.log("🔊 Video unmuted and playing.");
+                        }).catch(err => {
+                            console.error("🚨 Error playing video:", err);
+                        });
+                    } else {
+                        videoElement.muted = true; // ปิดเสียง
+                        console.log("🔇 Video muted.");
+                    }
+                }
+            }
+
+            // สลับสถานะเสียงสำหรับ Desktop Video
+            toggleMute(desktopVideo);
+            // สลับสถานะเสียงสำหรับ Mobile Video
+            toggleMute(mobileVideo);
+
+            // อัปเดตไอคอนตามสถานะเสียง
+            if (desktopVideo.muted && mobileVideo.muted) {
+                icon.removeClass("fa-volume-up").addClass("fa-volume-off");
+            } else {
+                icon.removeClass("fa-volume-off").addClass("fa-volume-up");
+            }
+
+            return false;
+        });
+
+        // บังคับให้ iOS รอการโต้ตอบจากผู้ใช้
+        function isIOS() {
+            return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
         }
-    }
 
-    // ✅ ฟังก์ชันปุ่ม Mute / Unmute
-    document.querySelector(".bg-video-button-muted").addEventListener("click", function (event) {
-        event.preventDefault();
-        enableAudio(desktopVideo);
-        enableAudio(mobileVideo);
-    });
-
-    // ✅ แจ้งเตือนผู้ใช้ให้ปิด Silent Mode
-    function checkSilentMode() {
-        if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
-            alert("📢 กรุณาปิด Silent Mode บนอุปกรณ์ iOS เพื่อให้เสียงทำงาน!");
+        if (isIOS()) {
+            console.log("📢 iOS detected. Waiting for user interaction to enable audio.");
+            $(".bg-video, .bg-video-mobile").prop("muted", true); // ตั้งค่าให้ปิดเสียงเริ่มต้น
         }
-    }
+    })(jQuery);
+}
 
-    // เรียกฟังก์ชันตรวจสอบ Silent Mode
-    checkSilentMode();
 
-    // ✅ ฟังก์ชันเริ่มเล่นวิดีโอแบบปิดเสียง
-    function playMuted(videoElement) {
-        if (videoElement) {
-            videoElement.muted = true;
-            videoElement.play().then(() => {
-                console.log("✅ Video is playing (muted).");
-            }).catch(err => {
-                console.warn("⚠️ iOS/Safari requires user interaction:", err);
-            });
-        }
-    }
 
-    // ✅ เริ่มเล่นวิดีโอทั้ง Desktop และ Mobile
-    playMuted(desktopVideo);
-    playMuted(mobileVideo);
-});
+
+
+
+
+
+
+
+// document.addEventListener("DOMContentLoaded", function () {
+//     const desktopVideo = document.querySelector(".bg-video");
+//     const mobileVideo = document.querySelector(".bg-video-mobile");
+//     const muteButton = document.querySelector(".bg-video-button-muted i");
+
+//     // ✅ ฟังก์ชันเปิดเสียงวิดีโอ
+//     function enableAudio(videoElement) {
+//         if (videoElement) {
+//             videoElement.muted = false; // ปิด mute
+//             videoElement.volume = 1.0;  // ตั้งระดับเสียง
+//             videoElement.play().then(() => {
+//                 console.log("🎵 Audio enabled and playing.");
+//                 muteButton.classList.remove("fa-volume-off");
+//                 muteButton.classList.add("fa-volume-up");
+//             }).catch((err) => {
+//                 console.error("🚨 Error enabling audio:", err);
+//             });
+//         }
+//     }
+
+//     // ✅ ฟังก์ชันปุ่ม Mute / Unmute
+//     document.querySelector(".bg-video-button-muted").addEventListener("click", function (event) {
+//         event.preventDefault();
+//         enableAudio(desktopVideo);
+//         enableAudio(mobileVideo);
+//     });
+
+//     // ✅ แจ้งเตือนผู้ใช้ให้ปิด Silent Mode
+//     function checkSilentMode() {
+//         if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
+//             alert("📢 กรุณาปิด Silent Mode บนอุปกรณ์ iOS เพื่อให้เสียงทำงาน!");
+//         }
+//     }
+
+//     // เรียกฟังก์ชันตรวจสอบ Silent Mode
+//     checkSilentMode();
+
+//     // ✅ ฟังก์ชันเริ่มเล่นวิดีโอแบบปิดเสียง
+//     function playMuted(videoElement) {
+//         if (videoElement) {
+//             videoElement.muted = true;
+//             videoElement.play().then(() => {
+//                 console.log("✅ Video is playing (muted).");
+//             }).catch(err => {
+//                 console.warn("⚠️ iOS/Safari requires user interaction:", err);
+//             });
+//         }
+//     }
+
+//     // ✅ เริ่มเล่นวิดีโอทั้ง Desktop และ Mobile
+//     playMuted(desktopVideo);
+//     playMuted(mobileVideo);
+// });
 
 
 
