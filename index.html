@@ -1161,24 +1161,41 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             <!-- เปิด/ปิดเสียง แก้ปัญหา ios Mute Button -->
             <script>
                 // JavaScript to toggle mute
+                const video = document.getElementById('bg-video');
+                const icon = document.getElementById('volume-icon');
+
                 function toggleMute(event) {
                     event.preventDefault();
-                    const video = document.getElementById('bg-video');
-                    const icon = document.getElementById('volume-icon');
 
-                    // Unmute and play video
+                    // Unmute and ensure video is playing
                     if (video.muted) {
                         video.muted = false;
-                        video.play(); // Ensure video is playing
-                        icon.classList.remove('fa-volume-off');
-                        icon.classList.add('fa-volume-up');
+                        video.play()
+                            .then(() => {
+                                // Successfully playing
+                                icon.classList.remove('fa-volume-off');
+                                icon.classList.add('fa-volume-up');
+                            })
+                            .catch((err) => {
+                                // Error handling
+                                console.error('Error playing video:', err);
+                            });
                     } else {
-                        // Mute video
+                        // Mute the video
                         video.muted = true;
                         icon.classList.remove('fa-volume-up');
                         icon.classList.add('fa-volume-off');
                     }
                 }
+
+                // Ensure video starts playing after user interaction (required for iOS)
+                document.addEventListener('click', () => {
+                    if (video.paused) {
+                        video.play().catch((err) => {
+                            console.error('Error attempting to play video:', err);
+                        });
+                    }
+                });
             </script>
 
             <!-- ข้อความVideo Fade -->
