@@ -1159,6 +1159,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             </a>
             <!-- เปิด/ปิดเสียง แก้ปัญหา ios Mute Button -->
             <script>
+
                 const video = document.getElementById('bg-video');
                 const icon = document.getElementById('volume-icon');
 
@@ -1166,20 +1167,29 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                     video.muted = false; // เปิดเสียง
                     video.play()
                         .then(() => {
-                            // อัปเดตไอคอนเป็นเปิดเสียง
                             icon.classList.remove('fa-volume-off');
                             icon.classList.add('fa-volume-up');
                         })
                         .catch((err) => {
                             console.warn('iOS/Safari requires user interaction:', err);
-                            simulateClick(); // ถ้าเล่นเสียงไม่ได้ ลองจำลองการคลิก
                         });
                 }
 
-                // 🚀 1. พยายามเล่นเสียงตั้งแต่ DOM โหลดเสร็จ
-                document.addEventListener('DOMContentLoaded', playVideoWithSound);
+                // 🚀 1. พยายามเล่นเสียงหลังจากโหลดหน้าเว็บเสร็จ
+                document.addEventListener('DOMContentLoaded', () => {
+                    setTimeout(() => {
+                        playVideoWithSound();
+                    }, 1000); // เพิ่มดีเลย์ 1 วินาทีให้ Safari จัดการโหลดก่อน
+                });
 
-                // 🚀 2. จับ event `touchstart` และ `click` เพื่อพยายามเปิดเสียงอัตโนมัติ
+                // 🚀 2. ถ้าผู้ใช้เปลี่ยนแท็บไป-มา ให้พยายามเล่นวิดีโออีกครั้ง
+                document.addEventListener('visibilitychange', () => {
+                    if (!document.hidden) {
+                        playVideoWithSound();
+                    }
+                });
+
+                // 🚀 3. ถ้าผู้ใช้แตะที่ไหนก็ได้ในหน้าเว็บ ให้พยายามเปิดเสียง
                 function enableAudioInteraction() {
                     playVideoWithSound();
                     document.removeEventListener('touchstart', enableAudioInteraction);
@@ -1188,21 +1198,11 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 document.addEventListener('touchstart', enableAudioInteraction, { passive: true });
                 document.addEventListener('click', enableAudioInteraction);
 
-                // 🚀 3. ใช้ Auto-Click จำลองเพื่อหลอก iOS ว่าผู้ใช้โต้ตอบจริงๆ
-                function simulateClick() {
-                    const event = new MouseEvent('click', {
-                        view: window,
-                        bubbles: true,
-                        cancelable: true
-                    });
-                    document.body.dispatchEvent(event);
-                }
-
-                // 🚀 4. ฟังก์ชันเปิด/ปิดเสียงด้วยปุ่ม mute
+                // 🚀 4. ปุ่ม Mute/Unmute
                 function toggleMute(event) {
                     event.preventDefault();
                     if (video.muted) {
-                        video.muted = false; // เปิดเสียง
+                        video.muted = false;
                         video.play()
                             .then(() => {
                                 icon.classList.remove('fa-volume-off');
@@ -1212,7 +1212,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                 console.error('Error playing video:', err);
                             });
                     } else {
-                        video.muted = true; // ปิดเสียง
+                        video.muted = true;
                         icon.classList.remove('fa-volume-up');
                         icon.classList.add('fa-volume-off');
                     }
