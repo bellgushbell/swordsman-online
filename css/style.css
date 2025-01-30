@@ -1465,7 +1465,7 @@ a.bg-video-button-muted {
         }
 
         .overlay-text {
-            max-width: 100%;
+            width: 100%;
 
             width: auto;
             height: auto;
