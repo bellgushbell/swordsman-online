@@ -1054,24 +1054,32 @@ function init_map() {
  HTML5 background video
  --------------------------------------------- */
 // โค้ดเก่า่เริ่มต้น
-// function init_bg_video() {
-//     (function ($) {
+function init_bg_video() {
+    (function ($) {
 
-//         $(".bg-video-button-muted").click(function () {
-//             if ($(this).prev().find(".bg-video").prop('muted')) {
-//                 $(this).prev().find(".bg-video").prop('muted', false);
-//                 $(this).find("i").removeClass("fa-volume-off").addClass("fa-volume-up");
-//             }
-//             else {
-//                 $(this).prev().find(".bg-video").prop('muted', true);
-//                 $(this).find("i").removeClass("fa-volume-up").addClass("fa-volume-off");
-//             }
+        $(".bg-video-button-muted").click(function () {
+            if ($(this).prev().find(".bg-video").prop('muted')) {
+                $(this).prev().find(".bg-video").prop('muted', false);
+                $(this).find("i").removeClass("fa-volume-off").addClass("fa-volume-up");
+            }
+            else {
+                $(this).prev().find(".bg-video").prop('muted', true);
+                $(this).find("i").removeClass("fa-volume-up").addClass("fa-volume-off");
+            }
+            if ($(this).prev().find(".bg-video-mobile").prop('muted')) {
+                $(this).prev().find(".bg-video-mobile").prop('muted', false);
+                $(this).find("i").removeClass("fa-volume-off").addClass("fa-volume-up");
+            }
+            else {
+                $(this).prev().find(".bg-video-mobile").prop('muted', true);
+                $(this).find("i").removeClass("fa-volume-up").addClass("fa-volume-off");
+            }
 
-//             return false;
-//         });
+            return false;
+        });
 
-//     })(jQuery);
-// }
+    })(jQuery);
+}
 
 // function init_bg_video() {
 //     (function ($) {
@@ -1172,39 +1180,7 @@ function init_map() {
 //     })(jQuery);
 // }
 
-document.addEventListener("DOMContentLoaded", function () {
-    const desktopVideo = document.querySelector(".bg-video");
-    const mobileVideo = document.querySelector(".bg-video-mobile");
-    const muteButton = document.querySelector(".bg-video-button-muted i");
 
-    function enableAudio(videoElement) {
-        if (videoElement) {
-            videoElement.muted = false;
-            videoElement.volume = 1.0;
-            videoElement.play().then(() => {
-                muteButton.classList.remove("fa-volume-off");
-                muteButton.classList.add("fa-volume-up");
-                console.log("🎵 Audio enabled.");
-            }).catch(err => {
-                console.error("🚨 Error enabling audio:", err);
-            });
-        }
-    }
-
-    document.querySelector(".bg-video-button-muted").addEventListener("click", function () {
-        enableAudio(desktopVideo);
-        enableAudio(mobileVideo);
-    });
-
-    function isIOS() {
-        return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-    }
-
-    // แจ้งให้ผู้ใช้ปิด Silent Mode ถ้าเป็น iOS
-    if (isIOS()) {
-        alert("📢 กรุณาปิด Silent Mode เพื่อให้เสียงทำงานบน iOS!");
-    }
-});
 
 
 
