@@ -1363,7 +1363,7 @@ SweetAlert2 alert
 
 }
 
-a.bg-video-button-muted {
+/* a.bg-video-button-muted {
     display: block;
     width: 1em;
     height: 1em;
@@ -1375,6 +1375,23 @@ a.bg-video-button-muted {
     color: #fff;
     opacity: .75;
     z-index: 1000;
+} */
+a.bg-video-button-muted {
+    display: inline-block;
+    /* ทำให้ปุ่มเห็นชัดขึ้น */
+    width: 40px;
+    /* ขยายขนาดปุ่ม */
+    height: 40px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 28px;
+    line-height: 1;
+    color: #fff;
+    opacity: 0.9;
+    cursor: pointer;
+    z-index: 1000;
+    /* ให้ปุ่มอยู่ด้านบนสุด */
 }
 
 .bg-video-mobile {

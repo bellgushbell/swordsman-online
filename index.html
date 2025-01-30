@@ -1155,47 +1155,69 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             </div>
             <!-- Mute Button -->
             <a href="#" role="button" class="bg-video-button-muted" onclick="toggleMute(event)">
-                <i id="volume-icon" class="fa fa-volume-off"></i>
+                <i id="volume-icon" class="fa fa-volume-up"></i>
             </a>
-
             <!-- เปิด/ปิดเสียง แก้ปัญหา ios Mute Button -->
             <script>
-                // JavaScript to toggle mute
                 const video = document.getElementById('bg-video');
                 const icon = document.getElementById('volume-icon');
 
+                function playVideoWithSound() {
+                    video.muted = false; // เปิดเสียง
+                    video.play()
+                        .then(() => {
+                            // อัปเดตไอคอนเป็นเปิดเสียง
+                            icon.classList.remove('fa-volume-off');
+                            icon.classList.add('fa-volume-up');
+                        })
+                        .catch((err) => {
+                            console.warn('iOS/Safari requires user interaction:', err);
+                            simulateClick(); // ถ้าเล่นเสียงไม่ได้ ลองจำลองการคลิก
+                        });
+                }
+
+                // 🚀 1. พยายามเล่นเสียงตั้งแต่ DOM โหลดเสร็จ
+                document.addEventListener('DOMContentLoaded', playVideoWithSound);
+
+                // 🚀 2. จับ event `touchstart` และ `click` เพื่อพยายามเปิดเสียงอัตโนมัติ
+                function enableAudioInteraction() {
+                    playVideoWithSound();
+                    document.removeEventListener('touchstart', enableAudioInteraction);
+                    document.removeEventListener('click', enableAudioInteraction);
+                }
+                document.addEventListener('touchstart', enableAudioInteraction, { passive: true });
+                document.addEventListener('click', enableAudioInteraction);
+
+                // 🚀 3. ใช้ Auto-Click จำลองเพื่อหลอก iOS ว่าผู้ใช้โต้ตอบจริงๆ
+                function simulateClick() {
+                    const event = new MouseEvent('click', {
+                        view: window,
+                        bubbles: true,
+                        cancelable: true
+                    });
+                    document.body.dispatchEvent(event);
+                }
+
+                // 🚀 4. ฟังก์ชันเปิด/ปิดเสียงด้วยปุ่ม mute
                 function toggleMute(event) {
                     event.preventDefault();
-
-                    // Unmute and ensure video is playing
                     if (video.muted) {
-                        video.muted = false;
+                        video.muted = false; // เปิดเสียง
                         video.play()
                             .then(() => {
-                                // Successfully playing
                                 icon.classList.remove('fa-volume-off');
                                 icon.classList.add('fa-volume-up');
                             })
                             .catch((err) => {
-                                // Error handling
                                 console.error('Error playing video:', err);
                             });
                     } else {
-                        // Mute the video
-                        video.muted = true;
+                        video.muted = true; // ปิดเสียง
                         icon.classList.remove('fa-volume-up');
                         icon.classList.add('fa-volume-off');
                     }
                 }
 
-                // Ensure video starts playing after user interaction (required for iOS)
-                document.addEventListener('click', () => {
-                    if (video.paused) {
-                        video.play().catch((err) => {
-                            console.error('Error attempting to play video:', err);
-                        });
-                    }
-                });
             </script>
 
 
