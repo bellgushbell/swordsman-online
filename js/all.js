@@ -1073,10 +1073,52 @@ function init_map() {
 //     })(jQuery);
 // }
 
+// function init_bg_video() {
+//     (function ($) {
+//         $(document).ready(function () {
+//             var videoElement = $(".bg-video");
+//             var muteButton = $(".bg-video-button-muted i");
+
+//             function isIOS() {
+//                 return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+//             }
+
+//             function enableAudio(video) {
+//                 video.prop('muted', false);
+//                 video[0].volume = 1.0;
+//                 video[0].play().then(() => {
+//                     console.log("🎵 Audio enabled on iOS after user interaction.");
+//                 }).catch(err => {
+//                     console.error("🚨 Error enabling audio:", err);
+//                 });
+//             }
+
+//             $(".bg-video-button-muted").click(function () {
+//                 var video = $(this).prev().find(".bg-video");
+//                 if (video.prop('muted')) {
+//                     enableAudio(video);
+//                     muteButton.removeClass("fa-volume-off").addClass("fa-volume-up");
+//                 } else {
+//                     video.prop('muted', true);
+//                     muteButton.removeClass("fa-volume-up").addClass("fa-volume-off");
+//                     console.log("🔇 Muted");
+//                 }
+//                 return false;
+//             });
+
+//             if (isIOS()) {
+//                 console.log("🎵 iOS detected, requiring interaction for audio.");
+//                 videoElement.prop('muted', true);
+//             }
+//         });
+//     })(jQuery);
+// }
+
 function init_bg_video() {
     (function ($) {
         $(document).ready(function () {
-            var videoElement = $(".bg-video");
+            var desktopVideo = $(".bg-video");
+            var mobileVideo = $(".bg-video-mobile");
             var muteButton = $(".bg-video-button-muted i");
 
             function isIOS() {
@@ -1084,36 +1126,51 @@ function init_bg_video() {
             }
 
             function enableAudio(video) {
-                video.prop('muted', false);
-                video[0].volume = 1.0;
-                video[0].play().then(() => {
-                    console.log("🎵 Audio enabled on iOS after user interaction.");
-                }).catch(err => {
-                    console.error("🚨 Error enabling audio:", err);
-                });
+                if (video[0].muted) {
+                    video[0].muted = false;
+                    video[0].volume = 1.0;
+                    video[0].play().then(() => {
+                        console.log("🎵 Audio enabled after user interaction.");
+                    }).catch(err => {
+                        console.error("🚨 Error enabling audio:", err);
+                    });
+                }
             }
 
             $(".bg-video-button-muted").click(function () {
-                var video = $(this).prev().find(".bg-video");
-                if (video.prop('muted')) {
-                    enableAudio(video);
-                    muteButton.removeClass("fa-volume-off").addClass("fa-volume-up");
-                } else {
-                    video.prop('muted', true);
+                if (desktopVideo.length) {
+                    if (desktopVideo[0].muted) {
+                        enableAudio(desktopVideo);
+                    } else {
+                        desktopVideo[0].muted = true;
+                    }
+                }
+                if (mobileVideo.length) {
+                    if (mobileVideo[0].muted) {
+                        enableAudio(mobileVideo);
+                    } else {
+                        mobileVideo[0].muted = true;
+                    }
+                }
+
+                if (desktopVideo[0].muted && mobileVideo[0].muted) {
                     muteButton.removeClass("fa-volume-up").addClass("fa-volume-off");
                     console.log("🔇 Muted");
+                } else {
+                    muteButton.removeClass("fa-volume-off").addClass("fa-volume-up");
+                    console.log("🔊 Unmuted");
                 }
                 return false;
             });
 
             if (isIOS()) {
                 console.log("🎵 iOS detected, requiring interaction for audio.");
-                videoElement.prop('muted', true);
+                if (desktopVideo.length) desktopVideo.prop("muted", true);
+                if (mobileVideo.length) mobileVideo.prop("muted", true);
             }
         });
     })(jQuery);
 }
-
 
 
 
