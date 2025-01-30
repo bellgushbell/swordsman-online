@@ -272,7 +272,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     <!--  End  เปิดม่าน Loader วิธี three JS  -->
 
 
-    <!-- ใช้งาน -->
+
     <!-- เปิดม่าน Loader วิธีใหม่ gasp only ใช้งาน  -->
 
     <!-- <div class="page-loader" id="loader">
@@ -413,27 +413,27 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     </script> -->
 
 
-    <!-- End เปิดม่าน Loader วิธีใหม่ gasp only ใช้งาน  -->
+    <!-- End เปิดม่าน Loader วิธีใหม่ gasp only   -->
 
 
 
 
 
 
-    <!--ทดสอบ คำคมแบบสุ่มแทนlogo loading เปิดม่านประตู Loader วิธีใหม่  gasp only  -->
-    <div class="page-loader" id="loader">
+    <!--ใช้งาน คำคมแบบสุ่มแทนlogo loading เปิดม่านประตู Loader วิธีใหม่  gasp only  -->
+    <!-- <div class="page-loader" id="loader">
         <div class="door left"></div>
         <div class="door right"></div>
-        <div class="logo-container">
-            <!-- Placeholder for the image -->
-            <img id="quote-image" src="" class="loading-icon">
+        <div class="logo-container"> -->
+    <!-- Placeholder for the image -->
+    <!-- <img id="quote-image" src="" class="loading-icon">
         </div>
-    </div>
+    </div> -->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script> -->
 
     <!-- Style -->
-    <style>
+    <!-- <style>
         /* Loader Container */
         .page-loader {
             position: fixed;
@@ -558,9 +558,9 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
             }
         }
-    </style>
+    </style> -->
 
-    <script>
+    <!-- <script>
 
         const quoteImages = [
             'images/PageLoad/pageload-word/01.png',
@@ -615,11 +615,220 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 timeline.to(quoteImageElement, { opacity: 0, duration: 0.5, ease: 'power2.inOut' });
             });
         });
+    </script> -->
+
+
+
+    <!--End ใช้งาน คำคมแบบสุ่มแทนlogo loading เปิดม่าน Loader วิธีใหม่   gasp only -->
+
+
+
+
+
+
+
+
+
+    <!--เห้ยได้จริง ทดสอบ  loading เปิดม่าน Loader วิธีใหม่  ปรับแก้ภาพไม่เท่ากัน -->
+
+
+    <div class="page-loader" id="loader">
+        <div class="door left"></div>
+        <div class="door right"></div>
+        <div class="logo-container">
+            <img id="quote-image" src="" class="loading-icon">
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <style>
+        /* Loader Container */
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: transparent;
+            overflow: hidden;
+            z-index: 9999;
+        }
+
+        /* Doors */
+        .door {
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+
+        .door.left {
+            background-image: url('images/PageLoad/Cloud-no-Cloud-Left.gif');
+            left: 0;
+            transform: translateX(0);
+            transform-origin: right center;
+        }
+
+        .door.right {
+            background-image: url('images/PageLoad/Cloud-no-Cloud-Right.gif');
+            right: 0;
+            transform: translateX(0);
+            transform-origin: left center;
+        }
+
+        /* Logo */
+        .logo-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+        }
+
+        .loading-icon {
+            max-width: 300px;
+            z-index: 2;
+            opacity: 0;
+            /* Start hidden */
+            transition: opacity 0.5s ease;
+            /* Smooth fade in */
+        }
+
+        /* Responsive for small screens */
+        @media (max-width: 961px) {
+            .loading-icon {
+                max-width: 250px !important;
+            }
+
+            .door {
+                position: absolute;
+                width: 50%;
+                height: 100%;
+                background-size: cover;
+                z-index: 1;
+            }
+
+            .door.left {
+                background-image: url('images/PageLoad/Cloud-no-Cloud-Left.gif');
+                left: 0;
+                transform: translateX(0);
+                transform-origin: right center;
+                width: 50%;
+                background-size: cover;
+                background-position: right;
+            }
+
+            .door.right {
+                background-image: url('images/PageLoad/Cloud-no-Cloud-Right.gif');
+                right: 0;
+                transform: translateX(0);
+                transform-origin: left center;
+                width: 50%;
+                background-size: cover;
+                background-position: left;
+            }
+        }
+
+        @media (orientation: landscape) and (max-width: 1024px) {
+            .door {
+                position: absolute;
+                width: 50%;
+                height: 100%;
+                background-size: cover;
+                z-index: 1;
+            }
+
+            .door.left {
+                background-image: url('images/PageLoad/Cloud-no-Cloud-Left.gif');
+                left: 0;
+                transform: translateX(0);
+                transform-origin: right center;
+                width: 50%;
+                background-size: cover;
+                background-position: right;
+            }
+
+            .door.right {
+                background-image: url('images/PageLoad/Cloud-no-Cloud-Right.gif');
+                right: 0;
+                transform: translateX(0);
+                transform-origin: left center;
+                width: 50%;
+                background-size: cover;
+                background-position: left;
+            }
+        }
+    </style>
+
+    <script>
+        const quoteImages = [
+            'images/PageLoad/pageload-word/01.png',
+            'images/PageLoad/pageload-word/02.png',
+            'images/PageLoad/pageload-word/03.png',
+            'images/PageLoad/pageload-word/04.png',
+            'images/PageLoad/pageload-word/05.png',
+            'images/PageLoad/pageload-word/06.png'
+        ];
+
+        function getRandomQuoteImage() {
+            const randomIndex = Math.floor(Math.random() * quoteImages.length);
+            return quoteImages[randomIndex];
+        }
+
+        window.addEventListener('load', () => {
+            const doorLeft = new Image();
+            const doorRight = new Image();
+
+            // Preload images for the doors
+            const preloadDoors = new Promise((resolve) => {
+                doorLeft.src = 'images/PageLoad/Cloud-no-Cloud-Left.gif';
+                doorRight.src = 'images/PageLoad/Cloud-no-Cloud-Right.gif';
+
+                let loadedCount = 0;
+                const checkLoaded = () => {
+                    loadedCount++;
+                    if (loadedCount === 2) resolve();
+                };
+
+                doorLeft.onload = checkLoaded;
+                doorRight.onload = checkLoaded;
+            });
+
+            const quoteImageElement = document.getElementById('quote-image');
+            quoteImageElement.src = getRandomQuoteImage();
+            gsap.to(quoteImageElement, { opacity: 1, duration: 0 });
+
+            preloadDoors.then(() => {
+                const timeline = gsap.timeline();
+
+                timeline
+                    .set('.door.left', { x: '0' })
+                    .set('.door.right', { x: '0' })
+                    .to({}, { duration: 3 }) // Wait 3 seconds
+                    .to('.door.left', { x: '-100%', duration: 4, ease: 'power2.inOut' })
+                    .to('.door.right', { x: '100%', duration: 4, ease: 'power2.inOut' }, '<')
+                    .to('.logo-container', { opacity: 0, duration: 0.5, ease: 'power2.inOut' }, '-=2')
+                    .to('#loader', { opacity: 0, duration: 0.5, ease: 'power2.inOut' })
+                    .set('#loader', { display: 'none' });
+
+                timeline.to(quoteImageElement, { opacity: 0, duration: 0.5, ease: 'power2.inOut' });
+            });
+        });
     </script>
 
 
 
-    <!--End ทดสอบ คำคมแบบสุ่มแทนlogo loading เปิดม่าน Loader วิธีใหม่   gasp only -->
+
+
+
+    <!--End ทดสอบ  loading เปิดม่าน Loader วิธีใหม่  ปรับแก้ภาพไม่เท่ากัน -->
+
 
 
 

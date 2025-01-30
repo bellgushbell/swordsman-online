@@ -101,45 +101,45 @@ particlesJS("particles-js", {
             }
         },
         "color": {
-            "value": "#ffffff" // สีขาว (ลักษณะเหมือนแสง)
+            "value": "#ffffff"
         },
         "shape": {
-            "type": "circle", // รูปทรงของ bubble
+            "type": "circle",
             "stroke": {
                 "width": 0,
                 "color": "#000000"
             }
         },
         "opacity": {
-            "value": 0.6, // ความโปร่งใส
-            "random": true, // สุ่มค่าความโปร่งใส
+            "value": 0.6,
+            "random": true,
             "anim": {
                 "enable": true,
-                "speed": 1.5, // ความเร็วการเปลี่ยนแปลงโปร่งใส
-                "opacity_min": 0.2, // โปร่งใสน้อยสุด
+                "speed": 1.5,
+                "opacity_min": 0.2,
                 "sync": false
             }
         },
         "size": {
-            "value": 5, // ขนาดเริ่มต้นของ bubble
-            "random": true, // สุ่มขนาด
+            "value": 5,
+            "random": true,
             "anim": {
                 "enable": true,
-                "speed": 5, // ความเร็วการเปลี่ยนขนาด
-                "size_min": 2, // ขนาดเล็กสุด
+                "speed": 5,
+                "size_min": 2,
                 "sync": false
             }
         },
         "line_linked": {
-            "enable": false // ปิดการเชื่อมโยงเส้นระหว่าง bubble
+            "enable": false
         },
         "move": {
-            "enable": true, // เปิดการเคลื่อนไหว
-            "speed": 1.8, // ความเร็วของ bubble
-            "direction": "none", // ทิศทางการเคลื่อนที่
-            "random": true, // การเคลื่อนที่แบบสุ่ม
-            "straight": false, // ไม่เคลื่อนที่เป็นเส้นตรง
-            "out_mode": "out", // อนุภาคออกนอกจอได้
+            "enable": true,
+            "speed": 1.8,
+            "direction": "none",
+            "random": true,
+            "straight": false,
+            "out_mode": "out",
             "attract": {
                 "enable": false
             }
@@ -150,33 +150,45 @@ particlesJS("particles-js", {
         "events": {
             "onhover": {
                 "enable": true,
-                "mode": "bubble" // เอฟเฟกต์ bubble เมื่อชี้เมาส์
+                "mode": "bubble"
             },
             "onclick": {
                 "enable": true,
-                "mode": "push" // เพิ่ม bubble เมื่อคลิก
+                "mode": "push"
             },
             "resize": true
         },
         "modes": {
+            "push": {
+                "particles_nb": 3
+            },
             "bubble": {
-                "distance": 150, // ระยะห่างที่เกิดเอฟเฟกต์ bubble
-                "size": 5, // ขนาดของ bubble ที่เพิ่มขึ้นเมื่อ hover
-                "duration": 1, // ระยะเวลาของเอฟเฟกต์
-                "opacity": 0.8, // ความโปร่งใสระหว่างเอฟเฟกต์
+                "distance": 150,
+                "size": 5,
+                "duration": 1,
+                "opacity": 0.8,
                 "speed": 3
             },
             "repulse": {
                 "distance": 100,
                 "duration": 0.4
-            },
-            "push": {
-                "particles_nb": 2
-            },
-            "remove": {
-                "particles_nb": 2
             }
         }
     },
     "retina_detect": true
 });
+
+// ฟังก์ชันลบ particles ที่ถูกเพิ่มเข้ามาหลังจากเวลาที่กำหนด
+function removeExtraParticles() {
+    setInterval(() => {
+        if (window.pJSDom && window.pJSDom.length > 0) {
+            let particles = window.pJSDom[0].pJS.particles.array;
+            if (particles.length > 1) {
+                particles.splice(1, particles.length - 1); // ลบอนุภาคที่ถูกเพิ่มเข้ามา
+            }
+        }
+    }, 5000); // กำหนดให้ particles หายไปใน 2 วินาที
+}
+
+// เรียกใช้งานฟังก์ชัน
+removeExtraParticles();
