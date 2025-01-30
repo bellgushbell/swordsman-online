@@ -1054,97 +1054,65 @@ function init_map() {
  HTML5 background video
  --------------------------------------------- */
 // โค้ดเก่า่เริ่มต้น
-function init_bg_video() {
-    (function ($) {
-
-        $(".bg-video-button-muted").click(function () {
-            if ($(this).prev().find(".bg-video").prop('muted')) {
-                $(this).prev().find(".bg-video").prop('muted', false);
-                $(this).find("i").removeClass("fa-volume-off").addClass("fa-volume-up");
-            }
-            else {
-                $(this).prev().find(".bg-video").prop('muted', true);
-                $(this).find("i").removeClass("fa-volume-up").addClass("fa-volume-off");
-            }
-
-            return false;
-        });
-
-    })(jQuery);
-}
-
 // function init_bg_video() {
 //     (function ($) {
-//         $(document).ready(function () {
-//             var desktopVideo = $(".bg-video").eq(0)[0]; // วิดีโอหลัก
-//             var mobileVideo = $(".bg-video-mobile").eq(0)[0]; // วิดีโอบนมือถือ
 
-//             function playWithSound(videoElement) {
-//                 if (videoElement) {
-//                     videoElement.muted = false;
-//                     videoElement.volume = 1.0;
-
-//                     var playPromise = videoElement.play();
-//                     if (playPromise !== undefined) {
-//                         playPromise.then(() => {
-//                             console.log("✅ Video started playing with sound.");
-//                         }).catch((err) => {
-//                             console.warn("⚠️ iOS/Safari requires user interaction:", err);
-//                             autoClickToEnableAudio(videoElement);
-//                         });
-//                     }
-//                 }
-//             }
-
-//             // ✅ บังคับ Auto-Click เพื่อปลดล็อกเสียง
-//             function autoClickToEnableAudio(videoElement) {
-//                 console.log("🛠 Trying Auto-Click to enable audio...");
-//                 setTimeout(() => {
-//                     var clickEvent = new MouseEvent("click", {
-//                         bubbles: true,
-//                         cancelable: true,
-//                         view: window
-//                     });
-//                     document.body.dispatchEvent(clickEvent);
-//                     videoElement.muted = false;
-//                     videoElement.volume = 1.0;
-//                     videoElement.play();
-//                 }, 500); // รอ 0.5 วิ แล้วคลิกอัตโนมัติ
-//             }
-
-//             // ✅ พยายามเล่นวิดีโอทั้ง Desktop และ Mobile
-//             playWithSound(desktopVideo);
-//             playWithSound(mobileVideo);
-//         });
-
-//         // ✅ ปุ่ม Mute / Unmute (ใช้กับทั้งสองวิดีโอ)
 //         $(".bg-video-button-muted").click(function () {
-//             var desktopVideo = $(".bg-video").eq(0)[0];
-//             var mobileVideo = $(".bg-video-mobile").eq(0)[0];
-
-//             function toggleMute(videoElement) {
-//                 if (videoElement) {
-//                     if (videoElement.muted) {
-//                         videoElement.muted = false;
-//                         videoElement.volume = 1.0;
-//                         videoElement.play();
-//                         $(this).find("i").removeClass("fa-volume-off").addClass("fa-volume-up");
-//                         console.log("🔊 Unmuted");
-//                     } else {
-//                         videoElement.muted = true;
-//                         $(this).find("i").removeClass("fa-volume-up").addClass("fa-volume-off");
-//                         console.log("🔇 Muted");
-//                     }
-//                 }
+//             if ($(this).prev().find(".bg-video").prop('muted')) {
+//                 $(this).prev().find(".bg-video").prop('muted', false);
+//                 $(this).find("i").removeClass("fa-volume-off").addClass("fa-volume-up");
+//             }
+//             else {
+//                 $(this).prev().find(".bg-video").prop('muted', true);
+//                 $(this).find("i").removeClass("fa-volume-up").addClass("fa-volume-off");
 //             }
 
-//             toggleMute(desktopVideo);
-//             toggleMute(mobileVideo);
 //             return false;
 //         });
 
 //     })(jQuery);
 // }
+
+function init_bg_video() {
+    (function ($) {
+        $(document).ready(function () {
+            var videoElement = $(".bg-video");
+            var muteButton = $(".bg-video-button-muted i");
+
+            function isIOS() {
+                return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+            }
+
+            function enableAudio(video) {
+                video.prop('muted', false);
+                video[0].volume = 1.0;
+                video[0].play().then(() => {
+                    console.log("🎵 Audio enabled on iOS after user interaction.");
+                }).catch(err => {
+                    console.error("🚨 Error enabling audio:", err);
+                });
+            }
+
+            $(".bg-video-button-muted").click(function () {
+                var video = $(this).prev().find(".bg-video");
+                if (video.prop('muted')) {
+                    enableAudio(video);
+                    muteButton.removeClass("fa-volume-off").addClass("fa-volume-up");
+                } else {
+                    video.prop('muted', true);
+                    muteButton.removeClass("fa-volume-up").addClass("fa-volume-off");
+                    console.log("🔇 Muted");
+                }
+                return false;
+            });
+
+            if (isIOS()) {
+                console.log("🎵 iOS detected, requiring interaction for audio.");
+                videoElement.prop('muted', true);
+            }
+        });
+    })(jQuery);
+}
 
 
 
