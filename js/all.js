@@ -1054,34 +1054,83 @@ function init_map() {
  HTML5 background video
  --------------------------------------------- */
 // โค้ดเก่า่เริ่มต้น
+// function init_bg_video() {
+//     (function ($) {
+
+//         $(".bg-video-button-muted").click(function () {
+//             if ($(this).prev().find(".bg-video").prop('muted')) {
+//                 $(this).prev().find(".bg-video").prop('muted', false);
+//                 $(this).find("i").removeClass("fa-volume-off").addClass("fa-volume-up");
+//             }
+//             else {
+//                 $(this).prev().find(".bg-video").prop('muted', true);
+//                 $(this).find("i").removeClass("fa-volume-up").addClass("fa-volume-off");
+//             }
+//             if ($(this).prev().find(".bg-video-mobile").prop('muted')) {
+//                 $(this).prev().find(".bg-video-mobile").prop('muted', false);
+//                 $(this).find("i").removeClass("fa-volume-off").addClass("fa-volume-up");
+//             }
+//             else {
+//                 $(this).prev().find(".bg-video-mobile").prop('muted', true);
+//                 $(this).find("i").removeClass("fa-volume-up").addClass("fa-volume-off");
+//             }
+
+//             return false;
+//         });
+
+//     })(jQuery);
+// }
+
+
 function init_bg_video() {
     (function ($) {
-
         $(".bg-video-button-muted").click(function () {
-            if ($(this).prev().find(".bg-video").prop('muted')) {
-                $(this).prev().find(".bg-video").prop('muted', false);
-                $(this).find("i").removeClass("fa-volume-off").addClass("fa-volume-up");
+            var desktopVideo = $(this).prev().find(".bg-video")[0];
+            var mobileVideo = $(this).prev().find(".bg-video-mobile")[0];
+            var icon = $(this).find("i");
+
+            function toggleMute(videoElement) {
+                if (videoElement) {
+                    if (videoElement.muted) {
+                        videoElement.muted = false;
+                        videoElement.volume = 1.0;
+                        videoElement.play().then(() => {
+                            console.log("🔊 Unmuted and playing.");
+                        }).catch(err => {
+                            console.error("🚨 Error playing video:", err);
+                        });
+                    } else {
+                        videoElement.muted = true;
+                        console.log("🔇 Muted");
+                    }
+                }
             }
-            else {
-                $(this).prev().find(".bg-video").prop('muted', true);
-                $(this).find("i").removeClass("fa-volume-up").addClass("fa-volume-off");
-            }
-            if ($(this).prev().find(".bg-video-mobile").prop('muted')) {
-                $(this).prev().find(".bg-video-mobile").prop('muted', false);
-                $(this).find("i").removeClass("fa-volume-off").addClass("fa-volume-up");
-            }
-            else {
-                $(this).prev().find(".bg-video-mobile").prop('muted', true);
-                $(this).find("i").removeClass("fa-volume-up").addClass("fa-volume-off");
+
+            // ✅ สลับเสียงสำหรับ Desktop และ Mobile
+            toggleMute(desktopVideo);
+            toggleMute(mobileVideo);
+
+            // ✅ อัปเดตไอคอนตามสถานะ
+            if (desktopVideo.muted && mobileVideo.muted) {
+                icon.removeClass("fa-volume-up").addClass("fa-volume-off");
+            } else {
+                icon.removeClass("fa-volume-off").addClass("fa-volume-up");
             }
 
             return false;
         });
 
+        // ✅ แก้ปัญหาบน Safari และ iOS โดยเริ่มต้นวิดีโอแบบ muted และให้ผู้ใช้กดเปิดเสียง
+        function isIOS() {
+            return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        }
+
+        if (isIOS()) {
+            console.log("🎵 iOS detected, requiring interaction for audio.");
+            $(".bg-video, .bg-video-mobile").prop("muted", true);
+        }
     })(jQuery);
 }
-
-
 
 
 
