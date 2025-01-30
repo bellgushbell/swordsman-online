@@ -1056,20 +1056,29 @@ function init_map() {
 
 function init_bg_video() {
     (function ($) {
-
-        $(".bg-video-button-muted").click(function () {
-            if ($(this).prev().find(".bg-video").prop('muted')) {
-                $(this).prev().find(".bg-video").prop('muted', false);
-                $(this).find("i").removeClass("fa-volume-off").addClass("fa-volume-up");
-            }
-            else {
-                $(this).prev().find(".bg-video").prop('muted', true);
-                $(this).find("i").removeClass("fa-volume-up").addClass("fa-volume-off");
-            }
-
-            return false;
+        // เปิดเสียงอัตโนมัติเมื่อโหลดหน้าเว็บ
+        $(document).ready(function () {
+            var bgVideo = $(".bg-video");
+            bgVideo.prop('muted', false);
+            bgVideo[0].play().catch(function (err) {
+                console.warn("iOS/Safari requires user interaction:", err);
+                $(document).one("click touchstart", function () {
+                    bgVideo[0].play();
+                });
+            });
         });
 
+        $(".bg-video-button-muted").click(function () {
+            var videoElement = $(this).prev().find(".bg-video");
+            if (videoElement.prop('muted')) {
+                videoElement.prop('muted', false);
+                $(this).find("i").removeClass("fa-volume-off").addClass("fa-volume-up");
+            } else {
+                videoElement.prop('muted', true);
+                $(this).find("i").removeClass("fa-volume-up").addClass("fa-volume-off");
+            }
+            return false;
+        });
     })(jQuery);
 }
 
