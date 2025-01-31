@@ -1081,35 +1081,72 @@ function init_map() {
 //     })(jQuery);
 // }
 
+// function init_bg_video() {
+//     (function ($) {
+//         // ตรวจจับว่าเป็น iOS หรือไม่
+//         function isIOS() {
+//             return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+//         }
+
+//         $(document).ready(function () {
+//             // หากเป็น iOS ซ่อนปุ่มเสียง
+//             if (isIOS()) {
+//                 $(".bg-video-button-muted").hide();
+//                 console.log("📱 iOS detected: Mute button hidden.");
+//             } else {
+//                 console.log("🖥 Non-iOS device detected: Mute button enabled.");
+
+//                 // สำหรับอุปกรณ์อื่น ให้คงการทำงานของปุ่มเสียงปกติ
+//                 $(".bg-video-button-muted").click(function () {
+//                     if ($(this).prev().find(".bg-video").prop('muted')) {
+//                         $(this).prev().find(".bg-video").prop('muted', false);
+//                         $(this).find("i").removeClass("fa-volume-off").addClass("fa-volume-up");
+//                     } else {
+//                         $(this).prev().find(".bg-video").prop('muted', true);
+//                         $(this).find("i").removeClass("fa-volume-up").addClass("fa-volume-off");
+//                     }
+//                     if ($(this).prev().find(".bg-video-mobile").prop('muted')) {
+//                         $(this).prev().find(".bg-video-mobile").prop('muted', false);
+//                         $(this).find("i").removeClass("fa-volume-off").addClass("fa-volume-up");
+//                     } else {
+//                         $(this).prev().find(".bg-video-mobile").prop('muted', true);
+//                         $(this).find("i").removeClass("fa-volume-up").addClass("fa-volume-off");
+//                     }
+
+//                     return false;
+//                 });
+//             }
+//         });
+//     })(jQuery);
+// }
+
+
+
+
 function init_bg_video() {
     (function ($) {
-        // ตรวจจับว่าเป็น iOS หรือไม่
         function isIOS() {
             return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
         }
 
         $(document).ready(function () {
-            // หากเป็น iOS ซ่อนปุ่มเสียง
             if (isIOS()) {
-                $(".bg-video-button-muted").hide();
                 console.log("📱 iOS detected: Mute button hidden.");
+                $(".bg-video-button-muted").hide();
             } else {
                 console.log("🖥 Non-iOS device detected: Mute button enabled.");
 
-                // สำหรับอุปกรณ์อื่น ให้คงการทำงานของปุ่มเสียงปกติ
                 $(".bg-video-button-muted").click(function () {
-                    if ($(this).prev().find(".bg-video").prop('muted')) {
-                        $(this).prev().find(".bg-video").prop('muted', false);
+                    var video = $(this).prev().find(".bg-video").get(0);
+                    var mobileVideo = $(this).prev().find(".bg-video-mobile").get(0);
+
+                    if (video.muted || mobileVideo.muted) {
+                        video.muted = false;
+                        mobileVideo.muted = false;
                         $(this).find("i").removeClass("fa-volume-off").addClass("fa-volume-up");
                     } else {
-                        $(this).prev().find(".bg-video").prop('muted', true);
-                        $(this).find("i").removeClass("fa-volume-up").addClass("fa-volume-off");
-                    }
-                    if ($(this).prev().find(".bg-video-mobile").prop('muted')) {
-                        $(this).prev().find(".bg-video-mobile").prop('muted', false);
-                        $(this).find("i").removeClass("fa-volume-off").addClass("fa-volume-up");
-                    } else {
-                        $(this).prev().find(".bg-video-mobile").prop('muted', true);
+                        video.muted = true;
+                        mobileVideo.muted = true;
                         $(this).find("i").removeClass("fa-volume-up").addClass("fa-volume-off");
                     }
 
@@ -1119,11 +1156,6 @@ function init_bg_video() {
         });
     })(jQuery);
 }
-
-
-
-
-
 
 
 /* ---------------------------------------------
