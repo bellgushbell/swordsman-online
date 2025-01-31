@@ -52,8 +52,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     <link rel="preload" href="images/PageLoad/Cloud-no-Cloud-Left-webp.webp" as="image" type="image/webp">
     <link rel="preload" href="images/PageLoad/Cloud-no-Cloud-Right-webp.webp" as="image" type="image/webp">
 
-    <!-- วิดีโอ -->
-    <link rel="preload" href="video/Swordsman-3-Video-web-ver01-final.mp4" as="fetch" type="video/mp4">
+
 
 
 
@@ -1175,11 +1174,11 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 <!-- BG Video BG Init -->
                 <!-- Please replace the video files in folder "video" with your own videos -->
                 <div class="bg-video-wrapper">
-                    <video class="bg-video" preload="metadata" autoplay muted loop playsinline data-object-fit="cover">
+                    <video class="bg-video" preload="auto" autoplay muted loop playsinline data-object-fit="cover">
                         <source src="video/Swordsman-3-Video-web-ver01-Final.mp4?v=1" type="video/mp4">
                     </video>
                     <!-- mobile -->
-                    <video class="bg-video-mobile" preload="metadata" autoplay muted loop playsinline
+                    <video class="bg-video-mobile" preload="auto" autoplay muted loop playsinline
                         data-object-fit="cover">
                         <source src="video/Swordsman-3-Video-web-ver01-Final.mp4?v=1" type="video/mp4">
                     </video>
@@ -1198,8 +1197,42 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             </div>
             <a href="#" role="button" class="bg-video-button-muted"><i class="fa fa-volume-off"></i></a>
 
+
+            <!-- Load วีดีโอ -->
+            <script>
+
+                const video = document.querySelector('.bg-video-mobile');
+
+                // โหลดวิดีโอล่วงหน้า
+                video.preload = 'auto';
+
+                // ตรวจสอบว่าการโหลดเสร็จสมบูรณ์
+                video.addEventListener('canplaythrough', () => {
+                    console.log('Video is ready to play');
+                    video.play();
+                });
+
+                // JavaScript เพื่อเริ่มเล่นวิดีโอทันทีที่โหลด
+                window.addEventListener('load', () => {
+                    const video = document.querySelector('.bg-video');
+
+                    // ตรวจสอบว่าวิดีโอโหลดสำเร็จ
+                    video.addEventListener('loadeddata', () => {
+                        console.log('Video loaded successfully');
+                        video.play().catch(error => {
+                            console.error('Error playing video:', error);
+                        });
+                    });
+                });
+            </script>
+
+
+
+
             <!-- ข้อความVideo Fade -->
             <script>
+
+
                 window.addEventListener('load', () => {
 
                     gsap.to('.text-overlay', {
