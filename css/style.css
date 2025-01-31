@@ -3026,7 +3026,9 @@ html {
 
 html,
 body {
+
     overflow: hidden;
+    /*ปิดสกอบาร์ในคอม*/
     height: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -3034,12 +3036,13 @@ body {
 
 }
 
+/*เปิดการเลื่อนในมือถือ*/
 @media (max-width: 961px) {
 
     html,
     body {
         overflow: visible;
-        /* หรือ overflow: auto; ตามที่คุณต้องการ */
+
     }
 }
 

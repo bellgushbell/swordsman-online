@@ -1138,11 +1138,26 @@ function init_bg_video() {
                     var video = $(this).prev().find(".bg-video").get(0);
                     var mobileVideo = $(this).prev().find(".bg-video-mobile").get(0);
 
-                    // เล่นวิดีโอและเปิดเสียง
-                    video.play();
-                    mobileVideo.play();
+                    // เปิดเสียงและเล่นวิดีโอ
                     video.muted = false;
                     mobileVideo.muted = false;
+
+                    // พยายามเล่นวิดีโอ
+                    var playPromise = video.play();
+                    var mobilePlayPromise = mobileVideo.play();
+
+                    // ตรวจสอบข้อผิดพลาดเมื่อเล่นวิดีโอ
+                    if (playPromise !== undefined) {
+                        playPromise.catch(error => {
+                            console.error("Error playing video:", error);
+                        });
+                    }
+
+                    if (mobilePlayPromise !== undefined) {
+                        mobilePlayPromise.catch(error => {
+                            console.error("Error playing mobile video:", error);
+                        });
+                    }
 
                     // เปลี่ยนไอคอนปุ่ม
                     $(this).find("i").removeClass("fa-volume-off").addClass("fa-volume-up");
@@ -1173,7 +1188,6 @@ function init_bg_video() {
         });
     })(jQuery);
 }
-
 
 
 /* ---------------------------------------------
