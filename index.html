@@ -1215,15 +1215,50 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 // JavaScript เพื่อเริ่มเล่นวิดีโอทันทีที่โหลด
                 window.addEventListener('load', () => {
                     const video = document.querySelector('.bg-video');
+                    let retryCount = 0; // จำนวนครั้งที่พยายามโหลดใหม่
+                    const maxRetries = 3; // จำนวนครั้งสูงสุดที่อนุญาตให้โหลดใหม่
 
-                    // ตรวจสอบว่าวิดีโอโหลดสำเร็จ
-                    video.addEventListener('loadeddata', () => {
-                        console.log('Video loaded successfully');
+                    // ฟังก์ชันสำหรับเล่นวิดีโอ
+                    const playVideo = () => {
                         video.play().catch(error => {
                             console.error('Error playing video:', error);
+                            if (retryCount < maxRetries) {
+                                retryCount++;
+                                console.log(`Retrying to load video... (${retryCount}/${maxRetries})`);
+                                reloadVideo();
+                            } else {
+                                console.error('Max retries reached. Could not play video.');
+                            }
                         });
+                    };
+
+                    // ฟังก์ชันโหลดวิดีโอใหม่
+                    const reloadVideo = () => {
+                        video.load(); // เรียกโหลดวิดีโอใหม่
+                    };
+
+                    // ตรวจสอบการโหลดสำเร็จ
+                    video.addEventListener('loadeddata', () => {
+                        console.log('Video loaded successfully');
+                        playVideo();
                     });
+
+                    // จัดการกรณีวิดีโอโหลดล้มเหลว
+                    video.addEventListener('error', () => {
+                        console.error('Error loading video.');
+                        if (retryCount < maxRetries) {
+                            retryCount++;
+                            console.log(`Retrying to load video... (${retryCount}/${maxRetries})`);
+                            reloadVideo();
+                        } else {
+                            console.error('Max retries reached. Could not load video.');
+                        }
+                    });
+
+                    // เริ่มโหลดวิดีโอทันทีเมื่อหน้าโหลดเสร็จ
+                    reloadVideo();
                 });
+
             </script>
 
 
