@@ -1081,6 +1081,8 @@ function init_map() {
 //     })(jQuery);
 // }
 
+
+
 // function init_bg_video() {
 //     (function ($) {
 //         // ตรวจจับว่าเป็น iOS หรือไม่
@@ -1120,22 +1122,37 @@ function init_map() {
 //     })(jQuery);
 // }
 
-
-
-
 function init_bg_video() {
     (function ($) {
+        // ตรวจจับว่าเป็น iOS หรือไม่
         function isIOS() {
             return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
         }
 
         $(document).ready(function () {
+            // สำหรับ iOS ให้เพิ่มการเล่นเสียงเมื่อผู้ใช้คลิกปุ่ม
             if (isIOS()) {
-                console.log("📱 iOS detected: Mute button hidden.");
-                $(".bg-video-button-muted").hide();
+                console.log("📱 iOS detected: Enabling sound on button click.");
+
+                $(".bg-video-button-muted").click(function () {
+                    var video = $(this).prev().find(".bg-video").get(0);
+                    var mobileVideo = $(this).prev().find(".bg-video-mobile").get(0);
+
+                    // เล่นวิดีโอและเปิดเสียง
+                    video.play();
+                    mobileVideo.play();
+                    video.muted = false;
+                    mobileVideo.muted = false;
+
+                    // เปลี่ยนไอคอนปุ่ม
+                    $(this).find("i").removeClass("fa-volume-off").addClass("fa-volume-up");
+
+                    return false;
+                });
             } else {
                 console.log("🖥 Non-iOS device detected: Mute button enabled.");
 
+                // สำหรับอุปกรณ์อื่น ให้คงการทำงานของปุ่มเสียงปกติ
                 $(".bg-video-button-muted").click(function () {
                     var video = $(this).prev().find(".bg-video").get(0);
                     var mobileVideo = $(this).prev().find(".bg-video-mobile").get(0);
@@ -1156,6 +1173,7 @@ function init_bg_video() {
         });
     })(jQuery);
 }
+
 
 
 /* ---------------------------------------------
