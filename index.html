@@ -49,11 +49,9 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     <script src="https://cdn.jsdelivr.net/npm/@motionone/dom/dist/motion.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@motionone/dom"></script>
     <!-- Preload images & video-->
-    <link rel="preload" href="images/PageLoad/Cloud-no-Cloud-Left.gif" as="image" type="image/gif" fetchpriority="high">
-    <link rel="preload" href="images/PageLoad/Cloud-no-Cloud-Right.gif" as="image" type="image/gif"
-        fetchpriority="high">
-    <link rel="preload" href="video/Swordsman-3-Video-web-ver01-final.mp4" as="video" type="video/mp4"
-        fetchpriority="high">
+    <link rel="preload" href="images/PageLoad/Cloud-no-Cloud-Left.gif" as="image" type="image/gif">
+    <link rel="preload" href="images/PageLoad/Cloud-no-Cloud-Right.gif" as="image" type="image/gif">
+    <link rel="preload" href="video/Swordsman-3-Video-web-ver01-final.mp4" as="video" type="video/mp4">
 
 
 </head>
@@ -716,6 +714,10 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 height: 100%;
                 background-size: cover;
                 z-index: 1;
+                transition: opacity 0.5s ease-in-out;
+                backface-visibility: hidden;
+                perspective: 1000px;
+
             }
 
             .door.left {
@@ -748,6 +750,10 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 height: 100%;
                 background-size: cover;
                 z-index: 1;
+                transition: opacity 0.5s ease-in-out;
+                backface-visibility: hidden;
+                perspective: 1000px;
+
             }
 
             .door.left {
@@ -791,7 +797,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             const doorLeft = new Image();
             const doorRight = new Image();
 
-            // Preload images for the doors
+
             const preloadDoors = new Promise((resolve) => {
                 doorLeft.src = 'images/PageLoad/Cloud-no-Cloud-Left.gif';
                 doorRight.src = 'images/PageLoad/Cloud-no-Cloud-Right.gif';
