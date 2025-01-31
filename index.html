@@ -706,6 +706,11 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             /* Smooth fade in */
         }
 
+        .door.loaded {
+            opacity: 1;
+            /* แสดงเมื่อโหลดเสร็จ */
+        }
+
         /* Responsive for small screens */
         @media (max-width: 961px) {
             .loading-icon {
@@ -811,7 +816,13 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 let loadedCount = 0;
                 const checkLoaded = () => {
                     loadedCount++;
-                    if (loadedCount === 2) resolve();
+                    if (loadedCount === 2) {
+                        doorLeft.classList.add('loaded');
+                        doorRight.classList.add('loaded');
+                        // เพิ่มคลาส loaded เพื่อแสดงภาพ
+                        resolve();
+
+                    }
                 };
 
                 doorLeft.onload = checkLoaded;
@@ -820,6 +831,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
             const quoteImageElement = document.getElementById('quote-image');
             quoteImageElement.src = getRandomQuoteImage();
+
             gsap.to(quoteImageElement, { opacity: 1, duration: 0, scale: 1.5 });
 
             preloadDoors.then(() => {
@@ -836,7 +848,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                     .to('#loader', { opacity: 0, duration: 0.5, ease: 'power2.inOut' })
                     .set('#loader', { display: 'none' });
 
-                timeline.to(quoteImageElement, { opacity: 0, duration: 0.5, ease: 'power2.inOut' });
+                // timeline.to(quoteImageElement, { opacity: 0, duration: 0.5, ease: 'power2.inOut' });
             });
         });
     </script>
