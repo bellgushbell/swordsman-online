@@ -3034,6 +3034,16 @@ body {
 
 }
 
+@media (max-width: 961px) {
+
+    html,
+    body {
+        overflow: visible;
+        /* หรือ overflow: auto; ตามที่คุณต้องการ */
+    }
+}
+
+
 iframe {
     border: none;
 }
