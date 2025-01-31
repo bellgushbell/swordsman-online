@@ -49,8 +49,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     <script src="https://cdn.jsdelivr.net/npm/@motionone/dom/dist/motion.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@motionone/dom"></script>
     <!-- Preload images & video-->
-    <link rel="preload" href="images/PageLoad/Cloud-no-Cloud-Left.gif" as="image" type="image/gif">
-    <link rel="preload" href="images/PageLoad/Cloud-no-Cloud-Right.gif" as="image" type="image/gif">
+    <link rel="preload" href="images/PageLoad/Cloud-no-Cloud-Left-webp.webp" as="image" type="image/gif">
+    <link rel="preload" href="images/PageLoad/Cloud-no-Cloud-Right-webp.webp" as="image" type="image/gif">
     <link rel="preload" href="video/Swordsman-3-Video-web-ver01-final.mp4" as="video" type="video/mp4">
 
 
@@ -675,14 +675,14 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         }
 
         .door.left {
-            background-image: url('images/PageLoad/Cloud-no-Cloud-Left.gif');
+            background-image: url('images/PageLoad/Cloud-no-Cloud-Left-webp.webp');
             left: 0;
             transform: translateX(0);
             transform-origin: right center;
         }
 
         .door.right {
-            background-image: url('images/PageLoad/Cloud-no-Cloud-Right.gif');
+            background-image: url('images/PageLoad/Cloud-no-Cloud-Right-webp.webp');
             right: 0;
             transform: translateX(0);
             transform-origin: left center;
@@ -731,7 +731,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             }
 
             .door.left {
-                background-image: url('images/PageLoad/Cloud-no-Cloud-Left.gif');
+                background-image: url('images/PageLoad/Cloud-no-Cloud-Left-webp.webp');
                 left: 0;
                 transform: translateX(0);
                 transform-origin: right center;
@@ -741,7 +741,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             }
 
             .door.right {
-                background-image: url('images/PageLoad/Cloud-no-Cloud-Right.gif');
+                background-image: url('images/PageLoad/Cloud-no-Cloud-Right-webp.webp');
                 right: 0;
                 transform: translateX(0);
                 transform-origin: left center;
@@ -774,7 +774,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             }
 
             .door.left {
-                background-image: url('images/PageLoad/Cloud-no-Cloud-Left.gif');
+                background-image: url('images/PageLoad/Cloud-no-Cloud-Left-webp.webp');
                 left: 0;
                 transform: translateX(0);
                 transform-origin: right center;
@@ -784,7 +784,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             }
 
             .door.right {
-                background-image: url('images/PageLoad/Cloud-no-Cloud-Right.gif');
+                background-image: url('images/PageLoad/Cloud-no-Cloud-Right-webp.webp');
                 right: 0;
                 transform: translateX(0);
                 transform-origin: left center;
@@ -822,8 +822,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
             const preloadDoors = new Promise((resolve) => {
-                doorLeft.src = 'images/PageLoad/Cloud-no-Cloud-Left.gif';
-                doorRight.src = 'images/PageLoad/Cloud-no-Cloud-Right.gif';
+                doorLeft.src = 'images/PageLoad/Cloud-no-Cloud-Left-webp.webp';
+                doorRight.src = 'images/PageLoad/Cloud-no-Cloud-Right-webp.webp';
 
                 let loadedCount = 0;
                 const checkLoaded = () => {
