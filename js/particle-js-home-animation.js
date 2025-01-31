@@ -187,7 +187,7 @@ function removeExtraParticles() {
                 particles.splice(1, particles.length - 1); // ลบอนุภาคที่ถูกเพิ่มเข้ามา
             }
         }
-    }, 5000); // กำหนดให้ particles หายไปใน 2 วินาที
+    }, 10000); // กำหนดให้ particles หายไปใน 2 วินาที
 }
 
 // เรียกใช้งานฟังก์ชัน
