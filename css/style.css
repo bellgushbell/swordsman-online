@@ -1815,6 +1815,7 @@ a.bg-video-button-muted {
         background-size: 100%;
         background-color: transparent;
         padding: 8px;
+        display: visible;
     }
 
     @media (max-width: 961px) and (orientation: landscape) {
@@ -1869,6 +1870,7 @@ a.bg-video-button-muted {
         .carousel-control-next-icon {
             font-size: 18px;
             padding: 6px;
+            display: visible;
         }
     }
 
