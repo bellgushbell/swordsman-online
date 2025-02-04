@@ -24,7 +24,7 @@
         initWorkFilter();
         // init_scroll_navigate();
         init_wow();
-        init_parallax();
+        // init_parallax();
         initPageSliders();
 
         // $(window).trigger("scroll");
@@ -176,23 +176,23 @@
             $(".main-nav").addClass("js-no-transparent-white");
         }
 
-        $(window).scroll(function () {
+        // $(window).scroll(function () {
 
-            if ($(window).scrollTop() > 0) {
-                $(".js-transparent").removeClass("transparent");
-                $(".main-nav, .nav-logo-wrap .logo, .mobile-nav, .mobile-cart").addClass("small-height");
-                $(".light-after-scroll").removeClass("dark");
-                $(".main-nav").addClass("body-scrolled");
-            }
-            else if ($(window).scrollTop() === 0) {
-                $(".js-transparent").addClass("transparent");
-                $(".main-nav, .nav-logo-wrap .logo, .mobile-nav, .mobile-cart").removeClass("small-height");
-                $(".light-after-scroll").addClass("dark");
-                $(".main-nav").removeClass("body-scrolled");
-            }
+        //     if ($(window).scrollTop() > 0) {
+        //         $(".js-transparent").removeClass("transparent");
+        //         $(".main-nav, .nav-logo-wrap .logo, .mobile-nav, .mobile-cart").addClass("small-height");
+        //         $(".light-after-scroll").removeClass("dark");
+        //         $(".main-nav").addClass("body-scrolled");
+        //     }
+        //     else if ($(window).scrollTop() === 0) {
+        //         $(".js-transparent").addClass("transparent");
+        //         $(".main-nav, .nav-logo-wrap .logo, .mobile-nav, .mobile-cart").removeClass("small-height");
+        //         $(".light-after-scroll").addClass("dark");
+        //         $(".main-nav").removeClass("body-scrolled");
+        //     }
 
 
-        });
+        // });
 
         // Mobile menu toggle
 
@@ -531,20 +531,20 @@
      Parallax
      --------------------------------------------- */
 
-    function init_parallax() {
-        if (($(window).width() >= 1024) && (mobileTest == false) && $("html").hasClass("no-touch")) {
-            $(".parallax-1").each(function () { $(this).parallax("50%", 0.1); });
-            $(".parallax-2").each(function () { $(this).parallax("50%", 0.2); });
-            $(".parallax-3").each(function () { $(this).parallax("50%", 0.3); });
-            $(".parallax-4").each(function () { $(this).parallax("50%", 0.4); });
-            $(".parallax-5").each(function () { $(this).parallax("50%", 0.5); });
-            $(".parallax-6").each(function () { $(this).parallax("50%", 0.6); });
-            $(".parallax-7").each(function () { $(this).parallax("50%", 0.7); });
-            $(".parallax-8").each(function () { $(this).parallax("50%", 0.8); });
-            $(".parallax-9").each(function () { $(this).parallax("50%", 0.9); });
-            $(".parallax-10").each(function () { $(this).parallax("50%", 0.1); });
-        }
-    }
+    // function init_parallax() {
+    //     if (($(window).width() >= 1024) && (mobileTest == false) && $("html").hasClass("no-touch")) {
+    //         $(".parallax-1").each(function () { $(this).parallax("50%", 0.1); });
+    //         $(".parallax-2").each(function () { $(this).parallax("50%", 0.2); });
+    //         $(".parallax-3").each(function () { $(this).parallax("50%", 0.3); });
+    //         $(".parallax-4").each(function () { $(this).parallax("50%", 0.4); });
+    //         $(".parallax-5").each(function () { $(this).parallax("50%", 0.5); });
+    //         $(".parallax-6").each(function () { $(this).parallax("50%", 0.6); });
+    //         $(".parallax-7").each(function () { $(this).parallax("50%", 0.7); });
+    //         $(".parallax-8").each(function () { $(this).parallax("50%", 0.8); });
+    //         $(".parallax-9").each(function () { $(this).parallax("50%", 0.9); });
+    //         $(".parallax-10").each(function () { $(this).parallax("50%", 0.1); });
+    //     }
+    // }
 
 
     /* -------------------------------------------
