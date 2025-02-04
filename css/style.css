@@ -1555,12 +1555,20 @@ a.bg-video-button-muted {
 }
 
 /*paginate ลูกศร*/
+.carousel-control-prev,
+.carousel-control-next {
+    pointer-events: none;
+    /* ปิดการโต้ตอบของตัวปุ่ม */
+}
+
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 50%;
     padding: 10px;
     display: none;
+    pointer-events: none;
+    /* ปิดการโต้ตอบ */
 }
 
 /* Tabs Styling */
@@ -1605,11 +1613,12 @@ a.bg-video-button-muted {
 /*ส่วนของpaginate แบบล่าง*/
 .carousel-indicators-custom {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     gap: 10px;
     margin-top: 10px;
     margin-bottom: 15px;
+    margin-right: 15px;
 }
 
 .carousel-indicators-custom .indicator {
@@ -1617,16 +1626,22 @@ a.bg-video-button-muted {
     height: 10px;
     border-radius: 50%;
     background-color: #ccc;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease, width 0.3s ease;
     cursor: pointer;
 }
 
 .carousel-indicators-custom .indicator.active {
     background: linear-gradient(90deg, #DCC072, #edb518);
-    /* สีน้ำเงินเมื่อ Active */
-    transform: scale(1.2);
-    /* ขยายขนาดเมื่อ Active */
+    width: 40px;
+    /* ยาวขึ้น */
+    height: 10px;
+    /* แบนลง */
+    border-radius: 20px;
+    /* ขอบมน */
+    transform: scale(1.1);
+    /* ขยายเล็กน้อย */
 }
+
 
 
 
