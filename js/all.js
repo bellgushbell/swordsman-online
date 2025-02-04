@@ -2,12 +2,12 @@
     "use strict"; // Start of use strict
 
 
-    window.addEventListener('scroll', () => {
-        const homeSection = document.querySelector('.home-section');
-        if (window.scrollY > 0) {
-            homeSection.style.height = '100vh'; // ล็อกความสูงไม่ให้เปลี่ยน
-        }
-    });
+    // window.addEventListener('scroll', () => {
+    //     const homeSection = document.querySelector('.home-section');
+    //     if (window.scrollY > 0) {
+    //         homeSection.style.height = '100vh'; // ล็อกความสูงไม่ให้เปลี่ยน
+    //     }
+    // });
 
 
     /* ---------------------------------------------
@@ -22,21 +22,21 @@
 
         init_text_rotator();
         initWorkFilter();
-        init_scroll_navigate();
+        // init_scroll_navigate();
         init_wow();
         init_parallax();
         initPageSliders();
 
-        $(window).trigger("scroll");
-        $(window).trigger("resize");
+        // $(window).trigger("scroll");
+        // $(window).trigger("resize");
 
-        // Hash menu forwarding
-        if ((window.location.hash) && ($(window.location.hash).length)) {
-            var hash_offset = $(window.location.hash).offset().top;
-            $("html, body").animate({
-                scrollTop: hash_offset
-            });
-        }
+        // // Hash menu forwarding
+        // if ((window.location.hash) && ($(window.location.hash).length)) {
+        //     var hash_offset = $(window.location.hash).offset().top;
+        //     $("html, body").animate({
+        //         scrollTop: hash_offset
+        //     });
+        // }
 
     });
 
