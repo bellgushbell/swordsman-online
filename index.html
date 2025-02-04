@@ -1885,7 +1885,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
         <!--Gallery Game Section-->
         <!--Gallery Section -->
-        <section class="gallery-section">
+        <!-- <section class="gallery-section">
             <h2 class="gallery-title">แกลเลอรี่</h2>
             <div class="gallery">
 
@@ -1931,7 +1931,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
         <div id="imageModal" class="modal" onclick="closeModal()">
             <img id="modalImage" class="modal-content">
-        </div>
+        </div> -->
 
 
 
@@ -1977,24 +1977,24 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 </div>
             </div>
         </div> -->
-        <style>
+        <!-- <style>
             .gallery-container {
                 display: grid;
                 grid-template-columns: 1fr 3fr;
-                /* 4 คอลัมน์เล็ก (1 ส่วน) และ 8 คอลัมน์ใหญ่ (3 ส่วน) */
+        
                 grid-template-rows: 2fr 2fr 2fr 2fr;
-                /* แถวที่เท่ากัน */
+    
                 gap: 0;
-                /* ไม่มีช่องว่างระหว่างแถว */
+            
                 height: 100%;
-                /* เต็มความสูงของหน้าจอ */
+          
             }
 
             .big-column {
                 grid-row: span 2;
-                /* ครอบคลุม 2 แถว */
+   
                 background-color: #007bff;
-                /* สีน้ำเงิน */
+        
                 color: white;
                 display: flex;
                 align-items: center;
@@ -2004,7 +2004,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
             .small-column {
                 background-color: #6c757d;
-                /* สีเทา */
+           
                 color: white;
                 display: flex;
                 justify-content: center;
@@ -2012,35 +2012,34 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 font-size: 1.2rem;
             }
 
-            /* แถว 1-2 สลับตำแหน่ง */
+          
             .top-reverse {
                 grid-column: 2 / 3;
-                /* 8 คอลัมน์ใหญ่ย้ายไปคอลัมน์ขวา */
+             
                 grid-row: 1 / 3;
-                /* ครอบคลุมแถวที่ 1 และแถวที่ 2 */
+         
             }
 
             .small-column-right {
                 grid-column: 1 / 2;
-                /* 4 คอลัมน์เล็กย้ายไปฝั่งซ้าย */
+              
             }
 
-            /* แถว 3-4 สลับตำแหน่ง */
             .reverse-row {
                 grid-column: 2 / 3;
-                /* 8 คอลัมน์ใหญ่ย้ายไปคอลัมน์ขวา */
+               
                 grid-row: 3 / 5;
-                /* ครอบคลุมแถวที่ 3 และแถวที่ 4 */
+               
             }
 
             .small-column-left {
                 grid-column: 1 / 2;
-                /* 4 คอลัมน์เล็กฝั่งซ้าย */
+              
             }
         </style>
 
         <div class="gallery-container">
-            <!-- แถวแรกและแถวที่สอง -->
+
             <div class="big-column">
                 8 คอลัมน์ (ใหญ่ แถว 1-2)
             </div>
@@ -2051,7 +2050,6 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 4 คอลัมน์ (เล็ก แถว 2)
             </div>
 
-            <!-- แถวที่สามและแถวที่สี่ -->
             <div class="small-column small-column-left">
                 4 คอลัมน์ (เล็ก แถว 3)
             </div>
@@ -2061,7 +2059,115 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             <div class="big-column reverse-row">
                 8 คอลัมน์ (ใหญ่ แถว 3-4)
             </div>
-        </div>
+        </div> -->
+
+        <style>
+            .gallery-section {
+                height: auto;
+                /* ปรับความสูงของ Section ตามจำนวนภาพ */
+                overflow: hidden;
+                /* ซ่อนส่วนเกิน */
+
+                box-sizing: border-box;
+            }
+
+            .gallery {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                /* 4 คอลัมน์ */
+                grid-auto-rows: auto;
+                grid-auto-flow: dense;
+
+                /* เพิ่มช่องว่างระหว่างรูป */
+                width: 100%;
+                margin: 0 auto;
+            }
+
+            .gallery img {
+                width: 100%;
+                height: 200px;
+                /* ตั้งค่าความสูงคงที่ */
+                object-fit: cover;
+                /* ปรับภาพให้พอดีกับกรอบโดยไม่ผิดสัดส่วน */
+
+
+            }
+
+            .gallery img.four-grid-cells {
+                grid-row: span 2 / auto;
+                grid-column: span 2 / auto;
+                height: 400px;
+                /* ปรับขนาดความสูงของภาพใหญ่ */
+            }
+
+            .gallery img.wide-image {
+                grid-column: span 2 / auto;
+                height: 200px;
+                /* ปรับขนาดความสูงของภาพ Wide */
+            }
+
+            @media screen and (max-width: 768px) {
+                .gallery {
+                    grid-template-columns: 1fr 1fr;
+                    /* 2 คอลัมน์ */
+                }
+
+                .gallery img {
+                    height: 150px;
+                    /* ลดความสูงสำหรับหน้าจอเล็ก */
+                }
+
+                .gallery img.four-grid-cells {
+                    height: 310px;
+                    /* ลดความสูงสำหรับภาพใหญ่ในหน้าจอเล็ก */
+                }
+            }
+
+            @media screen and (max-width: 480px) {
+                .gallery {
+                    grid-template-columns: 1fr;
+                    /* 1 คอลัมน์ */
+                }
+
+                .gallery img {
+                    height: 120px;
+                    /* ลดความสูงสำหรับหน้าจอมือถือ */
+                }
+
+                .gallery img.four-grid-cells {
+                    height: 250px;
+                    /* ลดความสูงของภาพใหญ่ */
+                }
+            }
+        </style>
+        <section class="gallery-section">
+            <h2 class="gallery-title">แกลเลอรี่</h2>
+            <div class="gallery">
+
+                <img class="four-grid-cells" src="https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg"
+                    alt="Northern Winter Sky Image" />
+
+                <img src="https://images.pexels.com/photos/1142950/pexels-photo-1142950.jpeg"
+                    alt="Shining Stars Image" />
+
+                <img class="wide-image" src="https://images.pexels.com/photos/3933881/pexels-photo-3933881.jpeg"
+                    alt="A River Flowing Image" />
+
+                <img src="https://images.pexels.com/photos/5409751/pexels-photo-5409751.jpeg"
+                    alt="A cloudy Mountain Image" />
+
+                <img src="https://images.pexels.com/photos/4101555/pexels-photo-4101555.jpeg"
+                    alt="A Winter Rainbow Image" />
+
+                <img class="wide-image" src="https://images.pexels.com/photos/443446/pexels-photo-443446.jpeg"
+                    alt="A Clean Mountain Lake" />
+
+                <img src="https://images.pexels.com/photos/1142950/pexels-photo-1142950.jpeg"
+                    alt="Shining Stars Image" />
+
+            </div>
+
+        </section>
         <!--End Gallery Game Section-->
 
 

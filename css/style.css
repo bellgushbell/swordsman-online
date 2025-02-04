@@ -2422,38 +2422,38 @@ input.form-control {
    ============================== */
 
 /* Gallery Container */
-.gallery {
+/* .gallery {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-auto-rows: 200px;
     gap: 10px;
     padding: 20px;
     perspective: 1000px;
-    /* เพิ่ม perspective ใน container */
-}
+   
+} */
 
 /* ปรับการ์ดให้มีขนาดคงที่ */
-.card {
+/* .card {
     position: relative;
     overflow: hidden;
     border-radius: 10px;
     cursor: pointer;
     width: 100%;
-    /* การ์ดเต็มพื้นที่คอลัมน์ */
+ 
     height: 200px;
-    /* ความสูงคงที่ของการ์ด */
+  
     transform-style: preserve-3d;
     transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.3s ease-in-out;
     background-color: #f0f0f0;
-    /* สีพื้นหลังเผื่อกรณีภาพไม่โหลด */
+ 
 }
 
-/* ปรับภาพในการ์ด */
+
 .card-image {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    /* ครอบภาพให้เต็มพื้นที่การ์ดโดยไม่เปลี่ยนอัตราส่วน */
+
     transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.3s ease-in-out;
 }
 
@@ -2468,7 +2468,7 @@ input.form-control {
     transform: scale(1.05);
 }
 
-/* Modal */
+
 .modal {
     display: none;
     position: fixed;
@@ -2486,19 +2486,19 @@ input.form-control {
     display: flex;
 }
 
-/* Modal Content */
+
 .modal-content {
     max-width: 90%;
-    /* ลดความกว้างหากต้องการ */
+
     max-height: 80%;
-    /* ลดความสูงของภาพ */
+
     width: auto;
     height: auto;
     object-fit: contain;
     margin: auto;
 }
 
-/*ห้วข้อ*/
+
 .gallery-title {
     text-align: center;
     font-size: 2rem;
@@ -2509,35 +2509,42 @@ input.form-control {
 @media (max-width: 961px) {
     .gallery {
         grid-template-columns: repeat(4, 1fr);
-        /* ลดจำนวนคอลัมน์ */
+   
         grid-auto-rows: auto;
-        /* ให้ความสูงของการ์ดปรับตามภาพ */
+   
         gap: 10px;
     }
 
     .card {
         height: auto;
-        /* ยกเลิกความสูงคงที่ */
+    
     }
 
     .card-image {
         width: auto;
         height: auto;
-        /* ให้ภาพปรับตามอัตราส่วน */
+  
         object-fit: cover;
     }
 
     .modal-content {
         max-width: 50%;
-        /* ลดความกว้างหากต้องการ */
+    
         max-height: 50%;
-        /* ลดความสูงของภาพ */
+      
         width: auto;
         height: auto;
         object-fit: contain;
         margin: auto;
     }
 
+} */
+
+.gallery-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
 }
 
 /* ==============================
