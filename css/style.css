@@ -2041,7 +2041,7 @@ input.form-control {
     height: 100vh !important;
     object-fit: cover;
     /* ครอบคลุมพื้นที่ */
-    z-index: -1;
+    z-index: 0;
     /* ให้อยู่ด้านหลัง */
     pointer-events: none;
     /* ปิดการโต้ตอบ */
@@ -2063,7 +2063,7 @@ input.form-control {
     width: 100vw !important;
     height: 100vh;
     object-fit: cover;
-    z-index: -1;
+    z-index: 0;
     pointer-events: none;
     border-radius: 0px;
 
