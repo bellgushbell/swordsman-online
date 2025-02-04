@@ -1714,6 +1714,24 @@ a.bg-video-button-muted {
     transition: all 0.3s ease-in-out;
 }
 
+.header-img {
+    position: absolute;
+    left: 50.6%;
+    top: 25%;
+    width: 50px;
+    z-index: 1000;
+}
+
+.bottom-img {
+    position: absolute;
+    /* left: 50.6%; */
+    right: 0.5%;
+    bottom: 23.2%;
+    width: 50px;
+    z-index: 1000;
+}
+
+
 
 @media (max-width: 961px) {
     .page-section-news {
