@@ -1714,22 +1714,36 @@ a.bg-video-button-muted {
     transition: all 0.3s ease-in-out;
 }
 
+
+/*ขอบกรอบ*/
+.tab-content {
+    position: relative;
+    /* ทำให้ตำแหน่งลูกที่เป็น absolute ติดอยู่ในพื้นที่ของ tab-content */
+}
+
 .header-img {
     position: absolute;
-    left: 50.6%;
-    top: 25%;
+    top: -1%;
+    left: -0.4%;
+    /* เปลี่ยนเป็นซ้าย */
     width: 50px;
-    z-index: 1000;
+    height: 50px;
+    max-width: 50px;
+    /* ปรับขนาดภาพ */
+    z-index: 10;
 }
 
 .bottom-img {
     position: absolute;
-    /* left: 50.6%; */
-    right: 0.5%;
-    bottom: 23.2%;
+    bottom: -1.1%;
+    right: -0.4%;
     width: 50px;
-    z-index: 1000;
+    height: 50px;
+    max-width: 50px;
+    /* ปรับขนาดภาพ */
+    z-index: 10;
 }
+
 
 
 
@@ -1834,6 +1848,38 @@ a.bg-video-button-muted {
         padding: 8px;
         display: visible;
     }
+
+
+    /*ขอบกรอบ*/
+    .tab-content {
+        position: relative;
+        /* ทำให้ตำแหน่งลูกที่เป็น absolute ติดอยู่ในพื้นที่ของ tab-content */
+    }
+
+    .header-img {
+        position: absolute;
+        top: -1%;
+        left: -0.6%;
+        /* เปลี่ยนเป็นซ้าย */
+        width: 50px;
+        height: 50px;
+        max-width: 50px;
+        /* ปรับขนาดภาพ */
+        z-index: 10;
+    }
+
+    .bottom-img {
+        position: absolute;
+        bottom: -1.1%;
+        right: -0.6%;
+        width: 50px;
+        height: 50px;
+        max-width: 50px;
+        /* ปรับขนาดภาพ */
+        z-index: 10;
+    }
+
+
 
     @media (max-width: 961px) and (orientation: landscape) {
         .page-section-news {
