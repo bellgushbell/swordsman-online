@@ -3027,7 +3027,7 @@ html {
 html,
 body {
 
-    overflow: hidden;
+    /* overflow: hidden; */
     /*ปิดสกอบาร์ในคอม*/
     height: 100%;
     -webkit-font-smoothing: antialiased;
