@@ -1771,7 +1771,7 @@ a.bg-video-button-muted {
     .carousel-control-prev,
     .carousel-control-next {
         position: absolute;
-        top: 50%;
+        top: 38%;
         transform: translateY(-50%);
         z-index: 1;
         width: 30px;
