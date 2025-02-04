@@ -534,12 +534,9 @@ SweetAlert2 alert
  */
 
 .home-section {
-    padding: 0;
-    /* ลด Padding */
-    margin: 0;
-    /* ลด Margin */
+
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: block;
     position: relative;
     overflow: hidden;
@@ -1435,9 +1432,7 @@ a.bg-video-button-muted {
     }
 
     .bg-video-mobile {
-        height: 100vh;
-        width: 100%;
-        object-fit: cover;
+
         display: block;
 
     }
