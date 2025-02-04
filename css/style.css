@@ -1554,6 +1554,7 @@ a.bg-video-button-muted {
     padding: 0;
 }
 
+/*paginate ลูกศร*/
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
     background-color: rgba(0, 0, 0, 0.5);
@@ -1599,6 +1600,36 @@ a.bg-video-button-muted {
     animation: fadeIn 0.5s ease-in-out;
 }
 
+
+/*ส่วนของpaginate แบบล่าง*/
+.carousel-indicators-custom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.carousel-indicators-custom .indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ccc;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+.carousel-indicators-custom .indicator.active {
+    background: linear-gradient(90deg, #DCC072, #edb518);
+    /* สีน้ำเงินเมื่อ Active */
+    transform: scale(1.2);
+    /* ขยายขนาดเมื่อ Active */
+}
+
+
+
+
 /* Fade In Animation */
 @keyframes fadeIn {
     from {
@@ -1642,16 +1673,7 @@ a.bg-video-button-muted {
     text-decoration: underline;
 }
 
-/* Add Icons to List */
-.list-group-item:before {
-    content: '\f15c';
-    /* Font Awesome icon */
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-    margin-right: 15px;
-    color: #007bff;
-    transition: color 0.3s ease;
-}
+
 
 .list-group-item:hover:before {
     color: #fff;
@@ -1667,10 +1689,6 @@ a.bg-video-button-muted {
 #news {
     display: block !important;
 }
-
-
-
-
 
 
 
