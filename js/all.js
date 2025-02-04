@@ -406,40 +406,40 @@
      Scroll navigation
      --------------------------------------------- */
 
-    function init_scroll_navigate() {
+    // function init_scroll_navigate() {
 
-        $(".local-scroll").localScroll({
-            target: "body",
-            duration: 1500,
-            offset: 0,
-            easing: "easeInOutQuart",
-            onAfter: function (anchor, settings) {
-                anchor.focus();
-                if (anchor.is(":focus")) {
-                    return !1;
-                }
-                else {
-                    anchor.attr("tabindex", "-1");
-                    anchor.focus()
-                }
-            }
-        });
+    //     $(".local-scroll").localScroll({
+    //         target: "body",
+    //         duration: 1500,
+    //         offset: 0,
+    //         easing: "easeInOutQuart",
+    //         onAfter: function (anchor, settings) {
+    //             anchor.focus();
+    //             if (anchor.is(":focus")) {
+    //                 return !1;
+    //             }
+    //             else {
+    //                 anchor.attr("tabindex", "-1");
+    //                 anchor.focus()
+    //             }
+    //         }
+    //     });
 
-        var sections = $(".home-section, .split-section, .page-section");
-        var menu_links = $(".scroll-nav li a");
+    //     var sections = $(".home-section, .split-section, .page-section");
+    //     var menu_links = $(".scroll-nav li a");
 
-        $(window).scroll(function () {
+    //     $(window).scroll(function () {
 
-            sections.filter(":in-viewport:first").each(function () {
-                var active_section = $(this);
-                var active_link = $('.scroll-nav li a[href="#' + active_section.attr("id") + '"]');
-                menu_links.removeClass("active");
-                active_link.addClass("active");
-            });
+    //         sections.filter(":in-viewport:first").each(function () {
+    //             var active_section = $(this);
+    //             var active_link = $('.scroll-nav li a[href="#' + active_section.attr("id") + '"]');
+    //             menu_links.removeClass("active");
+    //             active_link.addClass("active");
+    //         });
 
-        });
+    //     });
 
-    }
+    // }
 
 
     /* ---------------------------------------------
