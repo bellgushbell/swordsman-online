@@ -2268,7 +2268,7 @@ input.form-control {
 
     .bg-image-class {
         position: absolute;
-        top: -150%;
+        top: -125%;
         left: 0;
         width: 100vw !important;
         height: 100vh !important;
@@ -2289,7 +2289,7 @@ input.form-control {
     .class-content {
         position: relative;
         display: flex;
-        height: 25vh;
+        height: 30vh;
         /* ปรับให้สมดุลกับ bg-video-class */
         justify-content: space-between;
         align-items: flex-end;
