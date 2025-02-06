@@ -2048,14 +2048,13 @@ input.form-control {
     border-radius: 0px;
     /* ไม่มีขอบโค้ง */
     /* ให้รูปภาพอยู่ด้านหลังวิดีโอ */
-    display: none;
+    /* display: none; */
     /* เปิด/ปิด */
 }
 
 /* วีดีโอพื้นหลัง */
-.bg-video-class {
-    /* display: none; */
-    /* เปิด/ปิด */
+/* .bg-video-class {
+
     position: absolute;
     top: 0;
     left: 0;
@@ -2067,18 +2066,18 @@ input.form-control {
     pointer-events: none;
     border-radius: 0px;
 
-}
+} */
 
 
 
-.bg-video-overlay-class {
+/* .bg-video-overlay-class {
     position: absolute;
     top: 0;
     left: 0;
     width: 100vw !important;
     height: 100vh !important;
     z-index: 1;
-}
+} */
 
 /* คอนเทนต์ */
 .class-content {
@@ -2093,20 +2092,20 @@ input.form-control {
 }
 
 /* ข้อมูลคลาส */
-.class-details {
+/* .class-details {
     position: absolute;
-    /* ใช้ absolute เพื่ออ้างอิงจาก .class-content */
+
     bottom: 0%;
-    /* ชิดขอบล่าง */
+
     right: 0;
-    /* ชิดขอบขวา */
+
     width: 500px;
-    /* กำหนดความกว้าง */
+
     height: auto;
     text-align: right;
     z-index: 3;
-    /* เพื่อให้อยู่เหนือ element อื่นถ้าจำเป็น */
-}
+
+} */
 
 /* แถบ Class Sidebar */
 .class-sidebar-wrapper {
@@ -2121,7 +2120,7 @@ input.form-control {
     /* ลดความกว้างให้สมดุล */
     height: 600px !important;
     /* ความสูงที่กำหนด */
-    font-size: 10px;
+    font-size: 20px;
     overflow: hidden;
     border-radius: 8px;
     background-color: rgba(0, 0, 0, 0.1);
@@ -2243,7 +2242,9 @@ input.form-control {
 }
 
 @media(max-width: 961px) {
-    .bg-video-class {
+
+
+    /* .bg-video-class {
         position: absolute;
         top: 0;
         left: 0;
@@ -2254,7 +2255,7 @@ input.form-control {
         z-index: -1;
         pointer-events: none;
         border-radius: 0px;
-    }
+    } */
 
     /* คอนเทนต์ */
     .class-content {
@@ -2271,19 +2272,19 @@ input.form-control {
         font-size: 10px;
     }
 
-    .class-details {
+    /* .class-details {
         position: absolute;
         right: 0;
-        /* ระยะห่างจากด้านขวา */
+     
         bottom: 0;
-        /* ชิดขอบล่างของ .class-content */
+      
         width: auto !important;
-        /* ลดความกว้างให้สมดุล */
+  
         height: auto !important;
-        /* ความสูง */
+   
         font-size: 10px;
         overflow: hidden;
-    }
+    } */
 
     .class-sidebar-wrapper {
         position: absolute;
@@ -2305,32 +2306,32 @@ input.form-control {
 
 
 
-    .class-stats img {
+    /* .class-stats img {
         width: 50px !important;
-        /* ปรับขนาดให้เหมาะสม */
+  
         height: 50px !important;
-    }
+    } */
 
-    .class-image img {
+    /* .class-image img {
         width: 200px !important;
 
         height: auto !important;
 
-    }
+    } */
 
     .class-title {
         margin-right: 10px;
         font-size: 15px;
     }
 
-    .class-description {
+    /* .class-description {
         margin-right: 10px;
         font-size: 10px;
-    }
+    } */
 }
 
 @media (max-width: 961px) and (orientation: landscape) {
-    .bg-video-class {
+    /* .bg-video-class {
         position: absolute;
         top: 0;
         left: 0.7;
@@ -2340,7 +2341,7 @@ input.form-control {
         z-index: -1;
         pointer-events: none;
         border-radius: 10px;
-    }
+    } */
 
     /* คอนเทนต์ */
     .class-content {
@@ -2359,18 +2360,18 @@ input.form-control {
     }
 
     /* รายละเอียดคลาส */
-    .class-details {
+    /* .class-details {
         position: absolute;
         right: 0;
-        /* ชิดขวา */
+     
         bottom: 0;
-        /* ชิดล่าง */
+   
         width: 250px;
-        /* กำหนดความกว้างตามความเหมาะสม */
+  
         height: auto;
         font-size: 12px;
         overflow: hidden;
-    }
+    } */
 
     .class-sidebar-wrapper {
         position: absolute;
@@ -2396,18 +2397,18 @@ input.form-control {
         margin: 0 auto;
     }
 
-    .class-stats img {
-        width: 50px !important;
-        /* ปรับขนาดให้เหมาะสม */
-        height: 50px !important;
-    }
+    /* .class-stats img {
+    width: 50px !important;
 
-    .class-image img {
+    height: 50px !important;
+} */
+
+    /* .class-image img {
         width: 200px !important;
-        /* ปรับขนาดให้สมดุล */
+
         height: auto !important;
 
-    }
+    } */
 
     .class-title {
         font-size: 15px;
