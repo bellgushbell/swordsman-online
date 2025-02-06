@@ -2242,20 +2242,24 @@ input.form-control {
 }
 
 @media(max-width: 961px) {
-
-
-    /* .bg-video-class {
+    .bg-image-class {
         position: absolute;
-        top: 0;
+        top: -40%;
         left: 0;
-
         width: 100vw !important;
-        height: 55vh !important;
-        object-fit: cover;
-        z-index: -1;
+        height: 100vh !important;
+        object-fit: contain;
+        /* ครอบคลุมพื้นที่ */
+        z-index: 0;
+        /* ให้อยู่ด้านหลัง */
         pointer-events: none;
+        /* ปิดการโต้ตอบ */
         border-radius: 0px;
-    } */
+        /* ไม่มีขอบโค้ง */
+        /* ให้รูปภาพอยู่ด้านหลังวิดีโอ */
+        /* display: none; */
+        /* เปิด/ปิด */
+    }
 
     /* คอนเทนต์ */
     .class-content {
@@ -2271,6 +2275,21 @@ input.form-control {
         padding-right: 0px !important;
         font-size: 10px;
     }
+
+    /* .bg-video-class {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100vw !important;
+        height: 55vh !important;
+        object-fit: cover;
+        z-index: -1;
+        pointer-events: none;
+        border-radius: 0px;
+    } */
+
+
 
     /* .class-details {
         position: absolute;
@@ -2288,15 +2307,15 @@ input.form-control {
 
     .class-sidebar-wrapper {
         position: absolute;
-        left: 10px;
+        left: 2px;
         /* ระยะห่างจากด้านซ้าย */
         top: 50%;
         /* ตรงกลางในแนวตั้ง */
         transform: translateY(-50%);
         /* ปรับให้อยู่ตรงกลางพอดี */
-        width: 80px !important;
+        width: 60px !important;
         /* ลดความกว้างให้สมดุล */
-        height: 300px !important;
+        height: 150px !important;
         /* ความสูงที่กำหนด */
         font-size: 10px;
         overflow: hidden;
@@ -2304,7 +2323,13 @@ input.form-control {
         background-color: rgba(0, 0, 0, 0.1);
     }
 
-
+    .class-sidebar {
+        height: calc(100% - 60px);
+        /* หักพื้นที่สำหรับปุ่มเลื่อน */
+        overflow-y: auto;
+        /* เปิด Scroll สำหรับ Sidebar */
+        padding: 10px;
+    }
 
     /* .class-stats img {
         width: 50px !important;
