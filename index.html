@@ -53,9 +53,6 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     <link rel="preload" href="images/PageLoad/Cloud-no-Cloud-Right-webp.webp" as="image" type="image/webp">
 
 
-
-
-
 </head>
 
 
@@ -71,572 +68,10 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     <!-- !!!!! -->
 
 
+    <!-- Loading ล่าสุด ใช้งาน ทำงานได้จริง  loading เปิดม่านฟ้า Loader วิธีใหม่  ปรับแก้ภาพไม่เท่ากัน -->
 
-
-
-
-    <!--  Load Open Door หน้าโหลดเปิดประตู แบบเก่าไม่ใช้ แบบเมฆ-->
 
     <!-- <div class="page-loader" id="loader">
-        <div class="logo-container"> -->
-    <!-- <div class="logo left">
-                <img src="images/PageLoad/test-left-crop.gif" alt="Left Image">
-            </div>
-            <div class="logo right">
-                <img src="images/PageLoad/test-right-crop.gif" alt="Right Image">
-            </div>
-            <img src="images/Logo Sword Man 3 Final 2 เเถว สำหรับพื้นขาว Drop shadow.png" alt="Loading Icon"
-                class="loading-icon">
-        </div> -->
-    <!-- <img src="images/Logo-ก้อนเมฆintro-loading-final.gif" alt="Loading Animation" class="loading-icon">
-        </div> -->
-
-
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script>
-        Setup Scene, Camera, Renderer
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(
-            75,
-            window.innerWidth / window.innerHeight,
-            0.1,
-            1000
-        );
-        camera.position.z = 5;
-
-        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setClearColor(0x000000, 0); // Set background to transparent
-        document.querySelector("#loader").appendChild(renderer.domElement);
-
-
-        Set scene background to transparent
-        scene.background = null;
-
-        Load Textures
-        const textureLoader = new THREE.TextureLoader();
-        const leftTexture = textureLoader.load('images/PageLoad/test-left-crop.gif');
-        const rightTexture = textureLoader.load('images/PageLoad/test-right-crop.gif');
-
-        Create Left Door
-        const leftGeometry = new THREE.PlaneGeometry(10, 10);
-        const leftMaterial = new THREE.MeshBasicMaterial({
-            map: leftTexture,
-            side: THREE.DoubleSide,
-        });
-        const leftDoor = new THREE.Mesh(leftGeometry, leftMaterial);
-        leftDoor.position.x = -5;
-        scene.add(leftDoor);
-
-        Create Right Door
-        const rightGeometry = new THREE.PlaneGeometry(10, 10);
-        const rightMaterial = new THREE.MeshBasicMaterial({
-            map: rightTexture,
-            side: THREE.DoubleSide,
-        });
-        const rightDoor = new THREE.Mesh(rightGeometry, rightMaterial);
-        rightDoor.position.x = 5;
-        scene.add(rightDoor);
-
-        Add Light
-        const light = new THREE.AmbientLight(0xffffff, 0.5);
-        scene.add(light);
-
-        Animation
-        window.addEventListener('load', () => {
-            gsap.timeline()
-                .to(leftDoor.rotation, { y: Math.PI / 2, duration: 1 }) // Rotate left door
-                .to(rightDoor.rotation, { y: -Math.PI / 2, duration: 1 }, '<') // Rotate right door
-                .to('#loader', { opacity: 0, duration: 0.5 }) // Fade out loader
-                .set('#loader', { display: 'none' }) // Hide loader
-        .set('#mainContent', { display: 'block', opacity: 1 }); // Show main content
-        });
-
-        Render Loop
-        function animate() {
-            requestAnimationFrame(animate);
-            renderer.render(scene, camera);
-        }
-        animate();
-
-        Handle Window Resize
-                window.addEventListener('resize', () => {
-                    camera.aspect = window.innerWidth / window.innerHeight;
-                    camera.updateProjectionMatrix();
-                    renderer.setSize(window.innerWidth, window.innerHeight);
-                });
-    </script> -->
-
-    <!-- </div> -->
-
-    <!--  End  Load Open Door -->
-
-
-    <!-- เปิดม่าน Loader วิธี three JS  -->
-    <!-- <div class="page-loader" id="loader">
-        <div class="logo-container">
-            <img src="images/Logo Sword Man 3 Final 2 เเถว สำหรับพื้นขาว Drop shadow.png" alt="Loading Animation"
-                class="loading-icon">
-        </div>
-    </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script>
-
-        // Setup Scene, Camera, Renderer
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(
-            75,
-            window.innerWidth / window.innerHeight,
-            0.1,
-            1000
-        );
-        camera.position.z = 5;
-
-        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setClearColor(0x000000, 0); // Transparent background
-        document.querySelector("#loader").appendChild(renderer.domElement);
-
-        // Load Textures
-        // Load Textures
-        const textureLoader = new THREE.TextureLoader();
-        const leftTexture = textureLoader.load(
-            'images/PageLoad/door-left.png',
-            () => {
-                // หลังจากโหลดภาพสำเร็จ ให้เอา background-image ออก
-                document.querySelector('.page-loader').style.backgroundImage = 'none';
-            }
-        );
-        const rightTexture = textureLoader.load(
-            'images/PageLoad/door-right.png',
-            () => {
-                document.querySelector('.page-loader').style.backgroundImage = 'none';
-            }
-        );
-
-        // Create Left Door
-        const leftGeometry = new THREE.PlaneGeometry(10, 10);
-        const leftMaterial = new THREE.MeshBasicMaterial({
-            map: leftTexture,
-            side: THREE.DoubleSide,
-            transparent: true, // รองรับการเปลี่ยน opacity
-        });
-        const leftDoor = new THREE.Mesh(leftGeometry, leftMaterial);
-        leftDoor.position.x = -5;
-        scene.add(leftDoor);
-
-        // Create Right Door
-        const rightGeometry = new THREE.PlaneGeometry(10, 10);
-        const rightMaterial = new THREE.MeshBasicMaterial({
-            map: rightTexture,
-            side: THREE.DoubleSide,
-            transparent: true, // รองรับการเปลี่ยน opacity
-        });
-        const rightDoor = new THREE.Mesh(rightGeometry, rightMaterial);
-        rightDoor.position.x = 5;
-        scene.add(rightDoor);
-
-        // Add Light
-        const light = new THREE.AmbientLight(0xffffff, 0.5);
-        scene.add(light);
-
-
-        // Animation: Slide Doors Horizontally
-        window.addEventListener('load', () => {
-            gsap.timeline()
-                .to(leftDoor.position, { x: '-15', duration: 1, ease: 'power2.inOut' }) // Slide left door
-                .to(rightDoor.position, { x: '15', duration: 1, ease: 'power2.inOut' }, '<') // Slide right door
-                .to('#loader', { opacity: 0, duration: 0.5, ease: 'power2.inOut' }) // Fade out loader
-                .set('#loader', { display: 'none' }); // Hide loader
-        });
-
-        // Render Loop
-        function animate() {
-            requestAnimationFrame(animate);
-            renderer.render(scene, camera);
-        }
-        animate();
-
-        // Handle Window Resize
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        });
-
-
-    </script> -->
-
-
-
-
-    <!--  End  เปิดม่าน Loader วิธี three JS  -->
-
-
-
-    <!-- เปิดม่าน Loader วิธีใหม่ gasp only   -->
-
-    <!-- <div class="page-loader" id="loader">
-        <div class="door left"></div>
-        <div class="door right"></div>
-        <div class="logo-container">
-            <img src="images/Logo Sword Man 3 Final 2 เเถว สำหรับพื้นขาว Drop shadow.png" alt="Loading Animation"
-                class="loading-icon">
-        </div>
-    </div> -->
-
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script> -->
-
-    <!-- Style -->
-    <!-- <style>
-        /* Loader Container */
-        .page-loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: transparent;
-            overflow: hidden;
-            z-index: 9999;
-        }
-
-        /* Doors */
-        .door {
-            position: absolute;
-            width: 50%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            z-index: 1;
-        }
-
-        .door.left {
-            background-image: url('images/PageLoad/Cloud-Left.gif');
-            left: 0;
-            transform: translateX(0);
-            transform-origin: right center;
-        }
-
-        .door.right {
-            background-image: url('images/PageLoad/Cloud-Right.gif');
-            right: 0;
-            transform: translateX(0);
-            transform-origin: left center;
-        }
-
-        /* Logo */
-        .logo-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 2;
-        }
-
-        .loading-icon {
-            max-width: 300px;
-            z-index: 2;
-        }
-
-
-
-        /* Responsive for small screens */
-        @media (max-width: 961px) {
-            .loading-icon {
-                max-width: 200px;
-            }
-
-            /* Doors mobile */
-            .door {
-                position: absolute;
-                width: 50%;
-                height: 100%;
-                background-size: cover;
-
-                z-index: 1;
-            }
-
-            .door.left {
-                background-image: url('images/PageLoad/Cloud-Left.gif');
-                left: 0;
-                transform: translateX(0);
-                transform-origin: right center;
-                width: 50%;
-                /* ให้ครอบคลุมครึ่งหนึ่งของหน้าจอ */
-                background-size: cover;
-                /* ทำให้ภาพปรับขนาดและไม่ถูกตัด */
-                background-position: right;
-            }
-
-            .door.right {
-                background-image: url('images/PageLoad/Cloud-Right.gif');
-                right: 0;
-                transform: translateX(0);
-                transform-origin: left center;
-                width: 50%;
-                /* ให้ครอบคลุมครึ่งหนึ่งของหน้าจอ */
-                background-size: cover;
-                /* ทำให้ภาพปรับขนาดและไม่ถูกตัด */
-                background-position: left;
-            }
-        }
-    </style> -->
-
-    <!-- <script>
-
-        // Animation with GSAP
-        window.addEventListener('load', () => {
-            const doorLeft = new Image();
-            const doorRight = new Image();
-
-            // Preload images
-            doorLeft.src = 'images/PageLoad/Cloud-Left.gif';
-            doorRight.src = 'images/PageLoad/Cloud-Right.gif';
-
-            // Once images are loaded, run animation
-            Promise.all([doorLeft.decode(), doorRight.decode()]).then(() => {
-                const timeline = gsap.timeline();
-
-                // Animation after images are loaded
-                timeline
-                    .to('.door.left', { x: '-100%', duration: 2, ease: 'power2.inOut' }) // Slide left door
-                    .to('.door.right', { x: '100%', duration: 2, ease: 'power2.inOut' }, '<') // Slide right door
-                    .to('.logo-container', { opacity: 0, duration: 0.5, ease: 'power2.inOut' }, '-=1.5') // Fade out logo
-                    .to('#loader', { opacity: 0, duration: 0.5, ease: 'power2.inOut' }) // Fade out loader
-                    .set('#loader', { display: 'none' }); // Remove loader
-            });
-        });
-
-    </script> -->
-
-
-    <!-- End เปิดม่าน Loader วิธีใหม่ gasp only   -->
-
-
-
-
-
-
-    <!--เก็บไว่ก่อน  คำคมแบบสุ่มแทนlogo loading เปิดม่านประตู Loader วิธีใหม่  gasp only  -->
-    <!-- <div class="page-loader" id="loader">
-        <div class="door left"></div>
-        <div class="door right"></div>
-        <div class="logo-container"> -->
-    <!-- Placeholder for the image -->
-    <!-- <img id="quote-image" src="" class="loading-icon">
-        </div>
-    </div> -->
-
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script> -->
-
-    <!-- Style -->
-    <!-- <style>
-        /* Loader Container */
-        .page-loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: transparent;
-            overflow: hidden;
-            z-index: 9999;
-        }
-
-        /* Doors */
-        .door {
-            position: absolute;
-            width: 50%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            z-index: 1;
-        }
-
-        .door.left {
-            background-image: url('images/PageLoad/Cloud-no-Cloud-Left.gif');
-            left: 0;
-            transform: translateX(0);
-            transform-origin: right center;
-        }
-
-        .door.right {
-            background-image: url('images/PageLoad/Cloud-no-Cloud-Right.gif');
-            right: 0;
-            transform: translateX(0);
-            transform-origin: left center;
-        }
-
-        /* Logo */
-        .logo-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 2;
-        }
-
-        .loading-icon {
-            max-width: 300px;
-            z-index: 2;
-            opacity: 0;
-            /* Start hidden */
-            transition: opacity 0.5s ease;
-            /* Smooth fade in */
-        }
-
-        /* Responsive for small screens */
-        @media (max-width: 961px) {
-            .loading-icon {
-                max-width: 250px !important;
-            }
-
-            .door {
-                position: absolute;
-                width: 50%;
-                height: 100%;
-                background-size: cover;
-                z-index: 1;
-            }
-
-            .door.left {
-                background-image: url('images/PageLoad/Cloud-no-Cloud-Left.gif');
-                left: 0;
-                transform: translateX(0);
-                transform-origin: right center;
-                width: 50%;
-                background-size: cover;
-                background-position: right;
-            }
-
-            .door.right {
-                background-image: url('images/PageLoad/Cloud-no-Cloud-Right.gif');
-                right: 0;
-                transform: translateX(0);
-                transform-origin: left center;
-                width: 50%;
-                background-size: cover;
-                background-position: left;
-            }
-
-            @media (orientation: landscape) and (max-width: 1024px) {
-
-                .door {
-                    position: absolute;
-                    width: 50%;
-                    height: 100%;
-                    background-size: cover;
-                    z-index: 1;
-                }
-
-                .door.left {
-                    background-image: url('images/PageLoad/Cloud-no-Cloud-Left.gif');
-                    left: 0;
-                    transform: translateX(0);
-                    transform-origin: right center;
-                    width: 50%;
-                    background-size: cover;
-                    background-position: right;
-                }
-
-                .door.right {
-                    background-image: url('images/PageLoad/Cloud-no-Cloud-Right.gif');
-                    right: 0;
-                    transform: translateX(0);
-                    transform-origin: left center;
-
-                    width: 50%;
-                    background-size: cover;
-                    background-position: left;
-                }
-
-            }
-        }
-    </style> -->
-
-    <!-- <script>
-
-        const quoteImages = [
-            'images/PageLoad/pageload-word/01.png',
-            'images/PageLoad/pageload-word/02.png',
-            'images/PageLoad/pageload-word/03.png',
-            'images/PageLoad/pageload-word/04.png',
-            'images/PageLoad/pageload-word/05.png',
-            'images/PageLoad/pageload-word/06.png'
-
-        ];
-
-        // Function to get a random image from the array
-        function getRandomQuoteImage() {
-            const randomIndex = Math.floor(Math.random() * quoteImages.length);
-            return quoteImages[randomIndex];
-        }
-
-        // Animation with GSAP
-        window.addEventListener('load', () => {
-            const doorLeft = new Image();
-            const doorRight = new Image();
-
-            // Preload images for the doors
-            doorLeft.src = 'images/PageLoad/Cloud-no-Cloud-Left.gif';
-            doorRight.src = 'images/PageLoad/Cloud-no-Cloud-Right.gif';
-
-            // Set the random quote image for the logo container immediately on load
-            const quoteImageElement = document.getElementById('quote-image');
-            quoteImageElement.src = getRandomQuoteImage(); // Set the image immediately
-
-            // Start fading in the image
-            gsap.to(quoteImageElement, { opacity: 1, duration: 0, scale: 1.5 }); // Fade in the quote image
-
-            // Once images are loaded, run animation
-            Promise.all([doorLeft.decode(), doorRight.decode()]).then(() => {
-                const timeline = gsap.timeline();
-
-                // Animation after images are loaded
-                timeline
-                    .set('.door.left', { x: '0' })   // Set the left door at position 0
-                    .set('.door.right', { x: '0' })  // Set the right door at position 0
-                    .to({}, { duration: 3 })          // Wait for 3 seconds (without animation)
-
-
-                    .to('.door.left', { x: '-100%', duration: 4, ease: 'power2.inOut' }) // Slide left door
-                    .to('.door.right', { x: '100%', duration: 4, ease: 'power2.inOut' }, '<') // Slide right door
-                    .to('.logo-container', { opacity: 0, duration: 0.5, ease: 'power2.inOut' }, '-=2') // Fade out logo
-                    .to('#loader', { opacity: 0, duration: 0.5, ease: 'power2.inOut' }) // Fade out loader
-                    .set('#loader', { display: 'none' }); // Remove loader
-
-                // Fade out the quote image after the doors have opened
-                timeline.to(quoteImageElement, { opacity: 0, duration: 0.5, ease: 'power2.inOut' });
-            });
-        });
-    </script> -->
-
-
-
-    <!--End เก็บไว้ก่อน คำคมแบบสุ่มแทนlogo loading เปิดม่าน Loader วิธีใหม่   gasp only -->
-
-
-
-
-
-
-
-
-
-    <!-- ล่าสุด ใช้งาน ทำงานได้จริง  loading เปิดม่าน Loader วิธีใหม่  ปรับแก้ภาพไม่เท่ากัน -->
-
-
-    <div class="page-loader" id="loader">
         <div class="door left"></div>
         <div class="door right"></div>
         <div class="logo-container">
@@ -866,90 +301,83 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             });
         });
     </script>
+ -->
+
+    <!--End Loading ล่าสุด ใช้งาน ทำงานได้จริง  loading เปิดม่านฟ้า Loader วิธีใหม่  ปรับแก้ภาพไม่เท่ากัน -->
+
+   
+
+    </div>
+    </nav>
+    <!-- End Navigation panel -->
 
 
+    <!-- Sidebar Navigation Panel -->
 
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+   
 
-
-
-    <!--End ล่าสุด ใช้งาน ทำงานได้จริง  loading เปิดม่าน Loader วิธีใหม่  ปรับแก้ภาพไม่เท่ากัน -->
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Page Loader ของ Rythm evo -->
-
-
-    <!-- < div class="page-loader" > -->
-    <!--GIF Loader-->
-    <!-- < img src = "images/Logo-ก้อนเมฆintro-loading-final.gif" alt = "Loading Icon" class="loading-icon" > -->
-    <!-- </div > -->
-
-
-    <!--End Page Loader-->
-
-    <!--Skip to Content-->
-    <!-- < a href = "#main" class="btn skip-to-content" > Skip to Content</ > -->
-    <!--End Skip to Content-->
-
-
-
-
-    <!--โลโก้ใหม่ ขนาดใหญ่-->
-    <!-- <div class="navbar-logo">
-        <a href="#" class="logo-link">
-            <img src="images/Logo SwordMan3-Final-white-transparent.png" alt="Company Logo" class="logo-image" />
+        <a id="toggle-btn" href="javascript:void(0)" class="nav-item toggle-button" onclick="toggleSidebar()">
+            <i class="fas fa-angle-right"></i>
         </a>
-    </div> -->
+        <a href="https://www.facebook.com/profile.php?id=61570578922652" class="nav-item" target="_blank">
+            <img src="images/SideBar-Nav-Icon/Facebook.png" alt="Facebook">
+        </a>
+        <a href="https://www.youtube.com/@%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B5%E0%B9%88%E0%B9%80%E0%B8%A2%E0%B9%89%E0%B8%A2%E0%B8%A2%E0%B8%B8%E0%B8%97%E0%B8%98%E0%B8%88%E0%B8%B1%E0%B8%81%E0%B8%A33"
+            class="nav-item" target="_blank">
+            <img src="images/SideBar-Nav-Icon/Youtube.png" alt="YouTube">
+        </a>
+        <a href="https://www.tiktok.com/@swordsman3mobile" class="nav-item" target="_blank">
+            <img src="images/SideBar-Nav-Icon/Tiktok.png" alt="TikTok">
+        </a>
+        <a href="https://x.com/Swordsman3game" class="nav-item" target="_blank">
+            <img src="images/SideBar-Nav-Icon/x.png" alt="X">
+        </a>
+        <a href="https://www.instagram.com/swordsman3.mobile" class="nav-item" target="_blank">
+            <img src="images/SideBar-Nav-Icon/IG.png" alt="Instagram">
+        </a>
+    </div>
 
-    <!--End logobig-->
 
 
+    <!--End Sidebar Navigation Panel -->
 
-    <!--Page Wrap-->
-    <!-- < div class="page" id = "top" > -->
 
-    <!--Navigation panel-->
-    <!-- < nav class="main-nav dark dark-after-scroll transparent stick-fixed wow-menubar" >
+<!--Navigation panel-->
+<!-- <nav class="main-nav dark dark-after-scroll transparent stick-fixed wow-menubar" >
             <div class=" relative clearfix gradient-bg"> -->
 
-    <!-- Logo ( * your text or image into link tag *) -->
-    <!-- <div class="nav-logo-wrap local-scroll">
+<!-- Logo ( * your text or image into link tag *) -->
+<!-- <div class="nav-logo-wrap local-scroll">
                     <a href="#" class="logo"> -->
-    <!-- <img src="images/logo-white.png" alt="Company logo" width="188" height="37"
+<!-- <img src="images/logo-white.png" alt="Company logo" width="188" height="37"
                             class="logo-white" />
                         <img src="images/logo-dark.png" alt="Company logo" width="188" height="37" class="logo-dark" /> -->
-    <!-- <img src="images/Logo Sword Man 3 Final 2 เเถว สำหรับพื้นขาว Drop shadow.png" alt="Company logo"
+<!-- <img src="images/Logo Sword Man 3 Final 2 เเถว สำหรับพื้นขาว Drop shadow.png" alt="Company logo"
                             width="250" height="50" class="logo-white" />
                     </a> -->
-    <!-- <img src="images/Logo-SwordMan-3-Final-สำหรับพื้นดำ.png" alt="Company logo" class="logo-white" />
+<!-- <img src="images/Logo-SwordMan-3-Final-สำหรับพื้นดำ.png" alt="Company logo" class="logo-white" />
                 </a> -->
 
-    <!-- </div> -->
+<!-- </div> -->
 
-    <!--Mobile Menu Button-->
-    <!-- < div class="mobile-nav" role = "button" tabindex = "0" >
+<!--Mobile Menu Button-->
+<!-- <div class="mobile-nav" role = "button" tabindex = "0" >
             <i class="fa fa-bars"></i>
             <span class="sr-only">Menu</span>
-        </ > -->
-    <!--Main Menu-->
-    <!-- < div class="inner-nav desktop-nav" >
+        </div > -->
+<!--Main Menu-->
+<!-- <div class="inner-nav desktop-nav" >
             <ul class="clearlist scroll-nav local-scroll">
                 <li>
                     <a href="#home">หน้าหลัก</a>
                 </li>
                 <li class="menu-item has-submenu"> -->
-    <!-- a จอปกติ -->
-    <!-- <a href="#" class="menu-link nav-tag-desktop notify">ข่าว</a> -->
-    <!-- a จอมือถือ มี div class="menu-header"-->
-    <!-- <div class="menu-header">
+<!-- a จอปกติ -->
+<!-- <a href="#" class="menu-link nav-tag-desktop notify">ข่าว</a> -->
+<!-- a จอมือถือ มี div class="menu-header"-->
+<!-- <div class="menu-header">
                         <a href="#" class="menu-link notify">ข่าว</a>
                         <button class="submenu-toggle" aria-label="Toggle submenu">
                             <i class="fa fa-chevron-down"></i>
@@ -963,10 +391,10 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                     </ul>
                 </li>
                 <li class="menu-item has-submenu"> -->
-    <!-- a จอปกติ -->
-    <!-- <a href="#" class="menu-link nav-tag-desktop notify">ไกด์</a> -->
-    <!-- a จอมือถือ มี div class="menu-header"-->
-    <!-- <div class="menu-header">
+<!-- a จอปกติ -->
+<!-- <a href="#" class="menu-link nav-tag-desktop notify">ไกด์</a> -->
+<!-- a จอมือถือ มี div class="menu-header"-->
+<!-- <div class="menu-header">
                         <a href="#" class="menu-link notify">ไกด์</a>
                         <button class="submenu-toggle" aria-label="Toggle submenu">
                             <i class="fa fa-chevron-down"></i>
@@ -989,10 +417,10 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                     <a href="#" class="notify">ดาวน์โหลด</a>
                 </li>
                 <li class="menu-item has-submenu"> -->
-    <!-- a จอปกติ -->
-    <!-- <a href="#" class="menu-link nav-tag-desktop notify">ติดต่อ</a> -->
-    <!-- a จอมือถือ มี div class="menu-header"-->
-    <!-- <div class="menu-header">
+<!-- a จอปกติ -->
+<!-- <a href="#" class="menu-link nav-tag-desktop notify">ติดต่อ</a> -->
+<!-- a จอมือถือ มี div class="menu-header"-->
+<!-- <div class="menu-header">
                         <a href="#" class="menu-link notify">ติดต่อ</a>
                         <button class="submenu-toggle" aria-label="Toggle submenu">
                             <i class="fa fa-chevron-down"></i>
@@ -1007,8 +435,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
 
-    <!--SweetAlert2 Script สำหรับเตือนเร็วๆนี้-->
-    <!-- <script>
+<!--SweetAlert2 Script สำหรับเตือนเร็วๆนี้-->
+<script>
         // เมื่อเอกสารโหลดเสร็จ
         document.addEventListener('DOMContentLoaded', function () {
             // เลือกทุกลิงก์ที่มี class 'notify'
@@ -1038,13 +466,11 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             });
         });
 
-    </script> -->
+    </script>
 
 
-
-
-    <!-- Member Button -->
-    <!-- <div class="member-btn dropdown">
+<!-- Member Button -->
+<!-- <div class="member-btn dropdown">
             <a href="#" class="btn d-flex align-items-center gap-2 dropdown-toggle" id="memberDropdown"
                 data-bs-toggle="dropdown" aria-expanded="false">
                 |
@@ -1059,69 +485,14 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
 
-    <!-- End Main Menu -->
+<!-- End Main Menu -->
 
-    </div>
-    </nav>
-    <!-- End Navigation panel -->
-
-
-    <!-- Sidebar Navigation Panel -->
-
-    <!-- Sidebar -->
-    <div id="sidebar" class="sidebar">
-        <!-- <a href="#" class="nav-item">
-                <img src="images/shortcut-icon.png" alt="Game Icon" width="30">
-            </a> -->
-        <!-- <a href="#" class="nav-item">
-                <img src="images/Logo Sword Man 3 Final สำหรับพื้นดำ.jpg" alt="Logo Icon" width="100">
-            </a> -->
-        <!-- <a href="#" class="nav-item">
-                <img src="images/Bottom-Nav-Icon/IOS.png" alt="iOS">
-            </a>
-            <a href="#" class="nav-item">
-                <img src="images/Bottom-Nav-Icon/Android.png" alt="Android">
-            </a>
-            <a href="#" class="nav-item">
-                <img src="images/Bottom-Nav-Icon/APK.png" alt="APK">
-            </a>
-            <a href="#" class="nav-item">
-                <img src="images/Bottom-Nav-Icon/PC.png" alt="Windows">
-            </a> -->
+<!-- </div> -->
+<!-- </nav> -->
+<!-- End Navigation panel -->
 
 
-        <a id="toggle-btn" href="javascript:void(0)" class="nav-item toggle-button" onclick="toggleSidebar()">
-            <i class="fas fa-angle-right"></i>
-        </a>
-        <a href="https://www.facebook.com/profile.php?id=61570578922652" class="nav-item" target="_blank">
-            <img src="images/SideBar-Nav-Icon/Facebook.png" alt="Facebook">
-        </a>
-        <a href="https://www.youtube.com/@%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B5%E0%B9%88%E0%B9%80%E0%B8%A2%E0%B9%89%E0%B8%A2%E0%B8%A2%E0%B8%B8%E0%B8%97%E0%B8%98%E0%B8%88%E0%B8%B1%E0%B8%81%E0%B8%A33"
-            class="nav-item" target="_blank">
-            <img src="images/SideBar-Nav-Icon/Youtube.png" alt="YouTube">
-        </a>
-        <a href="https://www.tiktok.com/@swordsman3mobile" class="nav-item" target="_blank">
-            <img src="images/SideBar-Nav-Icon/Tiktok.png" alt="TikTok">
-        </a>
-        <a href="https://x.com/Swordsman3game" class="nav-item" target="_blank">
-            <img src="images/SideBar-Nav-Icon/x.png" alt="X">
-        </a>
-        <a href="https://www.instagram.com/swordsman3.mobile" class="nav-item" target="_blank">
-            <img src="images/SideBar-Nav-Icon/IG.png" alt="Instagram">
-        </a>
-    </div>
-
-
-
-    <!--End Sidebar Navigation Panel -->
-
-
-
-
-
-
-
-    <!-- Bottom Navigation Bar ถ้าlanding page ไม่ได้ใช้แล้ว-->
+    <!-- Bottom Navigation Bar สีดำ ถ้าlanding page ไม่ได้ใช้แล้ว-->
     <!-- <div class="bottom-nav">
             <a href="#" class="game-icon-bottom-nav">
                 <img src="images/shortcut-icon.png" alt="game-icon" width="30">
@@ -1311,20 +682,20 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
 
-            <!-- Video Promote Content -->
+            <!-- Video Promote Content ตรงปุ่มกด เก็บไว้ -->
 
-            <!-- <div class="video-container" id="videoContainer" style="display: none;"> -->
+            <div class="video-container" id="videoContainer" style="display: none;">
             <!-- เปลี่ยนจาก <video> เป็น <iframe> -->
-            <!-- <iframe id="background-video" class="bg-video"
+            <iframe id="background-video" class="bg-video"
                     src="https://www.youtube.com/embed/_jVcmdtyp-o?autoplay=1&mute=1&loop=1&playlist=_jVcmdtyp-o&rel=0&controls=0"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen>
                 </iframe>
-            </div> -->
+            </div>
 
             <!-- JavaScript สำหรับ Toggle -->
-            <!-- <script>
+            <script>
                 function toggleVideo(event) {
                     event.preventDefault(); // ป้องกันไม่ให้ลิงก์รีโหลดหน้าเว็บ
                     const videoContainer = document.getElementById("videoContainer");
@@ -1336,7 +707,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                         videoContainer.style.display = "none"; // ซ่อนเนื้อหา
                     }
                 }
-            </script> -->
+            </script>
 
 
 
@@ -1348,145 +719,48 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             <!--Home Content Download Button-->
 
 
-            <!-- <div class="home-content"> -->
-
-            <!--
-                                <div class="local-scroll mb-20 mt-20 wow fadeInUpShort" data-wow-delay=".3s">
-                                    <a href="register.html" class="btn-register w-30">ลงทะเบียนล่วงหน้า</a>
-                                </div> -->
-
-
-            <!-- <div class="game-buttons-container ">
-                                    <div class="row align-items-stretch justify-content-between gy-3"> -->
-            <!-- QR Code Section -->
-            <!-- <div
-                                            class="col-12 col-md-3 text-center d-flex align-items-center justify-content-center mb-3 mb-md-0">
-                                            <div class="qr-code-section">
-                                                <img src="" alt="QR Code" class="img-fluid" />
-                                            </div>
-                                        </div> -->
-
-            <!--สำรองเก่า Buttons Group -->
-            <!-- <div class="col-12 col-md-12">
-                                            <div class="row gx-3 gy-3"> -->
-            <!-- Download Buttons -->
-            <!-- <div class="col-12 col-lg-6 ">
-                                                    <div div class="download-buttons d-flex"> -->
-            <!-- <a href="#" class="btn btn-android w-200">
-                                                            <img src="images/android-white.svg" alt="Android Icon" width="20"
-                                                                class="me-2" />
-                                                            ดาวน์โหลด Android
-                                                        </a> -->
-            <!-- <a href="#" class="btn btn-ios w-200 mt-2">
-                                                            <img src="images/ios-icon.png" alt="iOS Icon" width="20"
-                                                                class="me-2" />
-                                                            ดาวน์โหลด iOS
-                                                        </a> -->
-            <!-- กรณีใช้อนิเมชั่นปุ่ม -->
-            <!-- <a href="#" class="ios-button d-inline-block">
-                                                            <img src="images/IOS-Download-Icon-Animation.gif" alt="iOS Icon"
-                                                                width="250" class="me-2 rounded notify" />
-                                                        </a>
-
-                                                    </div>
-                                                </div> -->
-
-            <!-- Action Buttons -->
-            <!-- <div class="col-12 col-lg-6">
-                                                    <div class="action-buttons d-flex"> -->
-            <!-- <a href="#" class="btn btn-emulator w-200">
-                                                            <img src="images/emulator-icon.png" alt="Emulator Icon" width="20"
-                                                                class="me-2" />
-                                                            ดาวน์โหลด Emulator
-                                                        </a>
-                                                        <a href="#" class="btn btn-topup w-200 mt-2">
-                                                            <img src="images/topup-icon.png" alt="Topup Icon" width="20"
-                                                                class="me-2" />
-                                                            เติมเงิน
-                                                        </a> -->
-            <!-- กรณีใช้อนิเมชั่นปุ่ม -->
-            <!-- <a href="#" class="android-button d-inline-block">
-                                                            <img src="images/Android-Download-Icon-Animation.gif"
-                                                                alt="Android Icon" width="250" class="me-2 rounded notify" />
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> -->
-
-            <!-- Age Warning Section -->
-            <!-- <div
-                                            class="col-12 col-md-3 text-center d-flex align-items-center justify-content-center py-3 py-md-0">
-                                            <div class="age-warning">
-                                                <img src="" alt="Age Recommendation" class="img-fluid" />
-                                            </div>
-                                        </div> -->
-            <!--
-                                    </div>
-                                </div> -->
+            <div class="home-content">
 
 
             <!--ปัจจุบัน Buttons Group -->
 
 
 
-            <!-- <div class="game-buttons-container"> -->
-            <!-- <div class="download-buttons"> -->
+            <div class="game-buttons-container">
+            <div class="download-buttons">
             <!-- Play Video Button -->
-            <!-- <a href="#" class="video-button button" onclick="toggleVideo(event)">
+            <a href="#" class="video-button button" onclick="toggleVideo(event)">
                         <img src="images/PlayVideo.png" alt="Video Icon" />
-                    </a> -->
+                    </a>
             <!-- iOS Button -->
-            <!-- <a href="#" class="ios-button notify button">
+            <a href="#" class="ios-button notify button">
                         <img src="images/download_ios.png" alt="iOS Icon" />
-                    </a> -->
+                    </a>
             <!-- Android Button -->
-            <!-- <a href="#" class="android-button notify button">
+            <a href="#" class="android-button notify button">
                         <img src="images/download_google.png" alt="Android Icon" />
-                    </a> -->
+                    </a>
             <!-- APK Button -->
-            <!-- <a href="#" class="android-button notify button">
+            <a href="#" class="android-button notify button">
                         <img src="images/download_APK.png" alt="APK Icon" />
-                    </a> -->
+                    </a>
             <!-- Windows Button -->
-            <!-- <a href="#" class="android-button notify button">
+            <a href="#" class="android-button notify button">
                         <img src="images/windows_play_on.png" alt="Windows Icon" />
-                    </a> -->
-            <!-- APK Download Button -->
-            <!-- <a href="#" class="apk-button notify">
-                                            <img src="images/apk-file-download-animation-button.gif" alt="APK Download Icon"
-                                                class="apk-icon" />
-                                            <div class="apk-text"> -->
-            <!-- <span class="apk-get-it">GET IT ON</span> -->
-            <!-- <span class="apk-title">APK</span>
-                                            </div>
-                                        </a> -->
-
-            <!-- PC Download Button -->
-            <!-- <a href="#" class="pc-button notify">
-                                            <img src="images/emulator-icon.png" alt="PC Download Icon" class="pc-icon" />
-                                            <div class="pc-text"> -->
-            <!-- <span class="pc-get-it">GET IT ON</span> -->
-            <!-- <span class="pc-title">PC</span>
-                                            </div>
-                                        </a> -->
+                    </a>
+        
 
 
-
-            <!-- </div> -->
-            <!-- </div> -->
-
-
-
-
-
+            </div>
+            </div>
 
 
             <!--จบ Buttons Group -->
-            <!-- </h2> -->
+        
 
-            <!-- </div> -->
+            </div>
             <!--End Home Content-->
+
 
 
             <!--Scroll Down-->
@@ -1498,7 +772,9 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 </div> -->
             <!--End Scroll Down-->
 
-            <!-- </div> -->
+
+
+            </div>
         </section>
         <!--End Home Section-->
 
@@ -1823,182 +1099,6 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
         <!--Gallery Game Section-->
-        <!--Gallery Section -->
-        <!-- <section class="gallery-section">
-            <h2 class="gallery-title">แกลเลอรี่</h2>
-            <div class="gallery">
-
-                <div class="card" onclick="openModal('images/1.jpg')">
-                    <img src="images/1.jpg" alt="Card 1" class="card-image">
-                </div>
-                <div class="card" onclick="openModal('images/1.jpg')">
-                    <img src="images/1.jpg" alt="Card 2" class="card-image">
-                </div>
-                <div class="card" onclick="openModal('images/3.jpg')">
-                    <img src="images/3.jpg" alt="Card 3" class="card-image">
-                </div>
-                <div class="card" onclick="openModal('images/4.jpg')">
-                    <img src="images/4.jpg" alt="Card 4" class="card-image">
-                </div>
-                <div class="card" onclick="openModal('images/5.jpg')">
-                    <img src="images/5.jpg" alt="Card 5" class="card-image">
-                </div>
-                <div class="card" onclick="openModal('images/4.jpg')">
-                    <img src="images/4.jpg" alt="Card 6" class="card-image">
-                </div>
-                <div class="card" onclick="openModal('images/5.jpg')">
-                    <img src="images/5.jpg" alt="Card 7" class="card-image">
-                </div>
-                <div class="card" onclick="openModal('images/3.jpg')">
-                    <img src="images/3.jpg" alt="Card 8" class="card-image">
-                </div>
-                <div class="card" onclick="openModal('images/9.jpg')">
-                    <img src="images/9.jpg" alt="Card 9" class="card-image">
-                </div>
-                <div class="card" onclick="openModal('images/10.jpg')">
-                    <img src="images/10.jpg" alt="Card 10" class="card-image">
-                </div>
-                <div class="card" onclick="openModal('images/5.jpg')">
-                    <img src="images/5.jpg" alt="Card 11" class="card-image">
-                </div>
-                <div class="card" onclick="openModal('images/9.jpg')">
-                    <img src="images/9.jpg" alt="Card 12" class="card-image">
-                </div>
-            </div>
-        </section>
-
-
-        <div id="imageModal" class="modal" onclick="closeModal()">
-            <img id="modalImage" class="modal-content">
-        </div> -->
-
-
-
-
-
-        <!-- <div class="gallery-container">
-      
-            <div class="row g-0">
-                <div class="col-lg-8">
-                    <div class="p-3 bg-primary text-white">8 คอลัมน์ (ใหญ่)</div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="p-3 bg-secondary text-white">4 คอลัมน์ (เล็ก)</div>
-                </div>
-            </div>
-
-            <div class="row g-0">
-                <div class="col-lg-8">
-                    <div class="p-3 bg-primary text-white">8 คอลัมน์ (ใหญ่)</div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="p-3 bg-secondary text-white">4 คอลัมน์ (เล็ก)</div>
-                </div>
-            </div>
-
-     
-            <div class="row g-0">
-                <div class="col-lg-4">
-                    <div class="p-3 bg-secondary text-white">4 คอลัมน์ (เล็ก)</div>
-                </div>
-                <div class="col-lg-8">
-                    <div class="p-3 bg-primary text-white">8 คอลัมน์ (ใหญ่)</div>
-                </div>
-            </div>
-
- 
-            <div class="row g-0">
-                <div class="col-lg-4">
-                    <div class="p-3 bg-secondary text-white">4 คอลัมน์ (เล็ก)</div>
-                </div>
-                <div class="col-lg-8">
-                    <div class="p-3 bg-primary text-white">8 คอลัมน์ (ใหญ่)</div>
-                </div>
-            </div>
-        </div> -->
-        <!-- <style>
-            .gallery-container {
-                display: grid;
-                grid-template-columns: 1fr 3fr;
-        
-                grid-template-rows: 2fr 2fr 2fr 2fr;
-    
-                gap: 0;
-            
-                height: 100%;
-          
-            }
-
-            .big-column {
-                grid-row: span 2;
-   
-                background-color: #007bff;
-        
-                color: white;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 1.5rem;
-            }
-
-            .small-column {
-                background-color: #6c757d;
-           
-                color: white;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-size: 1.2rem;
-            }
-
-          
-            .top-reverse {
-                grid-column: 2 / 3;
-             
-                grid-row: 1 / 3;
-         
-            }
-
-            .small-column-right {
-                grid-column: 1 / 2;
-              
-            }
-
-            .reverse-row {
-                grid-column: 2 / 3;
-               
-                grid-row: 3 / 5;
-               
-            }
-
-            .small-column-left {
-                grid-column: 1 / 2;
-              
-            }
-        </style>
-
-        <div class="gallery-container">
-
-            <div class="big-column">
-                8 คอลัมน์ (ใหญ่ แถว 1-2)
-            </div>
-            <div class="small-column">
-                4 คอลัมน์ (เล็ก แถว 1)
-            </div>
-            <div class="small-column">
-                4 คอลัมน์ (เล็ก แถว 2)
-            </div>
-
-            <div class="small-column small-column-left">
-                4 คอลัมน์ (เล็ก แถว 3)
-            </div>
-            <div class="small-column small-column-left">
-                4 คอลัมน์ (เล็ก แถว 4)
-            </div>
-            <div class="big-column reverse-row">
-                8 คอลัมน์ (ใหญ่ แถว 3-4)
-            </div>
-        </div> -->
 
         <style>
             .gallery-section {
@@ -2109,219 +1209,9 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         </section>
         <!--End Gallery Game Section-->
 
-
-
-
-
-
-
-
-
         <!--Divider -->
         <!-- < hr class="mt-0 mb-0" /> -->
         <!--End Divider-->
-
-
-
-
-
-
-
-
-
-
-
-
-        <!--Contact Section-->
-        <!-- <section class="page-section" id="contact">
-            <div class="container relative">
-
-                <div class="text-center mb-80 mb-sm-50">
-                    <h2 class="section-title">
-                        ติดต่อ
-                    </h2>
-                    <p class="section-title-descr">
-                        We’re
-                        available
-                        for
-                        the
-                        new
-                        projects
-                    </p>
-                </div>
-
-                <div class="row mb-60 mb-xs-40">
-
-                    <div class="col-md-10 offset-md-1">
-                        <div class="row"> -->
-
-        <!-- Phone -->
-        <!-- <div class="col-sm-6 col-lg-4 pb-20">
-                                <div class="contact-item wow fadeScaleIn" data-wow-delay="0" data-wow-duration="1s">
-                                    <div class="ci-icon">
-                                        <i class="fa fa-phone-alt"></i>
-                                    </div>
-                                    <div class="ci-title">
-                                        Call
-                                        Us
-                                    </div>
-                                    <div class="ci-text">
-                                        +0963034756
-                                    </div>
-                                </div>
-                            </div> -->
-        <!-- End Phone -->
-
-        <!-- Address -->
-        <!-- <div class="col-sm-6 col-lg-4 pb-20">
-                                <div class="contact-item wow fadeScaleIn" data-wow-delay=".1s" data-wow-duration="1s">
-                                    <div class="ci-icon">
-                                        <i class="fa fa-map-marker-alt"></i>
-                                    </div>
-                                    <div class="ci-title">
-                                        Address
-                                    </div>
-                                    <div class="ci-text">
-                                        thonglor
-                                        13
-                                    </div>
-                                    <div class="ci-link">
-                                        <a href="https://goo.gl/maps/7Vw1PBhxx5BaXStr8" target="_blank">See
-                                            on
-                                            the
-                                            Map</a>
-                                    </div>
-                                </div>
-                            </div> -->
-        <!-- End Address -->
-
-        <!-- Email -->
-        <!-- <div class="col-sm-6 col-lg-4 pb-20">
-                                <div class="contact-item wow fadeScaleIn" data-wow-delay=".2s" data-wow-duration="1s">
-                                    <div class="ci-icon">
-                                        <i class="fa fa-envelope"></i>
-                                    </div>
-                                    <div class="ci-title">
-                                        Email
-                                    </div>
-                                    <div class="ci-text">
-                                        support@bestlooker.pro
-                                    </div>
-                                    <div class="ci-link">
-                                        <a href="mailto:support@bestlooker.pro">Say
-                                            Hello</a>
-                                    </div>
-                                </div>
-                            </div> -->
-        <!-- End Email -->
-        <!-- 
-                        </div>
-                    </div>
-
-                </div> -->
-        <!-- Footer -->
-        <!-- <footer class="d-flex justify-center">
-                                        <div class=""> -->
-
-        <!-- Social Links -->
-        <!-- <div class="footer-social-links mb-90 mb-xs-40">
-                                                <a href="#" title="Facebook" target="_blank"><i class="fab fa-facebook-f"></i> <span
-                                                    class="sr-only">Facebook profile</span></a>
-                                                <a href="#" title="Twitter" target="_blank"><i class="fab fa-twitter"></i> <span
-                                                    class="sr-only">Twitter
-                                                    profile</span></a>
-                                                <a href="#" title="Twitter" target="_blank"><i class="fab fa-vimeo-v"></i> <span
-                                                    class="sr-only">Vimeo
-                                                    profile</span></a>
-                                                <a href="#" title="Behance" target="_blank"><i class="fab fa-behance"></i> <span
-                                                    class="sr-only">Behance
-                                                    profile</span></a>
-                                                <a href="#" title="Pinterest" target="_blank"><i class="fab fa-pinterest"></i> <span
-                                                    class="sr-only">Pinterest profile</span></a>
-                                            </div> -->
-        <!-- End Social Links -->
-
-        <!-- Footer Text -->
-        <!-- <div class="footer-text"> -->
-
-        <!-- Copyright -->
-        <!-- <div class="footer-copy">
-                        <a href="index.html">©
-                            กระบี่เย้ยยุทธจักร</a>.
-                    </div>
-                </div> -->
-        <!-- End Copyright -->
-        <!-- </footer> -->
-        <!-- End Footer -->
-
-
-        <!-- Contact Form -->
-        <!-- <div class="row">
-                                        <div class="col-md-10 offset-md-1">
-
-                                            <form class="form contact-form wow fadeInUpShort" data-wow-delay=".5s"
-                                                id="contact_form">
-
-                                                <div class="row">
-                                                    <div class="col-md-6"> -->
-        <!-- Name -->
-        <!-- <div class="form-group">
-                                                            <label for="name">Name</label>
-                                                            <input type="text" name="name" id="name"
-                                                                class="input-lg round form-control" placeholder="Enter your name"
-                                                                pattern=".{3,100}" required aria-required="true">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6"> -->
-        <!-- Email -->
-        <!-- <div class="form-group">
-                                                            <label for="email">Email</label>
-                                                            <input type="email" name="email" id="email"
-                                                                class="input-lg round form-control" placeholder="Enter your email"
-                                                                pattern=".{5,100}" required aria-required="true">
-                                                        </div>
-                                                    </div>
-                                                </div> -->
-
-        <!-- Message -->
-        <!-- <div class="form-group">
-                                                    <label for="message">Message</label>
-                                                    <textarea name="message" id="message" class="input-lg round form-control" style="height: 130px;"
-                                                        placeholder="Enter your message"></textarea>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col-sm-6"> -->
-        <!-- Inform Tip -->
-        <!-- <div class="form-tip pt-20 pt-sm-0 mb-sm-20">
-                                                            All the fields are required
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-6"> -->
-        <!-- Send Button -->
-        <!-- <div class="text-end pt-10">
-                                                            <button class="submit_btn btn btn-mod btn-large btn-round" id="submit_btn" aria-controls="result">
-                                                                Submit Message
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div id="result" role="region" aria-live="polite" aria-atomic="true"></div>
-
-                                            </form>
-
-                                        </div>
-                                    </div> -->
-        <!-- End Contact Form -->
-
-        <!-- </div>
-                            </section> -->
-        <!--End Contact Section-->
-
-
-
-
 
 
     </main>
@@ -2367,28 +1257,9 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                         <a href="index.html">© กระบี่เย้ยยุทธจักร</a>.
                                     </div>
     <!-- End Copyright -->
-    <!--
-                                    <div class="footer-made">
-                                        Made with love for great people.
-                                    </div>
-
-                                </div> -->
-    <!-- End Footer Text -->
-
-    <!-- </div> -->
-
-    <!--Top Link-->
-    <!-- < div class="local-scroll">
-                                                                <a href="#top" class="link-to-top"><i
-                                                                        class="link-to-top-icon"></i><span
-                                                                        class="sr-only">Scroll
-                                                                        to
-                                                                        top</span></a>
-                                                    </div>
-                                                    -->
-    <!--End Top Link-->
-    <!-- </footer>
-                                                            -->
+    
+    </footer>
+                                                           
     <!--End Footer-->
 
 
