@@ -2242,9 +2242,33 @@ input.form-control {
 }
 
 @media(max-width: 961px) {
+
+    .class-page-section {
+        width: 100%;
+
+        display: block;
+        position: relative;
+        overflow: hidden;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: center center;
+
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+
+        padding: 0px 0;
+    }
+
+
     .bg-image-class {
         position: absolute;
-        top: -40%;
+        top: -150%;
         left: 0;
         width: 100vw !important;
         height: 100vh !important;
@@ -2265,7 +2289,7 @@ input.form-control {
     .class-content {
         position: relative;
         display: flex;
-        height: 55vh;
+        height: 25vh;
         /* ปรับให้สมดุลกับ bg-video-class */
         justify-content: space-between;
         align-items: flex-end;

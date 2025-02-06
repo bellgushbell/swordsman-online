@@ -190,11 +190,11 @@ $(document).ready(function () {
 
     $('#scrollUp').on('click', function () {
         const sidebar = $('#classSidebar');
-        sidebar.scrollTop(sidebar.scrollTop() - 100);
+        sidebar.scrollTop(sidebar.scrollTop() - 50);
     });
 
     $('#scrollDown').on('click', function () {
         const sidebar = $('#classSidebar');
-        sidebar.scrollTop(sidebar.scrollTop() + 100);
+        sidebar.scrollTop(sidebar.scrollTop() + 50);
     });
 });
