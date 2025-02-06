@@ -1779,7 +1779,9 @@ a.bg-video-button-muted {
         /* ปรับภาพให้ครอบคลุม */
     }
 
-
+    /* .nav-item-news {
+        width: 50x;
+    } */
 
     .nav-tabs .nav-link {
         font-size: 1rem;
@@ -1788,6 +1790,7 @@ a.bg-video-button-muted {
         /* ลด Padding */
         margin-right: 3px;
         /* ลดช่องว่างระหว่าง Tab */
+        width: 100px;
     }
 
     .tab-content {
