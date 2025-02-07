@@ -2283,6 +2283,7 @@ input.form-control {
         left: 0;
         width: 100vw !important;
         height: 100vh !important;
+
         object-fit: contain;
         /* ครอบคลุมพื้นที่ */
         z-index: 0;
@@ -2294,6 +2295,7 @@ input.form-control {
         /* ให้รูปภาพอยู่ด้านหลังวิดีโอ */
         /* display: none; */
         /* เปิด/ปิด */
+
     }
 
     /* คอนเทนต์ */
@@ -3199,7 +3201,7 @@ html {
 html,
 body {
 
-    /* overflow: hidden; */
+    overflow: hidden;
     /*ปิดสกอบาร์ในคอม*/
     height: 100%;
     -webkit-font-smoothing: antialiased;
