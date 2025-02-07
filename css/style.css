@@ -1547,7 +1547,7 @@ a.bg-video-button-muted {
 }
 
 #imageCarousel img {
-    height: 500px;
+    height: auto;
     object-fit: contain;
     max-width: 100%;
     padding: 0;
@@ -1664,7 +1664,7 @@ a.bg-video-button-muted {
     color: #333;
     border: 1px solid #f0f0f0;
     margin-bottom: 10px;
-    padding: 12px 20px;
+    padding: auto auto;
     background-color: #f9f9f9;
     border-radius: 10px;
     transition: all 0.3s ease;
@@ -1779,18 +1779,26 @@ a.bg-video-button-muted {
         /* ปรับภาพให้ครอบคลุม */
     }
 
-    /* .nav-item-news {
-        width: 50x;
-    } */
+    .nav-tabs {
+        display: flex;
+        /* จัดให้แสดงในแนวนอน */
+        flex-wrap: nowrap;
+        /* ป้องกันการแตกบรรทัด */
+        justify-content: center;
+        /* จัดให้อยู่ตรงกลาง */
+        gap: 0px;
+        /* เพิ่มช่องว่างระหว่างแท็บ */
+    }
 
     .nav-tabs .nav-link {
-        font-size: 1rem;
+        font-size: 11px;
         /* ลดขนาดตัวอักษร */
         padding: 8px 15px;
         /* ลด Padding */
         margin-right: 3px;
         /* ลดช่องว่างระหว่าง Tab */
-        width: 100px;
+        width: auto;
+        height: auto;
     }
 
     .tab-content {
