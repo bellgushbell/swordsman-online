@@ -28,7 +28,7 @@
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
 
     <style>
         /* Loader Container */
@@ -235,20 +235,33 @@
             preloadDoors.then(() => {
                 const timeline = gsap.timeline();
 
-                timeline
-                    .set('.door.left', { x: '0' })
-                    .set('.door.right', { x: '0' })
-                    .to({}, { duration: 3 }) // Wait 3 seconds
-
-                    .to('.door.left', { x: '-100%', duration: 4, ease: 'power2.inOut' })
-                    .to('.door.right', { x: '100%', duration: 4, ease: 'power2.inOut' }, '<')
-                    .to('.logo-container', { opacity: 0, duration: 0.5, ease: 'power2.inOut' }, '-=2')
-                    .to('#loader', { opacity: 0, duration: 0.5, ease: 'power2.inOut' })
-                    .set('#loader', { display: 'none' });
-
-                // timeline.to(quoteImageElement, { opacity: 0, duration: 0.5, ease: 'power2.inOut' });
+              // ตรวจสอบขนาดหน้าจอ
+                if (window.innerWidth <= 768) { // สำหรับมือถือ (ความกว้างหน้าจอไม่เกิน 768px)
+                    timeline
+                        .set('.door.left', { x: '0' })
+                        .set('.door.right', { x: '0' })
+                        .to({}, { duration: 1.5 }) // Wait 1.5 seconds
+                        .to('.door.left', { x: '-100%', duration: 1, ease: 'power2.inOut' })
+                        .to('.door.right', { x: '100%', duration: 1, ease: 'power2.inOut' }, '<')
+                        .to('.logo-container', { opacity: 0, duration: 0.3, ease: 'power2.inOut' }, '-=0.5')
+                        .to('#loader', { opacity: 0, duration: 0.5, ease: 'power2.inOut' })
+                        .set('#loader', { display: 'none' });
+                } else { // สำหรับเดสก์ท็อป (ความกว้างหน้าจอมากกว่า 768px)
+                    timeline
+                        .set('.door.left', { x: '0' })
+                        .set('.door.right', { x: '0' })
+                        .to({}, { duration: 3 }) // Wait 3 seconds
+                        .to('.door.left', { x: '-100%', duration: 4, ease: 'power2.inOut' })
+                        .to('.door.right', { x: '100%', duration: 4, ease: 'power2.inOut' }, '<')
+                        .to('.logo-container', { opacity: 0, duration: 0.5, ease: 'power2.inOut' }, '-=2')
+                        .to('#loader', { opacity: 0, duration: 0.5, ease: 'power2.inOut' })
+                        .set('#loader', { display: 'none' });
+                }
             });
-        });
+
+              
+            });
+       
     </script>
 
 
@@ -313,17 +326,17 @@
                 <!-- BG Video BG Init -->
                 <!-- Please replace the video files in folder "video" with your own videos -->
                 <div class="bg-video-wrapper">
-                    <video class="bg-video" preload="auto" autoplay muted loop playsinline data-object-fit="cover">
+                    <video class="bg-video" preload="auto" autoplay muted loop playsinline data-object-fit="cover" loading="lazy">
                         <source src="video/swordsman-3-video-web-ver01-final.mp4" type="video/mp4">
                     </video>
                     <!-- mobile -->
-                    <video class="bg-video-mobile" preload="auto" autoplay muted loop playsinline
-                        data-object-fit="cover" >
+                    <video class="bg-video-mobile bg-dark-alfa-30" preload="auto" autoplay muted loop playsinline
+                        data-object-fit="cover" loading="lazy">
                         <source src="video/swordsman-3-video-web-ver01-final.mp4" type="video/mp4">
                     </video>
                     <!-- text-video -->
                     <div class="text-overlay">
-                        <img src="images/text-video.png" alt="Overlay Text" class="overlay-text">
+                        <img src="images/text-video.png" alt="Overlay Text" class="overlay-text" loading="lazy">
                     </div>
                 </div>
 
@@ -452,18 +465,18 @@
 
             <!-- Video Promote Content ตรงปุ่มกด เก็บไว้ -->
 
-            <div class="video-container" id="videoContainer" style="display: none;">
+            <!-- <div class="video-container" id="videoContainer" style="display: none;"> -->
                 <!-- เปลี่ยนจาก <video> เป็น <iframe> -->
-                <iframe id="background-video" class="bg-video"
+                <!-- <iframe id="background-video" class="bg-video"
                     src="https://www.youtube.com/embed/_jVcmdtyp-o?autoplay=1&mute=1&loop=1&playlist=_jVcmdtyp-o&rel=0&controls=0"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen>
                 </iframe>
-            </div>
+            </div> -->
 
             <!-- JavaScript สำหรับ Toggle -->
-            <script>
+            <!-- <script>
                 function toggleVideo(event) {
                     event.preventDefault(); // ป้องกันไม่ให้ลิงก์รีโหลดหน้าเว็บ
                     const videoContainer = document.getElementById("videoContainer");
@@ -475,7 +488,7 @@
                         videoContainer.style.display = "none"; // ซ่อนเนื้อหา
                     }
                 }
-            </script>
+            </script> -->
 
 
 
@@ -996,7 +1009,7 @@
 
 
     <!--JS -->
-    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.min.js" defer></script>
     <!-- <script src="js/jquery.easing.1.3.js"></script> -->
     <script src="js/bootstrap.bundle.min.js" defer></script>
     <!-- <script src="js/SmoothScroll.js"></script> -->
