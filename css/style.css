@@ -1768,14 +1768,14 @@ a.bg-video-button-muted {
 
     #imageCarousel {
         border-radius: 5px;
-        /* ลดความโค้ง */
+
     }
 
     #imageCarousel img {
-        height: 160px;
-        width: 100%;
+        height: auto;
+        width: auto;
         /* ลดความสูงของภาพ */
-        object-fit: cover;
+        object-fit: contain;
         /* ปรับภาพให้ครอบคลุม */
     }
 
@@ -1857,7 +1857,7 @@ a.bg-video-button-muted {
         background-size: 100%;
         background-color: transparent;
         padding: 8px;
-        display: visible;
+        display: block;
     }
 
 
