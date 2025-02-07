@@ -2042,7 +2042,7 @@ input.form-control {
     left: 0;
     width: 100vw !important;
     height: 100vh !important;
-    object-fit: cover;
+    object-fit: fill;
     /* ครอบคลุมพื้นที่ */
     z-index: 0;
     /* ให้อยู่ด้านหลัง */
