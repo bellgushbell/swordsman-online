@@ -251,8 +251,8 @@
                         .set('.door.left', { x: '0' })
                         .set('.door.right', { x: '0' })
                         .to({}, { duration: 3 }) // Wait 3 seconds
-                        .to('.door.left', { x: '-100%', duration: 4, ease: 'power2.inOut' })
-                        .to('.door.right', { x: '100%', duration: 4, ease: 'power2.inOut' }, '<')
+                        .to('.door.left', { x: '-100%', duration: 2, ease: 'power2.inOut' })
+                        .to('.door.right', { x: '100%', duration: 2, ease: 'power2.inOut' }, '<')
                         .to('.logo-container', { opacity: 0, duration: 0.5, ease: 'power2.inOut' }, '-=2')
                         .to('#loader', { opacity: 0, duration: 0.5, ease: 'power2.inOut' })
                         .set('#loader', { display: 'none' });
@@ -326,12 +326,12 @@
                 <!-- BG Video BG Init -->
                 <!-- Please replace the video files in folder "video" with your own videos -->
                 <div class="bg-video-wrapper">
-                    <video class="bg-video" preload="auto" autoplay muted loop playsinline data-object-fit="cover" loading="lazy">
+                    <video class="bg-video" preload="auto" autoplay muted loop playsinline data-object-fit="cover" >
                         <source src="video/swordsman-3-video-web-ver01-final.mp4" type="video/mp4">
                     </video>
                     <!-- mobile -->
                     <video class="bg-video-mobile bg-dark-alfa-30" preload="auto" autoplay muted loop playsinline
-                        data-object-fit="cover" loading="lazy">
+                        data-object-fit="cover">
                         <source src="video/swordsman-3-video-web-ver01-final.mp4" type="video/mp4">
                     </video>
                     <!-- text-video -->
