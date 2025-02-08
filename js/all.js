@@ -13,14 +13,14 @@
 
         // Page loader        
         // $(".page-loader div").fadeOut();
-        // $(".page-loader").delay(200).fadeOut("slow");
+        // $(".page-loader").delay(1000).fadeOut("slow");
 
         init_text_rotator();
-        initWorkFilter();
+        // initWorkFilter();
         init_scroll_navigate();
-        init_wow();
-        init_parallax();
-        initPageSliders();
+        // init_wow();
+        // init_parallax();
+        // initPageSliders();
 
         $(window).trigger("scroll");
         $(window).trigger("resize");
@@ -38,15 +38,15 @@
     $(document).ready(function () {
         $(window).trigger("resize");
         init_classic_menu();
-        init_lightbox();
+        // init_lightbox();
         init_team();
         init_services();
         init_map();
         init_bg_video();
-        Splitting();
-        init_shortcodes();
+        // Splitting();
+        // init_shortcodes();
         init_tooltips();
-        init_masonry();
+        // init_masonry();
     });
 
     $(window).resize(function () {
@@ -441,85 +441,85 @@
      Lightboxes
      --------------------------------------------- */
 
-    function init_lightbox() {
+    // function init_lightbox() {
 
-        // Works Item Lightbox				
-        $(".work-lightbox-link").magnificPopup({
-            gallery: {
-                enabled: true
-            },
-            mainClass: "mfp-fade"
-        });
+    //     // Works Item Lightbox				
+    //     $(".work-lightbox-link").magnificPopup({
+    //         gallery: {
+    //             enabled: true
+    //         },
+    //         mainClass: "mfp-fade"
+    //     });
 
-        // Other Custom Lightbox
-        $(".lightbox-gallery-1").magnificPopup({
-            gallery: {
-                enabled: true
-            },
-            mainClass: "mfp-fade"
-        });
-        $(".lightbox-gallery-2").magnificPopup({
-            gallery: {
-                enabled: true
-            },
-            mainClass: "mfp-fade"
-        });
-        $(".lightbox-gallery-3").magnificPopup({
-            gallery: {
-                enabled: true
-            },
-            mainClass: "mfp-fade"
-        });
-        $(".lightbox-gallery-4").magnificPopup({
-            gallery: {
-                enabled: true
-            },
-            mainClass: "mfp-fade"
-        });
-        $(".lightbox-gallery-5").magnificPopup({
-            gallery: {
-                enabled: true
-            },
-            mainClass: "mfp-fade"
-        });
-        $(".lightbox-gallery-6").magnificPopup({
-            gallery: {
-                enabled: true
-            },
-            mainClass: "mfp-fade"
-        });
-        $(".lightbox-gallery-7").magnificPopup({
-            gallery: {
-                enabled: true
-            },
-            mainClass: "mfp-fade"
-        });
-        $(".lightbox-gallery-8").magnificPopup({
-            gallery: {
-                enabled: true
-            },
-            mainClass: "mfp-fade"
-        });
-        $(".lightbox-gallery-9").magnificPopup({
-            gallery: {
-                enabled: true
-            },
-            mainClass: "mfp-fade"
-        });
-        $(".lightbox-gallery-10").magnificPopup({
-            gallery: {
-                enabled: true
-            },
-            mainClass: "mfp-fade"
-        });
-        $(".lightbox").magnificPopup({
-            gallery: {
-                enabled: true
-            },
-            mainClass: "mfp-fade"
-        });
+    //     // Other Custom Lightbox
+    //     $(".lightbox-gallery-1").magnificPopup({
+    //         gallery: {
+    //             enabled: true
+    //         },
+    //         mainClass: "mfp-fade"
+    //     });
+    //     $(".lightbox-gallery-2").magnificPopup({
+    //         gallery: {
+    //             enabled: true
+    //         },
+    //         mainClass: "mfp-fade"
+    //     });
+    //     $(".lightbox-gallery-3").magnificPopup({
+    //         gallery: {
+    //             enabled: true
+    //         },
+    //         mainClass: "mfp-fade"
+    //     });
+    //     $(".lightbox-gallery-4").magnificPopup({
+    //         gallery: {
+    //             enabled: true
+    //         },
+    //         mainClass: "mfp-fade"
+    //     });
+    //     $(".lightbox-gallery-5").magnificPopup({
+    //         gallery: {
+    //             enabled: true
+    //         },
+    //         mainClass: "mfp-fade"
+    //     });
+    //     $(".lightbox-gallery-6").magnificPopup({
+    //         gallery: {
+    //             enabled: true
+    //         },
+    //         mainClass: "mfp-fade"
+    //     });
+    //     $(".lightbox-gallery-7").magnificPopup({
+    //         gallery: {
+    //             enabled: true
+    //         },
+    //         mainClass: "mfp-fade"
+    //     });
+    //     $(".lightbox-gallery-8").magnificPopup({
+    //         gallery: {
+    //             enabled: true
+    //         },
+    //         mainClass: "mfp-fade"
+    //     });
+    //     $(".lightbox-gallery-9").magnificPopup({
+    //         gallery: {
+    //             enabled: true
+    //         },
+    //         mainClass: "mfp-fade"
+    //     });
+    //     $(".lightbox-gallery-10").magnificPopup({
+    //         gallery: {
+    //             enabled: true
+    //         },
+    //         mainClass: "mfp-fade"
+    //     });
+    //     $(".lightbox").magnificPopup({
+    //         gallery: {
+    //             enabled: true
+    //         },
+    //         mainClass: "mfp-fade"
+    //     });
 
-    }
+    // }
 
 
     /* -------------------------------------------
@@ -565,61 +565,61 @@
      Shortcodes
      --------------------------------------------- */
 
-    function init_shortcodes() {
+    // function init_shortcodes() {
 
-        // Accordion        
-        $(".accordion").each(function () {
-            var allPanels = $(this).children("dd").hide();
-            var allTabs = $(this).children("dt").children("a");
-            allTabs.attr("role", "button");
-            $(this).children("dd").first().slideDown("easeOutExpo");
-            $(this).children("dt").children("a").first().addClass("active");
-            $(this).children("dt").children("a").attr("aria-expanded", "false");
-            $(this).children("dt").children("a").first().attr("aria-expanded", "true");
+    //     // Accordion        
+    //     $(".accordion").each(function () {
+    //         var allPanels = $(this).children("dd").hide();
+    //         var allTabs = $(this).children("dt").children("a");
+    //         allTabs.attr("role", "button");
+    //         $(this).children("dd").first().slideDown("easeOutExpo");
+    //         $(this).children("dt").children("a").first().addClass("active");
+    //         $(this).children("dt").children("a").attr("aria-expanded", "false");
+    //         $(this).children("dt").children("a").first().attr("aria-expanded", "true");
 
-            $(this).children("dt").children("a").click(function () {
-                var current = $(this).parent().next("dd");
-                allTabs.removeClass("active");
-                $(this).addClass("active");
-                allTabs.attr("aria-expanded", "false");
-                $(this).attr("aria-expanded", "true");
-                allPanels.not(current).slideUp("easeInExpo");
-                $(this).parent().next().slideDown("easeOutExpo");
-                return false;
-            });
+    //         $(this).children("dt").children("a").click(function () {
+    //             var current = $(this).parent().next("dd");
+    //             allTabs.removeClass("active");
+    //             $(this).addClass("active");
+    //             allTabs.attr("aria-expanded", "false");
+    //             $(this).attr("aria-expanded", "true");
+    //             allPanels.not(current).slideUp("easeInExpo");
+    //             $(this).parent().next().slideDown("easeOutExpo");
+    //             return false;
+    //         });
 
-        });
+    //     });
 
-        // Toggle
-        var allToggles = $(".toggle > dd").hide();
-        var allTabs = $(".toggle > dt > a");
-        allTabs.attr({
-            "role": "button",
-            "aria-expanded": "false"
-        });
+    //     // Toggle
+    //     var allToggles = $(".toggle > dd").hide();
+    //     var allTabs = $(".toggle > dt > a");
+    //     allTabs.attr({
+    //         "role": "button",
+    //         "aria-expanded": "false"
+    //     });
 
-        $(".toggle > dt > a").click(function () {
+    //     $(".toggle > dt > a").click(function () {
 
-            if ($(this).hasClass("active")) {
-                $(this).parent().next().slideUp("easeOutExpo");
-                $(this).removeClass("active");
-                $(this).attr("aria-expanded", "false");
-            }
-            else {
-                var current = $(this).parent().next("dd");
-                $(this).addClass("active");
-                $(this).attr("aria-expanded", "true");
-                $(this).parent().next().slideDown("easeOutExpo");
-            }
+    //         if ($(this).hasClass("active")) {
+    //             $(this).parent().next().slideUp("easeOutExpo");
+    //             $(this).removeClass("active");
+    //             $(this).attr("aria-expanded", "false");
+    //         }
+    //         else {
+    //             var current = $(this).parent().next("dd");
+    //             $(this).addClass("active");
+    //             $(this).attr("aria-expanded", "true");
+    //             $(this).parent().next().slideDown("easeOutExpo");
+    //         }
 
-            return false;
-        });
+    //         return false;
+    //     });
 
-        // Responsive video
-        $(".video, .resp-media, .blog-media").fitVids();
-        $(".work-full-media").fitVids();
+    //     // Responsive video
+    //     $(".video, .resp-media, .blog-media").fitVids();
+    //     $(".work-full-media").fitVids();
 
-    }
+    // }
 
 
     /* ---------------------------------------------
@@ -679,253 +679,253 @@
  Sliders
  --------------------------------------------- */
 
-function initPageSliders() {
-    (function ($) {
-        "use strict";
+// function initPageSliders() {
+//     (function ($) {
+//         "use strict";
 
-        function owl_keynav(el) {
-            el.attr({
-                "role": "region",
-                "aria-roledescription": "carousel"
-            });
-            el.find(".owl-prev, .owl-next").attr({
-                "role": "button",
-                "tabindex": "0"
-            });
-            if (el.hasClass("autoplay")) {
-                el.prepend("<button class='owl-pause-button visually-hidden sr-only'>Stop Sliding</button>");
-                el.on("click", ".owl-pause-button", function () {
-                    if ($(this).hasClass("owl-pause-button-paused")) {
-                        $(this).removeClass("owl-pause-button-paused");
-                        $(this).html("Stop Sliding");
-                        var this_owl = el.data("owlCarousel");
-                        this_owl.play();
-                    } else {
-                        $(this).addClass("owl-pause-button-paused");
-                        $(this).html("Start Sliding");
-                        var this_owl = el.data("owlCarousel");
-                        this_owl.stop();
-                    }
-                });
-            }
-            el.prepend(el.find(".owl-controls"));
-            el.on("click", ".owl-page, .owl-prev, .owl-next", function (e) {
-                el.find(".owl-pause-button").addClass("owl-pause-button-paused");
-                el.find(".owl-pause-button").html("Start Sliding");
-                var this_owl = el.data("owlCarousel");
-                this_owl.stop();
-            });
-            el.on("keydown", ".owl-page, .owl-prev, .owl-next", function (e) {
-                if (e.keyCode == 13 || e.keyCode == 32) {
-                    el.find(".owl-pause-button").addClass("owl-pause-button-paused");
-                    el.find(".owl-pause-button").html("Start Sliding");
-                    var this_owl = el.data("owlCarousel");
-                    this_owl.stop();
-                }
-            });
-            el.on("keydown", ".owl-prev", function (e) {
-                if (e.keyCode == 13 || e.keyCode == 32) {
-                    var this_owl = el.data("owlCarousel");
-                    this_owl.prev();
-                    return false;
-                }
-            });
-            el.on("keydown", ".owl-next", function (e) {
-                if (e.keyCode == 13 || e.keyCode == 32) {
-                    var this_owl = el.data("owlCarousel");
-                    this_owl.next();
-                    return false;
-                }
-            });
-        }
+//         function owl_keynav(el) {
+//             el.attr({
+//                 "role": "region",
+//                 "aria-roledescription": "carousel"
+//             });
+//             el.find(".owl-prev, .owl-next").attr({
+//                 "role": "button",
+//                 "tabindex": "0"
+//             });
+//             if (el.hasClass("autoplay")) {
+//                 el.prepend("<button class='owl-pause-button visually-hidden sr-only'>Stop Sliding</button>");
+//                 el.on("click", ".owl-pause-button", function () {
+//                     if ($(this).hasClass("owl-pause-button-paused")) {
+//                         $(this).removeClass("owl-pause-button-paused");
+//                         $(this).html("Stop Sliding");
+//                         var this_owl = el.data("owlCarousel");
+//                         this_owl.play();
+//                     } else {
+//                         $(this).addClass("owl-pause-button-paused");
+//                         $(this).html("Start Sliding");
+//                         var this_owl = el.data("owlCarousel");
+//                         this_owl.stop();
+//                     }
+//                 });
+//             }
+//             el.prepend(el.find(".owl-controls"));
+//             el.on("click", ".owl-page, .owl-prev, .owl-next", function (e) {
+//                 el.find(".owl-pause-button").addClass("owl-pause-button-paused");
+//                 el.find(".owl-pause-button").html("Start Sliding");
+//                 var this_owl = el.data("owlCarousel");
+//                 this_owl.stop();
+//             });
+//             el.on("keydown", ".owl-page, .owl-prev, .owl-next", function (e) {
+//                 if (e.keyCode == 13 || e.keyCode == 32) {
+//                     el.find(".owl-pause-button").addClass("owl-pause-button-paused");
+//                     el.find(".owl-pause-button").html("Start Sliding");
+//                     var this_owl = el.data("owlCarousel");
+//                     this_owl.stop();
+//                 }
+//             });
+//             el.on("keydown", ".owl-prev", function (e) {
+//                 if (e.keyCode == 13 || e.keyCode == 32) {
+//                     var this_owl = el.data("owlCarousel");
+//                     this_owl.prev();
+//                     return false;
+//                 }
+//             });
+//             el.on("keydown", ".owl-next", function (e) {
+//                 if (e.keyCode == 13 || e.keyCode == 32) {
+//                     var this_owl = el.data("owlCarousel");
+//                     this_owl.next();
+//                     return false;
+//                 }
+//             });
+//         }
 
-        function owl_update(el) {
-            el.find(".owl-item").attr({
-                "aria-hidden": "true"
-            });
-            el.find(".owl-item.active").removeAttr("aria-hidden");
-            el.find(".owl-item a, .owl-item button, .owl-item input").attr({
-                "tabindex": "-1"
-            });
-            el.find(".owl-item.active a, .owl-item.active button, .owl-item.active input").attr({
-                "tabindex": "0"
-            });
-        }
+//         function owl_update(el) {
+//             el.find(".owl-item").attr({
+//                 "aria-hidden": "true"
+//             });
+//             el.find(".owl-item.active").removeAttr("aria-hidden");
+//             el.find(".owl-item a, .owl-item button, .owl-item input").attr({
+//                 "tabindex": "-1"
+//             });
+//             el.find(".owl-item.active a, .owl-item.active button, .owl-item.active input").attr({
+//                 "tabindex": "0"
+//             });
+//         }
 
-        // Fullwidth slider
-        $(".fullwidth-slider").owlCarousel({
-            slideSpeed: 350,
-            singleItem: true,
-            autoHeight: true,
-            navigation: true,
-            lazyLoad: true,
-            addClassActive: true,
-            navigationText: ['<span class="sr-only">Previous Slide</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27px" height="57px" viewBox="0 0 27 57" fill="currentColor" aria-hidden="true" focusable="false"><path d="M5.005,28.500 L27.000,54.494 L24.000,56.994 L0.005,28.500 L24.000,0.006 L27.000,2.506 L5.005,28.500 Z"/></svg>', '<span class="sr-only">Next Slide</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27px" height="57px" viewBox="0 0 27 57" fill="currentColor" aria-hidden="true" focusable="false"><path d="M21.995,28.500 L-0.000,54.494 L3.000,56.994 L26.995,28.500 L3.000,0.006 L-0.000,2.506 L21.995,28.500 Z"/></svg>'],
-            afterInit: owl_keynav,
-            afterAction: owl_update
-        });
+//         // Fullwidth slider
+//         $(".fullwidth-slider").owlCarousel({
+//             slideSpeed: 350,
+//             singleItem: true,
+//             autoHeight: true,
+//             navigation: true,
+//             lazyLoad: true,
+//             addClassActive: true,
+//             navigationText: ['<span class="sr-only">Previous Slide</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27px" height="57px" viewBox="0 0 27 57" fill="currentColor" aria-hidden="true" focusable="false"><path d="M5.005,28.500 L27.000,54.494 L24.000,56.994 L0.005,28.500 L24.000,0.006 L27.000,2.506 L5.005,28.500 Z"/></svg>', '<span class="sr-only">Next Slide</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27px" height="57px" viewBox="0 0 27 57" fill="currentColor" aria-hidden="true" focusable="false"><path d="M21.995,28.500 L-0.000,54.494 L3.000,56.994 L26.995,28.500 L3.000,0.006 L-0.000,2.506 L21.995,28.500 Z"/></svg>'],
+//             afterInit: owl_keynav,
+//             afterAction: owl_update
+//         });
 
-        // Fullwidth slider fade
-        $(".fullwidth-slider-fade").owlCarousel({
-            transitionStyle: "fade",
-            slideSpeed: 350,
-            singleItem: true,
-            autoHeight: true,
-            navigation: true,
-            lazyLoad: true,
-            addClassActive: true,
-            navigationText: ['<span class="sr-only">Previous Slide</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27px" height="57px" viewBox="0 0 27 57" fill="currentColor" aria-hidden="true" focusable="false"><path d="M5.005,28.500 L27.000,54.494 L24.000,56.994 L0.005,28.500 L24.000,0.006 L27.000,2.506 L5.005,28.500 Z"/></svg>', '<span class="sr-only">Next Slide</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27px" height="57px" viewBox="0 0 27 57" fill="currentColor" aria-hidden="true" focusable="false"><path d="M21.995,28.500 L-0.000,54.494 L3.000,56.994 L26.995,28.500 L3.000,0.006 L-0.000,2.506 L21.995,28.500 Z"/></svg>'],
-            afterInit: owl_keynav,
-            afterAction: owl_update
-        });
+//         // Fullwidth slider fade
+//         $(".fullwidth-slider-fade").owlCarousel({
+//             transitionStyle: "fade",
+//             slideSpeed: 350,
+//             singleItem: true,
+//             autoHeight: true,
+//             navigation: true,
+//             lazyLoad: true,
+//             addClassActive: true,
+//             navigationText: ['<span class="sr-only">Previous Slide</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27px" height="57px" viewBox="0 0 27 57" fill="currentColor" aria-hidden="true" focusable="false"><path d="M5.005,28.500 L27.000,54.494 L24.000,56.994 L0.005,28.500 L24.000,0.006 L27.000,2.506 L5.005,28.500 Z"/></svg>', '<span class="sr-only">Next Slide</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27px" height="57px" viewBox="0 0 27 57" fill="currentColor" aria-hidden="true" focusable="false"><path d="M21.995,28.500 L-0.000,54.494 L3.000,56.994 L26.995,28.500 L3.000,0.006 L-0.000,2.506 L21.995,28.500 Z"/></svg>'],
+//             afterInit: owl_keynav,
+//             afterAction: owl_update
+//         });
 
-        // Fullwidth slider fadezoom
-        $(".fullwidth-slider-fadezoom").owlCarousel({
-            transitionStyle: "fadeUp",
-            slideSpeed: 350,
-            singleItem: true,
-            autoHeight: true,
-            navigation: true,
-            lazyLoad: true,
-            addClassActive: true,
-            navigationText: ['<span class="sr-only">Previous Slide</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27px" height="57px" viewBox="0 0 27 57" fill="currentColor" aria-hidden="true" focusable="false"><path d="M5.005,28.500 L27.000,54.494 L24.000,56.994 L0.005,28.500 L24.000,0.006 L27.000,2.506 L5.005,28.500 Z"/></svg>', '<span class="sr-only">Next Slide</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27px" height="57px" viewBox="0 0 27 57" fill="currentColor" aria-hidden="true" focusable="false"><path d="M21.995,28.500 L-0.000,54.494 L3.000,56.994 L26.995,28.500 L3.000,0.006 L-0.000,2.506 L21.995,28.500 Z"/></svg>'],
-            afterInit: owl_keynav,
-            afterAction: owl_update
-        });
+//         // Fullwidth slider fadezoom
+//         $(".fullwidth-slider-fadezoom").owlCarousel({
+//             transitionStyle: "fadeUp",
+//             slideSpeed: 350,
+//             singleItem: true,
+//             autoHeight: true,
+//             navigation: true,
+//             lazyLoad: true,
+//             addClassActive: true,
+//             navigationText: ['<span class="sr-only">Previous Slide</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27px" height="57px" viewBox="0 0 27 57" fill="currentColor" aria-hidden="true" focusable="false"><path d="M5.005,28.500 L27.000,54.494 L24.000,56.994 L0.005,28.500 L24.000,0.006 L27.000,2.506 L5.005,28.500 Z"/></svg>', '<span class="sr-only">Next Slide</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27px" height="57px" viewBox="0 0 27 57" fill="currentColor" aria-hidden="true" focusable="false"><path d="M21.995,28.500 L-0.000,54.494 L3.000,56.994 L26.995,28.500 L3.000,0.006 L-0.000,2.506 L21.995,28.500 Z"/></svg>'],
+//             afterInit: owl_keynav,
+//             afterAction: owl_update
+//         });
 
-        // Text slider
-        $(".text-slider").owlCarousel({
-            slideSpeed: 350,
-            singleItem: true,
-            autoHeight: true,
-            navigation: true,
-            lazyLoad: true,
-            addClassActive: true,
-            navigationText: ['<span class="sr-only">Previous Slide</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27px" height="57px" viewBox="0 0 27 57" fill="currentColor" aria-hidden="true" focusable="false"><path d="M5.005,28.500 L27.000,54.494 L24.000,56.994 L0.005,28.500 L24.000,0.006 L27.000,2.506 L5.005,28.500 Z"/></svg>', '<span class="sr-only">Next Slide</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27px" height="57px" viewBox="0 0 27 57" fill="currentColor" aria-hidden="true" focusable="false"><path d="M21.995,28.500 L-0.000,54.494 L3.000,56.994 L26.995,28.500 L3.000,0.006 L-0.000,2.506 L21.995,28.500 Z"/></svg>'],
-            afterInit: owl_keynav,
-            afterAction: owl_update
-        });
+//         // Text slider
+//         $(".text-slider").owlCarousel({
+//             slideSpeed: 350,
+//             singleItem: true,
+//             autoHeight: true,
+//             navigation: true,
+//             lazyLoad: true,
+//             addClassActive: true,
+//             navigationText: ['<span class="sr-only">Previous Slide</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27px" height="57px" viewBox="0 0 27 57" fill="currentColor" aria-hidden="true" focusable="false"><path d="M5.005,28.500 L27.000,54.494 L24.000,56.994 L0.005,28.500 L24.000,0.006 L27.000,2.506 L5.005,28.500 Z"/></svg>', '<span class="sr-only">Next Slide</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27px" height="57px" viewBox="0 0 27 57" fill="currentColor" aria-hidden="true" focusable="false"><path d="M21.995,28.500 L-0.000,54.494 L3.000,56.994 L26.995,28.500 L3.000,0.006 L-0.000,2.506 L21.995,28.500 Z"/></svg>'],
+//             afterInit: owl_keynav,
+//             afterAction: owl_update
+//         });
 
-        // Fullwidth gallery
-        $(".fullwidth-gallery").addClass("autoplay");
-        $(".fullwidth-gallery").owlCarousel({
-            transitionStyle: "fade",
-            autoPlay: 5000,
-            slideSpeed: 700,
-            singleItem: true,
-            autoHeight: true,
-            navigation: false,
-            pagination: false,
-            lazyLoad: true,
-            addClassActive: true,
-            afterInit: owl_keynav,
-            afterAction: owl_update
-        });
+//         // Fullwidth gallery
+//         $(".fullwidth-gallery").addClass("autoplay");
+//         $(".fullwidth-gallery").owlCarousel({
+//             transitionStyle: "fade",
+//             autoPlay: 5000,
+//             slideSpeed: 700,
+//             singleItem: true,
+//             autoHeight: true,
+//             navigation: false,
+//             pagination: false,
+//             lazyLoad: true,
+//             addClassActive: true,
+//             afterInit: owl_keynav,
+//             afterAction: owl_update
+//         });
 
-        // Item carousel
-        $(".item-carousel").addClass("autoplay");
-        $(".item-carousel").owlCarousel({
-            autoPlay: 3500,
-            stopOnHover: false,
-            items: 3,
-            itemsDesktop: [1199, 3],
-            itemsTabletSmall: [768, 3],
-            itemsMobile: [480, 1],
-            navigation: true,
-            lazyLoad: true,
-            addClassActive: true,
-            navigationText: ['<span class="sr-only">Previous Slide</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27px" height="57px" viewBox="0 0 27 57" fill="currentColor" aria-hidden="true" focusable="false"><path d="M5.005,28.500 L27.000,54.494 L24.000,56.994 L0.005,28.500 L24.000,0.006 L27.000,2.506 L5.005,28.500 Z"/></svg>', '<span class="sr-only">Next Slide</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27px" height="57px" viewBox="0 0 27 57" fill="currentColor" aria-hidden="true" focusable="false"><path d="M21.995,28.500 L-0.000,54.494 L3.000,56.994 L26.995,28.500 L3.000,0.006 L-0.000,2.506 L21.995,28.500 Z"/></svg>'],
-            afterInit: owl_keynav,
-            afterAction: owl_update
-        });
+//         // Item carousel
+//         $(".item-carousel").addClass("autoplay");
+//         $(".item-carousel").owlCarousel({
+//             autoPlay: 3500,
+//             stopOnHover: false,
+//             items: 3,
+//             itemsDesktop: [1199, 3],
+//             itemsTabletSmall: [768, 3],
+//             itemsMobile: [480, 1],
+//             navigation: true,
+//             lazyLoad: true,
+//             addClassActive: true,
+//             navigationText: ['<span class="sr-only">Previous Slide</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27px" height="57px" viewBox="0 0 27 57" fill="currentColor" aria-hidden="true" focusable="false"><path d="M5.005,28.500 L27.000,54.494 L24.000,56.994 L0.005,28.500 L24.000,0.006 L27.000,2.506 L5.005,28.500 Z"/></svg>', '<span class="sr-only">Next Slide</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27px" height="57px" viewBox="0 0 27 57" fill="currentColor" aria-hidden="true" focusable="false"><path d="M21.995,28.500 L-0.000,54.494 L3.000,56.994 L26.995,28.500 L3.000,0.006 L-0.000,2.506 L21.995,28.500 Z"/></svg>'],
+//             afterInit: owl_keynav,
+//             afterAction: owl_update
+//         });
 
-        // Small item carousel
-        $(".small-item-carousel").addClass("autoplay");
-        $(".small-item-carousel").owlCarousel({
-            autoPlay: 2500,
-            stopOnHover: true,
-            items: 6,
-            itemsDesktop: [1199, 4],
-            itemsTabletSmall: [768, 3],
-            itemsMobile: [480, 2],
-            pagination: false,
-            navigation: true,
-            lazyLoad: true,
-            addClassActive: true,
-            navigationText: ["<span class='sr-only'>Previous Slide</span><i class='fa fa-angle-left' aria-hidden='true'></i>", "<span class='sr-only'>Next Slide</span><i class='fa fa-angle-right' aria-hidden='true'></i>"],
-            afterInit: owl_keynav,
-            afterAction: owl_update
-        });
+//         // Small item carousel
+//         $(".small-item-carousel").addClass("autoplay");
+//         $(".small-item-carousel").owlCarousel({
+//             autoPlay: 2500,
+//             stopOnHover: true,
+//             items: 6,
+//             itemsDesktop: [1199, 4],
+//             itemsTabletSmall: [768, 3],
+//             itemsMobile: [480, 2],
+//             pagination: false,
+//             navigation: true,
+//             lazyLoad: true,
+//             addClassActive: true,
+//             navigationText: ["<span class='sr-only'>Previous Slide</span><i class='fa fa-angle-left' aria-hidden='true'></i>", "<span class='sr-only'>Next Slide</span><i class='fa fa-angle-right' aria-hidden='true'></i>"],
+//             afterInit: owl_keynav,
+//             afterAction: owl_update
+//         });
 
-        // Single carousel
-        $(".single-carousel").owlCarousel({
-            singleItem: true,
-            autoHeight: true,
-            navigation: true,
-            lazyLoad: true,
-            addClassActive: true,
-            navigationText: ["<span class='sr-only'>Previous Slide</span><i class='fa fa-angle-left' aria-hidden='true'></i>", "<span class='sr-only'>Next Slide</span><i class='fa fa-angle-right' aria-hidden='true'></i>"],
-            afterInit: owl_keynav,
-            afterAction: owl_update
-        });
+//         // Single carousel
+//         $(".single-carousel").owlCarousel({
+//             singleItem: true,
+//             autoHeight: true,
+//             navigation: true,
+//             lazyLoad: true,
+//             addClassActive: true,
+//             navigationText: ["<span class='sr-only'>Previous Slide</span><i class='fa fa-angle-left' aria-hidden='true'></i>", "<span class='sr-only'>Next Slide</span><i class='fa fa-angle-right' aria-hidden='true'></i>"],
+//             afterInit: owl_keynav,
+//             afterAction: owl_update
+//         });
 
-        // Content Slider
-        $(".content-slider").owlCarousel({
-            slideSpeed: 350,
-            singleItem: true,
-            autoHeight: true,
-            navigation: true,
-            lazyLoad: true,
-            addClassActive: true,
-            navigationText: ['<span class="sr-only">Previous Slide</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27px" height="57px" viewBox="0 0 27 57" fill="currentColor" aria-hidden="true" focusable="false"><path d="M5.005,28.500 L27.000,54.494 L24.000,56.994 L0.005,28.500 L24.000,0.006 L27.000,2.506 L5.005,28.500 Z"/></svg>', '<span class="sr-only">Next Slide</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27px" height="57px" viewBox="0 0 27 57" fill="currentColor" aria-hidden="true" focusable="false"><path d="M21.995,28.500 L-0.000,54.494 L3.000,56.994 L26.995,28.500 L3.000,0.006 L-0.000,2.506 L21.995,28.500 Z"/></svg>'],
-            afterInit: owl_keynav,
-            afterAction: owl_update
-        });
+//         // Content Slider
+//         $(".content-slider").owlCarousel({
+//             slideSpeed: 350,
+//             singleItem: true,
+//             autoHeight: true,
+//             navigation: true,
+//             lazyLoad: true,
+//             addClassActive: true,
+//             navigationText: ['<span class="sr-only">Previous Slide</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27px" height="57px" viewBox="0 0 27 57" fill="currentColor" aria-hidden="true" focusable="false"><path d="M5.005,28.500 L27.000,54.494 L24.000,56.994 L0.005,28.500 L24.000,0.006 L27.000,2.506 L5.005,28.500 Z"/></svg>', '<span class="sr-only">Next Slide</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27px" height="57px" viewBox="0 0 27 57" fill="currentColor" aria-hidden="true" focusable="false"><path d="M21.995,28.500 L-0.000,54.494 L3.000,56.994 L26.995,28.500 L3.000,0.006 L-0.000,2.506 L21.995,28.500 Z"/></svg>'],
+//             afterInit: owl_keynav,
+//             afterAction: owl_update
+//         });
 
-        // Photo slider
-        $(".photo-slider").owlCarousel({
-            slideSpeed: 350,
-            items: 4,
-            itemsDesktop: [1199, 4],
-            itemsTabletSmall: [768, 2],
-            itemsMobile: [480, 1],
-            autoHeight: true,
-            navigation: true,
-            lazyLoad: true,
-            addClassActive: true,
-            navigationText: ["<span class='sr-only'>Previous Slide</span><i class='fa fa-angle-left' aria-hidden='true'></i>", "<span class='sr-only'>Next Slide</span><i class='fa fa-angle-right' aria-hidden='true'></i>"],
-            afterInit: owl_keynav,
-            afterAction: owl_update
-        });
+//         // Photo slider
+//         $(".photo-slider").owlCarousel({
+//             slideSpeed: 350,
+//             items: 4,
+//             itemsDesktop: [1199, 4],
+//             itemsTabletSmall: [768, 2],
+//             itemsMobile: [480, 1],
+//             autoHeight: true,
+//             navigation: true,
+//             lazyLoad: true,
+//             addClassActive: true,
+//             navigationText: ["<span class='sr-only'>Previous Slide</span><i class='fa fa-angle-left' aria-hidden='true'></i>", "<span class='sr-only'>Next Slide</span><i class='fa fa-angle-right' aria-hidden='true'></i>"],
+//             afterInit: owl_keynav,
+//             afterAction: owl_update
+//         });
 
-        // Work slider
-        $(".simple-slider").owlCarousel({
-            slideSpeed: 350,
-            singleItem: true,
-            autoHeight: true,
-            navigation: true,
-            lazyLoad: true,
-            addClassActive: true,
-            navigationText: ['<span class="sr-only">Previous Slide</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27px" height="57px" viewBox="0 0 27 57" fill="currentColor" aria-hidden="true" focusable="false"><path d="M5.005,28.500 L27.000,54.494 L24.000,56.994 L0.005,28.500 L24.000,0.006 L27.000,2.506 L5.005,28.500 Z"/></svg>', '<span class="sr-only">Next Slide</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27px" height="57px" viewBox="0 0 27 57" fill="currentColor" aria-hidden="true" focusable="false"><path d="M21.995,28.500 L-0.000,54.494 L3.000,56.994 L26.995,28.500 L3.000,0.006 L-0.000,2.506 L21.995,28.500 Z"/></svg>'],
-            afterInit: owl_keynav,
-            afterAction: owl_update
-        });
+//         // Work slider
+//         $(".simple-slider").owlCarousel({
+//             slideSpeed: 350,
+//             singleItem: true,
+//             autoHeight: true,
+//             navigation: true,
+//             lazyLoad: true,
+//             addClassActive: true,
+//             navigationText: ['<span class="sr-only">Previous Slide</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27px" height="57px" viewBox="0 0 27 57" fill="currentColor" aria-hidden="true" focusable="false"><path d="M5.005,28.500 L27.000,54.494 L24.000,56.994 L0.005,28.500 L24.000,0.006 L27.000,2.506 L5.005,28.500 Z"/></svg>', '<span class="sr-only">Next Slide</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27px" height="57px" viewBox="0 0 27 57" fill="currentColor" aria-hidden="true" focusable="false"><path d="M21.995,28.500 L-0.000,54.494 L3.000,56.994 L26.995,28.500 L3.000,0.006 L-0.000,2.506 L21.995,28.500 Z"/></svg>'],
+//             afterInit: owl_keynav,
+//             afterAction: owl_update
+//         });
 
-        // Work slider
-        $(".work-full-slider").owlCarousel({
-            slideSpeed: 350,
-            singleItem: true,
-            autoHeight: true,
-            navigation: true,
-            lazyLoad: true,
-            addClassActive: true,
-            navigationText: ['<span class="sr-only">Previous Slide</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27px" height="57px" viewBox="0 0 27 57" fill="currentColor" aria-hidden="true" focusable="false"><path d="M5.005,28.500 L27.000,54.494 L24.000,56.994 L0.005,28.500 L24.000,0.006 L27.000,2.506 L5.005,28.500 Z"/></svg>', '<span class="sr-only">Next Slide</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27px" height="57px" viewBox="0 0 27 57" fill="currentColor" aria-hidden="true" focusable="false"><path d="M21.995,28.500 L-0.000,54.494 L3.000,56.994 L26.995,28.500 L3.000,0.006 L-0.000,2.506 L21.995,28.500 Z"/></svg>'],
-            afterInit: owl_keynav,
-            afterAction: owl_update
-        });
+//         // Work slider
+//         $(".work-full-slider").owlCarousel({
+//             slideSpeed: 350,
+//             singleItem: true,
+//             autoHeight: true,
+//             navigation: true,
+//             lazyLoad: true,
+//             addClassActive: true,
+//             navigationText: ['<span class="sr-only">Previous Slide</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27px" height="57px" viewBox="0 0 27 57" fill="currentColor" aria-hidden="true" focusable="false"><path d="M5.005,28.500 L27.000,54.494 L24.000,56.994 L0.005,28.500 L24.000,0.006 L27.000,2.506 L5.005,28.500 Z"/></svg>', '<span class="sr-only">Next Slide</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27px" height="57px" viewBox="0 0 27 57" fill="currentColor" aria-hidden="true" focusable="false"><path d="M21.995,28.500 L-0.000,54.494 L3.000,56.994 L26.995,28.500 L3.000,0.006 L-0.000,2.506 L21.995,28.500 Z"/></svg>'],
+//             afterInit: owl_keynav,
+//             afterAction: owl_update
+//         });
 
-    })(jQuery);
-};
+//     })(jQuery);
+// };
 
 
 /* ---------------------------------------------
@@ -934,97 +934,97 @@ function initPageSliders() {
 
 // Projects filtering
 
-var fselector = 0;
-var work_grid = $("#work-grid, #isotope");
+// var fselector = 0;
+// var work_grid = $("#work-grid, #isotope");
 
-function initWorkFilter() {
-    (function ($) {
-        "use strict";
-        var isotope_mode;
-        if (work_grid.hasClass("masonry")) {
-            isotope_mode = "masonry";
-        } else {
-            isotope_mode = "fitRows"
-        }
+// function initWorkFilter() {
+//     (function ($) {
+//         "use strict";
+//         var isotope_mode;
+//         if (work_grid.hasClass("masonry")) {
+//             isotope_mode = "masonry";
+//         } else {
+//             isotope_mode = "fitRows"
+//         }
 
-        $(".filter").click(function () {
-            $(".filter").removeClass("active").attr("aria-pressed", "false");
-            $(this).addClass("active").attr("aria-pressed", "true");
-            fselector = $(this).attr("data-filter");
-            var transition_duration = "0.4s";
-            if (($("body").hasClass("appear-animate")) && (!($("html").hasClass("mobile")) && (work_grid.find(".wow-p").length))) {
-                transition_duration = 0;
-            }
-            work_grid.imagesLoaded(function () {
-                work_grid.isotope({
-                    itemSelector: ".mix",
-                    layoutMode: isotope_mode,
-                    filter: fselector,
-                    transitionDuration: transition_duration
-                });
-            });
+//         $(".filter").click(function () {
+//             $(".filter").removeClass("active").attr("aria-pressed", "false");
+//             $(this).addClass("active").attr("aria-pressed", "true");
+//             fselector = $(this).attr("data-filter");
+//             var transition_duration = "0.4s";
+//             if (($("body").hasClass("appear-animate")) && (!($("html").hasClass("mobile")) && (work_grid.find(".wow-p").length))) {
+//                 transition_duration = 0;
+//             }
+//             work_grid.imagesLoaded(function () {
+//                 work_grid.isotope({
+//                     itemSelector: ".mix",
+//                     layoutMode: isotope_mode,
+//                     filter: fselector,
+//                     transitionDuration: transition_duration
+//                 });
+//             });
 
-            if ($("body").hasClass("appear-animate")) {
-                var wow_p = new WOW({
-                    boxClass: "wow-p",
-                    animateClass: "animated",
-                    offset: 100,
-                    mobile: false,
-                    live: true,
-                    callback: function (box) {
-                        setInterval(function () {
-                            $(box).removeClass("no-animate");
-                        }, 1500);
-                    }
-                });
-                wow_p.init();
-            }
+//             if ($("body").hasClass("appear-animate")) {
+//                 var wow_p = new WOW({
+//                     boxClass: "wow-p",
+//                     animateClass: "animated",
+//                     offset: 100,
+//                     mobile: false,
+//                     live: true,
+//                     callback: function (box) {
+//                         setInterval(function () {
+//                             $(box).removeClass("no-animate");
+//                         }, 1500);
+//                     }
+//                 });
+//                 wow_p.init();
+//             }
 
-            return false;
-        });
+//             return false;
+//         });
 
-        if (window.location.hash) {
-            $(".filter").each(function () {
-                if ($(this).attr("data-filter") == "." + window.location.hash.replace("#", "")) {
-                    $(this).trigger("click");
-                    if ($("#portfolio").length) {
-                        $("html, body").animate({
-                            scrollTop: $("#portfolio").offset().top
-                        });
-                    }
+//         if (window.location.hash) {
+//             $(".filter").each(function () {
+//                 if ($(this).attr("data-filter") == "." + window.location.hash.replace("#", "")) {
+//                     $(this).trigger("click");
+//                     if ($("#portfolio").length) {
+//                         $("html, body").animate({
+//                             scrollTop: $("#portfolio").offset().top
+//                         });
+//                     }
 
-                }
-            });
-        }
+//                 }
+//             });
+//         }
 
-        work_grid.imagesLoaded(function () {
-            work_grid.isotope({
-                itemSelector: ".mix",
-                layoutMode: isotope_mode,
-                filter: fselector
-            });
-        });
+//         work_grid.imagesLoaded(function () {
+//             work_grid.isotope({
+//                 itemSelector: ".mix",
+//                 layoutMode: isotope_mode,
+//                 filter: fselector
+//             });
+//         });
 
-        // Lazy loading plus isotope filter
+//         // Lazy loading plus isotope filter
 
-        $(".img-lazy-work").on("load", function () {
-            masonry_update();
-        });
-        function masonry_update() {
-            work_grid.imagesLoaded(function () {
-                work_grid.isotope({
-                    itemSelector: ".mix",
-                    layoutMode: isotope_mode,
-                    filter: fselector
-                });
-            });
-        }
-        work_grid.on("arrangeComplete", function () {
-            $(window).trigger("scroll");
-        });
+//         $(".img-lazy-work").on("load", function () {
+//             masonry_update();
+//         });
+//         function masonry_update() {
+//             work_grid.imagesLoaded(function () {
+//                 work_grid.isotope({
+//                     itemSelector: ".mix",
+//                     layoutMode: isotope_mode,
+//                     filter: fselector
+//                 });
+//             });
+//         }
+//         work_grid.on("arrangeComplete", function () {
+//             $(window).trigger("scroll");
+//         });
 
-    })(jQuery);
-}
+//     })(jQuery);
+// }
 
 
 /* ---------------------------------------------
@@ -1089,9 +1089,9 @@ function init_bg_video() {
             // หากเป็น iOS ซ่อนปุ่มเสียง
             if (isIOS()) {
                 $(".bg-video-button-muted").hide();
-                console.log("📱 iOS detected: Mute button hidden.");
+                console.log("iOS detected: Mute button hidden.");
             } else {
-                console.log("🖥 Non-iOS device detected: Mute button enabled.");
+                console.log("Non-iOS device detected: Mute button enabled.");
 
                 // สำหรับอุปกรณ์อื่น ให้คงการทำงานของปุ่มเสียงปกติ
                 $(".bg-video-button-muted").click(function () {
@@ -1123,79 +1123,79 @@ function init_bg_video() {
  WOW animations
  --------------------------------------------- */
 
-function init_wow() {
-    (function ($) {
+// function init_wow() {
+//     (function ($) {
 
-        /* Wow init */
+//         /* Wow init */
 
-        if ($("body").hasClass("appear-animate")) {
-            $(".wow").addClass("no-animate");
-        }
-        var wow = new WOW({
-            boxClass: 'wow',
-            animateClass: 'animated',
-            offset: 100,
-            mobile: false,
-            live: true,
-            callback: function (box) {
-                setInterval(function () { $(box).removeClass("no-animate"); }, 1500);
-            }
-        });
+//         if ($("body").hasClass("appear-animate")) {
+//             $(".wow").addClass("no-animate");
+//         }
+//         var wow = new WOW({
+//             boxClass: 'wow',
+//             animateClass: 'animated',
+//             offset: 100,
+//             mobile: false,
+//             live: true,
+//             callback: function (box) {
+//                 setInterval(function () { $(box).removeClass("no-animate"); }, 1500);
+//             }
+//         });
 
-        if ($("body").hasClass("appear-animate")) {
-            wow.init();
-        } else {
-            $(".wow").css("opacity", "1");
-        }
+//         if ($("body").hasClass("appear-animate")) {
+//             wow.init();
+//         } else {
+//             $(".wow").css("opacity", "1");
+//         }
 
-        /* Wow for portfolio init */
+//         /* Wow for portfolio init */
 
-        if ($("body").hasClass("appear-animate")) {
-            $(".wow-p").addClass("no-animate");
-        }
-        var wow_p = new WOW({
-            boxClass: 'wow-p',
-            animateClass: 'animated',
-            offset: 100,
-            mobile: false,
-            live: true,
-            callback: function (box) {
-                setInterval(function () { $(box).removeClass("no-animate"); }, 1500);
-            }
-        });
+//         if ($("body").hasClass("appear-animate")) {
+//             $(".wow-p").addClass("no-animate");
+//         }
+//         var wow_p = new WOW({
+//             boxClass: 'wow-p',
+//             animateClass: 'animated',
+//             offset: 100,
+//             mobile: false,
+//             live: true,
+//             callback: function (box) {
+//                 setInterval(function () { $(box).removeClass("no-animate"); }, 1500);
+//             }
+//         });
 
-        if ($("body").hasClass("appear-animate")) {
-            wow_p.init();
-        } else {
-            $(".wow-p").css("opacity", "1");
-        }
+//         if ($("body").hasClass("appear-animate")) {
+//             wow_p.init();
+//         } else {
+//             $(".wow-p").css("opacity", "1");
+//         }
 
-        /* Wow for menu bar init */
+//         /* Wow for menu bar init */
 
-        if (($("body").hasClass("appear-animate")) && ($(window).width() >= 1024) && ($("html").hasClass("no-mobile"))) {
-            $(".wow-menubar").addClass("no-animate").addClass("fadeInDownShort").addClass("animated");
-            setInterval(function () { $(".wow-menubar").removeClass("no-animate"); }, 1500);
-        } else {
-            $(".wow-menubar").css("opacity", "1");
-        }
+//         if (($("body").hasClass("appear-animate")) && ($(window).width() >= 1024) && ($("html").hasClass("no-mobile"))) {
+//             $(".wow-menubar").addClass("no-animate").addClass("fadeInDownShort").addClass("animated");
+//             setInterval(function () { $(".wow-menubar").removeClass("no-animate"); }, 1500);
+//         } else {
+//             $(".wow-menubar").css("opacity", "1");
+//         }
 
-    })(jQuery);
-}
+//     })(jQuery);
+// }
 
 
 /* ---------------------------------------------
  Masonry
  --------------------------------------------- */
 
-function init_masonry() {
-    (function ($) {
+// function init_masonry() {
+//     (function ($) {
 
-        $(".masonry").imagesLoaded(function () {
-            $(".masonry").masonry();
-        });
+//         $(".masonry").imagesLoaded(function () {
+//             $(".masonry").masonry();
+//         });
 
-    })(jQuery);
-}
+//     })(jQuery);
+// }
 
 
 /* ---------------------------------------------

@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <script src="js/layout_link_page.js"></script>
 
 <!-- Favicons -->
@@ -17,256 +19,7 @@
     <!-- !!!!! -->
 
 
-    <!-- Loading ล่าสุด ใช้งาน ทำงานได้จริง  loading เปิดม่านฟ้า Loader วิธีใหม่  ปรับแก้ภาพไม่เท่ากัน -->
-
-
-    <div class="page-loader" id="loader">
-        <div class="door left"></div>
-        <div class="door right"></div>
-        <div class="logo-container">
-            <img id="quote-image" src="" class="loading-icon">
-        </div>
-    </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
-
-    <style>
-        /* Loader Container */
-        .page-loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: transparent;
-            overflow: hidden;
-            z-index: 9999;
-        }
-
-        /* Doors */
-        .door {
-            position: absolute;
-            width: 50%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            z-index: 1;
-            transition: opacity 0.5s ease-in-out;
-            backface-visibility: hidden;
-            perspective: 1000px;
-            will-change: transform, opacity;
-        }
-
-        .door.left {
-            background-image: url('images/PageLoad/cloud-no-cloud-left-webp.webp');
-            left: 0;
-            transform: translateX(0);
-            transform-origin: right center;
-        }
-
-        .door.right {
-            background-image: url('images/PageLoad/cloud-no-cloud-right-webp.webp');
-            right: 0;
-            transform: translateX(0);
-            transform-origin: left center;
-        }
-
-        /* Logo */
-        .logo-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 2;
-        }
-
-        .loading-icon {
-            max-width: 300px;
-            z-index: 2;
-            opacity: 0;
-            /* Start hidden */
-            transition: opacity 0.5s ease;
-            /* Smooth fade in */
-        }
-
-        .door.loaded {
-            opacity: 1;
-            /* แสดงเมื่อโหลดเสร็จ */
-        }
-
-        /* Responsive for small screens */
-        @media (max-width: 961px) {
-            .loading-icon {
-                max-width: 250px !important;
-            }
-
-            .door {
-                position: absolute;
-                width: 50%;
-                height: 100%;
-                background-size: cover;
-                z-index: 1;
-                transition: opacity 0.5s ease-in-out;
-                backface-visibility: hidden;
-                perspective: 1000px;
-                will-change: transform, opacity;
-
-            }
-
-            .door.left {
-                background-image: url('images/PageLoad/cloud-no-cloud-left-webp.webp');
-                left: 0;
-                transform: translateX(0);
-                transform-origin: right center;
-                width: 50%;
-                background-size: cover;
-                background-position: right;
-            }
-
-            .door.right {
-                background-image: url('images/PageLoad/cloud-no-cloud-right-webp.webp');
-                right: 0;
-                transform: translateX(0);
-                transform-origin: left center;
-                width: 50%;
-                background-size: cover;
-                background-position: left;
-            }
-
-            .door.loaded {
-                opacity: 1;
-                /* แสดงเมื่อโหลดเสร็จ */
-            }
-
-        }
-
-        @media (orientation: landscape) and (max-width: 1024px) {
-
-
-            .door {
-                position: absolute;
-                width: 50%;
-                height: 100%;
-                background-size: cover;
-                z-index: 1;
-                transition: opacity 0.5s ease-in-out;
-                backface-visibility: hidden;
-                perspective: 1000px;
-                will-change: transform, opacity;
-
-            }
-
-            .door.left {
-                background-image: url('images/PageLoad/cloud-no-cloud-left-webp.webp');
-                left: 0;
-                transform: translateX(0);
-                transform-origin: right center;
-                width: 50%;
-                background-size: cover;
-                background-position: right;
-            }
-
-            .door.right {
-                background-image: url('images/PageLoad/cloud-no-cloud-right-webp.webp');
-                right: 0;
-                transform: translateX(0);
-                transform-origin: left center;
-                width: 50%;
-                background-size: cover;
-                background-position: left;
-            }
-
-            .door.loaded {
-                opacity: 1;
-                /* แสดงเมื่อโหลดเสร็จ */
-            }
-
-        }
-    </style>
-
-    <script>
-        const quoteImages = [
-            'images/PageLoad/pageload-word/01.png',
-            'images/PageLoad/pageload-word/02.png',
-            'images/PageLoad/pageload-word/03.png',
-            'images/PageLoad/pageload-word/04.png',
-            'images/PageLoad/pageload-word/05.png',
-            'images/PageLoad/pageload-word/06.png'
-        ];
-
-        function getRandomQuoteImage() {
-            const randomIndex = Math.floor(Math.random() * quoteImages.length);
-            return quoteImages[randomIndex];
-        }
-
-        window.addEventListener('load', () => {
-            const doorLeft = new Image();
-            const doorRight = new Image();
-
-
-            const preloadDoors = new Promise((resolve) => {
-                doorLeft.src = 'images/PageLoad/cloud-no-cloud-left-webp.webp';
-                doorRight.src = 'images/PageLoad/cloud-no-cloud-right-webp.webp';
-
-                let loadedCount = 0;
-                const checkLoaded = () => {
-                    loadedCount++;
-                    if (loadedCount === 2) {
-                        doorLeft.classList.add('loaded');
-                        doorRight.classList.add('loaded');
-                        // เพิ่มคลาส loaded เพื่อแสดงภาพ
-                        resolve();
-
-                    }
-                };
-
-                doorLeft.onload = checkLoaded;
-                doorRight.onload = checkLoaded;
-            });
-
-            const quoteImageElement = document.getElementById('quote-image');
-            quoteImageElement.src = getRandomQuoteImage();
-
-            gsap.to(quoteImageElement, { opacity: 1, duration: 0, scale: 1.5 });
-
-            preloadDoors.then(() => {
-                const timeline = gsap.timeline();
-
-              // ตรวจสอบขนาดหน้าจอ
-                if (window.innerWidth <= 768) { // สำหรับมือถือ (ความกว้างหน้าจอไม่เกิน 768px)
-                    timeline
-                        .set('.door.left', { x: '0' })
-                        .set('.door.right', { x: '0' })
-                        .to({}, { duration: 1.5 }) // Wait 1.5 seconds
-                        .to('.door.left', { x: '-100%', duration: 1, ease: 'power2.inOut' })
-                        .to('.door.right', { x: '100%', duration: 1, ease: 'power2.inOut' }, '<')
-                        .to('.logo-container', { opacity: 0, duration: 0.3, ease: 'power2.inOut' }, '-=0.5')
-                        .to('#loader', { opacity: 0, duration: 0.5, ease: 'power2.inOut' })
-                        .set('#loader', { display: 'none' });
-                } else { // สำหรับเดสก์ท็อป (ความกว้างหน้าจอมากกว่า 768px)
-                    timeline
-                        .set('.door.left', { x: '0' })
-                        .set('.door.right', { x: '0' })
-                        .to({}, { duration: 3 }) // Wait 3 seconds
-                        .to('.door.left', { x: '-100%', duration: 2, ease: 'power2.inOut' })
-                        .to('.door.right', { x: '100%', duration: 2, ease: 'power2.inOut' }, '<')
-                        .to('.logo-container', { opacity: 0, duration: 0.5, ease: 'power2.inOut' }, '-=2')
-                        .to('#loader', { opacity: 0, duration: 0.5, ease: 'power2.inOut' })
-                        .set('#loader', { display: 'none' });
-                }
-            });
-
-              
-            });
-       
-    </script>
-
-
-    <!--End Loading ล่าสุด ใช้งาน ทำงานได้จริง  loading เปิดม่านฟ้า Loader วิธีใหม่  ปรับแก้ภาพไม่เท่ากัน -->
-
+  
 
 
     <!-- </div>
@@ -307,7 +60,7 @@
 
 
     <!--Navigation panel-->
-    <nav id="menu-container"></nav>
+    <!-- <nav id="menu-container" style="display: none;"></nav> -->
 
 
     <!-- End Navigation panel -->
@@ -316,11 +69,11 @@
 
 
     <main id="main"
-        style="background: url('images/background/bg-classpreview-section.png') no-repeat center center; background-size: cover; z-index: -9999;">
+        style="background: url('images/background/bg-main-section.png') no-repeat center center; background-size: cover; z-index: -9999;">
 
         <!-- Home Section -->
         <section class="home-section bg-dark-alfa-30 light-content relative"
-            data-background="images/ปกWeb2560x1440.jpg" id="home">
+            data-background="images/webcover2560x1440.jpg" id="home">
             <div class="container height-100vh d-flex align-items-center">
 
                 <!-- BG Video BG Init -->
@@ -329,6 +82,11 @@
                     <video class="bg-video" preload="auto" autoplay muted loop playsinline data-object-fit="cover" >
                         <source src="video/swordsman-3-video-web-ver01-final.mp4" type="video/mp4">
                     </video>
+                <!-- <video class="bg-video" preload="auto" autoplay muted loop playsinline data-object-fit="cover">
+                    <source src="https://bellgushbell.github.io/video-swordsmanonline/swordsman-3-video-web-ver01-final.mp4"
+                        type="video/mp4">
+                </video> -->
+
                     <!-- mobile -->
                     <video class="bg-video-mobile bg-dark-alfa-30" preload="auto" autoplay muted loop playsinline
                         data-object-fit="cover">
@@ -352,64 +110,8 @@
 
             <!-- Load วีดีโอ -->
             <script>
+ 
 
-                const video = document.querySelector('.bg-video-mobile');
-
-                // โหลดวิดีโอล่วงหน้า
-                video.preload = 'auto';
-
-                // ตรวจสอบว่าการโหลดเสร็จสมบูรณ์
-                video.addEventListener('canplaythrough', () => {
-                    console.log('Video is ready to play');
-                    video.play();
-                });
-
-                // JavaScript เพื่อเริ่มเล่นวิดีโอทันทีที่โหลด และถ้าวีดีโอไม่โหลดให้บังคับโหลด
-                window.addEventListener('load', () => {
-                    const video = document.querySelector('.bg-video');
-                    let retryCount = 0; // จำนวนครั้งที่พยายามโหลดใหม่
-                    const maxRetries = 3; // จำนวนครั้งสูงสุดที่อนุญาตให้โหลดใหม่
-
-                    // ฟังก์ชันสำหรับเล่นวิดีโอ
-                    const playVideo = () => {
-                        video.play().catch(error => {
-                            console.error('Error playing video:', error);
-                            if (retryCount < maxRetries) {
-                                retryCount++;
-                                console.log(`Retrying to load video... (${retryCount}/${maxRetries})`);
-                                reloadVideo();
-                            } else {
-                                console.error('Max retries reached. Could not play video.');
-                            }
-                        });
-                    };
-
-                    // ฟังก์ชันโหลดวิดีโอใหม่
-                    const reloadVideo = () => {
-                        video.load(); // เรียกโหลดวิดีโอใหม่
-                    };
-
-                    // ตรวจสอบการโหลดสำเร็จ
-                    video.addEventListener('loadeddata', () => {
-                        console.log('Video loaded successfully');
-                        playVideo();
-                    });
-
-                    // จัดการกรณีวิดีโอโหลดล้มเหลว
-                    video.addEventListener('error', () => {
-                        console.error('Error loading video.');
-                        if (retryCount < maxRetries) {
-                            retryCount++;
-                            console.log(`Retrying to load video... (${retryCount}/${maxRetries})`);
-                            reloadVideo();
-                        } else {
-                            console.error('Max retries reached. Could not load video.');
-                        }
-                    });
-
-                    // เริ่มโหลดวิดีโอทันทีเมื่อหน้าโหลดเสร็จ
-                    reloadVideo();
-                });
 
             </script>
 
@@ -435,16 +137,341 @@
 
 
 
-            <!-- Fast Load -->
-            <script>
-                window.addEventListener('load', () => {
-                    const video = document.querySelector('.bg-video');
-                    video.load();  // เริ่มโหลดวีดีโอ
-                    video.play();  // เล่นวีดีโออัตโนมัติ
-                });
-            </script>
-
             <!-- End Video BG Init -->
+
+<!-- Loading ล่าสุด ใช้งาน ทำงานได้จริง  loading เปิดม่านฟ้า Loader วิธีใหม่  ปรับแก้ภาพไม่เท่ากัน -->
+
+
+<div class="page-loader" id="loader">
+    <div class="door left"></div>
+    <div class="door right"></div>
+    <div class="logo-container">
+        <img id="quote-image" src="" class="loading-icon" loading="lazy">
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+<style>
+    /* Loader Container */
+    .page-loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+        overflow: hidden;
+        z-index: 9999;
+    }
+
+    /* Doors */
+    .door {
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        z-index: 1;
+        transition: opacity 0.5s ease-in-out;
+        backface-visibility: hidden;
+        perspective: 1000px;
+        will-change: transform, opacity;
+    }
+
+    .door.left {
+        background-image: url('images/PageLoad/cloud-no-cloud-left-webp.webp');
+        left: 0;
+        transform: translateX(0);
+        transform-origin: right center;
+    }
+
+    .door.right {
+        background-image: url('images/PageLoad/cloud-no-cloud-right-webp.webp');
+        right: 0;
+        transform: translateX(0);
+        transform-origin: left center;
+    }
+
+
+.logo-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 100%; 
+    max-width: 800px;
+    text-align: center; 
+}
+
+
+.loading-icon {
+    width: 100%;
+    max-width: 800px; 
+    height: auto; /* รักษาอัตราส่วน */
+    z-index: 2;
+    opacity: 0; /* ซ่อนก่อน */
+    transition: opacity 0.5s ease; /* เอฟเฟกต์ค่อยๆ ปรากฏ */
+}
+
+
+    .door.loaded {
+        opacity: 1;
+        /* แสดงเมื่อโหลดเสร็จ */
+    }
+
+    /* Responsive for small screens */
+    @media (max-width: 961px) {
+        .loading-icon {
+            max-width: 250px !important;
+        }
+
+        .door {
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            background-size: cover;
+            z-index: 1;
+            transition: opacity 0.5s ease-in-out;
+            backface-visibility: hidden;
+            perspective: 1000px;
+            will-change: transform, opacity;
+
+        }
+
+        .door.left {
+            background-image: url('images/PageLoad/cloud-no-cloud-left-webp.webp');
+            left: 0;
+            transform: translateX(0);
+            transform-origin: right center;
+            width: 50%;
+            background-size: cover;
+            background-position: right;
+        }
+
+        .door.right {
+            background-image: url('images/PageLoad/cloud-no-cloud-right-webp.webp');
+            right: 0;
+            transform: translateX(0);
+            transform-origin: left center;
+            width: 50%;
+            background-size: cover;
+            background-position: left;
+        }
+
+        .door.loaded {
+            opacity: 1;
+            /* แสดงเมื่อโหลดเสร็จ */
+        }
+
+    }
+
+    @media (orientation: landscape) and (max-width: 1024px) {
+
+
+        .door {
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            background-size: cover;
+            z-index: 1;
+            transition: opacity 0.5s ease-in-out;
+            backface-visibility: hidden;
+            perspective: 1000px;
+            will-change: transform, opacity;
+
+        }
+
+        .door.left {
+            background-image: url('images/PageLoad/cloud-no-cloud-left-webp.webp');
+            left: 0;
+            transform: translateX(0);
+            transform-origin: right center;
+            width: 50%;
+            background-size: cover;
+            background-position: right;
+        }
+
+        .door.right {
+            background-image: url('images/PageLoad/cloud-no-cloud-right-webp.webp');
+            right: 0;
+            transform: translateX(0);
+            transform-origin: left center;
+            width: 50%;
+            background-size: cover;
+            background-position: left;
+        }
+
+        .door.loaded {
+            opacity: 1;
+            /* แสดงเมื่อโหลดเสร็จ */
+        }
+
+    }
+</style>
+
+<script>
+      // รายการรูปภาพคำคม
+        const quoteImages = [
+            'images/PageLoad/pageload-word/01.png',
+            'images/PageLoad/pageload-word/02.png',
+            'images/PageLoad/pageload-word/03.png',
+            'images/PageLoad/pageload-word/04.png',
+            'images/PageLoad/pageload-word/05.png',
+            'images/PageLoad/pageload-word/06.png'
+        ];
+
+        function getRandomQuoteImage() {
+            const randomIndex = Math.floor(Math.random() * quoteImages.length);
+            return quoteImages[randomIndex];
+        }
+
+        // โหลดภาพประตูซ้ายและขวาก่อนเปิดม่าน
+        const preloadDoors = new Promise((resolve) => {
+            const doorLeft = new Image();
+            const doorRight = new Image();
+            let loadedCount = 0;
+
+            doorLeft.src = 'images/PageLoad/cloud-no-cloud-left-webp.webp';
+            doorRight.src = 'images/PageLoad/cloud-no-cloud-right-webp.webp';
+
+            function checkLoaded() {
+                loadedCount++;
+                if (loadedCount === 2) {
+                    document.querySelector('.door.left').classList.add('loaded');
+                    document.querySelector('.door.right').classList.add('loaded');
+                    resolve();
+                }
+            }
+
+            doorLeft.onload = checkLoaded;
+            doorRight.onload = checkLoaded;
+        });
+
+        // ฟังก์ชันเปิดม่านฟ้า
+        function openLoader() {
+            const timeline = gsap.timeline();
+
+            if (window.innerWidth <= 768) {
+                timeline
+                    .set('.door.left', { x: '0' })
+                    .set('.door.right', { x: '0' })
+                    .to({}, { duration: 0.5 }) // ตั้งค่าดีเลย์
+                    .to('.door.left', { x: '-100%', duration: 4, ease: 'power2.inOut' })
+                    .to('.door.right', { x: '100%', duration: 4, ease: 'power2.inOut' }, '<')
+                    .to('.logo-container', { opacity: 0, duration: 0.3, ease: 'power2.inOut' }, '-=0.5')
+                    .to('#loader', { opacity: 0, duration: 0.5, ease: 'power2.inOut' })
+                    .set('#loader', { display: 'none' });
+            } else {
+                timeline
+                    .set('.door.left', { x: '0' })
+                    .set('.door.right', { x: '0' })
+                    .to({}, { duration: 0.5 }) // ตั้งค่าดีเลย์
+                    .to('.door.left', { x: '-100%', duration: 5, ease: 'power2.inOut' })
+                    .to('.door.right', { x: '100%', duration: 5, ease: 'power2.inOut' }, '<')
+                    .to('.logo-container', { opacity: 0, duration: 0.5, ease: 'power2.inOut' }, '-=1.5')
+                    .to('#loader', { opacity: 0, duration: 0.5, ease: 'power2.inOut' })
+                    .set('#loader', { display: 'none' });
+            }
+        }
+
+        // โหลดวิดีโอล่วงหน้า
+        // async function preloadVideo(video, videoUrl, fallbackBackground) {
+        //     try {
+        //         const response = await fetch(videoUrl);
+        //         if (!response.ok) throw new Error("Failed to fetch video");
+
+        //         const blob = await response.blob();
+        //         const videoObjectURL = URL.createObjectURL(blob);
+        //         video.src = videoObjectURL;
+
+        //         console.log("🎥 Video Preloaded Successfully");
+
+        //         video.addEventListener('canplaythrough', () => {
+        //             console.log("🎬 Video is ready to play");
+        //             video.play();
+        //         });
+        //     } catch (error) {
+        //         console.error("❌ Error preloading video:", error);
+
+        //         if (fallbackBackground) {
+        //             document.querySelector('.bg-video-wrapper').style.backgroundImage = `url('${fallbackBackground}')`;
+        //         }
+        //     }
+        // }
+
+  // สุ่มภาพคำคมทันทีและกำหนดเป็น placeholder ก่อนที่ DOMContentLoaded
+    const randomQuote = getRandomQuoteImage();
+    const quoteImageElement = document.getElementById('quote-image');
+
+    // ถ้าพบ element #quote-image ให้แสดงภาพคำคมทันที
+    if (quoteImageElement) {
+        quoteImageElement.src = randomQuote;
+        console.log("found word", randomQuote);
+    } else {
+        console.error("❌ ไม่พบ #quote-image ใน DOM ขณะเริ่มต้น");
+    }
+
+       // โหลดภาพคำคมและแสดงทันที
+        function loadAndDisplayQuoteImage() {
+            const quoteImageElement = document.getElementById('quote-image');
+            if (!quoteImageElement) {
+                console.error("❌ ไม่พบ #quote-image ใน DOM");
+                return;
+            }
+
+            const randomQuote = getRandomQuoteImage();
+            const img = new Image();
+            img.src = randomQuote;
+
+            // แสดงภาพทันที (ใช้เป็น placeholder)
+            quoteImageElement.src = randomQuote;
+            // console.log("📜 คำคมแสดงทันที:", randomQuote);
+
+            // โหลดภาพและตรวจสอบความสำเร็จ
+            img.onload = () => {
+                quoteImageElement.src = randomQuote; // อัปเดตภาพเมื่อโหลดเสร็จ
+                // console.log("📜 downlaod complete", randomQuote);
+                gsap.to(quoteImageElement, { opacity: 1, duration: 1, scale: 1.5 });
+            };
+
+            img.onerror = () => {
+                // console.error("❌ โหลดภาพคำคมไม่สำเร็จ:", randomQuote);
+            };
+        }
+
+ gsap.fromTo(".loading-icon",
+        { opacity: 0, scale: 0.8 },
+        { opacity: 1, scale: 1, duration: 1, ease: "power2.out" }
+    );
+
+
+        // เริ่มทำงาน
+  document.addEventListener("DOMContentLoaded", async () => {
+        const video = document.querySelector('.bg-video');
+        const videoUrl = "video/swordsman-3-video-web-ver01-final.mp4";
+        const fallbackBackground = "images/webcover2560x1440.jpg";
+
+        // แสดงภาพคำคมทันที
+        loadAndDisplayQuoteImage();
+
+        // โหลดภาพประตู -> เปิดม่าน
+        await preloadDoors;
+        openLoader();
+
+        // โหลดวิดีโอ
+        // preloadVideo(video, videoUrl, fallbackBackground);
+    });
+</script>
+
+
+<!--End Loading ล่าสุด ใช้งาน ทำงานได้จริง  loading เปิดม่านฟ้า Loader วิธีใหม่  ปรับแก้ภาพไม่เท่ากัน -->
+
+
 
 
 
@@ -996,50 +1023,54 @@
         <!-- < hr class="mt-0 mb-0" /> -->
         <!--End Divider-->
 
-
+<!-- <div id="footer-container" style="display: none;"></div> -->
     </main>
 
-    <!-- <div id="footer-container"></div> -->
+   
     
 
 
-    <!-- </div>
-                                                                    -->
+    <!-- </div> -->
+                                                                   
     <!--End Page Wrap-->
 
 
     <!--JS -->
-    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jquery.min.js"></script>
     <!-- <script src="js/jquery.easing.1.3.js"></script> -->
-    <script src="js/bootstrap.bundle.min.js" defer></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
     <!-- <script src="js/SmoothScroll.js"></script> -->
     <script src="js/jquery.scrollTo.min.js" defer></script>
     <script src="js/jquery.localScroll.min.js" defer></script>
-    <!-- <script src="js/jquery.viewport.mini.js"></script> -->
+    <script src="js/jquery.viewport.mini.js"></script>
     <!-- <script src="js/jquery.parallax-1.1.3.js"></script> -->
     <!-- <script src="js/jquery.fitvids.js"></script> -->
     <!-- <script src="js/owl.carousel.min.js"></script> -->
-    <!-- <script src="js/isotope.pkgd.min.js"></script>
-    <script src="js/imagesloaded.pkgd.min.js"></script> -->
+    <!-- <script src="js/isotope.pkgd.min.js"></script> -->
+    <!-- <script src="js/imagesloaded.pkgd.min.js"></script> -->
     <!-- <script src="js/jquery.magnific-popup.min.js"></script> -->
     <!-- <script src="js/masonry.pkgd.min.js"></script> -->
     <!-- <script src="js/jquery.lazyload.min.js"></script> -->
     <!-- <script src="js/wow.min.js" defer></script> -->
     <!-- <script src="js/morphext.js" defer></script> -->
     <!-- <script src="js/typed.min.js" defer></script> -->
-    <script src="js/all.js" defer></script>
+    <script src="js/all.js"></script>
     <!-- <script src="js/contact-form.js" defer></script> -->
     <!-- <script src="js/jquery.ajaxchimp.min.js"></script> -->
-    <script src="js/objectFitPolyfill.min.js" defer></script>
+    <!-- <script src="js/objectFitPolyfill.min.js" defer></script> -->
     <!-- <script src="js/splitting.min.js" defer></script> -->
-    <script src="js/changeClass.js" defer></script>
+    <!-- <script src="js/changeClass.js" defer></script> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script> -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js" defer></script>
-    <script src="js/highlight-game-Swiper.js" defer></script>
+    
+    <!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js" defer></script> -->
+
+    <!-- <script src="js/highlight-game-Swiper.js" defer></script> -->
     <!-- <script src="js/homebg-img-animation.js"></script> -->
     <!-- <script src="js/gallery-animation.js" defer></script> -->
-    <script src="js/submenu-mainnav-mobile-click.js" defer></script>
-    <script src="js/news-and-promotion-tab.js" defer></script>
+
+    <!-- Nav hamburger -->
+    <!-- <script src="js/submenu-mainnav-mobile-click.js" defer></script> -->
+    <!-- <script src="js/news-and-promotion-tab.js" defer></script> -->
 
     <!-- tab news and promotion vanilla.js -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/tabbyjs@12.0.0/dist/tabby.min.js"></script> -->
