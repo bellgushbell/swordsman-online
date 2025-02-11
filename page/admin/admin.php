@@ -38,7 +38,7 @@
                 <div class="d-flex justify-content-between align-items-center mb-3">
 
                     <h2 class="mb-0">รายการข่าวสาร</h2>
-                    <button class="btn btn-primary">สร้าง</button>
+                    <a href="../admin/create_view.php" class="btn btn-primary">สร้าง</a>
                 </div>
                 <table class="table table-bordered">
                     <thead>
