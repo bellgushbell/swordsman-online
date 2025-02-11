@@ -1,0 +1,6 @@
+  /* Responsive - ซ่อน Sidebar เมื่อจอเล็ก */
+  @media (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+}
