@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "swordsman3V2";
+$password = "swordsman3!!@$%$";
 $dbname = "swordsmancms";
 
 // Create connection
