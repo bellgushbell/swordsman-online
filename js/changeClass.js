@@ -157,17 +157,21 @@
 // });
 
 
+
+
+// -----------------------------------
+
 /*แบบรุปภาพแทน */
 
 $(document).ready(function () {
     const classData = {
-        class1: { detailsImage: 'images/Class-Pic/ข้อมูลตัวละคร-บูตึ้ง.jpg' },
-        class2: { detailsImage: 'images/Class-Pic/ข้อมูลตัวละคร-วังวารี.jpg' },
-        class3: { detailsImage: 'images/Class-Pic/ข้อมูลตัวละคร-หมื่นบุปผา.jpg' },
-        class4: { detailsImage: 'images/Class-Pic/ข้อมูลตัวละคร-ไป๋ลู่.jpg' },
-        class5: { detailsImage: 'images/Class-Pic/ข้อมูลตัวละคร-เทียนเหริ่น.jpg' },
-        class6: { detailsImage: 'images/Class-Pic/ข้อมูลตัวละคร-กระบี่ลี้ลับ.jpg' },
-        class7: { detailsImage: 'images/Class-Pic/ข้อมูลตัวละคร-เทียนหวัง.jpg' },
+        class1: { detailsImage: 'images/Class-Pic/butung.jpg' },
+        class2: { detailsImage: 'images/Class-Pic/wangwaree.jpg' },
+        class3: { detailsImage: 'images/Class-Pic/muenbuppha.jpg' },
+        class4: { detailsImage: 'images/Class-Pic/bai-lu.jpg' },
+        class5: { detailsImage: 'images/Class-Pic/tian-ren.jpg' },
+        class6: { detailsImage: 'images/Class-Pic/mysterious-sword.jpg' },
+        class7: { detailsImage: 'images/Class-Pic/tian-wang.jpg' },
     };
 
     function updateActiveClass(target) {
@@ -198,3 +202,7 @@ $(document).ready(function () {
         sidebar.scrollTop(sidebar.scrollTop() + 50);
     });
 });
+
+
+
+
