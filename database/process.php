@@ -1,112 +1,106 @@
 <?php
+include(__DIR__ . '/connect_db.php');
+
 header('Content-Type: application/json');
-// include 'connect_db.php'; // เชื่อมต่อฐานข้อมูล
-include 'config.php'; // เชื่อมต่อฐานข้อมูล
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $table = $_POST['table'] ?? null;
-    $action = $_POST['action'] ?? null;
-    $data = $_POST['data'] ?? [];
+// เช็คว่ามีการส่ง request มาหรือไม่
+$request_method = $_SERVER['REQUEST_METHOD'];
+$is_ajax = !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest';
 
-    if (!$table || !$action || empty($data)) {
-        die(json_encode(["status" => "error", "message" => "❌ ข้อมูลไม่ครบ"]));
+// ตรวจสอบการทำงานของ API
+if ($request_method === 'GET') {
+    handleGetRequest();
+} elseif ($request_method === 'POST') {
+    handlePostRequest();
+} else {
+    echo json_encode(["status" => "error", "message" => "Invalid request"]);
+}
+
+// 🔹 ฟังก์ชันจัดการ GET Request
+function handleGetRequest()
+{
+    global $conn; // ใช้ตัวแปรฐานข้อมูล
+
+    // ตรวจสอบว่ามีการส่งค่า table หรือไม่
+    if (empty($_GET['table'])) {
+        die(json_encode(["status" => "error", "message" => "Missing table name"]));
     }
 
-    try {
-        if ($action === "insert") {
-            insertData($conn, $table, $data);
-        } elseif ($action === "update") {
-            $where = $_POST['where'] ?? null;
-            if (!$where) die(json_encode(["status" => "error", "message" => "❌ ต้องระบุเงื่อนไขสำหรับการอัปเดต"]));
-            updateData($conn, $table, $data, $where);
-        } elseif ($action === "delete") {
-            $where = $_POST['where'] ?? null;
-            if (!$where) die(json_encode(["status" => "error", "message" => "❌ ต้องระบุเงื่อนไขสำหรับการลบ"]));
-            deleteData($conn, $table, $where);
-        }
-    } catch (PDOException $e) {
-        die(json_encode(["status" => "error", "message" => $e->getMessage()]));
-    }
-}
+    $table = $_GET['table'];
+    $id = $_GET['id'] ?? null;
 
-if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    $table = $_GET['table'] ?? null;
-    $where = $_GET['where'] ?? null;
-
-    if (!$table) {
-        die(json_encode(["status" => "error", "message" => "❌ ต้องระบุตารางที่ต้องการดึงข้อมูล", "debug" => $_GET]));
+    // ตรวจสอบว่า table มีอยู่จริงในฐานข้อมูล
+    $check_table = $conn->query("SHOW TABLES LIKE '$table'");
+    if ($check_table->num_rows == 0) {
+        die(json_encode(["status" => "error", "message" => "Table '$table' does not exist"]));
     }
 
-    try {
-        $data = getData($conn, $table, $where);
-        header('Content-Type: application/json');
-        echo json_encode(["status" => "success", "data" => $data]);
-    } catch (PDOException $e) {
-        die(json_encode(["status" => "error", "message" => $e->getMessage()]));
-    }
-}
-
-
-// ✅ ฟังก์ชัน INSERT (ป้องกัน SQL Injection)
-function insertData($conn, $table, $data)
-{
-    $columns = implode(", ", array_keys($data));
-    $values = ":" . implode(", :", array_keys($data));
-    $sql = "INSERT INTO $table ($columns) VALUES ($values)";
-    $stmt = $conn->prepare($sql);
-    $stmt->execute($data);
-    echo json_encode(["status" => "success", "message" => "✅ เพิ่มข้อมูลสำเร็จ!"]);
-}
-
-// ✅ ฟังก์ชัน UPDATE (ป้องกัน SQL Injection)
-function updateData($conn, $table, $data, $where)
-{
-    $set = implode(", ", array_map(fn($key) => "$key = :$key", array_keys($data)));
-    $sql = "UPDATE $table SET $set WHERE $where";
-    $stmt = $conn->prepare($sql);
-    $stmt->execute($data);
-    echo json_encode(["status" => "success", "message" => "✅ อัปเดตข้อมูลสำเร็จ!"]);
-}
-
-// ✅ ฟังก์ชัน DELETE (ป้องกัน SQL Injection)
-function deleteData($conn, $table, $where)
-{
-    $sql = "DELETE FROM $table WHERE $where";
-    $stmt = $conn->prepare($sql);
-    $stmt->execute();
-    echo json_encode(["status" => "success", "message" => "✅ ลบข้อมูลสำเร็จ!"]);
-}
-
-// ✅ ฟังก์ชัน SELECT (ป้องกัน SQL Injection)
-function getData($conn, $table, $where = null, $params = [])
-{
-    $sql = "SELECT * FROM `$table`"; // 🔹 ป้องกันชื่อ Table ผิดพลาด
-
-    if ($where) {
-        $sql .= " WHERE $where"; // 🚨 ควรใช้ `?` แล้วส่ง `$params` มาด้วย
+    // ตรวจสอบว่ามี id หรือไม่
+    if ($id === null) {
+        $sql = "SELECT * FROM $table";
         $stmt = $conn->prepare($sql);
-        $stmt->execute($params);
     } else {
-        $stmt = $conn->query($sql);
+        $sql = "SELECT * FROM $table WHERE id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $id);
     }
 
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $stmt->execute();
+    return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 }
 
 
+// 🔹 ฟังก์ชันจัดการ POST Request (INSERT, UPDATE, DELETE)
+function handlePostRequest()
+{
+    global $conn;
 
+    $type = $_POST['type'] ?? null;
+    $table = $_POST['table'] ?? null;
+    $data = $_POST['data'] ?? null;
 
+    if (!$type || !$table || !$data) {
+        echo json_encode(["status" => "error", "message" => "Missing required parameters"]);
+        exit;
+    }
 
-// $queryV3 = " select * from admin_user";
-// $resultV3 = mysqli_query($conn, $queryV3);
+    // ป้องกัน SQL Injection
+    $allowed_tables = ['news', 'articles'];
+    if (!in_array($table, $allowed_tables)) {
+        echo json_encode(["status" => "error", "message" => "Invalid table name"]);
+        exit;
+    }
 
-// while ($row = mysqli_fetch_array($resultV3)) {
-//     $valu = $row['username'];
-// }
+    if ($type === "insert") {
+        $columns = implode(", ", array_keys($data));
+        $values = implode("', '", array_map([$conn, 'real_escape_string'], array_values($data)));
+        $sql = "INSERT INTO `$table` ($columns) VALUES ('$values')";
+    } elseif ($type === "update") {
+        if (!isset($data['id'])) {
+            echo json_encode(["status" => "error", "message" => "Missing ID for update"]);
+            exit;
+        }
+        $id = $data['id'];
+        unset($data['id']);
+        $updates = implode(", ", array_map(function ($key, $value) use ($conn) {
+            return "$key = '" . $conn->real_escape_string($value) . "'";
+        }, array_keys($data), array_values($data)));
+        $sql = "UPDATE `$table` SET $updates WHERE id = '$id'";
+    } elseif ($type === "delete") {
+        if (!isset($data['id'])) {
+            echo json_encode(["status" => "error", "message" => "Missing ID for delete"]);
+            exit;
+        }
+        $id = $data['id'];
+        $sql = "DELETE FROM `$table` WHERE id = '$id'";
+    } else {
+        echo json_encode(["status" => "error", "message" => "Invalid type"]);
+        exit;
+    }
 
-// $response = [
-//     'valu' => $valu,
-// ];
-
-// $response = json_encode($response);
-// echo $response;
+    if ($conn->query($sql) === TRUE) {
+        echo json_encode(["status" => "success", "message" => ucfirst($type) . " successful"]);
+    } else {
+        echo json_encode(["status" => "error", "message" => "Database error: " . $conn->error]);
+    }
+}

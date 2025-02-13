@@ -1,6 +1,57 @@
   /* Responsive - ซ่อน Sidebar เมื่อจอเล็ก */
   @media (max-width: 768px) {
     .sidebar {
-        display: none;
+      display: none;
     }
-}
+
+    .login-container {
+      width: 90%;
+      padding: 20px;
+    }
+
+    .wrapper {
+      padding: 10px;
+    }
+
+    .news-thumbnail {
+      width: 80px;
+    }
+
+    .table-container {
+      overflow-x: auto;
+      /* ทำให้เลื่อนเฉพาะตาราง */
+    }
+
+    .table th,
+    .table td {
+      font-size: 14px;
+      /* ลดขนาดตัวอักษร */
+      padding: 8px;
+    }
+
+    .news-thumbnail {
+      width: 60px;
+      /* ปรับขนาดรูปให้เล็กลง */
+    }
+
+  }
+
+  @media (max-width: 768px) {
+    .card .d-flex {
+      flex-direction: column !important;
+      /* บังคับให้เป็นแนวตั้งเมื่อจอเล็ก */
+      align-items: center !important;
+      /* จัดกลาง */
+    }
+
+    .card img {
+      width: 70% !important;
+      /* ขยายโลโก้ให้พอดีกับจอเล็ก */
+    }
+
+    .card span {
+      margin-top: 10px;
+      /* เพิ่มช่องว่างระหว่างโลโก้กับข้อความ */
+      text-align: center !important;
+    }
+  }
