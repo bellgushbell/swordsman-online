@@ -1,3 +1,16 @@
+<?php
+// include '../../database/config.php'; // เชื่อมต่อฐานข้อมูล
+// include '../../database/process.php';   // ดึงฟังก์ชันที่สร้างไว้
+
+// // ดึง username จากตาราง admin_user (id = 0)
+// $table = "admin_user";
+// $where = "id = 0";
+// $userData = getData($conn, $table, $where);
+
+// // ตรวจสอบว่ามีข้อมูลหรือไม่
+// $username = $userData[0]['username'] ?? 'ผู้ดูแลระบบ';
+?>
+
 <!DOCTYPE html>
 <html lang="th">
 
@@ -27,7 +40,7 @@
                         <img src="../../images/Logo SwordMan3-Final-white-transparent.png" alt="Overlay Text"
                             class="img-fluid w-25 w-md-50">
 
-                        <span class="text-end flex-grow-1">ยินดีต้อนรับ, ผู้ดูแลระบบ</span>
+                        <!-- <span class="text-end flex-grow-1">ยินดีต้อนรับ, <?= $username ?>ผู้ดูแลระบบ</span> -->
                     </div>
                 </div>
             </div>
@@ -38,7 +51,7 @@
                 <div class="d-flex justify-content-between align-items-center mb-3">
 
                     <h2 class="mb-0">รายการข่าวสาร</h2>
-                    <button class="btn btn-primary">สร้าง</button>
+                    <a href="../admin/create_view.php" class="btn btn-primary">สร้าง</a>
                 </div>
                 <table class="table table-bordered">
                     <thead>
