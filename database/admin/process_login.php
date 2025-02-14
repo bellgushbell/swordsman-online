@@ -18,8 +18,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($user) {
         // ตรวจสอบรหัสผ่าน (ใช้ password_verify หากรหัสผ่านถูกเข้ารหัส)
         if (password_verify($password, $user['password'])) {
-            $_SESSION['id'] = $user['id'];
-            $_SESSION['user'] = $user['username'];
+            $_SESSION['roles'] = $user['roles'];
+            $_SESSION['username'] = $user['username'];
+            $_SESSION['logged_in'] = true;
             header("Location: ../../page/admin/ContentManagementLog.php");
             exit();
         } else {

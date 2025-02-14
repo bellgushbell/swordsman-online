@@ -1,15 +1,19 @@
 <!-- main_content.php -->
 <div class="main-content">
-    <div class="d-flex justify-content-between align-items-center mb-3 p-3 rounded shadow-sm bg-light">
+    <div class="d-flex justify-content-between align-items-center mb-3 p-3 rounded shadow-sm table-container">
         <div class="gap-2">
-            <a href="" class="btn btn-outline-info">News</a>
-            <a href="" class="btn btn-outline-info">Promotions</a>
-            <a href="" class="btn btn-outline-info">Events</a>
+            <div class="gap-2">
+                <a href="javascript:void(0);" class="btn btn-outline-info" onclick="changeCategory('ทั้งหมด')">ALL</a>
+                <a href="javascript:void(0);" class="btn btn-outline-info" onclick="changeCategory('ข่าว')">News</a>
+                <a href="javascript:void(0);" class="btn btn-outline-info" onclick="changeCategory('โปรโมชั่น')">Promotions</a>
+                <a href="javascript:void(0);" class="btn btn-outline-info" onclick="changeCategory('กิจกรรม')">Events</a>
+            </div>
         </div>
         <a href="" class="btn btn-outline-success">Create</a>
     </div>
 
     <div class="table-container">
+        <h2 id="categoryTitle">ALL</h2> <!-- เริ่มต้นด้วย "ALL" -->
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -22,17 +26,26 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>ข่าว</td>
-                    <td>ตัวอย่างข่าว</td>
-                    <td><img src="image.jpg" class="news-thumbnail" alt="รูปข่าว"></td>
-                    <td>2024-02-11</td>
-                    <td>Admin</td>
-                    <td>
-                        <button class="btn btn-outline-warning btn-sm">Edit</button>
-                        <button class="btn btn-outline-danger btn-sm">Delete</button>
-                    </td>
-                </tr>
+                <?php
+                // ตรวจสอบว่า contentData มีข้อมูลหรือไม่ก่อนที่จะทำการแสดงผล
+                if (!empty($contentData)) {
+                    foreach ($contentData as $content) {
+                        echo '<tr>';
+                        echo '<td>' . htmlspecialchars($content['typr']) . '</td>';
+                        echo '<td>' . htmlspecialchars($content['title']) . '</td>';
+                        echo '<td><img src="' . htmlspecialchars($content['image']) . '" class="news-thumbnail" alt="รูปข่าว"></td>';
+                        echo '<td>' . htmlspecialchars($content['created_date']) . '</td>';
+                        echo '<td>' . htmlspecialchars($content['created_td']) . '</td>';
+                        echo '<td>';
+                        echo '<button class="btn btn-outline-warning btn-sm"><i class="bi bi-pencil"></i></button>';
+                        echo '<button class="btn btn-outline-danger btn-sm"><i class="bi bi-trash3"></i></button>';
+                        echo '</td>';
+                        echo '</tr>';
+                    }
+                } else {
+                    echo '<tr><td colspan="6" class="text-center">No data available</td></tr>';
+                }
+                ?>
             </tbody>
         </table>
     </div>

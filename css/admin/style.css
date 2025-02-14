@@ -1,12 +1,12 @@
 body {
     font-family: 'IBM Plex Sans Thai', sans-serif !important;
+    background: url('/swordsman-online/images/background-pic.jpg') no-repeat center center;
 }
 
 /* กำหนดความกว้างสูงสุดให้กับ wrapper และจัดกลาง */
 .wrapper {
     max-width: 1304px;
     /* ยังคงเว้นขอบซ้าย-ขวา */
-
     min-height: 100vh;
     /* ปรับความสูงให้พอดีจอ */
     margin: 0 auto;
@@ -20,12 +20,12 @@ body {
 
 /* สไตล์พื้นฐานสำหรับส่วน content */
 .content {
-    background-color: white;
+    /* background-color: white; */
     /* พื้นหลังสีขาว */
     border-radius: 5px;
     padding: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    min-height: 95vh;
+    min-height: 75vh;
     /* ให้ content สูงเต็มหน้าจอ */
     display: flex;
     flex-direction: column;
@@ -43,28 +43,53 @@ body {
 
 /* สร้างกรอบครอบตารางให้คงที่ */
 .table-container {
+    position: relative;
     width: 100%;
-    /* ให้ความกว้างเต็มพื้นที่ */
     max-width: 100%;
-    /* border: 2px solid #ddd; /* กรอบรอบตาราง */
-    /* border-radius: 5px; */
     padding: 10px;
-    background-color: white;
-    /* ให้พื้นหลังเป็นสีขาว */
     overflow-x: auto;
-    /* ให้สามารถเลื่อนเฉพาะตาราง */
     white-space: nowrap;
+}
+
+/* เพิ่มเลเยอร์เบลอสำหรับพื้นหลังของตาราง */
+.table-container {
+    position: relative;
+    /* ใช้ position relative เพื่อจัดการเลเยอร์ */
+    padding: 10px;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+/* เพิ่มเลเยอร์เบลอพื้นหลัง */
+.table-container {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.5);
+    /* สีขาวใส */
+    backdrop-filter: blur(8px);
+    /* เพิ่มการเบลอ */
+    border-radius: 10px;
+    /* ปรับขอบให้โค้งมน */
 }
 
 /* ปรับปรุงตาราง */
 .table {
     width: 100%;
+    background-color: transparent;
+    /* ทำให้พื้นหลังของตารางโปร่งแสง */
+
     table-layout: auto;
+    position: relative;
+    /* ทำให้ตารางแสดงอยู่ข้างหน้าพื้นหลัง */
+    z-index: 1;
+    /* ให้ตารางอยู่ข้างหน้า */
 }
 
 /* ปรับให้องค์ประกอบในเซลล์ตารางอยู่ตรงกลาง */
 .table th,
 .table td {
+    background-color: transparent;
+    /* ทำให้พื้นหลังของตารางโปร่งแสง */
+
     vertical-align: middle;
     text-align: center;
 }

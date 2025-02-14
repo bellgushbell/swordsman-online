@@ -11,7 +11,7 @@
 
 <body>
     <div class="login-container">
-        <h2>เข้าสู่ระบบ</h2>
+        <h2>Login</h2>
         <?php if (!empty($error)) echo "<p class='error'>$error</p>"; ?>
 
         <form method="post" action="../../database/admin/process_login.php">
