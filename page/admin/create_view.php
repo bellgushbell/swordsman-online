@@ -13,11 +13,21 @@
     <link rel="stylesheet" href="../../css/admin/style.css">
     <link rel="stylesheet" href="../../css/admin/responsive.css">
 
+    <!-- Quill -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../../js/upload_image.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
 <body>
 
-    <div class="wrapper">
+    <div class="wrapper overflow-auto">
 
         <!-- Main Content -->
         <main class="content">
@@ -37,10 +47,10 @@
                     <h3>Create New Entry</h3>
                 </div>
                 <div class="card-body">
-                    <form action="" method="POST">
+                    <form action="../../database/save_create.php" method="POST" >
                         <div class="form-group mb-3 text-center">
                             <label for="role" class="me-3">Type</label>
-                            <select class="form-control d-inline-block w-50 text-start" id="role" name="role" required>
+                            <select class="form-control d-inline-block w-50 text-start" id="type" name="type" required>
                                 <option value="ข่าว">ข่าว</option>
                                 <option value="กิจกรรม">กิจกรรม</option>
                                 <option value="โปรโมชั่น">โปรโมชั่น</option>
@@ -52,17 +62,16 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="upload">Upload File</label>
-                            <input type="file" class="form-control" id="upload" name="upload" required>
+                            <input type="file" class="form-control" id="upload" name="upload_title">
                             <div class="mt-3">
-                                <img id="preview" src="#" alt="Image Preview" class="img-fluid" style="display: none; max-height: 200px;">
+                                <img id="preview" class="img-fluid" style="display: none; max-height: 200px;">
                             </div>
-
                         </div>
                         <div class="form-group mb-3">
-                            <label for="description">description</label>
-                            <input type="email" class="form-control" id="description" name="description" placeholder="Enter email" required>
+                            <label for="description">Description</label>
+                            <div id="description-editor" class="form-control" style="height: 200px;"></div>
+                            <input type="hidden" id="description" name="description">
                         </div>
-                       
 
                         <div class="form-actions d-flex justify-content-between mt-4">
                             <button type="button" class="btn btn-secondary" onclick="window.location.href='index.php'">Cancel</button>
@@ -78,15 +87,56 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        document.getElementById('upload').onchange = function(event) {
-            var reader = new FileReader();
-            reader.onload = function() {
-                var output = document.getElementById('preview');
-                output.src = reader.result;
-                output.style.display = 'block';
-            };
-            reader.readAsDataURL(event.target.files[0]);
-        };
+      //Initialize Quill editor
+    var quill = new Quill('#description-editor', {
+        theme: 'snow',
+        modules: {
+            toolbar: [
+                [{ 'header': [1, 2, false] }],
+                ['bold', 'italic', 'underline'],
+                [{ 'color': [] }, { 'background': [] }],
+                ['link', 'image'],
+                [{ 'align': [] }],
+                ['clean']
+            ]
+        }
+    });
+
+    
+    async function uploadImage(imageData) {
+        const response = await fetch('../../database/description_upload.php', {
+            method: 'POST',
+            body: JSON.stringify({ image_data: imageData }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        const data = await response.json();
+        return data.image_url;
+    }
+
+    
+    document.querySelector('form').onsubmit = async function(e) {
+        e.preventDefault();
+
+       
+        let descriptionContent = quill.root.innerHTML;
+
+       
+        const images = descriptionContent.match(/data:image\/[^;]+;base64[^"]+/g);
+        if (images) {
+            for (let image of images) {
+                const imageUrl = await uploadImage(image);
+                descriptionContent = descriptionContent.replace(image, imageUrl);
+            }
+        }
+
+       
+        document.querySelector('#description').value = descriptionContent;
+
+        
+        this.submit();
+    };
     </script>
 </body>
 

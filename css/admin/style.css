@@ -1,7 +1,17 @@
+<<<<<<< Updated upstream
 body {
     font-family: 'IBM Plex Sans Thai', sans-serif !important;
     background: url('/swordsman-online/images/background-pic.jpg') no-repeat center center;
 }
+=======
+/* ใช้ flexbox ทำให้ sidebar และ content เต็มหน้าจอ */
+        .wrapper {
+            display: flex;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+        }
+>>>>>>> Stashed changes
 
 /* กำหนดความกว้างสูงสุดให้กับ wrapper และจัดกลาง */
 .wrapper {
@@ -33,6 +43,7 @@ body {
 }
 
 
+<<<<<<< Updated upstream
 /* สไตล์สำหรับส่วนหัวของ main content */
 .main-content h2 {
     font-size: 24px;
@@ -100,3 +111,13 @@ body {
     height: auto;
     object-fit: cover;
 }
+=======
+        .custom-logo {
+            width: 200px;
+            /* หรือขนาดที่ต้องการ */
+            height: auto;
+            /* คงอัตราส่วนเดิม */
+        }
+
+        
+>>>>>>> Stashed changes
