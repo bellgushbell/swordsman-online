@@ -823,11 +823,13 @@ SweetAlert2 alert
     display: flex;
     justify-content: center;
     gap: 15px;
+    width: 500px;
+    bottom: 15%;
 }
 
 .app-button img,
 .google-button img {
-    width: 600px;
+    width: 400px;
     transition: transform 0.2s ease-in-out;
 }
 
@@ -837,7 +839,7 @@ SweetAlert2 alert
 }
 
 /* ปุ่ม Reward ใต้ App Store & Google Play */
-.reward-container {
+.rewardpage {
     position: absolute;
     bottom: 40px;
     left: 50%;
@@ -846,13 +848,30 @@ SweetAlert2 alert
 }
 
 .reward-button-register-modal img {
-    width: 200px;
+    width: 250px;
     transition: transform 0.2s ease-in-out;
 }
 
 .reward-button-register-modal img:hover {
     transform: scale(1.1);
 }
+
+/*Modal ปุมhoverนูน*/
+
+/* ปุ่ม Store (App Store & Google Play) */
+.store-buttons a {
+    transition: transform 0.2s ease-in-out;
+}
+
+.store-buttons a:hover {
+    transform: scale(1.1);
+}
+
+.reward-button-register-modal:hover img {
+    transform: scale(1.1);
+}
+
+
 
 /* ============ RESPONSIVE ============ */
 @media (max-width: 768px) {
@@ -885,20 +904,64 @@ SweetAlert2 alert
     }
 }
 
+@media (max-width: 1024px) and (orientation: landscape) {
+    .modal-content {
+        width: 90%;
+        height: 500px;
+        padding: 20px;
+    }
 
-/*Modal ปุมhoverนูน*/
+    .store-buttons {
+        bottom: 25%;
+    }
 
-/* ปุ่ม Store (App Store & Google Play) */
-.store-buttons a {
-    transition: transform 0.2s ease-in-out;
+    .reward-container {
+        bottom: 15%;
+    }
+
+    .app-button img,
+    .google-button img {
+        width: 200px;
+    }
+
+    .reward-button-register-modal img {
+        width: 130px;
+    }
+
+    .close-register {
+        font-size: 22px;
+    }
 }
 
-.store-buttons a:hover {
-    transform: scale(1.1);
-}
+/* สำหรับมือถือแนวนอนขนาดเล็กกว่า */
+@media (max-width: 768px) and (orientation: landscape) {
+    .modal-content {
+        width: 50%;
+        height: auto;
+        padding: 15px;
+    }
 
-.reward-button-register-modal:hover img {
-    transform: scale(1.1);
+    .store-buttons {
+        bottom: 20%;
+
+    }
+
+    .reward-container {
+        bottom: 12%;
+    }
+
+    .app-button img,
+    .google-button img {
+        width: 180px;
+    }
+
+    .reward-button-register-modal img {
+        width: 120px;
+    }
+
+    .close-register {
+        font-size: 20px;
+    }
 }
 
 
