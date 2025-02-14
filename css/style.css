@@ -1657,7 +1657,7 @@ a.bg-video-button-muted {
 .btn-more {
     background: linear-gradient(45deg, #DCC072, #edb518);
     /* ไล่สีทองใหม่ */
-    color: white;
+    color: black;
     font-weight: bold;
     font-size: 16px;
     padding: 8px 20px;
@@ -1676,6 +1676,25 @@ a.bg-video-button-muted {
     border-color: #DCC072;
 }
 
+.news-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.news-item a {
+    flex-grow: 1;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}
+
+.news-item .date {
+    color: gray;
+    font-size: 14px;
+    white-space: nowrap;
+}
 
 
 @media (max-width: 961px) {
