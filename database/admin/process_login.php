@@ -14,13 +14,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user = $result->fetch_assoc();
 
 
+
     if ($user) {
         // ตรวจสอบรหัสผ่าน (ใช้ password_verify หากรหัสผ่านถูกเข้ารหัส)
-        echo password_verify($password, $user['password']);
         if (password_verify($password, $user['password'])) {
             $_SESSION['id'] = $user['id'];
             $_SESSION['user'] = $user['username'];
-            header("Location: ../../page/admin/admin.php");
+            header("Location: ../../page/admin/ContentManagementLog.php");
             exit();
         } else {
             $_SESSION['error'] = "รหัสผ่านไม่ถูกต้อง";
@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 
-//ไว้เช็ค password_verify
+// ไว้เช็ค password_verify
 // $new_hashed_password = password_hash("123456", PASSWORD_DEFAULT);
 
 // echo "ผลลัพธ์ของ password_verify(): " . (password_verify($password, $user['password']) ? "ผ่าน" : "ไม่ผ่าน") . "<br>" . $new_hashed_password;
