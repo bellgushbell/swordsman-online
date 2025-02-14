@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Insert into the title table
     $sql_title = "INSERT INTO title (type, title, image, created_at, created_by) VALUES ('$type', '$title', '$image', '$timestamp', '1')";
-    
+
     if ($conn->query($sql_title) === TRUE) {
         // Get the last inserted id_title
         $id_title = $conn->insert_id;
@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     showConfirmButton: false,
                     timer: 1500
                 }).then(function() {
-                    window.location.href = '../page/admin/admin.php';
+                    window.location.href = '../page/admin/content_management.php';
                 });
             </script>";
         } else {
@@ -40,4 +40,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $conn->close();
 }
-?>

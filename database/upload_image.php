@@ -3,7 +3,7 @@ header('Content-Type: application/json');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_FILES['upload_title']) && $_FILES['upload_title']['error'] === UPLOAD_ERR_OK) {
-        $uploadDir = '../images/news/';
+        $uploadDir = '../../images/news/';
         if (!is_dir($uploadDir)) {
             mkdir($uploadDir, 0777, true);
         }
@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         if (move_uploaded_file($_FILES['upload_title']['tmp_name'], $uploadFile)) {
-            echo json_encode(['filePath' => '../'.$uploadFile]);
+            echo json_encode(['filePath' => '../' . $uploadFile]);
         } else {
             http_response_code(500);
             echo json_encode(['error' => 'Failed to move uploaded file.']);
@@ -30,4 +30,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     http_response_code(405);
     echo json_encode(['error' => 'Invalid request method.']);
 }
-?>

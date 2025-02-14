@@ -7,7 +7,7 @@
             <a href="javascript:void(0);" class="btn btn-outline-info" onclick="loadData('โปรโมชั่น')">Promotions</a>
             <a href="javascript:void(0);" class="btn btn-outline-info" onclick="loadData('กิจกรรม')">Events</a>
         </div>
-        <a href="" class="btn btn-outline-success">Create</a>
+        <a href="../../page/admin/create_view.php" class="btn btn-outline-success">Create</a>
     </div>
 
     <div class="table-container">

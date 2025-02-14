@@ -49,6 +49,8 @@
     // เรียกใช้ครั้งแรกเพื่อแสดงทันที
     updateDateTime();
 </script>
+
+<!-- Script สำหรับการเปลี่ยนหมวดหมู่ -->
 <script>
     function changeCategory(category, page = 1) {
         // ส่งคำขอไปยัง get_content.php ผ่าน AJAX
@@ -171,6 +173,8 @@
     }
 </script>
 
+
+<!-- Initialize Quill editor -->
 
 </body>
 

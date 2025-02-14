@@ -101,3 +101,8 @@ body {
     z-index: 1000;
     /* ทำให้ปุ่ม Pagination อยู่เหนือเนื้อหา */
 }
+
+
+main-content-create {
+    display: none;
+}
