@@ -1645,6 +1645,36 @@ a.bg-video-button-muted {
     z-index: 10;
 }
 
+/* ปุ่มเพิ่มเติม news and event promotion */
+.news-more-btn {
+    display: flex;
+    justify-content: flex-end;
+    /* ติดขอบขวา */
+    margin-top: 10px;
+}
+
+/* สไตล์ปุ่ม */
+.btn-more {
+    background: linear-gradient(45deg, #DCC072, #edb518);
+    /* ไล่สีทองใหม่ */
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 8px 20px;
+    border: 2px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* เอฟเฟกต์ Hover */
+.btn-more:hover {
+    background: linear-gradient(45deg, #edb518, #DCC072);
+    transform: scale(1.05);
+    color: black;
+    border-color: #DCC072;
+}
 
 
 

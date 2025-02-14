@@ -1304,8 +1304,12 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                     <img src="images/crop-box-news-reverse.png" alt="Header Image" class="bottom-img">
                                 </div>
                             </div>
+                                <div class="news-more-btn">
+                                    <button class="btn-more">เพิ่มเติม</button>
+                                </div>
+
                         </div>
-        
+    
         
         
         
@@ -1327,7 +1331,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
         <!--Gallery Game Section-->
-
+<!-- 
         <style>
             .gallery-section {
                 height: auto;
@@ -1433,8 +1437,300 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
             </div>
 
-        </section>
+        </section> -->
         <!--End Gallery Game Section-->
+
+
+
+
+
+
+
+
+
+
+
+
+        <!--ใหม่ใช้งาน New Gallery Game Section-->
+
+    <!-- Gallery -->
+<section class="gallery-section">
+    <!-- Character Image -->
+    <div class="character-container">
+        <img src="images/class6.png" alt="Character">
+    </div>
+
+    <!-- Gallery -->
+    <div class="gallery-container">
+        <div class="gallery-header">
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="photo">Photo</button>
+                <button class="tab-btn" data-tab="video">Video</button>
+            </div>
+            <div class="more-btn">MORE+</div>
+        </div>
+
+        <!-- Photo Gallery -->
+        <div class="gallery" id="photoGallery">
+            <div class="gallery-item large">
+                <img src="https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg" alt="Moonglow Fest">
+                <h3>Moonglow Fest</h3>
+            </div>
+            <div class="gallery-item small-right">
+                <img src="https://images.pexels.com/photos/1142950/pexels-photo-1142950.jpeg" alt="Frosty Festival">
+                <h3>Frosty Festival</h3>
+            </div>
+            <div class="gallery-item small">
+                <img src="https://images.pexels.com/photos/3933881/pexels-photo-3933881.jpeg" alt="Global Launch">
+                <h3>Global Launch</h3>
+            </div>
+            <div class="gallery-item small">
+                <img src="https://images.pexels.com/photos/5409751/pexels-photo-5409751.jpeg" alt="Chinese New Year">
+                <h3>Chinese New Year</h3>
+            </div>
+            <div class="gallery-item small">
+                <img src="https://images.pexels.com/photos/4101555/pexels-photo-4101555.jpeg" alt="2024 New Year">
+                <h3>2024 New Year</h3>
+            </div>
+        </div>
+
+        <!-- Video Gallery -->
+        <div class="gallery" id="videoGallery" style="display: none;">
+            <div class="gallery-item large video-overlay">
+                <img src="https://images.pexels.com/photos/1939485/pexels-photo-1939485.jpeg" alt="Baking Contest">
+                <h3>Baking Contest Mode</h3>
+            </div>
+            <div class="gallery-item small-right video-overlay">
+                <img src="https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg" alt="Claw Wars">
+                <h3>Claw Wars</h3>
+            </div>
+            <div class="gallery-item small video-overlay">
+                <img src="https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg" alt="Playground Clubhouse">
+                <h3>Playground Clubhouse</h3>
+            </div>
+            <div class="gallery-item small video-overlay">
+                <img src="https://images.pexels.com/photos/160107/pexels-photo-160107.jpeg" alt="Who's Rotten?">
+                <h3>Who's Rotten?</h3>
+            </div>
+            <div class="gallery-item small video-overlay">
+                <img src="https://images.pexels.com/photos/162379/pexels-photo-162379.jpeg" alt="Ice Bean Battle">
+                <h3>Ice Bean Battle</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Section Layout */
+    .gallery-section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 50px;
+        gap: 100px;
+    }
+
+    /* Left Character */
+    .character-container {
+        flex: 0 0 30%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .character-container img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Right Gallery */
+    .gallery-container {
+        flex: 0 0 65%;
+    }
+
+    /* Tabs */
+    .gallery-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    
+    .tabs {
+        display: flex;
+        gap: 20px;
+    }
+
+    .tabs button {
+        background: none;
+        border: none;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 5px 10px;
+    }
+
+    .tabs button.active {
+        background: black;
+        color: white;
+        border-radius: 15px;
+    }
+
+    .more-btn {
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    /* Gallery Grid */
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+
+    .gallery-item {
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        border-bottom: 2px solid #ddd;
+    }
+
+    .gallery-item h3 {
+        font-size: 16px;
+        margin-top: 10px;
+    }
+
+    /* รูปแรกกิน 2 คอลัมน์ */
+    .gallery-item.large {
+        grid-column: span 2;
+    }
+
+    /* รูปด้านขวาสูง กิน 2 แถว */
+    .gallery-item.tall {
+        grid-row: span 2;
+    }
+
+    /* รูปเล็กด้านซ้าย */
+    .gallery-item.small {
+        grid-column: span 1;
+     
+    }
+
+    .gallery-item.small-right {
+        grid-column: span 1;
+     
+    }
+    /* รูปสุดท้ายด้านล่าง กิน 2 คอลัมน์ */
+    .gallery-item.wide {
+        grid-column: span 2;
+    }
+/* ปรับการจัดเรียงให้ Video Gallery เหมือน Photo Gallery */
+.gallery-item.large { grid-column: span 2; }
+.gallery-item.tall { grid-row: span 2; }
+.gallery-item.small { grid-column: span 1; }
+.gallery-item.wide { grid-column: span 2; }
+
+/* ปรับ Video ให้เหมือน Gallery */
+.video-overlay {
+    position: relative;
+}
+
+.video-overlay img {
+    filter: brightness(0.7);
+}
+
+.video-overlay::after {
+    content: "▶";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    color: white;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px 15px;
+    border-radius: 50%;
+}
+    /* Responsive */
+    @media (max-width: 1024px) {
+        .gallery-section {
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .character-container {
+            flex: 1;
+        }
+
+        .gallery-container {
+            flex: 1;
+            width: 100%;
+        }
+
+        .gallery {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .gallery {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const tabButtons = document.querySelectorAll(".tab-btn");
+        const photoGallery = document.getElementById("photoGallery");
+        const videoGallery = document.getElementById("videoGallery");
+
+        tabButtons.forEach(button => {
+            button.addEventListener("click", function () {
+                tabButtons.forEach(btn => btn.classList.remove("active"));
+                this.classList.add("active");
+
+                if (this.dataset.tab === "photo") {
+                    photoGallery.style.display = "grid";
+                    videoGallery.style.display = "none";
+                } else {
+                    photoGallery.style.display = "none";
+                    videoGallery.style.display = "grid";
+                }
+            });
+        });
+    });
+</script>
+
+
+        <!--End Gallery Game Section-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <!--Divider -->
         <!-- < hr class="mt-0 mb-0" /> -->
