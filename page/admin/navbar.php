@@ -9,7 +9,7 @@ $currentDateTime = date("l, F j, Y g:i A"); // รูปแบบของวั
 
 <!-- navbar.php -->
 <div class="d-flex justify-content-end mb-3">
-    <div class=" p-3 shadow-sm w-100" style="background-color: transparent;  box-shadow: none;">
+    <div class=" p-1 shadow-sm w-100" style="background-color: transparent;  box-shadow: none;">
 
 
         <div class="d-flex align-items-center justify-content-between">
