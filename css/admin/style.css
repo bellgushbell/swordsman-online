@@ -11,7 +11,7 @@ body {
     /* ปรับความสูงให้พอดีจอ */
     margin: 0 auto;
     /* จัดให้อยู่ตรงกลาง */
-    padding: 20px;
+
     display: flex;
     flex-direction: column;
     /* จัดเรียงเนื้อหาในแนวตั้ง */
@@ -25,7 +25,7 @@ body {
     border-radius: 5px;
     padding: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    min-height: 75vh;
+    min-height: 70vh;
     /* ให้ content สูงเต็มหน้าจอ */
     display: flex;
     flex-direction: column;
@@ -43,60 +43,66 @@ body {
 
 /* สร้างกรอบครอบตารางให้คงที่ */
 .table-container {
-    position: relative;
     width: 100%;
     max-width: 100%;
+    /* ความกว้างเต็มที่ */
     padding: 10px;
     overflow-x: auto;
+    /* เลื่อนในแนวนอนถ้าจำเป็น */
     white-space: nowrap;
-}
-
-/* เพิ่มเลเยอร์เบลอสำหรับพื้นหลังของตาราง */
-.table-container {
-    position: relative;
-    /* ใช้ position relative เพื่อจัดการเลเยอร์ */
-    padding: 10px;
-    overflow-x: auto;
-    white-space: nowrap;
-}
-
-/* เพิ่มเลเยอร์เบลอพื้นหลัง */
-.table-container {
-    position: relative;
+    /* หลีกเลี่ยงการตัดข้อความในแถว */
     background-color: rgba(255, 255, 255, 0.5);
-    /* สีขาวใส */
+    /* พื้นหลังโปร่งใส */
     backdrop-filter: blur(8px);
-    /* เพิ่มการเบลอ */
+    /* เบลอพื้นหลัง */
     border-radius: 10px;
-    /* ปรับขอบให้โค้งมน */
+    /* มุมโค้งมน */
+    min-height: 70vh;
+    /* ความสูงขั้นต่ำ */
 }
 
 /* ปรับปรุงตาราง */
 .table {
     width: 100%;
     background-color: transparent;
-    /* ทำให้พื้นหลังของตารางโปร่งแสง */
-
-    table-layout: auto;
     position: relative;
-    /* ทำให้ตารางแสดงอยู่ข้างหน้าพื้นหลัง */
     z-index: 1;
-    /* ให้ตารางอยู่ข้างหน้า */
 }
 
-/* ปรับให้องค์ประกอบในเซลล์ตารางอยู่ตรงกลาง */
+
 .table th,
 .table td {
     background-color: transparent;
-    /* ทำให้พื้นหลังของตารางโปร่งแสง */
-
     vertical-align: middle;
     text-align: center;
 }
 
-/* ปรับขนาดรูปภาพของข่าว */
+
 .news-thumbnail {
     width: 80px;
     height: auto;
     object-fit: cover;
+}
+
+#pagination {
+    position: fixed;
+    /* ทำให้มันอยู่ที่ตำแหน่งที่กำหนด */
+    bottom: 0;
+    /* ให้มันอยู่ที่ด้านล่างของหน้าจอ */
+    left: 0;
+    /* ให้มันเริ่มจากทางซ้ายสุด */
+    right: 0;
+
+    /* เบลอพื้นหลัง */
+    border-radius: 5px;
+    /* มุมโค้งมน */
+    padding: 10px;
+    /* เพิ่ม padding */
+    z-index: 1000;
+    /* ทำให้ปุ่ม Pagination อยู่เหนือเนื้อหา */
+}
+
+
+main-content-create {
+    display: none;
 }

@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['username'] = $user['username'];
             $_SESSION['id'] = $user['id'];
             $_SESSION['logged_in'] = true;
-            header("Location: ../../page/admin/content_management_log.php");
+            header("Location: ../../page/admin/content_management.php");
             exit();
         } else {
             $_SESSION['error'] = "รหัสผ่านไม่ถูกต้อง";

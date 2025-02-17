@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     showConfirmButton: false,
                     timer: 1500
                 }).then(function() {
-                    window.location.href = '../page/admin/content_management_log.php';
+                    window.location.href = '../page/admin/content_management.php';
                 });
             </script>";
         } else {
@@ -44,4 +44,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $conn->close();
 }
-?>

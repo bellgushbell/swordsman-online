@@ -49,40 +49,33 @@
     // เรียกใช้ครั้งแรกเพื่อแสดงทันที
     updateDateTime();
 </script>
+
+<!-- Script สำหรับการเปลี่ยนหมวดหมู่ -->
 <script>
-    function changeCategory(category) {
+    function changeCategory(category, page = 1) {
         // ส่งคำขอไปยัง get_content.php ผ่าน AJAX
         var xhr = new XMLHttpRequest();
 
         xhr.open('POST', '../../database/admin/get_content.php', true);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
+        // ในฟังก์ชัน changeCategory
         xhr.onreadystatechange = function() {
             if (xhr.readyState == 4 && xhr.status == 200) {
                 try {
-                    var contentData = JSON.parse(xhr.responseText);
-                    if (contentData.error) {
-                        // แสดงข้อความผิดพลาดที่ส่งมาจากเซิร์ฟเวอร์
-                        console.error(contentData.error);
+                    var responseData = JSON.parse(xhr.responseText);
+                    if (responseData.error) {
+                        console.error(responseData.error);
                     } else {
-                        // แสดงข้อมูลที่ได้รับจากการค้นหา
-                        var tableBody = document.querySelector('table tbody');
-                        tableBody.innerHTML = '';
+                        // อัปเดตข้อมูลในตาราง
+                        updateTable(responseData.data);
 
-                        contentData.forEach(function(content) {
-                            var row = '<tr>' +
-                                '<td>' + content.type + '</td>' +
-                                '<td>' + content.title + '</td>' +
-                                '<td><img src="' + content.image + '" class="news-thumbnail" alt="รูปข่าว"></td>' +
-                                '<td>' + content.created_at + '</td>' +
-                                '<td>' + content.first_name + '</td>' +
-                                '<td>' +
-                                '<button class="btn btn-outline-warning btn-sm"><i class="bi bi-pencil"></i></button>' +
-                                '<button class="btn btn-outline-danger btn-sm"><i class="bi bi-trash3"></i></button>' +
-                                '</td>' +
-                                '</tr>';
-                            tableBody.innerHTML += row;
-                        });
+                        // เปลี่ยนชื่อหมวดหมู่ที่แสดง
+                        var categoryTitle = document.getElementById('categoryTitle');
+                        categoryTitle.textContent = category; // เปลี่ยนชื่อหมวดหมู่
+
+                        // อัปเดต pagination
+                        updatePagination(responseData.currentPage, responseData.totalPages, category);
                     }
                 } catch (error) {
                     console.error('Error parsing JSON:', error);
@@ -91,17 +84,97 @@
         };
 
 
-
-        // Send category data as POST request
-        xhr.send('category=' + encodeURIComponent(category));
+        // ส่งข้อมูล category และ page
+        xhr.send('category=' + encodeURIComponent(category) + '&page=' + page);
     }
 
-    // 📌 **โหลดหน้าเสร็จให้ส่งค่า "ทั้งหมด" โดยอัตโนมัติ**
+    function updateTable(data) {
+        var tableBody = document.querySelector('table tbody');
+        tableBody.innerHTML = '';
+
+        if (data.length === 0) {
+            tableBody.innerHTML = '<tr><td colspan="6" class="text-center">No data available</td></tr>';
+            return;
+        }
+
+        data.forEach(function(content) {
+            var row = '<tr>' +
+                '<td>' + content.type + '</td>' +
+                '<td>' + content.title + '</td>' +
+                '<td><img src="' + content.image + '" class="news-thumbnail" alt="รูปข่าว"></td>' +
+                '<td>' + content.created_at + '</td>' +
+                '<td>' + content.first_name + '</td>' +
+                '<td>' +
+                '<button class="btn btn-outline-warning btn-sm  me-2"><i class="bi bi-pencil"></i></button>' +
+                '<button class="btn btn-outline-danger btn-sm"><i class="bi bi-trash3"></i></button>' +
+                '</td>' +
+                '</tr>';
+            tableBody.innerHTML += row;
+        });
+    }
+
+    function updatePagination(currentPage, totalPages, category) {
+        var paginationDiv = document.getElementById('pagination');
+        paginationDiv.innerHTML = ''; // ล้างปุ่มที่มีอยู่ก่อน
+
+        // ปุ่ม "หน้าก่อน" (prev)
+        if (currentPage > 1) {
+            var prevButton = document.createElement('button');
+            prevButton.classList.add('btn', 'btn-outline-primary', 'me-2');
+            prevButton.textContent = 'Previous';
+            prevButton.onclick = function() {
+                changeCategory(category, currentPage - 1); // เปลี่ยนหน้าไปที่หน้าก่อน
+            };
+            paginationDiv.appendChild(prevButton);
+        }
+
+        // ปุ่มหมายเลขหน้า
+        for (var i = 1; i <= totalPages; i++) {
+            var pageButton = document.createElement('button');
+            pageButton.classList.add('btn', 'btn-outline-primary', 'me-2');
+            pageButton.textContent = i;
+
+            // ถ้าเป็นหน้าปัจจุบันจะทำให้ปุ่มดูเด่น
+            if (i === currentPage) {
+                pageButton.classList.add('active'); // เพิ่มคลาส active ให้กับปุ่มหน้าปัจจุบัน
+            }
+
+            // ตั้งค่า onclick ให้สามารถเปลี่ยนหน้าได้
+            pageButton.addEventListener('click', (function(i) {
+                return function() {
+                    changeCategory(category, i); // เรียกฟังก์ชัน changeCategory ให้ไปที่หน้าที่เลือก
+                };
+            })(i)); // ใช้ IIFE (Immediately Invoked Function Expression) เพื่อให้ i ถูกเก็บค่าอย่างถูกต้องในทุกปุ่ม
+
+            paginationDiv.appendChild(pageButton);
+        }
+
+        // ปุ่ม "หน้าถัดไป" (next)
+        if (currentPage < totalPages) {
+            var nextButton = document.createElement('button');
+            nextButton.classList.add('btn', 'btn-outline-primary', 'me-2');
+            nextButton.textContent = 'Next';
+            nextButton.onclick = function() {
+                changeCategory(category, currentPage + 1); // เปลี่ยนหน้าไปที่หน้าถัดไป
+            };
+            paginationDiv.appendChild(nextButton);
+        }
+    }
+
+
+
+    // โหลดหน้าเสร็จให้ดึงข้อมูล "ทั้งหมด" อัตโนมัติ
     window.onload = function() {
         changeCategory('ทั้งหมด');
     };
+
+    function loadData(category) {
+        changeCategory(category); // เรียกฟังก์ชัน changeCategory ที่มีอยู่แล้ว
+    }
 </script>
 
+
+<!-- Initialize Quill editor -->
 
 </body>
 
