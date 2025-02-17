@@ -52,7 +52,7 @@ if (session_status() === PHP_SESSION_NONE) {
         </div>
         <!-- Main Content -->
         
-        <?php include('navbar.php'); ?>
+      
 
             <div class="main-content">
                 <div class="card-header">
