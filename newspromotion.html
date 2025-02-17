@@ -510,6 +510,11 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 { title: "New Expansion Pack Released!", category: "news", date: "2024/07/15" },
                 { title: "Legendary Weapons Release!", category: "news", date: "2025/02/01" },
                 { title: "Jianghu’s Anniversary Rewards!", category: "news", date: "2025/01/10" },
+                { title: "Jianghu Winter Update!", category: "news", date: "2025/01/20" },
+                { title: "Exclusive Holiday Gear Released!", category: "news", date: "2024/12/25" },
+                { title: "Jianghu Mobile 2.0 Update!", category: "news", date: "2025/01/15" },
+                { title: "Introducing the New Battle Arena!", category: "news", date: "2025/01/28" },
+                { title: "Winter Festival Coming Soon!", category: "news", date: "2025/02/10" },
 
                 // Events (กิจกรรม)
                 { title: "New cute pet Abu is online!", category: "events", date: "2024/12/05" },
@@ -538,7 +543,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
              // เรียงลำดับจากใหม่ -> เก่า
             newsData.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-            let currentPage = 1;
+          let currentPage = 1;
             const itemsPerPage = 12;
             // ใช้ค่า currentCategory จาก localStorage หากมี, ถ้าไม่มีก็ใช้ "all"
             let currentCategory = localStorage.getItem("activeTab") || "all";
@@ -547,32 +552,52 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 const newsContainer = document.getElementById("news-container");
                 newsContainer.innerHTML = "";
 
+                // กรองข่าวตามหมวดหมู่ที่เลือก
                 let filteredNews = currentCategory === "all" ? newsData : newsData.filter(news => news.category === currentCategory);
+
+                // หาช่วงของข่าวที่จะโชว์ในหน้า (เริ่มต้นแสดง 12 รายการแรก)
                 const startIndex = (currentPage - 1) * itemsPerPage;
                 const paginatedNews = filteredNews.slice(startIndex, startIndex + itemsPerPage);
 
+                // แสดงข่าวที่กรองและแบ่งหน้า
                 paginatedNews.forEach(news => {
                     const li = document.createElement("li");
                     li.innerHTML = `<a href="#">${news.title}</a> <span class="date">${news.date}</span>`;
                     newsContainer.appendChild(li);
                 });
 
+                // แสดงหมายเลขหน้า
                 document.getElementById("pageNumber").textContent = currentPage;
+
+                // ปิดปุ่ม "ก่อนหน้า" ถ้าอยู่หน้าแรก
                 document.getElementById("prevPage").disabled = currentPage === 1;
-                document.getElementById("nextPage").disabled = startIndex + itemsPerPage >= filteredNews.length;
+
+                // ปิดปุ่ม "ถัดไป" ถ้าเป็นหน้าสุดท้าย
+                const totalPages = Math.ceil(filteredNews.length / itemsPerPage);
+                document.getElementById("nextPage").disabled = currentPage === totalPages;
             }
 
+            // เรียกใช้ renderNews() เมื่อเข้าหน้าแรก
+            renderNews();
+
+            // เปลี่ยนแท็บเมื่อผู้ใช้คลิก
             document.querySelectorAll(".news-tabs button").forEach(button => {
                 button.addEventListener("click", () => {
+                    // เปลี่ยนสถานะของปุ่ม
                     document.querySelectorAll(".news-tabs button").forEach(btn => btn.classList.remove("active"));
                     button.classList.add("active");
 
+                    // บันทึกค่าหมวดหมู่ใน localStorage
                     currentCategory = button.getAttribute("data-category");
-                    currentPage = 1;
-                    renderNews();
+                    currentPage = 1; // รีเซ็ตหน้าเป็นหน้าแรก
+
+                    localStorage.setItem("activeTab", currentCategory); // เก็บสถานะหมวดหมู่ใน localStorage
+
+                    renderNews(); // แสดงข่าว
                 });
             });
 
+            // Pagination - คลิก "ก่อนหน้า"
             document.getElementById("prevPage").addEventListener("click", () => {
                 if (currentPage > 1) {
                     currentPage--;
@@ -580,14 +605,17 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 }
             });
 
+            // Pagination - คลิก "ถัดไป"
             document.getElementById("nextPage").addEventListener("click", () => {
-                if (currentPage < Math.ceil(newsData.length / itemsPerPage)) {
+                const filteredNews = currentCategory === "all" ? newsData : newsData.filter(news => news.category === currentCategory);
+                const totalPages = Math.ceil(filteredNews.length / itemsPerPage);
+
+                if (currentPage < totalPages) {
                     currentPage++;
                     renderNews();
                 }
             });
 
-            renderNews();
 
    
 
@@ -596,26 +624,14 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 const tabPanes = $(".tab-pane");
                 const newsContainer = $("#news-container");
 
-                     // ฟังก์ชั่นอัพเดทข่าวในแต่ละแท็บ
-                function updateNews(category) {
-                    newsContainer.empty(); // ล้างข้อมูลข่าวเดิม
-
-                    const filteredNews = category === "all" ? newsData : newsData.filter(news => news.category === category);
-
-                    filteredNews.forEach(news => {
-                        const li = $("<li></li>");
-                        li.html(`<a href="#">${news.title}</a> <span class="date">${news.date}</span>`);
-                        newsContainer.append(li);
-                    });
-                }
+        
 
                     function activateTab(tabId) {
                         tabPanes.hide(); // ซ่อนทุกแท็บ
                         $(`#${tabId}-tab-pane`).show(); // แสดงแท็บที่ถูกเลือก
                         tabButtons.removeClass("active");
                         $(`[data-category="${tabId}"]`).addClass("active");
-                          // อัพเดตข่าวตามหมวดหมู่ที่เลือก
-                        updateNews(tabId);
+                        
                     }
               
 
