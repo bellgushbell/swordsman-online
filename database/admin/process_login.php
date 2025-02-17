@@ -20,8 +20,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($password, $user['password'])) {
             $_SESSION['roles'] = $user['roles'];
             $_SESSION['username'] = $user['username'];
+            $_SESSION['id'] = $user['id'];
             $_SESSION['logged_in'] = true;
-            header("Location: ../../page/admin/ContentManagementLog.php");
+            header("Location: ../../page/admin/content_management_log.php");
             exit();
         } else {
             $_SESSION['error'] = "รหัสผ่านไม่ถูกต้อง";

@@ -1,3 +1,17 @@
+<?php 
+session_start();
+// ตรวจสอบว่า session เริ่มทำงานแล้วหรือยัง
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+    if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+        // ถ้าไม่ได้ล็อกอิน ให้เปลี่ยนเส้นทางไปหน้าล็อกอิน
+        header('Location: login.php');
+        exit();
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="th">
 
@@ -30,17 +44,8 @@
     <div class="wrapper overflow-auto">
 
         <!-- Main Content -->
-        <main class="content">
-            <div class="d-flex justify-content-end mb-3">
-                <div class="card p-3 shadow-sm w-100">
-                    <div class="d-flex align-items-center justify-content-between">
-                        <img src="../../images/Logo SwordMan3-Final-white-transparent.png" alt="Overlay Text"
-                            class="img-fluid w-25 w-md-50">
-
-                        <span class="text-end flex-grow-1">ยินดีต้อนรับ, ผู้ดูแลระบบ</span>
-                    </div>
-                </div>
-            </div>
+        
+        <?php include('navbar.php'); ?>
 
             <div class="main-content">
                 <div class="card-header">
@@ -81,7 +86,7 @@
                 </div>
             </div>
 
-        </main>
+       
     </div>
 
     <!-- Bootstrap JS -->

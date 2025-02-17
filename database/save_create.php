@@ -1,7 +1,11 @@
 <?php
+session_start();
+
 include 'connect_db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $admin_id = $_SESSION['id'] ;
     $type = $_POST['type'];
     $title = $_POST['title'];
     $description = $_POST['description'];
@@ -10,14 +14,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $timestamp = date("Y-m-d H:i:s");
 
     // Insert into the title table
-    $sql_title = "INSERT INTO title (type, title, image, created_at, created_by) VALUES ('$type', '$title', '$image', '$timestamp', '1')";
+    $sql_title = "INSERT INTO title (type, title, image, created_at, created_by) VALUES ('$type', '$title', '$image', '$timestamp', $admin_id)";
     
     if ($conn->query($sql_title) === TRUE) {
         // Get the last inserted id_title
         $id_title = $conn->insert_id;
 
         // Insert into the description table
-        $sql_description = "INSERT INTO description (id_title, description, created_at, created_by) VALUES ('$id_title', '$description', '$timestamp', '1')";
+        $sql_description = "INSERT INTO description (id_title, description, created_at, created_by) VALUES ('$id_title', '$description', '$timestamp', $admin_id)";
 
         if ($conn->query($sql_description) === TRUE) {
             echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
@@ -28,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     showConfirmButton: false,
                     timer: 1500
                 }).then(function() {
-                    window.location.href = '../page/admin/admin.php';
+                    window.location.href = '../page/admin/content_management_log.php';
                 });
             </script>";
         } else {

@@ -9,7 +9,7 @@
                 <a href="javascript:void(0);" class="btn btn-outline-info" onclick="changeCategory('กิจกรรม')">Events</a>
             </div>
         </div>
-        <a href="" class="btn btn-outline-success">Create</a>
+        <a href="../admin/create_view.php" class="btn btn-outline-success">Create</a>
     </div>
 
     <div class="table-container">
