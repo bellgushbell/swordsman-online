@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <!-- Favicons -->
 <link rel="shortcut icon" href="images/shortcut-icon.png">
@@ -144,7 +142,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 <body>
 
     <!-- Navbar -->
-    <nav class="main-nav dark dark-after-scroll transparent stick-fixed wow-menubar">
+    <!-- <nav class="main-nav dark dark-after-scroll transparent stick-fixed wow-menubar">
         <div class=" relative clearfix gradient-bg">
     
     
@@ -284,16 +282,52 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             </script>
     
         </div>
-    </nav>
+    </nav> -->
     <!-- End Navbar -->
 
+  
     <!-- Reward Section -->
     <section class="reward-section">
         <div class="reward-container-rewardpage">
-            <img src="images/Rewardpage/pre-register rewards-no-button.jpg" alt="Reward Tier" class="reward-image">
+            <img src="images/RewardPage/pre-register-rewards-no-button.jpg" alt="Reward Tier" class="reward-image">
         </div>
+<!-- ตัวเลขที่เพิ่มขึ้นเรื่อยๆ -->
+<div id="counter">100,000</div>
+
+        <!-- ปุ่ม App Store และ Google Play -->
+        <div class="store-buttons">
+            <a href="#" class="app-button">
+                <img src="images/PreregisterButtonandReward/ios-button-preregister-button.png" alt="Pre-order on App Store">
+            </a>
+            <a href="#" class="google-button">
+                <img src="images/PreregisterButtonandReward/googleplay-preregister-button.png"
+                    alt="Pre-register on Google Play">
+            </a>
+        </div>
+        
     </section>
+
     <!-- End Reward Section -->
+
+
+  <script>
+ 
+        document.addEventListener("DOMContentLoaded", function () {
+            let counterElement = document.getElementById("counter"); // เลือก div ที่แสดงตัวเลข
+        let count = 100000; // เริ่มต้นที่ 100,000
+
+        function updateCounter() {
+            // สุ่มเพิ่ม 1 ถึง 3
+            let randomIncrease = Math.floor(Math.random() * 3) + 1;
+        count += randomIncrease; // เพิ่มทีละ 1-3
+        counterElement.textContent = count.toLocaleString(); 
+        }
+
+        setInterval(updateCounter, 2000); 
+    });
+
+</script>
+
 
     <!-- Styles -->
     <style>
@@ -303,38 +337,170 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             background-color: black;
             /* เผื่อว่าภาพโหลดไม่ขึ้น */
         }
-.reward-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; /* เปลี่ยนจาก height: 100vh เป็น min-height */
-    width: 100%;
+
+    /* ปรับให้ reward section อยู่กึ่งกลาง */
+    .reward-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh; /* ให้กินพื้นที่เต็มจอ */
+        width: 100%;
+        background-size: contain;
+        background-attachment: fixed;
+        position: relative; /* ตั้งเป็น relative เพื่อให้ store-buttons ยึดตำแหน่งกับมัน */
+    }
+
+    /* ปรับให้ภาพรางวัลอยู่กึ่งกลาง */
+    .reward-container-rewardpage {
+        position: relative; /* ให้เป็นจุดอ้างอิงสำหรับ position absolute */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .reward-image {
+        width: 100%;
+        max-width: auto;
+        height: auto;
+    }
+  
+    #counter {
+        position: absolute;
+        top: 11.7%; 
+        left: 22%;
+        transform: translateX(-50%);
+        font-size: 40px;
+        font-weight: bold;
+        color: white;
+        background: transparent;
+        padding: 10px 20px;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    /* ปุ่ม App Store และ Google Play */
+    .store-buttons {
+        position: absolute;
+        top: 15%; /* กำหนดให้ปุ่มลอยเหนือขอบล่างของ reward image */
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 80px; /* ระยะห่างระหว่างปุ่ม */
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* ปรับขนาดปุ่ม */
+    .store-buttons a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 300px;
+        max-width: 80%;
+    }
+
+    .store-buttons img {
+        width: 100%;
+        height: auto;
+        transition: transform 0.3s ease;
+    }
+
+    /* ทำให้ปุ่มขยายเล็กน้อยตอน hover */
+    .store-buttons img:hover {
+        transform: scale(1.1);
+    }
+
+    /* Responsive มือถือ */
+    @media (max-width: 768px) {
+        .store-buttons {
+            flex-direction: row; /* ให้ปุ่มอยู่แนวตั้ง */
+            gap: 10px;
+        
+        }
+
+        .store-buttons a {
+            width: 120px;
+        }
+
+        #counter {
+            position: absolute;
+            top: 10%; 
+            left: 22%;
+            transform: translateX(-50%);
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            background: transparent;
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
     
-    background-size: contain; /* แสดงภาพทั้งหมด */
-    background-attachment: fixed; /* ทำให้ภาพติดอยู่กับพื้นหลัง */
-}
+    }
 
-        .reward-container {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+  @media (min-width: 400px) and (max-width: 1024px) and (orientation: portrait) {
+        .store-buttons {
+            flex-direction: row;
+            gap: 15px;
+        
         }
 
-        .reward-image {
-            width: 100%;
-            max-width: auto;
-            /* ปรับขนาดภาพให้พอดี */
-            height: auto;
+        .store-buttons a {
+            width: 180px;
         }
 
-        @media (max-width: 768px) {
-            .reward-image {
-                width: 100%;
-                max-width: 100%;
-            }
+        
+        #counter {
+            position: absolute;
+            top: 10.6%; 
+            left: 22%;
+            transform: translateX(-50%);
+            font-size: 30px;
+            font-weight: bold;
+            color: white;
+            background: transparent;
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-align: center;
         }
-    </style>
+
+
+    }
+
+    /* Responsive iPad แนวนอน */
+    @media (max-width: 1024px) and (orientation: landscape) {
+        .store-buttons {
+            flex-direction: row;
+            gap: 15px;
+        
+        }
+
+        .store-buttons a {
+            width: 180px;
+        }
+
+        
+        #counter {
+            position: absolute;
+            top: 11.2%; 
+            left: 22%;
+            transform: translateX(-50%);
+            font-size: 30px;
+            font-weight: bold;
+            color: white;
+            background: transparent;
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+
+    }
+
+        </style>
+
+
 
 
 

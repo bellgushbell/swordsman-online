@@ -1089,9 +1089,9 @@ function init_bg_video() {
             // หากเป็น iOS ซ่อนปุ่มเสียง
             if (isIOS()) {
                 $(".bg-video-button-muted").hide();
-                console.log("iOS detected: Mute button hidden.");
+                // console.log("iOS detected: Mute button hidden.");
             } else {
-                console.log("Non-iOS device detected: Mute button enabled.");
+                // console.log("Non-iOS device detected: Mute button enabled.");
 
                 // สำหรับอุปกรณ์อื่น ให้คงการทำงานของปุ่มเสียงปกติ
                 $(".bg-video-button-muted").click(function () {

@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <!-- <script src="js/layout_link_page.js" defer></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <!-- Favicons -->
@@ -132,7 +130,15 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     <!-- End Meta Pixel Code -->
 
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11490628923"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
+        gtag('config', 'AW-11490628923');
+    </script>
 
 
 
@@ -380,12 +386,12 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                 
                                     <video class="bg-video-mobile" poster="images/webcover-videoimage.jpg" preload="auto" autoplay muted loop
                                         playsinline>
-                                        <source src="video/swordsman-3-video-web-ver01-final-mobile.mp4" type="video/mp4">
+                                        <source src="video/swordsman-3-video-web-ver01-final.mp4" type="video/mp4">
                                     </video>
                                 
-                                    <div class="text-overlay">
+                                    <!-- <div class="text-overlay">
                                         <img src="images/text-video.png" alt="Overlay Text" class="overlay-text" loading="lazy">
-                                    </div>
+                                    </div> -->
                                 </div>
 
 
@@ -849,7 +855,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     // ถ้าพบ element #quote-image ให้แสดงภาพคำคมทันที
     if (quoteImageElement) {
         quoteImageElement.src = randomQuote;
-        console.log("found word", randomQuote);
+       
     } else {
         console.error("❌ ไม่พบ #quote-image ใน DOM ขณะเริ่มต้น");
     }
@@ -997,92 +1003,24 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                     </div>
                 </div> -->
 
-<!-- ปุ่มลงทะเบียนล่วงหน้า -->
-<div class="pre-register-container">
-    <div class="pre-register">
-        <!-- PRE-REGISTER -->
-        <img src="images/PreregisterButtonandReward/preregister-text.jpg" alt="PRE-REGISTER" />
-    </div>
-    <div class="register-buttons">
-        <!-- ปุ่มกดเปิด Modal ลงทะเบียน -->
-        <a href="#" class="register-button" id="openModal">
-            <img src="images/PreregisterButtonandReward/preregister-button.jpg" alt="ลงทะเบียน" />
-        </a>
-        <!-- ปุ่มรางวัล (ลิ้งก์ไปหน้าใหม่) -->
-        <a href="reward.html" class="reward-button" target="_blank" rel="noopener noreferrer">
-            <img src="images/PreregisterButtonandReward/reward-button.jpg" alt="รางวัล" />
-        </a>
-    </div>
-</div>
 
+  
+            <!-- ปุ่มลงทะเบียนล่วงหน้า -->
 
-<!-- Modal ลงทะเบียน -->
-<div id="registerModal" class="modal">
-    <div class="modal-content">
-        <span class="close close-register"></span>
-
-        <!-- ปุ่ม App Store และ Google Play -->
-        <div class="store-buttons">
-            <a href="#" class="app-button">
-                <img src="images/PreregisterButtonandReward/ios-button-preregister-button.png" alt="Pre-order on App Store">
-            </a>
-            <a href="#" class="google-button">
-                <img src="images/PreregisterButtonandReward/googleplay-preregister-button.png" alt="Pre-register on Google Play">
-            </a>
-        </div>
-
-        <!-- ปุ่ม Reward ใต้ปุ่ม iOS และ Google Play -->
-        <div class="reward-container">
-            <a href="reward.html" class="reward-button-register-modal" target="_blank" rel="noopener noreferrer">
-                <img src="images/PreregisterButtonandReward/rewardsbutton.png" alt="รางวัล">
-            </a>
-        </div>
-    </div>
-</div>
-
-
-<!--End Modal -->
-
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-            document.getElementById("registerModal").style.display = "none";
-        });
-
-        // ฟังก์ชันเปิด Modal
-        function openModal(modalId) {
-            document.getElementById(modalId).style.display = "flex";
-        }
-
-        // ฟังก์ชันปิด Modal
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = "none";
-        }
-
-        // เปิด Modal ลงทะเบียน
-        document.getElementById("openModal").addEventListener("click", function (event) {
-            event.preventDefault();
-            openModal("registerModal");
-        });
-
-        // ปิด Modal ลงทะเบียน
-        document.querySelector(".close-register").addEventListener("click", function () {
-            closeModal("registerModal");
-        });
-
-        // ปิด Modal เมื่อคลิกด้านนอก
-        window.addEventListener("click", function (event) {
-            let registerModal = document.getElementById("registerModal");
-            if (event.target === registerModal) {
-                closeModal("registerModal");
-            }
-        });
-</script>
-
-<!--End Script-->
-
+            <div class="pre-register-container">
+                <a href="reward.html" target="_blank" class="pre-register">
+                    <img src="images/PreregisterButtonandReward/preregister-text.png" alt="PRE-REGISTER" />
+                </a>
             </div>
-            <!--End Home Content-->
+      
+
+
+            
+        
+
+
+
+        
 
 
 
@@ -1095,7 +1033,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 </div> -->
             <!--End Scroll Down-->
 
-
+       
 
             </div>
         </section>

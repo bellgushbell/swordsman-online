@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
 <!-- Favicons -->
 <link rel="shortcut icon" href="images/shortcut-icon.png">
 
@@ -543,7 +540,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
             let currentPage = 1;
             const itemsPerPage = 12;
-            let currentCategory = "all";
+            // ใช้ค่า currentCategory จาก localStorage หากมี, ถ้าไม่มีก็ใช้ "all"
+            let currentCategory = localStorage.getItem("activeTab") || "all";
 
             function renderNews() {
                 const newsContainer = document.getElementById("news-container");
@@ -591,18 +589,35 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
             renderNews();
 
-
+   
 
             $(document).ready(function () {
-                    const tabButtons = $(".news-tabs button");
-                    const tabPanes = $(".tab-pane");
+                const tabButtons = $(".news-tabs button");
+                const tabPanes = $(".tab-pane");
+                const newsContainer = $("#news-container");
+
+                     // ฟังก์ชั่นอัพเดทข่าวในแต่ละแท็บ
+                function updateNews(category) {
+                    newsContainer.empty(); // ล้างข้อมูลข่าวเดิม
+
+                    const filteredNews = category === "all" ? newsData : newsData.filter(news => news.category === category);
+
+                    filteredNews.forEach(news => {
+                        const li = $("<li></li>");
+                        li.html(`<a href="#">${news.title}</a> <span class="date">${news.date}</span>`);
+                        newsContainer.append(li);
+                    });
+                }
 
                     function activateTab(tabId) {
                         tabPanes.hide(); // ซ่อนทุกแท็บ
                         $(`#${tabId}-tab-pane`).show(); // แสดงแท็บที่ถูกเลือก
                         tabButtons.removeClass("active");
                         $(`[data-category="${tabId}"]`).addClass("active");
+                          // อัพเดตข่าวตามหมวดหมู่ที่เลือก
+                        updateNews(tabId);
                     }
+              
 
                     // ดึงค่า tab จาก URL parameter
                     const urlParams = new URLSearchParams(window.location.search);
@@ -615,12 +630,16 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
                     activateTab(activeTab);
 
-                    // ตั้งค่า active tab เมื่อกดเปลี่ยนแท็บ
-                    tabButtons.on("click", function () {
-                        const targetTab = $(this).data("category");
-                        activateTab(targetTab);
-                        localStorage.setItem("activeTab", targetTab);
-                    });
+              tabButtons.on("click", function () {
+                    const targetTab = $(this).data("category");
+                    activateTab(targetTab);
+                    localStorage.setItem("activeTab", targetTab); // บันทึกค่าของแท็บที่เลือกใน localStorage
+
+                    // อัพเดต URL ให้มีการเลือกแท็บเพื่อคงสถานะ
+                    const currentUrl = new URL(window.location);
+                    currentUrl.searchParams.set("tab", targetTab);
+                    history.pushState(null, "", currentUrl.toString());
+                });
                 });
 
 

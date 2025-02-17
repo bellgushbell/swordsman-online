@@ -656,313 +656,121 @@ SweetAlert2 alert
 /* ==============================
   Preregister Section
    ============================== */
-
+/* ✅ คง absolute ไว้ และ ปรับ top ให้เหมาะสม */
 .home-content {
     width: 100%;
-
     position: absolute;
     text-align: center;
     top: 80%;
     right: 0%;
 }
 
+/* ✅ ให้ pre-register-container อยู่กลาง home-content */
 .pre-register-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
+/* 🔹 ปรับขนาดปุ่ม */
 .pre-register img {
-    width: 280px;
+    width: 400px;
     max-width: 80%;
+    transition: transform 0.2s ease-in-out;
 }
 
-.register-buttons {
-    display: flex;
-    gap: 80px;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+.pre-register img:hover {
+    transform: scale(1.05);
 }
 
-.register-buttons a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 180px;
-    max-width: 70%;
-}
-
-.register-buttons img {
-    width: 100%;
-    height: auto;
-    transition: transform 0.3s ease;
-}
-
-.register-buttons img:hover {
-    transform: scale(1.1);
-}
-
-/* มือถือ: ปุ่มเรียงแนวตั้ง, ขนาดเล็กลง */
+/* ✅ Mobile แนวตั้ง (Portrait) */
 @media (max-width: 768px) {
     .home-content {
-        bottom: 40%;
+        top: 30%;
     }
 
-    .register-buttons {
+    .pre-register-container {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         flex-direction: column;
         gap: 10px;
     }
 
-    .register-buttons a {
-        width: 150px;
-        max-width: 60%;
-    }
-
     .pre-register img {
-        width: 200px;
+        width: 300px;
     }
 }
 
-/* iPad แนวนอน: ปุ่มเรียงแนวนอน, ขนาดลดลง */
+
+/* ✅ iPad และ Tablet (แนวนอน) */
 @media (max-width: 1024px) and (orientation: landscape) {
     .home-content {
         top: 70%;
     }
 
-    .register-buttons {
+    .pre-register-container {
         flex-direction: row;
         gap: 20px;
     }
 
-    .register-buttons a {
-        width: 160px;
-        max-width: 65%;
-    }
-
     .pre-register img {
-        width: 240px;
+        width: 350px;
     }
 }
 
-/* iPad แนวตั้ง: ปุ่มเรียงแนวนอน, ปรับระยะให้สมดุล */
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+/* ✅ iPad แนวตั้ง */
+@media (max-width: 768px) and (orientation: portrait) {
     .home-content {
-        top: 65%;
+        top: 30% !important;
     }
 
-    .register-buttons {
-        flex-direction: row;
-        gap: 20px;
-    }
-
-    .register-buttons a {
-        width: 170px;
-        max-width: 70%;
+    .pre-register-container {
+        flex-direction: column;
+        gap: 15px;
     }
 
     .pre-register img {
-        width: 250px;
+        width: 350px;
     }
 }
 
 
 
-/*modal*/
-/* ================== STYLES FOR MODAL ================== */
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    align-items: center;
-    justify-content: center;
-}
-
-/* ใช้ภาพที่อัปโหลดเป็นพื้นหลังแทน div */
-.modal-content {
-    position: relative;
-    width: 700px;
-    max-width: 90%;
-    height: 750px;
-    /* ปรับขนาดตามรูป */
-    background: url('/images/PreregisterButtonandReward/pre-register-popup-no-button.jpg') no-repeat center center;
-    background-size: contain;
-    /* ปรับให้รูปพอดี */
-    padding: 40px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    /* ให้ปุ่มลงล่างสุด */
-}
-
-/* ปุ่มปิด */
-.close-register {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    font-size: 30px;
-    color: white;
-    cursor: pointer;
-}
-
-/* ปุ่ม App Store และ Google Play */
-.store-buttons {
-    position: absolute;
-    bottom: 100px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    width: 500px;
-    bottom: 15%;
-}
-
-.app-button img,
-.google-button img {
-    width: 400px;
-    transition: transform 0.2s ease-in-out;
-}
-
-.app-button img:hover,
-.google-button img:hover {
-    transform: scale(1.1);
-}
-
-/* ปุ่ม Reward ใต้ App Store & Google Play */
-.rewardpage {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 300px;
-}
-
-.reward-button-register-modal img {
-    width: 250px;
-    transition: transform 0.2s ease-in-out;
-}
-
-.reward-button-register-modal img:hover {
-    transform: scale(1.1);
-}
-
-/*Modal ปุมhoverนูน*/
-
-/* ปุ่ม Store (App Store & Google Play) */
-.store-buttons a {
-    transition: transform 0.2s ease-in-out;
-}
-
-.store-buttons a:hover {
-    transform: scale(1.1);
-}
-
-.reward-button-register-modal:hover img {
-    transform: scale(1.1);
-}
 
 
 
-/* ============ RESPONSIVE ============ */
-@media (max-width: 768px) {
-    .modal-content {
-        width: 100%;
-        height: 600px;
-        padding: 30px;
+/* ✅ ครอบคลุม iPhone 6-8, iPhone 6-8 Plus, iPhone X, Pixel 2 ในแนวนอน */
+@media (min-width: 667px) and (max-width: 736px) and (orientation: landscape) {
+    .home-content {
+        top: 30% !important;
     }
 
-    .store-buttons {
-        bottom: 30%;
+    .pre-register-container {
+        flex-direction: row;
+        gap: 15px;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 
-    .reward-container {
-        bottom: 22%;
-    }
-
-    .app-button img,
-    .google-button img {
-        width: 250px;
-    }
-
-    .reward-button-register-modal img {
-        width: 150px;
-
-    }
-
-    .close-register {
-        font-size: 24px;
+    .pre-register img {
+        width: 260px;
     }
 }
 
-@media (max-width: 1024px) and (orientation: landscape) {
-    .modal-content {
-        width: 90%;
-        height: 500px;
-        padding: 20px;
-    }
 
-    .store-buttons {
-        bottom: 25%;
-    }
 
-    .reward-container {
-        bottom: 15%;
-    }
 
-    .app-button img,
-    .google-button img {
-        width: 200px;
-    }
 
-    .reward-button-register-modal img {
-        width: 130px;
-    }
-
-    .close-register {
-        font-size: 22px;
-    }
-}
-
-/* สำหรับมือถือแนวนอนขนาดเล็กกว่า */
-@media (max-width: 768px) and (orientation: landscape) {
-    .modal-content {
-        width: 50%;
-        height: auto;
-        padding: 15px;
-    }
-
-    .store-buttons {
-        bottom: 20%;
-
-    }
-
-    .reward-container {
-        bottom: 12%;
-    }
-
-    .app-button img,
-    .google-button img {
-        width: 180px;
-    }
-
-    .reward-button-register-modal img {
-        width: 120px;
-    }
-
-    .close-register {
-        font-size: 20px;
-    }
-}
 
 
 
