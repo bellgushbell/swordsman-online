@@ -1348,7 +1348,8 @@ a.bg-video-button-muted {
 /* Carousel Styling */
 #imageCarousel {
     overflow: hidden;
-
+    position: relative;
+    /* ช่วยให้ carousel คงที่ */
 }
 
 #imageCarousel img {

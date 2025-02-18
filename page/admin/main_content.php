@@ -1,3 +1,10 @@
+<?php  
+
+
+$roles = isset($_SESSION['roles']) ? $_SESSION['roles'] : null;
+
+?>
+
 <div class="main-content">
     <div class="d-flex justify-content-between align-items-center mb-1 p-3 rounded shadow-sm"
         style="background-color: rgba(255, 255, 255, 0.5); backdrop-filter: blur(8px); border-radius: 10px;">
@@ -7,7 +14,12 @@
             <a href="javascript:void(0);" class="btn btn-outline-info" onclick="loadData('โปรโมชั่น')">Promotions</a>
             <a href="javascript:void(0);" class="btn btn-outline-info" onclick="loadData('กิจกรรม')">Events</a>
         </div>
-        <a href="../../page/admin/create_view.php" class="btn btn-outline-success">Create</a>
+        <div class="d-flex gap-2">
+            <?php if ($roles == 1) { ?> 
+            <a href="../../page/admin/add_user.php" class="btn btn-outline-danger">Add User</a>
+            <?php }?>
+            <a href="../../page/admin/create_view.php" class="btn btn-outline-success">Create</a>
+        </div>
     </div>
 
     <div class="table-container">
