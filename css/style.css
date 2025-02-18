@@ -2888,6 +2888,13 @@ input.form-control {
     /* เพิ่มระยะห่างระหว่างลูกศรกับปุ่ม */
 }
 
+/* เปลี่ยนสีของ bullet ที่ active */
+.swiper-pagination-bullet-active {
+    background-color: #edb518 !important;
+    /* เปลี่ยนเป็นสีทอง */
+    opacity: 1 !important;
+}
+
 /* ปรับแต่งสำหรับหน้าจอมือถือ */
 @media (max-width: 768px) {
     .swiper-container {
