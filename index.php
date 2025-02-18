@@ -1486,87 +1486,10 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             .video-overlay h3{
                 font-size: 10px;
             }
-
-       /* สำหรับแนวนอนและขนาดหน้าจอทั่วไป */
-@media (max-width: 1024px) and (orientation: landscape) {
-    .gallery-section {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-        gap: 20px; /* เพิ่มระยะห่างระหว่างไอเทม */
-    }
-
-    .character-container img {
-        display: none; /* ซ่อนรูปภาพในโหมด landscape */
-    }
-
-    .character-container {
-        display: none; /* ซ่อน character-container ในโหมด landscape */
-    }
-
-    .gallery-container {
-        flex: 0 0 100%; /* ใช้พื้นที่ทั้งหมด */
-        display: flex;
-        flex-direction: row; /* จัดเรียงไอเทมแนวนอน */
-        gap: 15px; /* เพิ่มระยะห่างระหว่างไอเทม */
-    }
-
-    .gallery-item {
-        background: white;
-        border-radius: 10px;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding-bottom: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        width: 30%; /* เพิ่มขนาดการ์ด */
-    }
-
-    .gallery-item h3 {
-        font-size: 12px;
-        margin-top: 5px;
-        margin-bottom: 0px;
-    }
-
-    .video-overlay::after {
-        content: "▶";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 20px;
-        color: white;
-        font-weight: bold;
-        background: rgba(0, 0, 0, 0.5);
-        padding: 10px 15px;
-        border-radius: 50%;
-    }
-
-    .video-overlay h3 {
-        font-size: 12px; /* ปรับขนาดข้อความใน video overlay */
-    }
-}
-
-/* เพิ่มอีกกรณี ถ้าใช้พวก devices mobile ที่มีหน้าจอแคบ */
-@media (max-width: 768px) and (orientation: landscape) {
-    /* ขยาย/ปรับขนาดตามที่ต้องการ */
-    .gallery-item {
-        width: 45%; /* เพิ่มขนาดการ์ด */
-    }
-
-    .video-overlay::after {
-        font-size: 18px;
-    }
-
-    .gallery-item h3 {
-        font-size: 14px;
-    }
-}
-
-            /* @media (max-width: 1024px) or (orientation: landscape) {
-                  .gallery-section {
+            
+           /* สำหรับแนวนอนและขนาดหน้าจอทั่วไป */
+            @media (max-width: 1024px) and (orientation: landscape) {
+            .gallery-section {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1607,7 +1530,53 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             .video-overlay h3{
                 font-size: 10px;
             }
-            } */
+            }
+
+            /* เพิ่มอีกกรณี ถ้าใช้พวก devices mobile ที่มีหน้าจอแคบ */
+            @media (max-width: 768px) and (orientation: landscape) {
+             .gallery-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            gap: 10px;
+            }
+            .character-container img {
+            display: none;
+            }
+       
+             .character-container {
+            display: none;
+             }
+            .gallery-container {
+            flex: 0 0 100%;
+            display: flex;
+            flex-direction: column;
+             }
+           .gallery-item h3 {
+            font-size: 10px;
+            margin-top: 5px;
+            margin-bottom: 0px;
+            }
+              .video-overlay::after {
+            content: "▶";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 15px;
+            color: white;
+            font-weight: bold;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5px 10px;
+            border-radius: 50%;
+            }
+
+            .video-overlay h3{
+                font-size: 10px;
+            }
+            }
+           
         }
     </style>
     
