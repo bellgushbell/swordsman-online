@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../connect_db.php';  // Include the database connection
+require_once __DIR__ . '/../connect_db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     session_start(); // ตรวจสอบว่าเริ่ม session หรือยัง
@@ -50,6 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt_description->bind_param("issi", $id_title, $description, $timestamp, $admin_id);
 
         if ($stmt_description->execute()) {
+
             // เปลี่ยนไปยังหน้า content_management.php พร้อมส่ง parameter สำเร็จ
             header("Location: ../../page/admin/content_management.php?success=1");
             exit();

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once __DIR__ . '/../connect_db.php';  // Include the database connection
+require_once __DIR__ . '/../connect_db.php';
 
 ini_set('display_errors', 1);
 error_reporting(E_ALL);

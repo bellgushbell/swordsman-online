@@ -1,13 +1,16 @@
 <?php
-session_start();
-
-// ตรวจสอบว่า session เริ่มทำงานแล้วหรือยัง
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
     if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
-        // ถ้าไม่ได้ล็อกอิน ให้เปลี่ยนเส้นทางไปหน้าล็อกอิน
         header('Location: login.php');
         exit();
+    }
+    if (isset($_SESSION['edit_data'])) {
+        $data = $_SESSION['edit_data'];
+        $post = $_SESSION['post'];
+        // แสดงข้อมูลที่ได้รับจาก session
+    } else {
+        $data = ['message' => 'ไม่พบข้อมูลใน session'];
     }
 }
 ?>
@@ -52,7 +55,7 @@ if (session_status() === PHP_SESSION_NONE) {
         <div class="d-flex justify-content-between align-items-center mb-1 p-3 rounded shadow-sm"
             style="background-color: rgba(255, 255, 255, 0.5); backdrop-filter: blur(8px); border-radius: 10px;">
             <h3>Create New Entry</h3>
-            <button class="btn btn-secondary" onclick="window.location.href='content_management.php'">Cancel</button>
+            <button class="btn btn-outline-secondary" onclick="window.location.href='content_management.php'">Cancel</button>
         </div>
         <!-- Main Content -->
 
@@ -60,7 +63,7 @@ if (session_status() === PHP_SESSION_NONE) {
         <div class="content" style="background-color: rgba(255, 255, 255, 0.5); backdrop-filter: blur(8px); border-radius: 10px;">
 
             <div class="card-body">
-                <form action="../../database/admin/save_content.php" method="POST" enctype="multipart/form-data">
+                <form action="../../database/admin/content_create.php" method="POST" enctype="multipart/form-data">
                     <div class="row mb-3">
                         <!-- Left side: Type and Title -->
                         <div class="col-md-6">
@@ -102,7 +105,7 @@ if (session_status() === PHP_SESSION_NONE) {
                             </div>
 
                         </div>
-                        <!-- Description Section (Below both Type and Title, Upload File) -->
+
                         <div class="form-group mb-3">
                             <label for="description" class="form-label">Description</label>
                             <div id="description-editor" class="form-control" style="height: 280px;"></div>
@@ -111,7 +114,6 @@ if (session_status() === PHP_SESSION_NONE) {
 
                         <!-- Action Buttons -->
                         <div class="form-actions d-flex justify-content-end">
-                            <!-- <button type="button" class="btn btn-secondary" onclick="window.location.href = document.referrer">Cancel</button> -->
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </div>
@@ -121,4 +123,4 @@ if (session_status() === PHP_SESSION_NONE) {
         </div>
     </div>
 
-    <?php include('footer_create_view.php'); ?>
+    <?php include('footer_content_admin.php'); ?>

@@ -1,105 +1,128 @@
 <?php
-    session_start();
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add New User</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New User</title>
+
+    <!-- Google Fonts: IBM Plex Sans Thai -->
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons & Tooltip -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../css/admin/style.css">
+    <link rel="stylesheet" href="../../css/admin/responsive.css">
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+        .form-container {
+            padding: 0 20px;
+            /* เพิ่ม padding ซ้ายขวา */
+            width: 100%;
+            /* กำหนดความกว้างเต็ม */
+            max-width: 400px;
+            /* กำหนดความกว้างสูงสุด */
+            /* margin: 0 auto; */
+            /* จัดกลางฟอร์ม */
+            margin: 60px auto;
         }
-        .wrapper {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .card-header {
-            background: #007bff;
-            color: #fff;
-            padding: 10px;
-            border-radius: 5px 5px 0 0;
-        }
-        .card-body {
-            padding: 20px;
-        }
-        .card-body div {
+
+        .form-container div {
             margin-bottom: 15px;
         }
-        label {
+
+        .form-container label {
             display: block;
             margin-bottom: 5px;
+            font-weight: bold;
         }
-        input[type="text"],
-        input[type="email"],
-        input[type="password"] {
+
+        .form-container input {
             width: 100%;
-            padding: 10px;
+            padding: 8px;
             border: 1px solid #ccc;
-            border-radius: 5px;
+            border-radius: 4px;
         }
-        .button-container {
+
+        .form-actions {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
         }
-        button {
-            padding: 10px 20px;
+
+        .form-actions button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 4px;
             cursor: pointer;
         }
-        button[type="button"] {
-            background: #6c757d;
-            color: #fff;
-        }
-        button[type="submit"] {
-            background: #007bff;
-            color: #fff;
+
+        .form-actions button:hover {
+            background-color: #45a049;
         }
     </style>
-</head>
-<body>
-<?php include('header.php'); ?>
 
-<div class="wrapper">
-    <!-- Navbar -->
-    <?php include('navbar.php'); ?>
-    <div class="main-content">
-        <div class="card-header">
+</head>
+
+<body>
+
+
+    <div class="wrapper">
+        <!-- Navbar -->
+        <?php include('navbar.php'); ?>
+        <div class="d-flex justify-content-between align-items-center mb-1 p-3 rounded shadow-sm"
+            style="background-color: rgba(255, 255, 255, 0.5); backdrop-filter: blur(8px); border-radius: 10px;">
             <h3>Add New User</h3>
+            <button class="btn btn-outline-secondary" onclick="window.location.href='content_management.php'">Cancel</button>
         </div>
-        <div class="card-body">
-            <form action="../../database/save_add_user.php" method="POST">
-                <div>
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" required>
-                </div>
-            
-                <div>
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <div>
-                    <label for="username">First name:</label>
-                    <input type="text" id="first_name" name="first_name" required>
-                </div>
-                <div>
-                    <label for="username">Last name:</label>
-                    <input type="text" id="last_name" name="last_name" required>
-                </div>
-                <div class="button-container">
-                    <button type="button" onclick="window.location.href='content_management.php'">Cancel</button>
-                    <button type="submit">Add User</button>
-                </div>
-            </form>
+        <div class="content" style="background-color: rgba(255, 255, 255, 0.5); backdrop-filter: blur(8px); border-radius: 10px;">
+
+            <div class="card-body ">
+                <form action="../../database/admin/user_create.php" method="POST" class="form-container">
+                    <div>
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+
+                    <div>
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+
+                    <div>
+                        <label for="first_name">First name:</label>
+                        <input type="text" id="first_name" name="first_name" required>
+                    </div>
+
+                    <div>
+                        <label for="last_name">Last name:</label>
+                        <input type="text" id="last_name" name="last_name" required>
+                    </div>
+
+                    <div class="form-actions d-flex justify-content-end">
+                        <button type="submit">Add User</button>
+                    </div>
+                </form>
+            </div>
+
         </div>
     </div>
-</div>
 
 </body>
+
 </html>

@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../connect_db.php';  // Include the database connection
+require_once __DIR__ . '/../connect_db.php';
 
 // อ่านข้อมูลที่ส่งมาจาก frontend
 $data = json_decode(file_get_contents('php://input'), true);

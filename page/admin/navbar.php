@@ -11,16 +11,12 @@ if (preg_match('/^[a-zA-Z0-9]*$/', $username)) {
 <!-- navbar.php -->
 <div class="d-flex justify-content-end mb-3">
     <div class=" p-1 shadow-sm w-100" style="background-color: transparent;  box-shadow: none;">
-
-
         <div class="d-flex align-items-center justify-content-between">
             <!-- โลโก้ -->
             <img src="../../images/Logo SwordMan3-Final-white-transparent.png"
                 alt="Overlay Text" class="img-fluid w-25 w-md-50">
-
             <!-- ชื่อผู้ใช้ & ไอคอนออกจากระบบ -->
             <div class="d-flex align-items-center flex-grow-1 justify-content-end">
-
                 <div class="p-1 text-center">
                     <!-- เอากรอบออกโดยการลบคลาส card -->
                     <span class="fw-bold text-primary" style="font-size: 50px;"><?php echo $username; ?></span>
@@ -29,8 +25,6 @@ if (preg_match('/^[a-zA-Z0-9]*$/', $username)) {
                         <div id="currentDateTime"></div>
                     </span> <!-- แสดงวันที่และเวลา -->
                 </div>
-
-
                 <button id="logoutBtn" class="btn btn-light rounded-circle d-flex align-items-center justify-content-center"
                     style="width: 32px; height: 32px;" data-bs-toggle="tooltip" data-bs-placement="top" title="Logout">
                     <i class="bi bi-box-arrow-right fs-6"></i>
@@ -42,3 +36,4 @@ if (preg_match('/^[a-zA-Z0-9]*$/', $username)) {
 
 <!-- เชื่อมโยงไฟล์ datetime.js -->
 <script src="../../js/datetime.js"></script>
+<script src="../../js/logout.js"></script>

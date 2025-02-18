@@ -2,38 +2,12 @@
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-
-
-<!-- Script สำหรับ Tooltip -->
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-        var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl);
-        });
-
-        // ฟังก์ชัน Logout
-        document.getElementById("logoutBtn").addEventListener("click", function() {
-            fetch('logout.php', {
-                    method: 'POST'
-                }) // ส่งคำขอไปที่ logout.php
-                .then(response => {
-                    if (response.ok) {
-                        window.location.href = 'login.php'; // ไปที่หน้า Login
-                    }
-                });
-        });
-    });
-</script>
-
-
 <!-- Script สำหรับการเปลี่ยนหมวดหมู่ -->
 <script>
     function changeCategory(category, page = 1) {
-        // ส่งคำขอไปยัง get_content.php ผ่าน AJAX
         var xhr = new XMLHttpRequest();
 
-        xhr.open('POST', '../../database/admin/get_content.php', true);
+        xhr.open('POST', '../../database/admin/content_read.php', true);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
         // ในฟังก์ชัน changeCategory
@@ -88,7 +62,8 @@
                 '<td>' + content.created_at + '</td>' +
                 '<td>' + content.first_name + '</td>' +
                 '<td>' +
-                '<button class="btn btn-outline-warning btn-sm  me-2"><i class="bi bi-pencil"></i></button>' +
+                '<button class="btn btn-outline-warning btn-sm me-2 edit-btn" data-id="' + content.id + '" data-title="' + content.title + '" data-type="' + content.type + '" data-image="' + content.image + '"><i class="bi bi-pencil"></i></button>' +
+
                 '<button class="btn btn-outline-danger btn-sm delete-btn" data-id="' + content.id + '" data-image="' + content.image + '"><i class="bi bi-trash3"></i></button>' +
                 '</td>' +
                 '</tr>';
@@ -147,6 +122,16 @@
         });
 
 
+
+        // ฟังก์ชันแก้ไขข้อมูล
+        document.querySelectorAll('.edit-btn').forEach(function(editButton) {
+            editButton.addEventListener('click', function() {
+                var id = editButton.getAttribute('data-id');
+                // ส่งไปที่หน้าแก้ไขโดยส่ง id ผ่าน URL
+                window.location.href = "../../database/admin/content_update.php?id=" + id;
+            });
+        });
+
     }
 
     function updatePagination(currentPage, totalPages, category) {
@@ -199,7 +184,7 @@
 
     // ฟังก์ชันการลบข้อมูล
     function deleteDataFromDatabase(id, image) {
-        return fetch('../../database/admin/delete_content.php', {
+        return fetch('../../database/admin/content_delete.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -232,9 +217,6 @@
             });
     }
 
-
-
-
     // โหลดหน้าเสร็จให้ดึงข้อมูล "ทั้งหมด" อัตโนมัติ
     window.onload = function() {
         changeCategory('ทั้งหมด');
@@ -246,6 +228,7 @@
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const urlParams = new URLSearchParams(window.location.search);

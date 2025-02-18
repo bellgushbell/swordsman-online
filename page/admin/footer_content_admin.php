@@ -19,6 +19,9 @@
                     [{
                         'align': []
                     }],
+                    [{
+                        'size': ['small', 'medium', 'large', 'huge'] // เพิ่มส่วนนี้
+                    }],
                     ['clean']
                 ]
             }
