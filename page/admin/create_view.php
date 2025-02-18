@@ -72,13 +72,13 @@ if (session_status() === PHP_SESSION_NONE) {
                             <label for="name">Title</label>
                             <input type="text" class="form-control" id="title" name="title" placeholder="Enter name" required>
                         </div>
-                        <div class="form-group mb-3">
+                        <!-- <div class="form-group mb-3">
                             <label for="upload">Upload File</label>
                             <input type="file" class="form-control" id="upload" name="upload_title">
                             <div class="mt-3">
                                 <img id="preview" class="img-fluid" style="display: none; max-height: 200px;">
                             </div>
-                        </div>
+                        </div> -->
 
                         <!-- Upload File Section -->
                         <div class="col-md-6 d-flex flex-column align-items-center justify-content-center text-center">
