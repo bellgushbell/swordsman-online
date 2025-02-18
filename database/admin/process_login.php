@@ -13,8 +13,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
 
-
-
     if ($user) {
         // ตรวจสอบรหัสผ่าน (ใช้ password_verify หากรหัสผ่านถูกเข้ารหัส)
         if (password_verify($password, $user['password'])) {
@@ -22,7 +20,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['username'] = $user['username'];
             $_SESSION['id'] = $user['id'];
             $_SESSION['logged_in'] = true;
-            header("Location: ../../page/admin/content_management.php");
+
+            // เพิ่มวันที่และเวลาปัจจุบันในเซสชัน
+            // เก็บเวลาปัจจุบันใน sessionStorage ด้วย JavaScript
+            echo "<script>
+           sessionStorage.setItem('currentDateTime', '" . date('l, F j, Y g:i A') . "');
+           window.location = '../../page/admin/content_management.php';
+         </script>";
+
+            // header("Location: ../../page/admin/content_management.php");
             exit();
         } else {
             $_SESSION['error'] = "รหัสผ่านไม่ถูกต้อง";

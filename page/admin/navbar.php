@@ -1,10 +1,11 @@
 <?php
 $username = isset($_SESSION['username']) ? $_SESSION['username'] : "Administrator";
-// ตรวจสอบถ้าชื่อผู้ใช้เป็นภาษาอังกฤษให้แปลงเป็นตัวพิมพ์ใหญ่
+
+// แปลงชื่อผู้ใช้เป็นตัวพิมพ์ใหญ่
 if (preg_match('/^[a-zA-Z0-9]*$/', $username)) {
     $username = strtoupper($username); // แปลงเป็นตัวพิมพ์ใหญ่
 }
-$currentDateTime = date("l, F j, Y g:i A"); // รูปแบบของวันที่และเวลา
+
 ?>
 
 <!-- navbar.php -->
@@ -24,7 +25,9 @@ $currentDateTime = date("l, F j, Y g:i A"); // รูปแบบของวั
                     <!-- เอากรอบออกโดยการลบคลาส card -->
                     <span class="fw-bold text-primary" style="font-size: 50px;"><?php echo $username; ?></span>
                     <br>
-                    <span class="text-muted" style="font-size: 0.8rem;" id="currentDateTime"><?php echo $currentDateTime; ?></span> <!-- แสดงวันที่และเวลา -->
+                    <span class="text-muted" style="font-size: 0.8rem;" id="currentDateTime">
+                        <div id="currentDateTime"></div>
+                    </span> <!-- แสดงวันที่และเวลา -->
                 </div>
 
 
@@ -36,3 +39,6 @@ $currentDateTime = date("l, F j, Y g:i A"); // รูปแบบของวั
         </div>
     </div>
 </div>
+
+<!-- เชื่อมโยงไฟล์ datetime.js -->
+<script src="../../js/datetime.js"></script>

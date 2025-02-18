@@ -17,13 +17,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($category === 'ทั้งหมด') {
             $countQuery = "SELECT COUNT(*) AS total FROM title";
-            $query = "SELECT t.type, t.title, t.image, t.created_at, t.created_by, a.first_name 
+            $query = "SELECT  t.id, t.type, t.title, t.image, t.created_at, t.created_by, a.first_name 
                       FROM title t  
                       LEFT JOIN admin_user a ON t.created_by = a.id 
                       LIMIT $startIndex, $itemsPerPage";
         } else {
             $countQuery = "SELECT COUNT(*) AS total FROM title WHERE type = '$category'";
-            $query = "SELECT t.type, t.title, t.image, t.created_at, t.created_by, a.first_name 
+            $query = "SELECT t.id, t.type, t.title, t.image, t.created_at, t.created_by, a.first_name 
                       FROM title t  
                       LEFT JOIN admin_user a ON t.created_by = a.id 
                       WHERE type = '$category' 
