@@ -1,6 +1,6 @@
 body {
     font-family: 'IBM Plex Sans Thai', sans-serif !important;
-    background: url('/swordsman-online/images/background-pic.jpg') no-repeat center center;
+    background: url('../../images/background-pic.jpg') no-repeat center center;
 }
 
 /* กำหนดความกว้างสูงสุดให้กับ wrapper และจัดกลาง */
