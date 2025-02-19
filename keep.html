@@ -1,0 +1,276 @@
+<section class="page-section-news" id="news"
+    style="background: url('images/background/bg-gold-news-section.png') no-repeat center center; background-size: cover;">
+    <div class="container">
+        <div class="row gy-4">
+
+            <div class="col-12 col-lg-6">
+
+
+                <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="images/imageCarousel1.jpg" class="d-block" alt="Image 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/imageCarousel2.jpg" class="d-block" alt="Image 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/imageCarousel3.jpg" class="d-block" alt="Image 3">
+                        </div>
+                    </div>
+
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+
+                    <div class="carousel-indicators-custom">
+                        <span class="indicator active" data-bs-target="#imageCarousel" data-bs-slide-to="0"></span>
+                        <span class="indicator" data-bs-target="#imageCarousel" data-bs-slide-to="1"></span>
+                        <span class="indicator" data-bs-target="#imageCarousel" data-bs-slide-to="2"></span>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <!-- News and Promotion Select Tab -->
+            <div class="col-12 col-lg-6 d-flex flex-column align-items-center">
+
+                <ul class="nav nav-tabs justify-content-center w-100" id="newsTabs" role="tablist">
+                    <li class="nav-item-news" role="presentation">
+                        <button class="nav-link text-center active" id="all-tab" data-tab="all"
+                            type="button">ทั้งหมด</button>
+                    </li>
+                    <li class="nav-item-news" role="presentation">
+                        <button class="nav-link text-center" id="news-tab" data-tab="news" type="button">ประกาศ</button>
+                    </li>
+                    <li class="nav-item-news" role="presentation">
+                        <button class="nav-link text-center" id="events-tab" data-tab="events"
+                            type="button">กิจกรรม</button>
+                    </li>
+                    <li class="nav-item-news" role="presentation">
+                        <button class="nav-link text-center" id="promotions-tab" data-tab="promotions"
+                            type="button">โปรโมชั่น</button>
+                    </li>
+                </ul>
+
+                <div class="tab-content mt-3 w-100" id="newsTabsContent">
+                    <div id="all-tab-pane" class="tab-pane" style="display: block;">
+                        <div class="image-header">
+                            <img src="images/crop-box-news.png" alt="Header Image" class="header-img">
+                        </div>
+                        <ul class="list-group" id="all-news-list"></ul>
+                        <div class="bottom-image-header">
+                            <img src="images/crop-box-news-reverse.png" alt="Header Image" class="bottom-img">
+                        </div>
+                    </div>
+
+                    <div id="news-tab-pane" class="tab-pane" style="display: none;">
+                        <div class="image-header">
+                            <img src="images/crop-box-news.png" alt="Header Image" class="header-img">
+                        </div>
+                        <ul class="list-group" id="news-list"></ul>
+                        <div class="bottom-image-header">
+                            <img src="images/crop-box-news-reverse.png" alt="Header Image" class="bottom-img">
+                        </div>
+                    </div>
+
+                    <div id="events-tab-pane" class="tab-pane" style="display: none;">
+                        <div class="image-header">
+                            <img src="images/crop-box-news.png" alt="Header Image" class="header-img">
+                        </div>
+                        <ul class="list-group" id="events-list"></ul>
+                        <div class="bottom-image-header">
+                            <img src="images/crop-box-news-reverse.png" alt="Header Image" class="bottom-img">
+                        </div>
+                    </div>
+
+                    <div id="promotions-tab-pane" class="tab-pane" style="display: none;">
+                        <div class="image-header">
+                            <img src="images/crop-box-news.png" alt="Header Image" class="header-img">
+                        </div>
+                        <ul class="list-group" id="promotions-list"></ul>
+                        <div class="bottom-image-header">
+                            <img src="images/crop-box-news-reverse.png" alt="Header Image" class="bottom-img">
+                        </div>
+                    </div>
+
+                    <div class="news-more-btn">
+                        <a href="/newspromotion.html" target="_blank" class="btn-more">เพิ่มเติม</a>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            const tabButtons = $(".nav-link");
+            const tabPanes = $(".tab-pane");
+
+            function activateTab(tabId) {
+                // ซ่อน tab-pane ทั้งหมด
+                tabPanes.hide();
+                // แสดง tab-pane ที่เลือก
+                $(`#${tabId}-tab-pane`).show();
+                // ตั้งค่า active ให้ปุ่ม
+                tabButtons.removeClass("active");
+                $(`[data-tab="${tabId}"]`).addClass("active");
+                // บันทึกค่า active tab ลง localStorage
+                localStorage.setItem("activeTab", tabId);
+            }
+
+            // เพิ่ม event listener ให้ปุ่มทั้งหมด
+            tabButtons.on("click", function () {
+                const targetTab = $(this).data("tab");
+                activateTab(targetTab);
+            });
+
+            // กำหนดค่า default เป็น "all" ถ้าไม่มีค่าใน localStorage
+            const storedTab = localStorage.getItem("activeTab") || "all";
+            activateTab(storedTab);
+
+            // ดักจับการคลิกปุ่มเพิ่มเติม และส่งค่า active tab ไป newspromotion.html
+            $(".btn-more").on("click", function (e) {
+                e.preventDefault();
+                const activeTab = localStorage.getItem("activeTab") || "all";
+                window.location.href = `/newspromotion.html?tab=${activeTab}`;
+            });
+        });
+
+
+
+        document.querySelectorAll('.carousel-indicators-custom .indicator').forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                // เลื่อน Carousel ไปยัง Slide ที่ถูกเลือก
+                const carousel = document.querySelector('#imageCarousel');
+                const carouselInstance = bootstrap.Carousel.getInstance(carousel);
+                carouselInstance.to(index);
+
+                // กำหนด Active Class ให้ Indicators
+                document.querySelectorAll('.carousel-indicators-custom .indicator').forEach(el => el.classList.remove('active'));
+                indicator.classList.add('active');
+            });
+        });
+
+        // อัปเดต Active Class ระหว่างเลื่อน Slide
+        const carouselElement = document.querySelector('#imageCarousel');
+        carouselElement.addEventListener('slid.bs.carousel', (e) => {
+            const index = e.to;
+            document.querySelectorAll('.carousel-indicators-custom .indicator').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.carousel-indicators-custom .indicator')[index].classList.add('active');
+        });
+
+
+        // ข้อมูลข่าวในรูปแบบ array
+        const newsData = [
+            // News (ประกาศ)
+            { title: "Golden eyes and jade claws!", category: "news", date: "2025/01/03" },
+            { title: "Three years of Jianghu!", category: "news", date: "2024/12/19" },
+            { title: "Third Anniversary Celebration!", category: "news", date: "2024/12/18" },
+            { title: "The third anniversary super server!", category: "news", date: "2024/12/16" },
+            { title: "New Battle Mode Announced!", category: "news", date: "2024/11/20" },
+            { title: "New Pet System Update!", category: "news", date: "2024/11/05" },
+            { title: "Server Maintenance Notice", category: "news", date: "2024/06/20" },
+            { title: "New Expansion Pack Released!", category: "news", date: "2024/07/15" },
+            { title: "Legendary Weapons Release!", category: "news", date: "2025/02/01" },
+            { title: "Jianghu’s Anniversary Rewards!", category: "news", date: "2025/01/10" },
+            { title: "Jianghu Winter Update!", category: "news", date: "2025/01/20" },
+            { title: "Exclusive Holiday Gear Released!", category: "news", date: "2024/12/25" },
+            { title: "Jianghu Mobile 2.0 Update!", category: "news", date: "2025/01/15" },
+            { title: "Introducing the New Battle Arena!", category: "news", date: "2025/01/28" },
+            { title: "Winter Festival Coming Soon!", category: "news", date: "2025/02/10" },
+            // Events (กิจกรรม)
+            { title: "New cute pet Abu is online!", category: "events", date: "2024/12/05" },
+            { title: "Spring Festival Bonus!", category: "events", date: "2024/02/10" },
+            { title: "Valentine's Day Special!", category: "events", date: "2024/02/14" },
+            { title: "Jianghu's Summer Festival!", category: "events", date: "2024/08/22" },
+            { title: "Mid-Autumn Festival Events!", category: "events", date: "2024/09/21" },
+            { title: "Halloween Special Edition!", category: "events", date: "2024/10/31" },
+            { title: "Winter Wonderland Event!", category: "events", date: "2024/12/10" },
+            { title: "New Year’s Countdown Special!", category: "events", date: "2025/01/01" },
+            { title: "Spring Festival Parade!", category: "events", date: "2025/03/01" },
+            { title: "Easter Egg Hunt Challenge!", category: "events", date: "2025/04/15" },
+
+            // Promotions (โปรโมชั่น)
+            { title: "Big Discount Shopping!", category: "promotions", date: "2024/10/21" },
+            { title: "White Feathered Fairy Mount!", category: "promotions", date: "2024/10/16" },
+            { title: "Limited Edition Outfits!", category: "promotions", date: "2024/03/05" },
+            { title: "Back-to-School Promotion!", category: "promotions", date: "2024/09/01" },
+            { title: "Limited Edition Weapon Skins!", category: "promotions", date: "2024/09/10" },
+            { title: "Cyber Monday Exclusive Deals!", category: "promotions", date: "2024/11/29" },
+            { title: "Year-End Clearance Sale!", category: "promotions", date: "2024/12/20" },
+            { title: "Valentine’s Gift Shop!", category: "promotions", date: "2025/02/14" },
+            { title: "Spring Mega Sale!", category: "promotions", date: "2025/03/20" },
+            { title: "Flash Sale: 50% off!", category: "promotions", date: "2025/04/01" }
+        ];
+
+        // เรียงลำดับจากใหม่ -> เก่า
+        newsData.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+
+
+        // ฟังก์ชันแสดงข่าว 6 รายการแรกของแต่ละหมวดหมู่
+        function renderNews(category, elementId) {
+            const container = document.getElementById(elementId);
+            container.innerHTML = "";
+
+            let filteredNews = category === "all" ? newsData : newsData.filter(news => news.category === category);
+            const limitedNews = filteredNews.slice(0, 6);
+
+            limitedNews.forEach(news => {
+                const li = document.createElement("li");
+                li.classList.add("list-group-item");
+                li.innerHTML = `
+                            <div class="news-item">
+                            <a href="#" class="text-decoration-none">${news.title}</a>
+                            <span class="date">${news.date}</span>
+                            </div>`;
+                container.appendChild(li);
+            });
+        }
+
+
+        // เรียกใช้งานสำหรับทุก Tab
+        renderNews("all", "all-news-list");
+        renderNews("news", "news-list");
+        renderNews("events", "events-list");
+        renderNews("promotions", "promotions-list");
+
+
+
+    </script>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

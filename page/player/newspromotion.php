@@ -1,5 +1,5 @@
 <!-- Favicons -->
-<link rel="shortcut icon" href="images/shortcut-icon.png">
+<link rel="shortcut icon" href="../../images/shortcut-icon.png">
 
 <!-- 
 <div id="header-container"></div> -->
@@ -20,8 +20,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
     <!-- <link rel="stylesheet" href="css/style-responsive.css">
     <link rel="stylesheet" href="css/vertical-rhythm.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
@@ -127,6 +127,21 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             src="https://www.facebook.com/tr?id=1184062776628862&ev=PageView&noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
 
+
+   <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11490628923"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'AW-11490628923');
+    </script>
+
+
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
     <!-- framer motion -->
     <!-- <script src="https://unpkg.com/framer-motion/dist/framer-motion.umd.min.js"></script> -->
 
@@ -148,7 +163,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             <div class="nav-logo-wrap local-scroll">
                 <a href="#" class="logo">
 
-                    <img src="images/Logo SwordMan3-Final-white-transparent.png" alt="Company logo" width="250"
+                    <img src="../../images/Logo SwordMan3-Final-white-transparent.png" alt="Company logo" width="250"
                         height="50" class="logo-white" />
                 </a>
 
@@ -235,7 +250,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 <a href="#" class="btn d-flex align-items-center gap-2 dropdown-toggle" id="memberDropdown"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     |
-                    <img src="images/member-icon.gif" alt="Member Icon" width="30" />
+                    <img src="../../images/member-icon.gif" alt="Member Icon" width="30" />
                     สมาชิก
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="memberDropdown">
@@ -260,7 +275,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                             Swal.fire({
                                 html: `
                         <div style="text-align: center;">
-                            <img src="images/error-icon.png" alt="Error Icon" style="width: 100px; height: auto; " />
+                            <img src="../../images/error-icon.png" alt="Error Icon" style="width: 100px; height: auto; " />
                             
                             <h5><br>เร็วๆ นี้!</h5>
                         </div>
@@ -290,7 +305,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
     <style>
         .news-banner {
-            background: url('images/webcover2560x1440.jpg') no-repeat top center;
+            background: url('../../images/webcover2560x1440.jpg') no-repeat top center;
             background-size: cover;
             height: 300px;
             display: flex;
@@ -668,13 +683,13 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
     <!--JS -->
-    <script src="js/jquery.min.js"></script>
+    <script src="../../js/jquery.min.js"></script>
     <!-- <script src="js/jquery.easing.1.3.js"></script> -->
-    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="../../js/bootstrap.bundle.min.js"></script>
     <!-- <script src="js/SmoothScroll.js"></script> -->
-    <script src="js/jquery.scrollTo.min.js" defer></script>
-    <script src="js/jquery.localScroll.min.js" defer></script>
-    <script src="js/jquery.viewport.mini.js" defer></script>
+    <script src="../../js/jquery.scrollTo.min.js" defer></script>
+    <script src="../../js/jquery.localScroll.min.js" defer></script>
+    <script src="../../js/jquery.viewport.mini.js" defer></script>
     <!-- <script src="js/jquery.parallax-1.1.3.js"></script>
     <script src="js/jquery.fitvids.js"></script>
     <script src="js/owl.carousel.min.js"></script>
@@ -686,7 +701,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     <script src="js/wow.min.js" defer></script>
     <script src="js/morphext.js" defer></script>
     <script src="js/typed.min.js" defer></script> -->
-    <script src="js/all.js"></script>
+    <script src="../../js/all.js"></script>
     <!-- <script src="js/contact-form.js" defer></script> -->
     <!-- <script src="js/jquery.ajaxchimp.min.js"></script>
     <script src="js/objectFitPolyfill.min.js" defer></script>

@@ -143,6 +143,10 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
 
+<!-- axios -->
+ <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+
 <!-- framer motion -->
     <!-- <script src="https://unpkg.com/framer-motion/dist/framer-motion.umd.min.js"></script> -->
 
@@ -1720,7 +1724,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                 <div class="image-header">
                                     <img src="images/crop-box-news.png" alt="Header Image" class="header-img">
                                 </div>
-                                <ul class="list-group" id="news-list"></ul>
+                                <ul class="list-group" id="ข่าว-news-list"></ul>
                                 <div class="bottom-image-header">
                                     <img src="images/crop-box-news-reverse.png" alt="Header Image" class="bottom-img">
                                 </div>
@@ -1730,7 +1734,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                 <div class="image-header">
                                     <img src="images/crop-box-news.png" alt="Header Image" class="header-img">
                                 </div>
-                                <ul class="list-group" id="events-list"></ul>
+                                <ul class="list-group" id="กิจกรรม-news-list"></ul>
                                 <div class="bottom-image-header">
                                     <img src="images/crop-box-news-reverse.png" alt="Header Image" class="bottom-img">
                                 </div>
@@ -1740,14 +1744,37 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                 <div class="image-header">
                                     <img src="images/crop-box-news.png" alt="Header Image" class="header-img">
                                 </div>
-                                <ul class="list-group" id="promotions-list"></ul>
+                                <ul class="list-group" id="โปรโมชั่น-news-list"></ul>
                                 <div class="bottom-image-header">
                                     <img src="images/crop-box-news-reverse.png" alt="Header Image" class="bottom-img">
                                 </div>
                             </div>
                     
                             <div class="news-more-btn">
-                                <a href="/newspromotion.html" target="_blank" class="btn-more">เพิ่มเติม</a>
+              <a href="javascript:void(0);" class="btn-more" id="openPromotionLink" target="_blank">เพิ่มเติม</a>
+
+            <script>
+                // รอให้ DOM โหลดเสร็จ
+                document.addEventListener('DOMContentLoaded', function() {
+                    // ดึงค่าจาก localStorage สำหรับ 'activeTab' (หรือค่า default เป็น 'all')
+                    const activeTab = localStorage.getItem("activeTab") || "all";  
+
+                    // สร้าง URL ใหม่ที่มีพารามิเตอร์ tab
+                    const url = `page/player/newspromotion.php?tab=${activeTab}`;
+
+                    // ตั้งค่า href ของลิงก์โดยใช้ URL ที่ประกอบด้วย activeTab
+                    document.getElementById("openPromotionLink").setAttribute("href", url);
+                });
+            </script>
+
+
+
+
+
+
+
+
+
                             </div>
                         </div>
                     </div>
@@ -1761,38 +1788,36 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
             <script>
                $(document).ready(function () {
-                    const tabButtons = $(".nav-link");
-                    const tabPanes = $(".tab-pane");
+                const tabButtons = $(".nav-link");
+                const tabPanes = $(".tab-pane");
 
-                    function activateTab(tabId) {
-                        // ซ่อน tab-pane ทั้งหมด
-                        tabPanes.hide();
-                        // แสดง tab-pane ที่เลือก
-                        $(`#${tabId}-tab-pane`).show();
-                        // ตั้งค่า active ให้ปุ่ม
-                        tabButtons.removeClass("active");
-                        $(`[data-tab="${tabId}"]`).addClass("active");
-                        // บันทึกค่า active tab ลง localStorage
-                        localStorage.setItem("activeTab", tabId);
-                    }
+                // ฟังก์ชันการแสดงแท็บที่ถูกเลือก
+                function activateTab(tabId) {
+                    // ซ่อน tab-pane ทั้งหมด
+                    tabPanes.hide();
+                    // แสดง tab-pane ที่เลือก
+                    $(`#${tabId}-tab-pane`).show();
+                    // ตั้งค่า active ให้ปุ่ม
+                    tabButtons.removeClass("active");
+                    $(`[data-tab="${tabId}"]`).addClass("active");
+                    // บันทึกค่า active tab ลง localStorage
+                    localStorage.setItem("activeTab", tabId);
 
-                    // เพิ่ม event listener ให้ปุ่มทั้งหมด
-                    tabButtons.on("click", function () {
-                        const targetTab = $(this).data("tab");
-                        activateTab(targetTab);
-                    });
+                    // อัปเดต href ของลิงก์ "เพิ่มเติม" ให้ตรงกับ activeTab
+                    const url = `page/player/newspromotion.php?tab=${tabId}`;
+                    document.getElementById("openPromotionLink").setAttribute("href", url);
+                }
 
-                    // กำหนดค่า default เป็น "all" ถ้าไม่มีค่าใน localStorage
-                    const storedTab = localStorage.getItem("activeTab") || "all";
-                    activateTab(storedTab);
-
-                    // ดักจับการคลิกปุ่มเพิ่มเติม และส่งค่า active tab ไป newspromotion.html
-                    $(".btn-more").on("click", function (e) {
-                        e.preventDefault();
-                        const activeTab = localStorage.getItem("activeTab") || "all";
-                        window.location.href = `/newspromotion.html?tab=${activeTab}`;
-                    });
+                // เพิ่ม event listener ให้ปุ่มทั้งหมด
+                tabButtons.on("click", function () {
+                    const targetTab = $(this).data("tab");
+                    activateTab(targetTab);
                 });
+
+                // กำหนดค่า default เป็น "all" ถ้าไม่มีค่าใน localStorage
+                const storedTab = localStorage.getItem("activeTab") || "all";
+                activateTab(storedTab);
+            });
 
 
 
@@ -1817,83 +1842,54 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                         document.querySelectorAll('.carousel-indicators-custom .indicator')[index].classList.add('active');
                     });
 
-                  
 
 
-                    // ข้อมูลข่าวในรูปแบบ array
-                 const newsData = [
-                        // News (ประกาศ)
-                        { title: "Golden eyes and jade claws!", category: "news", date: "2025/01/03" },
-                        { title: "Three years of Jianghu!", category: "news", date: "2024/12/19" },
-                        { title: "Third Anniversary Celebration!", category: "news", date: "2024/12/18" },
-                        { title: "The third anniversary super server!", category: "news", date: "2024/12/16" },
-                        { title: "New Battle Mode Announced!", category: "news", date: "2024/11/20" },
-                        { title: "New Pet System Update!", category: "news", date: "2024/11/05" },
-                        { title: "Server Maintenance Notice", category: "news", date: "2024/06/20" },
-                        { title: "New Expansion Pack Released!", category: "news", date: "2024/07/15" },
-                        { title: "Legendary Weapons Release!", category: "news", date: "2025/02/01" },
-                        { title: "Jianghu’s Anniversary Rewards!", category: "news", date: "2025/01/10" },
-                        { title: "Jianghu Winter Update!", category: "news", date: "2025/01/20" },
-                        { title: "Exclusive Holiday Gear Released!", category: "news", date: "2024/12/25" },
-                        { title: "Jianghu Mobile 2.0 Update!", category: "news", date: "2025/01/15" },
-                        { title: "Introducing the New Battle Arena!", category: "news", date: "2025/01/28" },
-                        { title: "Winter Festival Coming Soon!", category: "news", date: "2025/02/10" },
-                        // Events (กิจกรรม)
-                        { title: "New cute pet Abu is online!", category: "events", date: "2024/12/05" },
-                        { title: "Spring Festival Bonus!", category: "events", date: "2024/02/10" },
-                        { title: "Valentine's Day Special!", category: "events", date: "2024/02/14" },
-                        { title: "Jianghu's Summer Festival!", category: "events", date: "2024/08/22" },
-                        { title: "Mid-Autumn Festival Events!", category: "events", date: "2024/09/21" },
-                        { title: "Halloween Special Edition!", category: "events", date: "2024/10/31" },
-                        { title: "Winter Wonderland Event!", category: "events", date: "2024/12/10" },
-                        { title: "New Year’s Countdown Special!", category: "events", date: "2025/01/01" },
-                        { title: "Spring Festival Parade!", category: "events", date: "2025/03/01" },
-                        { title: "Easter Egg Hunt Challenge!", category: "events", date: "2025/04/15" },
 
-                        // Promotions (โปรโมชั่น)
-                        { title: "Big Discount Shopping!", category: "promotions", date: "2024/10/21" },
-                        { title: "White Feathered Fairy Mount!", category: "promotions", date: "2024/10/16" },
-                        { title: "Limited Edition Outfits!", category: "promotions", date: "2024/03/05" },
-                        { title: "Back-to-School Promotion!", category: "promotions", date: "2024/09/01" },
-                        { title: "Limited Edition Weapon Skins!", category: "promotions", date: "2024/09/10" },
-                        { title: "Cyber Monday Exclusive Deals!", category: "promotions", date: "2024/11/29" },
-                        { title: "Year-End Clearance Sale!", category: "promotions", date: "2024/12/20" },
-                        { title: "Valentine’s Gift Shop!", category: "promotions", date: "2025/02/14" },
-                        { title: "Spring Mega Sale!", category: "promotions", date: "2025/03/20" },
-                        { title: "Flash Sale: 50% off!", category: "promotions", date: "2025/04/01" }
-                    ];
+                    document.addEventListener('DOMContentLoaded', function() {
+                // ฟังก์ชันเพื่อดึงข้อมูลจาก PHP
+                axios.get('database/news_index.php')  // เปลี่ยน URL เป็นไฟล์ PHP ของคุณที่ส่งข้อมูล JSON
+                    .then(function(response) {
+                        const newsData = response.data; // ข้อมูลที่ได้รับมาในรูปแบบ JSON
+                     
+                        renderNews(newsData, "all"); // แสดงข่าวทั้งหมด
+                        renderNews(newsData, "ข่าว"); // แสดงข่าวประกาศ
+                        renderNews(newsData, "กิจกรรม"); // แสดงข่าวกิจกรรม
+                        renderNews(newsData, "โปรโมชั่น"); // แสดงข่าวโปรโมชั่น
+                    })
+                    .catch(function(error) {
+                        console.error('Error fetching data:', error);
+                    });
 
-                    // เรียงลำดับจากใหม่ -> เก่า
-                    newsData.sort((a, b) => new Date(b.date) - new Date(a.date));
-                
+                // ฟังก์ชันในการแสดงข่าว
+                function renderNews(newsData, category) {
+                    console.log('newsdata', newsData)
+                    const container = document.getElementById(category + "-news-list");
+                    if (container) {  // ตรวจสอบว่า container ไม่เป็น null
+                        container.innerHTML = ""; // ล้างข้อมูลเก่า
 
+                        let filteredNews = category === "" ? newsData : newsData.filter(news => news.type === category);
+                        if (filteredNews.length === 0 && category !== "") {
+                            // ถ้าข้อมูลประเภทนี้ไม่มี ให้ดึงข้อมูลทั้งหมดมาแสดง
+                            filteredNews = newsData;
+                        }
 
-                    // ฟังก์ชันแสดงข่าว 6 รายการแรกของแต่ละหมวดหมู่
-                function renderNews(category, elementId) {
-                        const container = document.getElementById(elementId);
-                        container.innerHTML = "";
-
-                        let filteredNews = category === "all" ? newsData : newsData.filter(news => news.category === category);
-                        const limitedNews = filteredNews.slice(0, 6);
+                        const limitedNews = filteredNews.slice(0, 6);  // แสดงแค่ 6 รายการ
 
                         limitedNews.forEach(news => {
                             const li = document.createElement("li");
                             li.classList.add("list-group-item");
                             li.innerHTML = `
-                            <div class="news-item">
-                            <a href="#" class="text-decoration-none">${news.title}</a>
-                            <span class="date">${news.date}</span>
-                            </div>`;
+                                <div class="news-item">
+                                    <a href="#" class="text-decoration-none">${news.title}</a>
+                                    <span class="date">${news.created_at}</span>
+                                </div>`;
                             container.appendChild(li);
                         });
+                    } else {
+                        console.error(`Cannot find the container with id: ${category}-news-list`);
                     }
-
-
-                    // เรียกใช้งานสำหรับทุก Tab
-                    renderNews("all", "all-news-list");
-                    renderNews("news", "news-list");
-                    renderNews("events", "events-list");
-                    renderNews("promotions", "promotions-list");
+                }
+            });
 
 
 
