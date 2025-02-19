@@ -10,7 +10,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url('/swordsman-online/images/background-pic.jpg') no-repeat center center;
+    background: url('../../images/background-pic.jpg') no-repeat center center;
     background-size: cover;
 }
 
