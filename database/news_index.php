@@ -3,7 +3,7 @@
 include __DIR__ . '/connect_db.php';
 
 // กำหนดคำสั่ง SQL
-$query = "SELECT * FROM title"; 
+$query = "SELECT * FROM title order by id desc"; 
 
 // รันคำสั่ง SQL
 $result = mysqli_query($conn, $query);

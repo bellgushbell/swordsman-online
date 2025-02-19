@@ -1767,14 +1767,6 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 });
             </script>
 
-
-
-
-
-
-
-
-
                             </div>
                         </div>
                     </div>
@@ -1844,8 +1836,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
 
-
-                    document.addEventListener('DOMContentLoaded', function() {
+                /*axios news promotion response*/    
+                document.addEventListener('DOMContentLoaded', function() {
                 // ฟังก์ชันเพื่อดึงข้อมูลจาก PHP
                 axios.get('database/news_index.php')  // เปลี่ยน URL เป็นไฟล์ PHP ของคุณที่ส่งข้อมูล JSON
                     .then(function(response) {
@@ -1862,7 +1854,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
                 // ฟังก์ชันในการแสดงข่าว
                 function renderNews(newsData, category) {
-                    console.log('newsdata', newsData)
+                    // console.log('newsdata', newsData)
                     const container = document.getElementById(category + "-news-list");
                     if (container) {  // ตรวจสอบว่า container ไม่เป็น null
                         container.innerHTML = ""; // ล้างข้อมูลเก่า
@@ -1877,11 +1869,12 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
                         limitedNews.forEach(news => {
                             const li = document.createElement("li");
+                            const dateOnly = news.created_at.substring(0, 10); // 10 ตัวแรก (YYYY-MM-DD)
                             li.classList.add("list-group-item");
                             li.innerHTML = `
                                 <div class="news-item">
                                     <a href="#" class="text-decoration-none">${news.title}</a>
-                                    <span class="date">${news.created_at}</span>
+                                    <span class="date">${dateOnly}</span>
                                 </div>`;
                             container.appendChild(li);
                         });
@@ -1890,6 +1883,9 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                     }
                 }
             });
+
+
+
 
 
 

@@ -512,7 +512,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     
     
         <!-- JavaScript -->
-        <script>
+        <!-- <script>
           const newsData = [
                 // News (ประกาศ)
                 { title: "Golden eyes and jade claws!", category: "news", date: "2025/01/03" },
@@ -675,7 +675,153 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
 
-        </script>
+        </script> -->
+
+
+            <script>
+    // ฟังก์ชันดึงข้อมูลข่าวจาก PHP
+document.addEventListener('DOMContentLoaded', function () {
+    axios.get('../../database/news_index.php')  // URL ของไฟล์ PHP ที่ส่งข้อมูล JSON
+        .then(function (response) {
+            const newsData = response.data; // ข้อมูลที่ได้รับมาในรูปแบบ JSON
+            console.log('data', newsData); // แสดงข้อมูลใน console เพื่อตรวจสอบ
+
+            // เรียงลำดับจากใหม่ -> เก่า
+            newsData.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+
+            let currentPage = 1;
+            const itemsPerPage = 12;
+            let currentCategory = localStorage.getItem("activeTab") || "all";
+
+            // ฟังก์ชันในการกรองข่าวตามหมวดหมู่
+            function filterNewsByCategory() {
+                return currentCategory === "all"
+                    ? newsData
+                    : newsData.filter(news => {
+                        if (currentCategory === "promotions" && news.type === "โปรโมชั่น") {
+                            return true;
+                        } else if (currentCategory === "events" && news.type === "กิจกรรม") {
+                            return true;
+                        } else if (currentCategory === "news" && news.type === "ข่าว") {
+                            return true;
+                        }
+                        return false; // กรองข้อมูลที่ไม่ตรงกับประเภทที่เลือก
+                    });
+            }
+
+            // ฟังก์ชันแสดงข่าว
+            function renderNews() {
+                const newsContainer = document.getElementById("news-container");
+                newsContainer.innerHTML = "";
+
+                let filteredNews = filterNewsByCategory();  // กรองข่าวตามหมวดหมู่ที่เลือก
+
+                // หาช่วงของข่าวที่จะโชว์ในหน้า (เริ่มต้นแสดง 12 รายการแรก)
+                const startIndex = (currentPage - 1) * itemsPerPage;
+                const paginatedNews = filteredNews.slice(startIndex, startIndex + itemsPerPage);
+
+                // แสดงข่าวที่กรองและแบ่งหน้า
+                paginatedNews.forEach(news => {
+                    const li = document.createElement("li");
+                    const dateOnly = news.created_at.substring(0, 10); // 10 ตัวแรก (YYYY-MM-DD)
+                    li.innerHTML = `<a href="#">${news.title}</a> <span class="date">${dateOnly}</span>`;
+                    newsContainer.appendChild(li);
+                });
+
+                // แสดงหมายเลขหน้า
+                document.getElementById("pageNumber").textContent = currentPage;
+
+                // ปิดปุ่ม "ก่อนหน้า" ถ้าอยู่หน้าแรก
+                document.getElementById("prevPage").disabled = currentPage === 1;
+
+                // ปิดปุ่ม "ถัดไป" ถ้าเป็นหน้าสุดท้าย
+                const totalPages = Math.ceil(filteredNews.length / itemsPerPage);
+                document.getElementById("nextPage").disabled = currentPage === totalPages;
+            }
+
+            // เรียกใช้ renderNews() เมื่อเข้าหน้าแรก
+            renderNews();
+
+            // เปลี่ยนแท็บเมื่อผู้ใช้คลิก
+            document.querySelectorAll(".news-tabs button").forEach(button => {
+                button.addEventListener("click", () => {
+                    // เปลี่ยนสถานะของปุ่ม
+                    document.querySelectorAll(".news-tabs button").forEach(btn => btn.classList.remove("active"));
+                    button.classList.add("active");
+
+                    // บันทึกค่าหมวดหมู่ใน localStorage
+                    currentCategory = button.getAttribute("data-category");
+                    currentPage = 1; // รีเซ็ตหน้าเป็นหน้าแรก
+
+                    localStorage.setItem("activeTab", currentCategory); // เก็บสถานะหมวดหมู่ใน localStorage
+
+                    renderNews(); // แสดงข่าว
+                });
+            });
+
+            // Pagination - คลิก "ก่อนหน้า"
+            document.getElementById("prevPage").addEventListener("click", () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    renderNews();
+                }
+            });
+
+            // Pagination - คลิก "ถัดไป"
+            document.getElementById("nextPage").addEventListener("click", () => {
+                const filteredNews = filterNewsByCategory();  // ใช้ฟังก์ชันกรองข่าว
+                const totalPages = Math.ceil(filteredNews.length / itemsPerPage);
+
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    renderNews();
+                }
+            });
+        })
+        .catch(function (error) {
+            console.error('Error fetching data:', error);
+        });
+});
+
+
+$(document).ready(function () {
+    const tabButtons = $(".news-tabs button");
+    const tabPanes = $(".tab-pane");
+    const newsContainer = $("#news-container");
+
+    function activateTab(tabId) {
+        tabPanes.hide(); // ซ่อนทุกแท็บ
+        $(`#${tabId}-tab-pane`).show(); // แสดงแท็บที่ถูกเลือก
+        tabButtons.removeClass("active");
+        $(`[data-category="${tabId}"]`).addClass("active");
+    }
+
+    // ดึงค่า tab จาก URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    let activeTab = urlParams.get("tab") || "all"; // ค่าเริ่มต้นเป็น "all"
+
+    // ถ้าไม่มีค่าใน URL ใช้ค่าใน localStorage แทน
+    if (!urlParams.has("tab")) {
+        activeTab = localStorage.getItem("activeTab") || "all";
+    }
+
+    activateTab(activeTab);
+
+    tabButtons.on("click", function () {
+        const targetTab = $(this).data("category");
+        activateTab(targetTab);
+        localStorage.setItem("activeTab", targetTab); // บันทึกค่าของแท็บที่เลือกใน localStorage
+
+        // อัพเดต URL ให้มีการเลือกแท็บเพื่อคงสถานะ
+        const currentUrl = new URL(window.location);
+        currentUrl.searchParams.set("tab", targetTab);
+        history.pushState(null, "", currentUrl.toString());
+    });
+});
+</script>
+
+
+
 
 <!-- End News Promotion Section -->
 
@@ -720,7 +866,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
     <!-- Nav hamburger -->
 
-    <script src="js/submenu-mainnav-mobile-click.js"></script>
+    <script src="../../js/submenu-mainnav-mobile-click.js"></script>
 
     <!-- Promotion News -->
     <!-- <script src="js/news-and-promotion-tab.js" defer></script> -->
