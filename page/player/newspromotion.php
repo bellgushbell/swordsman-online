@@ -684,7 +684,7 @@ document.addEventListener('DOMContentLoaded', function () {
     axios.get('../../database/news_index.php')  // URL ของไฟล์ PHP ที่ส่งข้อมูล JSON
         .then(function (response) {
             const newsData = response.data; // ข้อมูลที่ได้รับมาในรูปแบบ JSON
-            console.log('data', newsData); // แสดงข้อมูลใน console เพื่อตรวจสอบ
+            // console.log('data', newsData); // แสดงข้อมูลใน console เพื่อตรวจสอบ
 
             // เรียงลำดับจากใหม่ -> เก่า
             newsData.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
