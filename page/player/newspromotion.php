@@ -324,12 +324,25 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
         -webkit-text-stroke: 2px #f4f0f0;
         }
+
         .news-tabs {
-            display: flex;
-            justify-content: center;
-            padding: 20px 0;
+        display: flex;
+        justify-content: center;
+        padding: 20px 0;
+        position: relative;
         }
-    
+
+        .news-tabs-button-box {
+            display: flex; /* ใช้ flexbox สำหรับปุ่ม */
+            align-items: center; /* ให้ปุ่มอยู่กลางในแนวตั้ง */
+            justify-content: center; /* ให้อยู่กลางในแนวนอน */
+            background-image: url('path-to-your-image.jpg'); /* ใส่ลิงก์ของภาพกรอบจาก Canva */
+            background-size: cover; /* ปรับขนาดให้ภาพครอบคลุม */
+            background-position: center; /* จัดตำแหน่งภาพให้ตรงกลาง */
+            padding: 5px 20px; /* สามารถปรับระยะห่างภายในได้ตามต้องการ */
+            border-radius: 10px; /* ขอบโค้ง */
+        }
+
         .news-tabs button {
             margin: 0 10px;
             padding: 10px 20px;
@@ -338,34 +351,54 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             cursor: pointer;
             background: transparent;
             color: #333;
+            z-index: 2; /* ให้อยู่เหนือภาพ */
         }
-    
+
         .news-tabs button.active {
-                background: linear-gradient(145deg, #edd991, #d4af37);
+            background: linear-gradient(145deg, #edd991, #d4af37);
             color: white;
             border-radius: 5px;
-        }
-    
-        .news-list {
+        }       
+
+      
+
+       .news-list {
             list-style: none;
             padding: 0;
         }
-    
+
         .news-list li {
-            padding: 15px;
+            padding: 10px;
+            /* border-radius: 20px; */
             border-bottom: 1px solid #ddd;
+            transition: background-color 0.3s ease, color 0.3s ease; /* เพิ่ม transition */
         }
-    
+
+        .news-list li:hover {
+            background-color: rgba(220, 192, 114, 0.2); /* เปลี่ยนพื้นหลังเป็นสีทองอ่อนเมื่อ hover */
+            border: 1px solid #DCC072; /* เพิ่มกรอบสีทองเมื่อ hover */
+        }
+
         .news-list li a {
             text-decoration: none;
             color: #000;
             font-weight: bold;
         }
-    
+
+        .news-list li:hover a {
+            color: #edb518; /* เปลี่ยนสีข้อความเป็นสีทองเมื่อ hover */
+        }
+
         .news-list li .date {
             float: right;
             color: #777;
+            transition: color 0.3s ease; /* เพิ่ม transition ให้กับวันที่ */
         }
+
+        .news-list li:hover .date {
+            color: #edb518; /* เปลี่ยนสีวันที่เป็นทองเมื่อ hover */
+        }
+
     
         .pagination {
             display: flex;
@@ -490,12 +523,16 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     
     <!-- Tab Navigation -->
     <div class="news-tabs">
+           <div class="news-tabs-button-box">
         <button class="active" data-category="all">ทั้งหมด</button>
         <button data-category="news">ประกาศ</button>
         <button data-category="events">กิจกรรม</button>
         <button data-category="promotions">โปรโมชั่น</button>
+            </div>
     </div>
-    
+  
+
+
     <!-- News List -->
     <div class="container">
         <ul class="news-list" id="news-container">
@@ -724,7 +761,18 @@ document.addEventListener('DOMContentLoaded', function () {
                 paginatedNews.forEach(news => {
                     const li = document.createElement("li");
                     const dateOnly = news.created_at.substring(0, 10); // 10 ตัวแรก (YYYY-MM-DD)
-                    li.innerHTML = `<a href="#">${news.title}</a> <span class="date">${dateOnly}</span>`;
+                     // เพิ่มลิงก์ที่แสดงรายละเอียดของข่าว
+                  li.innerHTML = `
+                    <div class="news-item">
+                        <a href="#" class="text-decoration-none">${news.title}</a>
+                        <span class="date">${dateOnly}</span>
+                    </div>
+                `; 
+                // ฟังก์ชันเมื่อคลิกที่ <li> จะไปที่หน้า news detail
+                 li.addEventListener("click", function () {
+                 window.location.href = `../../page/player/news-detail.php?id=${news.id}`;  // เปลี่ยนไปยังหน้า news-detail.html พร้อมกับส่ง id
+                 });
+
                     newsContainer.appendChild(li);
                 });
 
