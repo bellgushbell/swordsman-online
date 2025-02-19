@@ -717,7 +717,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
             <script>
     // ฟังก์ชันดึงข้อมูลข่าวจาก PHP
-document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function () {
     axios.get('../../database/news_index.php')  // URL ของไฟล์ PHP ที่ส่งข้อมูล JSON
         .then(function (response) {
             const newsData = response.data; // ข้อมูลที่ได้รับมาในรูปแบบ JSON

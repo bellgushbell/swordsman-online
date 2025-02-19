@@ -1130,7 +1130,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         <!-- Highlight Game Section -->
         <section class="page-section pt-0 pb-0 banner-section bg-dark light-content">
             <div class="swiper-container"
-                style="background: url('images/background/bg-gold-hightlight-section.png') no-repeat center center; background-size: cover;">
+                style="background: url('images/background/bg-gold-top-to-bottom.png') no-repeat center center; background-size: cover;">
                 <div class="swiper-wrapper">
                     <!-- Slide 1 -->
                     <div class="swiper-slide">
@@ -1162,7 +1162,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         
 
         <!--ใหม่ใช้งาน New Gallery Game Section-->
-    <section class="gallery-section">
+    <section class="gallery-section"     style="background: url('images/background/bg-main-section.png') no-repeat center center; background-size: cover;">
         <div class="character-container">
             <img src="images/class6.png" alt="Character">
         </div>
@@ -1647,7 +1647,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         <!--News and Promotion Section-->
         
         <section class="page-section-news" id="news"
-            style="background: url('images/background/bg-gold-news-section.png') no-repeat center center; background-size: cover;">
+            style="background: url('images/background/bg-gold-bottom-to-top.png') no-repeat center center; background-size: cover;">
             <div class="container">
                 <div class="row gy-4">
         
@@ -1936,7 +1936,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
     <!--Footer -->
-    <footer class="page-section bg-gray-lighter footer pb-100 pb-sm-50">
+    <footer class="page-section bg-gray-lighter footer pb-100 pb-sm-50"     style="background: url('images/background/bg-gold-top-to-bottom.png') no-repeat center center; background-size: cover;">
         <div class="container">
     
         
