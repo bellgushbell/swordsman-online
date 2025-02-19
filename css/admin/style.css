@@ -85,7 +85,7 @@ body {
 }
 
 #pagination {
-    position: fixed;
+    /* position: fixed; */
     /* ทำให้มันอยู่ที่ตำแหน่งที่กำหนด */
     bottom: 0;
     /* ให้มันอยู่ที่ด้านล่างของหน้าจอ */
@@ -98,7 +98,7 @@ body {
     /* มุมโค้งมน */
     padding: 10px;
     /* เพิ่ม padding */
-    z-index: 1000;
+    /* z-index: 1000; */
     /* ทำให้ปุ่ม Pagination อยู่เหนือเนื้อหา */
 }
 
@@ -106,3 +106,16 @@ body {
 main-content-create {
     display: none;
 }
+
+
+/* .ql-align-center {
+    text-align: center !important;
+}
+
+.ql-editor {
+    font-family: 'Arial', sans-serif;
+}
+
+.ql-editor span[style*="color"] {
+    color: inherit !important;
+} */

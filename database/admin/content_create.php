@@ -6,8 +6,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $admin_id = $_SESSION['id'];
     $type = mysqli_real_escape_string($conn, $_POST['type']);
     $title = mysqli_real_escape_string($conn, $_POST['title']);
-    $description = mysqli_real_escape_string($conn, $_POST['description']);
+    $description =  $_POST['description'];
     $timestamp = date("Y-m-d H:i:s");
+
 
     // กำหนดโฟลเดอร์ปลายทาง
     $target_dir = "../../images/news/";
@@ -44,6 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($stmt_title->execute()) {
         // Get the last inserted id_title
         $id_title = $conn->insert_id;
+
 
         // Insert into the description table
         $stmt_description = $conn->prepare("INSERT INTO description (id_title, description, created_at, created_by) VALUES (?, ?, ?, ?)");

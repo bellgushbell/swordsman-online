@@ -128,7 +128,7 @@
             editButton.addEventListener('click', function() {
                 var id = editButton.getAttribute('data-id');
                 // ส่งไปที่หน้าแก้ไขโดยส่ง id ผ่าน URL
-                window.location.href = "../../database/admin/content_update.php?id=" + id;
+                window.location.href = "../../database/admin/content_read_detail.php?id=" + id;
             });
         });
 
@@ -252,6 +252,20 @@
             Swal.fire({
                 icon: 'success',
                 title: 'ลบสำเร็จ',
+                showConfirmButton: false,
+                timer: 1500
+            }).then(function() {
+                // ลบพารามิเตอร์ 'delete' ออกจาก URL
+                urlParams.delete('delete'); // ลบพารามิเตอร์
+                const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + urlParams.toString(); // สร้าง URL ใหม่
+                window.history.replaceState({}, '', newUrl); // อัพเดต URL โดยไม่โหลดหน้าใหม่
+            });
+        }
+        if (urlParams.get('edit') === '1') {
+            // แสดงข้อความสำเร็จโดยใช้ SweetAlert2
+            Swal.fire({
+                icon: 'success',
+                title: 'แก้ไขสำเร็จ',
                 showConfirmButton: false,
                 timer: 1500
             }).then(function() {

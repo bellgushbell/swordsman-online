@@ -9,6 +9,7 @@ if (session_status() === PHP_SESSION_NONE) {
     }
 }
 $roles = isset($_SESSION['roles']) ? $_SESSION['roles'] : null;
+unset($_SESSION['edit_data']);
 ?>
 <!-- ContentManagementLog.php -->
 
@@ -80,7 +81,7 @@ $roles = isset($_SESSION['roles']) ? $_SESSION['roles'] : null;
                             <!-- ข้อมูลจะถูกแทรกที่นี่ -->
                         </tbody>
                     </table>
-                    <div id="pagination" class="d-flex justify-content-center  ">
+                    <div id="pagination" class="d-flex justify-content-end  ">
                         <!-- ปุ่ม Pagination จะแสดงที่นี่ -->
                     </div>
                 </div>

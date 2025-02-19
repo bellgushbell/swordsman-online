@@ -12,19 +12,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // รับค่าหน้าปัจจุบัน
         $currentPage = isset($_POST['page']) ? (int)$_POST['page'] : 1;
-        $itemsPerPage = 10;  // จำนวนรายการต่อหน้า
+        $itemsPerPage = 6;  // จำนวนรายการต่อหน้า
         $startIndex = ($currentPage - 1) * $itemsPerPage;
 
         if ($category === 'ทั้งหมด') {
-            $countQuery = "SELECT COUNT(*) AS total FROM title";
+            $countQuery = "SELECT COUNT(*) AS total FROM title  t  
+                      INNER JOIN description d ON d.id_title = t.id";
             $query = "SELECT  t.id, t.type, t.title, t.image, t.created_at, t.created_by, a.first_name 
                       FROM title t  
+                      INNER JOIN description d ON d.id_title = t.id
                       LEFT JOIN admin_user a ON t.created_by = a.id 
                       LIMIT $startIndex, $itemsPerPage";
         } else {
-            $countQuery = "SELECT COUNT(*) AS total FROM title WHERE type = '$category'";
+            $countQuery = "SELECT COUNT(*) AS total FROM title  t  
+                      INNER JOIN description d ON d.id_title = t.id WHERE type = '$category'";
             $query = "SELECT t.id, t.type, t.title, t.image, t.created_at, t.created_by, a.first_name 
                       FROM title t  
+                      INNER JOIN description d ON d.id_title = t.id
                       LEFT JOIN admin_user a ON t.created_by = a.id 
                       WHERE type = '$category' 
                       LIMIT $startIndex, $itemsPerPage";
