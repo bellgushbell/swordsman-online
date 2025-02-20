@@ -1130,7 +1130,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         <!-- Highlight Game Section -->
         <section class="page-section pt-0 pb-0 banner-section bg-dark light-content">
             <div class="swiper-container"
-                style="background: url('images/background/bg-gold-top-to-bottom.png') no-repeat center center; background-size: cover;">
+                style="background: url('images/background/bg-gold-bottom-to-top.png') no-repeat center center; background-size: cover;">
                 <div class="swiper-wrapper">
                     <!-- Slide 1 -->
                     <div class="swiper-slide">
@@ -1162,6 +1162,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         
 
         <!--ใหม่ใช้งาน New Gallery Game Section-->
+        <!--Gallery Game Section-->
     <section class="gallery-section"     style="background: url('images/background/bg-main-section.png') no-repeat center center; background-size: cover;">
         <div class="character-container">
             <img src="images/class6.png" alt="Character">
@@ -1171,41 +1172,45 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             <div class="gallery-header">
                 <div class="tabs">
                     <button class="tab-btn active" data-tab="photo" onclick="toggleGallery('photo')">Photo</button>
+                    <span class="divider-gallery">/</span>
                     <button class="tab-btn" data-tab="video" onclick="toggleGallery('video')">Video</button>
                 </div>
+                <a href="page/player/gallery-more.php" target="_blank">
                 <div class="more-btn">MORE+</div>
+            </a>
+
             </div>
     
             <!-- Photo Gallery -->
             <div class="gallery" id="photoGallery">
                 <div class="gallery-item large"
-                    onclick="openModal('photo', 'https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg')">
-                    <img src="https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg" alt="Moonglow Fest">
+                    onclick="openModal('photo', 'images/gallery-pic/g1.jpg')">
+                    <img src="images/gallery-pic/g1.jpg" alt="Moonglow Fest">
                     <h3>Moonglow Fest</h3>
                 </div>
                 <div class="gallery-item small-right"
-                    onclick="openModal('photo', 'https://images.pexels.com/photos/1142950/pexels-photo-1142950.jpeg')">
-                    <img src="https://images.pexels.com/photos/1142950/pexels-photo-1142950.jpeg" alt="Frosty Festival">
+                    onclick="openModal('photo', 'images/gallery-pic/g2.jpg')">
+                    <img src="images/gallery-pic/g2.jpg" alt="Frosty Festival">
                     <h3>Frosty Festival</h3>
                 </div>
                 <div class="gallery-item small-right new-event"
-                    onclick="openModal('photo', 'https://images.pexels.com/photos/1142950/pexels-photo-1142950.jpeg')">
-                    <img src="https://images.pexels.com/photos/1142950/pexels-photo-1142950.jpeg" alt="New Event 1">
+                    onclick="openModal('photo', 'images/gallery-pic/g3.jpg')">
+                    <img src="images/gallery-pic/g3.jpg" alt="New Event 1">
                     <h3>New Event 1</h3>
                 </div>
                 <div class="gallery-item small-right"
-                    onclick="openModal('photo', 'https://images.pexels.com/photos/3933881/pexels-photo-3933881.jpeg')">
-                    <img src="https://images.pexels.com/photos/3933881/pexels-photo-3933881.jpeg" alt="Global Launch">
+                    onclick="openModal('photo', 'images/gallery-pic/g4.jpg')">
+                    <img src="images/gallery-pic/g4.jpg" alt="Global Launch">
                     <h3>Global Launch</h3>
                 </div>
                 <div class="gallery-item small-right"
-                    onclick="openModal('photo', 'https://images.pexels.com/photos/5409751/pexels-photo-5409751.jpeg')">
-                    <img src="https://images.pexels.com/photos/5409751/pexels-photo-5409751.jpeg" alt="Chinese New Year">
+                    onclick="openModal('photo', 'images/gallery-pic/g5.jpg')">
+                    <img src="images/gallery-pic/g5.jpg" alt="Chinese New Year">
                     <h3>Chinese New Year</h3>
                 </div>
                 <div class="gallery-item small-right"
-                    onclick="openModal('photo', 'https://images.pexels.com/photos/4101555/pexels-photo-4101555.jpeg')">
-                    <img src="https://images.pexels.com/photos/4101555/pexels-photo-4101555.jpeg" alt="2024 New Year">
+                    onclick="openModal('photo', 'images/gallery-pic/g6.jpg')">
+                    <img src="images/gallery-pic/g6.jpg" alt="2024 New Year">
                     <h3>2024 New Year</h3>
                 </div>
             </div>
@@ -1260,7 +1265,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 100px;
+            padding: 50px;
             gap: 100px;
         }
     
@@ -1292,8 +1297,17 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     
         .tabs {
             display: flex;
-            gap: 20px;
+            align-items: center;
+            justify-content: center; /* วางทุกอย่างตรงกลางในแกน X */
+            gap: 10px; /* เพิ่มช่องว่างระหว่างปุ่ม */
         }
+
+        .divider-gallery {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0 0px; /* ระยะห่างจากปุ่มทั้งสอง */
+        }
+
     
         .tabs button {
             background: none;
@@ -1305,7 +1319,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         }
     
         .tabs button.active {
-            background: black;
+            background: linear-gradient(90deg, #DCC072, #edb518);
             color: white;
             border-radius: 15px;
         }
@@ -1314,6 +1328,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
+            text-decoration: none;
         }
     
         .gallery {
@@ -1441,7 +1456,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             color: white;
             font-weight: bold;
             background: rgba(0, 0, 0, 0.5);
-            padding: 10px 15px;
+            padding: 1px 10px;
             border-radius: 50%;
         }
     
@@ -1647,7 +1662,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         <!--News and Promotion Section-->
         
         <section class="page-section-news" id="news"
-            style="background: url('images/background/bg-gold-bottom-to-top.png') no-repeat center center; background-size: cover;">
+            style="background: url('images/background/bg-gold-top-to-bottom.png') no-repeat center center; background-size: cover;">
             <div class="container">
                 <div class="row gy-4">
         
@@ -1936,7 +1951,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
     <!--Footer -->
-    <footer class="page-section bg-gray-lighter footer pb-100 pb-sm-50"     style="background: url('images/background/bg-gold-top-to-bottom.png') no-repeat center center; background-size: cover;">
+    <footer class="page-section bg-gray-lighter footer pb-100 pb-sm-50"     style="background: url('images/background/bg-gold-bottom-to-top.png') no-repeat center center; background-size: cover;">
         <div class="container">
     
         
