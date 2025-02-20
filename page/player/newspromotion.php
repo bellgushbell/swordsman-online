@@ -41,24 +41,31 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     <!-- font prompt -->
     <script type="e3b09c3dc2113874ef6e7812-text/javascript">
         WebFont.load({
-          google: {
-            families: [
-              "Prompt:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic:latin,thai",
-            ],
-          },
+            google: {
+                families: [
+                    "Prompt:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic:latin,thai",
+                ],
+            },
         });
-      </script>
+    </script>
 
     <!-- Meta Pixel Code -->
     <script>
-        !function (f, b, e, v, n, t, s) {
-            if (f.fbq) return; n = f.fbq = function () {
+        ! function(f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function() {
                 n.callMethod ?
                     n.callMethod.apply(n, arguments) : n.queue.push(arguments)
             };
-            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-            n.queue = []; t = b.createElement(e); t.async = !0;
-            t.src = v; s = b.getElementsByTagName(e)[0];
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t, s)
         }(window, document, 'script',
             'https://connect.facebook.net/en_US/fbevents.js');
@@ -73,7 +80,10 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YQBP9C72H3"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
         gtag('js', new Date());
 
         gtag('config', 'G-YQBP9C72H3');
@@ -81,24 +91,38 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
     <!-- Google Tag Manager -->
-    <script>(function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            }); var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-WKMDJPGM');</script>
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-WKMDJPGM');
+    </script>
     <!-- End Google Tag Manager -->
 
 
     <!-- Hotjar Tracking Code for SW3 -->
     <script>
-        (function (h, o, t, j, a, r) {
-            h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
-            h._hjSettings = { hjid: 5300044, hjsv: 6 };
+        (function(h, o, t, j, a, r) {
+            h.hj = h.hj || function() {
+                (h.hj.q = h.hj.q || []).push(arguments)
+            };
+            h._hjSettings = {
+                hjid: 5300044,
+                hjsv: 6
+            };
             a = o.getElementsByTagName('head')[0];
-            r = o.createElement('script'); r.async = 1;
+            r = o.createElement('script');
+            r.async = 1;
             r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
             a.appendChild(r);
         })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
@@ -106,17 +130,24 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
     <meta name="google-site-verification" content="aoWtdh5IPB2qY9vXUJv4WHbc90NAUKNtgL9_t8CYoMc" />
-   
+
     <!-- Meta Pixel Code -->
     <script>
-        !function (f, b, e, v, n, t, s) {
-            if (f.fbq) return; n = f.fbq = function () {
+        ! function(f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function() {
                 n.callMethod ?
-                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
             };
-            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-            n.queue = []; t = b.createElement(e); t.async = !0;
-            t.src = v; s = b.getElementsByTagName(e)[0];
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t, s)
         }(window, document, 'script',
             'https://connect.facebook.net/en_US/fbevents.js');
@@ -128,11 +159,14 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     <!-- End Meta Pixel Code -->
 
 
-   <!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11490628923"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
         gtag('js', new Date());
 
         gtag('config', 'AW-11490628923');
@@ -141,7 +175,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
     <!-- axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    
+
     <!-- framer motion -->
     <!-- <script src="https://unpkg.com/framer-motion/dist/framer-motion.umd.min.js"></script> -->
 
@@ -262,14 +296,13 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
             <script>
-
-                document.addEventListener('DOMContentLoaded', function () {
+                document.addEventListener('DOMContentLoaded', function() {
 
                     const notifyLinks = document.querySelectorAll('.notify');
 
 
                     notifyLinks.forEach(link => {
-                        link.addEventListener('click', function (event) {
+                        link.addEventListener('click', function(event) {
                             event.preventDefault();
 
                             Swal.fire({
@@ -290,9 +323,6 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                         });
                     });
                 });
-
-
-
             </script>
 
         </div>
@@ -301,7 +331,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
 
-<!-- All News Promotion Section -->
+    <!-- All News Promotion Section -->
 
     <style>
         .news-banner {
@@ -314,33 +344,50 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
             text-align: center;
         }
+
         .news-banner h1 {
-         font-size: 48px;
-        font-weight: bold;
-        text-transform: uppercase;
-        background: linear-gradient(90deg, #575555, #b2aeae, #4f4d4d);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-        -webkit-text-stroke: 2px #f4f0f0;
+            font-size: 48px;
+            font-weight: bold;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #575555, #b2aeae, #4f4d4d);
+
+            /* For webkit-based browsers (Chrome, Safari) */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke: 2px #f4f0f0;
+
+            /* Standard text-shadow property */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+
+            /* Adding support for Firefox */
+            background-clip: text;
+            /* Standard property */
         }
 
         .news-tabs {
-        display: flex;
-        justify-content: center;
-        padding: 20px 0;
-        position: relative;
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+            position: relative;
         }
 
         .news-tabs-button-box {
-            display: flex; /* ใช้ flexbox สำหรับปุ่ม */
-            align-items: center; /* ให้ปุ่มอยู่กลางในแนวตั้ง */
-            justify-content: center; /* ให้อยู่กลางในแนวนอน */
-            background-image: url('path-to-your-image.jpg'); /* ใส่ลิงก์ของภาพกรอบจาก Canva */
-            background-size: cover; /* ปรับขนาดให้ภาพครอบคลุม */
-            background-position: center; /* จัดตำแหน่งภาพให้ตรงกลาง */
-            padding: 5px 20px; /* สามารถปรับระยะห่างภายในได้ตามต้องการ */
-            border-radius: 10px; /* ขอบโค้ง */
+            display: flex;
+            /* ใช้ flexbox สำหรับปุ่ม */
+            align-items: center;
+            /* ให้ปุ่มอยู่กลางในแนวตั้ง */
+            justify-content: center;
+            /* ให้อยู่กลางในแนวนอน */
+            background-image: url('path-to-your-image.jpg');
+            /* ใส่ลิงก์ของภาพกรอบจาก Canva */
+            background-size: cover;
+            /* ปรับขนาดให้ภาพครอบคลุม */
+            background-position: center;
+            /* จัดตำแหน่งภาพให้ตรงกลาง */
+            padding: 5px 20px;
+            /* สามารถปรับระยะห่างภายในได้ตามต้องการ */
+            border-radius: 10px;
+            /* ขอบโค้ง */
         }
 
         .news-tabs button {
@@ -351,18 +398,19 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             cursor: pointer;
             background: transparent;
             color: #333;
-            z-index: 2; /* ให้อยู่เหนือภาพ */
+            z-index: 2;
+            /* ให้อยู่เหนือภาพ */
         }
 
         .news-tabs button.active {
             background: linear-gradient(145deg, #edd991, #d4af37);
             color: white;
             border-radius: 5px;
-        }       
+        }
 
-      
 
-       .news-list {
+
+        .news-list {
             list-style: none;
             padding: 0;
         }
@@ -371,12 +419,15 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             padding: 10px;
             /* border-radius: 20px; */
             border-bottom: 1px solid #ddd;
-            transition: background-color 0.3s ease, color 0.3s ease; /* เพิ่ม transition */
+            transition: background-color 0.3s ease, color 0.3s ease;
+            /* เพิ่ม transition */
         }
 
         .news-list li:hover {
-            background-color: rgba(220, 192, 114, 0.2); /* เปลี่ยนพื้นหลังเป็นสีทองอ่อนเมื่อ hover */
-            border: 1px solid #DCC072; /* เพิ่มกรอบสีทองเมื่อ hover */
+            background-color: rgba(220, 192, 114, 0.2);
+            /* เปลี่ยนพื้นหลังเป็นสีทองอ่อนเมื่อ hover */
+            border: 1px solid #DCC072;
+            /* เพิ่มกรอบสีทองเมื่อ hover */
         }
 
         .news-list li a {
@@ -386,26 +437,30 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         }
 
         .news-list li:hover a {
-            color: #edb518; /* เปลี่ยนสีข้อความเป็นสีทองเมื่อ hover */
+            color: #edb518;
+            /* เปลี่ยนสีข้อความเป็นสีทองเมื่อ hover */
         }
 
         .news-list li .date {
             float: right;
             color: #777;
-            transition: color 0.3s ease; /* เพิ่ม transition ให้กับวันที่ */
+            transition: color 0.3s ease;
+            /* เพิ่ม transition ให้กับวันที่ */
         }
 
         .news-list li:hover .date {
-            color: #edb518; /* เปลี่ยนสีวันที่เป็นทองเมื่อ hover */
+            color: #edb518;
+            /* เปลี่ยนสีวันที่เป็นทองเมื่อ hover */
         }
 
-    
+
         .pagination {
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px 0;
-            gap: 12px; /* ระยะห่างระหว่างปุ่ม */
+            gap: 12px;
+            /* ระยะห่างระหว่างปุ่ม */
         }
 
         .pagination button {
@@ -446,6 +501,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             border-radius: 6px;
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
         }
+
         /* สำหรับหน้าจอเล็กกว่า 768px (มือถือ) */
         @media (max-width: 768px) {
             .news-banner {
@@ -510,44 +566,44 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 font-size: 18px;
                 padding: 7px 14px;
             }
-}
+        }
     </style>
     </head>
-    
+
     <body>
-    
-    <!-- Header Section -->
-    <div class="news-banner">
-        <h1>ข่าวสาร&กิจกรรม</h1>
-    </div>
-    
-    <!-- Tab Navigation -->
-    <div class="news-tabs">
-           <div class="news-tabs-button-box">
-        <button class="active" data-category="all">ทั้งหมด</button>
-        <button data-category="news">ประกาศ</button>
-        <button data-category="events">กิจกรรม</button>
-        <button data-category="promotions">โปรโมชั่น</button>
+
+        <!-- Header Section -->
+        <div class="news-banner">
+            <h1>ข่าวสาร&กิจกรรม</h1>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="news-tabs">
+            <div class="news-tabs-button-box">
+                <button class="active" data-category="all">ทั้งหมด</button>
+                <button data-category="news">ประกาศ</button>
+                <button data-category="events">กิจกรรม</button>
+                <button data-category="promotions">โปรโมชั่น</button>
             </div>
-    </div>
-  
+        </div>
 
 
-    <!-- News List -->
-    <div class="container">
-        <ul class="news-list" id="news-container">
-            <!-- ข่าวที่ถูกโหลดจาก JavaScript -->
-        </ul>
-    </div>
-    
-    <!-- Pagination -->
-    <nav class="pagination">
-        <button id="prevPage">ก่อนหน้า</button>
-        <span id="pageNumber">1</span>
-        <button id="nextPage">ถัดไป</button>
-    </nav>
-    
-    
+
+        <!-- News List -->
+        <div class="container">
+            <ul class="news-list" id="news-container">
+                <!-- ข่าวที่ถูกโหลดจาก JavaScript -->
+            </ul>
+        </div>
+
+        <!-- Pagination -->
+        <nav class="pagination">
+            <button id="prevPage">ก่อนหน้า</button>
+            <span id="pageNumber">1</span>
+            <button id="nextPage">ถัดไป</button>
+        </nav>
+
+
         <!-- JavaScript -->
         <!-- <script>
           const newsData = [
@@ -715,176 +771,176 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         </script> -->
 
 
-            <script>
-    // ฟังก์ชันดึงข้อมูลข่าวจาก PHP
-    document.addEventListener('DOMContentLoaded', function () {
-    axios.get('../../database/news_index.php')  // URL ของไฟล์ PHP ที่ส่งข้อมูล JSON
-        .then(function (response) {
-            const newsData = response.data; // ข้อมูลที่ได้รับมาในรูปแบบ JSON
-            // console.log('data', newsData); // แสดงข้อมูลใน console เพื่อตรวจสอบ
+        <script>
+            // ฟังก์ชันดึงข้อมูลข่าวจาก PHP
+            document.addEventListener('DOMContentLoaded', function() {
+                axios.get('../../database/news_index.php') // URL ของไฟล์ PHP ที่ส่งข้อมูล JSON
+                    .then(function(response) {
+                        const newsData = response.data; // ข้อมูลที่ได้รับมาในรูปแบบ JSON
+                        // console.log('data', newsData); // แสดงข้อมูลใน console เพื่อตรวจสอบ
 
-            // เรียงลำดับจากใหม่ -> เก่า
-            newsData.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+                        // เรียงลำดับจากใหม่ -> เก่า
+                        newsData.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
-            let currentPage = 1;
-            const itemsPerPage = 12;
-            let currentCategory = localStorage.getItem("activeTab") || "all";
+                        let currentPage = 1;
+                        const itemsPerPage = 12;
+                        let currentCategory = localStorage.getItem("activeTab") || "all";
 
-            // ฟังก์ชันในการกรองข่าวตามหมวดหมู่
-            function filterNewsByCategory() {
-                return currentCategory === "all"
-                    ? newsData
-                    : newsData.filter(news => {
-                        if (currentCategory === "promotions" && news.type === "โปรโมชั่น") {
-                            return true;
-                        } else if (currentCategory === "events" && news.type === "กิจกรรม") {
-                            return true;
-                        } else if (currentCategory === "news" && news.type === "ข่าว") {
-                            return true;
+                        // ฟังก์ชันในการกรองข่าวตามหมวดหมู่
+                        function filterNewsByCategory() {
+                            return currentCategory === "all" ?
+                                newsData :
+                                newsData.filter(news => {
+                                    if (currentCategory === "promotions" && news.type === "โปรโมชั่น") {
+                                        return true;
+                                    } else if (currentCategory === "events" && news.type === "กิจกรรม") {
+                                        return true;
+                                    } else if (currentCategory === "news" && news.type === "ข่าว") {
+                                        return true;
+                                    }
+                                    return false; // กรองข้อมูลที่ไม่ตรงกับประเภทที่เลือก
+                                });
                         }
-                        return false; // กรองข้อมูลที่ไม่ตรงกับประเภทที่เลือก
+
+                        // ฟังก์ชันแสดงข่าว
+                        function renderNews() {
+                            const newsContainer = document.getElementById("news-container");
+                            newsContainer.innerHTML = "";
+
+                            let filteredNews = filterNewsByCategory(); // กรองข่าวตามหมวดหมู่ที่เลือก
+
+                            // หาช่วงของข่าวที่จะโชว์ในหน้า (เริ่มต้นแสดง 12 รายการแรก)
+                            const startIndex = (currentPage - 1) * itemsPerPage;
+                            const paginatedNews = filteredNews.slice(startIndex, startIndex + itemsPerPage);
+
+                            // แสดงข่าวที่กรองและแบ่งหน้า
+                            paginatedNews.forEach(news => {
+                                const li = document.createElement("li");
+                                const dateOnly = news.created_at.substring(0, 10); // 10 ตัวแรก (YYYY-MM-DD)
+                                // เพิ่มลิงก์ที่แสดงรายละเอียดของข่าว
+                                li.innerHTML = `
+                                    <div class="news-item">
+                                        <a href="#" class="text-decoration-none">${news.title}</a>
+                                        <span class="date">${dateOnly}</span>
+                                    </div>
+                                `;
+                                // ฟังก์ชันเมื่อคลิกที่ <li> จะไปที่หน้า news detail
+                                li.addEventListener("click", function() {
+                                    window.location.href = `../../database/player/news_read_detail.php?id=${news.id}`; // 
+                                });
+
+                                newsContainer.appendChild(li);
+                            });
+
+                            // แสดงหมายเลขหน้า
+                            document.getElementById("pageNumber").textContent = currentPage;
+
+                            // ปิดปุ่ม "ก่อนหน้า" ถ้าอยู่หน้าแรก
+                            document.getElementById("prevPage").disabled = currentPage === 1;
+
+                            // ปิดปุ่ม "ถัดไป" ถ้าเป็นหน้าสุดท้าย
+                            const totalPages = Math.ceil(filteredNews.length / itemsPerPage);
+                            document.getElementById("nextPage").disabled = currentPage === totalPages;
+                        }
+
+                        // เรียกใช้ renderNews() เมื่อเข้าหน้าแรก
+                        renderNews();
+
+                        // เปลี่ยนแท็บเมื่อผู้ใช้คลิก
+                        document.querySelectorAll(".news-tabs button").forEach(button => {
+                            button.addEventListener("click", () => {
+                                // เปลี่ยนสถานะของปุ่ม
+                                document.querySelectorAll(".news-tabs button").forEach(btn => btn.classList.remove("active"));
+                                button.classList.add("active");
+
+                                // บันทึกค่าหมวดหมู่ใน localStorage
+                                currentCategory = button.getAttribute("data-category");
+                                currentPage = 1; // รีเซ็ตหน้าเป็นหน้าแรก
+
+                                localStorage.setItem("activeTab", currentCategory); // เก็บสถานะหมวดหมู่ใน localStorage
+
+                                renderNews(); // แสดงข่าว
+                            });
+                        });
+
+                        // Pagination - คลิก "ก่อนหน้า"
+                        document.getElementById("prevPage").addEventListener("click", () => {
+                            if (currentPage > 1) {
+                                currentPage--;
+                                renderNews();
+                            }
+                        });
+
+                        // Pagination - คลิก "ถัดไป"
+                        document.getElementById("nextPage").addEventListener("click", () => {
+                            const filteredNews = filterNewsByCategory(); // ใช้ฟังก์ชันกรองข่าว
+                            const totalPages = Math.ceil(filteredNews.length / itemsPerPage);
+
+                            if (currentPage < totalPages) {
+                                currentPage++;
+                                renderNews();
+                            }
+                        });
+                    })
+                    .catch(function(error) {
+                        console.error('Error fetching data:', error);
                     });
-            }
+            });
 
-            // ฟังก์ชันแสดงข่าว
-            function renderNews() {
-                const newsContainer = document.getElementById("news-container");
-                newsContainer.innerHTML = "";
 
-                let filteredNews = filterNewsByCategory();  // กรองข่าวตามหมวดหมู่ที่เลือก
+            $(document).ready(function() {
+                const tabButtons = $(".news-tabs button");
+                const tabPanes = $(".tab-pane");
+                const newsContainer = $("#news-container");
 
-                // หาช่วงของข่าวที่จะโชว์ในหน้า (เริ่มต้นแสดง 12 รายการแรก)
-                const startIndex = (currentPage - 1) * itemsPerPage;
-                const paginatedNews = filteredNews.slice(startIndex, startIndex + itemsPerPage);
+                function activateTab(tabId) {
+                    tabPanes.hide(); // ซ่อนทุกแท็บ
+                    $(`#${tabId}-tab-pane`).show(); // แสดงแท็บที่ถูกเลือก
+                    tabButtons.removeClass("active");
+                    $(`[data-category="${tabId}"]`).addClass("active");
+                }
 
-                // แสดงข่าวที่กรองและแบ่งหน้า
-                paginatedNews.forEach(news => {
-                    const li = document.createElement("li");
-                    const dateOnly = news.created_at.substring(0, 10); // 10 ตัวแรก (YYYY-MM-DD)
-                     // เพิ่มลิงก์ที่แสดงรายละเอียดของข่าว
-                  li.innerHTML = `
-                    <div class="news-item">
-                        <a href="#" class="text-decoration-none">${news.title}</a>
-                        <span class="date">${dateOnly}</span>
-                    </div>
-                `; 
-                // ฟังก์ชันเมื่อคลิกที่ <li> จะไปที่หน้า news detail
-                 li.addEventListener("click", function () {
-                 window.location.href = `../../page/player/news-detail.php?id=${news.id}`;  // เปลี่ยนไปยังหน้า news-detail.html พร้อมกับส่ง id
-                 });
+                // ดึงค่า tab จาก URL parameter
+                const urlParams = new URLSearchParams(window.location.search);
+                let activeTab = urlParams.get("tab") || "all"; // ค่าเริ่มต้นเป็น "all"
 
-                    newsContainer.appendChild(li);
-                });
+                // ถ้าไม่มีค่าใน URL ใช้ค่าใน localStorage แทน
+                if (!urlParams.has("tab")) {
+                    activeTab = localStorage.getItem("activeTab") || "all";
+                }
 
-                // แสดงหมายเลขหน้า
-                document.getElementById("pageNumber").textContent = currentPage;
+                activateTab(activeTab);
 
-                // ปิดปุ่ม "ก่อนหน้า" ถ้าอยู่หน้าแรก
-                document.getElementById("prevPage").disabled = currentPage === 1;
+                tabButtons.on("click", function() {
+                    const targetTab = $(this).data("category");
+                    activateTab(targetTab);
+                    localStorage.setItem("activeTab", targetTab); // บันทึกค่าของแท็บที่เลือกใน localStorage
 
-                // ปิดปุ่ม "ถัดไป" ถ้าเป็นหน้าสุดท้าย
-                const totalPages = Math.ceil(filteredNews.length / itemsPerPage);
-                document.getElementById("nextPage").disabled = currentPage === totalPages;
-            }
-
-            // เรียกใช้ renderNews() เมื่อเข้าหน้าแรก
-            renderNews();
-
-            // เปลี่ยนแท็บเมื่อผู้ใช้คลิก
-            document.querySelectorAll(".news-tabs button").forEach(button => {
-                button.addEventListener("click", () => {
-                    // เปลี่ยนสถานะของปุ่ม
-                    document.querySelectorAll(".news-tabs button").forEach(btn => btn.classList.remove("active"));
-                    button.classList.add("active");
-
-                    // บันทึกค่าหมวดหมู่ใน localStorage
-                    currentCategory = button.getAttribute("data-category");
-                    currentPage = 1; // รีเซ็ตหน้าเป็นหน้าแรก
-
-                    localStorage.setItem("activeTab", currentCategory); // เก็บสถานะหมวดหมู่ใน localStorage
-
-                    renderNews(); // แสดงข่าว
+                    // อัพเดต URL ให้มีการเลือกแท็บเพื่อคงสถานะ
+                    const currentUrl = new URL(window.location);
+                    currentUrl.searchParams.set("tab", targetTab);
+                    history.pushState(null, "", currentUrl.toString());
                 });
             });
-
-            // Pagination - คลิก "ก่อนหน้า"
-            document.getElementById("prevPage").addEventListener("click", () => {
-                if (currentPage > 1) {
-                    currentPage--;
-                    renderNews();
-                }
-            });
-
-            // Pagination - คลิก "ถัดไป"
-            document.getElementById("nextPage").addEventListener("click", () => {
-                const filteredNews = filterNewsByCategory();  // ใช้ฟังก์ชันกรองข่าว
-                const totalPages = Math.ceil(filteredNews.length / itemsPerPage);
-
-                if (currentPage < totalPages) {
-                    currentPage++;
-                    renderNews();
-                }
-            });
-        })
-        .catch(function (error) {
-            console.error('Error fetching data:', error);
-        });
-});
-
-
-$(document).ready(function () {
-    const tabButtons = $(".news-tabs button");
-    const tabPanes = $(".tab-pane");
-    const newsContainer = $("#news-container");
-
-    function activateTab(tabId) {
-        tabPanes.hide(); // ซ่อนทุกแท็บ
-        $(`#${tabId}-tab-pane`).show(); // แสดงแท็บที่ถูกเลือก
-        tabButtons.removeClass("active");
-        $(`[data-category="${tabId}"]`).addClass("active");
-    }
-
-    // ดึงค่า tab จาก URL parameter
-    const urlParams = new URLSearchParams(window.location.search);
-    let activeTab = urlParams.get("tab") || "all"; // ค่าเริ่มต้นเป็น "all"
-
-    // ถ้าไม่มีค่าใน URL ใช้ค่าใน localStorage แทน
-    if (!urlParams.has("tab")) {
-        activeTab = localStorage.getItem("activeTab") || "all";
-    }
-
-    activateTab(activeTab);
-
-    tabButtons.on("click", function () {
-        const targetTab = $(this).data("category");
-        activateTab(targetTab);
-        localStorage.setItem("activeTab", targetTab); // บันทึกค่าของแท็บที่เลือกใน localStorage
-
-        // อัพเดต URL ให้มีการเลือกแท็บเพื่อคงสถานะ
-        const currentUrl = new URL(window.location);
-        currentUrl.searchParams.set("tab", targetTab);
-        history.pushState(null, "", currentUrl.toString());
-    });
-});
-</script>
+        </script>
 
 
 
 
-<!-- End News Promotion Section -->
+        <!-- End News Promotion Section -->
 
 
 
 
-    <!--JS -->
-    <script src="../../js/jquery.min.js"></script>
-    <!-- <script src="js/jquery.easing.1.3.js"></script> -->
-    <script src="../../js/bootstrap.bundle.min.js"></script>
-    <!-- <script src="js/SmoothScroll.js"></script> -->
-    <script src="../../js/jquery.scrollTo.min.js" defer></script>
-    <script src="../../js/jquery.localScroll.min.js" defer></script>
-    <script src="../../js/jquery.viewport.mini.js" defer></script>
-    <!-- <script src="js/jquery.parallax-1.1.3.js"></script>
+        <!--JS -->
+        <script src="../../js/jquery.min.js"></script>
+        <!-- <script src="js/jquery.easing.1.3.js"></script> -->
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <!-- <script src="js/SmoothScroll.js"></script> -->
+        <script src="../../js/jquery.scrollTo.min.js" defer></script>
+        <script src="../../js/jquery.localScroll.min.js" defer></script>
+        <script src="../../js/jquery.viewport.mini.js" defer></script>
+        <!-- <script src="js/jquery.parallax-1.1.3.js"></script>
     <script src="js/jquery.fitvids.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/isotope.pkgd.min.js"></script>
@@ -895,60 +951,60 @@ $(document).ready(function () {
     <script src="js/wow.min.js" defer></script>
     <script src="js/morphext.js" defer></script>
     <script src="js/typed.min.js" defer></script> -->
-    <script src="../../js/all.js"></script>
-    <!-- <script src="js/contact-form.js" defer></script> -->
-    <!-- <script src="js/jquery.ajaxchimp.min.js"></script>
+        <script src="../../js/all.js"></script>
+        <!-- <script src="js/contact-form.js" defer></script> -->
+        <!-- <script src="js/jquery.ajaxchimp.min.js"></script>
     <script src="js/objectFitPolyfill.min.js" defer></script>
     <script src="js/splitting.min.js" defer></script> -->
-    <!-- <script src="js/changeClass.js" defer></script> -->
+        <!-- <script src="js/changeClass.js" defer></script> -->
 
 
-    <!-- alert -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+        <!-- alert -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 
-    <!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
+        <!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
 
-    <!-- <script src="js/highlight-game-Swiper.js"></script> -->
-
-
-
-    <!-- Nav hamburger -->
-
-    <script src="../../js/submenu-mainnav-mobile-click.js"></script>
-
-    <!-- Promotion News -->
-    <!-- <script src="js/news-and-promotion-tab.js" defer></script> -->
-
-    <!-- tab news and promotion vanilla.js -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/tabbyjs@12.0.0/dist/tabby.min.js"></script> -->
+        <!-- <script src="js/highlight-game-Swiper.js"></script> -->
 
 
 
+        <!-- Nav hamburger -->
 
+        <script src="../../js/submenu-mainnav-mobile-click.js"></script>
 
-    <!-- particle JS -->
-    <!-- <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script> -->
-    <!-- <script src="js/particle-js-home-animation.js"></script> -->
+        <!-- Promotion News -->
+        <!-- <script src="js/news-and-promotion-tab.js" defer></script> -->
 
-    <!-- sidebar contact -->
-    <!-- <script src="js/sidebar-contact-download-sticky.js" defer></script> -->
-    <!-- <script src="js/layout_link_page.js"></script> -->
-
-
-
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WKMDJPGM" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+        <!-- tab news and promotion vanilla.js -->
+        <!-- <script src="https://cdn.jsdelivr.net/npm/tabbyjs@12.0.0/dist/tabby.min.js"></script> -->
 
 
 
+
+
+        <!-- particle JS -->
+        <!-- <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script> -->
+        <!-- <script src="js/particle-js-home-animation.js"></script> -->
+
+        <!-- sidebar contact -->
+        <!-- <script src="js/sidebar-contact-download-sticky.js" defer></script> -->
+        <!-- <script src="js/layout_link_page.js"></script> -->
+
+
+
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WKMDJPGM" height="0" width="0"
+                style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
 
 
 
 
 
 
-</body>
+
+
+
+    </body>
 
 </html>
