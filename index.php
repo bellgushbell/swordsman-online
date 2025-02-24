@@ -1,5 +1,12 @@
 <!-- <script src="js/layout_link_page.js" defer></script> -->
+<!-- GreenSock Animation Platform -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+<!-- scroll trigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+
+
 <!-- Favicons -->
 <link rel="shortcut icon" href="images/shortcut-icon.png">
 
@@ -159,7 +166,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 </head>
 
 
-<body class="appear-animate">
+<body class="appear-animate" >
+
 
 
     <!-- particle js จุลภาค -->
@@ -350,11 +358,11 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
 
-    <main id="main"
-        style="background: url('images/background/bg-main-section.png') no-repeat center center; background-size: cover; z-index: -9999;">
+    <main id="main" style="background: url('images/background/bg.jpeg') no-repeat center center; background-size: cover; z-index: -9999;"
+        >
 
         <!-- Home Section -->
-        <section class="home-section bg-dark-alfa-30 light-content relative"
+        <section id="home-section" class="home-section bg-dark-alfa-30 light-content relative"
             data-background="images/webcover-videoimage.jpg" id="home">
             <div class="container height-100vh d-flex align-items-center">
 
@@ -463,7 +471,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         // ✅ ถ้าวิดีโอโหลดไม่เสร็จภายใน 2 วินาที → ใช้ภาพพื้นหลังแทน
         setTimeout(() => {
             if (!videoElement.readyState || videoElement.readyState < 3) {
-                document.querySelector("#main").style.backgroundImage = `url(${fallbackBackground})`;
+                document.querySelector("#home-section").style.backgroundImage = `url(${fallbackBackground})`;
             }
         }, 2000); // 🔥 ลดจาก 5000ms → 2000ms เพื่อความเร็ว
     });
@@ -1012,7 +1020,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             <!-- ปุ่มลงทะเบียนล่วงหน้า -->
 
             <div class="pre-register-container">
-                <a href="reward.html" target="_blank" class="pre-register">
+                <a href="page/player/preregister-reward.php" target="_blank" class="pre-register">
                     <img src="images/PreregisterButtonandReward/preregister-text.png" alt="PRE-REGISTER" />
                 </a>
             </div>
@@ -1128,9 +1136,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
         <!-- Highlight Game Section -->
-        <section class="page-section pt-0 pb-0 banner-section bg-dark light-content">
-            <div class="swiper-container"
-                style="background: url('images/background/bg-gold-bottom-to-top.png') no-repeat center center; background-size: cover;">
+        <section class="highlight-page-section pt-0 pb-0">
+            <div class="swiper-container">
                 <div class="swiper-wrapper">
                     <!-- Slide 1 -->
                     <div class="swiper-slide">
@@ -1159,510 +1166,9 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         <!--End Highlight Game Section-->
 
 
+          <!--News and Promotion Section-->
         
-
-        <!--ใหม่ใช้งาน New Gallery Game Section-->
-        <!--Gallery Game Section-->
-    <section class="gallery-section"     style="background: url('images/background/bg-main-section.png') no-repeat center center; background-size: cover;">
-        <div class="character-container">
-            <img src="images/class6.png" alt="Character">
-        </div>
-    
-        <div class="gallery-container">
-            <div class="gallery-header">
-                <div class="tabs">
-                    <button class="tab-btn active" data-tab="photo" onclick="toggleGallery('photo')">Photo</button>
-                    <span class="divider-gallery">/</span>
-                    <button class="tab-btn" data-tab="video" onclick="toggleGallery('video')">Video</button>
-                </div>
-                <a href="page/player/gallery-more.php" target="_blank">
-                <div class="more-btn">MORE+</div>
-            </a>
-
-            </div>
-    
-            <!-- Photo Gallery -->
-            <div class="gallery" id="photoGallery">
-                <div class="gallery-item large"
-                    onclick="openModal('photo', 'images/gallery-pic/g1.jpg')">
-                    <img src="images/gallery-pic/g1.jpg" alt="Moonglow Fest">
-                    <h3>Moonglow Fest</h3>
-                </div>
-                <div class="gallery-item small-right"
-                    onclick="openModal('photo', 'images/gallery-pic/g2.jpg')">
-                    <img src="images/gallery-pic/g2.jpg" alt="Frosty Festival">
-                    <h3>Frosty Festival</h3>
-                </div>
-                <div class="gallery-item small-right new-event"
-                    onclick="openModal('photo', 'images/gallery-pic/g3.jpg')">
-                    <img src="images/gallery-pic/g3.jpg" alt="New Event 1">
-                    <h3>New Event 1</h3>
-                </div>
-                <div class="gallery-item small-right"
-                    onclick="openModal('photo', 'images/gallery-pic/g4.jpg')">
-                    <img src="images/gallery-pic/g4.jpg" alt="Global Launch">
-                    <h3>Global Launch</h3>
-                </div>
-                <div class="gallery-item small-right"
-                    onclick="openModal('photo', 'images/gallery-pic/g5.jpg')">
-                    <img src="images/gallery-pic/g5.jpg" alt="Chinese New Year">
-                    <h3>Chinese New Year</h3>
-                </div>
-                <div class="gallery-item small-right"
-                    onclick="openModal('photo', 'images/gallery-pic/g6.jpg')">
-                    <img src="images/gallery-pic/g6.jpg" alt="2024 New Year">
-                    <h3>2024 New Year</h3>
-                </div>
-            </div>
-    
-            <!-- Video Gallery -->
-            <div class="gallery" id="videoGallery" style="display: none;">
-                <div class="gallery-item large video-overlay"
-                    onclick="openModal('video', 'https://www.youtube.com/embed/i08KHjxYKuw?si?autohide=1')">
-                    <img src="https://img.youtube.com/vi/i08KHjxYKuw/maxresdefault.jpg" alt="Baking Contest">
-                    <h3>ฝากตัวเป็นศิษย์กับสำนักที่ใช่! เพื่อก้าวขึ้นเป็นอันดับ 1 แห่งยุทธภพ!!</h3>
-                </div>
-                <div class="gallery-item small-right video-overlay"
-                    onclick="openModal('video', 'https://www.youtube.com/embed/8a085o8nwAs?autohide=1')">
-                    <img src="https://img.youtube.com/vi/8a085o8nwAs/maxresdefault.jpg" alt="Claw Wars">
-                    <h3>สำนักหมื่นบุปผา</h3>
-                </div>
-                <div class="gallery-item small-right video-overlay"
-                    onclick="openModal('video', 'https://www.youtube.com/embed/GVQeNk10y-A?autohide=1')">
-                    <img src="https://img.youtube.com/vi/GVQeNk10y-A/maxresdefault.jpg" alt="Playground Clubhouse">
-                    <h3>สำนักบู๊ตึง</h3>
-                </div>
-                <div class="gallery-item small-right video-overlay"
-                    onclick="openModal('video', 'https://www.youtube.com/embed/cISz3y-Wcyg?autohide=1')">
-                    <img src="https://img.youtube.com/vi/cISz3y-Wcyg/maxresdefault.jpg" alt="Who's Rotten?">
-                    <h3>สำนักเทียนเหริ่น</h3>
-                </div>
-                <div class="gallery-item small-right video-overlay"
-                    onclick="openModal('video', 'https://www.youtube.com/embed/qdqvUUiCmkw?autohide=1')">
-                    <img src="https://img.youtube.com/vi/qdqvUUiCmkw/maxresdefault.jpg" alt="Ice Bean Battle">
-                    <h3>สำนักวังวารี</h3>
-                </div>
-                <div class="gallery-item small-right video-overlay"
-                    onclick="openModal('video', 'https://www.youtube.com/embed/3fUKs3xwxI4?autohide=1')">
-                    <img src="https://img.youtube.com/vi/3fUKs3xwxI4/maxresdefault.jpg" alt="Ice Bean Battle">
-                    <h3>สำนักไป๋ลู่</h3>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Modal for Image or Video -->
-    <div id="modal" class="modal" style="display: none;">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <div id="modal-content"></div>
-        </div>
-    </div>
-    
-    <!-- Inline Style -->
-    <style>
-        .gallery-section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 50px;
-            gap: 100px;
-        }
-    
-        .character-container {
-            flex: 0 0 30%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-    
-        .character-container img {
-            text-align: end;
-            height: 800px;
-            width: auto;
-        }
-    
-        .gallery-container {
-            flex: 0 0 65%;
-            display: flex;
-            flex-direction: column;
-        }
-    
-        .gallery-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-    
-        .tabs {
-            display: flex;
-            align-items: center;
-            justify-content: center; /* วางทุกอย่างตรงกลางในแกน X */
-            gap: 10px; /* เพิ่มช่องว่างระหว่างปุ่ม */
-        }
-
-        .divider-gallery {
-            font-size: 24px;
-            font-weight: bold;
-            margin: 0 0px; /* ระยะห่างจากปุ่มทั้งสอง */
-        }
-
-    
-        .tabs button {
-            background: none;
-            border: none;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            padding: 5px 10px;
-        }
-    
-        .tabs button.active {
-            background: linear-gradient(90deg, #DCC072, #edb518);
-            color: white;
-            border-radius: 15px;
-        }
-    
-        .more-btn {
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            text-decoration: none;
-        }
-    
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-        }
-    
-        .gallery-item {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-bottom: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            text-align: center;
-        }
-    
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            border-bottom: 2px solid #ddd;
-            transition: transform 0.3s ease-in-out;
-        }
-    
-        .gallery-item:hover img {
-            transform: scale(1.04);
-            cursor: pointer;
-        }
-    
-        .gallery-item h3 {
-            font-size: 16px;
-            margin-top: 10px;
-        }
-    
-        .gallery-item.large {
-            grid-column: span 2;
-            grid-row: span 2;
-        }
-    
-        .gallery-item.small-right {
-            grid-column: span 1;
-            grid-row: span 1;
-        }
-    
-        .gallery-item.new-event {
-            grid-column: 3;
-            grid-row: 1;
-            grid-row: span 1;
-        }
-    
-        /* Modal Style */
-        .modal {
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-           
-            background-color: rgba(0, 0, 0, 0.4);
-            overflow-y: hidden;
-            z-index: 2000;
-        }
-    
-        .modal-content {
-        background-color: #f7df9d;
-        padding: 0px 10px 10px 10px;
-        border: 1px solid #888;
-        width: 80%;
-        max-width: 800px;
-        
-        /* ใช้ translate เพื่อย้าย modal ไปกลางจอ */
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-       
-        }
-
-    
-        .close {
-            line-height: 0.8;
-            text-align: end;
-            color: black;
-            float: right;
-            font-size: 16px;
-            font-weight: bold;
-        }
-    
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-    
-        .video-overlay {
-            position: relative;
-            height: 100%;
-            cursor: pointer;
-        }
-    
-        .video-overlay img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease-in-out;
-        }
-    
-        .video-overlay:hover img {
-            transform: scale(1.04);
-            cursor: pointer;
-        }
-    
-        .video-overlay::after {
-            content: "▶";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 30px;
-            color: white;
-            font-weight: bold;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 1px 10px;
-            border-radius: 50%;
-        }
-    
-        /* Responsive */
-        @media (max-width: 768px) {
-
-              .gallery-section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            gap: 10px;
-            }
-            .character-container img {
-            display: none;
-            }
-       
-             .character-container {
-         
-            display: none;
-             }
-            .gallery-container {
-            flex: 0 0 100%;
-            display: flex;
-            flex-direction: column;
-             }
-           .gallery-item h3 {
-            font-size: 10px;
-            margin-top: 5px;
-            margin-bottom: 0px;
-            }
-              .video-overlay::after {
-            content: "▶";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 15px;
-            color: white;
-            font-weight: bold;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 5px 10px;
-            border-radius: 50%;
-            }
-
-            .video-overlay h3{
-                font-size: 10px;
-            }
-            
-           /* สำหรับแนวนอนและขนาดหน้าจอทั่วไป */
-            @media (max-width: 1024px) and (orientation: landscape) {
-            .gallery-section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            gap: 10px;
-            }
-            .character-container img {
-            display: none;
-            }
-       
-             .character-container {
-            display: none;
-             }
-            .gallery-container {
-            flex: 0 0 100%;
-            display: flex;
-            flex-direction: column;
-             }
-           .gallery-item h3 {
-            font-size: 10px;
-            margin-top: 5px;
-            margin-bottom: 0px;
-            }
-              .video-overlay::after {
-            content: "▶";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 15px;
-            color: white;
-            font-weight: bold;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 5px 10px;
-            border-radius: 50%;
-            }
-
-            .video-overlay h3{
-                font-size: 10px;
-            }
-            }
-
-            /* เพิ่มอีกกรณี ถ้าใช้พวก devices mobile ที่มีหน้าจอแคบ */
-            @media (max-width: 768px) and (orientation: landscape) {
-             .gallery-section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            gap: 10px;
-            }
-            .character-container img {
-            display: none;
-            }
-       
-             .character-container {
-            display: none;
-             }
-            .gallery-container {
-            flex: 0 0 100%;
-            display: flex;
-            flex-direction: column;
-             }
-           .gallery-item h3 {
-            font-size: 10px;
-            margin-top: 5px;
-            margin-bottom: 0px;
-            }
-              .video-overlay::after {
-            content: "▶";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 15px;
-            color: white;
-            font-weight: bold;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 5px 10px;
-            border-radius: 50%;
-            }
-
-            .video-overlay h3{
-                font-size: 10px;
-            }
-            }
-           
-        }
-    </style>
-    
-    <!-- Inline Script -->
-    <script>
-        function toggleGallery(tab) {
-            const photoGallery = document.getElementById("photoGallery");
-            const videoGallery = document.getElementById("videoGallery");
-
-            if (tab === "photo") {
-                photoGallery.style.display = "grid";
-                videoGallery.style.display = "none";
-                document.querySelector('[data-tab="photo"]').classList.add("active");
-                document.querySelector('[data-tab="video"]').classList.remove("active");
-            } else {
-                photoGallery.style.display = "none";
-                videoGallery.style.display = "grid";
-                document.querySelector('[data-tab="video"]').classList.add("active");
-                document.querySelector('[data-tab="photo"]').classList.remove("active");
-            }
-        }
-
-        function openModal(type, source) {
-            const modal = document.getElementById('modal');
-            const modalContent = document.getElementById('modal-content');
-
-            if (type === 'photo') {
-                modalContent.innerHTML = `<img src="${source}" alt="Image" style="width:100%; height:auto;">`;
-            } else if (type === 'video') {
-                modalContent.innerHTML = `<iframe width="100%" height="400" src="${source}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
-            }
-
-            modal.style.display = "block";
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('modal');
-            modal.style.display = "none";
-        }
-
-        window.onclick = function (event) {
-            const modal = document.getElementById('modal');
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
-    </script>
-
-
-
-
-        
-        
-        <!--End Gallery Game Section-->
-
-
-
-
-
-
-
-        
-
-        <!--News and Promotion Section-->
-        
-        <section class="page-section-news" id="news"
-            style="background: url('images/background/bg-gold-top-to-bottom.png') no-repeat center center; background-size: cover;">
+        <section class="page-section-news" id="news">
             <div class="container">
                 <div class="row gy-4">
         
@@ -1885,10 +1391,11 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                         limitedNews.forEach(news => {
                             const li = document.createElement("li");
                             const dateOnly = news.created_at.substring(0, 10); // 10 ตัวแรก (YYYY-MM-DD)
+                            const newtypefilter = news.type == "ข่าว" ? "ประกาศ" : news.type;
                             li.classList.add("list-group-item");
                             li.innerHTML = `
                                 <div class="news-item">
-                                    <a href="#" class="text-decoration-none">${news.title}</a>
+                                    <a href="#" class="text-decoration-none">[${newtypefilter}] - ${news.title}</a>
                                     <span class="date">${dateOnly}</span>
                                 </div>`;
                             container.appendChild(li);
@@ -1909,6 +1416,560 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         </section>
         
         <!--End News and Promotion Section-->
+
+
+        
+
+        <!--ใหม่ใช้งาน New Gallery Game Section-->
+        <!--Gallery Game Section-->
+    <section class="gallery-section">
+        <div class="character-container">
+            <img src="images/gallery-pic/g-char.png" alt="Character">
+        </div>
+    
+        <div class="gallery-container">
+            <div class="gallery-header">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="photo" onclick="toggleGallery('photo')">รูปภาพ</button>
+                    <span class="divider-gallery">/</span>
+                    <button class="tab-btn" data-tab="video" onclick="toggleGallery('video')">วีดีโอ</button>
+                </div>
+                <a href="page/player/gallery-more.php" target="_blank">
+                <div class="more-btn">เพิ่มเติม+</div>
+            </a>
+
+            </div>
+    
+            <!-- Photo Gallery -->
+            <div class="gallery" id="photoGallery">
+                <div class="gallery-item large"
+                    onclick="openModal('photo', 'images/gallery-pic/g1.jpg')">
+                    <img src="images/gallery-pic/g1.jpg" alt="Moonglow Fest">
+                    <h3>เข้าร่วมสงครามจักพรรดิ์</h3>
+                </div>
+                <div class="gallery-item small-right"
+                    onclick="openModal('photo', 'images/gallery-pic/g2.jpg')">
+                    <img src="images/gallery-pic/g2.jpg" alt="Frosty Festival">
+                    <h3>รักสุดโรแมนติก</h3>
+                </div>
+                <div class="gallery-item small-right new-event"
+                    onclick="openModal('photo', 'images/gallery-pic/g3.jpg')">
+                    <img src="images/gallery-pic/g3.jpg" alt="New Event 1">
+                    <h3>สู้ศึกสังเวียนบอส</h3>
+                </div>
+                <div class="gallery-item small-right"
+                    onclick="openModal('photo', 'images/gallery-pic/g4.jpg')">
+                    <img src="images/gallery-pic/g4.jpg" alt="Global Launch">
+                    <h3>บุพผาไร้พ่าย</h3>
+                </div>
+                <div class="gallery-item small-right"
+                    onclick="openModal('photo', 'images/gallery-pic/g5.jpg')">
+                    <img src="images/gallery-pic/g5.jpg" alt="Chinese New Year">
+                    <h3>หมื่นบุพผาบทกวี</h3>
+                </div>
+                <div class="gallery-item small-right"
+                    onclick="openModal('photo', 'images/gallery-pic/g6.jpg')">
+                    <img src="images/gallery-pic/g6.jpg" alt="2024 New Year">
+                    <h3>บ่อน้ำพุร้อน</h3>
+                </div>
+            </div>
+    
+            <!-- Video Gallery -->
+            <div class="gallery" id="videoGallery" style="display: none;">
+                <div class="gallery-item large video-overlay"
+                    onclick="openModal('video', 'https://www.youtube.com/embed/i08KHjxYKuw?si?autohide=1')">
+                    <img src="https://img.youtube.com/vi/i08KHjxYKuw/maxresdefault.jpg" alt="Baking Contest">
+                    <h3>ฝากตัวเป็นศิษย์กับสำนักที่ใช่! เพื่อก้าวขึ้นเป็นอันดับ 1 แห่งยุทธภพ!!</h3>
+                </div>
+                <div class="gallery-item small-right video-overlay"
+                    onclick="openModal('video', 'https://www.youtube.com/embed/8a085o8nwAs?autohide=1')">
+                    <img src="https://img.youtube.com/vi/8a085o8nwAs/maxresdefault.jpg" alt="Claw Wars">
+                    <h3>สำนักหมื่นบุปผา</h3>
+                </div>
+                <div class="gallery-item small-right video-overlay"
+                    onclick="openModal('video', 'https://www.youtube.com/embed/GVQeNk10y-A?autohide=1')">
+                    <img src="https://img.youtube.com/vi/GVQeNk10y-A/maxresdefault.jpg" alt="Playground Clubhouse">
+                    <h3>สำนักบู๊ตึง</h3>
+                </div>
+                <div class="gallery-item small-right video-overlay"
+                    onclick="openModal('video', 'https://www.youtube.com/embed/cISz3y-Wcyg?autohide=1')">
+                    <img src="https://img.youtube.com/vi/cISz3y-Wcyg/maxresdefault.jpg" alt="Who's Rotten?">
+                    <h3>สำนักเทียนเหริ่น</h3>
+                </div>
+                <div class="gallery-item small-right video-overlay"
+                    onclick="openModal('video', 'https://www.youtube.com/embed/qdqvUUiCmkw?autohide=1')">
+                    <img src="https://img.youtube.com/vi/qdqvUUiCmkw/maxresdefault.jpg" alt="Ice Bean Battle">
+                    <h3>สำนักวังวารี</h3>
+                </div>
+                <div class="gallery-item small-right video-overlay"
+                    onclick="openModal('video', 'https://www.youtube.com/embed/3fUKs3xwxI4?autohide=1')">
+                    <img src="https://img.youtube.com/vi/3fUKs3xwxI4/maxresdefault.jpg" alt="Ice Bean Battle">
+                    <h3>สำนักไป๋ลู่</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Modal for Image or Video -->
+    <div id="modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+    
+    <!-- Inline Style -->
+    <style>
+        .gallery-section {
+           
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 100px 20px 100px;
+            gap: 50px;
+            height: 100%;
+            overflow: hidden;
+        }
+    
+        .character-container {
+            flex: 0 0 30%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        .character-container img {
+            text-align: end;
+            height: 650px;
+            width: auto;
+            object-fit: fill;
+        }
+    
+        .gallery-container {
+            flex: 0 0 65%;
+            display: flex;
+            flex-direction: column;
+        }
+    
+        .gallery-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+    
+        .tabs {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* วางทุกอย่างตรงกลางในแกน X */
+            gap: 10px; /* เพิ่มช่องว่างระหว่างปุ่ม */
+        }
+
+        .divider-gallery {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0 0px; /* ระยะห่างจากปุ่มทั้งสอง */
+        }
+
+    
+        .tabs button {
+            background: none;
+            border: none;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 5px 10px;
+        }
+    
+        .tabs button.active {
+            background: linear-gradient(90deg, #DCC072, #edb518);
+            color: white;
+            border-radius: 15px;
+        }
+    
+        .more-btn {
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+        }
+    
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            
+        }
+    
+        .gallery-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            
+        }
+    
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            border-bottom: 2px solid #ddd;
+            transition: transform 0.3s ease-in-out;
+        }
+    
+        .gallery-item:hover img {
+            transform: scale(1.04);
+            cursor: pointer;
+        }
+    
+        .gallery-item h3 {
+            font-size: 16px;
+            margin-top: 10px;
+        }
+    
+        .gallery-item.large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+    
+        .gallery-item.small-right {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+    
+        .gallery-item.new-event {
+            grid-column: 3;
+            grid-row: 1;
+            grid-row: span 1;
+        }
+    
+        /* Modal Style */
+        .modal {
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+           
+            background-color: rgba(0, 0, 0, 0.4);
+            overflow-y: hidden;
+            z-index: 2000;
+        }
+    
+        .modal-content {
+        background-color: #f7df9d;
+        padding: 0px 10px 10px 10px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 800px;
+        
+        /* ใช้ translate เพื่อย้าย modal ไปกลางจอ */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+       
+        }
+
+    
+        .close {
+            line-height: 0.8;
+            text-align: end;
+            color: black;
+            float: right;
+            font-size: 16px;
+            font-weight: bold;
+        }
+    
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    
+        .video-overlay {
+            position: relative;
+            height: 100%;
+            cursor: pointer;
+        }
+    
+        .video-overlay img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease-in-out;
+        }
+    
+        .video-overlay:hover img {
+            transform: scale(1.04);
+            cursor: pointer;
+        }
+    
+        .video-overlay::after {
+            content: "▶";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 30px;
+            color: white;
+            font-weight: bold;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 1px 10px;
+            border-radius: 50%;
+        }
+    
+        /* Responsive */
+        @media (max-width: 767px) {
+
+              .gallery-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            gap: 10px;
+            }
+            .character-container img {
+            display: none;
+            }
+       
+             .character-container {
+         
+            display: none;
+             }
+    
+            .gallery-container {
+            flex: 0 0 100%;
+            display: flex;
+            flex-direction: column;
+             }
+           .gallery-item h3 {
+            font-size: 8x;
+            margin-top: 5px;
+            margin-bottom: 0px;
+            }
+              .video-overlay::after {
+            content: "▶";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 15px;
+            color: white;
+            font-weight: bold;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5px 10px;
+            border-radius: 50%;
+            }
+
+            .video-overlay h3{
+                font-size: 10px;
+            }
+            
+            /* ✅ Mobile ในแนวนอน */
+          @media (max-width: 768px) and (orientation: landscape) {
+             .gallery-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            gap: 10px;
+            }
+            .character-container img {
+            display: none;
+            }
+       
+             .character-container {
+            display: none;
+             }
+            .gallery-container {
+            flex: 0 0 100%;
+            display: flex;
+            flex-direction: column;
+             }
+           .gallery-item h3 {
+            font-size: 10px;
+            margin-top: 5px;
+            margin-bottom: 0px;
+            }
+              .video-overlay::after {
+            content: "▶";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 15px;
+            color: white;
+            font-weight: bold;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5px 10px;
+            border-radius: 50%;
+            }
+
+            .video-overlay h3{
+                font-size: 10px;
+            }
+            }
+
+                    /* ✅ iPad แนวตั้ง */
+        @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+            .gallery-section {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+                gap: 10px;
+            }
+            .character-container img {
+                display: none !important; /* ซ่อนตัวละคร */
+            }
+            .character-container {
+                display: none !important; /* ซ่อนกล่องที่บรรจุตัวละคร */
+            }
+            .gallery-container {
+                flex: 0 0 100%;
+                display: flex;
+                flex-direction: column;
+            }
+            .gallery-item h3 {
+                font-size: 10px;
+                margin-top: 5px;
+                margin-bottom: 0px;
+            }
+            .video-overlay::after {
+                content: "▶";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 15px;
+                color: white;
+                font-weight: bold;
+                background: rgba(0, 0, 0, 0.5);
+                padding: 5px 10px;
+                border-radius: 50%;
+            }
+
+            .video-overlay h3 {
+                font-size: 10px;
+            }
+        }
+
+        /* ✅ iPad และ Tablet (แนวนอน) */
+        @media (min-width: 1024px) and (max-width: 1400px) and (orientation: landscape) {
+            .gallery-section {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+                gap: 10px;
+            }
+            .character-container img {
+                display: none  !important; /* ซ่อนตัวละคร */
+            }
+            .character-container {
+                display: none  !important; /* ซ่อนกล่องที่บรรจุตัวละคร */
+            }
+            .gallery-container {
+                flex: 0 0 100%;
+                display: flex;
+                flex-direction: column;
+            }
+            .gallery-item h3 {
+                font-size: 10px;
+                margin-top: 5px;
+                margin-bottom: 0px;
+            }
+            .video-overlay::after {
+                content: "▶";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 15px;
+                color: white;
+                font-weight: bold;
+                background: rgba(0, 0, 0, 0.5);
+                padding: 5px 10px;
+                border-radius: 50%;
+            }
+
+            .video-overlay h3 {
+                font-size: 10px;
+            }
+        }
+
+           
+        }
+    </style>
+    
+    <!-- Inline Script -->
+    <script>
+        function toggleGallery(tab) {
+            const photoGallery = document.getElementById("photoGallery");
+            const videoGallery = document.getElementById("videoGallery");
+
+            if (tab === "photo") {
+                photoGallery.style.display = "grid";
+                videoGallery.style.display = "none";
+                document.querySelector('[data-tab="photo"]').classList.add("active");
+                document.querySelector('[data-tab="video"]').classList.remove("active");
+            } else {
+                photoGallery.style.display = "none";
+                videoGallery.style.display = "grid";
+                document.querySelector('[data-tab="video"]').classList.add("active");
+                document.querySelector('[data-tab="photo"]').classList.remove("active");
+            }
+        }
+
+        function openModal(type, source) {
+            const modal = document.getElementById('modal');
+            const modalContent = document.getElementById('modal-content');
+
+            if (type === 'photo') {
+                modalContent.innerHTML = `<img src="${source}" alt="Image" style="width:100%; height:auto;">`;
+            } else if (type === 'video') {
+                modalContent.innerHTML = `<iframe width="100%" height="400" src="${source}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+            }
+
+            modal.style.display = "block";
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            const modal = document.getElementById('modal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+
+
+
+
+        
+        
+        <!--End Gallery Game Section-->
+
+
+
+
+
+
+
+        
+
+      
         
         
         <!--Divider -->
@@ -1951,7 +2012,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
     <!--Footer -->
-    <footer class="page-section bg-gray-lighter footer pb-100 pb-sm-50"     style="background: url('images/background/bg-gold-bottom-to-top.png') no-repeat center center; background-size: cover;">
+    <footer class="footer-page-section  footer pb-100 pb-sm-50">
         <div class="container">
     
         
@@ -1989,8 +2050,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 </div>
                
     
+   
     </footer>
-    
     <!--End Footer-->
 
     </main>

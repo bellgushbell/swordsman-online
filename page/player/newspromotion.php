@@ -1,6 +1,7 @@
 <!-- Favicons -->
 <link rel="shortcut icon" href="../../images/shortcut-icon.png">
-
+<!-- scroll trigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <!-- 
 <div id="header-container"></div> -->
 <!-- Change the value of lang="en" attribute if your website's language is not English.
@@ -393,7 +394,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         .news-tabs button {
             margin: 0 10px;
             padding: 10px 20px;
-            font-size: 18px;
+            font-size: 22px;
             border: none;
             cursor: pointer;
             background: transparent;
@@ -408,7 +409,12 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             border-radius: 5px;
         }
 
-
+        .newsall-type-text{
+            font-size: 18px;
+            font-weight: bold;
+            color:rgb(196, 155, 21);
+           
+        }
 
         .news-list {
             list-style: none;
@@ -464,7 +470,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         }
 
         .pagination button {
-            padding: 12px 20px;
+            padding: 6px 15px;
             border: none;
             cursor: pointer;
             font-size: 18px;
@@ -497,13 +503,66 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             font-weight: bold;
             color: white;
             background: linear-gradient(145deg, #b0b0ae, #817f7c);
-            padding: 8px 16px;
+            padding: 4px 12px;
             border-radius: 6px;
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
         }
 
-        /* สำหรับหน้าจอเล็กกว่า 768px (มือถือ) */
-        @media (max-width: 768px) {
+
+  
+        /* ✅ Mobile แนวตั้ง (Portrait) */
+            @media (max-width: 767px) {
+            .news-tabs-button-box {
+            flex-wrap: wrap; /* ให้ปุ่มแท็บขึ้นบรรทัดใหม่ได้ */
+            gap: 5px; /* ลดช่องว่าง */
+        }
+                .news-banner {
+                height: 200px;
+            }
+
+            .news-banner h1 {
+                font-size: 32px;
+                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+                -webkit-text-stroke: 1px #f4f0f0;
+            }
+
+            .newsall-type-text{
+                font-size: 14px;
+                font-weight: bold;
+                color:rgb(196, 155, 21);
+            
+            }
+          
+            .news-tabs button {
+                font-size: 14px;
+                padding: 8px 12px;
+              
+            }
+            .news-list li {
+                padding: 8px;
+            }
+
+            .news-list li a {
+                font-size: 14px;
+            }
+
+            .news-list li .date {
+                font-size: 12px;
+            }
+
+            .pagination button {
+                font-size: 14px;
+                padding: 8px 14px;
+            }
+
+            #pageNumber {
+                font-size: 16px;
+                padding: 6px 12px;
+            }
+        }
+        
+         /* ✅ Mobile ในแนวนอน */
+        @media (max-width: 768px) and (orientation: landscape) {
             .news-banner {
                 height: 200px;
             }
@@ -512,6 +571,14 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 font-size: 32px;
                 text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
                 -webkit-text-stroke: 1px #f4f0f0;
+            }
+
+            
+            .newsall-type-text{
+                font-size: 14px;
+                font-weight: bold;
+                color:rgb(196, 155, 21);
+            
             }
 
             .news-tabs button {
@@ -541,17 +608,53 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 padding: 6px 12px;
             }
         }
+        /* ✅ iPad แนวตั้ง */
+            @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+                .news-banner {
+                    height: 220px;
+                }
 
-        /* สำหรับแท็บเล็ตและมือถือแนวนอน (หน้าจอ 768px - 1024px) */
-        @media (max-width: 1024px) {
-            .news-banner {
+                .news-banner h1 {
+                    font-size: 36px;
+                }
+                .newsall-type-text{
+                    font-size: 16px;
+                    font-weight: bold;
+                    color:rgb(196, 155, 21);
+                
+                }
+                .news-tabs button {
+                    font-size: 16px;
+                    padding: 10px 14px;
+                }
+
+                .pagination button {
+                    font-size: 16px;
+                    padding: 9px 16px;
+                }
+
+                #pageNumber {
+                    font-size: 18px;
+                    padding: 7px 14px;
+                }
+            }
+
+
+        /* ✅ iPad และ Tablet (แนวนอน) */
+        @media (min-width: 1024px) and (max-width: 1400px) and (orientation: landscape) {
+               .news-banner {
                 height: 220px;
             }
 
             .news-banner h1 {
                 font-size: 36px;
             }
-
+             .newsall-type-text{
+                font-size: 16px;
+                font-weight: bold;
+                color:rgb(196, 155, 21);
+            
+            }
             .news-tabs button {
                 font-size: 16px;
                 padding: 10px 14px;
@@ -566,7 +669,9 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 font-size: 18px;
                 padding: 7px 14px;
             }
+
         }
+        
     </style>
     </head>
 
@@ -604,172 +709,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         </nav>
 
 
-        <!-- JavaScript -->
-        <!-- <script>
-          const newsData = [
-                // News (ประกาศ)
-                { title: "Golden eyes and jade claws!", category: "news", date: "2025/01/03" },
-                { title: "Three years of Jianghu!", category: "news", date: "2024/12/19" },
-                { title: "Third Anniversary Celebration!", category: "news", date: "2024/12/18" },
-                { title: "The third anniversary super server!", category: "news", date: "2024/12/16" },
-                { title: "New Battle Mode Announced!", category: "news", date: "2024/11/20" },
-                { title: "New Pet System Update!", category: "news", date: "2024/11/05" },
-                { title: "Server Maintenance Notice", category: "news", date: "2024/06/20" },
-                { title: "New Expansion Pack Released!", category: "news", date: "2024/07/15" },
-                { title: "Legendary Weapons Release!", category: "news", date: "2025/02/01" },
-                { title: "Jianghu’s Anniversary Rewards!", category: "news", date: "2025/01/10" },
-                { title: "Jianghu Winter Update!", category: "news", date: "2025/01/20" },
-                { title: "Exclusive Holiday Gear Released!", category: "news", date: "2024/12/25" },
-                { title: "Jianghu Mobile 2.0 Update!", category: "news", date: "2025/01/15" },
-                { title: "Introducing the New Battle Arena!", category: "news", date: "2025/01/28" },
-                { title: "Winter Festival Coming Soon!", category: "news", date: "2025/02/10" },
-
-                // Events (กิจกรรม)
-                { title: "New cute pet Abu is online!", category: "events", date: "2024/12/05" },
-                { title: "Spring Festival Bonus!", category: "events", date: "2024/02/10" },
-                { title: "Valentine's Day Special!", category: "events", date: "2024/02/14" },
-                { title: "Jianghu's Summer Festival!", category: "events", date: "2024/08/22" },
-                { title: "Mid-Autumn Festival Events!", category: "events", date: "2024/09/21" },
-                { title: "Halloween Special Edition!", category: "events", date: "2024/10/31" },
-                { title: "Winter Wonderland Event!", category: "events", date: "2024/12/10" },
-                { title: "New Year’s Countdown Special!", category: "events", date: "2025/01/01" },
-                { title: "Spring Festival Parade!", category: "events", date: "2025/03/01" },
-                { title: "Easter Egg Hunt Challenge!", category: "events", date: "2025/04/15" },
-
-                // Promotions (โปรโมชั่น)
-                { title: "Big Discount Shopping!", category: "promotions", date: "2024/10/21" },
-                { title: "White Feathered Fairy Mount!", category: "promotions", date: "2024/10/16" },
-                { title: "Limited Edition Outfits!", category: "promotions", date: "2024/03/05" },
-                { title: "Back-to-School Promotion!", category: "promotions", date: "2024/09/01" },
-                { title: "Limited Edition Weapon Skins!", category: "promotions", date: "2024/09/10" },
-                { title: "Cyber Monday Exclusive Deals!", category: "promotions", date: "2024/11/29" },
-                { title: "Year-End Clearance Sale!", category: "promotions", date: "2024/12/20" },
-                { title: "Valentine’s Gift Shop!", category: "promotions", date: "2025/02/14" },
-                { title: "Spring Mega Sale!", category: "promotions", date: "2025/03/20" },
-                { title: "Flash Sale: 50% off!", category: "promotions", date: "2025/04/01" }
-            ];
-             // เรียงลำดับจากใหม่ -> เก่า
-            newsData.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-          let currentPage = 1;
-            const itemsPerPage = 12;
-            // ใช้ค่า currentCategory จาก localStorage หากมี, ถ้าไม่มีก็ใช้ "all"
-            let currentCategory = localStorage.getItem("activeTab") || "all";
-
-            function renderNews() {
-                const newsContainer = document.getElementById("news-container");
-                newsContainer.innerHTML = "";
-
-                // กรองข่าวตามหมวดหมู่ที่เลือก
-                let filteredNews = currentCategory === "all" ? newsData : newsData.filter(news => news.category === currentCategory);
-
-                // หาช่วงของข่าวที่จะโชว์ในหน้า (เริ่มต้นแสดง 12 รายการแรก)
-                const startIndex = (currentPage - 1) * itemsPerPage;
-                const paginatedNews = filteredNews.slice(startIndex, startIndex + itemsPerPage);
-
-                // แสดงข่าวที่กรองและแบ่งหน้า
-                paginatedNews.forEach(news => {
-                    const li = document.createElement("li");
-                    li.innerHTML = `<a href="#">${news.title}</a> <span class="date">${news.date}</span>`;
-                    newsContainer.appendChild(li);
-                });
-
-                // แสดงหมายเลขหน้า
-                document.getElementById("pageNumber").textContent = currentPage;
-
-                // ปิดปุ่ม "ก่อนหน้า" ถ้าอยู่หน้าแรก
-                document.getElementById("prevPage").disabled = currentPage === 1;
-
-                // ปิดปุ่ม "ถัดไป" ถ้าเป็นหน้าสุดท้าย
-                const totalPages = Math.ceil(filteredNews.length / itemsPerPage);
-                document.getElementById("nextPage").disabled = currentPage === totalPages;
-            }
-
-            // เรียกใช้ renderNews() เมื่อเข้าหน้าแรก
-            renderNews();
-
-            // เปลี่ยนแท็บเมื่อผู้ใช้คลิก
-            document.querySelectorAll(".news-tabs button").forEach(button => {
-                button.addEventListener("click", () => {
-                    // เปลี่ยนสถานะของปุ่ม
-                    document.querySelectorAll(".news-tabs button").forEach(btn => btn.classList.remove("active"));
-                    button.classList.add("active");
-
-                    // บันทึกค่าหมวดหมู่ใน localStorage
-                    currentCategory = button.getAttribute("data-category");
-                    currentPage = 1; // รีเซ็ตหน้าเป็นหน้าแรก
-
-                    localStorage.setItem("activeTab", currentCategory); // เก็บสถานะหมวดหมู่ใน localStorage
-
-                    renderNews(); // แสดงข่าว
-                });
-            });
-
-            // Pagination - คลิก "ก่อนหน้า"
-            document.getElementById("prevPage").addEventListener("click", () => {
-                if (currentPage > 1) {
-                    currentPage--;
-                    renderNews();
-                }
-            });
-
-            // Pagination - คลิก "ถัดไป"
-            document.getElementById("nextPage").addEventListener("click", () => {
-                const filteredNews = currentCategory === "all" ? newsData : newsData.filter(news => news.category === currentCategory);
-                const totalPages = Math.ceil(filteredNews.length / itemsPerPage);
-
-                if (currentPage < totalPages) {
-                    currentPage++;
-                    renderNews();
-                }
-            });
-
-
-   
-
-            $(document).ready(function () {
-                const tabButtons = $(".news-tabs button");
-                const tabPanes = $(".tab-pane");
-                const newsContainer = $("#news-container");
-
-        
-
-                    function activateTab(tabId) {
-                        tabPanes.hide(); // ซ่อนทุกแท็บ
-                        $(`#${tabId}-tab-pane`).show(); // แสดงแท็บที่ถูกเลือก
-                        tabButtons.removeClass("active");
-                        $(`[data-category="${tabId}"]`).addClass("active");
-                        
-                    }
-              
-
-                    // ดึงค่า tab จาก URL parameter
-                    const urlParams = new URLSearchParams(window.location.search);
-                    let activeTab = urlParams.get("tab") || "all"; // ค่าเริ่มต้นเป็น "all"
-
-                    // ถ้าไม่มีค่าใน URL ใช้ค่าใน localStorage แทน
-                    if (!urlParams.has("tab")) {
-                        activeTab = localStorage.getItem("activeTab") || "all";
-                    }
-
-                    activateTab(activeTab);
-
-              tabButtons.on("click", function () {
-                    const targetTab = $(this).data("category");
-                    activateTab(targetTab);
-                    localStorage.setItem("activeTab", targetTab); // บันทึกค่าของแท็บที่เลือกใน localStorage
-
-                    // อัพเดต URL ให้มีการเลือกแท็บเพื่อคงสถานะ
-                    const currentUrl = new URL(window.location);
-                    currentUrl.searchParams.set("tab", targetTab);
-                    history.pushState(null, "", currentUrl.toString());
-                });
-                });
-
-
-
-        </script> -->
-
+      
 
         <script>
             // ฟังก์ชันดึงข้อมูลข่าวจาก PHP
@@ -818,10 +758,15 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                 const li = document.createElement("li");
                                 const dateOnly = news.created_at.substring(0, 10); // 10 ตัวแรก (YYYY-MM-DD)
                                 // เพิ่มลิงก์ที่แสดงรายละเอียดของข่าว
+                               
+                                const newtypefilter = news.type === "ข่าว" ? "ประกาศ" : news.type;
                                 li.innerHTML = `
                                     <div class="news-item">
+                                        <span class="newsall-type-text">♦ [${newtypefilter}]</span>
+                                        &nbsp;&nbsp;
                                         <a href="#" class="text-decoration-none">${news.title}</a>
                                         <span class="date">${dateOnly}</span>
+                                        
                                     </div>
                                 `;
                                 // ฟังก์ชันเมื่อคลิกที่ <li> จะไปที่หน้า news detail

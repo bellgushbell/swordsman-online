@@ -2,6 +2,90 @@
     "use strict"; // Start of use strict
 
 
+    /* ---------------------------------------------
+        Scroll เลื่อนเม้าหน้าsectionต่างๆ
+        --------------------------------------------- */
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.utils.toArray(".class-page-section").forEach((section) => {
+        gsap.fromTo(
+            section,
+            { opacity: 0, y: 100 },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                ease: "power4.out",
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top 80%",
+                    end: "top 30%",
+                    scrub: true,
+                }
+            }
+        );
+    });
+
+
+
+
+
+    gsap.utils.toArray(".highlight-page-section").forEach((section) => {
+        gsap.fromTo(
+            section,
+            { opacity: 0, scale: 0.8 }, // สถานะเริ่มต้น
+            {
+                opacity: 1,
+                scale: 1, // ซูมเข้า
+                duration: 1,
+                ease: "power4.out",
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top 80%",
+                    end: "top 30%",
+                    scrub: true,
+                }
+            }
+        );
+    });
+
+    gsap.utils.toArray(".page-section-news").forEach((section) => {
+        gsap.fromTo(
+            section,
+            { opacity: 0, scale: 0.8 }, // สถานะเริ่มต้น
+            {
+                opacity: 1,
+                scale: 1, // ซูมเข้า
+                duration: 1,
+                ease: "power4.out",
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top 80%",
+                    end: "top 30%",
+                    scrub: true,
+                }
+            }
+        );
+    });
+    gsap.utils.toArray(".gallery-section").forEach((section) => {
+        gsap.fromTo(
+            section,
+            { opacity: 0, y: 100 },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                ease: "power4.out",
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top 80%",
+                    end: "top 30%",
+                    scrub: true,
+                }
+            }
+        );
+    });
+
 
 
 

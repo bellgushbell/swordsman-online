@@ -689,7 +689,83 @@ SweetAlert2 alert
 }
 
 /* ✅ Mobile แนวตั้ง (Portrait) */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
+    .home-content {
+        top: 30%;
+    }
+
+    .pre-register-container {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .pre-register img {
+        width: 300px;
+    }
+}
+ */
+
+/* ✅ iPad และ Tablet (แนวนอน) */
+/* @media (max-width: 1024px) and (orientation: landscape) {
+    .home-content {
+        top: 70%;
+    }
+
+    .pre-register-container {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .pre-register img {
+        width: 350px;
+    }
+} */
+
+/* ✅ iPad แนวตั้ง */
+/* @media (max-width: 768px) and (orientation: portrait) {
+    .home-content {
+        top: 30% !important;
+    }
+
+    .pre-register-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .pre-register img {
+        width: 350px;
+    }
+} */
+
+
+/* ✅ ครอบคลุม iPhone 6-8, iPhone 6-8 Plus, iPhone X, Pixel 2 ในแนวนอน */
+/* @media (min-width: 667px) and (max-width: 736px) and (orientation: landscape) {
+    .home-content {
+        top: 30% !important;
+    }
+
+    .pre-register-container {
+        flex-direction: row;
+        gap: 15px;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .pre-register img {
+        width: 260px;
+    }
+} */
+
+/* ✅ Mobile แนวตั้ง (Portrait) */
+/* สำหรับมือถือ */
+@media (max-width: 767px) {
     .home-content {
         top: 30%;
     }
@@ -708,45 +784,8 @@ SweetAlert2 alert
 }
 
 
-/* ✅ iPad และ Tablet (แนวนอน) */
-@media (max-width: 1024px) and (orientation: landscape) {
-    .home-content {
-        top: 70%;
-    }
-
-    .pre-register-container {
-        flex-direction: row;
-        gap: 20px;
-    }
-
-    .pre-register img {
-        width: 350px;
-    }
-}
-
-/* ✅ iPad แนวตั้ง */
-@media (max-width: 768px) and (orientation: portrait) {
-    .home-content {
-        top: 30% !important;
-    }
-
-    .pre-register-container {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .pre-register img {
-        width: 350px;
-    }
-}
-
-
-
-
-
-
-/* ✅ ครอบคลุม iPhone 6-8, iPhone 6-8 Plus, iPhone X, Pixel 2 ในแนวนอน */
-@media (min-width: 667px) and (max-width: 736px) and (orientation: landscape) {
+/* ✅ Mobile ในแนวนอน */
+@media (max-width: 768px) and (orientation: landscape) {
     .home-content {
         top: 30% !important;
     }
@@ -766,6 +805,41 @@ SweetAlert2 alert
         width: 260px;
     }
 }
+
+
+/* ✅ iPad แนวตั้ง */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .home-content {
+        top: 30% !important;
+    }
+
+    .pre-register-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .pre-register img {
+        width: 350px;
+    }
+}
+
+/* ✅ iPad และ Tablet (แนวนอน) */
+@media (min-width: 1024px) and (max-width: 1400px) and (orientation: landscape) {
+    .home-content {
+        top: 70%;
+    }
+
+    .pre-register-container {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .pre-register img {
+        width: 350px;
+    }
+}
+
+
 
 
 
@@ -1320,6 +1394,7 @@ a.bg-video-button-muted {
    ============================== */
 .page-section-news {
     width: 100%;
+    height: 600px;
     display: block;
     position: relative;
     overflow: hidden;
@@ -1606,9 +1681,10 @@ a.bg-video-button-muted {
 }
 
 
-@media (max-width: 961px) {
+@media (max-width: 767px) {
     .page-section-news {
         padding: 20px !important;
+        height: auto;
     }
 
     .page-section-news {
@@ -1767,10 +1843,12 @@ a.bg-video-button-muted {
 
 
 
-    @media (max-width: 961px) and (orientation: landscape) {
+    /* ✅ Mobile ในแนวนอน */
+    @media (max-width: 768px) and (orientation: landscape) {
         .page-section-news {
             padding: 10px 20px;
             background-attachment: scroll;
+            height: auto;
         }
 
         #news .container {
@@ -1840,12 +1918,157 @@ a.bg-video-button-muted {
         }
     }
 
+    /* ✅ iPad แนวตั้ง */
+    @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
 
+        /* ปรับพื้นหลังให้เข้ากับขนาดหน้าจอ */
+        .page-section-news {
+            padding: 20px;
+            background-attachment: scroll;
+            height: auto;
+        }
 
+        #news .container {
+            max-width: 100%;
+            padding: 0 10px;
+        }
 
+        #imageCarousel {
+            border-radius: 10px;
+        }
 
+        #imageCarousel img {
+            height: auto;
+            object-fit: cover;
+            /* ให้ภาพครอบคลุม */
+        }
 
+        /* ปรับขนาดตัวอักษรและ padding ใน navigation tabs */
+        .nav-tabs .nav-link {
+            font-size: 0.85rem;
+            padding: 6px 10px;
+            margin-right: 2px;
+        }
+
+        .tab-content {
+            padding: 15px;
+        }
+
+        .list-group-item {
+            font-size: 0.8rem;
+            padding: 8px 10px;
+        }
+
+        /* ปรับขนาดของปุ่ม Previous และ Next ใน Carousel */
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 30px;
+            height: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.3);
+            display: block;
+            pointer-events: visible;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            font-size: 20px;
+            padding: 6px;
+        }
+
+        .btn-more {
+            background: linear-gradient(45deg, #DCC072, #edb518);
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
+            padding: 5px 10px;
+            border: 2px solid white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+        }
+    }
 }
+
+/* iPad และ Tablet (แนวนอน) */
+@media (min-width: 1024px) and (max-width: 1400px) and (orientation: landscape) {
+
+    /* ปรับพื้นหลังให้เข้ากับขนาดหน้าจอ */
+    .page-section-news {
+        padding: 20px;
+        background-attachment: scroll;
+        height: auto;
+    }
+
+    #news .container {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+
+    #imageCarousel {
+        border-radius: 10px;
+    }
+
+    #imageCarousel img {
+        height: auto;
+        object-fit: cover;
+        /* ให้ภาพครอบคลุม */
+    }
+
+    /* ปรับขนาดตัวอักษรและ padding ใน navigation tabs */
+    .nav-tabs .nav-link {
+        font-size: 0.85rem;
+        padding: 6px 10px;
+        margin-right: 2px;
+    }
+
+    .tab-content {
+        padding: 15px;
+    }
+
+    .list-group-item {
+        font-size: 0.8rem;
+        padding: 8px 10px;
+    }
+
+    /* ปรับขนาดของปุ่ม Previous และ Next ใน Carousel */
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 30px;
+        height: 30px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.3);
+        display: block;
+        pointer-events: visible;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        font-size: 20px;
+        padding: 6px;
+    }
+
+    .btn-more {
+        background: linear-gradient(45deg, #DCC072, #edb518);
+        color: white;
+        font-weight: bold;
+        font-size: 12px;
+        padding: 5px 10px;
+        border: 2px solid white;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        text-decoration: none;
+    }
+}
+
+
+
 
 
 /* ==============================
@@ -1934,6 +2157,10 @@ input.form-control {
 /* ==============================
   Class Preview 
    ============================== */
+.class-page-section {
+    position: relative;
+}
+
 /* กรณีเป็นภาพพื้นหลัง */
 /* รอทำแบบมือืถอ ลองทดสอบก่อน*/
 .bg-image-class {
@@ -2144,13 +2371,11 @@ input.form-control {
     font-size: 18px;
 }
 
-.class-page-section {
-    position: relative;
-}
 
 
 
-@media(max-width: 961px) {
+
+@media(max-width: 767px) {
 
     .class-page-section {
         width: 100%;
@@ -2290,7 +2515,7 @@ input.form-control {
     } */
 }
 
-@media (max-width: 961px) and (orientation: landscape) {
+@media (max-width: 768px) and (orientation: landscape) {
     /* .bg-video-class {
         position: absolute;
         top: 0;
@@ -2375,7 +2600,195 @@ input.form-control {
     }
 }
 
+/* ✅ iPad แนวตั้ง */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
 
+    .class-page-section {
+        width: 100%;
+        height: auto;
+        display: block;
+        position: relative;
+        overflow: hidden;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: center center;
+
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+
+        padding: 0px 0;
+    }
+
+
+    .bg-image-class {
+        position: absolute;
+        top: -120%;
+        left: 0;
+        width: 100vw !important;
+        height: 100vh !important;
+
+        object-fit: contain;
+        /* ครอบคลุมพื้นที่ */
+        z-index: 0;
+        /* ให้อยู่ด้านหลัง */
+        pointer-events: none;
+        /* ปิดการโต้ตอบ */
+        border-radius: 0px;
+        /* ไม่มีขอบโค้ง */
+        /* ให้รูปภาพอยู่ด้านหลังวิดีโอ */
+        /* display: none; */
+        /* เปิด/ปิด */
+
+    }
+
+    /* คอนเทนต์ */
+    .class-content {
+        position: relative;
+        display: flex;
+        height: 30vh;
+        /* ปรับให้สมดุลกับ bg-video-class */
+        justify-content: space-between;
+        align-items: flex-end;
+        /* ชิดล่าง */
+        z-index: 2;
+        padding-left: 20px;
+        padding-right: 0px !important;
+        font-size: 10px;
+    }
+
+    /* .bg-video-class {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100vw !important;
+        height: 55vh !important;
+        object-fit: cover;
+        z-index: -1;
+        pointer-events: none;
+        border-radius: 0px;
+    } */
+
+
+
+    /* .class-details {
+        position: absolute;
+        right: 0;
+     
+        bottom: 0;
+      
+        width: auto !important;
+  
+        height: auto !important;
+   
+        font-size: 10px;
+        overflow: hidden;
+    } */
+
+    .class-sidebar-wrapper {
+        position: absolute;
+        left: 2px;
+        /* ระยะห่างจากด้านซ้าย */
+        top: 50%;
+        /* ตรงกลางในแนวตั้ง */
+        transform: translateY(-50%);
+        /* ปรับให้อยู่ตรงกลางพอดี */
+        width: 60px !important;
+        /* ลดความกว้างให้สมดุล */
+        height: 150px !important;
+        /* ความสูงที่กำหนด */
+        font-size: 10px;
+        overflow: hidden;
+        border-radius: 8px;
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .class-sidebar {
+        height: calc(100% - 60px);
+        /* หักพื้นที่สำหรับปุ่มเลื่อน */
+        overflow-y: auto;
+        /* เปิด Scroll สำหรับ Sidebar */
+        padding: 10px;
+    }
+
+    /* .class-stats img {
+        width: 50px !important;
+  
+        height: 50px !important;
+    } */
+
+    /* .class-image img {
+        width: 200px !important;
+
+        height: auto !important;
+
+    } */
+
+    .class-title {
+        margin-right: 10px;
+        font-size: 15px;
+    }
+
+    /* .class-description {
+        margin-right: 10px;
+        font-size: 10px;
+    } */
+}
+
+
+/* ✅ iPad และ Tablet (แนวนอน) */
+@media (min-width: 1024px) and (max-width: 1400px) and (orientation: landscape) {
+
+    /* คอนเทนต์ */
+    .class-content {
+        position: relative;
+        display: flex;
+        height: 100vh;
+
+        /* ปรับให้สมดุลกับ bg-video-class */
+        justify-content: space-between;
+        align-items: flex-end;
+        /* ชิดล่าง */
+        z-index: 2;
+        padding-left: 20px;
+        padding-right: 0px !important;
+        font-size: 10px;
+    }
+
+    .class-sidebar-wrapper {
+        position: absolute;
+        left: 10px;
+        /* ระยะห่างจากด้านซ้าย */
+        top: 50%;
+        /* ตรงกลางในแนวตั้ง */
+        transform: translateY(-50%);
+        /* ปรับให้อยู่ตรงกลางพอดี */
+        width: 90px !important;
+        /* ลดความกว้างให้สมดุล */
+        height: 250px !important;
+        /* ความสูงที่กำหนด */
+        font-size: 8px;
+        overflow: hidden;
+        border-radius: 8px;
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .menu-icon {
+        width: 30px !important;
+        height: 30px !important;
+        margin: 0 auto;
+    }
+
+    .class-title {
+        font-size: 15px;
+    }
+}
 
 
 /* ==============================
@@ -2812,6 +3225,26 @@ input.form-control {
 /* ==============================
   Highlight ภาพเลื่อน swiper.js
    ============================== */
+.highlight-page-section {
+    width: 100%;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    padding: 140px 0;
+}
 
 .swiper-container {
     width: 100%;
@@ -2825,7 +3258,7 @@ input.form-control {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    background-color: white;
+    /* background-color: white; */
 }
 
 .swiper-wrapper {
@@ -8283,6 +8716,26 @@ a.logo:hover {
 /* ==============================
    Footer
    ============================== */
+.footer-page-section {
+    width: 100%;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    padding: 140px 0;
+}
 
 .footer {
     text-align: center;

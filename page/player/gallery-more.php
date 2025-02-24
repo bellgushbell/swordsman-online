@@ -1,6 +1,7 @@
 <!-- Favicons -->
 <link rel="shortcut icon" href="../../images/shortcut-icon.png">
-
+<!-- scroll trigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <!-- 
 <div id="header-container"></div> -->
 <!-- Change the value of lang="en" attribute if your website's language is not English.
@@ -303,14 +304,16 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
  <!-- All Gallery Video Section -->
 <section class="more-gallery-section">
     <!-- Gallery Banner -->
-    <div class="gallery-banner"></div>
+    <div class="gallery-banner">
+         <h1>ภาพและวีดีโอ</h1>
+    </div>
     
     <div class="gallery-container">
         <div class="gallery-header">
             <div class="tabs">
-                <button class="tab-btn active" data-tab="photo" onclick="toggleGallery('photo')">Photo</button>
+                <button class="tab-btn active" data-tab="photo" onclick="toggleGallery('photo')">รูปภาพ</button>
                 <span class="divider-gallery-more">/</span>
-                <button class="tab-btn" data-tab="video" onclick="toggleGallery('video')">Video</button>
+                <button class="tab-btn" data-tab="video" onclick="toggleGallery('video')">วีดีโอ</button>
             </div>
         </div>
 
@@ -319,32 +322,32 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             <div class="gallery-item large card"
                 onclick="openModal('photo', '../../images/gallery-pic/g1.jpg')">
                 <img src="../../images/gallery-pic/g1.jpg" alt="Moonglow Fest">
-                <h3>Moonglow Fest</h3>
+                <h3>เข้าร่วมสงครามจักพรรดิ์</h3>
             </div>
             <div class="gallery-item small-right card"
                 onclick="openModal('photo', '../../images/gallery-pic/g2.jpg')">
                 <img src="../../images/gallery-pic/g2.jpg" alt="Frosty Festival">
-                <h3>Frosty Festival</h3>
+                <h3>รักสุดโรแมนติก</h3>
             </div>
             <div class="gallery-item small-right card new-event"
                 onclick="openModal('photo', '../../images/gallery-pic/g3.jpg')">
                 <img src="../../images/gallery-pic/g3.jpg" alt="New Event 1">
-                <h3>New Event 1</h3>
+                <h3>สู้ศึกสังเวียนบอส</h3>
             </div>
             <div class="gallery-item small-right card"
                 onclick="openModal('photo', '../../images/gallery-pic/g4.jpg')">
                 <img src="../../images/gallery-pic/g4.jpg" alt="Global Launch">
-                <h3>Global Launch</h3>
+                <h3>บุพผาไร้พ่าย</h3>
             </div>
             <div class="gallery-item small-right card"
                 onclick="openModal('photo', '../../images/gallery-pic/g5.jpg')">
                 <img src="../../images/gallery-pic/g5.jpg" alt="Chinese New Year">
-                <h3>Chinese New Year</h3>
+                <h3>หมื่นบุพผาบทกวี</h3>
             </div>
             <div class="gallery-item small-right card"
                 onclick="openModal('photo', '../../images/gallery-pic/g6.jpg')">
                 <img src="../../images/gallery-pic/g6.jpg" alt="2024 New Year">
-                <h3>2024 New Year</h3>
+                <h3>บ่อน้ำพุร้อน</h3>
             </div>
         </div>
 
@@ -396,16 +399,33 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
    
     /* More Gallery Section Styles */
     .gallery-banner {
-        background: url('../../images/webcover2560x1440.jpg') no-repeat top center;
-        background-size: cover;
-        height: 300px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 20px;
-        text-align: center;
+         background: url('../../images/webcover2560x1440.jpg') no-repeat top center;
+            background-size: cover;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-bottom: 30px;
     }
+    .gallery-banner h1{
+         font-size: 48px;
+            font-weight: bold;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #575555, #b2aeae, #4f4d4d);
 
+            /* For webkit-based browsers (Chrome, Safari) */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke: 2px #f4f0f0;
+
+            /* Standard text-shadow property */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+
+            /* Adding support for Firefox */
+            background-clip: text;
+            /* Standard property */
+    }
     .gallery-container {
         display: flex;
         flex-direction: column;
@@ -425,7 +445,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         display: flex;
         align-items: center;
         justify-content: center; /* วางทุกอย่างตรงกลางในแกน X */
-        gap: 10px; /* เพิ่มช่องว่างระหว่างปุ่ม */
+        
     }
 
     .divider-gallery-more {
@@ -555,7 +575,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         .video-overlay::after {
             content: "▶";
             position: absolute;
-            top: 50%;
+            top: 35%;
             left: 50%;
             transform: translate(-50%, -50%);
             font-size: 28px;
@@ -565,6 +585,103 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             padding: 4px 13px;
             border-radius: 50%;
         }
+      
+
+        /* ✅ Mobile แนวตั้ง (Portrait) */
+      /* สำหรับมือถือ */
+        @media (max-width: 767px) {
+            .gallery {
+                grid-template-columns: repeat(3, 1fr); /* 3 การ์ดในแต่ละแถว */
+                gap: 10px; /* เพิ่มช่องว่างระหว่างการ์ด */
+            }
+
+            .gallery-container {
+            display: flex;
+            flex-direction: column;
+            padding: 0px 10px 100px 10px;
+            
+                }
+            .gallery-item h3 {
+            font-size: 12px;  /* ปรับขนาดตัวหนังสือให้เล็กลง */
+            margin-top: 10px;
+            }
+              .video-overlay::after {
+            font-size: 10px;
+            padding: 2px 5px;
+             }
+
+            }
+         /* ✅ ในแนวนอน */
+          @media (max-width: 768px) and (orientation: landscape) {
+            .gallery {
+                grid-template-columns: repeat(3, 1fr); 
+            }
+            .gallery-container {
+            display: flex;
+            flex-direction: column;
+            padding: 0px 10px 100px 10px;
+            
+            }
+            .gallery-item h3 {
+            font-size: 12px;  
+            margin-top: 10px;
+            }
+            .video-overlay::after {
+            font-size: 10px;
+            padding: 5px 10px;
+             }
+          }
+        /* ✅ iPad แนวตั้ง */
+        @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+            .gallery {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .gallery-container {
+            display: flex;
+            flex-direction: column;
+            padding: 0px 10px 100px 10px;
+            
+            }
+            .gallery-item h3 {
+            font-size: 12px;  
+            margin-top: 10px;
+            }
+            .video-overlay::after {
+            font-size: 10px;
+            padding: 3px 8px;
+             }
+        }
+
+        /* ✅ iPad และ Tablet (แนวนอน) */
+        @media (min-width: 1024px) and (max-width: 1400px) and (orientation: landscape) {
+            .gallery {
+                grid-template-columns: repeat(3, 1fr); /* 3 การ์ดในแต่ละแถว */
+            }
+             .gallery-container {
+            display: flex;
+            flex-direction: column;
+            padding: 0px 10px 100px 10px;
+            
+            }
+              .gallery-item h3 {
+            font-size: 12px;  /* ปรับขนาดตัวหนังสือให้เล็กลง */
+            margin-top: 10px;
+            }
+            .video-overlay::after {
+            font-size: 20px;
+            padding: 5px 10px;
+             }
+            
+        }
+
+       
+
+     
+        
+
+
+
+
 </style>
 
 <script>

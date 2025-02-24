@@ -1,7 +1,9 @@
 
 <!-- Favicons -->
-<link rel="shortcut icon" href="images/shortcut-icon.png">
+<link rel="shortcut icon" href="../../images/shortcut-icon.png">
 
+<!-- scroll trigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <!-- 
 <div id="header-container"></div> -->
 <!-- Change the value of lang="en" attribute if your website's language is not English.
@@ -21,8 +23,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
     <!-- <link rel="stylesheet" href="css/style-responsive.css">
     <link rel="stylesheet" href="css/vertical-rhythm.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
@@ -141,6 +143,19 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
     <!-- axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    
+<!-- jQuery (ต้องโหลดก่อน FlipClock.js) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- FlipClock.js CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.css">
+
+<!-- FlipClock.js JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.js"></script>
+
+
+
 
 
 
@@ -305,18 +320,19 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     <!-- Reward Section -->
     <section class="reward-section">
         <div class="reward-container-rewardpage">
-            <img src="images/RewardPage/pre-register-rewards-no-button.jpg" alt="Reward Tier" class="reward-image">
+            <img src="../../images/RewardPage/pre-register-rewards-no-button.jpeg" alt="Reward Tier" class="reward-image">
         </div>
 <!-- ตัวเลขที่เพิ่มขึ้นเรื่อยๆ -->
-<div id="counter">100,000</div>
+<div id="counter"></div>
+
 
         <!-- ปุ่ม App Store และ Google Play -->
         <div class="store-buttons">
             <a href="#" class="app-button">
-                <img src="images/PreregisterButtonandReward/ios-button-preregister-button.png" alt="Pre-order on App Store">
+                <img src="../../images/PreregisterButtonandReward/ios-button-preregister-button.png" alt="Pre-order on App Store">
             </a>
             <a href="#" class="google-button">
-                <img src="images/PreregisterButtonandReward/googleplay-preregister-button.png"
+                <img src="../../images/PreregisterButtonandReward/googleplay-preregister-button.png"
                     alt="Pre-register on Google Play">
             </a>
         </div>
@@ -328,19 +344,38 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
   <script>
  
-        document.addEventListener("DOMContentLoaded", function () {
-            let counterElement = document.getElementById("counter"); // เลือก div ที่แสดงตัวเลข
-        let count = 100000; // เริ่มต้นที่ 100,000
+    //     document.addEventListener("DOMContentLoaded", function () {
+    //         let counterElement = document.getElementById("counter"); /
+    //     let count = 100000; 
 
-        function updateCounter() {
-            // สุ่มเพิ่ม 1 ถึง 3
-            let randomIncrease = Math.floor(Math.random() * 3) + 1;
-        count += randomIncrease; // เพิ่มทีละ 1-3
-        counterElement.textContent = count.toLocaleString(); 
-        }
+    //     function updateCounter() {
+    //         // สุ่มเพิ่ม 1 ถึง 3
+    //         let randomIncrease = Math.floor(Math.random() * 3) + 1;
+    //     count += randomIncrease; // เพิ่มทีละ 1-3
+    //     counterElement.textContent = count.toLocaleString(); 
+    //     }
 
-        setInterval(updateCounter, 2000); 
+    //     setInterval(updateCounter, 2000); 
+    // });
+
+$(document).ready(function() {
+    // สร้างตัวนับที่เริ่มจาก 100,000
+    var clock = $('#counter').FlipClock(100000, {
+        clockFace: 'Counter',  // ตั้งค่าให้เป็นการนับเลข
+        autoStart: true,        // เริ่มนับอัตโนมัติ
+        countdown: false        // ไม่ให้ตัวเลขนับถอยหลัง
     });
+
+    // เพิ่มการสุ่มตัวเลข
+    function updateCounter() {
+        clock.setTime(clock.getTime() + Math.floor(Math.random() * 3) + 1);  // เพิ่มทีละ 1 ถึง 3
+    }
+
+    setInterval(updateCounter, 2000);  // อัปเดตทุกๆ 2 วินาที
+});
+
+
+
 
 </script>
 
@@ -381,8 +416,22 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         height: auto;
     }
   
-    #counter {
+    /* #counter {
         position: absolute;
+        top: 11.7%; 
+        left: 22%;
+        transform: translateX(-50%);
+        font-size: 40px;
+        font-weight: bold;
+        color: white;
+        background: transparent;
+        padding: 10px 20px;
+        border-radius: 10px;
+        text-align: center;
+    } */
+
+        #counter {
+         position: absolute;
         top: 11.7%; 
         left: 22%;
         transform: translateX(-50%);
@@ -395,14 +444,44 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         text-align: center;
     }
 
+    .digit {
+        display: inline-block;
+        width: 40px;
+        height: 60px;
+        background-color: black;
+        color: white;
+        text-align: center;
+        line-height: 60px;
+        border-radius: 5px;
+        margin: 0 5px;
+        font-size: 40px;
+    }
+
+    .digit.flip {
+        animation: flip 1s infinite;
+    }
+
+    @keyframes flip {
+        0% { transform: rotateX(0); }
+        50% { transform: rotateX(180deg); }
+        100% { transform: rotateX(360deg); }
+    }
+
+
+
+
+
+
+
+
     /* ปุ่ม App Store และ Google Play */
     .store-buttons {
         position: absolute;
-        top: 15%; /* กำหนดให้ปุ่มลอยเหนือขอบล่างของ reward image */
-        left: 50%;
+        top: 20%; /* กำหนดให้ปุ่มลอยเหนือขอบล่างของ reward image */
+        left: 28%;
         transform: translateX(-50%);
         display: flex;
-        gap: 80px; /* ระยะห่างระหว่างปุ่ม */
+        gap: 10px; /* ระยะห่างระหว่างปุ่ม */
         justify-content: center;
         align-items: center;
     }
@@ -412,7 +491,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 300px;
+        width: 450px;
         max-width: 80%;
     }
 
@@ -427,10 +506,10 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         transform: scale(1.1);
     }
 
-    /* Responsive มือถือ */
-    @media (max-width: 768px) {
+   
+    /* @media (max-width: 768px) {
         .store-buttons {
-            flex-direction: row; /* ให้ปุ่มอยู่แนวตั้ง */
+            flex-direction: row; 
             gap: 10px;
         
         }
@@ -484,7 +563,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
     }
 
-    /* Responsive iPad แนวนอน */
+ 
     @media (max-width: 1024px) and (orientation: landscape) {
         .store-buttons {
             flex-direction: row;
@@ -511,8 +590,127 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             text-align: center;
         }
 
+    } */
 
+  /* ✅ Mobile แนวตั้ง (Portrait) */
+      /* สำหรับมือถือ */
+        @media (max-width: 767px) {
+        .store-buttons {
+            flex-direction: row; 
+            gap: 1px;
+        
+        }
+
+        .store-buttons a {
+            width: 90px;
+        }
+
+        #counter {
+            position: absolute;
+            top: 10%; 
+            left: 22%;
+            transform: translateX(-50%);
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            background: transparent;
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+    
     }
+
+
+
+   /* ✅ Mobile ในแนวนอน */
+          @media (max-width: 768px) and (orientation: landscape) {
+             .store-buttons {
+            flex-direction: row; 
+            gap: 10px;
+        
+        }
+
+        .store-buttons a {
+            width: 160px;
+        }
+
+        #counter {
+            position: absolute;
+            top: 10%; 
+            left: 22%;
+            transform: translateX(-50%);
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            background: transparent;
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+}
+
+
+   /* ✅ iPad แนวตั้ง */
+        @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+              .store-buttons {
+            flex-direction: row;
+            gap: 15px;
+        
+        }
+
+        .store-buttons a {
+            width: 180px;
+        }
+
+        
+        #counter {
+            position: absolute;
+            top: 10.6%; 
+            left: 22%;
+            transform: translateX(-50%);
+            font-size: 30px;
+            font-weight: bold;
+            color: white;
+            background: transparent;
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+}
+
+   /* ✅ iPad และ Tablet (แนวนอน) */
+        @media (min-width: 1024px) and (max-width: 1400px) and (orientation: landscape) {
+             .store-buttons {
+            flex-direction: row;
+            gap: 15px;
+        
+        }
+
+        .store-buttons a {
+            width: 240px;
+        }
+
+        
+        #counter {
+            position: absolute;
+            top: 11.2%; 
+            left: 22%;
+            transform: translateX(-50%);
+            font-size: 30px;
+            font-weight: bold;
+            color: white;
+            background: transparent;
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+}
+
+
+
 
         </style>
 
@@ -522,13 +720,13 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
 <!--JS -->
-<script src="js/jquery.min.js"></script>
+<!-- <script src="../../js/jquery.min.js"></script> -->
 <!-- <script src="js/jquery.easing.1.3.js"></script> -->
-<script src="js/bootstrap.bundle.min.js"></script>
+<script src="../../js/bootstrap.bundle.min.js"></script>
 <!-- <script src="js/SmoothScroll.js"></script> -->
-<script src="js/jquery.scrollTo.min.js" defer></script>
-<script src="js/jquery.localScroll.min.js" defer></script>
-<script src="js/jquery.viewport.mini.js" defer></script>
+<script src="../../js/jquery.scrollTo.min.js" defer></script>
+<script src="../../js/jquery.localScroll.min.js" defer></script>
+<script src="../../js/jquery.viewport.mini.js" defer></script>
 <!-- <script src="js/jquery.parallax-1.1.3.js"></script>
     <script src="js/jquery.fitvids.js"></script>
     <script src="js/owl.carousel.min.js"></script>
@@ -540,7 +738,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     <script src="js/wow.min.js" defer></script>
     <script src="js/morphext.js" defer></script>
     <script src="js/typed.min.js" defer></script> -->
-<script src="js/all.js"></script>
+<script src="../../js/all.js"></script>
 <!-- <script src="js/contact-form.js" defer></script> -->
 <!-- <script src="js/jquery.ajaxchimp.min.js"></script>
     <script src="js/objectFitPolyfill.min.js" defer></script>
@@ -559,7 +757,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 <!-- Nav hamburger -->
 
-<script src="js/submenu-mainnav-mobile-click.js"></script>
+<script src="../../js/submenu-mainnav-mobile-click.js"></script>
 
 <!-- Promotion News -->
 <!-- <script src="js/news-and-promotion-tab.js" defer></script> -->
