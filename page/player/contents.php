@@ -14,9 +14,11 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     <title>กระบี่เย้ยยุทธจักร3 swordsman3 Mobile</title>
     <meta name="description" content="กระบี่เย้ยยุทธจักร &mdash; SwordsMan Mobile">
     <meta charset="utf-8">
-    <meta name="author" content="https://themeforest.net/user/bestlooker/portfolio">
-    <!-- <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="EXPUP">
+    <meta name="description" content="ติดตามข่าวสารและโปรโมชั่น Swordsman 3 (กระบี่เย้ยยุทธจักร 3) พร้อมกิจกรรมแจกไอเทมฟรี และอัปเดตแพทช์ใหม่ได้ที่นี่!">
+    <meta name="keywords" content="Swordsman 3, ข่าวเกม Swordsman 3, โปรโมชั่น Swordsman 3, กิจกรรม Swordsman 3, กระบี่เย้ยยุทธจักร 3">
+    <link rel="canonical" href="https://swordsman3.com/page/player/contents.php" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
 
@@ -720,7 +722,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         <script>
             // ฟังก์ชันดึงข้อมูลข่าวจาก PHP
             document.addEventListener('DOMContentLoaded', function() {
-                axios.get('../../database/contents_index.php') // URL ของไฟล์ PHP ที่ส่งข้อมูล JSON
+                axios.get('../../database/player/contents_index.php') // URL ของไฟล์ PHP ที่ส่งข้อมูล JSON
                     .then(function(response) {
                         const newsData = response.data; // ข้อมูลที่ได้รับมาในรูปแบบ JSON
                         // console.log('data', newsData); // แสดงข้อมูลใน console เพื่อตรวจสอบ

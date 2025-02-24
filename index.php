@@ -20,12 +20,12 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 <head>
     <title>กระบี่เย้ยยุทธจักร3 swordsman3 Mobile</title>
-    <meta name="description" content="กระบี่เย้ยยุทธจักร &mdash; SwordsMan Mobile">
+    <meta name="description" content="เกมกระบี่เย้ยยุทธจักร3 (Swordsman3) เกม MMORPG แนวกำลังภายใน ซึ่งบริษัท EXP UP จำกัด ประกาศความร่วมมือกับบริษัท Kingsoft ในการได้มาซึ่งสิทธิ์การให้บริการเกม Swordsman World3 ในประเทศไทย">
     <meta charset="utf-8">
-    <meta name="author" content="https://themeforest.net/user/bestlooker/portfolio">
-    <!-- <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <meta name="author" content="EXPUP">
+    <meta name="keywords" content="Swordsman3, กระบี่เย้ยยุทธจักร ,กระบี่เย้ยยุทธจักร3 ,swordsman ,กระบี่ ,เกมกระบี่ ,จอมยุทธ ,เกมสำนัก ,กำลังภายใน ,เกมกำลังภายใน ,วรยุทธ ,กระบี่พิชิตมาร ,เก้ากระบี่เดียวดาย , เกมกระบี่เย้ยยุทธจักร3 ,MMORPG">
+    <link rel="canonical" href="https://swordsman3.com/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
     <!-- CSS -->

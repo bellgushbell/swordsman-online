@@ -7,12 +7,12 @@
     <!-- <meta name="description" content="ข่าวกระบี่เย้ยยุทธจักร">
       -->
     <meta charset="utf-8">
+
     <meta name="author" content="EXPUP">
-    <meta name="description" content="ข่าวเกมกระบี่เย้ยยุทธจักร" />
-    <meta name="keywords" content="เกม, ข่าวกระบี่เย้ยยุทธจักร," />
-    <meta name="email" content="support@sunya-studio.com" />
-    <meta name="website" content="https://sunya-studio.com/" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ติดตามข่าวสารและโปรโมชั่น Swordsman 3 (กระบี่เย้ยยุทธจักร 3) พร้อมกิจกรรมแจกไอเทมฟรี และอัปเดตแพทช์ใหม่ได้ที่นี่!">
+    <meta name="keywords" content="Swordsman 3, ข่าวเกม Swordsman 3, โปรโมชั่น Swordsman 3, กิจกรรม Swordsman 3, กระบี่เย้ยยุทธจักร 3">
+    <link rel="canonical" href="https://swordsman3.com/page/player/contents.php" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Favicons -->
     <link rel="shortcut icon" href="../../images/shortcut-icon.png">
