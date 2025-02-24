@@ -1,0 +1,380 @@
+@font-face {
+    font-family: 'ABC Paobunjin';
+    /* ตั้งชื่อฟอนต์ */
+    src: url('../../webfonts/ABC-Paobunjin.ttf') format('truetype');
+    font-style: normal;
+}
+
+h2 {
+    font-family: 'ABC Paobunjin', sans-serif;
+    margin-bottom: 0;
+    flex-grow: 1;
+    text-align: center;
+    font-size: 6rem;
+    color: rgb(110, 93, 0);
+}
+
+/* สไตล์สำหรับตัวเลขหน้าปัจจุบัน */
+#pageNumber {
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(145deg, #b0b0ae, #817f7c);
+    padding: 8px 16px;
+    border-radius: 6px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#preview {
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    aspect-ratio: 1200 / 540;
+    object-fit: cover;
+    /* หรือใช้ contain ตามความต้องการ */
+}
+
+
+.wrapper {
+
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.news-banner {
+    background: url('../../images/webcover2560x1440.jpg') no-repeat top center;
+    background-size: cover;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.news-banner h1 {
+    font-size: 48px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #575555, #b2aeae, #4f4d4d);
+
+    /* For webkit-based browsers (Chrome, Safari) */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 2px #f4f0f0;
+
+    /* Standard text-shadow property */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+
+    /* Adding support for Firefox */
+    background-clip: text;
+    /* Standard property */
+}
+
+.news-tabs {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    position: relative;
+}
+
+.news-tabs-button-box {
+    display: flex;
+    /* ใช้ flexbox สำหรับปุ่ม */
+    align-items: center;
+    /* ให้ปุ่มอยู่กลางในแนวตั้ง */
+    justify-content: center;
+    /* ให้อยู่กลางในแนวนอน */
+    background-image: url('path-to-your-image.jpg');
+    /* ใส่ลิงก์ของภาพกรอบจาก Canva */
+    background-size: cover;
+    /* ปรับขนาดให้ภาพครอบคลุม */
+    background-position: center;
+    /* จัดตำแหน่งภาพให้ตรงกลาง */
+    padding: 5px 20px;
+    /* สามารถปรับระยะห่างภายในได้ตามต้องการ */
+    border-radius: 10px;
+    /* ขอบโค้ง */
+}
+
+.news-tabs button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    background: transparent;
+    color: #333;
+    z-index: 2;
+    /* ให้อยู่เหนือภาพ */
+}
+
+.news-tabs button.active {
+    background: linear-gradient(145deg, #edd991, #d4af37);
+    color: white;
+    border-radius: 5px;
+}
+
+.news-list {
+    list-style: none;
+    padding: 0;
+}
+
+.news-list li {
+    padding: 10px;
+    /* border-radius: 20px; */
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* เพิ่ม transition */
+}
+
+.news-list li:hover {
+    background-color: rgba(220, 192, 114, 0.2);
+    /* เปลี่ยนพื้นหลังเป็นสีทองอ่อนเมื่อ hover */
+    border: 1px solid #DCC072;
+    /* เพิ่มกรอบสีทองเมื่อ hover */
+}
+
+.news-list li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+.news-list li:hover a {
+    color: #edb518;
+    /* เปลี่ยนสีข้อความเป็นสีทองเมื่อ hover */
+}
+
+.news-list li .date {
+    float: right;
+    color: #777;
+    transition: color 0.3s ease;
+    /* เพิ่ม transition ให้กับวันที่ */
+}
+
+.news-list li:hover .date {
+    color: #edb518;
+    /* เปลี่ยนสีวันที่เป็นทองเมื่อ hover */
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    gap: 12px;
+    /* ระยะห่างระหว่างปุ่ม */
+}
+
+.pagination button {
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: linear-gradient(145deg, #b0b0ae, #817f7c);
+    color: white;
+    border-radius: 8px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+.pagination button:hover {
+    background: linear-gradient(145deg, #b0b0ae, #817f7c);
+    transform: scale(1.05);
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.pagination button:disabled {
+    background: linear-gradient(145deg, #8c7339, #5f4b22);
+    color: #ddd;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: scale(1);
+}
+
+.content .d-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: none;
+}
+
+
+
+/* สำหรับหน้าจอเล็กกว่า 768px (มือถือ) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .news-banner {
+        height: 200px;
+    }
+
+    .news-banner h1 {
+        font-size: 32px;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+        -webkit-text-stroke: 1px #f4f0f0;
+    }
+
+    .news-tabs button {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    .news-list li {
+        padding: 8px;
+    }
+
+    .news-list li a {
+        font-size: 14px;
+    }
+
+    .news-list li .date {
+        font-size: 12px;
+    }
+
+    .pagination button {
+        font-size: 14px;
+        padding: 8px 14px;
+    }
+
+    #pageNumber {
+        font-size: 16px;
+        padding: 6px 12px;
+    }
+}
+
+/* สำหรับแท็บเล็ตและมือถือแนวนอน (หน้าจอ 768px - 1024px) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .news-banner {
+        height: 220px;
+    }
+
+    .news-banner h1 {
+        font-size: 36px;
+    }
+
+    .news-tabs button {
+        font-size: 16px;
+        padding: 10px 14px;
+    }
+
+    .pagination button {
+        font-size: 16px;
+        padding: 9px 16px;
+    }
+
+    #pageNumber {
+        font-size: 18px;
+        padding: 7px 14px;
+    }
+}
+
+
+
+/* เพิ่ม media queries สำหรับขนาดหน้าจอที่เล็กลง */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .wrapper {
+        max-width: 100%;
+        /* ทำให้เต็มความกว้างของหน้าจอเมื่อมีขนาดเล็ก */
+        padding: 0 10px;
+
+        /* ปรับ padding ให้น้อยลง */
+        strong,
+        span,
+        a,
+        em {
+            font-size: 16px;
+        }
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .wrapper {
+        max-width: 100%;
+        /* ทำให้เต็มความกว้าง */
+        padding: 0 10px;
+        /* ปรับ padding ให้น้อยลง */
+        flex-direction: column;
+
+        /* เปลี่ยนทิศทางของ flex ให้เป็นแบบคอลัมน์ */
+        strong,
+        span,
+        a,
+        em {
+            font-size: 14.8px;
+        }
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    h2 {
+        font-size: 4rem;
+        padding: 0;
+        /* Font size for smaller screens */
+    }
+
+    .content .d-flex {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .wrapper {
+        max-width: 100%;
+        /* ทำให้เต็มความกว้าง */
+        padding: 0 5px;
+        /* ปรับ padding ให้น้อยที่สุด */
+        flex-direction: column;
+
+        /* ยังคงทิศทางคอลัมน์ */
+        strong,
+        span,
+        a,
+        em {
+            font-size: 14px;
+        }
+    }
+
+    .p-3 {
+        padding: 1.5rem 0.5rem;
+        /* Add appropriate padding for smaller screens */
+    }
+}
+
+@media (max-width: 575.98px) {
+    h2 {
+        font-size: 2rem;
+        /* Font size even smaller for mobile */
+    }
+
+    h5 {
+        font-size: 0.8rem;
+    }
+
+
+    .wrapper {
+        max-width: 100%;
+        /* ทำให้เต็มความกว้าง */
+        padding: 0 5px;
+        /* ปรับ padding ให้น้อยที่สุด */
+        flex-direction: column;
+
+        /* ยังคงทิศทางคอลัมน์ */
+        strong,
+        span,
+        a,
+        em {
+            font-size: 11px;
+        }
+    }
+
+    .d-flex {
+        justify-content: center;
+        /* Center the content on very small screens */
+    }
+}
