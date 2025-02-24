@@ -1309,7 +1309,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                         const activeTab = localStorage.getItem("activeTab") || "all";
 
                                         // สร้าง URL ใหม่ที่มีพารามิเตอร์ tab
-                                        const url = `page/player/newspromotion.php?tab=${activeTab}`;
+                                        const url = `page/player/contents.php?tab=${activeTab}`;
 
                                         // ตั้งค่า href ของลิงก์โดยใช้ URL ที่ประกอบด้วย activeTab
                                         document.getElementById("openPromotionLink").setAttribute("href", url);
@@ -1345,7 +1345,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                         localStorage.setItem("activeTab", tabId);
 
                         // อัปเดต href ของลิงก์ "เพิ่มเติม" ให้ตรงกับ activeTab
-                        const url = `page/player/newspromotion.php?tab=${tabId}`;
+                        const url = `page/player/contents.php?tab=${tabId}`;
                         document.getElementById("openPromotionLink").setAttribute("href", url);
                     }
 
@@ -1388,7 +1388,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 /*axios news promotion response*/
                 document.addEventListener('DOMContentLoaded', function() {
                     // ฟังก์ชันเพื่อดึงข้อมูลจาก PHP
-                    axios.get('database/player/news_index.php') // เปลี่ยน URL เป็นไฟล์ PHP ของคุณที่ส่งข้อมูล JSON
+                    axios.get('database/player/contents_index.php') // เปลี่ยน URL เป็นไฟล์ PHP ของคุณที่ส่งข้อมูล JSON
                         .then(function(response) {
                             const newsData = response.data; // ข้อมูลที่ได้รับมาในรูปแบบ JSON
 
@@ -1427,7 +1427,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                     <span class="date">${dateOnly}</span>
                                 </div>`;
                                 li.addEventListener("click", function() {
-                                    window.location.href = `database/player/news_read_detail.php?id=${news.id}`; // 
+                                    window.location.href = `database/player/contents_read_detail.php?id=${news.id}`; // 
                                 });
                                 container.appendChild(li);
                             });

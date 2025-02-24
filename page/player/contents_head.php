@@ -3,37 +3,32 @@
 
 
 <head>
-    <title>ข่าวกระบี่เย้ยยุทธจักร3 swordsman3 Mobile</title>
-    <meta name="description" content="กระบี่เย้ยยุทธจักร &mdash; SwordsMan Mobile">
+    <title>ข่าวกระบี่เย้ยยุทธจักร swordsman3 Mobile</title>
+    <!-- <meta name="description" content="ข่าวกระบี่เย้ยยุทธจักร">
+      -->
     <meta charset="utf-8">
-    <meta name="author" content="https://themeforest.net/user/bestlooker/portfolio">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="EXPUP">
+    <meta name="description" content="ข่าวเกมกระบี่เย้ยยุทธจักร" />
+    <meta name="keywords" content="เกม, ข่าวกระบี่เย้ยยุทธจักร," />
+    <meta name="email" content="support@sunya-studio.com" />
+    <meta name="website" content="https://sunya-studio.com/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Favicons -->
     <link rel="shortcut icon" href="../../images/shortcut-icon.png">
-
+    <!-- scroll trigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <!-- CSS -->
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/player/style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
     <!-- swal -->
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <!-- jQuery LocalScroll Plugin -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-local-scroll/2.0.0/jquery.localScroll.min.js"></script>
-
-
-    <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <!-- axios -->
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
-    <!-- alert -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 
     <!-- gsap -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -126,6 +121,7 @@
         })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
     </script>
 
+
     <meta name="google-site-verification" content="aoWtdh5IPB2qY9vXUJv4WHbc90NAUKNtgL9_t8CYoMc" />
 
     <!-- Meta Pixel Code -->
@@ -151,7 +147,6 @@
         fbq('init', '1184062776628862');
         fbq('track', 'PageView');
     </script>
-
     <noscript><img height="1" width="1" style="display:none"
             src="https://www.facebook.com/tr?id=1184062776628862&ev=PageView&noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
@@ -168,24 +163,6 @@
 
         gtag('config', 'AW-11490628923');
     </script>
-
-
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WKMDJPGM" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-
-
-
-    <!--JS -->
-    <script src="../../js/jquery.min.js"></script>
-    <script src="../../js/bootstrap.bundle.min.js"></script>
-    <script src="../../js/jquery.scrollTo.min.js" defer></script>
-    <script src="../../js/jquery.localScroll.min.js" defer></script>
-    <script src="../../js/jquery.viewport.mini.js" defer></script>
-    <script src="../../js/submenu-mainnav-mobile-click.js"></script>
-    <script src="../../js/all.js"></script>
-
 
 </head>
 

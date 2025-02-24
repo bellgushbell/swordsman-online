@@ -22,7 +22,7 @@ if ($result->num_rows > 0) {
 
     $_SESSION['data_news'] = $data;
 
-    header("Location: ../../page/player/news_detail.php?data=" . $_SESSION['data_news']);
+    header("Location: ../../page/player/contents_detail.php?data=" . $_SESSION['data_news']);
     exit();
 } else {
     die("Error: Data not found.");

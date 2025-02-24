@@ -62,6 +62,7 @@
       }
     );
   });
+
   gsap.utils.toArray(".gallery-section").forEach((section) => {
     gsap.fromTo(
       section,

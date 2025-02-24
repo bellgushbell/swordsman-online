@@ -409,11 +409,11 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             border-radius: 5px;
         }
 
-        .newsall-type-text{
+        .newsall-type-text {
             font-size: 18px;
             font-weight: bold;
-            color:rgb(196, 155, 21);
-           
+            color: rgb(196, 155, 21);
+
         }
 
         .news-list {
@@ -509,14 +509,17 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         }
 
 
-  
+
         /* ✅ Mobile แนวตั้ง (Portrait) */
-            @media (max-width: 767px) {
+        @media (max-width: 767px) {
             .news-tabs-button-box {
-            flex-wrap: wrap; /* ให้ปุ่มแท็บขึ้นบรรทัดใหม่ได้ */
-            gap: 5px; /* ลดช่องว่าง */
-        }
-                .news-banner {
+                flex-wrap: wrap;
+                /* ให้ปุ่มแท็บขึ้นบรรทัดใหม่ได้ */
+                gap: 5px;
+                /* ลดช่องว่าง */
+            }
+
+            .news-banner {
                 height: 200px;
             }
 
@@ -526,18 +529,19 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 -webkit-text-stroke: 1px #f4f0f0;
             }
 
-            .newsall-type-text{
+            .newsall-type-text {
                 font-size: 14px;
                 font-weight: bold;
-                color:rgb(196, 155, 21);
-            
+                color: rgb(196, 155, 21);
+
             }
-          
+
             .news-tabs button {
                 font-size: 14px;
                 padding: 8px 12px;
-              
+
             }
+
             .news-list li {
                 padding: 8px;
             }
@@ -560,8 +564,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 padding: 6px 12px;
             }
         }
-        
-         /* ✅ Mobile ในแนวนอน */
+
+        /* ✅ Mobile ในแนวนอน */
         @media (max-width: 768px) and (orientation: landscape) {
             .news-banner {
                 height: 200px;
@@ -573,12 +577,12 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 -webkit-text-stroke: 1px #f4f0f0;
             }
 
-            
-            .newsall-type-text{
+
+            .newsall-type-text {
                 font-size: 14px;
                 font-weight: bold;
-                color:rgb(196, 155, 21);
-            
+                color: rgb(196, 155, 21);
+
             }
 
             .news-tabs button {
@@ -608,53 +612,58 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 padding: 6px 12px;
             }
         }
+
         /* ✅ iPad แนวตั้ง */
-            @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-                .news-banner {
-                    height: 220px;
-                }
-
-                .news-banner h1 {
-                    font-size: 36px;
-                }
-                .newsall-type-text{
-                    font-size: 16px;
-                    font-weight: bold;
-                    color:rgb(196, 155, 21);
-                
-                }
-                .news-tabs button {
-                    font-size: 16px;
-                    padding: 10px 14px;
-                }
-
-                .pagination button {
-                    font-size: 16px;
-                    padding: 9px 16px;
-                }
-
-                #pageNumber {
-                    font-size: 18px;
-                    padding: 7px 14px;
-                }
-            }
-
-
-        /* ✅ iPad และ Tablet (แนวนอน) */
-        @media (min-width: 1024px) and (max-width: 1400px) and (orientation: landscape) {
-               .news-banner {
+        @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+            .news-banner {
                 height: 220px;
             }
 
             .news-banner h1 {
                 font-size: 36px;
             }
-             .newsall-type-text{
+
+            .newsall-type-text {
                 font-size: 16px;
                 font-weight: bold;
-                color:rgb(196, 155, 21);
-            
+                color: rgb(196, 155, 21);
+
             }
+
+            .news-tabs button {
+                font-size: 16px;
+                padding: 10px 14px;
+            }
+
+            .pagination button {
+                font-size: 16px;
+                padding: 9px 16px;
+            }
+
+            #pageNumber {
+                font-size: 18px;
+                padding: 7px 14px;
+            }
+        }
+
+
+        /* ✅ iPad และ Tablet (แนวนอน) */
+        @media (min-width: 1024px) and (max-width: 1400px) and (orientation: landscape) {
+            .news-banner {
+                height: 220px;
+            }
+
+            .news-banner h1 {
+                font-size: 36px;
+            }
+
+            .newsall-type-text {
+                font-size: 16px;
+                font-weight: bold;
+                color: rgb(196, 155, 21);
+
+            }
+
             .news-tabs button {
                 font-size: 16px;
                 padding: 10px 14px;
@@ -671,7 +680,6 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             }
 
         }
-        
     </style>
     </head>
 
@@ -707,12 +715,12 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         </nav>
 
 
-      
+
 
         <script>
             // ฟังก์ชันดึงข้อมูลข่าวจาก PHP
             document.addEventListener('DOMContentLoaded', function() {
-                axios.get('../../database/news_index.php') // URL ของไฟล์ PHP ที่ส่งข้อมูล JSON
+                axios.get('../../database/contents_index.php') // URL ของไฟล์ PHP ที่ส่งข้อมูล JSON
                     .then(function(response) {
                         const newsData = response.data; // ข้อมูลที่ได้รับมาในรูปแบบ JSON
                         // console.log('data', newsData); // แสดงข้อมูลใน console เพื่อตรวจสอบ
@@ -756,7 +764,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                 const li = document.createElement("li");
                                 const dateOnly = news.created_at.substring(0, 10); // 10 ตัวแรก (YYYY-MM-DD)
                                 // เพิ่มลิงก์ที่แสดงรายละเอียดของข่าว
-                               
+
                                 const newtypefilter = news.type === "ข่าว" ? "ประกาศ" : news.type;
                                 li.innerHTML = `
                                     <div class="news-item">
@@ -769,7 +777,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                 `;
                                 // ฟังก์ชันเมื่อคลิกที่ <li> จะไปที่หน้า news detail
                                 li.addEventListener("click", function() {
-                                    window.location.href = `../../database/player/news_read_detail.php?id=${news.id}`; // 
+                                    window.location.href = `../../database/player/contents_read_detail.php?id=${news.id}`; // 
                                 });
 
                                 newsContainer.appendChild(li);

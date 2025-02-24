@@ -15,8 +15,8 @@ if (session_status() === PHP_SESSION_NONE) {
 ?>
 
 
-<?php include '../../page/player/head_news.php'; ?>
-<?php include '../../page/player/navber_news.php'; ?>
+<?php include '../../page/player/contents_head.php'; ?>
+<?php include '../../page/player/contents_navber.php'; ?>
 
 <!-- Header Section -->
 <div class="news-banner">
@@ -41,8 +41,6 @@ if (session_status() === PHP_SESSION_NONE) {
                     <hr style="width: 30%; border-top: 3px solid  rgb(110, 93, 0); margin: 0;">
                 </div>
             </div>
-
-
 
             <div class="content">
                 <div class="col-md-12" style="border: 1px solid rgb(196, 169, 15);; backdrop-filter: blur(8px); border-radius: 10px; padding: 20px; position: relative;">
@@ -75,6 +73,7 @@ if (session_status() === PHP_SESSION_NONE) {
                 <!-- ปุ่มย้อนกลับ -->
 
             </div>
+
             <div style=" margin: 20px; text-align: center;">
                 <div style=" margin: 20px; text-align: center;">
                     <?php
@@ -87,30 +86,14 @@ if (session_status() === PHP_SESSION_NONE) {
                         $tab = 'news';
                     }
                     ?>
-                    <a href="newspromotion.php?tab=<?php echo $tab; ?>" class="btn" style="background-color: #FFD700; color: black; font-weight: bold; border: none; padding: 10px 20px;">เมนู<?php echo $type; ?></a>
+                    <a href="contents.php?tab=<?php echo $tab; ?>" class="btn" style="background-color: #FFD700; color: black; font-weight: bold; border: none; padding: 10px 20px;">เมนู<?php echo $type; ?></a>
                 </div>
 
             </div>
+
         </div>
 
+    </main>
 </div>
 
-
-</div>
-
-
-
-<!-- <div class="row"> <div class="col-md-12"></div> </div> -->
-
-
-</main>
-</div>
-
-
-
-
-
-
-</body>
-
-</html>
+<?php include '../player/contents_footer.php'; ?>
