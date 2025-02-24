@@ -692,8 +692,6 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             </div>
         </div>
 
-
-
         <!-- News List -->
         <div class="container">
             <ul class="news-list" id="news-container">
@@ -941,13 +939,6 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WKMDJPGM" height="0" width="0"
                 style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
-
-
-
-
-
-
-
 
 
     </body>

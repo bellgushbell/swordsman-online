@@ -8,23 +8,25 @@ if (!$id) {
     die("Error: ID not provided.");
 }
 
-echo $id;
 
 // ดึงข้อมูลจากฐานข้อมูล
-$sql = "SELECT d.id, d.id_title, d.description, t.type, t.title, t.image FROM description d INNER JOIN title t ON d.id_title = t.id WHERE d.id_title = ?";
+$sql = "SELECT d.id, d.id_title, d.description, t.type, t.title, t.image, t.created_at FROM description d INNER JOIN title t ON d.id_title = t.id WHERE d.id_title = ?";
 
-// Prepare statement with error check
-if (!$stmt = $conn->prepare($sql)) {
-    die("Error preparing statement: " . $conn->error);
-}
-
+$stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $id);
 $stmt->execute();
 $result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
     $data = $result->fetch_assoc();
-    print_r($data);
+
+    $_SESSION['data_news'] = $data;
+
+    header("Location: ../../page/player/news_detail.php?data=" . $_SESSION['data_news']);
+    exit();
 } else {
     die("Error: Data not found.");
 }
+
+$stmt->close();
+$conn->close();

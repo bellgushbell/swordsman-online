@@ -14,6 +14,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $type = mysqli_real_escape_string($conn, $_POST['type']);
     $title = mysqli_real_escape_string($conn, $_POST['title']);
     $description = $_POST['description'];
+
+    // echo $description;
     $timestamp = date("Y-m-d H:i:s");
     // รับค่า old_image ที่ส่งมาจากฟอร์ม
     $old_image = $_POST['old_image'];
