@@ -1388,7 +1388,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 /*axios news promotion response*/
                 document.addEventListener('DOMContentLoaded', function() {
                     // ฟังก์ชันเพื่อดึงข้อมูลจาก PHP
-                    axios.get('database/news_index.php') // เปลี่ยน URL เป็นไฟล์ PHP ของคุณที่ส่งข้อมูล JSON
+                    axios.get('database/player/news_index.php') // เปลี่ยน URL เป็นไฟล์ PHP ของคุณที่ส่งข้อมูล JSON
                         .then(function(response) {
                             const newsData = response.data; // ข้อมูลที่ได้รับมาในรูปแบบ JSON
 
@@ -1426,6 +1426,9 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                     <a href="#" class="text-decoration-none">[${newtypefilter}] - ${news.title}</a>
                                     <span class="date">${dateOnly}</span>
                                 </div>`;
+                                li.addEventListener("click", function() {
+                                    window.location.href = `database/player/news_read_detail.php?id=${news.id}`; // 
+                                });
                                 container.appendChild(li);
                             });
                         } else {
