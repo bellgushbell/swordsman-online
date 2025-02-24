@@ -19,7 +19,8 @@
                         'align': []
                     }],
                     [{
-                        'size': ['small', 'medium', 'large', 'huge'] // เพิ่มส่วนนี้
+                        // 'size': ['small', 'medium', 'large', 'huge'] // เพิ่มส่วนนี้
+                        'size': ['11px', '14px', '16px', '18px', '20px', '22px', '24px'] // ขนาดตัวอักษรที่ต้องการ
                     }],
                     ['clean']
                 ]
