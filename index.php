@@ -1052,11 +1052,6 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 </div>
 
 
-                <div class="pre-register-container">
-                    <a href="reward.html" target="_blank" class="pre-register">
-                        <img src="images/PreregisterButtonandReward/preregister-text.png" alt="PRE-REGISTER" />
-                    </a>
-                </div>
 
                 <!--Scroll Down-->
                 <!-- < div class="local-scroll scroll-down-wrap wow fadeInUpShort" data - wow -
