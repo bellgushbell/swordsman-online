@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // ตรวจสอบรหัสผ่าน (ใช้ password_verify หากรหัสผ่านถูกเข้ารหัส)
         if (password_verify($password, $user['password'])) {
 
-               
+
             $_SESSION['roles'] = $user['roles'];
 
             $_SESSION['username'] = $user['username'];
@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // เก็บเวลาปัจจุบันใน sessionStorage ด้วย JavaScript
             echo "<script>
            sessionStorage.setItem('currentDateTime', '" . date('l, F j, Y g:i A') . "');
-           window.location = '../../page/admin/content_management.php';
+           window.location = '../../page/admin/select_item.php';
          </script>";
 
             // header("Location: ../../page/admin/content_management.php");

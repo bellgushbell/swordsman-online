@@ -57,10 +57,11 @@ unset($_SESSION['edit_data']);
                         <a href="javascript:void(0);" class="btn btn-outline-info" onclick="loadData('กิจกรรม')">Events</a>
                     </div>
                     <div class="d-flex gap-2">
-                        <?php if ($roles == 1) { ?>
-                            <a href="../../page/admin/add_user.php" class="btn btn-outline-primary">Add User</a>
-                        <?php } ?>
+
+
+
                         <a href="../../page/admin/content_admin.php" class="btn btn-outline-success">Create</a>
+                        <button class="btn btn-outline-secondary" onclick="window.location.href='select_item.php'">Back</button>
                     </div>
                 </div>
 

@@ -242,8 +242,15 @@
             }).then(function() {
                 // ลบพารามิเตอร์ success ออกจาก URL
                 urlParams.delete('success'); // ลบพารามิเตอร์
-                const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + urlParams.toString(); // สร้าง URL ใหม่
-                window.history.replaceState({}, '', newUrl); // อัพเดต URL โดยไม่โหลดหน้าใหม่
+                // สร้าง URL ใหม่
+                const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+
+                // ถ้ามีพารามิเตอร์เหลือ ให้เพิ่มพารามิเตอร์ไปใน URL
+                if (urlParams.toString()) {
+                    window.history.replaceState({}, '', newUrl + '?' + urlParams.toString());
+                } else {
+                    window.history.replaceState({}, '', newUrl); // ถ้าไม่มีพารามิเตอร์, ไม่ต้องเพิ่ม '?'
+                }
             });
         }
         // ตรวจสอบว่า URL มีพารามิเตอร์ 'delete' ที่ค่าเป็น '1' หรือไม่
@@ -257,8 +264,15 @@
             }).then(function() {
                 // ลบพารามิเตอร์ 'delete' ออกจาก URL
                 urlParams.delete('delete'); // ลบพารามิเตอร์
-                const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + urlParams.toString(); // สร้าง URL ใหม่
-                window.history.replaceState({}, '', newUrl); // อัพเดต URL โดยไม่โหลดหน้าใหม่
+                // สร้าง URL ใหม่
+                const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+
+                // ถ้ามีพารามิเตอร์เหลือ ให้เพิ่มพารามิเตอร์ไปใน URL
+                if (urlParams.toString()) {
+                    window.history.replaceState({}, '', newUrl + '?' + urlParams.toString());
+                } else {
+                    window.history.replaceState({}, '', newUrl); // ถ้าไม่มีพารามิเตอร์, ไม่ต้องเพิ่ม '?'
+                }
             });
         }
         if (urlParams.get('edit') === '1') {
@@ -270,9 +284,16 @@
                 timer: 1500
             }).then(function() {
                 // ลบพารามิเตอร์ 'delete' ออกจาก URL
-                urlParams.delete('delete'); // ลบพารามิเตอร์
-                const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + urlParams.toString(); // สร้าง URL ใหม่
-                window.history.replaceState({}, '', newUrl); // อัพเดต URL โดยไม่โหลดหน้าใหม่
+                urlParams.delete('edit'); // ลบพารามิเตอร์
+                // สร้าง URL ใหม่
+                const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+
+                // ถ้ามีพารามิเตอร์เหลือ ให้เพิ่มพารามิเตอร์ไปใน URL
+                if (urlParams.toString()) {
+                    window.history.replaceState({}, '', newUrl + '?' + urlParams.toString());
+                } else {
+                    window.history.replaceState({}, '', newUrl); // ถ้าไม่มีพารามิเตอร์, ไม่ต้องเพิ่ม '?'
+                }
             });
         }
     });

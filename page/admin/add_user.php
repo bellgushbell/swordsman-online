@@ -18,9 +18,6 @@ if (session_status() === PHP_SESSION_NONE) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add New User</title>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add New User</title>
 
     <!-- Google Fonts: IBM Plex Sans Thai -->
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -97,7 +94,7 @@ if (session_status() === PHP_SESSION_NONE) {
         <div class="d-flex justify-content-between align-items-center mb-1 p-3 rounded shadow-sm"
             style="background-color: rgba(255, 255, 255, 0.5); backdrop-filter: blur(8px); border-radius: 10px;">
             <h3>Add New User</h3>
-            <button class="btn btn-outline-secondary" onclick="window.location.href='content_management.php'">Cancel</button>
+            <button class="btn btn-outline-secondary" onclick="window.location.href='select_item.php'">Back</button>
         </div>
         <div class="content" style="background-color: rgba(255, 255, 255, 0.5); backdrop-filter: blur(8px); border-radius: 10px;">
 
