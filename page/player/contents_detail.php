@@ -82,7 +82,7 @@ if (session_status() === PHP_SESSION_NONE) {
                         $tab = 'promotions';
                     } elseif ($type == 'กิจกรรม') {
                         $tab = 'events';
-                    } elseif ($type == 'ข่าว') {
+                    } elseif ($type == 'ข่าวสาร') {
                         $tab = 'news';
                     }
                     ?>
