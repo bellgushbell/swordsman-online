@@ -323,7 +323,30 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             <img src="../../images/RewardPage/pre-register-rewards-no-button.jpeg" alt="Reward Tier" class="reward-image">
         </div>
 <!-- ตัวเลขที่เพิ่มขึ้นเรื่อยๆ -->
-<div id="counter"></div>
+<!-- <div id="counter">10000</div> -->
+    <div class="Counter">
+        <div class="Counter-unit" data-js="counter-hundred-thousands">
+            <div class="Counter-number" data-js="current"></div>
+        </div>
+        <div class="Counter-unit" data-js="counter-ten-thousands">
+            <div class="Counter-number" data-js="current"></div>
+        </div>
+        <div class="Counter-unit" data-js="counter-thousands">
+            <div class="Counter-number" data-js="current"></div>
+        </div>
+        <div class="Counter-unit" data-js="counter-hundreds">
+            <div class="Counter-number" data-js="current"></div>
+        </div>
+        <div class="Counter-unit" data-js="counter-tens">
+            <div class="Counter-number" data-js="current"></div>
+        </div>
+        <div class="Counter-unit" data-js="counter-ones">
+            <div class="Counter-number" data-js="current"></div>
+        </div>
+    </div>
+
+
+
 
 
         <!-- ปุ่ม App Store และ Google Play -->
@@ -341,43 +364,154 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
     <!-- End Reward Section -->
 
+<script>
+    // ตัวแปรสำหรับจัดการแต่ละหน่วย
+    var counterHundredThousands = new Counter(document.querySelector('[data-js="counter-hundred-thousands"]')),
+        counterTenThousands = new Counter(document.querySelector('[data-js="counter-ten-thousands"]')),
+        counterThousands = new Counter(document.querySelector('[data-js="counter-thousands"]')),
+        counterHundreds = new Counter(document.querySelector('[data-js="counter-hundreds"]')),
+        counterTens = new Counter(document.querySelector('[data-js="counter-tens"]')),
+        counterOnes = new Counter(document.querySelector('[data-js="counter-ones"]'));
+    
+    // สมมติว่า count ได้รับการอัปเดต
+    count = 15400;  // เปลี่ยนแปลงค่า count
 
-  <script>
- 
-    //     document.addEventListener("DOMContentLoaded", function () {
-    //         let counterElement = document.getElementById("counter"); /
-    //     let count = 100000; 
+    // อัปเดตค่าใหม่ใน localStorage
+    localStorage.getItem('count', count) || 15400 ;
+    localStorage.setItem('count', count) ;
 
-    //     function updateCounter() {
-    //         // สุ่มเพิ่ม 1 ถึง 3
-    //         let randomIncrease = Math.floor(Math.random() * 3) + 1;
-    //     count += randomIncrease; // เพิ่มทีละ 1-3
-    //     counterElement.textContent = count.toLocaleString(); 
-    //     }
+    function Counter(el) {
+        var current = el.querySelector('[data-js="current"]'),
+            count;
 
-    //     setInterval(updateCounter, 2000); 
-    // });
+        function update(value) {
+            if (count === value) { return; }
+            count = value;
+            current.innerHTML = count; // Update current value directly
+            el.classList.add('is-changing');
+            setTimeout(function () {
+                el.classList.remove('is-changing');
+            }, 210);
+        }
 
-$(document).ready(function() {
-    // สร้างตัวนับที่เริ่มจาก 100,000
-    var clock = $('#counter').FlipClock(100000, {
-        clockFace: 'Counter',  // ตั้งค่าให้เป็นการนับเลข
-        autoStart: true,        // เริ่มนับอัตโนมัติ
-        countdown: false        // ไม่ให้ตัวเลขนับถอยหลัง
-    });
-
-    // เพิ่มการสุ่มตัวเลข
-    function updateCounter() {
-        clock.setTime(clock.getTime() + Math.floor(Math.random() * 3) + 1);  // เพิ่มทีละ 1 ถึง 3
+        return {
+            update: update
+        };
     }
 
-    setInterval(updateCounter, 2000);  // อัปเดตทุกๆ 2 วินาที
-});
+    function displayNumber() {
+        var hundredThousands = Math.floor(count / 100000);
+        var tenThousands = Math.floor((count % 100000) / 10000);
+        var thousands = Math.floor((count % 10000) / 1000);
+        var hundreds = Math.floor((count % 1000) / 100);
+        var tens = Math.floor((count % 100) / 10);
+        var ones = count % 10;
 
+        // อัปเดตค่าตัวเลขในแต่ละหน่วย
+        setTimeout(() => counterHundredThousands.update(hundredThousands), 0); // หลักแสน
+        setTimeout(() => counterTenThousands.update(tenThousands), 300);   // หลักหมื่น
+        setTimeout(() => counterThousands.update(thousands), 600);         // หลักพัน
+        setTimeout(() => counterHundreds.update(hundreds), 900);           // หลักร้อย
+        setTimeout(() => counterTens.update(tens), 1200);                   // หลักสิบ
+        setTimeout(() => counterOnes.update(ones), 1500);                   // หลักหน่วย
+    }
 
+    // เรียกใช้งานเมื่อโหลดหน้า
+    window.addEventListener('load', function() {
+        displayNumber(); // เรียกใช้งานฟังก์ชันแสดงตัวเลขจาก localStorage
+    });
 
+    // ถ้าค่าเปลี่ยนให้รีเฟรชหน้า
+    // ใช้ setInterval เพื่อตรวจสอบการเปลี่ยนแปลงใน localStorage
+    let previousCount = localStorage.getItem('count'); // เก็บค่าก่อนหน้า
 
+    setInterval(function() {
+        let currentCount = localStorage.getItem('count'); // อ่านค่าปัจจุบันจาก localStorage
+        
+        // ถ้าค่าของ count เปลี่ยนแปลง ให้รีเฟรชหน้า
+        if (currentCount !== previousCount) {
+            console.log("Value changed in localStorage");
+            location.reload(); // รีเฟรชหน้า
+        }
+
+        // อัปเดต previousCount
+       
+        previousCount = currentCount;
+    }, 10000); // ตรวจสอบทุก 10วิ
 </script>
+
+
+
+
+
+
+<!-- โค้ดเก่าแบบนับเรื่อยๆ -->
+ <!-- <script>
+        var counterHundredThousands = new Counter(document.querySelector('[data-js="counter-hundred-thousands"]')),
+            counterTenThousands = new Counter(document.querySelector('[data-js="counter-ten-thousands"]')),
+            counterThousands = new Counter(document.querySelector('[data-js="counter-thousands"]')),
+            counterHundreds = new Counter(document.querySelector('[data-js="counter-hundreds"]')),
+            counterTens = new Counter(document.querySelector('[data-js="counter-tens"]')),
+            counterOnes = new Counter(document.querySelector('[data-js="counter-ones"]'));
+
+        // ดึงค่าผลรวมจาก localStorage ถ้ามี
+        var count = parseInt(localStorage.getItem('count')) || 0; // ถ้าไม่มีจะตั้งค่าเป็น 0
+
+        function Counter(el) {
+            var current = el.querySelector('[data-js="current"]'),
+                count;
+
+            function update(value) {
+                if (count === value) { return; }
+                count = value;
+                current.innerHTML = count; // Update current value directly
+                el.classList.add('is-changing');
+                setTimeout(function () {
+                    el.classList.remove('is-changing');
+                }, 210);
+
+                // บันทึกค่าการนับลงใน localStorage
+                localStorage.setItem('count', count);
+            }
+
+            return {
+                update: update
+            };
+        }
+
+        function increment() {
+            // เพิ่มค่า count โดยการสุ่มระหว่าง 1 ถึง 30 และเพิ่มผลรวม
+            var randomIncrement = Math.floor(Math.random() * 9) + 1;
+            count += randomIncrement;
+
+            var hundredThousands = Math.floor(count / 100000);
+            var tenThousands = Math.floor((count % 100000) / 10000);
+            var thousands = Math.floor((count % 10000) / 1000);
+            var hundreds = Math.floor((count % 1000) / 100);
+            var tens = Math.floor((count % 100) / 10);
+            var ones = count % 10;
+
+            // อัปเดตค่าตัวเลขในแต่ละหน่วย
+            counterHundredThousands.update(hundredThousands);
+            counterTenThousands.update(tenThousands);
+            counterThousands.update(thousands);
+            counterHundreds.update(hundreds);
+            counterTens.update(tens);
+            counterOnes.update(ones);
+
+            // บันทึกค่าผลรวมลงใน localStorage
+            localStorage.setItem('count', count);
+
+            setTimeout(increment, 1000); // เรียกฟังก์ชัน increment ทุก ๆ 1 วินาที
+        }
+
+        setTimeout(increment, 1000); // เริ่มต้นการนับ
+    </script> -->
+
+
+
+
+
 
 
     <!-- Styles -->
@@ -387,7 +521,9 @@ $(document).ready(function() {
             padding: 0;
             background-color: black;
             /* เผื่อว่าภาพโหลดไม่ขึ้น */
+
         }
+        
 
     /* ปรับให้ reward section อยู่กึ่งกลาง */
     .reward-section {
@@ -399,6 +535,9 @@ $(document).ready(function() {
         background-size: contain;
         background-attachment: fixed;
         position: relative; /* ตั้งเป็น relative เพื่อให้ store-buttons ยึดตำแหน่งกับมัน */
+        background-size: contain; /* หรือใช้ contain ถ้าต้องการให้ภาพพอดีกับขนาด */
+        background-position: center; /* จัดตำแหน่งภาพให้ตรงกลาง */
+        background-attachment: fixed; /* ทำให้ภาพเคลื่อนที่ตามการเลื่อนของหน้า */
     }
 
     /* ปรับให้ภาพรางวัลอยู่กึ่งกลาง */
@@ -408,14 +547,16 @@ $(document).ready(function() {
         justify-content: center;
         align-items: center;
         width: 100%;
+       
     }
 
     .reward-image {
         width: 100%;
         max-width: auto;
         height: auto;
+        
     }
-  
+   
     /* #counter {
         position: absolute;
         top: 11.7%; 
@@ -428,45 +569,67 @@ $(document).ready(function() {
         padding: 10px 20px;
         border-radius: 10px;
         text-align: center;
-    } */
+    }  */
 
-        #counter {
-         position: absolute;
-        top: 11.7%; 
+    .Counter {
+        font: 100px Helvetica;
+        display: flex;
+        justify-content: center;
+        color: #dddddd;
+        overflow: hidden;
+        position: absolute;
+        top: 11.7%;
         left: 22%;
         transform: translateX(-50%);
-        font-size: 40px;
+        font-size: 150px;
         font-weight: bold;
-        color: white;
         background: transparent;
         padding: 10px 20px;
         border-radius: 10px;
         text-align: center;
+        backface-visibility: hidden;
+        border-radius: 5px 5px 0 0;
+        box-shadow: inset 0 15px 50px #111111;
+        width: 600px;
+        gap: 20px;
     }
 
-    .digit {
-        display: inline-block;
-        width: 40px;
-        height: 60px;
-        background-color: black;
-        color: white;
+    .Counter-unit {
+        width: 80px;  /* เพิ่มขนาดของแต่ละตัวเลข */
         text-align: center;
-        line-height: 60px;
+        position: relative;
+        background: #1a1a1a;
         border-radius: 5px;
-        margin: 0 5px;
-        font-size: 40px;
+        box-shadow: inset 0 5px 15px rgba(0,0,0,0.7), 0 2px 10px rgba(0,0,0,0.5);
+        color: #fff;
+        font-size: 120px;
+        transition: transform 0.3s ease;
     }
 
-    .digit.flip {
-        animation: flip 1s infinite;
+    .Counter-unit.is-changing {
+        transform: translateY(200px);
+        transition: transform 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
     }
 
-    @keyframes flip {
-        0% { transform: rotateX(0); }
-        50% { transform: rotateX(180deg); }
-        100% { transform: rotateX(360deg); }
+    .Counter-number {
+        display: block;
+        text-shadow: 0 1px 3px rgba(0,0,0,0.8); /* เพิ่มเงาให้กับตัวเลข */
     }
 
+    .Counter-unit:before {
+        content: "";
+        position: absolute;
+        top: 50%; /* วางเส้นแบ่งตรงกลาง */
+        left: 0;
+        right: 0;
+        height: 1px;  /* ความหนาของเส้น */
+        background: #444;  /* สีของเส้นแบ่ง */
+        z-index: 1;
+    }
+
+    .Counter-unit .Counter-number {
+        z-index: 2; /* ตัวเลขต้องอยู่เหนือเส้นแบ่ง */
+    }
 
 
 
@@ -477,7 +640,7 @@ $(document).ready(function() {
     /* ปุ่ม App Store และ Google Play */
     .store-buttons {
         position: absolute;
-        top: 20%; /* กำหนดให้ปุ่มลอยเหนือขอบล่างของ reward image */
+        top: 19%; /* กำหนดให้ปุ่มลอยเหนือขอบล่างของ reward image */
         left: 28%;
         transform: translateX(-50%);
         display: flex;
@@ -491,7 +654,7 @@ $(document).ready(function() {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 450px;
+        width: 400px;
         max-width: 80%;
     }
 
