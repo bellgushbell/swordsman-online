@@ -19,13 +19,15 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
 <head>
-    <title>กระบี่เย้ยยุทธจักร3 swordsman3 Mobile</title>
-    <meta name="description" content="เกมกระบี่เย้ยยุทธจักร3 (Swordsman3) เกม MMORPG แนวกำลังภายใน ซึ่งบริษัท EXP UP จำกัด ประกาศความร่วมมือกับบริษัท Kingsoft ในการได้มาซึ่งสิทธิ์การให้บริการเกม Swordsman World3 ในประเทศไทย">
     <meta charset="utf-8">
     <meta name="author" content="EXPUP">
-    <meta name="keywords" content="Swordsman3, กระบี่เย้ยยุทธจักร ,กระบี่เย้ยยุทธจักร3 ,swordsman ,กระบี่ ,เกมกระบี่ ,จอมยุทธ ,เกมสำนัก ,กำลังภายใน ,เกมกำลังภายใน ,วรยุทธ ,กระบี่พิชิตมาร ,เก้ากระบี่เดียวดาย , เกมกระบี่เย้ยยุทธจักร3 ,MMORPG">
     <link rel="canonical" href="https://swordsman3.com/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="description" content="เกมกระบี่เย้ยยุทธจักร3 (Swordsman3) เกม MMORPG แนวกำลังภายใน ซึ่งบริษัท EXP UP จำกัด ประกาศความร่วมมือกับบริษัท Kingsoft ในการได้มาซึ่งสิทธิ์การให้บริการเกม Swordsman World3 ในประเทศไทย">
+    <meta name="keywords" content="Swordsman3, กระบี่เย้ยยุทธจักร ,กระบี่เย้ยยุทธจักร3 ,swordsman ,กระบี่ ,เกมกระบี่ ,จอมยุทธ ,เกมสำนัก ,กำลังภายใน ,เกมกำลังภายใน ,วรยุทธ ,กระบี่พิชิตมาร ,เก้ากระบี่เดียวดาย , เกมกระบี่เย้ยยุทธจักร3 ,MMORPG"> -->
+    <meta name="description" content="เกมกระบี่เย้ยยุทธจักร3 (Swordsman3) เกม MMORPG แนวกำลังภายใน ซึ่งบริษัท EXP UP จำกัด ประกาศความร่วมมือกับบริษัท Kingsoft ในการได้มาซึ่งสิทธิ์การให้บริการเกม Swordsman World3 ในประเทศไทย">
+    <meta name="keywords" content="Swordsman3, กระบี่เย้ยยุทธจักร ,กระบี่เย้ยยุทธจักร3 ,swordsman ,กระบี่ ,เกมกระบี่ ,จอมยุทธ ,เกมสำนัก ,กำลังภายใน ,เกมกำลังภายใน ,วรยุทธ ,กระบี่พิชิตมาร ,เก้ากระบี่เดียวดาย , เกมกระบี่เย้ยยุทธจักร3 ,MMORPG">
+    <title>กระบี่เย้ยยุทธจักร3 swordsman3 Mobile</title>
 
 
     <!-- CSS -->
@@ -2177,6 +2179,45 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WKMDJPGM" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+
+
+
+    <script>
+        // Ensure the DOM is fully loaded before running the script
+        document.addEventListener("DOMContentLoaded", function() {
+            console.log("Fetching SEO data..."); // Debugging line
+
+            // Fetch the SEO data from content_read_seo.php
+            fetch('database/admin/content_read_seo.php') // Make sure the path is correct
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        console.error(data.error); // Log any error
+                    } else {
+                        // console.log(data); // Check what data is returned
+
+                        // Assuming that the data contains multiple entries, here we use the first entry for simplicity
+                        if (data.length > 0) {
+                            const seo = data[0]; // Use the first item from the data array
+
+                            // Update the title, description, and keywords meta tags dynamically
+                            document.title = seo.title; // Set the page title
+                            // console.log("Updated Title:", document.title); // Debugging line
+
+                            document.querySelector("meta[name='description']").setAttribute("content", seo.description); // Set the description
+                            // console.log("Updated Description:", seo.description); // Debugging line
+
+                            document.querySelector("meta[name='keywords']").setAttribute("content", seo.keywords); // Set the keywords
+                            // console.log("Updated Keywords:", seo.keywords); // Debugging line
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error("Error fetching SEO data:", error);
+                });
+        });
+    </script>
+
 
 
 </body>
