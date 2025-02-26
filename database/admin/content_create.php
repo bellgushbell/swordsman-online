@@ -6,6 +6,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $admin_id = $_SESSION['id'];
     $type = mysqli_real_escape_string($conn, $_POST['type']);
     $title = mysqli_real_escape_string($conn, $_POST['title']);
+    $alt_text = mysqli_real_escape_string($conn, $_POST['alt_text']);
+    $newImageName  = mysqli_real_escape_string($conn, $_POST['rename']);
     $description =  $_POST['description'];
     $timestamp = date("Y-m-d H:i:s");
 
@@ -13,6 +15,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // กำหนดโฟลเดอร์ปลายทาง
     $target_dir = "../../images/news/";
     $file_name = NULL; // ตั้งค่าเริ่มต้น
+
+
 
     // ตรวจสอบว่ามีไฟล์อัปโหลดหรือไม่
     if (!empty($_FILES["upload_title"]["name"])) {
@@ -25,11 +29,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         }
 
-        // สร้างชื่อไฟล์ใหม่ให้ไม่ซ้ำ
-        $file_name = time() . "_" . uniqid() . "." . $file_ext;
+        // สร้างชื่อไฟล์ใหม่
+        $file_name =   "swordsman_" . $newImageName . "." . $file_ext;
         $target_file = $target_dir . $file_name;
 
-        // ตรวจสอบและย้ายไฟล์
+        // print_r("target_file: " . $target_file);
+
+        // ตรวจสอบว่าไฟล์มีชื่อเดียวกันอยู่แล้วหรือไม่
+        if (file_exists($target_file)) {
+            echo "<script>alert('ไฟล์นี้มีอยู่แล้ว กรุณาเปลี่ยนชื่อไฟล์');</script>";
+            exit();
+        }
+
+
         if (move_uploaded_file($_FILES["upload_title"]["tmp_name"], $target_file)) {
             // ไฟล์ถูกอัปโหลดสำเร็จ
         } else {
@@ -39,8 +51,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // ใช้ Prepared Statement เพื่อป้องกัน SQL Injection
-    $stmt_title = $conn->prepare("INSERT INTO title (type, title, image, created_at, created_by) VALUES (?, ?, ?, ?, ?)");
-    $stmt_title->bind_param("ssssi", $type, $title, $file_name, $timestamp, $admin_id);
+    $stmt_title = $conn->prepare("INSERT INTO title (type, title, image, created_at, created_by, alt_text) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt_title->bind_param("ssssis", $type, $title, $file_name, $timestamp, $admin_id, $alt_text);
 
     if ($stmt_title->execute()) {
         // Get the last inserted id_title

@@ -13,6 +13,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $edit_id_title = $_SESSION['edit_id_title'];
     $type = mysqli_real_escape_string($conn, $_POST['type']);
     $title = mysqli_real_escape_string($conn, $_POST['title']);
+    $alt_text = mysqli_real_escape_string($conn, $_POST['alt_text']);
+    $newImageName  = mysqli_real_escape_string($conn, $_POST['rename']);
     $description = $_POST['description'];
 
     // echo $description;
@@ -34,8 +36,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         }
 
-        $file_name = time() . "_" . uniqid() . "." . $file_ext;
+        // $file_name = time() . "_" . uniqid() . "." . $file_ext;
+        $file_name =   "swordsman_" . $newImageName . "." . $file_ext;
         $target_file = $target_dir . $file_name;
+
+        // ตรวจสอบว่าไฟล์มีชื่อเดียวกันอยู่แล้วหรือไม่
+        if (file_exists($target_file)) {
+            echo "<script>alert('ไฟล์นี้มีอยู่แล้ว กรุณาเปลี่ยนชื่อไฟล์');</script>";
+            exit();
+        }
+
 
         if (!move_uploaded_file($_FILES["upload_title"]["tmp_name"], $target_file)) {
             echo "<script>alert('เกิดข้อผิดพลาดในการอัปโหลดไฟล์!');</script>";
@@ -49,8 +59,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // ตรวจสอบว่ามี edit_id_title ก่อนอัปเดต
     if ($edit_id_title) {
         // ใช้ Prepared Statement ในการอัปเดต title
-        $stmt_title = $conn->prepare("UPDATE title SET type = ?, title = ?, image = ?, updated_at = ?, update_by = ? WHERE id = ?");
-        $stmt_title->bind_param("ssssii", $type, $title, $file_name, $timestamp, $admin_id, $edit_id_title);
+        $stmt_title = $conn->prepare("UPDATE title SET type = ?, title = ?, image = ?, updated_at = ?, update_by = ?, alt_text = ? WHERE id = ?");
+        $stmt_title->bind_param("ssssisi", $type, $title, $file_name, $timestamp, $admin_id, $alt_text, $edit_id_title);
 
         if ($stmt_title->execute()) {
             // อัปเดต description

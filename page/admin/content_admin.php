@@ -91,49 +91,74 @@ if (session_status() === PHP_SESSION_NONE) {
                                 </div>
 
                                 <div class="form-group d-flex align-items-center mt-3" style="width: 100%; max-width: 500px;">
-                                    <label for="name" style="flex: 0 0 20%;">Subject:</label>
+                                    <label for="name" style="flex: 0 0 20%;">Header :</label>
                                     <input type="text" class="form-control" id="title" name="title"
                                         value="<?php echo isset($data['title']) ? $data['title'] : ''; ?>" required style="flex: 1;">
                                 </div>
 
                                 <!-- Upload File Section -->
-
-                                <!-- รูปภาพแสดงตัวอย่าง และกรอบ (แสดงอยู่เหนือช่อง Upload) -->
+                                <!-- รูปภาพแสดงตัวอย่าง และกรอบ -->
                                 <div class="mt-3">
                                     <div style="position: relative; display: flex; align-items: center; justify-content: center;">
                                         <img id="preview" class="img-fluid"
                                             style="max-width: 280px; max-height: 220px; width: 280px; height: 220px;
-                border: 2px dashed #ccc; padding: 10px; background-color: #f8f9fa;">
+            border: 2px dashed #ccc; padding: 10px; background-color: #f8f9fa;"
+                                            src="<?php echo !empty($imageName) ? '../../images/news/' . $imageName : ''; ?>">
                                         <span id="preview-text"
                                             style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-                color: #aaa; font-size: 14px; pointer-events: none;">ยังไม่ได้เลือกรูป</span>
+            color: #aaa; font-size: 14px; pointer-events: none;
+            <?php echo !empty($imageName) ? 'display: none;' : ''; ?>">
+                                            ยังไม่ได้เลือกรูป
+                                        </span>
                                     </div>
                                 </div>
 
                                 <!-- แสดงชื่อไฟล์ที่เลือก -->
-                                <?php
-                                $imageName = isset($data['image']) ? $data['image'] : '';
-                                ?>
+                                <?php $imageName = isset($data['image']) ? $data['image'] : ''; ?>
+
                                 <div id="file-name" style="margin-top: 10px; color: #555; display: flex; align-items: center; gap: 2px;">
                                     <input type="text" class="form-control" id="file-name-text"
-                                        <?php echo $imageName ? $imageName : 'ยังไม่ได้เลือกไฟล์'; ?> style="flex: 1;" readonly>
+                                        value="<?php echo !empty($imageName) ? $imageName : 'ยังไม่ได้เลือกไฟล์'; ?>"
+                                        style="flex: 1;" readonly>
+
                                     <!-- ส่งค่า imageName ไปกับฟอร์ม -->
                                     <?php if (!empty($imageName)) : ?>
                                         <input type="hidden" name="old_image" value="<?php echo $imageName; ?>">
                                     <?php endif; ?>
 
-
-                                    <div class="form-group d-flex align-items-center" id="upload-container" style="<?php echo $imageName ? 'display: none;' : ''; ?>">
-                                        <button type="button" class="btn btn-primary" id="file-upload-btn" style="display: flex; align-items: center; justify-content: center; width: 38px; height: 38px; padding: 0;">
+                                    <!-- ปุ่มอัปโหลด -->
+                                    <div class="form-group d-flex align-items-center" id="upload-container"
+                                        style="<?php echo !empty($imageName) ? 'display: none;' : ''; ?>">
+                                        <button type="button" class="btn btn-primary" id="file-upload-btn"
+                                            style="display: flex; align-items: center; justify-content: center; width: 38px; height: 38px; padding: 0;">
                                             <i class="bi bi-file-earmark-arrow-up"></i>
                                         </button>
                                         <input type="file" class="form-control" id="upload" name="upload_title" style="display: none;">
                                     </div>
 
-                                    <button type="button" id="removeImage" class="btn btn-danger btn-sm" style="display: none; width: 38px; height: 38px; padding: 0; display: flex; align-items: center; justify-content: center;">
+                                    <!-- ปุ่มลบ -->
+                                    <button type="button" id="removeImage" class="btn btn-danger btn-sm"
+                                        style="width: 38px; height: 38px; padding: 0; display: <?php echo !empty($imageName) ? 'flex' : 'none'; ?>; 
+        align-items: center; justify-content: center;">
                                         <i class="bi bi-trash"></i>
                                     </button>
                                 </div>
+
+                                <!-- ช่องใส่ชื่อภาพ -->
+                                <div class="form-group d-flex align-items-center mt-3" style="width: 100%; max-width: 500px;">
+                                    <label for="rename" style="flex: 0 0 20%;">Rename:</label>
+                                    <input type="text" class="form-control" id="rename" name="rename"
+                                        value="<?php echo !empty($imageName) ? $imageName : ''; ?>" style="flex: 1;">
+                                </div>
+
+                                <!-- ช่องใส่คำอธิบายภาพ -->
+                                <div class="form-group d-flex align-items-center mt-3" style="width: 100%; max-width: 500px;">
+                                    <label for="alt_text" style="flex: 0 0 20%;">Alt Text:</label>
+                                    <input type="text" class="form-control" id="alt_text" name="alt_text"
+                                        value="<?php echo isset($data['alt_text']) ? $data['alt_text'] : ''; ?>"
+                                        placeholder="ใส่คำอธิบายรูปภาพ">
+                                </div>
+
                             </div>
 
 
