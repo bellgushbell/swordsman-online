@@ -685,7 +685,7 @@ SweetAlert2 alert
 }
 
 .pre-register img:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
 /* ✅ Mobile แนวตั้ง (Portrait) */
@@ -791,7 +791,7 @@ SweetAlert2 alert
     }
 
     .pre-register-container {
-        flex-direction: row;
+        /* flex-direction: row; */
         gap: 15px;
         justify-content: center;
         align-items: center;
@@ -810,7 +810,7 @@ SweetAlert2 alert
 /* ✅ iPad แนวตั้ง */
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
     .home-content {
-        top: 30% !important;
+        top: 30%;
     }
 
     .pre-register-container {
@@ -2246,9 +2246,9 @@ input.form-control {
     /* ตรงกลางในแนวตั้ง */
     transform: translateY(-50%);
     /* ปรับให้อยู่ตรงกลางพอดี */
-    width: 100px !important;
+    width: 95px !important;
     /* ลดความกว้างให้สมดุล */
-    height: 600px !important;
+    height: 650px !important;
     /* ความสูงที่กำหนด */
     font-size: 20px;
     overflow: hidden;

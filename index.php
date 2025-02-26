@@ -428,12 +428,12 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 <!-- BG Video BG Init แบบใหม่ใช้งาน-->
                 <div class="bg-video-wrapper">
                     <video class="bg-video" poster="images/webcover-videoimage.jpg" preload="auto" autoplay muted loop playsinline>
-                        <source src="video/swordsman-3-video-web-ver01-final.mp4" type="video/mp4">
+                        <source src="video/opening-game-video.mp4" type="video/mp4">
                     </video>
 
                     <video class="bg-video-mobile" poster="images/webcover-videoimage.jpg" preload="auto" autoplay muted loop
                         playsinline>
-                        <source src="video/swordsman-3-video-web-ver01-final.mp4" type="video/mp4">
+                        <source src="video/opening-game-video.mp4" type="video/mp4">
                     </video>
 
                     <!-- <div class="text-overlay">
@@ -485,8 +485,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 document.addEventListener("DOMContentLoaded", async () => {
                     const videoDesktop = document.querySelector('.bg-video');
                     const videoMobile = document.querySelector('.bg-video-mobile');
-                    const videoUrlDesktop = "video/swordsman-3-video-web-ver01-final.mp4";
-                    const videoUrlMobile = "video/swordsman-3-video-web-ver01-final.mp4";
+                    const videoUrlDesktop = "video/opening-game-video.mp4";
+                    const videoUrlMobile = "video/opening-game-video.mp4";
                     const fallbackBackground = "images/webcover2560x1440.jpg";
                     const isMobile = window.innerWidth <= 768;
                     const videoElement = isMobile ? videoMobile : videoDesktop;
@@ -1051,7 +1051,11 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
                 <div class="pre-register-container">
                     <a href="page/player/preregister-reward.php" target="_blank" class="pre-register">
-                        <img src="images/PreregisterButtonandReward/preregister-text.png" alt="PRE-REGISTER" />
+                <img src="images/PreregisterButtonandReward/pre-register-home.png" alt="PRE-REGISTER" 
+     style="transition: filter 0.3s ease;"
+     onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(255, 215, 0, 0.7))'"
+     onmouseout="this.style.filter='none'"/>
+
                     </a>
                 </div>
 
@@ -1117,32 +1121,65 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                 <button class="scroll-btn up" id="scrollUp">▲</button>
                                 <div class="class-sidebar" id="classSidebar">
                                     <ul class="class-menu">
-                                        <li data-class="class1" class="active">
-                                            <img src="images/ClassIcon/class12-icon.png" alt="อาชีพที่ 1" class="menu-icon">
+                                        <li data-class="class1" class="active"  style="transition: filter 0.3s ease;"
+                                            onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(244, 159, 47, 0.93))'"
+                                            onmouseout="this.style.filter='none'">
+                                            <img src="images/ClassIcon/class12-icon.png" alt="อาชีพที่ 1" class="menu-icon"    
+                                            style="transition: filter 0.3s ease;"
+                                            onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(244, 151, 30, 0.93))'"
+                                            onmouseout="this.style.filter='none'">
                                             บู้ตึ้ง
                                         </li>
-                                        <li data-class="class2">
-                                            <img src="images/ClassIcon/class11-icon.png" alt="อาชีพที่ 2" class="menu-icon">
+                                        <li data-class="class2"  style="transition: filter 0.3s ease;"
+                                            onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(30, 194, 254, 0.93))'"
+                                            onmouseout="this.style.filter='none'">
+                                            <img src="images/ClassIcon/class11-icon.png" alt="อาชีพที่ 2" class="menu-icon"
+                                            style="transition: filter 0.3s ease;"
+                                            onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(30, 194, 254, 0.93))'"
+                                            onmouseout="this.style.filter='none'">
                                             วังวารี
                                         </li>
-                                        <li data-class="class3">
-                                            <img src="images/ClassIcon/class8-icon.png" alt="อาชีพที่ 3" class="menu-icon">
+                                        <li data-class="class3" style="transition: filter 0.3s ease;"
+                                            onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(5, 96, 7, 0.93))'"
+                                            onmouseout="this.style.filter='none'">
+                                            <img src="images/ClassIcon/class8-icon.png" alt="อาชีพที่ 3" class="menu-icon" style="transition: filter 0.3s ease;"
+                                            onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(5, 96, 20, 0.93))'"
+                                            onmouseout="this.style.filter='none'">
                                             หมื่นบุปผา
                                         </li>
-                                        <li data-class="class4">
-                                            <img src="images/ClassIcon/class13-icon.png" alt="อาชีพที่ 4" class="menu-icon">
+                                        <li data-class="class4" style="transition: filter 0.3s ease;"
+                                            onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(5, 96, 20, 0.93))'" onmouseout="this.style.filter='none'">
+                                            <img src="images/ClassIcon/class13-icon.png" alt="อาชีพที่ 4" class="menu-icon" style="transition: filter 0.3s ease;"
+                                            onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(5, 96, 20, 0.93))'" onmouseout="this.style.filter='none'">
                                             ไป๋ลู่
                                         </li>
-                                        <li data-class="class5">
-                                            <img src="images/ClassIcon/class10-icon.png" alt="อาชีพที่ 5" class="menu-icon">
+                                        <li data-class="class5"  style="transition: filter 0.3s ease;"
+                                            onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(251, 9, 9, 0.93))'"
+                                            onmouseout="this.style.filter='none'">
+                                            <img src="images/ClassIcon/class10-icon.png" alt="อาชีพที่ 5" class="menu-icon"
+                                            style="transition: filter 0.3s ease;"
+                                            onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(251, 9, 9, 0.93))'"
+                                            onmouseout="this.style.filter='none'">
                                             เทียนเหริ่น
                                         </li>
-                                        <li data-class="class6">
-                                            <img src="images/ClassIcon/class9-icon.png" alt="อาชีพที่ 6" class="menu-icon">
+                                        <li data-class="class6"
+                                            style="transition: filter 0.3s ease;"
+                                            onmouseover="this.style.filter='drop-shadow(0 0 15px #edb518)'"
+                                            onmouseout="this.style.filter='none'">
+                                            <img src="images/ClassIcon/class9-icon.png" alt="อาชีพที่ 6" class="menu-icon"
+                                             style="transition: filter 0.3s ease;"
+                                            onmouseover="this.style.filter='drop-shadow(0 0 15px #edb518)'"
+                                            onmouseout="this.style.filter='none'">
                                             กระบี่ลี้ลับ
                                         </li>
-                                        <li data-class="class7">
-                                            <img src="images/ClassIcon/class10-icon.png" alt="อาชีพที่ 7" class="menu-icon">
+                                        <li data-class="class7"
+                                        style="transition: filter 0.3s ease;"
+                                            onmouseover="this.style.filter='drop-shadow(0 0 15px #edb518)'"
+                                            onmouseout="this.style.filter='none'">
+                                            <img src="images/ClassIcon/class10-icon.png" alt="อาชีพที่ 7" class="menu-icon"
+                                            style="transition: filter 0.3s ease;"
+                                            onmouseover="this.style.filter='drop-shadow(0 0 15px #edb518)'"
+                                            onmouseout="this.style.filter='none'">
                                             เทียนหวัง
                                         </li>
 
@@ -1171,18 +1208,22 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 <div class="swiper-wrapper">
                     <!-- Slide 1 -->
                     <div class="swiper-slide">
-                        <img src="images/highlight-game/highlight1.jpg" alt="Promo 1" />
+                        <img src="images/highlight-game/highlight1.jpg" alt="Promo 1"  
+                  />
                     </div>
                     <!-- Slide 2 -->
                     <div class="swiper-slide">
-                        <img src="images/highlight-game/highlight2.jpg" alt="Promo 2" />
+                        <img src="images/highlight-game/highlight2.jpg" alt="Promo 2" 
+                      />
                     </div>
                     <!-- Slide 3 -->
                     <div class="swiper-slide">
-                        <img src="images/highlight-game/highlight3.jpg" alt="Promo 3" />
+                        <img src="images/highlight-game/highlight3.jpg" alt="Promo 3"
+                       />
                     </div>
                     <div class="swiper-slide">
-                        <img src="images/highlight-game/highlight4.jpg" alt="Promo 4" />
+                        <img src="images/highlight-game/highlight4.jpg" alt="Promo 4" 
+                       />
                     </div>
                 </div>
                 <!-- Pagination -->
@@ -1421,13 +1462,38 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                             limitedNews.forEach(news => {
                                 const li = document.createElement("li");
                                 const dateOnly = news.created_at.substring(0, 10); // 10 ตัวแรก (YYYY-MM-DD)
+                                
                                 const newtypefilter = news.type == "ข่าว" ? "ประกาศ" : news.type;
-                                li.classList.add("list-group-item");
+
+                               let newTypeColor;
+                                if (news.type === "ข่าว") {
+                                    newTypeColor = "rgba(0, 0, 255, 0.8)";  // ฟ้าสดใส (blue) โดยมีค่า alpha 0.8
+                                } else if (news.type === "กิจกรรม") {
+                                    newTypeColor = "rgba(128, 0, 128, 0.8)";  // สีม่วง (purple)
+                                } else if (news.type === "โปรโมชั่น") {
+                                    newTypeColor = "rgba(255, 165, 0, 0.8)";  // สีส้ม (orange)
+                                } else {
+                                    newTypeColor = "rgba(0, 0, 0, 0.8)";  // สีดำ (black)
+                                }
+
+
+                               li.classList.add("list-group-item");
                                 li.innerHTML = `
-                                <div class="news-item">
-                                    <a href="#" class="text-decoration-none">[${newtypefilter}] - ${news.title}</a>
-                                    <span class="date">${dateOnly}</span>
-                                </div>`;
+                                    <div class="news-item" style="display: flex; justify-content: space-between; align-items: center;">
+                                        <div style="display: flex; align-items: center;">
+                                       <a href="#" class="text-decoration-none" 
+                                    style="color: white; display: inline-block; padding: 6px 15px; border-radius: 12px; 
+                                            background: linear-gradient(135deg, ${newTypeColor} 0%, ${newTypeColor} 70%, #fff 90%, #fff 100%);">
+                                        ${newtypefilter}
+                                    </a>
+
+                                                
+                                         &nbsp
+                                             <a style="display: inline; cursor: pointer;">${news.title}</a>
+                                        </div>
+                                        <span class="date" style="margin-left: 10px;">${dateOnly}</span>
+                                    </div>`;
+
                                 li.addEventListener("click", function() {
                                     window.location.href = `database/player/contents_read_detail.php?id=${news.id}`; // 
                                 });
@@ -1451,7 +1517,11 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         <!--Gallery Game Section-->
         <section class="gallery-section">
             <div class="character-container">
-                <img src="images/gallery-pic/g-char.png" alt="Character">
+                <!-- <img src="images/gallery-pic/g-char.png" alt="Character"> -->
+                   <img src="images/gallery-pic/g-char.png" alt="Character" 
+     style="transition: filter 0.3s ease;"
+     onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(0, 153, 255, 0.7))'"
+     onmouseout="this.style.filter='none'"/>
             </div>
 
             <div class="gallery-container">
@@ -1472,6 +1542,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                     <div class="gallery-item large"
                         onclick="openModal('photo', 'images/gallery-pic/g1.jpg')">
                         <img src="images/gallery-pic/g1.jpg" alt="Moonglow Fest">
+                        
                         <h3>เข้าร่วมสงครามจักพรรดิ์</h3>
                     </div>
                     <div class="gallery-item small-right"
@@ -1631,18 +1702,17 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
             }
 
-            .gallery-item {
-                background: white;
-                border-radius: 10px;
-                overflow: hidden;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                padding-bottom: 10px;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-                text-align: center;
-
-            }
+           .gallery-item {
+            background: none;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0;
+            position: relative; 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+             }
 
             .gallery-item img {
                 width: 100%;
@@ -1656,9 +1726,20 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 cursor: pointer;
             }
 
-            .gallery-item h3 {
+           .gallery-item h3 {
                 font-size: 16px;
                 margin-top: 10px;
+                position: absolute;
+                bottom: 10px; /* วางข้อความที่ด้านล่างของรูป */
+                left: 0;
+                right: 0;
+                bottom:0;
+                text-align: center;
+                color: white;
+                background: rgba(0, 0, 0, 0.1); /* แถบโปร่งใสที่ทับอยู่ในรูป */
+                padding: 5px;
+                border-radius: 0 0 10px 10px; /* ขอบโค้งล่าง */
+                margin: 0;
             }
 
             .gallery-item.large {

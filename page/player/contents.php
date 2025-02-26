@@ -725,7 +725,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 axios.get('../../database/player/contents_index.php') // URL ของไฟล์ PHP ที่ส่งข้อมูล JSON
                     .then(function(response) {
                         const newsData = response.data; // ข้อมูลที่ได้รับมาในรูปแบบ JSON
-                        // console.log('data', newsData); // แสดงข้อมูลใน console เพื่อตรวจสอบ
+                        console.log('data', newsData); // แสดงข้อมูลใน console เพื่อตรวจสอบ
 
                         // เรียงลำดับจากใหม่ -> เก่า
                         newsData.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
@@ -768,14 +768,33 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                 // เพิ่มลิงก์ที่แสดงรายละเอียดของข่าว
 
                                 const newtypefilter = news.type === "ข่าว" ? "ประกาศ" : news.type;
+
+                                // กำหนดสีตามประเภท
+                                let newTypeColor;
+                                if (news.type === "ข่าว") {
+                                    newTypeColor = "blue";  // สีฟ้า
+                                } else if (news.type === "กิจกรรม") {
+                                    newTypeColor = "purple";  // สีม่วง
+                                } else if (news.type === "โปรโมชั่น") {
+                                    newTypeColor = "orange";  // สีเหลือง
+                                } else {
+                                    newTypeColor = "black";  // สีเริ่มต้น
+                                }
+
                                 li.innerHTML = `
-                                    <div class="news-item">
-                                        <span class="newsall-type-text">♦ [${newtypefilter}]</span>
-                                        &nbsp;&nbsp;
-                                        <a href="#" class="text-decoration-none">${news.title}</a>
-                                        <span class="date">${dateOnly}</span>
-                                        
-                                    </div>
+                                <div class="news-item">
+                                <div class="news-header" style="display: flex; justify-content: space-between; align-items: center;">
+                                    <!-- หัวข้อกิจกรรม -->
+                                    <span class="newsall-type-text" style="color: ${newTypeColor};">[${newtypefilter}]</span>
+                                    <!-- วันที่ -->
+                                    <span class="date">${dateOnly}</span>
+                                </div>
+                                <!-- ชื่อรายการ -->
+                                <a href="#" class="text-decoration-none">${news.title}</a>
+
+                                <!-- แสดงภาพ thumbnail -->
+                                <img src="../../images/gallery-pic/${news.image}" alt="${news.title}" style="width: 100%; height: auto; margin-top: 10px; border-radius: 8px;">
+                            </div>
                                 `;
                                 // ฟังก์ชันเมื่อคลิกที่ <li> จะไปที่หน้า news detail
                                 li.addEventListener("click", function() {

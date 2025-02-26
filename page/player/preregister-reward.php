@@ -352,11 +352,17 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         <!-- ปุ่ม App Store และ Google Play -->
         <div class="store-buttons">
             <a href="#" class="app-button">
-                <img src="../../images/PreregisterButtonandReward/ios-button-preregister-button.png" alt="Pre-order on App Store">
+                <img src="../../images/PreregisterButtonandReward/ios-button-preregister-button.png" alt="Pre-order on App Store"    
+                    style="transition: filter 0.3s ease;"
+                    onmouseover="this.style.filter='drop-shadow(0 0 15px rgb(252, 251, 247))'"
+                    onmouseout="this.style.filter='none'">
             </a>
             <a href="#" class="google-button">
                 <img src="../../images/PreregisterButtonandReward/googleplay-preregister-button.png"
-                    alt="Pre-register on Google Play">
+                    alt="Pre-register on Google Play"    
+                    style="transition: filter 0.3s ease;"
+                    onmouseover="this.style.filter='drop-shadow(0 0 15px rgb(252, 251, 247))'"
+                    onmouseout="this.style.filter='none'">
             </a>
         </div>
         
@@ -535,9 +541,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         background-size: contain;
         background-attachment: fixed;
         position: relative; /* ตั้งเป็น relative เพื่อให้ store-buttons ยึดตำแหน่งกับมัน */
-        background-size: contain; /* หรือใช้ contain ถ้าต้องการให้ภาพพอดีกับขนาด */
-        background-position: center; /* จัดตำแหน่งภาพให้ตรงกลาง */
-        background-attachment: fixed; /* ทำให้ภาพเคลื่อนที่ตามการเลื่อนของหน้า */
+        flex-direction: column; /* เพื่อให้แนวตั้ง */
+   
     }
 
     /* ปรับให้ภาพรางวัลอยู่กึ่งกลาง */
@@ -579,8 +584,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         overflow: hidden;
         position: absolute;
         top: 11.7%;
-        left: 22%;
-        transform: translateX(-50%);
+        left: 5%;
+        transform: translateX(-50%,-50%);
         font-size: 150px;
         font-weight: bold;
         background: transparent;
@@ -590,7 +595,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         backface-visibility: hidden;
         border-radius: 5px 5px 0 0;
         box-shadow: inset 0 15px 50px #111111;
-        width: 600px;
+        width: auto;
         gap: 20px;
     }
 
@@ -641,8 +646,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     .store-buttons {
         position: absolute;
         top: 19%; /* กำหนดให้ปุ่มลอยเหนือขอบล่างของ reward image */
-        left: 28%;
-        transform: translateX(-50%);
+        left: 5%;
+        transform: translateX(-50%,-50%);
         display: flex;
         gap: 10px; /* ระยะห่างระหว่างปุ่ม */
         justify-content: center;
@@ -756,8 +761,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     } */
 
   /* ✅ Mobile แนวตั้ง (Portrait) */
-      /* สำหรับมือถือ */
-        @media (max-width: 767px) {
+     /* ✅ สำหรับมือถือ (Mobile Only) */
+        @media only screen and (max-width: 767px) {
         .store-buttons {
             flex-direction: row; 
             gap: 1px;
@@ -768,114 +773,267 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             width: 90px;
         }
 
-        #counter {
-            position: absolute;
-            top: 10%; 
-            left: 22%;
-            transform: translateX(-50%);
-            font-size: 20px;
-            font-weight: bold;
-            color: white;
-            background: transparent;
-            padding: 10px 20px;
-            border-radius: 10px;
-            text-align: center;
-        }
+       /* ปรับขนาด Counter */
+    .Counter {
+        font: 100px Helvetica; /* ลดขนาดฟอนต์ */
+        display: flex;
+        justify-content: center;
+        color: #dddddd;
+        overflow: hidden;
+        position: absolute;
+        top: 13%;
+        left: 27%;
+        transform: translateX(-50%);
+        font-size: 18px !important;
+        font-weight: bold;
+        background: transparent;
+        padding: 10px;
+        border-radius: 10px;
+        text-align: center;
+        backface-visibility: hidden;
+        border-radius: 5px 5px 0 0;
+        box-shadow: inset 0 15px 50px #111111;
+        width: auto; /* ขยายให้ครอบคลุมพื้นที่มากขึ้น */
+        height: auto;
+        gap: 10px;
+    }
+
+    /* ปรับขนาด Counter-unit */
+    .Counter-unit {
+        width: 35px;  /* ปรับขนาดของแต่ละตัวเลขให้เล็กลง */
+        text-align: center;
+        position: relative;
+        background: #1a1a1a;
+        border-radius: 5px;
+        box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.7), 0 2px 10px rgba(0, 0, 0, 0.5);
+        color: #fff;
+        font-size: 16px; /* ลดขนาดฟอนต์ */
+        transition: transform 0.3s ease;
+        margin-bottom: 5px; /* ระยะห่างระหว่างตัวเลข */
+    }
     
     }
 
 
+@media only screen and (max-width: 768px) and (orientation: landscape) {
+    .store-buttons {
+        flex-direction: row;
+        gap: 10px;
+    }
 
-   /* ✅ Mobile ในแนวนอน */
-          @media (max-width: 768px) and (orientation: landscape) {
-             .store-buttons {
-            flex-direction: row; 
-            gap: 10px;
-        
-        }
+    .store-buttons a {
+        width: 160px;
+    }
 
-        .store-buttons a {
-            width: 160px;
-        }
+    .Counter {
+        font: 80px Helvetica;
+        display: flex;
+        justify-content: center;
+        color: #dddddd;
+        overflow: hidden;
+        position: absolute;
+        top: 13%;
+        left: 26%;
+        transform: translateX(-50%,-50%);
+        font-size: 18%;
+        font-weight: bold;
+        background: transparent;
+        padding: 10px;
+        border-radius: 10px;
+        text-align: center;
+        backface-visibility: hidden;
+        border-radius: 5px 5px 0 0;
+        box-shadow: inset 0 15px 50px #111111;
+        width: auto;
+        height: auto;
+        gap: 10px;
+    }
 
-        #counter {
-            position: absolute;
-            top: 10%; 
-            left: 22%;
-            transform: translateX(-50%);
-            font-size: 20px;
-            font-weight: bold;
-            color: white;
-            background: transparent;
-            padding: 10px 20px;
-            border-radius: 10px;
-            text-align: center;
-        }
+    .Counter-unit {
+        width: 80px;
+        text-align: center;
+        position: relative;
+        background: #1a1a1a;
+        border-radius: 5px;
+        box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.7), 0 2px 10px rgba(0, 0, 0, 0.5);
+        color: #fff;
+        font-size: 20px;
+        transition: transform 0.3s ease;
+        margin-bottom: 5px;
+    }
+}
 
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .store-buttons {
+        flex-direction: row;
+        gap: 15px;
+    }
+
+    .store-buttons a {
+        width: 180px;
+    }
+
+   .Counter {
+        font: 100px Helvetica;
+        display: flex;
+        justify-content: center;
+        color: #dddddd;
+        overflow: hidden;
+        position: absolute;
+        top: 9%;
+        left: 38%;
+        transform: translateX(-50%);
+        font-size: 150px;
+        font-weight: bold;
+        background: transparent;
+        padding: 10px 20px;
+        border-radius: 10px;
+        text-align: center;
+        backface-visibility: hidden;
+        border-radius: 5px 5px 0 0;
+        box-shadow: inset 0 15px 50px #111111;
+        width: auto;
+        gap: 20px;
+    }
+
+    .Counter-unit {
+        width: 80px;  /* เพิ่มขนาดของแต่ละตัวเลข */
+        text-align: center; 
+        position: relative;
+        background: #1a1a1a;
+        border-radius: 5px;
+        box-shadow: inset 0 5px 15px rgba(0,0,0,0.7), 0 2px 10px rgba(0,0,0,0.5);
+        color: #fff;
+        font-size: 120px;
+        transition: transform 0.3s ease;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+    .Counter {
+        font: 100px Helvetica;
+        display: flex;
+        justify-content: center;
+        color: #dddddd;
+        overflow: hidden;
+        position: absolute;
+        top: 9%;
+        left: 30%;
+        transform: translateX(-50%);
+        font-size: 150px;
+        font-weight: bold;
+        background: transparent;
+        padding: 10px 20px;
+        border-radius: 10px;
+        text-align: center;
+        backface-visibility: hidden;
+        border-radius: 5px 5px 0 0;
+        box-shadow: inset 0 15px 50px #111111;
+        width: auto;
+        gap: 20px;
+    }
+
+    .Counter-unit {
+        width: 80px;  /* เพิ่มขนาดของแต่ละตัวเลข */
+        text-align: center; 
+        position: relative;
+        background: #1a1a1a;
+        border-radius: 5px;
+        box-shadow: inset 0 5px 15px rgba(0,0,0,0.7), 0 2px 10px rgba(0,0,0,0.5);
+        color: #fff;
+        font-size: 120px;
+        transition: transform 0.3s ease;
+    }
 }
 
 
-   /* ✅ iPad แนวตั้ง */
-        @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-              .store-buttons {
-            flex-direction: row;
-            gap: 15px;
-        
-        }
+@media only screen and (min-width: 1024px) and (max-width: 1400px) and (orientation: landscape) {
+    .store-buttons {
+        flex-direction: row;
+        gap: 15px;
+    }
 
-        .store-buttons a {
-            width: 180px;
-        }
+    .store-buttons a {
+        width: 240px;
+    }
 
-        
-        #counter {
-            position: absolute;
-            top: 10.6%; 
-            left: 22%;
-            transform: translateX(-50%);
-            font-size: 30px;
-            font-weight: bold;
-            color: white;
-            background: transparent;
-            padding: 10px 20px;
-            border-radius: 10px;
-            text-align: center;
-        }
+    .Counter {
+        font: 100px Helvetica;
+        display: flex;
+        justify-content: center;
+        color: #dddddd;
+        overflow: hidden;
+        position: absolute;
+        top: 11.7%;
+        left: 30%;
+        transform: translateX(-50%);
+        font-size: 150px;
+        font-weight: bold;
+        background: transparent;
+        padding: 10px 20px;
+        border-radius: 10px;
+        text-align: center;
+        backface-visibility: hidden;
+        border-radius: 5px 5px 0 0;
+        box-shadow: inset 0 15px 50px #111111;
+        width: auto;
+        gap: 20px;
+    }
+
+    .Counter-unit {
+        width: 80px;  /* เพิ่มขนาดของแต่ละตัวเลข */
+        text-align: center; 
+        position: relative;
+        background: #1a1a1a;
+        border-radius: 5px;
+        box-shadow: inset 0 5px 15px rgba(0,0,0,0.7), 0 2px 10px rgba(0,0,0,0.5);
+        color: #fff;
+        font-size: 120px;
+        transition: transform 0.3s ease;
+    }
 }
-
-   /* ✅ iPad และ Tablet (แนวนอน) */
-        @media (min-width: 1024px) and (max-width: 1400px) and (orientation: landscape) {
-             .store-buttons {
-            flex-direction: row;
-            gap: 15px;
-        
-        }
-
-        .store-buttons a {
+    @media only screen and (min-width: 1024px) and (max-width: 1400px) and (orientation: portrait) {
+    .store-buttons a {
             width: 240px;
         }
+        .Counter {
+        font: 100px Helvetica;
+        display: flex;
+        justify-content: center;
+        color: #dddddd;
+        overflow: hidden;
+        position: absolute;
+        top: 11.7%;
+        left: 30%;
+        transform: translateX(-50%);
+        font-size: 150px;
+        font-weight: bold;
+        background: transparent;
+        padding: 10px 20px;
+        border-radius: 10px;
+        text-align: center;
+        backface-visibility: hidden;
+        border-radius: 5px 5px 0 0;
+        box-shadow: inset 0 15px 50px #111111;
+        width: auto;
+        gap: 20px;
+    }
 
-        
-        #counter {
-            position: absolute;
-            top: 11.2%; 
-            left: 22%;
-            transform: translateX(-50%);
-            font-size: 30px;
-            font-weight: bold;
-            color: white;
-            background: transparent;
-            padding: 10px 20px;
-            border-radius: 10px;
-            text-align: center;
-        }
+    .Counter-unit {
+        width: 80px;  /* เพิ่มขนาดของแต่ละตัวเลข */
+        text-align: center; 
+        position: relative;
+        background: #1a1a1a;
+        border-radius: 5px;
+        box-shadow: inset 0 5px 15px rgba(0,0,0,0.7), 0 2px 10px rgba(0,0,0,0.5);
+        color: #fff;
+        font-size: 120px;
+        transition: transform 0.3s ease;
+    }
+    }
 
-}
-
-
-
-
-        </style>
+    </style>
 
 
 
