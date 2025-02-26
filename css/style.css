@@ -810,23 +810,34 @@ SweetAlert2 alert
 /* ✅ iPad แนวตั้ง */
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
     .home-content {
-        top: 30%;
+        top: 80% !important;
     }
 
     .pre-register-container {
-        flex-direction: column;
+        /* flex-direction: column; */
         gap: 15px;
     }
 
+    .pre-register-container {
+        /* flex-direction: row; */
+        gap: 15px;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
     .pre-register img {
-        width: 350px;
+        width: 300px;
     }
 }
 
 /* ✅ iPad และ Tablet (แนวนอน) */
 @media (min-width: 1024px) and (max-width: 1400px) and (orientation: landscape) {
     .home-content {
-        top: 70%;
+        top: 80%;
     }
 
     .pre-register-container {

@@ -585,7 +585,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         position: absolute;
         top: 11.7%;
         left: 5%;
-        transform: translateX(-50%,-50%);
+     
         font-size: 150px;
         font-weight: bold;
         background: transparent;
@@ -647,7 +647,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         position: absolute;
         top: 19%; /* กำหนดให้ปุ่มลอยเหนือขอบล่างของ reward image */
         left: 5%;
-        transform: translateX(-50%,-50%);
+      
         display: flex;
         gap: 10px; /* ระยะห่างระหว่างปุ่ม */
         justify-content: center;
@@ -675,90 +675,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     }
 
    
-    /* @media (max-width: 768px) {
-        .store-buttons {
-            flex-direction: row; 
-            gap: 10px;
-        
-        }
-
-        .store-buttons a {
-            width: 120px;
-        }
-
-        #counter {
-            position: absolute;
-            top: 10%; 
-            left: 22%;
-            transform: translateX(-50%);
-            font-size: 20px;
-            font-weight: bold;
-            color: white;
-            background: transparent;
-            padding: 10px 20px;
-            border-radius: 10px;
-            text-align: center;
-        }
-    
-    }
-
-  @media (min-width: 400px) and (max-width: 1024px) and (orientation: portrait) {
-        .store-buttons {
-            flex-direction: row;
-            gap: 15px;
-        
-        }
-
-        .store-buttons a {
-            width: 180px;
-        }
-
-        
-        #counter {
-            position: absolute;
-            top: 10.6%; 
-            left: 22%;
-            transform: translateX(-50%);
-            font-size: 30px;
-            font-weight: bold;
-            color: white;
-            background: transparent;
-            padding: 10px 20px;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-
-    }
-
- 
-    @media (max-width: 1024px) and (orientation: landscape) {
-        .store-buttons {
-            flex-direction: row;
-            gap: 15px;
-        
-        }
-
-        .store-buttons a {
-            width: 180px;
-        }
-
-        
-        #counter {
-            position: absolute;
-            top: 11.2%; 
-            left: 22%;
-            transform: translateX(-50%);
-            font-size: 30px;
-            font-weight: bold;
-            color: white;
-            background: transparent;
-            padding: 10px 20px;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-    } */
+  
 
   /* ✅ Mobile แนวตั้ง (Portrait) */
      /* ✅ สำหรับมือถือ (Mobile Only) */
@@ -773,17 +690,17 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             width: 90px;
         }
 
-       /* ปรับขนาด Counter */
+       
     .Counter {
-        font: 100px Helvetica; /* ลดขนาดฟอนต์ */
+        font: 100px Helvetica; 
         display: flex;
         justify-content: center;
         color: #dddddd;
         overflow: hidden;
         position: absolute;
         top: 13%;
-        left: 27%;
-        transform: translateX(-50%);
+        left: 3%;
+       
         font-size: 18px !important;
         font-weight: bold;
         background: transparent;
@@ -793,29 +710,72 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         backface-visibility: hidden;
         border-radius: 5px 5px 0 0;
         box-shadow: inset 0 15px 50px #111111;
-        width: auto; /* ขยายให้ครอบคลุมพื้นที่มากขึ้น */
+        width: auto; 
         height: auto;
         gap: 10px;
     }
 
-    /* ปรับขนาด Counter-unit */
+
     .Counter-unit {
-        width: 35px;  /* ปรับขนาดของแต่ละตัวเลขให้เล็กลง */
+        width: 35px; 
         text-align: center;
         position: relative;
         background: #1a1a1a;
         border-radius: 5px;
         box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.7), 0 2px 10px rgba(0, 0, 0, 0.5);
         color: #fff;
-        font-size: 16px; /* ลดขนาดฟอนต์ */
+        font-size: 16px;
         transition: transform 0.3s ease;
-        margin-bottom: 5px; /* ระยะห่างระหว่างตัวเลข */
+        margin-bottom: 5px;
     }
     
     }
+@media only screen and (min-width: 768px) and (max-width: 1400px)  {
+.store-buttons a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 200px;
+        max-width: 80%;
 
+    }
+     .Counter {
+        font: 50px Helvetica;
+        display: flex;
+        justify-content: center;
+        color: #dddddd;
+        overflow: hidden;
+        position: absolute;
+        top: 11.7%;
+        left: 5%;
+     
+        font-size: 80px;
+        font-weight: bold;
+        background: transparent;
+        padding: 10px 20px;
+        border-radius: 10px;
+        text-align: center;
+        backface-visibility: hidden;
+        border-radius: 5px 5px 0 0;
+        box-shadow: inset 0 15px 50px #111111;
+        width: auto;
+        gap: 20px;
+    }
 
-@media only screen and (max-width: 768px) and (orientation: landscape) {
+    .Counter-unit {
+        width: 50px;  /* เพิ่มขนาดของแต่ละตัวเลข */
+        text-align: center;
+        position: relative;
+        background: #1a1a1a;
+        border-radius: 5px;
+        box-shadow: inset 0 5px 15px rgba(0,0,0,0.7), 0 2px 10px rgba(0,0,0,0.5);
+        color: #fff;
+        font-size: 80px;
+        transition: transform 0.3s ease;
+    }
+}
+
+/* @media only screen and (max-width: 768px) and (orientation: landscape) {
     .store-buttons {
         flex-direction: row;
         gap: 10px;
@@ -897,7 +857,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     }
 
     .Counter-unit {
-        width: 80px;  /* เพิ่มขนาดของแต่ละตัวเลข */
+        width: 80px; 
         text-align: center; 
         position: relative;
         background: #1a1a1a;
@@ -935,7 +895,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     }
 
     .Counter-unit {
-        width: 80px;  /* เพิ่มขนาดของแต่ละตัวเลข */
+        width: 80px;  
         text-align: center; 
         position: relative;
         background: #1a1a1a;
@@ -947,7 +907,45 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     }
 }
 
+  @media only screen and (min-width: 1024px) and (max-width: 1400px) and (orientation: portrait) {
+    .store-buttons a {
+            width: 240px;
+        }
+        .Counter {
+        font: 100px Helvetica;
+        display: flex;
+        justify-content: center;
+        color: #dddddd;
+        overflow: hidden;
+        position: absolute;
+        top: 11.7%;
+        left: 30%;
+        transform: translateX(-50%);
+        font-size: 150px;
+        font-weight: bold;
+        background: transparent;
+        padding: 10px 20px;
+        border-radius: 10px;
+        text-align: center;
+        backface-visibility: hidden;
+        border-radius: 5px 5px 0 0;
+        box-shadow: inset 0 15px 50px #111111;
+        width: auto;
+        gap: 20px;
+    }
 
+    .Counter-unit {
+        width: 80px; 
+        text-align: center; 
+        position: relative;
+        background: #1a1a1a;
+        border-radius: 5px;
+        box-shadow: inset 0 5px 15px rgba(0,0,0,0.7), 0 2px 10px rgba(0,0,0,0.5);
+        color: #fff;
+        font-size: 120px;
+        transition: transform 0.3s ease;
+    }
+    }
 @media only screen and (min-width: 1024px) and (max-width: 1400px) and (orientation: landscape) {
     .store-buttons {
         flex-direction: row;
@@ -982,7 +980,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     }
 
     .Counter-unit {
-        width: 80px;  /* เพิ่มขนาดของแต่ละตัวเลข */
+        width: 80px; 
         text-align: center; 
         position: relative;
         background: #1a1a1a;
@@ -993,45 +991,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         transition: transform 0.3s ease;
     }
 }
-    @media only screen and (min-width: 1024px) and (max-width: 1400px) and (orientation: portrait) {
-    .store-buttons a {
-            width: 240px;
-        }
-        .Counter {
-        font: 100px Helvetica;
-        display: flex;
-        justify-content: center;
-        color: #dddddd;
-        overflow: hidden;
-        position: absolute;
-        top: 11.7%;
-        left: 30%;
-        transform: translateX(-50%);
-        font-size: 150px;
-        font-weight: bold;
-        background: transparent;
-        padding: 10px 20px;
-        border-radius: 10px;
-        text-align: center;
-        backface-visibility: hidden;
-        border-radius: 5px 5px 0 0;
-        box-shadow: inset 0 15px 50px #111111;
-        width: auto;
-        gap: 20px;
-    }
-
-    .Counter-unit {
-        width: 80px;  /* เพิ่มขนาดของแต่ละตัวเลข */
-        text-align: center; 
-        position: relative;
-        background: #1a1a1a;
-        border-radius: 5px;
-        box-shadow: inset 0 5px 15px rgba(0,0,0,0.7), 0 2px 10px rgba(0,0,0,0.5);
-        color: #fff;
-        font-size: 120px;
-        transition: transform 0.3s ease;
-    }
-    }
+   */
 
     </style>
 

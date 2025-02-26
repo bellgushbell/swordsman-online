@@ -421,6 +421,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         .news-list {
             list-style: none;
             padding: 0;
+            margin:0;
+            
         }
 
         .news-list li {
@@ -514,6 +516,21 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
         /* ✅ Mobile แนวตั้ง (Portrait) */
         @media (max-width: 767px) {
+            /* ส่วนของlist */
+            .news-item{
+                flex-direction:column;
+                margin:0px;
+                padding:0px;
+                height:auto;
+            }
+            .type-text-title{   
+            margin-top :0px !important;
+            }
+            .news-item-div-img{
+                width: auto !important;
+            }
+
+             /* ส่วนของtab */
             .news-tabs-button-box {
                 flex-wrap: wrap;
                 /* ให้ปุ่มแท็บขึ้นบรรทัดใหม่ได้ */
@@ -569,6 +586,19 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
         /* ✅ Mobile ในแนวนอน */
         @media (max-width: 768px) and (orientation: landscape) {
+            /* ส่วนของlist */
+            .news-item{
+                flex-direction:column;
+                margin:0px;
+                padding:0px;
+                height:auto;
+            }
+            .type-text-title{   
+            margin-top :0px !important;
+            }
+
+
+             /* ส่วนของtab */
             .news-banner {
                 height: 200px;
             }
@@ -617,6 +647,19 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
         /* ✅ iPad แนวตั้ง */
         @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+            /* ส่วนของlist */
+            .news-item{
+                /* flex-direction:column; */
+                margin:0px;
+                padding:0px;
+                height:auto;
+            }
+            .type-text-title{   
+            margin-top :20px !important;
+            }
+       
+
+             /* ส่วนของtab */
             .news-banner {
                 height: 220px;
             }
@@ -651,6 +694,19 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
         /* ✅ iPad และ Tablet (แนวนอน) */
         @media (min-width: 1024px) and (max-width: 1400px) and (orientation: landscape) {
+            /* ส่วนของlist */
+            .news-item{
+                /* flex-direction:column; */
+                margin:0px;
+                padding:0px;
+                height:auto;
+            }
+            .type-text-title{   
+            margin-top :20px !important;
+            }
+
+
+             /* ส่วนของtab */
             .news-banner {
                 height: 220px;
             }
@@ -771,31 +827,54 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
                                 // กำหนดสีตามประเภท
                                 let newTypeColor;
-                                if (news.type === "ข่าว") {
-                                    newTypeColor = "blue";  // สีฟ้า
+                               if (news.type === "ข่าว") {
+                                    newTypeColor = "rgb(127,169,209)";  
                                 } else if (news.type === "กิจกรรม") {
-                                    newTypeColor = "purple";  // สีม่วง
+                                    newTypeColor = "rgb(153, 127, 209)";  
                                 } else if (news.type === "โปรโมชั่น") {
-                                    newTypeColor = "orange";  // สีเหลือง
+                                    newTypeColor = "rgb(209, 138, 127)";
                                 } else {
-                                    newTypeColor = "black";  // สีเริ่มต้น
+                                    newTypeColor = "rgba(0, 0, 0, 0.8)";  // สีดำ (black)
                                 }
+  li.innerHTML = `
+<div class="news-item" style="cursor: pointer;display: flex; justify-content: flex-start;align-items: flex-start;">
+        <div class="news-header" style="display: flex; justify-content: center; align-items: center;">
+            <div class="news-item-div-img" style="display: flex; justify-content: center; align-items: center; width: 300px; height: 200px; overflow: hidden; border-radius: 6px !important;">
+                <img src="../../images/news/${news.image}" alt="${news.title}" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+            </div>
+        </div>
 
-                                li.innerHTML = `
-                                <div class="news-item">
-                                <div class="news-header" style="display: flex; justify-content: space-between; align-items: center;">
-                                    <!-- หัวข้อกิจกรรม -->
-                                    <span class="newsall-type-text" style="color: ${newTypeColor};">[${newtypefilter}]</span>
-                                    <!-- วันที่ -->
-                                    <span class="date">${dateOnly}</span>
-                                </div>
-                                <!-- ชื่อรายการ -->
-                                <a href="#" class="text-decoration-none">${news.title}</a>
+    <div class="type-text-title" style="display: flex; width: 100%; margin-top:20px;">
+        <div style="display: flex; justify-content: space-between; width: 100%;position: relative;">
+            <div display: flex; justify-content: flex-start;  flex-direction: column;  >
+            &nbsp;
+          <span class="newsall-type-text" style="color: white; display: inline-block; padding: 2px 8px !important; border-radius: 5px;  
+        background: linear-gradient(135deg, ${newTypeColor} 0%, ${newTypeColor} 100%, #fff 100%); margin-bottom: 5px;">
+        ${newtypefilter}
+        </span>
+            &nbsp;
+            <a href="#" class="text-decoration-none" style="display: block; margin-bottom: 5px; margin-left: 10px;">${news.title}</a>
+            <span  class="text-decoration-none" style="display: block; margin-bottom: 5px; margin-left: 10px; font-size: 12px;">${news.highlight_text}...</span>
+            </div>
+           
+        
+       
+           <div style="position: absolute; top: 0; right: 5px;">
+        <span class="date">${dateOnly}</span>
+    </div>
+        
+        </div>
 
-                                <!-- แสดงภาพ thumbnail -->
-                                <img src="../../images/gallery-pic/${news.image}" alt="${news.title}" style="width: 100%; height: auto; margin-top: 10px; border-radius: 8px;">
-                            </div>
-                                `;
+    </div>
+</div>
+`;
+
+
+
+
+
+
+
                                 // ฟังก์ชันเมื่อคลิกที่ <li> จะไปที่หน้า news detail
                                 li.addEventListener("click", function() {
                                     window.location.href = `../../database/player/contents_read_detail.php?id=${news.id}`; // 

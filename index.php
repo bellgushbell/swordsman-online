@@ -1467,13 +1467,13 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
                                let newTypeColor;
                                 if (news.type === "ข่าว") {
-                                    newTypeColor = "rgba(0, 0, 255, 0.8)";  // ฟ้าสดใส (blue) โดยมีค่า alpha 0.8
+                                    newTypeColor = "rgb(127,169,209)";  
                                 } else if (news.type === "กิจกรรม") {
-                                    newTypeColor = "rgba(128, 0, 128, 0.8)";  // สีม่วง (purple)
+                                    newTypeColor = "rgb(153, 127, 209)";  
                                 } else if (news.type === "โปรโมชั่น") {
-                                    newTypeColor = "rgba(255, 165, 0, 0.8)";  // สีส้ม (orange)
+                                    newTypeColor = "rgb(209, 138, 127)";  
                                 } else {
-                                    newTypeColor = "rgba(0, 0, 0, 0.8)";  // สีดำ (black)
+                                    newTypeColor = "rgba(0, 0, 0, 0.8)";  
                                 }
 
 
@@ -1482,8 +1482,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                     <div class="news-item" style="display: flex; justify-content: space-between; align-items: center;">
                                         <div style="display: flex; align-items: center;">
                                        <a href="#" class="text-decoration-none" 
-                                    style="color: white; display: inline-block; padding: 6px 14px; border-radius: 12px; 
-                                            background: linear-gradient(135deg, ${newTypeColor} 0%, ${newTypeColor} 70%, #fff 90%, #fff 100%);">
+                                    style="color: white; display: inline-block; padding: 0px 8px; border-radius: 6px; 
+                                            background: linear-gradient(135deg, ${newTypeColor} 0%, ${newTypeColor} 100%, #fff 100%, #fff 100%);">
                                         ${newtypefilter}
                                     </a>
 
@@ -2067,7 +2067,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 if (type === 'photo') {
                     modalContent.innerHTML = `<img src="${source}" alt="Image" style="width:100%; height:auto;">`;
                 } else if (type === 'video') {
-                    modalContent.innerHTML = `<iframe width="100%" height="400" src="${source}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+                    modalContent.innerHTML = `<iframe width="100%" height="400px" src="${source}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
                 }
 
                 modal.style.display = "block";
