@@ -1,4 +1,13 @@
 <script>
+    // <!-- ต้องรวมสคริปต์ Bootstrap สำหรับ tooltip -->
+
+    $(document).ready(function() {
+        // เปิดใช้งาน tooltip
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+
+
+
     let quill;
     // Initialize Quill editor
     window.addEventListener('DOMContentLoaded', (event) => {

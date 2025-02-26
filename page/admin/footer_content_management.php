@@ -49,9 +49,9 @@
         }
 
         data.forEach(function(content) {
+
             var row = '<tr>' +
-                '<td>' + content.type + '</td>' +
-                '<td>' + content.title + '</td>' +
+
                 '<td>' +
                 (content.image ?
                     // ถ้ามีรูป ให้แสดงรูปภาพ
@@ -59,16 +59,37 @@
                     // ถ้าไม่มีรูป ให้แสดงข้อความ "ไม่มีรูป"
                     'ไม่มีรูป') +
                 '</td>' +
-                '<td>' + content.created_at + '</td>' +
-                '<td>' + content.first_name + '</td>' +
+                '<td>' + content.type + '</td>' +
+                '<td style="text-align: left;">' + content.title + '</td>' +
+                '<td>' + formatDate(content.created_at) + '<br>' + formatDate(content.updated_at) + '</td>' +
+                '<td>' + (content.first_name === content.update_by ? content.first_name : content.first_name + '<br>' + content.update_by) + '</td>' +
                 '<td>' +
                 '<button class="btn btn-outline-warning btn-sm me-2 edit-btn" data-id="' + content.id + '" data-title="' + content.title + '" data-type="' + content.type + '" data-image="' + content.image + '"><i class="bi bi-pencil"></i></button>' +
 
                 '<button class="btn btn-outline-danger btn-sm delete-btn" data-id="' + content.id + '" data-image="' + content.image + '"><i class="bi bi-trash3"></i></button>' +
                 '</td>' +
                 '</tr>';
+
             tableBody.innerHTML += row;
         });
+
+        function formatDate(datetime) {
+            var date = new Date(datetime); // แปลงค่าจาก string เป็น Date object
+            // กำหนดชื่อเดือนในภาษาไทย
+            var monthsOfYear = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+            var month = monthsOfYear[date.getMonth()]; // เดือน
+
+            // ปี ค.ศ.
+            var year = date.getFullYear();
+
+            // เวลาในรูปแบบ 24 ชั่วโมง
+            var hours = ('0' + date.getHours()).slice(-2); // เพิ่ม leading zero ถ้าจำเป็น
+            var minutes = ('0' + date.getMinutes()).slice(-2); // เพิ่ม leading zero ถ้าจำเป็น
+
+            // คืนค่าในรูปแบบที่ต้องการ: วัน (ภาษาไทย) เดือน (ตัวย่อ) ปี ค.ศ. เวลา 24 ชั่วโมง
+            return date.getDate() + ' ' + month + ' ' + year + ' ' + hours + ':' + minutes;
+        }
 
         // ใส่ event listener เพียงครั้งเดียว หลังจากที่ตารางอัพเดต
         document.querySelectorAll('.news-thumbnail').forEach(function(imgElement) {

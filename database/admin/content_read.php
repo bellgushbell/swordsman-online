@@ -18,18 +18,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($category === 'ทั้งหมด') {
             $countQuery = "SELECT COUNT(*) AS total FROM title  t  
                       INNER JOIN description d ON d.id_title = t.id";
-            $query = "SELECT  t.id, t.type, t.title, t.image, t.created_at, t.created_by, a.first_name 
+            $query = "SELECT  t.id, t.type, t.title, t.image, t.created_at, t.created_by, a.first_name, aa.first_name as update_by,t.updated_at
                       FROM title t  
                       INNER JOIN description d ON d.id_title = t.id
                       LEFT JOIN admin_user a ON t.created_by = a.id 
+                      LEFT JOIN admin_user aa ON t.update_by = aa.id 
                       LIMIT $startIndex, $itemsPerPage";
         } else {
             $countQuery = "SELECT COUNT(*) AS total FROM title  t  
                       INNER JOIN description d ON d.id_title = t.id WHERE type = '$category'";
-            $query = "SELECT t.id, t.type, t.title, t.image, t.created_at, t.created_by, a.first_name 
+            $query = "SELECT t.id, t.type, t.title, t.image, t.created_at, t.created_by, a.first_name, aa.first_name as update_by,t.updated_at
                       FROM title t  
                       INNER JOIN description d ON d.id_title = t.id
                       LEFT JOIN admin_user a ON t.created_by = a.id 
+                      LEFT JOIN admin_user aa ON t.update_by = aa.id 
                       WHERE type = '$category' 
                       LIMIT $startIndex, $itemsPerPage";
         }

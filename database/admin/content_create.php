@@ -3,11 +3,14 @@ require_once __DIR__ . '/../connect_db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     session_start(); // ตรวจสอบว่าเริ่ม session หรือยัง
+    date_default_timezone_set('Asia/Bangkok');
+
     $admin_id = $_SESSION['id'];
     $type = mysqli_real_escape_string($conn, $_POST['type']);
     $title = mysqli_real_escape_string($conn, $_POST['title']);
     $alt_text = mysqli_real_escape_string($conn, $_POST['alt_text']);
     $newImageName  = mysqli_real_escape_string($conn, $_POST['rename']);
+    $highlight_text  = mysqli_real_escape_string($conn, $_POST['highlight_text']);
     $description =  $_POST['description'];
     $timestamp = date("Y-m-d H:i:s");
 
@@ -51,8 +54,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // ใช้ Prepared Statement เพื่อป้องกัน SQL Injection
-    $stmt_title = $conn->prepare("INSERT INTO title (type, title, image, created_at, created_by, alt_text) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt_title->bind_param("ssssis", $type, $title, $file_name, $timestamp, $admin_id, $alt_text);
+    $stmt_title = $conn->prepare("INSERT INTO title (type, title, image, created_at, created_by, alt_text,highlight_text) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt_title->bind_param("ssssiss", $type, $title, $file_name, $timestamp, $admin_id, $alt_text, $highlight_text);
 
     if ($stmt_title->execute()) {
         // Get the last inserted id_title

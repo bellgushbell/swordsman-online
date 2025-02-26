@@ -1,9 +1,17 @@
 <?php
 require_once __DIR__ . '/../connect_db.php'; // เรียกใช้ไฟล์เชื่อมต่อฐานข้อมูล
 
+
+$page = $_GET['page'] ?? null;
+
+if (!$page) {
+    die("Error: page not provided.");
+}
+
 header('Content-Type: application/json; charset=UTF-8'); // Set the proper content type for UTF-8
 
-$sql = "SELECT id, title, description, keywords FROM seo_web";
+
+$sql = "SELECT id, title, description, keywords FROM seo_web WHERE page = '$page'";
 $result = $conn->query($sql);
 
 $seoData = [];

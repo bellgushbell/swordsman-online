@@ -129,20 +129,52 @@ if (session_status() === PHP_SESSION_NONE) {
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-12 col-md-8 mt-5">
+
                         <div class="card-body">
-                            <form action="../../database/admin/content_seo_api.php" method="POST" class="form-container" id="seoForm">
+                            <?php if (!isset($_GET['edit_id'])): ?>
+                                <div class="form-group">
+                                    <label for="title">Page:</label>
+                                    <select class="form-control" id="page" name="page" required style="flex: 1;" onchange="handlePageChange()">
+                                        <option value="" disabled selected>เลือกประเภท</option>
+                                        <option value="home">หน้าหลัก</option>
+                                        <option value="allContent">หน้าประกาศ</option>
+                                        <option value="news">หน้ารายละเอียดของข่าวสาร</option>
+                                        <option value="events">หน้ารายละเอียดของกิจกรรม</option>
+                                        <option value="promotions">หน้ารายละเอียดของโปรโมชั่น</option>
+                                        <option value="images">หน้ารูปภาพ</option>
+                                        <option value="videos">หน้าวีดีโอ</option>
+                                    </select>
+                                </div>
+                            <?php endif; ?>
+                            <form action="../../database/admin/content_seo_api.php?edit_id=<?php echo isset($data['id']) ? $data['id'] : ''; ?>" method="POST" class="form-container" id="seoForm">
                                 <input type="hidden" id="seo-id" name="seo-id" value="">
+
+                                <?php if (isset($_GET['edit_id'])): ?>
+                                    <div class="form-group">
+                                        <label for="title">Page:</label>
+                                        <select class="form-control" id="page" name="page" required style="flex: 1;">
+                                            <!-- ตัวเลือกที่เลือกแล้วตามค่าของ $data['page'] -->
+                                            <option value="home" <?php echo isset($data['page']) && $data['page'] == 'home' ? 'selected' : ''; ?>>หน้าหลัก</option>
+                                            <option value="allContent" <?php echo isset($data['page']) && $data['page'] == 'allContent' ? 'selected' : ''; ?>>หน้าประกาศ</option>
+                                            <option value="news" <?php echo isset($data['page']) && $data['page'] == 'news' ? 'selected' : ''; ?>>หน้ารายละเอียดของข่าวสาร</option>
+                                            <option value="events" <?php echo isset($data['page']) && $data['page'] == 'events' ? 'selected' : ''; ?>>หน้ารายละเอียดของกิจกรรม</option>
+                                            <option value="promotions" <?php echo isset($data['page']) && $data['page'] == 'promotions' ? 'selected' : ''; ?>>หน้ารายละเอียดของโปรโมชั่น</option>
+                                            <option value="images" <?php echo isset($data['page']) && $data['page'] == 'images' ? 'selected' : ''; ?>>หน้ารูปภาพ</option>
+                                            <option value="videos" <?php echo isset($data['page']) && $data['page'] == 'videos' ? 'selected' : ''; ?>>หน้าวีดีโอ</option>
+                                        </select>
+                                    </div>
+                                <?php endif; ?>
 
                                 <!-- Type Dropdown -->
                                 <div class="form-group">
                                     <label for="title">Title:</label>
-                                    <textarea id="title" name="title" rows="1"><?php echo isset($_POST['title']) ? $_POST['title'] : ''; ?></textarea>
+                                    <textarea id="title" name="title" rows="1" style="resize: none;"><?php echo isset($_POST['title']) ? $_POST['title'] : ''; ?></textarea>
                                 </div>
 
                                 <!-- Description Textarea -->
                                 <div class="form-group">
-                                    <label for="description">Description:</label>
-                                    <textarea id="description" name="description" rows="4"><?php echo isset($_POST['description']) ? $_POST['description'] : ''; ?></textarea>
+                                    <label for="description">Meta description:</label>
+                                    <textarea id="description" name="description" rows="5" style="resize: none;"><?php echo isset($_POST['description']) ? $_POST['description'] : ''; ?></textarea>
                                 </div>
 
                                 <div class="form-group">
@@ -205,17 +237,23 @@ if (session_status() === PHP_SESSION_NONE) {
             </script>
 
             <script>
-                document.addEventListener("DOMContentLoaded", function() {
-                    fetchSEOData();
-                });
+                function handlePageChange() {
+                    var selectedValue = document.getElementById('page').value;
+                    // หากต้องการทำการส่งข้อมูลไปยัง server หรือ redirect ไปที่หน้าต่างๆ สามารถทำได้ที่นี่
+                    if (selectedValue) {
+                        fetchSEOData();
+                    }
+                }
 
                 function fetchSEOData() {
-                    fetch('../../database/admin/content_read_seo.php')
+                    fetch('../../database/admin/content_read_seo.php?page=' + document.getElementById('page').value)
                         .then(response => response.json())
                         .then(data => {
                             if (data.error) {
                                 console.error(data.error);
                             } else {
+                                // ล้างข้อมูลเก่าก่อนเพิ่มข้อมูลใหม่
+                                clearPreviousData();
                                 // กรอกข้อมูลที่ได้จาก API ลงในฟอร์ม
                                 document.getElementById("title").value = data[0].title || ''; // Access the first object in the array
                                 document.getElementById("description").value = data[0].description || '';
@@ -235,6 +273,18 @@ if (session_status() === PHP_SESSION_NONE) {
                             }
                         })
                         .catch(error => console.error("Error fetching data:", error));
+                }
+
+                function clearPreviousData() {
+                    // ลบแท็กทั้งหมดใน tag container
+                    let tagContainer = document.getElementById("tags-container");
+                    tagContainer.innerHTML = ''; // ลบแท็กทั้งหมด
+
+                    // ล้างค่าภายใน input fields
+                    document.getElementById("title").value = '';
+                    document.getElementById("description").value = '';
+                    document.getElementById("seo-id").value = '';
+                    document.getElementById("keywords-hidden").value = '';
                 }
 
                 function addTag(tagValue) {

@@ -60,7 +60,7 @@ unset($_SESSION['edit_data']);
 
 
 
-                        <a href="../../page/admin/content_admin.php" class="btn btn-outline-success">Create</a>
+                        <a href="../../page/admin/content_admin.php" class="btn btn-outline-success"> + Add New Post</a>
                         <button class="btn btn-outline-secondary" onclick="window.location.href='select_item.php'">Back</button>
                     </div>
                 </div>
@@ -70,10 +70,11 @@ unset($_SESSION['edit_data']);
                     <table id="dataTable" class="table table-bordered">
                         <thead>
                             <tr>
+
+                                <th>Image</th>
                                 <th>Category</th>
                                 <th>Headline</th>
-                                <th>Image</th>
-                                <th>Created Date</th>
+                                <th>Create/Edit date</th>
                                 <th>Author</th>
                                 <th>Actions</th>
                             </tr>

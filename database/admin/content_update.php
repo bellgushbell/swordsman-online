@@ -9,15 +9,16 @@ if (!$edit_id) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    date_default_timezone_set('Asia/Bangkok');
+
     $admin_id = $_SESSION['id'];
     $edit_id_title = $_SESSION['edit_id_title'];
     $type = mysqli_real_escape_string($conn, $_POST['type']);
     $title = mysqli_real_escape_string($conn, $_POST['title']);
     $alt_text = mysqli_real_escape_string($conn, $_POST['alt_text']);
     $newImageName  = mysqli_real_escape_string($conn, $_POST['rename']);
+    $highlight_text  = mysqli_real_escape_string($conn, $_POST['highlight_text']);
     $description = $_POST['description'];
-
-    // echo $description;
     $timestamp = date("Y-m-d H:i:s");
     // รับค่า old_image ที่ส่งมาจากฟอร์ม
     $old_image = $_POST['old_image'];
@@ -59,8 +60,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // ตรวจสอบว่ามี edit_id_title ก่อนอัปเดต
     if ($edit_id_title) {
         // ใช้ Prepared Statement ในการอัปเดต title
-        $stmt_title = $conn->prepare("UPDATE title SET type = ?, title = ?, image = ?, updated_at = ?, update_by = ?, alt_text = ? WHERE id = ?");
-        $stmt_title->bind_param("ssssisi", $type, $title, $file_name, $timestamp, $admin_id, $alt_text, $edit_id_title);
+        $stmt_title = $conn->prepare("UPDATE title SET type = ?, title = ?, image = ?, updated_at = ?, update_by = ?, alt_text = ?,highlight_text = ? WHERE id = ?");
+        $stmt_title->bind_param("ssssissi", $type, $title, $file_name, $timestamp, $admin_id, $alt_text, $highlight_text, $edit_id_title);
 
         if ($stmt_title->execute()) {
             // อัปเดต description
