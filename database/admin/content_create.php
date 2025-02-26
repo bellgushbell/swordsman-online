@@ -23,9 +23,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // ตรวจสอบว่ามีไฟล์อัปโหลดหรือไม่
     if (!empty($_FILES["upload_title"]["name"])) {
-        $file_ext = pathinfo($_FILES["upload_title"]["name"], PATHINFO_EXTENSION); // ดึงนามสกุลไฟล์
-        $allowed_ext = ["jpg", "jpeg", "png", "gif"]; // นามสกุลที่อนุญาต
 
+
+
+        $file_ext = pathinfo($_FILES["upload_title"]["name"], PATHINFO_EXTENSION); // ดึงนามสกุลไฟล์
+        if (strtolower($file_ext) == 'webp') {
+            // ถ้าเป็น .webp ให้เปลี่ยนชื่อไฟล์เป็น .jpg
+            $file_ext = 'jpg';
+        }
+
+        $allowed_ext = ["jpg", "jpeg", "png", "gif",]; // นามสกุลที่อนุญาต
         // ตรวจสอบนามสกุลไฟล์
         if (!in_array(strtolower($file_ext), $allowed_ext)) {
             echo "<script>alert('ประเภทไฟล์ไม่ถูกต้อง! อนุญาตเฉพาะ JPG, JPEG, PNG, GIF');</script>";
@@ -39,22 +46,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // print_r("target_file: " . $target_file);
 
         // ตรวจสอบว่าไฟล์มีชื่อเดียวกันอยู่แล้วหรือไม่
-        if (file_exists($target_file)) {
-            echo "<script>alert('ไฟล์นี้มีอยู่แล้ว กรุณาเปลี่ยนชื่อไฟล์');</script>";
-            exit();
-        }
+        // if (file_exists($target_file)) {
+        //     echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+        //     echo "<script>
+        //             document.addEventListener('DOMContentLoaded', function() {
+        //                 Swal.fire({
+        //                     icon: 'error',
+        //                     title: 'ไฟล์นี้มีอยู่แล้ว กรุณาเปลี่ยนชื่อไฟล์',
+        //                     showConfirmButton: false,
+        //                     timer: 1500,
+        //                     target: 'body'
+        //                 }).then(function() {
+        //                     window.location.href = '../../page/admin/content_admin.php';
+        //                 });
+        //             });
+        //         </script>";
+
+        //     exit();
+        // }
 
 
         if (move_uploaded_file($_FILES["upload_title"]["tmp_name"], $target_file)) {
             // ไฟล์ถูกอัปโหลดสำเร็จ
-        } else {
-            echo "<script>alert('เกิดข้อผิดพลาดในการอัปโหลดไฟล์!');</script>";
-            exit();
         }
     }
 
     // ใช้ Prepared Statement เพื่อป้องกัน SQL Injection
-    $stmt_title = $conn->prepare("INSERT INTO title (type, title, image, created_at, created_by, alt_text,highlight_text) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt_title = $conn->prepare("INSERT INTO title (type, title, image, created_at, created_by, alt_text,highlight_text) VALUES (?, ?, ?, ?, ?, ?,?)");
     $stmt_title->bind_param("ssssiss", $type, $title, $file_name, $timestamp, $admin_id, $alt_text, $highlight_text);
 
     if ($stmt_title->execute()) {

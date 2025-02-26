@@ -53,6 +53,9 @@ if (session_status() === PHP_SESSION_NONE) {
         href="https://cdn.jsdelivr.net/npm/quill@2/dist/quill.snow.css"
         rel="stylesheet" />
 
+    <script src="https://cdn.jsdelivr.net/npm/spark-md5/spark-md5.min.js"></script>
+
+
 </head>
 
 <body>

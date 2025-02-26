@@ -41,12 +41,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $file_name =   "swordsman_" . $newImageName . "." . $file_ext;
         $target_file = $target_dir . $file_name;
 
-        // ตรวจสอบว่าไฟล์มีชื่อเดียวกันอยู่แล้วหรือไม่
-        if (file_exists($target_file)) {
-            echo "<script>alert('ไฟล์นี้มีอยู่แล้ว กรุณาเปลี่ยนชื่อไฟล์');</script>";
-            exit();
-        }
-
 
         if (!move_uploaded_file($_FILES["upload_title"]["tmp_name"], $target_file)) {
             echo "<script>alert('เกิดข้อผิดพลาดในการอัปโหลดไฟล์!');</script>";

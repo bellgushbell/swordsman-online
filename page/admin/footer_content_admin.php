@@ -150,6 +150,33 @@
             fileNameDisplay.value = 'ยังไม่ได้เลือกไฟล์'; // ข้อความเริ่มต้น
         }
     });
+
+
+    document.getElementById('rename').addEventListener('input', function() {
+        const imageName = this.value; // รับชื่อไฟล์ที่กรอกในช่อง Rename
+        const fileName = document.getElementById('file-name-text').value;
+        const fileParts = fileName.split('.');
+
+        if (fileParts.length > 1) {
+            const extension = fileParts[fileParts.length - 1]; // นามสกุลไฟล์
+            fetch(`../../database/img_read.php?image_name=swordsman_${imageName + "." + extension}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.exists) {
+                        // ถ้าไฟล์มีอยู่แล้ว
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'ไฟล์นี้มีอยู่แล้ว กรุณาเปลี่ยนชื่อไฟล์',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                        // ตั้งค่าให้ช่อง rename เป็นค่าว่าง
+                        document.getElementById('rename').value = '';
+                    }
+                })
+                .catch(error => console.error("Error checking file:", error));
+        }
+    });
 </script>
 
 

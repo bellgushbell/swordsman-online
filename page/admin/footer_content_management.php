@@ -62,7 +62,7 @@
                 '<td>' + content.type + '</td>' +
                 '<td style="text-align: left;">' + content.title + '</td>' +
                 '<td>' + formatDate(content.created_at) + '<br>' + formatDate(content.updated_at) + '</td>' +
-                '<td>' + (content.first_name === content.update_by ? content.first_name : content.first_name + '<br>' + content.update_by) + '</td>' +
+                '<td>' + ((content.first_name === content.update_by || content.update_by == null) ? content.first_name : content.first_name + '<br>' + content.update_by) + '</td>' +
                 '<td>' +
                 '<button class="btn btn-outline-warning btn-sm me-2 edit-btn" data-id="' + content.id + '" data-title="' + content.title + '" data-type="' + content.type + '" data-image="' + content.image + '"><i class="bi bi-pencil"></i></button>' +
 
@@ -317,6 +317,7 @@
                 }
             });
         }
+
     });
 </script>
 
