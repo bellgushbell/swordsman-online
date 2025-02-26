@@ -1482,7 +1482,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                     <div class="news-item" style="display: flex; justify-content: space-between; align-items: center;">
                                         <div style="display: flex; align-items: center;">
                                        <a href="#" class="text-decoration-none" 
-                                    style="color: white; display: inline-block; padding: 6px 15px; border-radius: 12px; 
+                                    style="color: white; display: inline-block; padding: 6px 14px; border-radius: 12px; 
                                             background: linear-gradient(135deg, ${newTypeColor} 0%, ${newTypeColor} 70%, #fff 90%, #fff 100%);">
                                         ${newtypefilter}
                                     </a>
