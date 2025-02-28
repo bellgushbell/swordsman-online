@@ -233,9 +233,9 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     </button>
 
     <!-- ปุ่มยกเลิก -->
-    <button id="cancel-button" style="padding: 8px 20px; background-color: #f44336; color: white; border: none; border-radius: 10px; font-size: 16px; font-weight: 600; box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3); cursor: pointer; transition: all 0.3s ease;">
+    <!-- <button id="cancel-button" style="padding: 8px 20px; background-color: #f44336; color: white; border: none; border-radius: 10px; font-size: 16px; font-weight: 600; box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3); cursor: pointer; transition: all 0.3s ease;">
         ยกเลิก
-    </button>
+    </button> -->
 </div>
 
 <!-- ปุ่ม App Store และ Google Play (Step 2) -->
@@ -283,7 +283,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         document.getElementById('activateCheckboxGooglePlay').addEventListener('click', function() {
             document.getElementById('step3-checkbox').checked = true;
         });
-        
+
 
          document.getElementById('activateCheckboxGooglePlay').addEventListener('click', function() {
             document.getElementById('step3-checkbox').checked = true;
