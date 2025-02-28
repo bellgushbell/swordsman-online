@@ -1736,7 +1736,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 bottom:0;
                 text-align: center;
                 color: white;
-                background: rgba(0, 0, 0, 0.1); /* แถบโปร่งใสที่ทับอยู่ในรูป */
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.001)); 
                 padding: 5px;
                 border-radius: 0 0 10px 10px; /* ขอบโค้งล่าง */
                 margin: 0;
@@ -1836,10 +1836,10 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 border-radius: 50%;
             }
 
-            /* Responsive */
-            @media (max-width: 767px) {
 
-                .gallery-section {
+ /* ✅ สำหรับมือถือ (Mobile Only) */
+        @media only screen and (max-width: 767px) {
+              .gallery-section {
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -1863,7 +1863,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 }
 
                 .gallery-item h3 {
-                    font-size: 8x;
+                    font-size: 8px;
                     margin-top: 5px;
                     margin-bottom: 0px;
                 }
@@ -1886,159 +1886,81 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                     font-size: 10px;
                 }
 
-                /* ✅ Mobile ในแนวนอน */
-                @media (max-width: 768px) and (orientation: landscape) {
-                    .gallery-section {
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        padding: 20px;
-                        gap: 10px;
-                    }
-
-                    .character-container img {
-                        display: none;
-                    }
-
-                    .character-container {
-                        display: none;
-                    }
-
-                    .gallery-container {
-                        flex: 0 0 100%;
-                        display: flex;
-                        flex-direction: column;
-                    }
-
-                    .gallery-item h3 {
-                        font-size: 10px;
-                        margin-top: 5px;
-                        margin-bottom: 0px;
-                    }
-
-                    .video-overlay::after {
-                        content: "▶";
-                        position: absolute;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%);
-                        font-size: 15px;
-                        color: white;
-                        font-weight: bold;
-                        background: rgba(0, 0, 0, 0.5);
-                        padding: 5px 10px;
-                        border-radius: 50%;
-                    }
-
-                    .video-overlay h3 {
-                        font-size: 10px;
-                    }
+                .tabs button {
+                background: none;
+                border: none;
+                font-size: 14px;
+                font-weight: bold;
+                cursor: pointer;
+                padding: 2px 5px;
                 }
 
-                /* ✅ iPad แนวตั้ง */
-                @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-                    .gallery-section {
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        padding: 20px;
-                        gap: 10px;
-                    }
+       
 
-                    .character-container img {
-                        display: none !important;
-                        /* ซ่อนตัวละคร */
-                    }
-
-                    .character-container {
-                        display: none !important;
-                        /* ซ่อนกล่องที่บรรจุตัวละคร */
-                    }
-
-                    .gallery-container {
-                        flex: 0 0 100%;
-                        display: flex;
-                        flex-direction: column;
-                    }
-
-                    .gallery-item h3 {
-                        font-size: 10px;
-                        margin-top: 5px;
-                        margin-bottom: 0px;
-                    }
-
-                    .video-overlay::after {
-                        content: "▶";
-                        position: absolute;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%);
-                        font-size: 15px;
-                        color: white;
-                        font-weight: bold;
-                        background: rgba(0, 0, 0, 0.5);
-                        padding: 5px 10px;
-                        border-radius: 50%;
-                    }
-
-                    .video-overlay h3 {
-                        font-size: 10px;
-                    }
+                .more-btn {
+                    font-size: 14px;
+                    font-weight: bold;
+                    cursor: pointer;
+                    text-decoration: none;
                 }
 
-                /* ✅ iPad และ Tablet (แนวนอน) */
-                @media (min-width: 1024px) and (max-width: 1400px) and (orientation: landscape) {
-                    .gallery-section {
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        padding: 20px;
-                        gap: 10px;
-                    }
+}
 
-                    .character-container img {
-                        display: none !important;
-                        /* ซ่อนตัวละคร */
-                    }
-
-                    .character-container {
-                        display: none !important;
-                        /* ซ่อนกล่องที่บรรจุตัวละคร */
-                    }
-
-                    .gallery-container {
-                        flex: 0 0 100%;
-                        display: flex;
-                        flex-direction: column;
-                    }
-
-                    .gallery-item h3 {
-                        font-size: 10px;
-                        margin-top: 5px;
-                        margin-bottom: 0px;
-                    }
-
-                    .video-overlay::after {
-                        content: "▶";
-                        position: absolute;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%);
-                        font-size: 15px;
-                        color: white;
-                        font-weight: bold;
-                        background: rgba(0, 0, 0, 0.5);
-                        padding: 5px 10px;
-                        border-radius: 50%;
-                    }
-
-                    .video-overlay h3 {
-                        font-size: 10px;
-                    }
-                }
-
-
+@media only screen and (min-width: 768px) and (max-width: 1400px)  {
+                .gallery-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            gap: 10px;
             }
+
+            .character-container img {
+            display: none;
+         
+            }
+
+            .character-container {
+            display: none;
+        
+            }
+
+            .gallery-container {
+            flex: 0 0 100%;
+            display: flex;
+            flex-direction: column;
+            }
+
+            .gallery-item h3 {
+            font-size: 13px;
+            margin-top: 5px;
+            margin-bottom: 0px;
+            }
+
+            .video-overlay::after {
+            content: "▶";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 15px;
+            color: white;
+            font-weight: bold;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5px 10px;
+            border-radius: 50%;
+            }
+
+            .video-overlay h3 {
+            font-size: 10px;
+            }
+}
+
+
+          
+
+
+            
         </style>
 
         <!-- Inline Script -->

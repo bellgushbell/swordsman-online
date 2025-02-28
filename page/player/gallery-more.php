@@ -414,17 +414,17 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             text-transform: uppercase;
             background: linear-gradient(90deg, #575555, #b2aeae, #4f4d4d);
 
-            /* For webkit-based browsers (Chrome, Safari) */
+         
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             -webkit-text-stroke: 2px #f4f0f0;
 
-            /* Standard text-shadow property */
+         
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 
-            /* Adding support for Firefox */
+        /
             background-clip: text;
-            /* Standard property */
+           
     }
     .gallery-container {
         display: flex;
@@ -444,14 +444,14 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     .tabs {
         display: flex;
         align-items: center;
-        justify-content: center; /* วางทุกอย่างตรงกลางในแกน X */
+        justify-content: center; 
         
     }
 
     .divider-gallery-more {
         font-size: 24px;
         font-weight: bold;
-        margin: 0 10px; /* ระยะห่างจากปุ่มทั้งสอง */
+        margin: 0 10px; 
     }
 
     .tabs button {
@@ -476,16 +476,15 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     }
 
     .gallery-item {
-        background: white;
+        background: none;
         border-radius: 10px;
         overflow: hidden;
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding-bottom: 10px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         text-align: center;
-        transition: transform 0.2s ease-out, box-shadow 0.2s ease-out; /* Smooth transition */
+        transition: transform 0.2s ease-out, box-shadow 0.2s ease-out; 
         cursor: pointer;
     }
 
@@ -493,11 +492,22 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         width: 100%;
         height: 100%;
         border-bottom: 2px solid #ddd;
-        object-fit: cover; /* Ensures images have the same aspect ratio */
+        object-fit: cover; 
     }
     .gallery-item h3 {
-    font-size: 16px;  /* ปรับขนาดตัวหนังสือให้เล็กลง */
-    margin-top: 10px;
+        font-size: 16px;
+        margin-top: 10px;
+        position: absolute;
+        bottom: 0; 
+        left: 0;
+        right: 0;
+        bottom: 0;
+        text-align: center;
+        color: white;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.001)); 
+        padding: 10px;
+        border-radius: 0 0 10px 10px; 
+        margin: 0;
     }
 
 
@@ -602,8 +612,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             
                 }
             .gallery-item h3 {
-            font-size: 12px;  /* ปรับขนาดตัวหนังสือให้เล็กลง */
-            margin-top: 10px;
+            font-size: 10px;  /* ปรับขนาดตัวหนังสือให้เล็กลง */
+            /* margin-top: 10px; */
             }
               .video-overlay::after {
             font-size: 10px;
@@ -623,7 +633,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             
             }
             .gallery-item h3 {
-            font-size: 12px;  
+            font-size: 10px;  
             margin-top: 10px;
             }
             .video-overlay::after {
