@@ -11,6 +11,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $alt_text = mysqli_real_escape_string($conn, $_POST['alt_text']);
     $newImageName  = mysqli_real_escape_string($conn, $_POST['rename']);
     $highlight_text  = mysqli_real_escape_string($conn, $_POST['highlight_text']);
+    $seo_title  = mysqli_real_escape_string($conn, $_POST['seo_title']);
+    $seo_keywords  = mysqli_real_escape_string($conn, $_POST['seo_keywords']);
+    $seo_description  = mysqli_real_escape_string($conn, $_POST['seo_description']);
     $description =  $_POST['description'];
     $timestamp = date("Y-m-d H:i:s");
 
@@ -43,42 +46,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $file_name =   "swordsman_" . $newImageName . "." . $file_ext;
         $target_file = $target_dir . $file_name;
 
-        // print_r("target_file: " . $target_file);
-
-        // ตรวจสอบว่าไฟล์มีชื่อเดียวกันอยู่แล้วหรือไม่
-        // if (file_exists($target_file)) {
-        //     echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
-        //     echo "<script>
-        //             document.addEventListener('DOMContentLoaded', function() {
-        //                 Swal.fire({
-        //                     icon: 'error',
-        //                     title: 'ไฟล์นี้มีอยู่แล้ว กรุณาเปลี่ยนชื่อไฟล์',
-        //                     showConfirmButton: false,
-        //                     timer: 1500,
-        //                     target: 'body'
-        //                 }).then(function() {
-        //                     window.location.href = '../../page/admin/content_admin.php';
-        //                 });
-        //             });
-        //         </script>";
-
-        //     exit();
-        // }
-
-
         if (move_uploaded_file($_FILES["upload_title"]["tmp_name"], $target_file)) {
             // ไฟล์ถูกอัปโหลดสำเร็จ
         }
     }
 
     // ใช้ Prepared Statement เพื่อป้องกัน SQL Injection
-    $stmt_title = $conn->prepare("INSERT INTO title (type, title, image, created_at, created_by, alt_text,highlight_text) VALUES (?, ?, ?, ?, ?, ?,?)");
-    $stmt_title->bind_param("ssssiss", $type, $title, $file_name, $timestamp, $admin_id, $alt_text, $highlight_text);
+    $stmt_title = $conn->prepare("INSERT INTO title (type, title, image, created_at, created_by, alt_text,highlight_text,seo_title,seo_keywords,seo_description) VALUES (?, ?, ?, ?, ?, ?,?,?,?,?)");
+    $stmt_title->bind_param("ssssisssss", $type, $title, $file_name, $timestamp, $admin_id, $alt_text, $highlight_text, $seo_title, $seo_keywords, $seo_description);
+
+
+
 
     if ($stmt_title->execute()) {
         // Get the last inserted id_title
         $id_title = $conn->insert_id;
-
 
         // Insert into the description table
         $stmt_description = $conn->prepare("INSERT INTO description (id_title, description, created_at, created_by) VALUES (?, ?, ?, ?)");
