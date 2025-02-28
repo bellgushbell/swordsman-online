@@ -44,12 +44,12 @@ if (session_status() === PHP_SESSION_NONE) {
 
             <div class="content">
                 <div class="col-md-12" style="border: 1px solid rgb(196, 169, 15);; backdrop-filter: blur(8px); border-radius: 10px; padding: 20px; position: relative;">
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="p-3 text-center">
                             <img id="preview" class="img-fluid" style="max-width: 1200px; aspect-ratio: 1200 / 540; object-fit: cover;" src="../../images/news/<?php echo ($data['image']); ?>">
 
                         </div>
-                    </div>
+                    </div> -->
                     <div class="row">
                         <div class="p-3 text-center ">
                             <h5 class="fw-bold"><?php echo $data['title']; ?></h5>

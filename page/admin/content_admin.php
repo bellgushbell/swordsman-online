@@ -10,6 +10,7 @@ if (session_status() === PHP_SESSION_NONE) {
     // ดึงข้อมูลจาก session ที่ชื่อว่า edit_data ถ้ามี
     if (isset($_SESSION['edit_data'])) {
         $data = $_SESSION['edit_data'];
+        // print_r($data);
     }
 
     // รับค่าจาก URL หากมี edit_id
@@ -54,6 +55,9 @@ if (session_status() === PHP_SESSION_NONE) {
         rel="stylesheet" />
 
     <script src="https://cdn.jsdelivr.net/npm/spark-md5/spark-md5.min.js"></script>
+
+
+
 
 
 </head>
@@ -105,16 +109,50 @@ if (session_status() === PHP_SESSION_NONE) {
                                     <!-- Sub Header -->
                                     <div class=" form-group d-flex align-items-center mt-3" style="width: 100%; max-width: 500px;">
                                         <label for="highlight_text" style="flex: 0 0 20%;">Sub Header:</label>
-                                        <textarea type="text" class="form-control" id="highlight_text" name="highlight_text" rows="5" style="resize: none;"
-                                            value="<?php echo isset($data['highlight_text']) ? $data['highlight_text'] : ''; ?>"
-                                            data-toggle="tooltip" title="ส่วนแนะนำก่อนเนื้อหา"></textarea>
+                                        <textarea class="form-control" id="highlight_text" name="highlight_text" rows="5" style="resize: none;" data-toggle="tooltip" title="ส่วนแนะนำก่อนเนื้อหา"> <?php echo isset($data['highlight_text']) ? trim($data['highlight_text']) : ''; ?></textarea>
                                     </div>
+                                    <hr style="width: calc(100% - 40px); border-top: 2px solid #aaa; margin-top: 30px; margin-bottom: 30px; margin-left: 20px; margin-right: 20px;">
+
+
+                                    <!-- SEO -->
+                                    <div class="form-group d-flex align-items-center mt-3" style="width: 100%; max-width: 500px;">
+                                        <label for="name" style="flex: 0 0 20%;">Title (SEO) :</label>
+                                        <input type="text" class="form-control" id="seo_title" name="seo_title"
+                                            value="<?php echo isset($data['seo_title']) ? $data['seo_title'] : ''; ?>" style="flex: 1;"
+                                            data-toggle="tooltip" title="หัวข้อเนื้อหา" required>
+
+                                    </div>
+                                    <div class="form-group d-flex align-items-center mt-3" style="width: 100%; max-width: 500px;">
+                                        <label for="seo_description" style="flex: 0 0 30%;"> Description (SEO) :</label>
+                                        <textarea class="form-control" id="seo_description" name="seo_description" rows="3"
+                                            style="resize: none; padding-top: 0; padding-bottom: 0; line-height: 1.4;">
+        <?php echo isset($data['seo_description']) ? $data['seo_description'] : ''; ?>
+    </textarea>
+                                    </div>
+
+                                    <div class="form-group d-flex align-items-center mt-3" style="width: 100%; max-width: 500px;">
+                                        <label for="seo_keywords" style="flex: 0 0 30%;"> keywords (SEO) :</label>
+                                        <textarea class="form-control" id="seo_keywords" name="seo_keywords" rows="3"
+                                            style="resize: none; padding-top: 0; padding-bottom: 0; line-height: 1.4;">
+        <?php echo isset($data['seo_keywords']) ? $data['seo_keywords'] : ''; ?>
+    </textarea>
+                                    </div>
+
+
+
+
+
                                 </div>
 
                                 <!-- คอลัมน์ขวา -->
                                 <div class="d-flex flex-column align-items-center justify-content-center text-left m-3" style="width: 50%;">
+                                    <div style="font-size: 14px; color: #dc3545; margin-bottom: 8px;">
+                                        *แนะนำรูปภาพไม่ควรเกินขนาด 800x500 และรายละเอียดไม่ควรเกิน 2MB
+                                    </div>
                                     <!-- รูปภาพแสดงตัวอย่าง -->
                                     <div class="mt-3">
+
+
                                         <div style="position: relative; display: flex; align-items: center; justify-content: center;">
                                             <img id="preview" class="img-fluid"
                                                 style="max-width: 280px; max-height: 220px; width: 280px; height: 220px;
@@ -178,7 +216,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                     <div class="form-group d-flex align-items-center mt-3" style="width: 100%; max-width: 500px;">
                                         <label for="rename" style="flex: 0 0 20%;">Rename:</label>
                                         <input type="text" class="form-control" id="rename" name="rename"
-                                            value="<?php echo !empty($imageName) ? $imageName : ''; ?>" style="flex: 1;" data-toggle="tooltip" title="เปลี่ยนชื่อรูปภาพ">
+                                            style="flex: 1;" data-toggle="tooltip" title="เปลี่ยนชื่อรูปภาพ">
                                     </div>
 
                                     <!-- ช่องใส่คำอธิบายภาพ -->
@@ -188,6 +226,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                             value="<?php echo isset($data['alt_text']) ? $data['alt_text'] : ''; ?>"
                                             placeholder="ใส่คำอธิบายรูปภาพ">
                                     </div>
+
                                 </div>
                             </div>
                             <hr style="width: calc(100% - 40px); border-top: 2px solid #aaa; margin-top: 30px; margin-bottom: 30px; margin-left: 20px; margin-right: 20px;">
