@@ -183,6 +183,11 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         gtag('config', 'AW-11490628923');
     </script>
 
+    
+    <!-- Event snippet for Website Click conversion page -->
+    <script>
+    gtag('event', 'conversion', {'send_to': 'AW-11490628923/nfKGCNqvkJ8aELuqlOcq'});
+    </script>
 
 
 

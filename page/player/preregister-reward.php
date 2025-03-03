@@ -15,7 +15,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <!-- Facebook Card Meta Tags -->
     <meta property="og:url" content="https://dev.stationidea.com/page/player/preregister-reward.php">
     <meta property="og:title" content="ทดสอบtitle">
     <meta property="og:description" content="555+">
@@ -24,6 +24,18 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
   
     <title>กระบี่เย้ยยุทธจักร3 swordsman3 Mobile</title>
     <meta name="description" content="กระบี่เย้ยยุทธจักร &mdash; SwordsMan Mobile">
+
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Preregister Reward">
+    <meta name="twitter:description" content="Check out the preregister reward on this page!">
+    <meta name="twitter:image" content="https://dev.stationidea.com/images/"> <!-- URL ของภาพ thumbnail -->
+    <meta name="twitter:url" content="https://dev.stationidea.com/page/player/preregister-reward.php">
+    
+
+
+
 
     <!-- <meta name="author" content="https://themeforest.net/user/bestlooker/portfolio"> -->
  
@@ -155,18 +167,18 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         gtag('config', 'AW-11490628923');
     </script>
 
+    <!-- Event snippet for Website Click conversion page -->
+    <script>
+    gtag('event', 'conversion', {'send_to': 'AW-11490628923/nfKGCNqvkJ8aELuqlOcq'});
+    </script>
+
 
     <!-- axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     
-    <!-- jQuery (ต้องโหลดก่อน FlipClock.js) -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <!-- FlipClock.js CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.css">
 
-    <!-- FlipClock.js JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.js"></script>
+
 
 
     <!-- facebook share-->
@@ -188,7 +200,36 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 </head>
 
 <body>
+     <!-- Sidebar Navigation Panel -->
 
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+
+
+        <a id="toggle-btn" href="javascript:void(0)" class="nav-item toggle-button" onclick="toggleSidebar()">
+            <i class="fas fa-angle-right"></i>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61570578922652" class="nav-item" target="_blank">
+            <img src="../../images/SideBar-Nav-Icon/facebook.png" alt="Facebook">
+        </a>
+        <a href="https://www.youtube.com/@%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B5%E0%B9%88%E0%B9%80%E0%B8%A2%E0%B9%89%E0%B8%A2%E0%B8%A2%E0%B8%B8%E0%B8%97%E0%B8%98%E0%B8%88%E0%B8%B1%E0%B8%81%E0%B8%A33"
+            class="nav-item" target="_blank">
+            <img src="../../images/SideBar-Nav-Icon/youtube.png" alt="YouTube">
+        </a>
+        <a href="https://www.tiktok.com/@swordsman3mobile" class="nav-item" target="_blank">
+            <img src="../../images/SideBar-Nav-Icon/tiktok.png" alt="TikTok">
+        </a>
+        <a href="https://x.com/Swordsman3game" class="nav-item" target="_blank">
+            <img src="../../images/SideBar-Nav-Icon/x.png" alt="X">
+        </a>
+        <a href="https://www.instagram.com/swordsman3.mobile" class="nav-item" target="_blank">
+            <img src="../../images/SideBar-Nav-Icon/ig.png" alt="Instagram">
+        </a>
+    </div>
+
+
+
+    <!--End Sidebar Navigation Panel -->
   
     <!-- Reward Section -->
     <section class="reward-section">
@@ -223,14 +264,18 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     <!-- Step 1: กรอกอีเมล -->
     <span style="font-size: 25px; margin-right: 10px;color:white;">Step 1:</span>
     <input type="checkbox" id="step1-checkbox" style="margin-right: 10px; transform: scale(2);" disabled>   
+
     <span style="font-size: 25px; margin-right: 10px;color:white;">กรอกอีเมล:</span>
     <!-- ช่องกรอกอีเมล -->
-    <input type="email" id="email-input" placeholder="กรอกอีเมลของคุณ" style="padding: 5px; margin-right: 10px; border-radius: 5px; border: 1px solid #ccc; width: 20vw;">
-
-    <!-- ปุ่มยืนยัน -->
+    <form>
+    <input type="email" id="email-input" name="email" placeholder="กรอกอีเมลของคุณ" style="padding: 5px; margin-right: 10px; border-radius: 5px; border: 1px solid #ccc; width: 20vw;">
+      <!-- ปุ่มยืนยัน -->
     <button id="confirm-button" style="padding: 8px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 10px; font-size: 16px; font-weight: 600; box-shadow: 0 4px 10px rgba(0, 128, 0, 0.3); cursor: pointer; transition: all 0.3s ease;">
         ยืนยัน
     </button>
+    </form>
+    
+
 
     <!-- ปุ่มยกเลิก -->
     <!-- <button id="cancel-button" style="padding: 8px 20px; background-color: #f44336; color: white; border: none; border-radius: 10px; font-size: 16px; font-weight: 600; box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3); cursor: pointer; transition: all 0.3s ease;">
@@ -243,11 +288,25 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     <span style="font-size: 25px; margin-right: 10px;color:white;">Step 2:</span>
     <input type="checkbox" id="step2-checkbox" style="margin-right: 10px; transform: scale(2);" disabled>
 
-    <a href="https://www.facebook.com/sharer/sharer.php?u=https://dev.stationidea.com/page/player/preregister-reward.php" target="_blank">
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://dev.stationidea.com/page/player/preregister-reward.php" id="activateCheckboxShare" target="_blank">
         <img src="../../images/SideBar-Nav-Icon/facebook.png" alt="Share on Facebook" style="transition: filter 0.3s ease;" 
             onmouseover="this.style.filter='drop-shadow(0 0 15px rgb(252, 251, 247))'"
             onmouseout="this.style.filter='none'">
     </a>
+ 
+        <a href="https://www.instagram.com/swordsman3.mobile" id="activateInstagramShare" target="_blank">
+            <img src="../../images/SideBar-Nav-Icon/ig.png" alt="Share on Instagram" style="transition: filter 0.3s ease;" 
+                onmouseover="this.style.filter='drop-shadow(0 0 15px rgb(252, 251, 247))'"
+                onmouseout="this.style.filter='none'">
+        </a>
+
+
+    <a href="https://x.com/intent/tweet?url=https://dev.stationidea.com/page/player/preregister-reward.php" id="activateXShare" target="_blank">
+        <img src="../../images/SideBar-Nav-Icon/x.png" alt="Share on X" style="transition: filter 0.3s ease;" 
+            onmouseover="this.style.filter='drop-shadow(0 0 15px rgb(252, 251, 247))'"
+            onmouseout="this.style.filter='none'">
+    </a>
+
 </div>
 
 <!-- ปุ่ม App Store และ Google Play -->
@@ -271,25 +330,142 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 </div>
 
 
-
-
         <script>
-   
-        document.getElementById('activateCheckboxAppStore').addEventListener('click', function() {
-            document.getElementById('step3-checkbox').checked = true;
+        
+                
+        // document.getElementById('confirm-button').addEventListener('click', function() {
+        // document.getElementById('step1-checkbox').checked = true;
+        // // เก็บค่าของ step1-checkbox ลงใน localStorage
+        // localStorage.setItem('step1', true);
+        // });
+
+        // document.getElementById('activateCheckboxShare').addEventListener('click', function() {
+        //     document.getElementById('step2-checkbox').checked = true;
+        //     // เก็บค่าของ step2-checkbox ลงใน localStorage
+        //     localStorage.setItem('step2', true);
+        // });
+
+        // document.getElementById('activateCheckboxAppStore').addEventListener('click', function() {
+        //     document.getElementById('step3-checkbox').checked = true;
+        //     // เก็บค่าของ step3-checkbox ลงใน localStorage
+        //     localStorage.setItem('step3', true);
+        // });
+
+        // document.getElementById('activateCheckboxGooglePlay').addEventListener('click', function() {
+        //     document.getElementById('step3-checkbox').checked = true;
+        //     // เก็บค่าของ step3-checkbox ลงใน localStorage
+        //     localStorage.setItem('step3', true);
+        // });
+
+     
+
+
+        
+
+
+       document.addEventListener('DOMContentLoaded', function() {
+    // ตรวจสอบว่ามีค่าใน localStorage หรือไม่ ถ้ามีไม่ทำอะไร
+    if (localStorage.getItem('step1') || localStorage.getItem('step2') || localStorage.getItem('step3')) {
+        // ทำอะไรบางอย่างถ้ามีค่าใน localStorage
+        // console.log("มีข้อมูลใน localStorage แล้ว");
+    }
+
+    // ถ้ามีพารามิเตอร์ success=1 ใน URL ให้แสดง SweetAlert
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('success') === '1') {
+        Swal.fire({
+            icon: 'success',
+            title: 'เรียบร้อย',
+            showConfirmButton: false,
+            timer: 1500
+        }).then(function() {
+            // ลบพารามิเตอร์ success ออกจาก URL
+            urlParams.delete('success'); // ลบพารามิเตอร์
+            const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+
+            if (urlParams.toString()) {
+                window.history.replaceState({}, '', newUrl + '?' + urlParams.toString());
+            } else {
+                window.history.replaceState({}, '', newUrl); // ถ้าไม่มีพารามิเตอร์, ไม่ต้องเพิ่ม '?'
+            }
+        });
+    }
+
+    // ป้องกันการรีเฟรชหน้าจากการ submit ฟอร์ม
+    document.getElementById('confirm-button').addEventListener('click', function(event) {
+        event.preventDefault(); // หยุดการรีเฟรชหน้า
+
+        // ตรวจสอบว่าอีเมลถูกกรอกหรือไม่
+        const emailInput = document.getElementById('email-input').value;
+        if (emailInput === "" || !validateEmail(emailInput)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'กรุณากรอกอีเมลที่ถูกต้อง',
+                text: 'อีเมลต้องมีเครื่องหมาย @ และรูปแบบที่ถูกต้อง',
+                showConfirmButton: true
+            });
+            return; // ถ้าอีเมลไม่ถูกต้อง หยุดการทำงานต่อ
+        }
+
+        // ถ้าอีเมลถูกต้อง เก็บค่าใน localStorage
+        localStorage.setItem('step1', true);
+        document.getElementById('step1-checkbox').checked = true;
+
+        // แสดงข้อความ SweetAlert
+        Swal.fire({
+            icon: 'success',
+            title: 'ข้อมูลถูกบันทึกแล้ว',
+            showConfirmButton: false,
+            timer: 1500
         });
 
+        // ส่งข้อมูลอีเมลไปยัง save-email.php ผ่าน AJAX
+        var formData = new FormData();
+        formData.append('email', emailInput); // เพิ่มอีเมลไปยังข้อมูลที่ต้องการส่ง
 
-        document.getElementById('activateCheckboxGooglePlay').addEventListener('click', function() {
-            document.getElementById('step3-checkbox').checked = true;
+        // ใช้ Fetch API สำหรับส่งข้อมูลไปยัง PHP
+        fetch('../../database/player/save_email.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())  // รับข้อมูลตอบกลับจาก PHP
+        .then(data => {
+            if (data.success) {
+                // console.log("บันทึกอีเมลสำเร็จ");
+                // อาจแสดงข้อความเพิ่มเติมหรือทำการเปลี่ยนหน้า
+            } else {
+                // console.log("เกิดข้อผิดพลาดในการบันทึก");
+                // จัดการกับข้อผิดพลาด
+            }
+        })
+        .catch(error => {
+            // console.error("เกิดข้อผิดพลาด:", error);
         });
+    });
 
+    // ฟังก์ชันตรวจสอบรูปแบบอีเมล
+    function validateEmail(email) {
+        const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        return regex.test(email);
+    }
 
-         document.getElementById('activateCheckboxGooglePlay').addEventListener('click', function() {
-            document.getElementById('step3-checkbox').checked = true;
-        });
+    // สถานะอื่นๆ เช่น step2, step3
+    document.getElementById('activateCheckboxShare').addEventListener('click', function() {
+        document.getElementById('step2-checkbox').checked = true;
+        localStorage.setItem('step2', true);
+    });
 
-       
+    document.getElementById('activateCheckboxAppStore').addEventListener('click', function() {
+        document.getElementById('step3-checkbox').checked = true;
+        localStorage.setItem('step3', true);
+    });
+
+    document.getElementById('activateCheckboxGooglePlay').addEventListener('click', function() {
+        document.getElementById('step3-checkbox').checked = true;
+        localStorage.setItem('step3', true);
+    });
+});
+
         </script>
 
 
@@ -756,7 +932,7 @@ function shareOnFacebook() {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 80px;
+        width: 50px;
         max-width: 80%;
         margin-left:20px;
     }
@@ -1678,6 +1854,7 @@ footer {
 <!-- alert -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 
+
 <!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
 
 <!-- <script src="js/highlight-game-Swiper.js"></script> -->
@@ -1703,7 +1880,7 @@ footer {
 <!-- <script src="js/particle-js-home-animation.js"></script> -->
 
 <!-- sidebar contact -->
-<!-- <script src="js/sidebar-contact-download-sticky.js" defer></script> -->
+<script src="js/sidebar-contact-download-sticky.js" defer></script>
 <!-- <script src="js/layout_link_page.js"></script> -->
 
 
