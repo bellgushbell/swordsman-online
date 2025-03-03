@@ -25,14 +25,14 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     <title>กระบี่เย้ยยุทธจักร3 swordsman3 Mobile</title>
     <meta name="description" content="กระบี่เย้ยยุทธจักร &mdash; SwordsMan Mobile">
 
-    
+
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Preregister Reward">
     <meta name="twitter:description" content="Check out the preregister reward on this page!">
-    <meta name="twitter:image" content="https://dev.stationidea.com/images/"> <!-- URL ของภาพ thumbnail -->
+    <meta name="twitter:image" content="https://dev.stationidea.com/images/PreregisterButtonandReward/ios-button-preregister-button.png"> <!-- URL ของภาพ thumbnail -->
     <meta name="twitter:url" content="https://dev.stationidea.com/page/player/preregister-reward.php">
-    
+
 
 
 
@@ -265,7 +265,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     <span style="font-size: 25px; margin-right: 10px;color:white;">Step 1:</span>
     <input type="checkbox" id="step1-checkbox" style="margin-right: 10px; transform: scale(2);" disabled>   
 
-    <span style="font-size: 25px; margin-right: 10px;color:white;">กรอกอีเมล:</span>
+    <!-- <span style="font-size: 25px; margin-right: 10px;color:white;"></span> -->
     <!-- ช่องกรอกอีเมล -->
     <form>
     <input type="email" id="email-input" name="email" placeholder="กรอกอีเมลของคุณ" style="padding: 5px; margin-right: 10px; border-radius: 5px; border: 1px solid #ccc; width: 20vw;">
@@ -314,13 +314,13 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     <span style="font-size: 25px; margin-right: 10px;color:white;">Step 3:</span>
     <input type="checkbox" id="step3-checkbox" style="margin-right: 10px; transform: scale(2);" disabled>
 
-    <a href="#" class="app-button" id="activateCheckboxAppStore">
+    <a href="https://play.google.com/store/apps/details?id=com.skynet.jx&pcampaignid=web_share" target="_blank" class="app-button" id="activateCheckboxAppStore">
         <img src="../../images/PreregisterButtonandReward/ios-button-preregister-button.png" alt="Pre-order on App Store"    
             style="transition: filter 0.3s ease;"
             onmouseover="this.style.filter='drop-shadow(0 0 15px rgb(252, 251, 247))'"
             onmouseout="this.style.filter='none'">
     </a>
-    <a href="#" class="google-button" id="activateCheckboxGooglePlay">
+    <a href="https://play.google.com/store/apps/details?id=com.skynet.jx&pcampaignid=web_share" target="_blank" class="google-button" id="activateCheckboxGooglePlay">
         <img src="../../images/PreregisterButtonandReward/googleplay-preregister-button.png"
             alt="Pre-register on Google Play"    
             style="transition: filter 0.3s ease;"
@@ -329,41 +329,207 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     </a>
 </div>
 
+<script>
+   document.addEventListener('DOMContentLoaded', async function() {
+    let count = 10000; 
 
-        <script>
+    // ✅ ดึงค่าจากฐานข้อมูลแทน localStorage
+    try {
+        let response = await fetch('../../database/player/get_count_preregister.php');
+        let data = await response.json();
+        if (data.count) {
+            count = data.count;
+        }
+    } catch (error) {
+        console.error('เกิดข้อผิดพลาดในการดึงข้อมูล:', error);ห
+    }
+
+    let hasIncremented = localStorage.getItem('hasIncremented') === 'true';
+
+    function Counter(el) {
+        var current = el.querySelector('[data-js="current"]');
+        var count;
+
+        function update(value) {
+            if (count === value) return;
+            count = value;
+            current.innerHTML = count;
+            el.classList.add('is-changing');
+            setTimeout(() => el.classList.remove('is-changing'), 210);
+        }
+        return { update };
+    }
+
+    var counterHundredThousands = new Counter(document.querySelector('[data-js="counter-hundred-thousands"]')),
+        counterTenThousands = new Counter(document.querySelector('[data-js="counter-ten-thousands"]')),
+        counterThousands = new Counter(document.querySelector('[data-js="counter-thousands"]')),
+        counterHundreds = new Counter(document.querySelector('[data-js="counter-hundreds"]')),
+        counterTens = new Counter(document.querySelector('[data-js="counter-tens"]')),
+        counterOnes = new Counter(document.querySelector('[data-js="counter-ones"]'));
+
+    function displayNumber() {
+        var hundredThousands = Math.floor(count / 100000);
+        var tenThousands = Math.floor((count % 100000) / 10000);
+        var thousands = Math.floor((count % 10000) / 1000);
+        var hundreds = Math.floor((count % 1000) / 100);
+        var tens = Math.floor((count % 100) / 10);
+        var ones = count % 10;
+
+        setTimeout(() => counterHundredThousands.update(hundredThousands), 0);
+        setTimeout(() => counterTenThousands.update(tenThousands), 300);
+        setTimeout(() => counterThousands.update(thousands), 600);
+        setTimeout(() => counterHundreds.update(hundreds), 900);
+        setTimeout(() => counterTens.update(tens), 1200);
+        setTimeout(() => counterOnes.update(ones), 1500);
+    }
+
+    displayNumber();
+
+    function setCheckboxChecked(id) {
+        document.getElementById(id).checked = true;
+        localStorage.setItem(id, true);
+        checkAllCheckboxes();
+    }
+
+    function checkStoredCheckboxes() {
+        ['step1-checkbox', 'step2-checkbox', 'step3-checkbox'].forEach(id => {
+            if (localStorage.getItem(id)) {
+                document.getElementById(id).checked = true;
+            }
+        });
+    }
+
+    async function updateCountInDatabase(newCount) {
+    console.log('newCount', newCount);
+
+    try {
+        let response = await fetch('../../database/player/update_count_preregister.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: `count=${newCount}`
+        });
+
         
-                
-        // document.getElementById('confirm-button').addEventListener('click', function() {
-        // document.getElementById('step1-checkbox').checked = true;
-        // // เก็บค่าของ step1-checkbox ลงใน localStorage
-        // localStorage.setItem('step1', true);
-        // });
 
-        // document.getElementById('activateCheckboxShare').addEventListener('click', function() {
-        //     document.getElementById('step2-checkbox').checked = true;
-        //     // เก็บค่าของ step2-checkbox ลงใน localStorage
-        //     localStorage.setItem('step2', true);
-        // });
+    } catch (error) {
+        console.error("เกิดข้อผิดพลาดในการอัปเดตค่า:", error);
+    }
+}
 
-        // document.getElementById('activateCheckboxAppStore').addEventListener('click', function() {
-        //     document.getElementById('step3-checkbox').checked = true;
-        //     // เก็บค่าของ step3-checkbox ลงใน localStorage
-        //     localStorage.setItem('step3', true);
-        // });
+    function checkAllCheckboxes() {
+        const step1 = document.getElementById('step1-checkbox').checked;
+        const step2 = document.getElementById('step2-checkbox').checked;
+        const step3 = document.getElementById('step3-checkbox').checked;
 
-        // document.getElementById('activateCheckboxGooglePlay').addEventListener('click', function() {
-        //     document.getElementById('step3-checkbox').checked = true;
-        //     // เก็บค่าของ step3-checkbox ลงใน localStorage
-        //     localStorage.setItem('step3', true);
-        // });
+        if (step1 && step2 && step3 && !hasIncremented) {
+            count++;
+            localStorage.setItem('count', count);
+            localStorage.setItem('hasIncremented', true);
+            displayNumber();
+            updateCountInDatabase(count); // ✅ อัปเดตค่าไปที่ฐานข้อมูล
 
-     
+            Swal.fire({
+                icon: 'success',
+                title: 'ลงทะเบียนเสร็จสิ้น!',
+                text: 'ระบบจะรีเซ็ตข้อมูลใหม่',
+                showConfirmButton: false,
+                timer: 2000
+            });
 
+            setTimeout(() => {
+                localStorage.removeItem('step1-checkbox');
+                localStorage.removeItem('step2-checkbox');
+                localStorage.removeItem('step3-checkbox');
+                localStorage.removeItem('hasIncremented');
+
+                document.getElementById('step1-checkbox').checked = false;
+                document.getElementById('step2-checkbox').checked = false;
+                document.getElementById('step3-checkbox').checked = false;
+                hasIncremented = false;
+            }, 2000);
+        }
+    }
+
+    checkStoredCheckboxes();
+
+    document.getElementById('activateCheckboxAppStore').addEventListener('click', function(event) {
+    event.preventDefault(); 
+    setCheckboxChecked('step3-checkbox');
+
+    setTimeout(() => {
+        window.open(this.href, '_blank'); 
+    }, 100);
+    });
+
+    document.getElementById('activateCheckboxGooglePlay').addEventListener('click', function(event) {
+        event.preventDefault();
+        setCheckboxChecked('step3-checkbox');
+
+        setTimeout(() => {
+            window.open(this.href, '_blank'); 
+        }, 100);
+    });
+
+
+
+    document.getElementById('activateCheckboxShare').addEventListener('click', function() {
+        setCheckboxChecked('step2-checkbox');
+    });
+
+    document.getElementById('confirm-button').addEventListener('click', function(event) {
+        event.preventDefault();
+        const emailInput = document.getElementById('email-input').value;
+        if (!validateEmail(emailInput)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'กรุณากรอกอีเมลที่ถูกต้อง',
+                text: 'อีเมลต้องมีเครื่องหมาย @ และรูปแบบที่ถูกต้อง',
+                showConfirmButton: true
+            });
+            return;
+        }
+        setCheckboxChecked('step1-checkbox');
+
+        Swal.fire({
+            icon: 'success',
+            title: 'ข้อมูลถูกบันทึกแล้ว',
+            showConfirmButton: false,
+            timer: 1500
+        });
+
+        var formData = new FormData();
+        formData.append('email', emailInput);
+
+        fetch('../../database/player/save_email.php', {
+            method: 'POST',
+            body: formData
+        }).then(response => response.json())
+          .then(data => {
+              if (!data.success) {
+                  console.log("เกิดข้อผิดพลาดในการบันทึก");
+              }
+          }).catch(error => console.error("เกิดข้อผิดพลาด:", error));
+    });
+
+    function validateEmail(email) {
+        const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        return regex.test(email);
+    }
+});
+
+</script>
+
+
+
+
+
+
+        <!-- <script>
+        
+    
 
         
-
-
-       document.addEventListener('DOMContentLoaded', function() {
+     document.addEventListener('DOMContentLoaded', function() {
     // ตรวจสอบว่ามีค่าใน localStorage หรือไม่ ถ้ามีไม่ทำอะไร
     if (localStorage.getItem('step1') || localStorage.getItem('step2') || localStorage.getItem('step3')) {
         // ทำอะไรบางอย่างถ้ามีค่าใน localStorage
@@ -466,7 +632,10 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     });
 });
 
-        </script>
+
+
+
+        </script> -->
 
 
 
@@ -608,16 +777,16 @@ function shareOnFacebook() {
     </section>
 
 
-<script>
+<!-- <script>
     // คำสั่งให้ checkbox ถูกติ๊กเมื่อกดปุ่ม
     document.getElementById('activateCheckboxButton').addEventListener('click', function() {
         document.getElementById('step1-checkbox').checked = true;
     });
-</script>
+</script> -->
 
     <!-- End Reward Section -->
 
-<script>
+<!-- <script>
     // ตัวแปรสำหรับจัดการแต่ละหน่วย
     var counterHundredThousands = new Counter(document.querySelector('[data-js="counter-hundred-thousands"]')),
         counterTenThousands = new Counter(document.querySelector('[data-js="counter-ten-thousands"]')),
@@ -691,7 +860,7 @@ function shareOnFacebook() {
        
         previousCount = currentCount;
     }, 10000); // ตรวจสอบทุก 10วิ
-</script>
+</script> -->
 
 
 
@@ -890,7 +1059,6 @@ function shareOnFacebook() {
         position: absolute;
         top: 23%; 
         left: 5%;
-        
         display: flex;
         gap: 10px; 
         justify-content: center;
@@ -921,7 +1089,7 @@ function shareOnFacebook() {
 
     .share-buttons{
         position: absolute;
-        top: 19%; /* กำหนดให้ปุ่มลอยเหนือขอบล่างของ reward image */
+        top: 20.5%; /* กำหนดให้ปุ่มลอยเหนือขอบล่างของ reward image */
         left: 5%;
         display: flex;
         gap: 10px; /* ระยะห่างระหว่างปุ่ม */
@@ -949,13 +1117,22 @@ function shareOnFacebook() {
 
 
     .email-box-buttons{
-           position: absolute;
+        position: absolute;
         top: 17%; /* กำหนดให้ปุ่มลอยเหนือขอบล่างของ reward image */
         left: 5%;
         display: flex;
         gap: 10px; /* ระยะห่างระหว่างปุ่ม */
         justify-content: center;
         align-items: center;
+       
+      
+    }
+     .email-box-buttons input[type="email"] {
+     
+     
+         margin-top:20px;
+         margin-left:20px;
+         
     }
 
     /*เช็คบ็อกสไตล์*/
@@ -1072,18 +1249,57 @@ function shareOnFacebook() {
 
 
      /* ✅ สำหรับมือถือ (Mobile Only) */
-        @media only screen and (max-width: 767px) {
-        .store-buttons {
-            flex-direction: row; 
-            gap: 1px;
+   @media only screen and (max-width: 767px) {
+ 
+
+   .store-buttons a {
+        width: 90px;
+   }
+   .share-buttons a {
+     width: 20px;
+   }
+   .email-box-buttons{
+        top:15%;
+    }
+
+
+   .email-box-buttons span,
+   .share-buttons span,
+   .store-buttons span {
+        font-size: 14px !important; /* ปรับขนาดตัวอักษร */
+        font-weight: bold; /* ทำให้ตัวหนังสือหนาขึ้น */
+        color: white; /* สีของตัวอักษร */
+        margin-right: 5px; /* เพิ่มระยะห่างจาก checkbox */
+    }
+
+ 
+    .email-box-buttons input[type="email"] {
+        width: 30vw !important; /* ปรับขนาดให้กว้างขึ้น */
+        font-size: 8px; /* ลดขนาดตัวอักษร */
+        padding: 0px 0px; /* ลด padding */
+        margin-top:20px;
+        margin-left:0px;
+        height: auto;
+      
+    }
+
+
+  /* ปรับขนาด checkbox */
+    .email-box-buttons input[type="checkbox"],
+    .share-buttons input[type="checkbox"],
+    .store-buttons input[type="checkbox"] {
+        transform: scale(1) !important; /* ลดขนาด checkbox */
+    }
+
+    #confirm-button {
+    font-size: 12px !important; /* ปรับขนาดตัวหนังสือในปุ่ม */
+    padding: 0px 5px !important; /* ปรับขนาดปุ่ม */
+    border-radius: 8px; /* ทำให้โค้งมน */
+    }
+
+
+
         
-        }
-
-        .store-buttons a {
-            width: 90px;
-        }
-
-       
     .Counter {
         font: 100px Helvetica; 
         display: flex;
@@ -1123,8 +1339,8 @@ function shareOnFacebook() {
     }
     
     }
-@media only screen and (min-width: 768px) and (max-width: 1400px)  {
-.store-buttons a {
+    @media only screen and (min-width: 768px) and (max-width: 1400px)  {
+    .store-buttons a {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -1880,7 +2096,7 @@ footer {
 <!-- <script src="js/particle-js-home-animation.js"></script> -->
 
 <!-- sidebar contact -->
-<script src="js/sidebar-contact-download-sticky.js" defer></script>
+<script src="../../js/sidebar-contact-download-sticky.js" ></script>
 <!-- <script src="js/layout_link_page.js"></script> -->
 
 
