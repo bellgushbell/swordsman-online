@@ -8,25 +8,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $admin_id = $_SESSION['id'];
     $type = mysqli_real_escape_string($conn, $_POST['type']);
     $title = mysqli_real_escape_string($conn, $_POST['title']);
-    $alt_text = mysqli_real_escape_string($conn, $_POST['alt_text']);
-    $newImageName  = mysqli_real_escape_string($conn, $_POST['rename']);
     $highlight_text  = mysqli_real_escape_string($conn, $_POST['highlight_text']);
+
+    $newImageName  = mysqli_real_escape_string($conn, $_POST['rename']);
+    $alt_text = mysqli_real_escape_string($conn, $_POST['alt_text']);
+
     $seo_title  = mysqli_real_escape_string($conn, $_POST['seo_title']);
     $seo_keywords  = mysqli_real_escape_string($conn, $_POST['seo_keywords']);
     $seo_description  = mysqli_real_escape_string($conn, $_POST['seo_description']);
+
     $description =  $_POST['description'];
     $timestamp = date("Y-m-d H:i:s");
 
-
-    // กำหนดโฟลเดอร์ปลายทาง
     $target_dir = "../../images/news/";
     $file_name = NULL; // ตั้งค่าเริ่มต้น
 
+    $data = json_decode(file_get_contents('php://input'), true);
+    $upload_server = isset($_POST['upload-server']) ? $_POST['upload-server'] : '';
 
 
-    // ตรวจสอบว่ามีไฟล์อัปโหลดหรือไม่
+    // // ตรวจสอบว่ามีไฟล์อัปโหลดหรือไม่
     if (!empty($_FILES["upload_title"]["name"])) {
-
 
 
         $file_ext = pathinfo($_FILES["upload_title"]["name"], PATHINFO_EXTENSION); // ดึงนามสกุลไฟล์
@@ -49,7 +51,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (move_uploaded_file($_FILES["upload_title"]["tmp_name"], $target_file)) {
             // ไฟล์ถูกอัปโหลดสำเร็จ
         }
+    } else {
+        $file_name =  $upload_server;
     }
+
 
     // ใช้ Prepared Statement เพื่อป้องกัน SQL Injection
     $stmt_title = $conn->prepare("INSERT INTO title (type, title, image, created_at, created_by, alt_text,highlight_text,seo_title,seo_keywords,seo_description) VALUES (?, ?, ?, ?, ?, ?,?,?,?,?)");
@@ -83,3 +88,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt_title->close();
     $conn->close();
 }
+
+
+
+
+
+    // echo "Admin ID: " . $admin_id . "<br>";
+    // echo "Type: " . $type . "<br>";
+    // echo "Title: " . $title . "<br>";
+    // echo "Alt Text: " . $alt_text . "<br>";
+    // echo "Image Name: " . $newImageName . "<br>";
+    // echo "Highlight Text: " . $highlight_text . "<br>";
+    // echo "SEO Title: " . $seo_title . "<br>";
+    // echo "SEO Keywords: " . $seo_keywords . "<br>";
+    // echo "SEO Description: " . $seo_description . "<br>";
+    // echo "Description: " . $description . "<br>";
+
+    // echo "upload_server: " . $upload_server . "<br>";
+
+    // if (!empty($_FILES["upload_title"]["name"])) {
+    //     echo "upload_title: " . $_FILES["upload_title"]["name"] . "<br>";
+    // }

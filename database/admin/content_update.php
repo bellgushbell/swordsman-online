@@ -31,6 +31,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $target_dir = "../../images/news/";
     $file_name = NULL; // ค่าเริ่มต้น
 
+    $data = json_decode(file_get_contents('php://input'), true);
+    $upload_server = isset($_POST['upload-server']) ? $_POST['upload-server'] : '';
+
+
     if (!empty($_FILES["upload_title"]["name"])) {
         // ดึงนามสกุลไฟล์
         $file_ext = pathinfo($_FILES["upload_title"]["name"], PATHINFO_EXTENSION);
@@ -67,6 +71,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 rename($old_file_path, $target_dir . "swordsman_" . $newImageName . "." . $file_extension);
             }
             $file_name = "swordsman_" . $newImageName . "." . $file_extension;
+        } else {
+            $file_name = $upload_server;
         }
     }
 

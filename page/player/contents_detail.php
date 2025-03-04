@@ -1,20 +1,3 @@
-<?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-
-    // ดึงข้อมูลจาก session ที่ชื่อว่า edit_data ถ้ามี
-    if (isset($_SESSION['data_news'])) {
-        $data = $_SESSION['data_news'];
-        $type = $data['type'];
-        if ($type === 'ข่าว') {
-            $type = 'ข่าวสาร';
-        }
-        $date = $data['created_at'];
-    }
-}
-?>
-
-
 <?php include '../../page/player/contents_head.php'; ?>
 <?php include '../../page/player/contents_navber.php'; ?>
 

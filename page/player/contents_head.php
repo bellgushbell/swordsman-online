@@ -1,16 +1,36 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+
+    // ดึงข้อมูลจาก session ที่ชื่อว่า edit_data ถ้ามี
+    if (isset($_SESSION['data_news'])) {
+        $data = $_SESSION['data_news'];
+        $type = $data['type'];
+        if ($type === 'ข่าว') {
+            $type = 'ข่าวสาร';
+        }
+        $date = $data['created_at'];
+        $seo_title = $data['seo_title'];
+        $seo_description = $data['seo_description'];
+        $seo_keywords = $data['seo_keywords'];
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 
 <head>
-    <title>ข่าวกระบี่เย้ยยุทธจักร swordsman3 Mobile</title>
+
+    <title> swordsman3 | <?php echo $seo_title; ?> </title>
     <!-- <meta name="description" content="ข่าวกระบี่เย้ยยุทธจักร">
       -->
     <meta charset="utf-8">
 
     <meta name="author" content="EXPUP">
-    <meta name="description" content="ติดตามข่าวสารและโปรโมชั่น Swordsman 3 (กระบี่เย้ยยุทธจักร 3) พร้อมกิจกรรมแจกไอเทมฟรี และอัปเดตแพทช์ใหม่ได้ที่นี่!">
-    <meta name="keywords" content="Swordsman 3, ข่าวเกม Swordsman 3, โปรโมชั่น Swordsman 3, กิจกรรม Swordsman 3, กระบี่เย้ยยุทธจักร 3">
+    <meta name="description" content="<?php echo $seo_description; ?> ">
+    <meta name="keywords" content="<?php echo $seo_keywords; ?>">
     <link rel="canonical" href="https://swordsman3.com/page/player/contents.php" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
