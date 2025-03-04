@@ -246,20 +246,45 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
      </div>
      
-         <!-- Scroll Down -->
+        <!-- Scroll Down -->
         <div class="scroll-down-container">
-            <a href="#about" class="scroll-down-button-arrow">
+            <button id="scrollDownButton" class="scroll-down-button-arrow">
                 <img src="../../images/RewardPage/button-down.png" alt="Scroll Down" class="scroll-down-img">
-            </a>
+            </button>
         </div>
         <!-- End Scroll Down -->
+            
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
 
-        <label for="terms-checkbox">
-        <input type="checkbox" id="terms-checkbox">
-        I have read and agree 
-        <a href="#" class="terms-link">Terms of Service</a> and 
-        <a href="#" class="privacy-link">Privacy Policy</a>.
-        </label>
+        <script>
+            document.getElementById("scrollDownButton").addEventListener("click", function () {
+                gsap.to(window, {
+                    duration: 1.2,
+                    scrollTo: { y: "+=600", autoKill: true }, // เลื่อนลง 600px
+                    ease: "power2.out"
+                });
+            });
+        </script> -->
+
+<!-- GSAP CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+
+<!-- JavaScript -->
+<script>
+    document.getElementById("scrollDownButton").addEventListener("click", function () {
+        let emailScroll = document.getElementById("email-scroll"); // ดึง element
+        let targetPosition = emailScroll.offsetTop - (window.innerHeight / 2.5) + (emailScroll.offsetHeight / 2.5);
+
+        gsap.to(window, {
+            duration: 1.2,
+            scrollTo: targetPosition, // เลื่อนให้ email-scroll อยู่ตรงกลางหน้าจอ
+            ease: "power2.out"
+        });
+    });
+</script>
+
+     
 
 
 
@@ -315,19 +340,31 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         </div>
     </div>
 
-       
+
+    <div class="email-box-frame "  id="email-scroll">
     <div class="email-box-buttons">
-    <!-- Step 1: กรอกอีเมล -->
-    <!-- <span style="font-size: 25px; margin-right: 10px;color:black;"></span> -->
-    <!-- ช่องกรอกอีเมล -->
-    <form>
-        <input type="email" id="email-input" name="email" placeholder="กรอกอีเมลของคุณ" style="padding: 5px; margin-right: 10px; border-radius: 5px; border: 1px solid #ccc; width: 20vw;">
-        <!-- ปุ่มยืนยัน -->
-        <button id="confirm-button" style="padding: 8px 20px; background-color:rgb(65, 123, 167); color: white; border: none; border-radius: 10px; font-size: 16px; font-weight: 600; box-shadow: 0 4px 10px rgba(0, 128, 0, 0.3); cursor: pointer; transition: all 0.3s ease;">
-            ยืนยัน
-        </button>
-    </form>
+        <form>
+            <div class="email-input-container">
+                <input type="email" id="email-input" name="email" placeholder="">
+                <button id="confirm-button">ยืนยัน</button>
+        
+            </div>
+            
+        </form>
+        
     </div>
+    </div>
+    
+   <div class="email-policy-term">
+    <div class="terms-container">
+        <input type="checkbox" id="terms-checkbox">
+        <span>I have read and agree 
+            <a href="#" class="terms-link">Terms of Service</a> and 
+            <a href="#" class="privacy-link" id="policyModal-email">Privacy Policy</a>.
+        </span>
+    </div>
+</div>
+
 
  
  
@@ -368,14 +405,14 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     <a href="https://play.google.com/store/apps/details?id=com.skynet.jx&pcampaignid=web_share" target="_blank" class="app-button" id="activateCheckboxAppStore">
         <img src="../../images/PreregisterButtonandReward/ios-button-preregister-button.png" alt="Pre-order on App Store"    
             style="transition: filter 0.3s ease;"
-            onmouseover="this.style.filter='drop-shadow(0 0 15px rgb(252, 251, 247))'"
+            onmouseover="this.style.filter='drop-shadow(0 0 15px rgb(136, 188, 225))'"
             onmouseout="this.style.filter='none'">
     </a>
     <a href="https://play.google.com/store/apps/details?id=com.skynet.jx&pcampaignid=web_share" target="_blank" class="google-button" id="activateCheckboxGooglePlay">
         <img src="../../images/PreregisterButtonandReward/googleplay-preregister-button.png"
             alt="Pre-register on Google Play"    
             style="transition: filter 0.3s ease;"
-            onmouseover="this.style.filter='drop-shadow(0 0 15px rgb(252, 251, 247))'"
+            onmouseover="this.style.filter='drop-shadow(0 0 15px rgb(136, 188, 225))'"
             onmouseout="this.style.filter='none'">
     </a>
 </div>
@@ -1059,50 +1096,112 @@ body {
 }
 
 
-.email-box-buttons {
-    position: absolute; 
-    top: 36.8%;
-    left: 26%;
-    transform: translate(-50%,-50%);
+/* 🎯 กรอบรอบกล่องอีเมล */
+.email-box-frame {
     display: flex;
-    gap: 20px;
     justify-content: center;
+    
     align-items: center;
-    flex-direction: column;
+    position: absolute; 
+    top: 35.8%;
+    left: 10%;
+    padding: 10px 15px; /* ✅ เพิ่ม padding ให้มีระยะขอบ */
+    border-radius: 40px;
+    background: linear-gradient(white, white) padding-box, /* ✅ พื้นหลังขาว */
+                linear-gradient(to right, navy, deepskyblue) border-box; /* ✅ ไล่สีขอบ */
+    border: 1px solid transparent;
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.3); /* ✅ เพิ่มแสงเงา */
+    backdrop-filter: blur(10px); /* ✅ เพิ่มความเบลอให้ดูโปร่ง */
+    
+    height:60px;
+   
 }
-.terms-checkbox{
-    position: absolute; 
-    top: 27.8%;
-    left: 26%;
-    transform: translate(-50%,-50%);
+.email-box-buttons{
     display: flex;
     justify-content: center;
     align-items: center;
-    color:black;
+    text-align:center;
+    margin-top:15px;
+    
     
 }
-.email-box-buttons input[type="email"] {
-    width: 100%;
-    max-width: 450px; /* ปรับขนาดให้พอดีกับดีไซน์ */
-    padding: 12px 20px;
+/* ✅ ปรับ input และปุ่มให้ดูทันสมัย และอยู่กึ่งกลาง */
+.email-input-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    /* width: 100%; */
+ 
+}
+
+.email-input-container input[type="email"] {
+ 
+    padding: 8px 60px; /* ✅ ใช้ padding จากปุ่ม */
     font-size: 16px;
-    border: 2px solid transparent;
+    font-weight: 600;
+    color: black;
+    border: none;
     outline: none;
-    border-radius: 40px; /* ✅ ทำให้ขอบมน */
+    border-radius: 10px;
     background: white;
-
-    /* ✅ ไล่สีขอบเหมือนในภาพ */
     box-shadow: inset 0 0 10px rgba(173, 216, 230, 0.8), 
-                0 0 5px rgba(173, 216, 230, 0.6);
+                0 4px 10px rgba(21, 36, 199, 0.3);
+    cursor: text;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+   
+}
 
+/* ✅ เอฟเฟคตอนโฟกัส */
+.email-input-container input[type="email"]:focus {
+    border: 2px solid rgba(0, 123, 255, 0.5); /* ✅ เพิ่มขอบให้มีสี */
+    box-shadow: inset 0 0 12px rgba(0, 123, 255, 0.8), 
+                0 6px 12px rgba(60, 63, 160, 0.5); /* ✅ ขยายเงาให้เด่นขึ้น */
+}
+
+/* ✅ ปุ่มยืนยัน */
+.email-input-container button {
+    padding: 6px 20px;
+    background-color: rgb(65, 123, 167);
+    color: white;
+    border: none;
+    border-radius: 40px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
     transition: all 0.3s ease-in-out;
 }
 
-/* ✅ เพิ่มเอฟเฟคเมื่อคลิกที่ช่อง */
-.email-box-buttons input[type="email"]:focus {
-    border-color: rgba(0, 123, 255, 0.5);
-    box-shadow: inset 0 0 12px rgba(0, 123, 255, 0.8), 
-                0 0 10px rgba(0, 123, 255, 0.9);
+/* ✅ เอฟเฟค hover */
+.email-input-container button:hover {
+    background-color: rgb(55, 105, 145);
+    box-shadow: 0 6px 12px rgba(0, 123, 255, 0.5);
+}
+
+
+
+.email-policy-term {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 10px;
+    position: absolute; 
+    top: 39.4%;
+    left: 10%;
+}
+
+.terms-container {
+    display: flex;
+    align-items: center; /* จัด Checkbox และข้อความให้อยู่กึ่งกลางแนวตั้ง */
+    gap: 5px; /* ปรับระยะห่างระหว่าง Checkbox และข้อความ */
+}
+
+#terms-checkbox {
+    width: 16px; /* ปรับขนาด Checkbox */
+    height: 16px;
 }
 
 
@@ -1205,7 +1304,7 @@ body {
     top: 27.5%;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 4000;
+    z-index: 1000;
 }
 
 /* ✅ ปรับไอคอน */
@@ -1259,6 +1358,37 @@ body {
 
 /* ✅ สำหรับมือถือ (Mobile Only) */
 @media only screen and (max-width: 767px) {
+     .email-box-frame {
+         height:20px;
+    }
+    .email-input-container input[type="email"] {
+        padding: 0px 0px !important;
+        width: 140px;
+        height:15px;
+    }
+   
+    #confirm-button {
+            font-size: 8px !important;
+            /* ปรับขนาดตัวหนังสือในปุ่ม */
+            padding: 1px 5px !important;
+            /* ปรับขนาดปุ่ม */
+            border-radius: 8px;
+            /* ทำให้โค้งมน */
+        }
+
+    #terms-checkbox {
+        transform: scale(0.5); /* ขยาย Checkbox 1.5 เท่า */
+       
+    }
+    .terms-container{
+        gap:0px;
+    }
+        
+    .email-policy-term{
+        top:38.8%;
+        font-size:8px;
+       
+    }
 
 
     .store-buttons a {
@@ -1269,37 +1399,24 @@ body {
         width: 20px;
     }
 
-    .email-box-buttons {
-        top: 15%;
-    }
+  
 
 
-    .email-box-buttons span,
+    /* .email-box-buttons span,
     .share-buttons span,
     .store-buttons span {
         font-size: 14px !important;
-        /* ปรับขนาดตัวอักษร */
+       
         font-weight: bold;
-        /* ทำให้ตัวหนังสือหนาขึ้น */
+      
         color: white;
-        /* สีของตัวอักษร */
+      
         margin-right: 5px;
-        /* เพิ่มระยะห่างจาก checkbox */
-    }
+       
+    } */
 
 
-    .email-box-buttons input[type="email"] {
-        width: 30vw !important;
-        /* ปรับขนาดให้กว้างขึ้น */
-        font-size: 8px;
-        /* ลดขนาดตัวอักษร */
-        padding: 0px 0px;
-        /* ลด padding */
-        margin-top: 20px;
-        margin-left: 0px;
-        height: auto;
-
-    }
+ 
 
 
     /* ปรับขนาด checkbox */
@@ -1307,17 +1424,10 @@ body {
     .share-buttons input[type="checkbox"],
     .store-buttons input[type="checkbox"] {
         transform: scale(1) !important;
-        /* ลดขนาด checkbox */
+       
     }
 
-    #confirm-button {
-        font-size: 12px !important;
-        /* ปรับขนาดตัวหนังสือในปุ่ม */
-        padding: 0px 5px !important;
-        /* ปรับขนาดปุ่ม */
-        border-radius: 8px;
-        /* ทำให้โค้งมน */
-    }
+   
 
 
 
@@ -1364,33 +1474,44 @@ body {
 
     width: 8px;
     position: absolute;
-    left:5.5%;
-    top:24.7%;
+    left:21.5%;
+    top:34%;
     }
     #step2-checkbox {
     width: 8px;
     position: absolute;
-    left:5.5%;
-    top:29.9%;
+    left:25.9%;
+    top:41.1%;
     }
     #step3-checkbox {
     width: 8px;
     position: absolute;
-    left:5.5%;
-    top:34.9%;
+    left:25.9%;
+    top:47.1%;
     }
 
-       .scroll-down-img {
-        width: 35px;
+    .scroll-down-button-arrow{
+        width: 30px;
+        height: 30px;
     }
-    .scroll-down-container {
-        top: 8%;
+    .scroll-down-img{
+        width: 30px;
+        
     }
+
+
 
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1400px) {
   
+    .email-box-frame {
+         height:50px;
+    }
+    .email-input-container input[type="email"] {
+        padding: 4px auto;
+    }
+
 
     .store-buttons a {
         display: flex;
@@ -1551,22 +1672,46 @@ body {
 
 <!-- JavaScript to open and close the modal -->
 <script>
-    const policyBtn = document.getElementById('policyBtn');
-    const policyModal = document.getElementById('policyModal');
-    const closeModal = document.getElementById('closeModal');
+   const policyBtn = document.getElementById('policyBtn'); // ปุ่มหลัก
+const policyEmailBtn = document.getElementById('policyModal-email'); // ปุ่มใน Email Section
+const policyModal = document.getElementById('policyModal'); // Modal
+const closeModal = document.getElementById('closeModal'); // ปุ่มปิด Modal
 
-    policyBtn.onclick = function() {
-        policyModal.style.display = 'flex';
-    }
+// ฟังก์ชันเปิด Modal
+function openPolicyModal() {
+    policyModal.style.display = 'flex';
+}
 
-    closeModal.onclick = function() {
-        policyModal.style.display = 'none';
+// ฟังก์ชันปิด Modal
+function closePolicyModal() {
+    policyModal.style.display = 'none';
+}
+
+// ให้ปุ่ม policyBtn เปิด Modal
+if (policyBtn) {
+    policyBtn.onclick = openPolicyModal;
+}
+
+// ให้ปุ่ม policyModal-email เปิด Modal
+if (policyEmailBtn) {
+    policyEmailBtn.onclick = function(event) {
+        event.preventDefault(); // ป้องกันการเปลี่ยนหน้า
+        openPolicyModal();
+    };
+}
+
+// ให้ปุ่ม closeModal ปิด Modal
+if (closeModal) {
+    closeModal.onclick = closePolicyModal;
+}
+
+// ปิด Modal เมื่อกดนอกกรอบ
+window.onclick = function(event) {
+    if (event.target === policyModal) {
+        closePolicyModal();
     }
-     window.onclick = function(event) {
-        if (event.target === policyModal) {
-            policyModal.style.display = 'none';
-        }
-    }
+};
+
 </script>
 
 <!-- CSS -->
