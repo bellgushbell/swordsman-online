@@ -17,10 +17,10 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Facebook Card Meta Tags -->
     <meta property="og:url" content="https://dev.stationidea.com/page/player/preregister-reward.php">
-    <meta property="og:title" content="ทดสอบtitle">
-    <meta property="og:description" content="555+">
-    <meta property="og:image" content="https://dev.stationidea.com/images/PreregisterButtonandReward/ios-button-preregister-button.png">
-    <meta property="og:image:alt" content="ios">
+    <meta property="og:title" content="ร่วมลงทะเบียนล่วงหน้า ท่องยุทธภพกับ SwordsMan3 Online">
+    <meta property="og:description" content="MMORPG ยอดฮิต">
+    <meta property="og:image" content="https://dev.stationidea.com/images/RewardPage/pre-register-rewards-no-button.jpeg">
+    <meta property="og:image:alt" content="MMORPG">
   
     <title>กระบี่เย้ยยุทธจักร3 swordsman3 Mobile</title>
     <meta name="description" content="กระบี่เย้ยยุทธจักร &mdash; SwordsMan Mobile">
@@ -230,12 +230,68 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
     <!--End Sidebar Navigation Panel -->
+
+
+
   
     <!-- Reward Section -->
-    <section class="reward-section">
+    <section id="reward-section" class="reward-section">
         <div class="reward-container-rewardpage">
-            <img src="../../images/RewardPage/pre-register-rewards-no-button.jpeg" alt="Reward Tier" class="reward-image">
+            <img src="../../images/RewardPage/pre-register-mockup.jpg" alt="Reward Tier" class="reward-image">
+        <input type="checkbox" id="step1-checkbox" style="margin-right: 10px; transform: scale(2);" disabled>
+        <input type="checkbox" id="step2-checkbox" style="margin-right: 10px; transform: scale(2);" disabled>   
+        <input type="checkbox" id="step3-checkbox" style="margin-right: 10px; transform: scale(2);" disabled>
+     
+       
+
+     </div>
+     
+         <!-- Scroll Down -->
+        <div class="scroll-down-container">
+            <a href="#about" class="scroll-down-button-arrow">
+                <img src="../../images/RewardPage/button-down.png" alt="Scroll Down" class="scroll-down-img">
+            </a>
         </div>
+        <!-- End Scroll Down -->
+
+        <label for="terms-checkbox">
+        <input type="checkbox" id="terms-checkbox">
+        I have read and agree 
+        <a href="#" class="terms-link">Terms of Service</a> and 
+        <a href="#" class="privacy-link">Privacy Policy</a>.
+        </label>
+
+
+
+
+
+
+
+
+<!-- ปุ่มเล่นวิดีโอลอยอยู่มุมขวาบน -->
+<button id="openVideoModal" class="floating-video-btn">
+    <img src="../../images/RewardPage/play-video-button.png" alt="Play Video">
+</button>
+
+<!-- Modal สำหรับแสดงวิดีโอ -->
+<div id="videoModal" class="video-modal">
+    <div class="video-modal-content">
+        <!-- ปุ่มปิด Modal -->
+        <span class="close-video-modal" id="closeVideoModal">&times;</span>
+
+        <!-- วิดีโอ YouTube Embed -->
+        <iframe id="youtubeVideo" width="560" height="315" 
+            src="https://www.youtube.com/embed/i08KHjxYKuw?si=1YaZZll9-L1ETgny"
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+        </iframe>
+    </div>
+</div>
+
+
 <!-- ตัวเลขที่เพิ่มขึ้นเรื่อยๆ -->
 <!-- <div id="counter">10000</div> -->
     <div class="Counter">
@@ -259,34 +315,29 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         </div>
     </div>
 
-
+       
     <div class="email-box-buttons">
     <!-- Step 1: กรอกอีเมล -->
-    <span style="font-size: 25px; margin-right: 10px;color:white;">Step 1:</span>
-    <input type="checkbox" id="step1-checkbox" style="margin-right: 10px; transform: scale(2);" disabled>   
-
-    <!-- <span style="font-size: 25px; margin-right: 10px;color:white;"></span> -->
+    <!-- <span style="font-size: 25px; margin-right: 10px;color:black;"></span> -->
     <!-- ช่องกรอกอีเมล -->
     <form>
-    <input type="email" id="email-input" name="email" placeholder="กรอกอีเมลของคุณ" style="padding: 5px; margin-right: 10px; border-radius: 5px; border: 1px solid #ccc; width: 20vw;">
-      <!-- ปุ่มยืนยัน -->
-    <button id="confirm-button" style="padding: 8px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 10px; font-size: 16px; font-weight: 600; box-shadow: 0 4px 10px rgba(0, 128, 0, 0.3); cursor: pointer; transition: all 0.3s ease;">
-        ยืนยัน
-    </button>
+        <input type="email" id="email-input" name="email" placeholder="กรอกอีเมลของคุณ" style="padding: 5px; margin-right: 10px; border-radius: 5px; border: 1px solid #ccc; width: 20vw;">
+        <!-- ปุ่มยืนยัน -->
+        <button id="confirm-button" style="padding: 8px 20px; background-color:rgb(65, 123, 167); color: white; border: none; border-radius: 10px; font-size: 16px; font-weight: 600; box-shadow: 0 4px 10px rgba(0, 128, 0, 0.3); cursor: pointer; transition: all 0.3s ease;">
+            ยืนยัน
+        </button>
     </form>
-    
+    </div>
+
+ 
+ 
 
 
-    <!-- ปุ่มยกเลิก -->
-    <!-- <button id="cancel-button" style="padding: 8px 20px; background-color: #f44336; color: white; border: none; border-radius: 10px; font-size: 16px; font-weight: 600; box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3); cursor: pointer; transition: all 0.3s ease;">
-        ยกเลิก
-    </button> -->
-</div>
 
-<!-- ปุ่ม App Store และ Google Play (Step 2) -->
+<!-- ปุ่ม share (Step 2) -->
 <div class="share-buttons">
-    <span style="font-size: 25px; margin-right: 10px;color:white;">Step 2:</span>
-    <input type="checkbox" id="step2-checkbox" style="margin-right: 10px; transform: scale(2);" disabled>
+    <!-- <span style="font-size: 25px; margin-right: 10px;color:white;">Step 2:</span> -->
+    
 
     <a href="https://www.facebook.com/sharer/sharer.php?u=https://dev.stationidea.com/page/player/preregister-reward.php" id="activateCheckboxShare" target="_blank">
         <img src="../../images/SideBar-Nav-Icon/facebook.png" alt="Share on Facebook" style="transition: filter 0.3s ease;" 
@@ -311,8 +362,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 <!-- ปุ่ม App Store และ Google Play -->
 <div class="store-buttons">
-    <span style="font-size: 25px; margin-right: 10px;color:white;">Step 3:</span>
-    <input type="checkbox" id="step3-checkbox" style="margin-right: 10px; transform: scale(2);" disabled>
+    <!-- <span style="font-size: 25px; margin-right: 10px;color:white;">Step 3:</span> -->
+    
 
     <a href="https://play.google.com/store/apps/details?id=com.skynet.jx&pcampaignid=web_share" target="_blank" class="app-button" id="activateCheckboxAppStore">
         <img src="../../images/PreregisterButtonandReward/ios-button-preregister-button.png" alt="Pre-order on App Store"    
@@ -521,253 +572,43 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
 
+<!-- ปุ่มวีดีโอ -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const openModal = document.getElementById("openVideoModal");
+    const closeModal = document.getElementById("closeVideoModal");
+    const videoModal = document.getElementById("videoModal");
+    const youtubeVideo = document.getElementById("youtubeVideo");
 
+    // ✅ ทำให้ Modal เปิดเฉพาะตอนกดปุ่ม
+    openModal.addEventListener("click", function() {
+        videoModal.style.display = "flex";
+    });
 
+    // ✅ ปิด Modal เมื่อกดปุ่ม ❌
+    closeModal.addEventListener("click", function() {
+        videoModal.style.display = "none";
+        stopVideo();
+    });
 
-        <!-- <script>
-        
-    
-
-        
-     document.addEventListener('DOMContentLoaded', function() {
-    // ตรวจสอบว่ามีค่าใน localStorage หรือไม่ ถ้ามีไม่ทำอะไร
-    if (localStorage.getItem('step1') || localStorage.getItem('step2') || localStorage.getItem('step3')) {
-        // ทำอะไรบางอย่างถ้ามีค่าใน localStorage
-        // console.log("มีข้อมูลใน localStorage แล้ว");
-    }
-
-    // ถ้ามีพารามิเตอร์ success=1 ใน URL ให้แสดง SweetAlert
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('success') === '1') {
-        Swal.fire({
-            icon: 'success',
-            title: 'เรียบร้อย',
-            showConfirmButton: false,
-            timer: 1500
-        }).then(function() {
-            // ลบพารามิเตอร์ success ออกจาก URL
-            urlParams.delete('success'); // ลบพารามิเตอร์
-            const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
-
-            if (urlParams.toString()) {
-                window.history.replaceState({}, '', newUrl + '?' + urlParams.toString());
-            } else {
-                window.history.replaceState({}, '', newUrl); // ถ้าไม่มีพารามิเตอร์, ไม่ต้องเพิ่ม '?'
-            }
-        });
-    }
-
-    // ป้องกันการรีเฟรชหน้าจากการ submit ฟอร์ม
-    document.getElementById('confirm-button').addEventListener('click', function(event) {
-        event.preventDefault(); // หยุดการรีเฟรชหน้า
-
-        // ตรวจสอบว่าอีเมลถูกกรอกหรือไม่
-        const emailInput = document.getElementById('email-input').value;
-        if (emailInput === "" || !validateEmail(emailInput)) {
-            Swal.fire({
-                icon: 'error',
-                title: 'กรุณากรอกอีเมลที่ถูกต้อง',
-                text: 'อีเมลต้องมีเครื่องหมาย @ และรูปแบบที่ถูกต้อง',
-                showConfirmButton: true
-            });
-            return; // ถ้าอีเมลไม่ถูกต้อง หยุดการทำงานต่อ
+    // ✅ ปิด Modal เมื่อคลิกที่พื้นที่ว่าง (นอกกล่องวิดีโอ)
+    window.addEventListener("click", function(event) {
+        if (event.target === videoModal) {
+            videoModal.style.display = "none";
+            stopVideo();
         }
-
-        // ถ้าอีเมลถูกต้อง เก็บค่าใน localStorage
-        localStorage.setItem('step1', true);
-        document.getElementById('step1-checkbox').checked = true;
-
-        // แสดงข้อความ SweetAlert
-        Swal.fire({
-            icon: 'success',
-            title: 'ข้อมูลถูกบันทึกแล้ว',
-            showConfirmButton: false,
-            timer: 1500
-        });
-
-        // ส่งข้อมูลอีเมลไปยัง save-email.php ผ่าน AJAX
-        var formData = new FormData();
-        formData.append('email', emailInput); // เพิ่มอีเมลไปยังข้อมูลที่ต้องการส่ง
-
-        // ใช้ Fetch API สำหรับส่งข้อมูลไปยัง PHP
-        fetch('../../database/player/save_email.php', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json())  // รับข้อมูลตอบกลับจาก PHP
-        .then(data => {
-            if (data.success) {
-                // console.log("บันทึกอีเมลสำเร็จ");
-                // อาจแสดงข้อความเพิ่มเติมหรือทำการเปลี่ยนหน้า
-            } else {
-                // console.log("เกิดข้อผิดพลาดในการบันทึก");
-                // จัดการกับข้อผิดพลาด
-            }
-        })
-        .catch(error => {
-            // console.error("เกิดข้อผิดพลาด:", error);
-        });
     });
 
-    // ฟังก์ชันตรวจสอบรูปแบบอีเมล
-    function validateEmail(email) {
-        const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-        return regex.test(email);
+    // ✅ ฟังก์ชันหยุดวิดีโอเมื่อปิด Modal
+    function stopVideo() {
+        youtubeVideo.src = youtubeVideo.src; // รีเซ็ต URL เพื่อหยุดเล่นวิดีโอ
     }
-
-    // สถานะอื่นๆ เช่น step2, step3
-    document.getElementById('activateCheckboxShare').addEventListener('click', function() {
-        document.getElementById('step2-checkbox').checked = true;
-        localStorage.setItem('step2', true);
-    });
-
-    document.getElementById('activateCheckboxAppStore').addEventListener('click', function() {
-        document.getElementById('step3-checkbox').checked = true;
-        localStorage.setItem('step3', true);
-    });
-
-    document.getElementById('activateCheckboxGooglePlay').addEventListener('click', function() {
-        document.getElementById('step3-checkbox').checked = true;
-        localStorage.setItem('step3', true);
-    });
 });
 
+</script>
 
 
-
-        </script> -->
-
-
-
-<!--   
-        <script>
-const appId = '1001350605181889'; // App ID
-const appSecret = 'd526ab5022a28caffede48387ad7412f'; // App Secret
-const redirectUri = 'http://localhost/ProjectSwordsMan-Current/page/player/preregister-reward.php'; // URL สำหรับการส่งกลับ
-
-const authUrl = `https://graph.facebook.com/oauth/access_token?client_id=${appId}&client_secret=${appSecret}&grant_type=client_credentials&redirect_uri=${redirectUri}`;
-
-fetch(authUrl)
-  .then(response => response.json())
-  .then(data => {
-    console.log('Access Token:', data.access_token);
-  })
-  .catch(error => console.error('Error:', error));
-
-
-      // ฟังก์ชันแชร์โพสต์
-function shareOnFacebook() {
-    const accessToken = '1001350605181889|uO-czexFN8w1HzNPDzzZEM_LmrY'; // ใช้ Access Token ที่ได้จากขั้นตอนที่ 1
-    const url = 'https://graph.facebook.com/me/feed'; // ใช้ endpoint สำหรับโพสต์ที่ feed ของผู้ใช้
-    
-    const data = {
-        message: 'Check out this amazing content!',
-        link: 'https://dev.stationidea.com/page/player/preregister-reward.php',
-        access_token: accessToken // ส่ง Access Token
-    };
-
-    fetch(url, {
-        method: 'POST',
-        body: new URLSearchParams(data)
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.id) {
-            console.log('โพสต์สำเร็จ! ID ของโพสต์คือ:', data.id);
-        } else {
-            console.log('เกิดข้อผิดพลาดในการแชร์:', data.error);
-        }
-    })
-    .catch(error => {
-        console.error('ข้อผิดพลาดเกิดขึ้น:', error);
-    });
-}
-        </script> -->
-
-<!-- <script>
-     window.fbAsyncInit = function() {
-        FB.init({
-            appId      : '9425348864248371', // ตรวจสอบว่าเป็น App ID ของคุณ
-            cookie     : true, 
-            xfbml      : true,  
-            version    : 'v18.0' // ใช้เวอร์ชั่นล่าสุด
-        });
-    };
-
-    function shareOnFacebook() {
-        FB.ui({
-            method: 'share',
-            href: 'https://dev.stationidea.com/page/player/preregister-reward.php', // URL ที่ต้องการให้แชร์
-        }, function(response) {
-            if (response && !response.error_message) {
-                console.log('แชร์สำเร็จ!');
-                // บันทึกข้อมูลหรือดำเนินการเพิ่มเติมตามต้องการ
-            } else {
-                console.log('แชร์ไม่สำเร็จ!');
-            }
-        });
-    }
-
-</script> -->
-
- <!-- <script>
-        // โหลด Facebook SDK
-        window.fbAsyncInit = function() {
-            FB.init({
-                appId      : '1001350605181889', // 🔥 เปลี่ยนเป็น Facebook App ID ของคุณ
-                cookie     : true, 
-                xfbml      : true,  
-                version    : 'v18.0' // ใช้ API ล่าสุด
-            });
-        };
-
-        (function(d, s, id){
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-
-        // ฟังก์ชันล็อกอิน Facebook
-        function facebookLogin() {
-            FB.login(function(response) {
-                if (response.authResponse) {
-                    console.log('User logged in', response);
-                    getUserInfo(); // ดึงข้อมูลผู้ใช้
-                } else {
-                    console.log('User cancelled login');
-                }
-            }, {scope: 'public_profile,email,user_posts'});
-        }
-
-        // ดึงข้อมูลผู้ใช้
-        function getUserInfo() {
-            FB.api('/me', {fields: 'id,name,email'}, function(response) {
-                console.log('User Info:', response);
-                document.getElementById('user-info').innerHTML = `
-                    <h3>Welcome, ${response.name}</h3>
-                    <p>Email: ${response.email}</p>
-                    <p>Facebook ID: ${response.id}</p>
-                `;
-            });
-        }
-
-        // ตรวจสอบว่าผู้ใช้โพสต์จริงหรือไม่
-        function checkUserPosts() {
-            FB.api('/me/feed', function(response) {
-                console.log('User Posts:', response);
-                if (response && response.data.length > 0) {
-                    alert("User has posted something!");
-                } else {
-                    alert("No recent posts found!");
-                }
-            });
-        }
-    </script> -->
-
-
-
+       
 
 
 
@@ -775,96 +616,6 @@ function shareOnFacebook() {
 
         
     </section>
-
-
-<!-- <script>
-    // คำสั่งให้ checkbox ถูกติ๊กเมื่อกดปุ่ม
-    document.getElementById('activateCheckboxButton').addEventListener('click', function() {
-        document.getElementById('step1-checkbox').checked = true;
-    });
-</script> -->
-
-    <!-- End Reward Section -->
-
-<!-- <script>
-    // ตัวแปรสำหรับจัดการแต่ละหน่วย
-    var counterHundredThousands = new Counter(document.querySelector('[data-js="counter-hundred-thousands"]')),
-        counterTenThousands = new Counter(document.querySelector('[data-js="counter-ten-thousands"]')),
-        counterThousands = new Counter(document.querySelector('[data-js="counter-thousands"]')),
-        counterHundreds = new Counter(document.querySelector('[data-js="counter-hundreds"]')),
-        counterTens = new Counter(document.querySelector('[data-js="counter-tens"]')),
-        counterOnes = new Counter(document.querySelector('[data-js="counter-ones"]'));
-    
-    // สมมติว่า count ได้รับการอัปเดต
-    count = 15400;  // เปลี่ยนแปลงค่า count
-
-    // อัปเดตค่าใหม่ใน localStorage
-    localStorage.getItem('count', count) || 15400 ;
-    localStorage.setItem('count', count) ;
-
-    function Counter(el) {
-        var current = el.querySelector('[data-js="current"]'),
-            count;
-
-        function update(value) {
-            if (count === value) { return; }
-            count = value;
-            current.innerHTML = count;
-            el.classList.add('is-changing');
-            setTimeout(function () {
-                el.classList.remove('is-changing');
-            }, 210);
-        }
-
-        return {
-            update: update
-        };
-    }
-
-    function displayNumber() {
-        var hundredThousands = Math.floor(count / 100000);
-        var tenThousands = Math.floor((count % 100000) / 10000);
-        var thousands = Math.floor((count % 10000) / 1000);
-        var hundreds = Math.floor((count % 1000) / 100);
-        var tens = Math.floor((count % 100) / 10);
-        var ones = count % 10;
-
-        // อัปเดตค่าตัวเลขในแต่ละหน่วย
-        setTimeout(() => counterHundredThousands.update(hundredThousands), 0); // หลักแสน
-        setTimeout(() => counterTenThousands.update(tenThousands), 300);   // หลักหมื่น
-        setTimeout(() => counterThousands.update(thousands), 600);         // หลักพัน
-        setTimeout(() => counterHundreds.update(hundreds), 900);           // หลักร้อย
-        setTimeout(() => counterTens.update(tens), 1200);                   // หลักสิบ
-        setTimeout(() => counterOnes.update(ones), 1500);                   // หลักหน่วย
-    }
-
-    // เรียกใช้งานเมื่อโหลดหน้า
-    window.addEventListener('load', function() {
-        displayNumber(); // เรียกใช้งานฟังก์ชันแสดงตัวเลขจาก localStorage
-    });
-
-    // ถ้าค่าเปลี่ยนให้รีเฟรชหน้า
-    // ใช้ setInterval เพื่อตรวจสอบการเปลี่ยนแปลงใน localStorage
-    let previousCount = localStorage.getItem('count'); // เก็บค่าก่อนหน้า
-
-    setInterval(function() {
-        let currentCount = localStorage.getItem('count'); // อ่านค่าปัจจุบันจาก localStorage
-        
-        // ถ้าค่าของ count เปลี่ยนแปลง ให้รีเฟรชหน้า
-        if (currentCount !== previousCount) {
-            console.log("Value changed in localStorage");
-            location.reload(); // รีเฟรชหน้า
-        }
-
-        // อัปเดต previousCount
-       
-        previousCount = currentCount;
-    }, 10000); // ตรวจสอบทุก 10วิ
-</script> -->
-
-
-
-
 
 
 <!-- โค้ดเก่าแบบนับเรื่อยๆ -->
@@ -932,53 +683,236 @@ function shareOnFacebook() {
 
 
 
+<!-- Styles -->
+  <style>
+
+/* ==============================
+   Preregister Section (preregister section)
+   ============================== */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    /* เผื่อว่าภาพโหลดไม่ขึ้น */
+
+}
+
+.floating-video-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    width: 55px;
+    height: 55px;
+    border: none;
+    padding: 0;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #FFD700, #FF4500, #FFD700);
+    background-size: 200% 200%;
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.7);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease-in-out;
+    animation: glowEffect 3s infinite alternate, gradientMove 3s infinite linear;
+}
+
+/* ✅ เอฟเฟคเรืองแสง (วิ่งไป-กลับ) */
+@keyframes glowEffect {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+    }
+
+    50% {
+        box-shadow: 0 0 20px rgba(255, 69, 0, 0.8);
+    }
+
+    100% {
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+    }
+}
+
+/* ✅ ไล่สีพื้นหลัง (วิ่งไป-กลับ) */
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* ✅ ปรับ animation ให้ทำงานแบบไป-กลับ */
+.floating-video-btn {
+    animation: glowEffect 3s infinite alternate, gradientMove 3s infinite alternate;
+}
 
 
+/* ✅ เอฟเฟคตอนกดปุ่ม */
+.floating-video-btn:active {
+    transform: scale(0.95);
+}
+
+/* ✅ ปรับขนาดไอคอน */
+.floating-video-btn img {
+    width: 50px;
+    height: auto;
+    filter: drop-shadow(0 0 5px rgba(255, 69, 0, 0.8));
+}
+
+/* ✅ เอฟเฟคตอน hover */
+.floating-video-btn:hover {
+    transform: scale(1.15); /* ✅ ขยายขึ้น 15% */
+    box-shadow: 0 0 30px rgba(255, 69, 0, 1), 0 0 20px rgba(255, 215, 0, 0.9);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
 
 
-    <!-- Styles -->
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: black;
-            /* เผื่อว่าภาพโหลดไม่ขึ้น */
+/* 📱 **รองรับมือถือ** */
+@media (max-width: 768px) {
+    .floating-video-btn {
+        width: 30px;
+        /* ✅ ลดขนาดปุ่ม */
+        height: 30px;
+        top: 10px;
+        right: 10px;
+        animation: glowEffectMobile 3s infinite alternate, gradientMove 3s infinite linear;
+    }
 
+    .floating-video-btn img {
+        width: 40px;
+        /* ✅ ลดขนาดไอคอน */
+    }
+
+    /* ✅ ปรับแสงให้น้อยลงในมือถือ */
+    @keyframes glowEffectMobile {
+        0% {
+            box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
         }
-        
 
-    /* ปรับให้ reward section อยู่กึ่งกลาง */
-    .reward-section {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh; /* ให้กินพื้นที่เต็มจอ */
-        width: 100%;
-        background-size: contain;
-        background-attachment: fixed;
-        position: relative; /* ตั้งเป็น relative เพื่อให้ store-buttons ยึดตำแหน่งกับมัน */
-        flex-direction: column; /* เพื่อให้แนวตั้ง */
-   
+        50% {
+            box-shadow: 0 0 10px rgba(255, 69, 0, 0.7);
+        }
+
+        100% {
+            box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+        }
+    }
+}
+
+
+/* สไตล์ Modal */
+.video-modal {
+    display: none;
+    /* ซ่อนไว้ก่อน */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+
+
+/* กล่องวิดีโอ */
+.video-modal-content {
+    position: relative;
+    background: black;
+    padding: 15px;
+    border-radius: 10px;
+    max-width: 90%;
+    width: 600px;
+}
+
+/* ปุ่มปิด Modal */
+.close-video-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.close-video-modal:hover {
+    color: red;
+}
+
+/* ปรับ iframe (YouTube Video) */
+.video-modal iframe {
+    width: 100%;
+    height: 340px;
+    border-radius: 8px;
+}
+
+/* Responsive: ขนาดวิดีโอบนมือถือ */
+@media (max-width: 768px) {
+
+    .video-modal-content {
+        width: 90%;
     }
 
-    /* ปรับให้ภาพรางวัลอยู่กึ่งกลาง */
-    .reward-container-rewardpage {
-        position: relative; /* ให้เป็นจุดอ้างอิงสำหรับ position absolute */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-       
+    .video-modal iframe {
+        height: 250px;
     }
 
-    .reward-image {
-        width: 100%;
-        max-width: auto;
-        height: auto;
-        
+    .floating-video-btn img {
+        width: 50px;
     }
-   
-    /* #counter {
+}
+
+
+
+/*----------Home Section----------- */
+/* ----------------------------------*/
+
+
+/* ปรับให้ reward section อยู่กึ่งกลาง */
+.reward-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* ให้กินพื้นที่เต็มจอ */
+    width: 100%;
+    background-size: contain;
+    background-attachment: fixed;
+    position: relative; 
+  
+    flex-direction: column;
+    /* เพื่อให้แนวตั้ง */
+
+}
+
+/* ปรับให้ภาพรางวัลอยู่กึ่งกลาง */
+.reward-container-rewardpage {
+    position: relative;
+    /* ให้เป็นจุดอ้างอิงสำหรับ position absolute */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+}
+
+.reward-image {
+    width: 100%;
+    max-width: auto;
+    height: auto;
+
+}
+
+/* #counter {
         position: absolute;
         top: 11.7%; 
         left: 22%;
@@ -992,6 +926,402 @@ function shareOnFacebook() {
         text-align: center;
     }  */
 
+.Counter {
+    font: 100px Helvetica;
+    display: flex;
+    justify-content: center;
+    color: #dddddd;
+    overflow: hidden;
+    position: absolute;
+    top: 80%;
+    left: 5%;
+
+    font-size: 150px;
+    font-weight: bold;
+    background: transparent;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-align: center;
+    backface-visibility: hidden;
+    border-radius: 5px 5px 0 0;
+    box-shadow: inset 0 15px 50px rgb(191, 187, 187);
+    width: auto;
+    gap: 20px;
+}
+
+.Counter-unit {
+    width: 80px;
+    /* เพิ่มขนาดของแต่ละตัวเลข */
+    text-align: center;
+    position: relative;
+    background: #1a1a1a;
+    border-radius: 5px;
+    box-shadow: inset 0 5px 15px rgba(176, 169, 169, 0.7), 0 2px 10px rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 120px;
+    transition: transform 0.3s ease;
+}
+
+.Counter-unit.is-changing {
+    transform: translateY(200px);
+    transition: transform 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.Counter-number {
+    display: block;
+    text-shadow: 0 1px 3px rgba(222, 44, 44, 0.8);
+    /* เพิ่มเงาให้กับตัวเลข */
+}
+
+.Counter-unit:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    /* วางเส้นแบ่งตรงกลาง */
+    left: 0;
+    right: 0;
+    height: 1px;
+    /* ความหนาของเส้น */
+    background: #444;
+    /* สีของเส้นแบ่ง */
+    z-index: 1;
+}
+
+.Counter-unit .Counter-number {
+    z-index: 2;
+    /* ตัวเลขต้องอยู่เหนือเส้นแบ่ง */
+}
+
+
+
+/* ปุ่ม App Store และ Google Play */
+.store-buttons {
+    position: absolute;
+    top: 48.4%;
+    left: 8%;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* ปรับขนาดปุ่ม */
+.store-buttons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 350px;
+    max-width: 80%;
+}
+
+.store-buttons img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+
+.store-buttons img:hover {
+    transform: scale(1.1);
+}
+
+
+.share-buttons {
+    position: absolute;
+    top: 43%;
+    /* กำหนดให้ปุ่มลอยเหนือขอบล่างของ reward image */
+    left: 10%;
+    display: flex;
+    gap: 20px;
+    /* ระยะห่างระหว่างปุ่ม */
+    justify-content: center;
+    align-items: center;
+}
+
+.share-buttons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    max-width: 80%;
+    margin-left: 20px;
+}
+
+.share-buttons img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.share-buttons img:hover {
+    transform: scale(1.1);
+}
+
+
+.email-box-buttons {
+    position: absolute; 
+    top: 36.8%;
+    left: 26%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.terms-checkbox{
+    position: absolute; 
+    top: 27.8%;
+    left: 26%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:black;
+    
+}
+.email-box-buttons input[type="email"] {
+    width: 100%;
+    max-width: 450px; /* ปรับขนาดให้พอดีกับดีไซน์ */
+    padding: 12px 20px;
+    font-size: 16px;
+    border: 2px solid transparent;
+    outline: none;
+    border-radius: 40px; /* ✅ ทำให้ขอบมน */
+    background: white;
+
+    /* ✅ ไล่สีขอบเหมือนในภาพ */
+    box-shadow: inset 0 0 10px rgba(173, 216, 230, 0.8), 
+                0 0 5px rgba(173, 216, 230, 0.6);
+
+    transition: all 0.3s ease-in-out;
+}
+
+/* ✅ เพิ่มเอฟเฟคเมื่อคลิกที่ช่อง */
+.email-box-buttons input[type="email"]:focus {
+    border-color: rgba(0, 123, 255, 0.5);
+    box-shadow: inset 0 0 12px rgba(0, 123, 255, 0.8), 
+                0 0 10px rgba(0, 123, 255, 0.9);
+}
+
+
+/* 🎯 STEP 1 CHECKBOX */
+#step1-checkbox {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border: 2px solid; 
+    border-radius: 5px;
+
+    /* border: none; */
+    display: inline-block;
+    /* transition: background-color 0.3s, border-color 0.3s; */
+    background-size: contain;
+    position: absolute;
+    left:21.5%;
+    top:34%;
+    
+}
+
+/* ✅ เมื่อถูกติ๊กแล้ว (ไอคอนแทน `✓`) */
+#step1-checkbox:checked {
+    
+    border-color: transparent; 
+    background-image: url('../../images/RewardPage/fireicon.gif'); /* 📌 เปลี่ยนเป็นไอคอนของคุณ */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* 🎯 STEP 2 CHECKBOX */
+#step2-checkbox {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+  
+    /* border: none; */
+   
+    position: relative;
+    display: inline-block;
+    transition: background-color 0.3s, border-color 0.3s;
+    position: absolute;
+    left:25.9%;
+    top:41.1%;
+   
+}
+
+/* ✅ เมื่อถูกติ๊กแล้ว (ไอคอนแทน `✓`) */
+#step2-checkbox:checked {
+    border-color: transparent; 
+    background-image: url('../../images/RewardPage/fireicon.gif'); /* 📌 เปลี่ยนเป็นไอคอนของคุณ */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* 🎯 STEP 3 CHECKBOX */
+#step3-checkbox {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+   border: 2px solid #ccc;
+    border-radius: 5px;
+  
+    /* border: none; */
+   
+    position: relative;
+    display: inline-block;
+    transition: background-color 0.3s, border-color 0.3s;
+     position: absolute;
+    left:25.9%;
+    top:47.1%;
+
+}
+
+/* ✅ เมื่อถูกติ๊กแล้ว (ไอคอนแทน `✓`) */
+#step3-checkbox:checked {
+    border-color: transparent; 
+    background-image: url('../../images/RewardPage/green-approved-stamp-postage-business-icon.png'); /* 📌 เปลี่ยนเป็นไอคอนของคุณ */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+   
+}
+
+
+
+/* 🎯 ปรับตำแหน่งปุ่ม Scroll Down */
+.scroll-down-container {
+    position: absolute;
+    top: 27.5%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4000;
+}
+
+/* ✅ ปรับไอคอน */
+.scroll-down-button-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(8, 6, 6, 0.5);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 15px rgba(13, 9, 9, 0.4);
+    transition: all 0.3s ease-in-out;
+    animation: scroll-down-anim 1.5s infinite;
+}
+
+/* ✅ เอฟเฟค Hover */
+.scroll-down-button-arrow:hover {
+    background: rgba(8, 6, 6, 0.5);
+}
+
+/* ✅ ใช้ <img> เป็นไอคอน */
+.scroll-down-img {
+    width: 40px;
+    height: auto;
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+/* ✅ เอฟเฟค hover */
+.scroll-down-img:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.9));
+}
+
+/* ✅ เอฟเฟคขยับขึ้นลง */
+@keyframes scroll-down-anim {
+    0% { transform: translateY(-5px); }
+    50% { transform: translateY(5px); }
+    100% { transform: translateY(-5px); }
+}
+
+
+
+
+
+
+
+
+
+
+/* ✅ สำหรับมือถือ (Mobile Only) */
+@media only screen and (max-width: 767px) {
+
+
+    .store-buttons a {
+        width: 90px;
+    }
+
+    .share-buttons a {
+        width: 20px;
+    }
+
+    .email-box-buttons {
+        top: 15%;
+    }
+
+
+    .email-box-buttons span,
+    .share-buttons span,
+    .store-buttons span {
+        font-size: 14px !important;
+        /* ปรับขนาดตัวอักษร */
+        font-weight: bold;
+        /* ทำให้ตัวหนังสือหนาขึ้น */
+        color: white;
+        /* สีของตัวอักษร */
+        margin-right: 5px;
+        /* เพิ่มระยะห่างจาก checkbox */
+    }
+
+
+    .email-box-buttons input[type="email"] {
+        width: 30vw !important;
+        /* ปรับขนาดให้กว้างขึ้น */
+        font-size: 8px;
+        /* ลดขนาดตัวอักษร */
+        padding: 0px 0px;
+        /* ลด padding */
+        margin-top: 20px;
+        margin-left: 0px;
+        height: auto;
+
+    }
+
+
+    /* ปรับขนาด checkbox */
+    .email-box-buttons input[type="checkbox"],
+    .share-buttons input[type="checkbox"],
+    .store-buttons input[type="checkbox"] {
+        transform: scale(1) !important;
+        /* ลดขนาด checkbox */
+    }
+
+    #confirm-button {
+        font-size: 12px !important;
+        /* ปรับขนาดตัวหนังสือในปุ่ม */
+        padding: 0px 5px !important;
+        /* ปรับขนาดปุ่ม */
+        border-radius: 8px;
+        /* ทำให้โค้งมน */
+    }
+
+
+
+
     .Counter {
         font: 100px Helvetica;
         display: flex;
@@ -999,317 +1329,9 @@ function shareOnFacebook() {
         color: #dddddd;
         overflow: hidden;
         position: absolute;
-        top: 11.7%;
-        left: 5%;
-     
-        font-size: 150px;
-        font-weight: bold;
-        background: transparent;
-        padding: 10px 20px;
-        border-radius: 10px;
-        text-align: center;
-        backface-visibility: hidden;
-        border-radius: 5px 5px 0 0;
-        box-shadow: inset 0 15px 50px #111111;
-        width: auto;
-        gap: 20px;
-    }
-
-    .Counter-unit {
-        width: 80px;  /* เพิ่มขนาดของแต่ละตัวเลข */
-        text-align: center;
-        position: relative;
-        background: #1a1a1a;
-        border-radius: 5px;
-        box-shadow: inset 0 5px 15px rgba(0,0,0,0.7), 0 2px 10px rgba(0,0,0,0.5);
-        color: #fff;
-        font-size: 120px;
-        transition: transform 0.3s ease;
-    }
-
-    .Counter-unit.is-changing {
-        transform: translateY(200px);
-        transition: transform 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    }
-
-    .Counter-number {
-        display: block;
-        text-shadow: 0 1px 3px rgba(0,0,0,0.8); /* เพิ่มเงาให้กับตัวเลข */
-    }
-
-    .Counter-unit:before {
-        content: "";
-        position: absolute;
-        top: 50%; /* วางเส้นแบ่งตรงกลาง */
-        left: 0;
-        right: 0;
-        height: 1px;  /* ความหนาของเส้น */
-        background: #444;  /* สีของเส้นแบ่ง */
-        z-index: 1;
-    }
-
-    .Counter-unit .Counter-number {
-        z-index: 2; /* ตัวเลขต้องอยู่เหนือเส้นแบ่ง */
-    }
-
-
-
-    /* ปุ่ม App Store และ Google Play */
-    .store-buttons {
-        position: absolute;
-        top: 23%; 
-        left: 5%;
-        display: flex;
-        gap: 10px; 
-        justify-content: center;
-        align-items: center;
-    }
-
-    
-    /* ปรับขนาดปุ่ม */
-    .store-buttons a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 350px;
-        max-width: 80%;
-    }
-
-    .store-buttons img {
-        width: 100%;
-        height: auto;
-        transition: transform 0.3s ease;
-    }
-
-  
-    .store-buttons img:hover {
-        transform: scale(1.1);
-    }
-
-
-    .share-buttons{
-        position: absolute;
-        top: 20.5%; /* กำหนดให้ปุ่มลอยเหนือขอบล่างของ reward image */
-        left: 5%;
-        display: flex;
-        gap: 10px; /* ระยะห่างระหว่างปุ่ม */
-        justify-content: center;
-        align-items: center;
-    }
-     .share-buttons a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 50px;
-        max-width: 80%;
-        margin-left:20px;
-    }
-
-    .share-buttons img {
-        width: 100%;
-        height: auto;
-        transition: transform 0.3s ease;
-    }
-       
-    .share-buttons img:hover {
-        transform: scale(1.1);
-    }
-
-
-    .email-box-buttons{
-        position: absolute;
-        top: 17%; /* กำหนดให้ปุ่มลอยเหนือขอบล่างของ reward image */
-        left: 5%;
-        display: flex;
-        gap: 10px; /* ระยะห่างระหว่างปุ่ม */
-        justify-content: center;
-        align-items: center;
-       
-      
-    }
-     .email-box-buttons input[type="email"] {
-     
-     
-         margin-top:20px;
-         margin-left:20px;
-         
-    }
-
-    /*เช็คบ็อกสไตล์*/
-    #step1-checkbox {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        width: 20px;
-        height: 20px;
-        border: 2px solid #ccc;
-        border-radius: 4px;
-        position: relative;
-        display: inline-block;
-        transition: background-color 0.3s, border-color 0.3s;
-    }
-
-    /* เมื่อถูกติ๊กแล้ว */
-    #step1-checkbox:checked {
-        background-color: #4CAF50; /* สีเขียวเมื่อถูกติ๊ก */
-        border-color: #4CAF50; /* สีกรอบเขียวเมื่อถูกติ๊ก */
-    }
-
-    /* สร้างเครื่องหมายติ๊ก */
-    #step1-checkbox:checked::before {
-        content: '\2705'; /* ใช้ Unicode ของเครื่องหมายติ๊ก */
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%); /* ย้ายเครื่องหมายติ๊กไปที่กลาง */
-        font-size: 18px; /* ขนาดของเครื่องหมายติ๊ก */
-        color: white; /* สีของเครื่องหมายติ๊ก */
-    }
-
-
-    /*เช็คบ็อกสไตล์*/
-    #step2-checkbox {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        width: 20px;
-        height: 20px;
-        border: 2px solid #ccc;
-        border-radius: 4px;
-        position: relative;
-        display: inline-block;
-        transition: background-color 0.3s, border-color 0.3s;
-    }
-    /* ปรับเมื่อ hover */
-    #step2-checkbox:hover {
-        border-color: #4CAF50;
-    }
-
-      /* เมื่อถูกติ๊กแล้ว */
-    #step2-checkbox:checked {
-        background-color: #4CAF50; /* สีเขียวเมื่อถูกติ๊ก */
-        border-color: #4CAF50; /* สีกรอบเขียวเมื่อถูกติ๊ก */
-    }
-
-    /* สร้างเครื่องหมายติ๊ก */
-    #step2-checkbox:checked::before {
-        content: '\2705'; /* ใช้ Unicode ของเครื่องหมายติ๊ก */
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%); /* ย้ายเครื่องหมายติ๊กไปที่กลาง */
-        font-size: 18px; /* ขนาดของเครื่องหมายติ๊ก */
-        color: white; /* สีของเครื่องหมายติ๊ก */
-    }
-
-    /* ปรับเมื่อ hover */
-    #step2-checkbox:hover {
-        border-color: #4CAF50;
-    }
-
-    /*เช็คบ็อกสไตล์*/
-    #step3-checkbox {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        width: 20px;
-        height: 20px;
-        border: 2px solid #ccc;
-        border-radius: 4px;
-        position: relative;
-        display: inline-block;
-        transition: background-color 0.3s, border-color 0.3s;
-    }
-    /* ปรับเมื่อ hover */
-    #step3-checkbox:hover {
-        border-color: #4CAF50;
-    }
-
-      /* เมื่อถูกติ๊กแล้ว */
-    #step3-checkbox:checked {
-        background-color: #4CAF50; /* สีเขียวเมื่อถูกติ๊ก */
-        border-color: #4CAF50; /* สีกรอบเขียวเมื่อถูกติ๊ก */
-    }
-
-    /* สร้างเครื่องหมายติ๊ก */
-    #step3-checkbox:checked::before {
-        content: '\2705'; /* ใช้ Unicode ของเครื่องหมายติ๊ก */
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%); /* ย้ายเครื่องหมายติ๊กไปที่กลาง */
-        font-size: 18px; /* ขนาดของเครื่องหมายติ๊ก */
-        color: white; /* สีของเครื่องหมายติ๊ก */
-    }
-
-    /* ปรับเมื่อ hover */
-    #step3-checkbox:hover {
-        border-color: #4CAF50;
-    }
-
-
-     /* ✅ สำหรับมือถือ (Mobile Only) */
-   @media only screen and (max-width: 767px) {
- 
-
-   .store-buttons a {
-        width: 90px;
-   }
-   .share-buttons a {
-     width: 20px;
-   }
-   .email-box-buttons{
-        top:15%;
-    }
-
-
-   .email-box-buttons span,
-   .share-buttons span,
-   .store-buttons span {
-        font-size: 14px !important; /* ปรับขนาดตัวอักษร */
-        font-weight: bold; /* ทำให้ตัวหนังสือหนาขึ้น */
-        color: white; /* สีของตัวอักษร */
-        margin-right: 5px; /* เพิ่มระยะห่างจาก checkbox */
-    }
-
- 
-    .email-box-buttons input[type="email"] {
-        width: 30vw !important; /* ปรับขนาดให้กว้างขึ้น */
-        font-size: 8px; /* ลดขนาดตัวอักษร */
-        padding: 0px 0px; /* ลด padding */
-        margin-top:20px;
-        margin-left:0px;
-        height: auto;
-      
-    }
-
-
-  /* ปรับขนาด checkbox */
-    .email-box-buttons input[type="checkbox"],
-    .share-buttons input[type="checkbox"],
-    .store-buttons input[type="checkbox"] {
-        transform: scale(1) !important; /* ลดขนาด checkbox */
-    }
-
-    #confirm-button {
-    font-size: 12px !important; /* ปรับขนาดตัวหนังสือในปุ่ม */
-    padding: 0px 5px !important; /* ปรับขนาดปุ่ม */
-    border-radius: 8px; /* ทำให้โค้งมน */
-    }
-
-
-
-        
-    .Counter {
-        font: 100px Helvetica; 
-        display: flex;
-        justify-content: center;
-        color: #dddddd;
-        overflow: hidden;
-        position: absolute;
-        top: 13%;
+        top: 80%;
         left: 3%;
-       
+
         font-size: 18px !important;
         font-weight: bold;
         background: transparent;
@@ -1318,28 +1340,58 @@ function shareOnFacebook() {
         text-align: center;
         backface-visibility: hidden;
         border-radius: 5px 5px 0 0;
-        box-shadow: inset 0 15px 50px #111111;
-        width: auto; 
+        /* box-shadow: inset 0 15px 50px #111111; */
+        width: auto;
         height: auto;
         gap: 10px;
     }
 
 
     .Counter-unit {
-        width: 35px; 
+        width: 35px;
         text-align: center;
         position: relative;
         background: #1a1a1a;
         border-radius: 5px;
-        box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.7), 0 2px 10px rgba(0, 0, 0, 0.5);
+        /* box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.7), 0 2px 10px rgba(0, 0, 0, 0.5); */
         color: #fff;
         font-size: 16px;
         transition: transform 0.3s ease;
         margin-bottom: 5px;
     }
-    
+
+    #step1-checkbox {
+
+    width: 8px;
+    position: absolute;
+    left:5.5%;
+    top:24.7%;
     }
-    @media only screen and (min-width: 768px) and (max-width: 1400px)  {
+    #step2-checkbox {
+    width: 8px;
+    position: absolute;
+    left:5.5%;
+    top:29.9%;
+    }
+    #step3-checkbox {
+    width: 8px;
+    position: absolute;
+    left:5.5%;
+    top:34.9%;
+    }
+
+       .scroll-down-img {
+        width: 35px;
+    }
+    .scroll-down-container {
+        top: 8%;
+    }
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1400px) {
+  
+
     .store-buttons a {
         display: flex;
         align-items: center;
@@ -1348,7 +1400,8 @@ function shareOnFacebook() {
         max-width: 80%;
 
     }
-     .Counter {
+
+    .Counter {
         font: 50px Helvetica;
         display: flex;
         justify-content: center;
@@ -1357,7 +1410,7 @@ function shareOnFacebook() {
         position: absolute;
         top: 11.7%;
         left: 5%;
-     
+
         font-size: 80px;
         font-weight: bold;
         background: transparent;
@@ -1366,243 +1419,43 @@ function shareOnFacebook() {
         text-align: center;
         backface-visibility: hidden;
         border-radius: 5px 5px 0 0;
-        box-shadow: inset 0 15px 50px #111111;
+        /* box-shadow: inset 0 15px 50px #111111; */
         width: auto;
         gap: 20px;
     }
 
     .Counter-unit {
-        width: 50px;  /* เพิ่มขนาดของแต่ละตัวเลข */
+        width: 50px;
+        /* เพิ่มขนาดของแต่ละตัวเลข */
         text-align: center;
         position: relative;
         background: #1a1a1a;
         border-radius: 5px;
-        box-shadow: inset 0 5px 15px rgba(0,0,0,0.7), 0 2px 10px rgba(0,0,0,0.5);
+        /* box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.7), 0 2px 10px rgba(0, 0, 0, 0.5); */
         color: #fff;
         font-size: 80px;
         transition: transform 0.3s ease;
     }
-}
 
-/* @media only screen and (max-width: 768px) and (orientation: landscape) {
-    .store-buttons {
-        flex-direction: row;
-        gap: 10px;
+    #step1-checkbox {
+    width: 15px;
     }
-
-    .store-buttons a {
-        width: 160px;
+    #step2-checkbox {
+        width: 15px;
     }
-
-    .Counter {
-        font: 80px Helvetica;
-        display: flex;
-        justify-content: center;
-        color: #dddddd;
-        overflow: hidden;
-        position: absolute;
-        top: 13%;
-        left: 26%;
-        transform: translateX(-50%,-50%);
-        font-size: 18%;
-        font-weight: bold;
-        background: transparent;
-        padding: 10px;
-        border-radius: 10px;
-        text-align: center;
-        backface-visibility: hidden;
-        border-radius: 5px 5px 0 0;
-        box-shadow: inset 0 15px 50px #111111;
-        width: auto;
-        height: auto;
-        gap: 10px;
-    }
-
-    .Counter-unit {
-        width: 80px;
-        text-align: center;
-        position: relative;
-        background: #1a1a1a;
-        border-radius: 5px;
-        box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.7), 0 2px 10px rgba(0, 0, 0, 0.5);
-        color: #fff;
-        font-size: 20px;
-        transition: transform 0.3s ease;
-        margin-bottom: 5px;
+    #step3-checkbox {
+        width: 15px;
     }
 }
 
-@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-    .store-buttons {
-        flex-direction: row;
-        gap: 15px;
-    }
+ </style>
 
-    .store-buttons a {
-        width: 180px;
-    }
 
-   .Counter {
-        font: 100px Helvetica;
-        display: flex;
-        justify-content: center;
-        color: #dddddd;
-        overflow: hidden;
-        position: absolute;
-        top: 9%;
-        left: 38%;
-        transform: translateX(-50%);
-        font-size: 150px;
-        font-weight: bold;
-        background: transparent;
-        padding: 10px 20px;
-        border-radius: 10px;
-        text-align: center;
-        backface-visibility: hidden;
-        border-radius: 5px 5px 0 0;
-        box-shadow: inset 0 15px 50px #111111;
-        width: auto;
-        gap: 20px;
-    }
 
-    .Counter-unit {
-        width: 80px; 
-        text-align: center; 
-        position: relative;
-        background: #1a1a1a;
-        border-radius: 5px;
-        box-shadow: inset 0 5px 15px rgba(0,0,0,0.7), 0 2px 10px rgba(0,0,0,0.5);
-        color: #fff;
-        font-size: 120px;
-        transition: transform 0.3s ease;
-    }
-}
+   
+       
 
-@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-
-    .Counter {
-        font: 100px Helvetica;
-        display: flex;
-        justify-content: center;
-        color: #dddddd;
-        overflow: hidden;
-        position: absolute;
-        top: 9%;
-        left: 30%;
-        transform: translateX(-50%);
-        font-size: 150px;
-        font-weight: bold;
-        background: transparent;
-        padding: 10px 20px;
-        border-radius: 10px;
-        text-align: center;
-        backface-visibility: hidden;
-        border-radius: 5px 5px 0 0;
-        box-shadow: inset 0 15px 50px #111111;
-        width: auto;
-        gap: 20px;
-    }
-
-    .Counter-unit {
-        width: 80px;  
-        text-align: center; 
-        position: relative;
-        background: #1a1a1a;
-        border-radius: 5px;
-        box-shadow: inset 0 5px 15px rgba(0,0,0,0.7), 0 2px 10px rgba(0,0,0,0.5);
-        color: #fff;
-        font-size: 120px;
-        transition: transform 0.3s ease;
-    }
-}
-
-  @media only screen and (min-width: 1024px) and (max-width: 1400px) and (orientation: portrait) {
-    .store-buttons a {
-            width: 240px;
-        }
-        .Counter {
-        font: 100px Helvetica;
-        display: flex;
-        justify-content: center;
-        color: #dddddd;
-        overflow: hidden;
-        position: absolute;
-        top: 11.7%;
-        left: 30%;
-        transform: translateX(-50%);
-        font-size: 150px;
-        font-weight: bold;
-        background: transparent;
-        padding: 10px 20px;
-        border-radius: 10px;
-        text-align: center;
-        backface-visibility: hidden;
-        border-radius: 5px 5px 0 0;
-        box-shadow: inset 0 15px 50px #111111;
-        width: auto;
-        gap: 20px;
-    }
-
-    .Counter-unit {
-        width: 80px; 
-        text-align: center; 
-        position: relative;
-        background: #1a1a1a;
-        border-radius: 5px;
-        box-shadow: inset 0 5px 15px rgba(0,0,0,0.7), 0 2px 10px rgba(0,0,0,0.5);
-        color: #fff;
-        font-size: 120px;
-        transition: transform 0.3s ease;
-    }
-    }
-@media only screen and (min-width: 1024px) and (max-width: 1400px) and (orientation: landscape) {
-    .store-buttons {
-        flex-direction: row;
-        gap: 15px;
-    }
-
-    .store-buttons a {
-        width: 240px;
-    }
-
-    .Counter {
-        font: 100px Helvetica;
-        display: flex;
-        justify-content: center;
-        color: #dddddd;
-        overflow: hidden;
-        position: absolute;
-        top: 11.7%;
-        left: 30%;
-        transform: translateX(-50%);
-        font-size: 150px;
-        font-weight: bold;
-        background: transparent;
-        padding: 10px 20px;
-        border-radius: 10px;
-        text-align: center;
-        backface-visibility: hidden;
-        border-radius: 5px 5px 0 0;
-        box-shadow: inset 0 15px 50px #111111;
-        width: auto;
-        gap: 20px;
-    }
-
-    .Counter-unit {
-        width: 80px; 
-        text-align: center; 
-        position: relative;
-        background: #1a1a1a;
-        border-radius: 5px;
-        box-shadow: inset 0 5px 15px rgba(0,0,0,0.7), 0 2px 10px rgba(0,0,0,0.5);
-        color: #fff;
-        font-size: 120px;
-        transition: transform 0.3s ease;
-    }
-}
-   */
-
-    </style>
+    
 
 
 

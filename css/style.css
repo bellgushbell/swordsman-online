@@ -137,6 +137,9 @@ Primary use: Multipurpose Template
 }
 
 
+
+
+
 /* ==============================
 SweetAlert2 alert
    ============================== */
@@ -4697,7 +4700,7 @@ a.btn-mod:focus {
     position: absolute;
     top: 50%;
     left: 50%;
-    background: #fff;
+    background: transparent;
     border-radius: 50%;
     box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
 
