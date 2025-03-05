@@ -19,7 +19,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     <meta property="og:url" content="https://dev.stationidea.com/page/player/preregister-reward.php">
     <meta property="og:title" content="ร่วมลงทะเบียนล่วงหน้า ท่องยุทธภพกับ SwordsMan3 Online">
     <meta property="og:description" content="MMORPG ยอดฮิต">
-    <meta property="og:image" content="https://dev.stationidea.com/images/RewardPage/pre-register-rewards-no-button.jpeg">
+    <meta property="og:image" content="https://dev.stationidea.com/images/RewardPage/facebookshare-thumbnail.jpg">
     <meta property="og:image:alt" content="MMORPG">
   
     <title>กระบี่เย้ยยุทธจักร3 swordsman3 Mobile</title>
@@ -237,7 +237,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     <!-- Reward Section -->
     <section id="reward-section" class="reward-section">
         <div class="reward-container-rewardpage">
-            <img src="../../images/RewardPage/pre-register-mockup.jpg" alt="Reward Tier" class="reward-image">
+            <img src="../../images/RewardPage/pre-register-mockup.jpeg" alt="Reward Tier" class="reward-image">
         <input type="checkbox" id="step1-checkbox" style="margin-right: 10px; transform: scale(2);" disabled>
         <input type="checkbox" id="step2-checkbox" style="margin-right: 10px; transform: scale(2);" disabled>   
         <input type="checkbox" id="step3-checkbox" style="margin-right: 10px; transform: scale(2);" disabled>
@@ -343,7 +343,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
     <div class="email-box-frame "  id="email-scroll">
     <div class="email-box-buttons">
-        <form>
+        <form id="emailForm">
             <div class="email-input-container">
                 <input type="email" id="email-input" name="email" placeholder="">
                 <button id="confirm-button">ยืนยัน</button>
@@ -376,24 +376,26 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     <!-- <span style="font-size: 25px; margin-right: 10px;color:white;">Step 2:</span> -->
     
 
-    <a href="https://www.facebook.com/sharer/sharer.php?u=https://dev.stationidea.com/page/player/preregister-reward.php" id="activateCheckboxShare" target="_blank">
-        <img src="../../images/SideBar-Nav-Icon/facebook.png" alt="Share on Facebook" style="transition: filter 0.3s ease;" 
-            onmouseover="this.style.filter='drop-shadow(0 0 15px rgb(252, 251, 247))'"
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://dev.stationidea.com/page/player/preregister-reward.php" id="activateCheckboxFacebookShare" target="_blank">
+        <img src="../../images/RewardPage/facebook-preregister-button.png" alt="Share on Facebook" style="transition: filter 0.3s ease;" 
+            onmouseover="this.style.filter='drop-shadow(0 0 15px rgb(136, 188, 225))'"
             onmouseout="this.style.filter='none'">
     </a>
  
         <a href="https://www.instagram.com/swordsman3.mobile" id="activateInstagramShare" target="_blank">
-            <img src="../../images/SideBar-Nav-Icon/ig.png" alt="Share on Instagram" style="transition: filter 0.3s ease;" 
-                onmouseover="this.style.filter='drop-shadow(0 0 15px rgb(252, 251, 247))'"
+            <img src="../../images/RewardPage/ig-preregister-button.png" alt="Share on Instagram" style="transition: filter 0.3s ease;" 
+                onmouseover="this.style.filter='drop-shadow(0 0 15px rgb(136, 188, 225))'"
                 onmouseout="this.style.filter='none'">
         </a>
 
 
-    <a href="https://x.com/intent/tweet?url=https://dev.stationidea.com/page/player/preregister-reward.php" id="activateXShare" target="_blank">
-        <img src="../../images/SideBar-Nav-Icon/x.png" alt="Share on X" style="transition: filter 0.3s ease;" 
-            onmouseover="this.style.filter='drop-shadow(0 0 15px rgb(252, 251, 247))'"
-            onmouseout="this.style.filter='none'">
-    </a>
+ <a href="https://x.com/intent/tweet?text=ลงทะเบียนล่วงหน้า SwordsMan3 Mobile ตอนนี้! 🎮🔥&url=https://dev.stationidea.com/page/player/preregister-reward.php" 
+    id="activateXShare" target="_blank">
+    <img src="../../images/RewardPage/x-preregister-button.png" alt="Share on X" 
+        style="transition: filter 0.3s ease;" 
+        onmouseover="this.style.filter='drop-shadow(0 0 15px rgb(136, 188, 225))'"
+        onmouseout="this.style.filter='none'">
+</a>
 
 </div>
 
@@ -403,13 +405,13 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     
 
     <a href="https://play.google.com/store/apps/details?id=com.skynet.jx&pcampaignid=web_share" target="_blank" class="app-button" id="activateCheckboxAppStore">
-        <img src="../../images/PreregisterButtonandReward/ios-button-preregister-button.png" alt="Pre-order on App Store"    
+        <img src="../../images/RewardPage/ios-preregister-button.png" alt="Pre-order on App Store"    
             style="transition: filter 0.3s ease;"
             onmouseover="this.style.filter='drop-shadow(0 0 15px rgb(136, 188, 225))'"
             onmouseout="this.style.filter='none'">
     </a>
     <a href="https://play.google.com/store/apps/details?id=com.skynet.jx&pcampaignid=web_share" target="_blank" class="google-button" id="activateCheckboxGooglePlay">
-        <img src="../../images/PreregisterButtonandReward/googleplay-preregister-button.png"
+        <img src="../../images/RewardPage/googleplay-preregister-button.png"
             alt="Pre-register on Google Play"    
             style="transition: filter 0.3s ease;"
             onmouseover="this.style.filter='drop-shadow(0 0 15px rgb(136, 188, 225))'"
@@ -429,7 +431,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             count = data.count;
         }
     } catch (error) {
-        console.error('เกิดข้อผิดพลาดในการดึงข้อมูล:', error);ห
+        console.error('เกิดข้อผิดพลาดในการดึงข้อมูล:', error);
     }
 
     let hasIncremented = localStorage.getItem('hasIncremented') === 'true';
@@ -516,13 +518,25 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             displayNumber();
             updateCountInDatabase(count); // ✅ อัปเดตค่าไปที่ฐานข้อมูล
 
-            Swal.fire({
-                icon: 'success',
-                title: 'ลงทะเบียนเสร็จสิ้น!',
-                text: 'ระบบจะรีเซ็ตข้อมูลใหม่',
-                showConfirmButton: false,
-                timer: 2000
-            });
+         Swal.fire({
+            icon: null, // ✅ ปิดไอคอนเริ่มต้นของ SweetAlert2
+            title: 'ลงทะเบียนเสร็จสิ้น!',
+            html: `
+                <i class="fas fa-check-circle custom-swal-success-icon"></i>
+                <p class="custom-swal-success-text">ระบบจะรีเซ็ตข้อมูลใหม่</p>
+            `, // ✅ ใช้ HTML รวมไอคอนและข้อความ
+            showConfirmButton: true,
+            confirmButtonText: 'ตกลง',
+            background: '#222',
+            color: '#fff',
+            width: '400px',
+            customClass: {
+                popup: 'custom-swal-success-popup',
+                title: 'custom-swal-success-title',
+                confirmButton: 'custom-swal-success-button'
+            }
+        });
+
 
             setTimeout(() => {
                 localStorage.removeItem('step1-checkbox');
@@ -560,7 +574,13 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
 
-    document.getElementById('activateCheckboxShare').addEventListener('click', function() {
+    document.getElementById('activateCheckboxFacebookShare').addEventListener('click', function() {
+        setCheckboxChecked('step2-checkbox');
+    });
+    document.getElementById('activateInstagramShare').addEventListener('click', function() {
+        setCheckboxChecked('step2-checkbox');
+    });
+    document.getElementById('activateXShare').addEventListener('click', function() {
         setCheckboxChecked('step2-checkbox');
     });
 
@@ -568,23 +588,57 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         event.preventDefault();
         const emailInput = document.getElementById('email-input').value;
         if (!validateEmail(emailInput)) {
-            Swal.fire({
-                icon: 'error',
-                title: 'กรุณากรอกอีเมลที่ถูกต้อง',
-                text: 'อีเมลต้องมีเครื่องหมาย @ และรูปแบบที่ถูกต้อง',
-                showConfirmButton: true
-            });
+            // Swal.fire({
+            //     icon: 'error',
+            //     title: 'กรุณากรอกอีเมลที่ถูกต้อง',
+            //     text: 'อีเมลต้องมีเครื่องหมาย @ และรูปแบบที่ถูกต้อง',
+            //     showConfirmButton: true
+            // });
+   Swal.fire({
+    icon: null, // ✅ ปิดไอคอนเริ่มต้นของ SweetAlert2
+    title: 'กรุณากรอกอีเมลที่ถูกต้อง',
+    showConfirmButton: true,
+    background: '#222',
+    color: '#fff',
+    width: '400px',
+    html: `
+        <i class="fas fa-exclamation-circle custom-swal-error-icon"></i> 
+        <p class="custom-swal-error-text">อีเมลต้องมีเครื่องหมาย @ และรูปแบบที่ถูกต้อง</p>
+    `, // ✅ ใช้ HTML เพื่อให้แสดงทั้งไอคอนและข้อความ
+    customClass: {
+        popup: 'custom-swal-error-popup',
+        title: 'custom-swal-error-title',
+        confirmButton: 'custom-swal-error-button'
+    }
+});
             return;
         }
         setCheckboxChecked('step1-checkbox');
 
+        // Swal.fire({
+        //     icon: 'success',
+        //     title: 'ข้อมูลถูกบันทึกแล้ว',
+        //     showConfirmButton: false,
+        //     timer: 1500
+        // });
         Swal.fire({
-            icon: 'success',
+            icon: null, // ✅ ปิดไอคอนเริ่มต้นของ SweetAlert2
             title: 'ข้อมูลถูกบันทึกแล้ว',
             showConfirmButton: false,
-            timer: 1500
+            timer: 1500,
+            background: '#222',
+            color: '#fff',
+            width: '400px',
+            html: '<i class="fas fa-check-circle custom-swal-success-icon"></i>', // ✅ ใช้ HTML แทนไอคอน SweetAlert2
+            customClass: {
+                popup: 'custom-swal-success-popup',
+                title: 'custom-swal-success-title',
+                confirmButton: 'custom-swal-success-button'
+            }
         });
 
+
+        /*บันทึกอีเมลลงdatabase table preregister_email ไว้เก็บเมลไว้ฐานข้อมูลเฉยๆ */
         var formData = new FormData();
         formData.append('email', emailInput);
 
@@ -605,11 +659,71 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     }
 });
 
+
+
+
+
+
+</script>
+ 
+
+<!-- ส่งเมล ไปยัง database table preregister_tokens ไว้ส่งอีเมล  -->
+
+<!-- <script>
+document.getElementById('emailForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // ป้องกันการโหลดหน้าใหม่
+
+    const emailInput = document.getElementById('email-input').value;
+    console.log("Email input:", emailInput); // ✅ ตรวจสอบค่าอีเมลที่รับมา
+
+    // เช็คว่าอีเมลถูกต้อง
+    if (!emailInput || !emailInput.includes('@')) {
+        console.log("Invalid email format!"); // ✅ ตรวจสอบว่ามี error
+        Swal.fire({
+            icon: 'error',
+            title: 'กรุณากรอกอีเมลที่ถูกต้อง',
+            text: 'โปรดกรอกอีเมลที่ถูกต้องก่อนยืนยัน'
+        });
+        return;
+    }
+
+    console.log("Sending request to send_email.php..."); // ✅ ตรวจสอบว่า request ถูกเรียกใช้ไหม
+
+    fetch('../../database/player/send_email.php', { // 🔹 ตรวจสอบ path ว่าถูกต้องหรือไม่
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `email=${encodeURIComponent(emailInput)}`
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("Response:", data); // ✅ ตรวจสอบ response
+        if (data.success) {
+            Swal.fire({
+                icon: 'success',
+                title: 'อีเมลถูกส่งแล้ว!',
+                text: 'โปรดตรวจสอบอีเมลของคุณเพื่อทำการยืนยัน'
+            });
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'เกิดข้อผิดพลาด!',
+                text: data.message || 'ไม่สามารถส่งอีเมลได้ โปรดลองอีกครั้ง'
+            });
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        Swal.fire({
+            icon: 'error',
+            title: 'เกิดข้อผิดพลาด!',
+            text: 'ไม่สามารถส่งอีเมลได้ โปรดลองอีกครั้ง'
+        });
+    });
+});
+
 </script>
 
-
-
-<!-- ปุ่มวีดีโอ -->
+<!-- ปุ่มวีดีโอบนขวา -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     const openModal = document.getElementById("openVideoModal");
@@ -642,7 +756,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-</script>
+</script> -->
 
 
        
@@ -726,13 +840,6 @@ document.addEventListener("DOMContentLoaded", function() {
 /* ==============================
    Preregister Section (preregister section)
    ============================== */
-body {
-    margin: 0;
-    padding: 0;
-    background-color: black;
-    /* เผื่อว่าภาพโหลดไม่ขึ้น */
-
-}
 
 .floating-video-btn {
     position: absolute;
@@ -913,23 +1020,27 @@ body {
 /*----------Home Section----------- */
 /* ----------------------------------*/
 
-
+html, body {
+    margin: 0;
+    padding: 0;
+    /* overflow-x: hidden;  */
+}
 /* ปรับให้ reward section อยู่กึ่งกลาง */
 .reward-section {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    /* ให้กินพื้นที่เต็มจอ */
+    min-height: 100vh; /* ความสูงเต็มจอ */
     width: 100%;
-    background-size: contain;
-    background-attachment: fixed;
-    position: relative; 
-  
+    /* background-size: cover; */
+    background-position: center; 
+    background-repeat: no-repeat; /* ป้องกันภาพซ้ำ */
+    background-attachment: fixed; /* ทำให้ภาพพื้นหลังติดอยู่กับหน้าจอ */
+    position: relative;
     flex-direction: column;
-    /* เพื่อให้แนวตั้ง */
-
+    /* overflow: hidden; */
 }
+
 
 /* ปรับให้ภาพรางวัลอยู่กึ่งกลาง */
 .reward-container-rewardpage {
@@ -939,13 +1050,14 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
+    /* height: 100vh;  */
 
 }
 
 .reward-image {
     width: 100%;
     max-width: auto;
-    height: auto;
+    min-height: 100vh;
 
 }
 
@@ -970,10 +1082,8 @@ body {
     color: #dddddd;
     overflow: hidden;
     position: absolute;
-    top: 80%;
+    top: 89%;
     left: 5%;
-
-    font-size: 150px;
     font-weight: bold;
     background: transparent;
     padding: 10px 20px;
@@ -987,7 +1097,7 @@ body {
 }
 
 .Counter-unit {
-    width: 80px;
+    width: 100px;
     /* เพิ่มขนาดของแต่ละตัวเลข */
     text-align: center;
     position: relative;
@@ -1080,7 +1190,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 60px;
+    width: 80px;
     max-width: 80%;
     margin-left: 20px;
 }
@@ -1143,22 +1253,17 @@ body {
     color: black;
     border: none;
     outline: none;
-    border-radius: 10px;
-    background: white;
-    box-shadow: inset 0 0 10px rgba(173, 216, 230, 0.8), 
-                0 4px 10px rgba(21, 36, 199, 0.3);
+     border-radius: 40px;
+    background: transparent;
+    /* box-shadow: inset 0 0 10px rgba(173, 216, 230, 0.8), 
+                0 4px 10px rgba(21, 36, 199, 0.3);  */
     cursor: text;
     transition: all 0.3s ease-in-out;
     text-align: center;
    
 }
 
-/* ✅ เอฟเฟคตอนโฟกัส */
-.email-input-container input[type="email"]:focus {
-    border: 2px solid rgba(0, 123, 255, 0.5); /* ✅ เพิ่มขอบให้มีสี */
-    box-shadow: inset 0 0 12px rgba(0, 123, 255, 0.8), 
-                0 6px 12px rgba(60, 63, 160, 0.5); /* ✅ ขยายเงาให้เด่นขึ้น */
-}
+
 
 /* ✅ ปุ่มยืนยัน */
 .email-input-container button {
@@ -1187,10 +1292,10 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-size: 10px;
+    font-size: 16px;
     position: absolute; 
-    top: 39.4%;
-    left: 10%;
+    top: 38.4%;
+    left: 12%;
 }
 
 .terms-container {
@@ -1210,18 +1315,18 @@ body {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    width: 25px;
-    height: 25px;
-    border: 2px solid; 
-    border-radius: 5px;
-
-    /* border: none; */
+    width: 30px;
+    height: 30px;
+    /* border: 2px solid; 
+    border-radius: 5px; */
+    
+    border: none;
     display: inline-block;
     /* transition: background-color 0.3s, border-color 0.3s; */
     background-size: contain;
     position: absolute;
     left:21.5%;
-    top:34%;
+    top:34.2%;
     
 }
 
@@ -1229,7 +1334,7 @@ body {
 #step1-checkbox:checked {
     
     border-color: transparent; 
-    background-image: url('../../images/RewardPage/fireicon.gif'); /* 📌 เปลี่ยนเป็นไอคอนของคุณ */
+    background-image: url('../../images/RewardPage/pass-stamp.png'); /* 📌 เปลี่ยนเป็นไอคอนของคุณ */
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -1240,26 +1345,26 @@ body {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    width: 25px;
-    height: 25px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
+    width: 30px;
+    height: 30px;
+    /* border: 2px solid #ccc;
+    border-radius: 5px; */
   
-    /* border: none; */
+    border: none;
    
     position: relative;
     display: inline-block;
     transition: background-color 0.3s, border-color 0.3s;
     position: absolute;
-    left:25.9%;
-    top:41.1%;
+    left:26.3%;
+    top:41.2%;
    
 }
 
 /* ✅ เมื่อถูกติ๊กแล้ว (ไอคอนแทน `✓`) */
 #step2-checkbox:checked {
     border-color: transparent; 
-    background-image: url('../../images/RewardPage/fireicon.gif'); /* 📌 เปลี่ยนเป็นไอคอนของคุณ */
+    background-image: url('../../images/RewardPage/pass-stamp.png'); /* 📌 เปลี่ยนเป็นไอคอนของคุณ */
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -1270,26 +1375,26 @@ body {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    width: 25px;
-    height: 25px;
-   border: 2px solid #ccc;
-    border-radius: 5px;
+    width: 30px;
+    height: 30px;
+    /* border: 2px solid #ccc;
+    border-radius: 5px; */
   
-    /* border: none; */
+    border: none;
    
     position: relative;
     display: inline-block;
     transition: background-color 0.3s, border-color 0.3s;
      position: absolute;
     left:25.9%;
-    top:47.1%;
+    top:47.3%;
 
 }
 
 /* ✅ เมื่อถูกติ๊กแล้ว (ไอคอนแทน `✓`) */
 #step3-checkbox:checked {
     border-color: transparent; 
-    background-image: url('../../images/RewardPage/green-approved-stamp-postage-business-icon.png'); /* 📌 เปลี่ยนเป็นไอคอนของคุณ */
+    background-image: url('../../images/RewardPage/pass-stamp.png'); /* 📌 เปลี่ยนเป็นไอคอนของคุณ */
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -1301,10 +1406,11 @@ body {
 /* 🎯 ปรับตำแหน่งปุ่ม Scroll Down */
 .scroll-down-container {
     position: absolute;
-    top: 27.5%;
+    top: 28.5%;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
+    
 }
 
 /* ✅ ปรับไอคอน */
@@ -1315,11 +1421,13 @@ body {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: rgba(8, 6, 6, 0.5);
-    backdrop-filter: blur(5px);
+    border:none;
+    background: rgba(14, 3, 3, 0.5);
+    backdrop-filter: blur(10px);
     box-shadow: 0 0 15px rgba(13, 9, 9, 0.4);
     transition: all 0.3s ease-in-out;
     animation: scroll-down-anim 1.5s infinite;
+     padding: 0; /* ✅ เอาขอบ padding ออก */
 }
 
 /* ✅ เอฟเฟค Hover */
@@ -1350,12 +1458,6 @@ body {
 
 
 
-
-
-
-
-
-
 /* ✅ สำหรับมือถือ (Mobile Only) */
 @media only screen and (max-width: 767px) {
      .email-box-frame {
@@ -1365,6 +1467,9 @@ body {
         padding: 0px 0px !important;
         width: 140px;
         height:15px;
+        border-radius: 40px;
+        font-size: 10px;
+        font-weight: 200;
     }
    
     #confirm-button {
@@ -1374,10 +1479,11 @@ body {
             /* ปรับขนาดปุ่ม */
             border-radius: 8px;
             /* ทำให้โค้งมน */
+            margin-top:3px;
         }
 
     #terms-checkbox {
-        transform: scale(0.5); /* ขยาย Checkbox 1.5 เท่า */
+        transform: scale(0.4); /* ขยาย Checkbox 1.5 เท่า */
        
     }
     .terms-container{
@@ -1386,7 +1492,7 @@ body {
         
     .email-policy-term{
         top:38.8%;
-        font-size:8px;
+        font-size:5px;
        
     }
 
@@ -1396,6 +1502,8 @@ body {
     }
 
     .share-buttons a {
+        margin-left: 0px;
+        gap:0px;
         width: 20px;
     }
 
@@ -1416,9 +1524,6 @@ body {
     } */
 
 
- 
-
-
     /* ปรับขนาด checkbox */
     .email-box-buttons input[type="checkbox"],
     .share-buttons input[type="checkbox"],
@@ -1428,77 +1533,73 @@ body {
     }
 
    
-
-
-
-
     .Counter {
-        font: 100px Helvetica;
-        display: flex;
-        justify-content: center;
-        color: #dddddd;
-        overflow: hidden;
-        position: absolute;
-        top: 80%;
-        left: 3%;
-
-        font-size: 18px !important;
-        font-weight: bold;
-        background: transparent;
-        padding: 10px;
-        border-radius: 10px;
-        text-align: center;
-        backface-visibility: hidden;
-        border-radius: 5px 5px 0 0;
-        /* box-shadow: inset 0 15px 50px #111111; */
-        width: auto;
-        height: auto;
-        gap: 10px;
+    font: 100px Helvetica;
+    display: flex;
+    justify-content: center;
+    color: #dddddd;
+    overflow: hidden;
+    position: absolute;
+    top: 88%;
+    left: 5%;
+    font-weight: bold;
+    background: transparent;
+    padding: 5px 10px;
+    border-radius: 10px;
+    text-align: center;
+    backface-visibility: hidden;
+    border-radius: 5px 5px 0 0;
+    box-shadow: inset 0 15px 50px rgb(191, 187, 187);
+    width: auto;
+    gap: 10px;
     }
 
-
     .Counter-unit {
-        width: 35px;
+        width: 20px ;
+    
         text-align: center;
         position: relative;
         background: #1a1a1a;
         border-radius: 5px;
-        /* box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.7), 0 2px 10px rgba(0, 0, 0, 0.5); */
+        box-shadow: inset 0 5px 15px rgba(176, 169, 169, 0.7), 0 2px 10px rgba(0, 0, 0, 0.5);
         color: #fff;
-        font-size: 16px;
+        font-size: 35px;
         transition: transform 0.3s ease;
-        margin-bottom: 5px;
     }
 
-    #step1-checkbox {
+        #step1-checkbox {
+        width: 10px;
+        height:10px;
+        position: absolute;
+        left:21.5%;
+        top:34%;
+        }
 
-    width: 8px;
-    position: absolute;
-    left:21.5%;
-    top:34%;
-    }
-    #step2-checkbox {
-    width: 8px;
-    position: absolute;
-    left:25.9%;
-    top:41.1%;
-    }
-    #step3-checkbox {
-    width: 8px;
-    position: absolute;
-    left:25.9%;
-    top:47.1%;
-    }
+        #step2-checkbox {
+        width: 10px;
+        height:10px;
+        position: absolute;
+        left:26.9%;
+        top:41%;
+        }
 
-    .scroll-down-button-arrow{
-        width: 30px;
-        height: 30px;
-    }
-    .scroll-down-img{
-        width: 30px;
-        
-    }
+        #step3-checkbox {
+     
+        width: 10px;
+        height:10px;
+        position: absolute;
+        left:25.9%;
+        top:47.1%;
+        }
 
+        .scroll-down-button-arrow{
+            width: 20px;
+            height: 20px;
+        }
+        .scroll-down-img{
+            width: 20px;
+            
+        }
 
 
 }
@@ -1506,12 +1607,18 @@ body {
 @media only screen and (min-width: 768px) and (max-width: 1400px) {
   
     .email-box-frame {
-         height:50px;
+         height:52px;
     }
     .email-input-container input[type="email"] {
+      
+        border-radius: 40px;
         padding: 4px auto;
     }
 
+        #confirm-button {
+
+            margin-top:3px;
+        }
 
     .store-buttons a {
         display: flex;
@@ -1521,52 +1628,65 @@ body {
         max-width: 80%;
 
     }
+      .share-buttons a {
+        width: 60px;
+    }
 
     .Counter {
-        font: 50px Helvetica;
-        display: flex;
-        justify-content: center;
-        color: #dddddd;
-        overflow: hidden;
-        position: absolute;
-        top: 11.7%;
-        left: 5%;
+    font: 100px Helvetica;
+    display: flex;
+    justify-content: center;
+    color: #dddddd;
+    overflow: hidden;
+    position: absolute;
+    top: 88%;
+    left: 5%;
+    font-weight: bold;
+    background: transparent;
+    padding: 10px 10px;
+    border-radius: 10px;
+    text-align: center;
+    backface-visibility: hidden;
+    border-radius: 5px 5px 0 0;
+    box-shadow: inset 0 15px 50px rgb(191, 187, 187);
+    width: auto;
+    gap: 10px;
+}
 
-        font-size: 80px;
-        font-weight: bold;
-        background: transparent;
-        padding: 10px 20px;
-        border-radius: 10px;
-        text-align: center;
-        backface-visibility: hidden;
-        border-radius: 5px 5px 0 0;
-        /* box-shadow: inset 0 15px 50px #111111; */
-        width: auto;
-        gap: 20px;
-    }
+.Counter-unit {
+    width: 70px;
+  
+    text-align: center;
+    position: relative;
+    background: #1a1a1a;
+    border-radius: 5px;
+    box-shadow: inset 0 5px 15px rgba(176, 169, 169, 0.7), 0 2px 10px rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 90px;
+    transition: transform 0.3s ease;
+}
 
-    .Counter-unit {
-        width: 50px;
-        /* เพิ่มขนาดของแต่ละตัวเลข */
-        text-align: center;
-        position: relative;
-        background: #1a1a1a;
-        border-radius: 5px;
-        /* box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.7), 0 2px 10px rgba(0, 0, 0, 0.5); */
-        color: #fff;
-        font-size: 80px;
-        transition: transform 0.3s ease;
-    }
 
     #step1-checkbox {
-    width: 15px;
+   
+    width: 20px;
+    height:20px;
     }
     #step2-checkbox {
-        width: 15px;
+    width: 20px;
+    height:20px;
     }
     #step3-checkbox {
-        width: 15px;
+    width: 20px;
+    height:20px;
     }
+   .email-policy-term{
+        top:39.8%;
+        font-size:8px;
+       
+    }
+
+  
 }
 
  </style>
@@ -1577,11 +1697,113 @@ body {
        
 
     
+<!-- /* ==============================
+SweetAlert2 alert
+============================== */ -->
+<style>
+   /*sweet alert2 แจ้งเตือน */
+   /* 🎨 SweetAlert2 แจ้งเตือนแบบ Error */
+.custom-swal-error-popup {
+    border-radius: 15px !important;
+    box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.7) !important;
+    width: 60% !important;
+    max-width: 350px !important;
+    text-align: center !important;
+}
+
+/* ✅ ปรับขนาด Title */
+.custom-swal-error-title {
+    font-size: 22px !important;
+    font-weight: bold !important;
+    color: #ff4444 !important;
+    text-shadow: 0px 0px 10px rgba(255, 0, 0, 0.7);
+}
+
+/* ✅ ปรับขนาดไอคอน Error ให้แสดงบน PC และ Mobile */
+.custom-swal-error-icon {
+    font-size: 60px !important;
+    color: #ff4444 !important;
+    display: block !important;
+    margin: 10px auto !important;
+    text-shadow: 0px 0px 10px rgba(255, 0, 0, 0.7);
+}
+
+/* ✅ ปรับขนาดปุ่ม */
+.custom-swal-error-button {
+    background-color: #ff4444 !important;
+    color: white !important;
+    font-size: 16px !important;
+    padding: 8px 16px !important;
+    border-radius: 6px !important;
+}
+
+/* ✅ ปรับสไตล์ของข้อความแจ้งเตือน */
+.custom-swal-error-text {
+    font-size: 16px;
+    font-weight: normal;
+    color: #ff6666;
+    margin-top: 10px;
+}
 
 
 
 
+    
+    /* ✅ SweetAlert2 แจ้งเตือนแบบ Success */
+   
+    .swal2-icon {
+        display: none !important; /* ✅ ซ่อนไอคอนเริ่มต้นทั้งหมด */
+    }
 
+    /* ✅ สไตล์ของ Popup */
+    .custom-swal-success-popup {
+        border-radius: 15px !important;
+        box-shadow: 0px 0px 15px rgba(0, 255, 100, 0.7) !important;
+        width: 60% !important;
+        max-width: 350px !important;
+        text-align: center !important;
+    }
+
+    /* ✅ ปรับขนาด Title */
+    .custom-swal-success-title {
+        font-size: 22px !important;
+        font-weight: bold !important;
+        color: #00ff99 !important;
+        text-shadow: 0px 0px 10px rgba(0, 255, 100, 0.7);
+    }
+
+    /* ✅ ปรับไอคอน Success */
+    .custom-swal-success-icon {
+        font-size: 60px !important;  /* ✅ ปรับขนาดไอคอน */
+        color: #00ff99 !important;
+        margin-bottom: 10px !important;
+        text-shadow: 0px 0px 10px rgba(0, 255, 100, 0.7); /* ✅ เพิ่มเรืองแสง */
+    }
+
+    * ✅ ปรับขนาดข้อความ */
+.custom-swal-success-text {
+    font-size: 16px !important;
+    color: #d4ffd4 !important;
+    margin-top: 10px !important;
+}
+
+/* ✅ ปรับขนาดปุ่ม */
+.custom-swal-success-button {
+    background-color: #00cc66 !important;
+    color: white !important;
+    font-size: 16px !important;
+    padding: 8px 16px !important;
+    border-radius: 6px !important;
+    transition: all 0.3s ease-in-out;
+}
+
+/* ✅ เอฟเฟค Hover ปุ่ม */
+.custom-swal-success-button:hover {
+    background-color: #00994d !important;
+    box-shadow: 0px 0px 10px rgba(0, 255, 100, 0.7);
+}
+
+</style>
 
 
 
@@ -1865,11 +2087,15 @@ footer {
         flex-direction: column;
         gap: 5px; /* ลดช่องว่างระหว่างข้อความ */
     }
+    .footer-copyright p {
+         font-size: 10px;
+        
+    }
 
     /* ปรับขนาดปุ่มใน Footer */
     #policyBtn {
-        font-size: 12px; /* ลดขนาดปุ่มในมือถือ */
-        padding: 3px 8px; /* ลดขนาดปุ่ม */
+        font-size: 10px; /* ลดขนาดปุ่มในมือถือ */
+        padding: 0px 8px; /* ลดขนาดปุ่ม */
     }
 }
 </style>
@@ -1945,7 +2171,7 @@ footer {
     transform:translatex(-50%);
     background-color: #2d2d2d;
     color: white;
-    padding: 10px 20px;
+    padding: 6px 20px;
     border-radius: 8px;
     display: flex;
     justify-content: space-between;
@@ -2011,7 +2237,9 @@ footer {
     #cookie-banner {
         flex-direction: column;
         text-align: center;
-        padding: 5px;
+        padding: 1px;
+        width: 250px;
+        height:auto;
      
     }
 
@@ -2020,7 +2248,7 @@ footer {
     }
 
     #accept-cookie, #decline-cookie {
-        padding: 3px 7px;
+        padding: 2px 5px;
         font-size: 10px;
     }
 
@@ -2030,7 +2258,7 @@ footer {
     }
   
     .cookie-icon {
-        font-size: 20px;
+        font-size: 12px;
     }
 }
 
