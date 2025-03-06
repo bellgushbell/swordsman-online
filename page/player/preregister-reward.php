@@ -623,7 +623,7 @@ document.addEventListener("DOMContentLoaded", function () {
             width: '400px',
             html: `
                 <i class="fas fa-exclamation-circle custom-swal-error-icon"></i> 
-                <p class="custom-swal-error-text">อีเมลต้องมีเครื่องหมาย @ และรูปแบบที่ถูกต้อง</p>
+                <span class="custom-swal-error-text">อีเมลต้องมีเครื่องหมาย @ และรูปแบบที่ถูกต้อง</span>
             `,
             customClass: {
                 popup: 'custom-swal-error-popup',
@@ -671,7 +671,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 width: '400px',
                 html: `
                     <i class="fas fa-exclamation-circle custom-swal-error-icon"></i>
-                    <p class="custom-swal-error-text">${data.message}</p>
+                    <span class="custom-swal-error-text">โปรดใช้อีเมลอื่นเพื่อลงทะเบียน</span>
                 `,
                 customClass: {
                     popup: 'custom-swal-error-popup',
