@@ -237,7 +237,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     <!-- Reward Section -->
     <section id="reward-section" class="reward-section">
         <div class="reward-container-rewardpage">
-            <img src="../../images/RewardPage/pre-register-mockup.jpeg" alt="Reward Tier" class="reward-image">
+            <img src="../../images/RewardPage/preregister-background-final.jpg" alt="Reward Tier" class="reward-image">
         <input type="checkbox" id="step1-checkbox" style="margin-right: 10px; transform: scale(2);" disabled>
         <input type="checkbox" id="step2-checkbox" style="margin-right: 10px; transform: scale(2);" disabled>   
         <input type="checkbox" id="step3-checkbox" style="margin-right: 10px; transform: scale(2);" disabled>
@@ -295,7 +295,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 <!-- ปุ่มเล่นวิดีโอลอยอยู่มุมขวาบน -->
 <button id="openVideoModal" class="floating-video-btn">
-    <img src="../../images/RewardPage/play-video-button.png" alt="Play Video">
+    <img src="../../images/RewardPage/playvideo-transparent-button.png" alt="Play Video">
 </button>
 
 <!-- Modal สำหรับแสดงวิดีโอ -->
@@ -341,7 +341,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     </div>
 
 
-    <div class="email-box-frame "  id="email-scroll">
+    <div class="email-box-frame"  id="email-scroll">
     <div class="email-box-buttons">
         <form id="emailForm">
             <div class="email-input-container">
@@ -355,7 +355,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     </div>
     </div>
     
-   <div class="email-policy-term">
+<!-- <div class="email-policy-term">
     <div class="terms-container">
         <input type="checkbox" id="terms-checkbox">
         <span>I have read and agree 
@@ -363,8 +363,33 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             <a href="#" class="privacy-link" id="policyModal-email">Privacy Policy</a>.
         </span>
     </div>
-</div>
+</div> -->
 
+<!-- ต้องติ๊กpolicy  -->
+<!-- <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const termsCheckbox = document.getElementById("terms-checkbox"); // Checkbox
+    const confirmButton = document.getElementById("confirm-button"); // ปุ่มยืนยัน
+
+    // ตั้งค่าปุ่มให้กดไม่ได้และ cursor เป็น not-allowed
+    confirmButton.disabled = true;
+    confirmButton.style.cursor = "not-allowed";
+    confirmButton.style.opacity = "0.5"; // จางลงตอนกดไม่ได้
+
+    // ตรวจสอบเมื่อผู้ใช้ติ๊ก checkbox
+    termsCheckbox.addEventListener("change", function () {
+        if (this.checked) {
+            confirmButton.disabled = false;
+            confirmButton.style.cursor = "pointer"; // เปลี่ยนเป็น pointer ปกติ
+            confirmButton.style.opacity = "1";
+        } else {
+            confirmButton.disabled = true;
+            confirmButton.style.cursor = "not-allowed";
+            confirmButton.style.opacity = "0.5";
+        }
+    });
+});
+</script> -->
 
  
  
@@ -382,11 +407,11 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             onmouseout="this.style.filter='none'">
     </a>
  
-        <a href="https://www.instagram.com/swordsman3.mobile" id="activateInstagramShare" target="_blank">
+        <!-- <a href="https://www.instagram.com/swordsman3.mobile" id="activateInstagramShare" target="_blank">
             <img src="../../images/RewardPage/ig-preregister-button.png" alt="Share on Instagram" style="transition: filter 0.3s ease;" 
                 onmouseover="this.style.filter='drop-shadow(0 0 15px rgb(136, 188, 225))'"
                 onmouseout="this.style.filter='none'">
-        </a>
+        </a> -->
 
 
  <a href="https://x.com/intent/tweet?text=ลงทะเบียนล่วงหน้า SwordsMan3 Mobile ตอนนี้! 🎮🔥&url=https://dev.stationidea.com/page/player/preregister-reward.php" 
@@ -577,86 +602,93 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     document.getElementById('activateCheckboxFacebookShare').addEventListener('click', function() {
         setCheckboxChecked('step2-checkbox');
     });
-    document.getElementById('activateInstagramShare').addEventListener('click', function() {
-        setCheckboxChecked('step2-checkbox');
-    });
+    // document.getElementById('activateInstagramShare').addEventListener('click', function() {
+    //     setCheckboxChecked('step2-checkbox');
+    // });
     document.getElementById('activateXShare').addEventListener('click', function() {
         setCheckboxChecked('step2-checkbox');
     });
 
     document.getElementById('confirm-button').addEventListener('click', function(event) {
-        event.preventDefault();
-        const emailInput = document.getElementById('email-input').value;
-        if (!validateEmail(emailInput)) {
-            // Swal.fire({
-            //     icon: 'error',
-            //     title: 'กรุณากรอกอีเมลที่ถูกต้อง',
-            //     text: 'อีเมลต้องมีเครื่องหมาย @ และรูปแบบที่ถูกต้อง',
-            //     showConfirmButton: true
-            // });
-   Swal.fire({
-    icon: null, // ✅ ปิดไอคอนเริ่มต้นของ SweetAlert2
-    title: 'กรุณากรอกอีเมลที่ถูกต้อง',
-    showConfirmButton: true,
-    background: '#222',
-    color: '#fff',
-    width: '400px',
-    html: `
-        <i class="fas fa-exclamation-circle custom-swal-error-icon"></i> 
-        <p class="custom-swal-error-text">อีเมลต้องมีเครื่องหมาย @ และรูปแบบที่ถูกต้อง</p>
-    `, // ✅ ใช้ HTML เพื่อให้แสดงทั้งไอคอนและข้อความ
-    customClass: {
-        popup: 'custom-swal-error-popup',
-        title: 'custom-swal-error-title',
-        confirmButton: 'custom-swal-error-button'
-    }
-});
-            return;
-        }
-        setCheckboxChecked('step1-checkbox');
+    event.preventDefault();
+    const emailInput = document.getElementById('email-input').value;
 
-        // Swal.fire({
-        //     icon: 'success',
-        //     title: 'ข้อมูลถูกบันทึกแล้ว',
-        //     showConfirmButton: false,
-        //     timer: 1500
-        // });
+    if (!validateEmail(emailInput)) {
         Swal.fire({
-            icon: null, // ✅ ปิดไอคอนเริ่มต้นของ SweetAlert2
-            title: 'ข้อมูลถูกบันทึกแล้ว',
-            showConfirmButton: false,
-            timer: 1500,
+            icon: null,
+            title: 'กรุณากรอกอีเมลที่ถูกต้อง',
+            showConfirmButton: true,
             background: '#222',
             color: '#fff',
             width: '400px',
-            html: '<i class="fas fa-check-circle custom-swal-success-icon"></i>', // ✅ ใช้ HTML แทนไอคอน SweetAlert2
+            html: `
+                <i class="fas fa-exclamation-circle custom-swal-error-icon"></i> 
+                <p class="custom-swal-error-text">อีเมลต้องมีเครื่องหมาย @ และรูปแบบที่ถูกต้อง</p>
+            `,
             customClass: {
-                popup: 'custom-swal-success-popup',
-                title: 'custom-swal-success-title',
-                confirmButton: 'custom-swal-success-button'
+                popup: 'custom-swal-error-popup',
+                title: 'custom-swal-error-title',
+                confirmButton: 'custom-swal-error-button'
             }
         });
-
-
-        /*บันทึกอีเมลลงdatabase table preregister_email ไว้เก็บเมลไว้ฐานข้อมูลเฉยๆ */
-        var formData = new FormData();
-        formData.append('email', emailInput);
-
-        fetch('../../database/player/save_email.php', {
-            method: 'POST',
-            body: formData
-        }).then(response => response.json())
-          .then(data => {
-              if (!data.success) {
-                  console.log("เกิดข้อผิดพลาดในการบันทึก");
-              }
-          }).catch(error => console.error("เกิดข้อผิดพลาด:", error));
-    });
-
-    function validateEmail(email) {
-        const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-        return regex.test(email);
+        return;
     }
+
+    var formData = new FormData();
+    formData.append('email', emailInput);
+
+    fetch('../../database/player/save_email.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            setCheckboxChecked('step1-checkbox');
+            Swal.fire({
+                icon: null,
+                title: 'ข้อมูลถูกบันทึกแล้ว',
+                showConfirmButton: false,
+                timer: 1500,
+                background: '#222',
+                color: '#fff',
+                width: '400px',
+                html: '<i class="fas fa-check-circle custom-swal-success-icon"></i>',
+                customClass: {
+                    popup: 'custom-swal-success-popup',
+                    title: 'custom-swal-success-title',
+                    confirmButton: 'custom-swal-success-button'
+                }
+            });
+        } else {
+            // ✅ แสดง Alert ถ้าอีเมลซ้ำ
+            Swal.fire({
+                icon: null,
+                title: 'อีเมลนี้ถูกใช้แล้ว',
+                showConfirmButton: true,
+                background: '#222',
+                color: '#fff',
+                width: '400px',
+                html: `
+                    <i class="fas fa-exclamation-circle custom-swal-error-icon"></i>
+                    <p class="custom-swal-error-text">${data.message}</p>
+                `,
+                customClass: {
+                    popup: 'custom-swal-error-popup',
+                    title: 'custom-swal-error-title',
+                    confirmButton: 'custom-swal-error-button'
+                }
+            });
+        }
+    })
+    .catch(error => console.error("เกิดข้อผิดพลาด:", error));
+});
+
+function validateEmail(email) {
+    const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    return regex.test(email);
+}
+
 });
 
 
@@ -721,7 +753,7 @@ document.getElementById('emailForm').addEventListener('submit', function(event) 
     });
 });
 
-</script>
+</script> -->
 
 <!-- ปุ่มวีดีโอบนขวา -->
 <script>
@@ -756,10 +788,116 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-</script> -->
+</script> 
 
 
-       
+   <!-- Progress Bar -->
+
+    <!-- <style>
+        /* 🎯 ตั้งค่า Progress Bar */
+    .progress-container {
+        position: absolute;
+        bottom: 15%; /* ให้ลอยอยู่ด้านล่างของ reward section */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        max-width: 90vw;
+        height: 30px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+        z-index: 10; /* ทำให้ซ้อนอยู่เหนือ reward section */
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        border: 3px solid rgba(255, 215, 0, 0.7);
+    }
+
+    /* ✅ ตั้งค่าให้ Progress Bar ขยับ */
+    .progress-bar {
+        width: 0%;
+        height: 100%;
+        background: linear-gradient(45deg, #663300, #a67c00, #ffcc66);
+        background-size: 200% 200%;
+        animation: moveGradient 2s infinite alternate, moveProgress 4s forwards ease-in-out;
+        transition: width 1s ease-in-out;
+    }
+
+    /* 🌟 สีวิ่งไปมา */
+    @keyframes moveGradient {
+        0% { background-position: 0% 50%; }
+        100% { background-position: 100% 50%; }
+    }
+
+    /* 🎯 แถบวิ่งไปหยุดที่ Checkpoint 2 */
+    @keyframes moveProgress {
+        0% { width: 0%; }
+        100% { width: 30%; } /* หยุดที่ Checkpoint 2 */
+    }
+
+    /* ✅ ตั้งค่า Checkpoints */
+    .progress-checkpoints {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0 10%;
+    }
+
+    /* 🎯 Checkpoint เป็นจุดกลม */
+    .checkpoint {
+        width: 20px;
+        height: 20px;
+        background: white;
+        border-radius: 50%;
+        border: 3px solid rgba(255, 215, 0, 0.7);
+        transition: background-color 0.5s ease-in-out, transform 0.3s ease-in-out;
+    }
+
+    /* ✅ จุดที่ถูกผ่าน */
+    .checkpoint.active {
+        background-color: #a67c00;
+        transform: scale(1.2);
+        box-shadow: 0px 0px 10px rgba(166, 124, 0, 0.7);
+    }
+
+    </style> -->
+
+
+    <!-- 🎯 Progress Bar -->
+    <!-- <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+        <div class="progress-checkpoints">
+            <div class="checkpoint" id="cp1"></div>
+            <div class="checkpoint" id="cp2"></div>
+            <div class="checkpoint" id="cp3"></div>
+            <div class="checkpoint" id="cp4"></div>
+            <div class="checkpoint" id="cp5"></div>
+        </div>
+    </div>
+
+    <script>
+        // ✅ อัพเดต Checkpoints เมื่อ Progress ถึงจุดที่กำหนด
+        function updateCheckpoints() {
+            let checkpoints = document.querySelectorAll(".checkpoint");
+
+            setTimeout(() => {
+                checkpoints[0].classList.add("active"); // Checkpoint 1
+            }, 1000);
+
+            setTimeout(() => {
+                checkpoints[1].classList.add("active"); // Checkpoint 2 (หยุดที่นี่)
+            }, 3000);
+        }
+
+        // 🟠 เรียกฟังก์ชันเมื่อโหลดหน้า
+        document.addEventListener("DOMContentLoaded", updateCheckpoints);
+    </script>  -->
+
+    
 
 
 
@@ -851,34 +989,36 @@ document.addEventListener("DOMContentLoaded", function() {
     border: none;
     padding: 0;
     border-radius: 50%;
-    background: linear-gradient(45deg, #FFD700, #FF4500, #FFD700);
+    background:transparent;
+    /* background: linear-gradient(45deg, #FFD700, #FF4500, #FFD700); */
     background-size: 200% 200%;
-    box-shadow: 0 0 10px rgba(255, 165, 0, 0.7);
+    /* box-shadow: 0 0 10px rgba(255, 165, 0, 0.7); */
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: transform 0.3s ease-in-out;
     animation: glowEffect 3s infinite alternate, gradientMove 3s infinite linear;
+
 }
 
 /* ✅ เอฟเฟคเรืองแสง (วิ่งไป-กลับ) */
 @keyframes glowEffect {
     0% {
-        box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+        box-shadow: 0 0 10px rgb(116,146,206);
     }
 
     50% {
-        box-shadow: 0 0 20px rgba(255, 69, 0, 0.8);
+        box-shadow: 0 0 20px rgb(6, 87, 249);
     }
 
     100% {
-        box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+        box-shadow: 0 0 10px rgb(116,146,206);
     }
 }
 
 /* ✅ ไล่สีพื้นหลัง (วิ่งไป-กลับ) */
-@keyframes gradientMove {
+/* @keyframes gradientMove {
     0% {
         background-position: 0% 50%;
     }
@@ -890,12 +1030,12 @@ document.addEventListener("DOMContentLoaded", function() {
     100% {
         background-position: 0% 50%;
     }
-}
+} */
 
 /* ✅ ปรับ animation ให้ทำงานแบบไป-กลับ */
-.floating-video-btn {
+/* .floating-video-btn {
     animation: glowEffect 3s infinite alternate, gradientMove 3s infinite alternate;
-}
+} */
 
 
 /* ✅ เอฟเฟคตอนกดปุ่ม */
@@ -907,13 +1047,13 @@ document.addEventListener("DOMContentLoaded", function() {
 .floating-video-btn img {
     width: 50px;
     height: auto;
-    filter: drop-shadow(0 0 5px rgba(255, 69, 0, 0.8));
+    /* filter: drop-shadow(0 0 5px rgba(255, 69, 0, 0.8)); */
 }
 
 /* ✅ เอฟเฟคตอน hover */
 .floating-video-btn:hover {
     transform: scale(1.15); /* ✅ ขยายขึ้น 15% */
-    box-shadow: 0 0 30px rgba(255, 69, 0, 1), 0 0 20px rgba(255, 215, 0, 0.9);
+    /* box-shadow: 0 0 30px rgba(255, 69, 0, 1), 0 0 20px rgba(255, 215, 0, 0.9); */
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
@@ -937,15 +1077,15 @@ document.addEventListener("DOMContentLoaded", function() {
     /* ✅ ปรับแสงให้น้อยลงในมือถือ */
     @keyframes glowEffectMobile {
         0% {
-            box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+            box-shadow: 0 0 5px rgb(116,146,206);
         }
 
         50% {
-            box-shadow: 0 0 10px rgba(255, 69, 0, 0.7);
+            box-shadow: 0 0 10px rgb(6, 87, 249);
         }
 
         100% {
-            box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+            box-shadow: 0 0 5px rgb(116,146,206);
         }
     }
 }
@@ -1144,7 +1284,7 @@ html, body {
 /* ปุ่ม App Store และ Google Play */
 .store-buttons {
     position: absolute;
-    top: 48.4%;
+    top: 48%;
     left: 8%;
     display: flex;
     gap: 10px;
@@ -1176,7 +1316,7 @@ html, body {
 
 .share-buttons {
     position: absolute;
-    top: 43%;
+    top: 42.7%;
     /* กำหนดให้ปุ่มลอยเหนือขอบล่างของ reward image */
     left: 10%;
     display: flex;
@@ -1213,7 +1353,7 @@ html, body {
     
     align-items: center;
     position: absolute; 
-    top: 35.8%;
+    top: 36.8%;
     left: 10%;
     padding: 10px 15px; /* ✅ เพิ่ม padding ให้มีระยะขอบ */
     border-radius: 40px;
@@ -1287,7 +1427,7 @@ html, body {
 
 
 
-.email-policy-term {
+/* .email-policy-term {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1300,14 +1440,21 @@ html, body {
 
 .terms-container {
     display: flex;
-    align-items: center; /* จัด Checkbox และข้อความให้อยู่กึ่งกลางแนวตั้ง */
-    gap: 5px; /* ปรับระยะห่างระหว่าง Checkbox และข้อความ */
+    align-items: center;
+    gap: 5px; /
 }
 
 #terms-checkbox {
-    width: 16px; /* ปรับขนาด Checkbox */
+    width: 16px; 
     height: 16px;
 }
+
+#confirm-button:disabled {
+    background-color: #B0C4DE !important; 
+
+    cursor: not-allowed !important;
+    opacity: 0.5 !important;
+} */
 
 
 /* 🎯 STEP 1 CHECKBOX */
@@ -1326,7 +1473,7 @@ html, body {
     background-size: contain;
     position: absolute;
     left:21.5%;
-    top:34.2%;
+    top:35.2%;
     
 }
 
@@ -1357,7 +1504,7 @@ html, body {
     transition: background-color 0.3s, border-color 0.3s;
     position: absolute;
     left:26.3%;
-    top:41.2%;
+    top:40.6%;
    
 }
 
@@ -1387,7 +1534,7 @@ html, body {
     transition: background-color 0.3s, border-color 0.3s;
      position: absolute;
     left:25.9%;
-    top:47.3%;
+    top:46.3%;
 
 }
 
@@ -1422,7 +1569,7 @@ html, body {
     height: 50px;
     border-radius: 50%;
     border:none;
-    background: rgba(14, 3, 3, 0.5);
+    background: rgb(74,129,203, 0.8);
     backdrop-filter: blur(10px);
     box-shadow: 0 0 15px rgba(13, 9, 9, 0.4);
     transition: all 0.3s ease-in-out;
@@ -1432,7 +1579,7 @@ html, body {
 
 /* ✅ เอฟเฟค Hover */
 .scroll-down-button-arrow:hover {
-    background: rgba(8, 6, 6, 0.5);
+    background: rgba(33, 9, 253, 0.5);
 }
 
 /* ✅ ใช้ <img> เป็นไอคอน */
@@ -1469,7 +1616,7 @@ html, body {
         height:15px;
         border-radius: 40px;
         font-size: 10px;
-        font-weight: 200;
+        font-weight: 400;
     }
    
     #confirm-button {
@@ -1483,7 +1630,7 @@ html, body {
         }
 
     #terms-checkbox {
-        transform: scale(0.4); /* ขยาย Checkbox 1.5 เท่า */
+        transform: scale(0.6); /* ขยาย Checkbox 1.5 เท่า */
        
     }
     .terms-container{
@@ -1495,15 +1642,26 @@ html, body {
         font-size:5px;
        
     }
-
+    .store-buttons {
+        position: absolute;
+        top: 47.6%;
+        left: 8%;
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+    }
 
     .store-buttons a {
         width: 90px;
     }
-
+    .share-buttons {
+        gap: 5px;
+    
+    }
     .share-buttons a {
         margin-left: 0px;
-        gap:0px;
+       
         width: 20px;
     }
 
@@ -1572,7 +1730,7 @@ html, body {
         height:10px;
         position: absolute;
         left:21.5%;
-        top:34%;
+        top:34.6%;
         }
 
         #step2-checkbox {
@@ -1580,7 +1738,7 @@ html, body {
         height:10px;
         position: absolute;
         left:26.9%;
-        top:41%;
+        top:40.8%;
         }
 
         #step3-checkbox {
@@ -1589,7 +1747,7 @@ html, body {
         height:10px;
         position: absolute;
         left:25.9%;
-        top:47.1%;
+        top:46.1%;
         }
 
         .scroll-down-button-arrow{
@@ -1607,7 +1765,7 @@ html, body {
 @media only screen and (min-width: 768px) and (max-width: 1400px) {
   
     .email-box-frame {
-         height:52px;
+         height:45px;
     }
     .email-input-container input[type="email"] {
       
@@ -1615,21 +1773,33 @@ html, body {
         padding: 4px auto;
     }
 
-        #confirm-button {
+     #confirm-button {
 
             margin-top:3px;
-        }
+    }
 
+    .store-buttons {
+        position: absolute;
+        top: 47.9%;
+        left: 8%;
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+    }
     .store-buttons a {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 200px;
+        width: 250px;
         max-width: 80%;
 
     }
+     .share-buttons{
+         top: 42.4%;
+     }
       .share-buttons a {
-        width: 60px;
+        width: 50px;
     }
 
     .Counter {
@@ -1677,12 +1847,13 @@ html, body {
     height:20px;
     }
     #step3-checkbox {
+   
     width: 20px;
     height:20px;
     }
    .email-policy-term{
-        top:39.8%;
-        font-size:8px;
+    top:39.8%;
+    font-size:8px;
        
     }
 
@@ -1762,6 +1933,7 @@ SweetAlert2 alert
         width: 60% !important;
         max-width: 350px !important;
         text-align: center !important;
+        
     }
 
     /* ✅ ปรับขนาด Title */
@@ -1780,30 +1952,30 @@ SweetAlert2 alert
         text-shadow: 0px 0px 10px rgba(0, 255, 100, 0.7); /* ✅ เพิ่มเรืองแสง */
     }
 
-    * ✅ ปรับขนาดข้อความ */
-.custom-swal-success-text {
-    font-size: 16px !important;
-    color: #d4ffd4 !important;
-    margin-top: 10px !important;
-}
+        /* ✅ ปรับขนาดข้อความ */
+    .custom-swal-success-text {
+        font-size: 16px !important;
+        color: #d4ffd4 !important;
+        margin-top: 10px !important;
+    }
 
-/* ✅ ปรับขนาดปุ่ม */
-.custom-swal-success-button {
-    background-color: #00cc66 !important;
-    color: white !important;
-    font-size: 16px !important;
-    padding: 8px 16px !important;
-    border-radius: 6px !important;
-    transition: all 0.3s ease-in-out;
-}
+    /* ✅ ปรับขนาดปุ่ม */
+    .custom-swal-success-button {
+        background-color: #00cc66 !important;
+        color: white !important;
+        font-size: 16px !important;
+        padding: 8px 16px !important;
+        border-radius: 6px !important;
+        transition: all 0.3s ease-in-out;
+    }
 
-/* ✅ เอฟเฟค Hover ปุ่ม */
-.custom-swal-success-button:hover {
-    background-color: #00994d !important;
-    box-shadow: 0px 0px 10px rgba(0, 255, 100, 0.7);
-}
+    /* ✅ เอฟเฟค Hover ปุ่ม */
+    .custom-swal-success-button:hover {
+        background-color: #00994d !important;
+        box-shadow: 0px 0px 10px rgba(0, 255, 100, 0.7);
+    }
 
-</style>
+    </style>
 
 
 
@@ -1811,8 +1983,8 @@ SweetAlert2 alert
 <footer>
     <!-- Logos -->
     <div class="footer-logos">
-        <img src="../../images/footer-icon/logo-exp-up-company-original.png" alt="Tencent Logo">
-        <img src="../../images/footer-icon/logo-exp-up-company-original.png" alt="Aurora Logo">
+        <img src="../../images/footer-icon/logo-exp-up-company.png" alt="expup-company Logo">
+        <img src="../../images/footer-icon/logo-seasun.png" alt="seasun Logo">
     </div>
 
     <!-- Copyright -->
@@ -2132,31 +2304,59 @@ footer {
     </div>
 </div>
 
-<!-- JavaScript to close the cookie banner -->
+<!-- JavaScript  cookie -->
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const cookieBanner = document.getElementById("cookie-banner");
-        const acceptButton = document.getElementById("accept-cookie"); // แก้ไขให้ตรงกับ HTML
-        const rejectButton = document.getElementById("decline-cookie"); // แก้ไขให้ตรงกับ HTML
+   document.addEventListener("DOMContentLoaded", function () {
+    const cookieBanner = document.getElementById("cookie-banner");
+    const acceptButton = document.getElementById("accept-cookie");
+    const rejectButton = document.getElementById("decline-cookie");
 
-        // ตรวจสอบว่าผู้ใช้เคยเลือกแล้วหรือยัง
-        if (localStorage.getItem("cookieAccepted") || localStorage.getItem("cookieRejected")) {
-            cookieBanner.style.display = "none"; // ถ้าผู้ใช้เลือกแล้ว ซ่อนแบนเนอร์
-        }
-
-        // กดยอมรับ
-        acceptButton.addEventListener("click", function () {
-            localStorage.setItem("cookieAccepted", "true"); // บันทึกการยอมรับคุกกี้
-            document.cookie = "userConsent=true; path=/; max-age=31536000"; // ตั้งค่าคุกกี้เป็น 1 ปี
-            cookieBanner.style.display = "none"; // ซ่อนแบนเนอร์หลังจากยอมรับ
+    function generateUUID() {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+            let r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
         });
+    }
 
-        // กดปฏิเสธ
-        rejectButton.addEventListener("click", function () {
-            localStorage.setItem("cookieRejected", "true"); // บันทึกการปฏิเสธคุกกี้
-            cookieBanner.style.display = "none"; // ซ่อนแบนเนอร์หลังจากปฏิเสธ
-        });
+    let userUUID = localStorage.getItem("userUUID");
+    if (!userUUID) {
+        userUUID = generateUUID();
+        localStorage.setItem("userUUID", userUUID);
+    }
+
+    function saveConsent(consentGiven) {
+        let formData = new FormData();
+        formData.append('user_uuid', userUUID);
+        formData.append('consent_given', consentGiven);
+        formData.append('user_agent', navigator.userAgent); // ✅ ส่งค่า User Agent
+
+        fetch('../../database/player/save_cookie.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error("เกิดข้อผิดพลาด:", error));
+    }
+
+    if (localStorage.getItem("cookieAccepted") || localStorage.getItem("cookieRejected")) {
+        cookieBanner.style.display = "none";
+    }
+
+    acceptButton.addEventListener("click", function () {
+        localStorage.setItem("cookieAccepted", "true");
+        saveConsent(1);
+        cookieBanner.style.display = "none";
     });
+
+    rejectButton.addEventListener("click", function () {
+        localStorage.setItem("cookieRejected", "true");
+        saveConsent(0);
+        cookieBanner.style.display = "none";
+    });
+});
+
+
 </script>
 
 
@@ -2263,6 +2463,19 @@ footer {
 }
 
     </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
