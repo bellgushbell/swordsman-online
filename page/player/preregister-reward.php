@@ -791,37 +791,41 @@ document.addEventListener("DOMContentLoaded", function() {
 </script> 
 
 
+
+
    <!-- Progress Bar -->
 
-    <!-- <style>
+    <style>
         /* 🎯 ตั้งค่า Progress Bar */
-    .progress-container {
-        position: absolute;
-        bottom: 15%; /* ให้ลอยอยู่ด้านล่างของ reward section */
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100%;
-        max-width: 90vw;
-        height: 30px;
-        background: white;
-        border-radius: 10px;
-        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-        z-index: 10; /* ทำให้ซ้อนอยู่เหนือ reward section */
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        border: 3px solid rgba(255, 215, 0, 0.7);
-    }
+  .progress-container {
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 90vw;
+    height: 30px;
+    background: white;
+    border-radius: 40px; /* ✅ คงความมนของขอบ */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    overflow: visible; /* ✅ ให้ Checkpoints แสดง แต่ Progress Bar ต้องใช้ clip-path */
+}
 
-    /* ✅ ตั้งค่าให้ Progress Bar ขยับ */
-    .progress-bar {
-        width: 0%;
-        height: 100%;
-        background: linear-gradient(45deg, #663300, #a67c00, #ffcc66);
-        background-size: 200% 200%;
-        animation: moveGradient 2s infinite alternate, moveProgress 4s forwards ease-in-out;
-        transition: width 1s ease-in-out;
-    }
+/* ✅ ปรับ Progress Bar ให้มีขอบมน แต่ไม่ถูกตัด */
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(45deg, rgb(241, 181, 135), rgb(188, 169, 115), #ffcc66);
+    background-size: 200% 200%;
+    animation: moveGradient 2s infinite alternate, moveProgress 4s forwards ease-in-out;
+    transition: width 1s ease-in-out;
+    position: absolute; /* ✅ ให้ขอบมนทำงาน */
+    border-radius: 40px; /* ✅ ขอบมน */
+    clip-path: inset(0 round 40px); /* ✅ ตัดขอบให้ยังเป็นมน โดยไม่ใช้ overflow */
+}
 
     /* 🌟 สีวิ่งไปมา */
     @keyframes moveGradient {
@@ -832,43 +836,114 @@ document.addEventListener("DOMContentLoaded", function() {
     /* 🎯 แถบวิ่งไปหยุดที่ Checkpoint 2 */
     @keyframes moveProgress {
         0% { width: 0%; }
-        100% { width: 30%; } /* หยุดที่ Checkpoint 2 */
+        100% { width: 31%; } /* หยุดที่ Checkpoint 2 */
     }
 
     /* ✅ ตั้งค่า Checkpoints */
-    .progress-checkpoints {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        padding: 0 10%;
-    }
 
-    /* 🎯 Checkpoint เป็นจุดกลม */
-    .checkpoint {
-        width: 20px;
-        height: 20px;
-        background: white;
-        border-radius: 50%;
-        border: 3px solid rgba(255, 215, 0, 0.7);
-        transition: background-color 0.5s ease-in-out, transform 0.3s ease-in-out;
-    }
 
-    /* ✅ จุดที่ถูกผ่าน */
-    .checkpoint.active {
-        background-color: #a67c00;
-        transform: scale(1.2);
-        box-shadow: 0px 0px 10px rgba(166, 124, 0, 0.7);
-    }
+ /* ✅ ปรับ Checkpoint */
+.checkpoint {
+    width: 50px;
+    height: 50px;
+    background: white;
+    transform: rotate(45deg); /* หมุนเป็นขนมเปียกปูน */
+    transition: background-color 0.5s ease-in-out, transform 0.3s ease-in-out;
+    position: absolute;
+    top: -10px; /* ✅ ดันขึ้นเพื่อให้แหลมด้านบนโผล่ออกมา */
+    z-index: 5; /* ✅ สูงกว่า Progress Bar */
+}
 
-    </style> -->
+/* ✅ จุดที่ถูกผ่าน */
+.checkpoint.active {
+    background-color: #a67c00;
+    box-shadow: 0px 0px 10px rgba(166, 124, 0, 0.7);
+}
+
+/* 🌟 ปรับตำแหน่งของ Checkpoints */
+.progress-checkpoints {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 5; /* ✅ ให้ Checkpoints อยู่ข้างบน Progress Bar */
+}
+
+/* ✅ ปรับตำแหน่ง Checkpoint ตามแนวแกน X */
+#cp1 { left: 8%; }
+#cp2 { left: 28%; }
+#cp3 { left: 49%; }
+#cp4 { left: 69%; }
+#cp5 { left: 89%; }
+
+/* ✅ ป้องกัน Progress Bar ทับ Checkpoints */
+.progress-bar {
+    pointer-events: none; /* ✅ ป้องกันการรับค่า hover และ interaction */
+    z-index: 2; /* ✅ ให้ต่ำกว่า Checkpoints */
+}
+
+@media only screen and (max-width: 767px) {
+    .progress-container {
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 88vw;
+    height: 10px;
+    background: white;
+    border-radius: 40px; /* ✅ คงความมนของขอบ */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    overflow: visible; /* ✅ ให้ Checkpoints แสดง แต่ Progress Bar ต้องใช้ clip-path */
+}
+.checkpoint {
+    width: 13px;
+    height: 13px;
+    background: white;
+    transform: rotate(45deg); /* หมุนเป็นขนมเปียกปูน */
+    transition: background-color 0.5s ease-in-out, transform 0.3s ease-in-out;
+    position: absolute;
+    top: -2px; /* ✅ ดันขึ้นเพื่อให้แหลมด้านบนโผล่ออกมา */
+    z-index: 5; /* ✅ สูงกว่า Progress Bar */
+}
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1400px)  {
+    .progress-container {
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 90vw;
+    height: 20px;
+    background: white;
+    border-radius: 40px; /* ✅ คงความมนของขอบ */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    overflow: visible; /* ✅ ให้ Checkpoints แสดง แต่ Progress Bar ต้องใช้ clip-path */
+}
+.checkpoint {
+    width: 24px;
+    height: 24px;
+    background: white;
+    transform: rotate(45deg); /* หมุนเป็นขนมเปียกปูน */
+    transition: background-color 0.5s ease-in-out, transform 0.3s ease-in-out;
+    position: absolute;
+    top: -2px; /* ✅ ดันขึ้นเพื่อให้แหลมด้านบนโผล่ออกมา */
+    z-index: 5; /* ✅ สูงกว่า Progress Bar */
+}
+} 
+
+    </style>
 
 
     <!-- 🎯 Progress Bar -->
-    <!-- <div class="progress-container">
+    <div class="progress-container">
         <div class="progress-bar" id="progress-bar"></div>
         <div class="progress-checkpoints">
             <div class="checkpoint" id="cp1"></div>
@@ -891,11 +966,20 @@ document.addEventListener("DOMContentLoaded", function() {
             setTimeout(() => {
                 checkpoints[1].classList.add("active"); // Checkpoint 2 (หยุดที่นี่)
             }, 3000);
+            // setTimeout(() => {
+            //     checkpoints[2].classList.add("active"); // Checkpoint 3 (หยุดที่นี่)
+            // }, 3000);
+            // setTimeout(() => {
+            //     checkpoints[3].classList.add("active"); // Checkpoint 4 (หยุดที่นี่)
+            // }, 3000);
+            // setTimeout(() => {
+            //     checkpoints[4].classList.add("active"); // Checkpoint 5 (หยุดที่นี่)
+            // }, 3000);
         }
 
         // 🟠 เรียกฟังก์ชันเมื่อโหลดหน้า
         document.addEventListener("DOMContentLoaded", updateCheckpoints);
-    </script>  -->
+    </script> 
 
     
 
@@ -2251,7 +2335,7 @@ footer {
     }
 
     .footer-logos img {
-        height: 30px; /* ลดขนาดโลโก้ในมือถือ */
+        height: 20px; /* ลดขนาดโลโก้ในมือถือ */
     }
 
     /* Copyright and Button */

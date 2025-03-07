@@ -1848,8 +1848,10 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    padding: 20px;
+                    padding: 0px 20px;
+                    
                     gap: 10px;
+                    height: 480px;
                 }
 
                 .character-container img {
@@ -1888,7 +1890,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 }
 
                 .video-overlay h3 {
-                    font-size: 10px;
+                    font-size: 8px;
                 }
 
                 .tabs button {
@@ -1957,7 +1959,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             }
 
             .video-overlay h3 {
-            font-size: 10px;
+            font-size: 13px;
             }
 }
 
