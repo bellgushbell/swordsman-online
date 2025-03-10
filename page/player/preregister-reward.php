@@ -763,18 +763,18 @@ document.addEventListener("DOMContentLoaded", function() {
     const videoModal = document.getElementById("videoModal");
     const youtubeVideo = document.getElementById("youtubeVideo");
 
-    // ✅ ทำให้ Modal เปิดเฉพาะตอนกดปุ่ม
+    //  ทำให้ Modal เปิดเฉพาะตอนกดปุ่ม
     openModal.addEventListener("click", function() {
         videoModal.style.display = "flex";
     });
 
-    // ✅ ปิด Modal เมื่อกดปุ่ม ❌
+    //  ปิด Modal เมื่อกดปุ่ม ❌
     closeModal.addEventListener("click", function() {
         videoModal.style.display = "none";
         stopVideo();
     });
 
-    // ✅ ปิด Modal เมื่อคลิกที่พื้นที่ว่าง (นอกกล่องวิดีโอ)
+    //  ปิด Modal เมื่อคลิกที่พื้นที่ว่าง (นอกกล่องวิดีโอ)
     window.addEventListener("click", function(event) {
         if (event.target === videoModal) {
             videoModal.style.display = "none";
@@ -782,7 +782,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // ✅ ฟังก์ชันหยุดวิดีโอเมื่อปิด Modal
+    //  ฟังก์ชันหยุดวิดีโอเมื่อปิด Modal
     function stopVideo() {
         youtubeVideo.src = youtubeVideo.src; // รีเซ็ต URL เพื่อหยุดเล่นวิดีโอ
     }
@@ -806,15 +806,15 @@ document.addEventListener("DOMContentLoaded", function() {
     max-width: 90vw;
     height: 30px;
     background: white;
-    border-radius: 40px; /* ✅ คงความมนของขอบ */
+    border-radius: 40px; /*  คงความมนของขอบ */
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
     z-index: 10;
     display: flex;
     align-items: center;
-    overflow: visible; /* ✅ ให้ Checkpoints แสดง แต่ Progress Bar ต้องใช้ clip-path */
+    overflow: visible; /*  ให้ Checkpoints แสดง แต่ Progress Bar ต้องใช้ clip-path */
 }
 
-/* ✅ ปรับ Progress Bar ให้มีขอบมน แต่ไม่ถูกตัด */
+/*  ปรับ Progress Bar ให้มีขอบมน แต่ไม่ถูกตัด */
 .progress-bar {
     width: 0%;
     height: 100%;
@@ -822,9 +822,9 @@ document.addEventListener("DOMContentLoaded", function() {
     background-size: 200% 200%;
     animation: moveGradient 2s infinite alternate, moveProgress 4s forwards ease-in-out;
     transition: width 1s ease-in-out;
-    position: absolute; /* ✅ ให้ขอบมนทำงาน */
-    border-radius: 40px; /* ✅ ขอบมน */
-    clip-path: inset(0 round 40px); /* ✅ ตัดขอบให้ยังเป็นมน โดยไม่ใช้ overflow */
+    position: absolute; /*  ให้ขอบมนทำงาน */
+    border-radius: 40px; /*  ขอบมน */
+    clip-path: inset(0 round 40px); /*  ตัดขอบให้ยังเป็นมน โดยไม่ใช้ overflow */
 }
 
     /* 🌟 สีวิ่งไปมา */
@@ -834,15 +834,15 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     /* 🎯 แถบวิ่งไปหยุดที่ Checkpoint 2 */
-    @keyframes moveProgress {
+    /* @keyframes moveProgress {
         0% { width: 0%; }
-        100% { width: 31%; } /* หยุดที่ Checkpoint 2 */
-    }
+        100% { width: 31%; } 
+    } */
 
-    /* ✅ ตั้งค่า Checkpoints */
+    /*  ตั้งค่า Checkpoints */
 
 
- /* ✅ ปรับ Checkpoint */
+ /*  ปรับ Checkpoint */
 .checkpoint {
     width: 50px;
     height: 50px;
@@ -850,11 +850,11 @@ document.addEventListener("DOMContentLoaded", function() {
     transform: rotate(45deg); /* หมุนเป็นขนมเปียกปูน */
     transition: background-color 0.5s ease-in-out, transform 0.3s ease-in-out;
     position: absolute;
-    top: -10px; /* ✅ ดันขึ้นเพื่อให้แหลมด้านบนโผล่ออกมา */
-    z-index: 5; /* ✅ สูงกว่า Progress Bar */
+    top: -10px; /*  ดันขึ้นเพื่อให้แหลมด้านบนโผล่ออกมา */
+    z-index: 5; /*  สูงกว่า Progress Bar */
 }
 
-/* ✅ จุดที่ถูกผ่าน */
+/*  จุดที่ถูกผ่าน */
 .checkpoint.active {
     background-color: #a67c00;
     box-shadow: 0px 0px 10px rgba(166, 124, 0, 0.7);
@@ -865,21 +865,50 @@ document.addEventListener("DOMContentLoaded", function() {
     position: absolute;
     width: 100%;
     height: 100%;
-    z-index: 5; /* ✅ ให้ Checkpoints อยู่ข้างบน Progress Bar */
+    z-index: 5; /*  ให้ Checkpoints อยู่ข้างบน Progress Bar */
 }
 
-/* ✅ ปรับตำแหน่ง Checkpoint ตามแนวแกน X */
+/*  ปรับตำแหน่ง Checkpoint ตามแนวแกน X */
 #cp1 { left: 8%; }
 #cp2 { left: 28%; }
 #cp3 { left: 49%; }
 #cp4 { left: 69%; }
 #cp5 { left: 89%; }
 
-/* ✅ ป้องกัน Progress Bar ทับ Checkpoints */
+/*  ป้องกัน Progress Bar ทับ Checkpoints */
 .progress-bar {
-    pointer-events: none; /* ✅ ป้องกันการรับค่า hover และ interaction */
-    z-index: 2; /* ✅ ให้ต่ำกว่า Checkpoints */
+    pointer-events: none; /*  ป้องกันการรับค่า hover และ interaction */
+    z-index: 2; /*  ให้ต่ำกว่า Checkpoints */
 }
+
+
+
+
+/*  ถ้าครบ 500000 (5แสน) ไล่สีรุ้งแบบซอฟต์ */
+@keyframes rainbowFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.rainbow {
+    background: linear-gradient(90deg, 
+        rgba(255, 150, 150, 0.8), /* แดงอ่อน */
+        rgba(255, 200, 130, 0.8), /* ส้มพาสเทล */
+        rgba(255, 255, 150, 0.8), /* เหลืองนวล */
+        rgba(170, 255, 170, 0.8), /* เขียวอ่อน */
+        rgba(150, 200, 255, 0.8), /* ฟ้าใส */
+        rgba(180, 150, 255, 0.8), /* ม่วงอ่อน */
+        rgba(220, 180, 255, 0.8)  /* ม่วงพาสเทล */
+    );
+    background-size: 200% 200%;
+    animation: rainbowFlow 5s infinite alternate ease-in-out ;
+}
+
+
+
+
+
 
 @media only screen and (max-width: 767px) {
     .progress-container {
@@ -891,12 +920,12 @@ document.addEventListener("DOMContentLoaded", function() {
     max-width: 88vw;
     height: 10px;
     background: white;
-    border-radius: 40px; /* ✅ คงความมนของขอบ */
+    border-radius: 40px; /*  คงความมนของขอบ */
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
     z-index: 10;
     display: flex;
     align-items: center;
-    overflow: visible; /* ✅ ให้ Checkpoints แสดง แต่ Progress Bar ต้องใช้ clip-path */
+    overflow: visible; /*  ให้ Checkpoints แสดง แต่ Progress Bar ต้องใช้ clip-path */
 }
 .checkpoint {
     width: 13px;
@@ -905,10 +934,26 @@ document.addEventListener("DOMContentLoaded", function() {
     transform: rotate(45deg); /* หมุนเป็นขนมเปียกปูน */
     transition: background-color 0.5s ease-in-out, transform 0.3s ease-in-out;
     position: absolute;
-    top: -2px; /* ✅ ดันขึ้นเพื่อให้แหลมด้านบนโผล่ออกมา */
-    z-index: 5; /* ✅ สูงกว่า Progress Bar */
+    top: -2px; /*  ดันขึ้นเพื่อให้แหลมด้านบนโผล่ออกมา */
+    z-index: 5; /*  สูงกว่า Progress Bar */
 }
+/*ครบ5แสน */
+ .checkpoint.rainbow {
+        background: linear-gradient(90deg, 
+            rgba(255, 150, 150, 0.8),
+            rgba(255, 200, 130, 0.8),
+            rgba(255, 255, 150, 0.8),
+            rgba(170, 255, 170, 0.8),
+            rgba(150, 200, 255, 0.8),
+            rgba(180, 150, 255, 0.8),
+            rgba(220, 180, 255, 0.8)
+        );
+        background-size: 200% 200%;
+        animation: rainbowFlow 5s infinite alternate ease-in-out;
+    }
 }
+
+
 
 @media only screen and (min-width: 768px) and (max-width: 1400px)  {
     .progress-container {
@@ -920,12 +965,12 @@ document.addEventListener("DOMContentLoaded", function() {
     max-width: 90vw;
     height: 20px;
     background: white;
-    border-radius: 40px; /* ✅ คงความมนของขอบ */
+    border-radius: 40px; /*  คงความมนของขอบ */
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
     z-index: 10;
     display: flex;
     align-items: center;
-    overflow: visible; /* ✅ ให้ Checkpoints แสดง แต่ Progress Bar ต้องใช้ clip-path */
+    overflow: visible; /*  ให้ Checkpoints แสดง แต่ Progress Bar ต้องใช้ clip-path */
 }
 .checkpoint {
     width: 24px;
@@ -934,9 +979,23 @@ document.addEventListener("DOMContentLoaded", function() {
     transform: rotate(45deg); /* หมุนเป็นขนมเปียกปูน */
     transition: background-color 0.5s ease-in-out, transform 0.3s ease-in-out;
     position: absolute;
-    top: -2px; /* ✅ ดันขึ้นเพื่อให้แหลมด้านบนโผล่ออกมา */
-    z-index: 5; /* ✅ สูงกว่า Progress Bar */
+    top: -2px; /*  ดันขึ้นเพื่อให้แหลมด้านบนโผล่ออกมา */
+    z-index: 5; /*  สูงกว่า Progress Bar */
 }
+/*ครบ5แสน */
+ .checkpoint.rainbow {
+        background: linear-gradient(90deg, 
+            rgba(255, 150, 150, 0.8),
+            rgba(255, 200, 130, 0.8),
+            rgba(255, 255, 150, 0.8),
+            rgba(170, 255, 170, 0.8),
+            rgba(150, 200, 255, 0.8),
+            rgba(180, 150, 255, 0.8),
+            rgba(220, 180, 255, 0.8)
+        );
+        background-size: 200% 200%;
+        animation: rainbowFlow 5s infinite alternate ease-in-out;
+    }
 } 
 
     </style>
@@ -955,17 +1014,17 @@ document.addEventListener("DOMContentLoaded", function() {
     </div>
 
     <script>
-        // ✅ อัพเดต Checkpoints เมื่อ Progress ถึงจุดที่กำหนด
-        function updateCheckpoints() {
-            let checkpoints = document.querySelectorAll(".checkpoint");
+        //  อัพเดต Checkpoints เมื่อ Progress ถึงจุดที่กำหนด
+        // function updateCheckpoints() {
+        //     let checkpoints = document.querySelectorAll(".checkpoint");
 
-            setTimeout(() => {
-                checkpoints[0].classList.add("active"); // Checkpoint 1
-            }, 1000);
+        //     setTimeout(() => {
+        //         checkpoints[0].classList.add("active"); // Checkpoint 1
+        //     }, 1000);
 
-            setTimeout(() => {
-                checkpoints[1].classList.add("active"); // Checkpoint 2 (หยุดที่นี่)
-            }, 3000);
+        //     setTimeout(() => {
+        //         checkpoints[1].classList.add("active"); // Checkpoint 2 (หยุดที่นี่)
+        //     }, 3000);
             // setTimeout(() => {
             //     checkpoints[2].classList.add("active"); // Checkpoint 3 (หยุดที่นี่)
             // }, 3000);
@@ -975,10 +1034,99 @@ document.addEventListener("DOMContentLoaded", function() {
             // setTimeout(() => {
             //     checkpoints[4].classList.add("active"); // Checkpoint 5 (หยุดที่นี่)
             // }, 3000);
-        }
+        // }
 
         // 🟠 เรียกฟังก์ชันเมื่อโหลดหน้า
-        document.addEventListener("DOMContentLoaded", updateCheckpoints);
+        // document.addEventListener("DOMContentLoaded", updateCheckpoints);
+
+
+
+  async function updateProgressBar() {
+    try {
+        let response = await fetch('../../database/player/get_count_preregister.php');
+        let data = await response.json();
+
+        if (data.count) {
+            let count = data.count;
+            let percentage = 0; // เริ่มต้นที่ 0%
+
+            //  ถ้าตรงกับค่าที่กำหนด ให้ใช้ค่าที่แน่นอนเลย
+            let fixedPercentages = {
+                500000: 100,
+                300000: 70,
+                200000: 50,
+                100000: 30,
+                50000: 10
+            };
+
+            if (count >= 500000) { 
+                percentage = 100; //  ถ้า count >= 500000 ให้เป็น 100% 
+            } else if (fixedPercentages[count] !== undefined) {
+                percentage = fixedPercentages[count];
+            } else {
+                //  ถ้าไม่ตรงกับค่าที่กำหนด ให้คำนวณเปอร์เซ็นต์ตามช่วงค่า
+                if (count < 50000) {
+                    percentage = (count / 50000) * 10; // 0 - 50,000 → 0% - 10%
+                } else if (count < 100000) {
+                    percentage = 10 + ((count - 50000) / 50000) * 20; // 50,000 - 100,000 → 10% - 30%
+                } else if (count < 200000) {
+                    percentage = 30 + ((count - 100000) / 100000) * 20; // 100,000 - 200,000 → 30% - 50%
+                } else if (count < 300000) {
+                    percentage = 50 + ((count - 200000) / 100000) * 20; // 200,000 - 300,000 → 50% - 70%
+                } else if (count < 450000) {
+                    percentage = 80; //  ห้ามเกิน Checkpoint 4 (80%)
+                } else if (count < 480000) {
+                    percentage = 85; //  ห้ามเกิน Checkpoint 4 (85%)
+                } else if (count < 500000) {
+                    percentage = 90; //  ห้ามเกิน Checkpoint 4 (90%)
+                }
+            }
+
+            percentage = Math.min(percentage, 100); //  จำกัดค่าไม่ให้เกิน 100%
+
+            console.log(`🚀 จำนวนลงทะเบียน: ${count} | เปอร์เซ็นต์: ${percentage.toFixed(2)}%`);
+
+            //  ปรับ progress bar
+            let progressBar = document.getElementById('progress-bar');
+            progressBar.style.width = `${percentage}%`;
+
+            //  อัพเดต Checkpoints ตามเปอร์เซ็นต์
+            updateCheckpoints(percentage);
+
+            //  ถ้า count >= 500000 ให้เปลี่ยนเป็นธีมรุ้ง
+            if (count >= 500000) {
+                progressBar.classList.add("rainbow");
+                document.querySelectorAll(".checkpoint").forEach(checkpoint => {
+                    checkpoint.classList.add("rainbow");
+                });
+            }
+        }
+    } catch (error) {
+        console.error('เกิดข้อผิดพลาดในการดึงข้อมูล:', error);
+    }
+}
+
+function updateCheckpoints(percentage) {
+    let checkpoints = document.querySelectorAll(".checkpoint");
+    let checkpointValues = [10, 30, 50, 70, 100]; //  กำหนดค่าที่ Checkpoint ต้อง active
+
+    checkpoints.forEach((checkpoint, index) => {
+        if (percentage >= checkpointValues[index]) {
+            checkpoint.classList.add("active");
+        } else {
+            checkpoint.classList.remove("active");
+        }
+    });
+}
+
+//  โหลดข้อมูลเมื่อเปิดหน้า
+document.addEventListener("DOMContentLoaded", updateProgressBar);
+
+
+
+
+
+
     </script> 
 
     
