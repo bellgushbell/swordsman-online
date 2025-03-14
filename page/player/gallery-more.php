@@ -426,7 +426,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
          
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 
-        /
+        
             background-clip: text;
            
     }
@@ -603,13 +603,19 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
         /* ✅ Mobile แนวตั้ง (Portrait) */
       /* สำหรับมือถือ */
-        @media (max-width: 767px) {
+             @media (max-width: 767px) {
+            .gallery-banner {
+                height: 200px;
+            }
+            .gallery-banner h1{
+            font-size: 38px;  
+            }
             .gallery {
                 grid-template-columns: repeat(2, 1fr); /* 3 การ์ดในแต่ละแถว */
                 gap: 10px; /* เพิ่มช่องว่างระหว่างการ์ด */
                 grid-auto-rows: 1fr;
             }
-        .gallery-item {
+            .gallery-item {
                 width: 100%; /* ป้องกันขนาดการ์ดไม่เท่ากัน */
                 max-width: 100%; /* จำกัดขนาดให้พอดี */
                 max-height: 100% !important; /* จำกัดขนาดให้พอดี */
@@ -639,6 +645,12 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             }
          /* ✅ ในแนวนอน */
           @media (max-width: 768px) and (orientation: landscape) {
+            .gallery-banner {
+                height: 200px;
+            }
+            .gallery-banner h1{
+            font-size: 38px;  
+            }
             .gallery {
                 grid-template-columns: repeat(3, 1fr); 
             }
@@ -659,6 +671,12 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
           }
         /* ✅ iPad แนวตั้ง */
         @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+            .gallery-banner {
+                height: 200px;
+            }
+             .gallery-banner h1{
+            font-size: 38px;  
+            }
             .gallery {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -680,6 +698,12 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
         /* ✅ iPad และ Tablet (แนวนอน) */
         @media (min-width: 1024px) and (max-width: 1400px) and (orientation: landscape) {
+            .gallery-banner {
+                height: 200px;
+            }
+             .gallery-banner h1{
+            font-size: 38px;  
+            }
             .gallery {
                 grid-template-columns: repeat(3, 1fr); /* 3 การ์ดในแต่ละแถว */
             }
