@@ -403,7 +403,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
         <!-- Home Section -->
         <section id="home-section" class="home-section bg-dark-alfa-30 light-content relative"
-            data-background="images/webcover-videoimage.jpg" id="home">
+            data-background="images/webcover-fallback-opening-game.jpg" id="home">
             <div class="container height-100vh d-flex align-items-center">
 
                 <!-- BG Video BG Init -->
@@ -432,13 +432,13 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
                 <!-- BG Video BG Init แบบใหม่ใช้งาน-->
                 <div class="bg-video-wrapper">
-                    <video class="bg-video" poster="images/webcover-videoimage.jpg" preload="auto" autoplay muted loop playsinline>
-                        <source src="video/opening-game-video.mp4" type="video/mp4">
+                    <video class="bg-video" poster="images/webcover-fallback-opening-game.jpg" preload="auto" autoplay muted loop playsinline>
+                        <source src="video/opening-game-video-pc.mp4" type="video/mp4">
                     </video>
 
-                    <video class="bg-video-mobile" poster="images/webcover-videoimage.jpg" preload="auto" autoplay muted loop
+                    <video class="bg-video-mobile" poster="images/webcover-fallback-opening-game.jpg" preload="auto" autoplay muted loop
                         playsinline>
-                        <source src="video/opening-game-video.mp4" type="video/mp4">
+                        <source src="video/opening-game-video-mobile.mp4" type="video/mp4">
                     </video>
 
                     <!-- <div class="text-overlay">
@@ -462,59 +462,59 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
             <script>
                 // ฟังก์ชันแสดงข้อความ Overlay
-                function showTextOverlay() {
-                    const textOverlay = document.querySelector('.text-overlay');
+                // function showTextOverlay() {
+                //     const textOverlay = document.querySelector('.text-overlay');
 
-                    if (textOverlay) {
-                        gsap.to(textOverlay, {
-                            opacity: 1, // ทำให้ข้อความค่อยๆ ปรากฏ
-                            duration: 1.5,
-                            ease: 'power1.inOut', // ใช้เอฟเฟกต์นุ่มนวล
-                            delay: 8,
-                            onStart: () => {
-                                textOverlay.style.visibility = 'visible'; // ทำให้ Text Overlay มองเห็น
-                            }
-                        });
-                        // console.log("✅ Text overlay is displayed successfully.");
-                    } else {
-                        // console.error("❌ .text-overlay element not found in DOM.");
-                    }
-                }
-                showTextOverlay()
+                //     if (textOverlay) {
+                //         gsap.to(textOverlay, {
+                //             opacity: 1, // ทำให้ข้อความค่อยๆ ปรากฏ
+                //             duration: 1.5,
+                //             ease: 'power1.inOut', // ใช้เอฟเฟกต์นุ่มนวล
+                //             delay: 8,
+                //             onStart: () => {
+                //                 textOverlay.style.visibility = 'visible'; // ทำให้ Text Overlay มองเห็น
+                //             }
+                //         });
+                //         // console.log("✅ Text overlay is displayed successfully.");
+                //     } else {
+                //         // console.error("❌ .text-overlay element not found in DOM.");
+                //     }
+                // }
+                // showTextOverlay()
 
 
                 //  บังคับเล่นวีดีโอให้ม่านloader เปิดเลย 
                 // แก้วีดีโอ
 
 
-                document.addEventListener("DOMContentLoaded", async () => {
-                    const videoDesktop = document.querySelector('.bg-video');
-                    const videoMobile = document.querySelector('.bg-video-mobile');
-                    const videoUrlDesktop = "video/opening-game-video.mp4";
-                    const videoUrlMobile = "video/opening-game-video.mp4";
-                    const fallbackBackground = "images/webcover2560x1440.jpg";
-                    const isMobile = window.innerWidth <= 768;
-                    const videoElement = isMobile ? videoMobile : videoDesktop;
-                    const videoUrl = isMobile ? videoUrlMobile : videoUrlDesktop;
+                // document.addEventListener("DOMContentLoaded", async () => {
+                //     const videoDesktop = document.querySelector('.bg-video');
+                //     const videoMobile = document.querySelector('.bg-video-mobile');
+                //     const videoUrlDesktop = "video/opening-game-video.mp4";
+                //     const videoUrlMobile = "video/opening-game-video.mp4";
+                //     const fallbackBackground = "images/webcover2560x1440.jpg";
+                //     const isMobile = window.innerWidth <= 768;
+                //     const videoElement = isMobile ? videoMobile : videoDesktop;
+                //     const videoUrl = isMobile ? videoUrlMobile : videoUrlDesktop;
 
 
 
-                    // ✅ ให้เปิดม่านโดยไม่ต้องรอวิดีโอโหลด
-                    setTimeout(() => {
-                        openLoader();
-                    }, 1000); // 🔥 ลดดีเลย์จาก 3000ms → 1000ms
+                //     // ✅ ให้เปิดม่านโดยไม่ต้องรอวิดีโอโหลด
+                //     setTimeout(() => {
+                //         openLoader();
+                //     }, 1000); // 🔥 ลดดีเลย์จาก 3000ms → 1000ms
 
-                    // ✅ บังคับให้เริ่มโหลดวิดีโอทันที
-                    videoElement.src = videoUrl;
-                    videoElement.style.visibility = "visible";
+                //     // ✅ บังคับให้เริ่มโหลดวิดีโอทันที
+                //     videoElement.src = videoUrl;g
+                //     videoElement.style.visibility = "visible";
 
-                    // ✅ ถ้าวิดีโอโหลดไม่เสร็จภายใน 2 วินาที → ใช้ภาพพื้นหลังแทน
-                    setTimeout(() => {
-                        if (!videoElement.readyState || videoElement.readyState < 3) {
-                            document.querySelector("#home-section").style.backgroundImage = `url(${fallbackBackground})`;
-                        }
-                    }, 2000); // 🔥 ลดจาก 5000ms → 2000ms เพื่อความเร็ว
-                });
+                //     // ✅ ถ้าวิดีโอโหลดไม่เสร็จภายใน 2 วินาที → ใช้ภาพพื้นหลังแทน
+                //     setTimeout(() => {
+                //         if (!videoElement.readyState || videoElement.readyState < 3) {
+                //             document.querySelector("#home-section").style.backgroundImage = `url(${fallbackBackground})`;
+                //         }
+                //     }, 2000); // 🔥 ลดจาก 5000ms → 2000ms เพื่อความเร็ว
+                // });
             </script>
 
 
@@ -2223,7 +2223,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                     }
                 })
                 .catch(error => {
-                    console.error("Error fetching SEO data:", error);
+                    // console.error("Error fetching SEO data:", error);
                 });
         });
     </script>

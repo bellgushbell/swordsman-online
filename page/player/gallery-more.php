@@ -605,9 +605,21 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
       /* สำหรับมือถือ */
         @media (max-width: 767px) {
             .gallery {
-                grid-template-columns: repeat(3, 1fr); /* 3 การ์ดในแต่ละแถว */
+                grid-template-columns: repeat(2, 1fr); /* 3 การ์ดในแต่ละแถว */
                 gap: 10px; /* เพิ่มช่องว่างระหว่างการ์ด */
+                grid-auto-rows: 1fr;
             }
+        .gallery-item {
+                width: 100%; /* ป้องกันขนาดการ์ดไม่เท่ากัน */
+                max-width: 100%; /* จำกัดขนาดให้พอดี */
+                max-height: 100% !important; /* จำกัดขนาดให้พอดี */
+            }
+             .gallery-item img {
+                width: 100%;
+                height: 100%;
+            }
+          
+            
 
             .gallery-container {
             display: flex;
@@ -648,7 +660,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         /* ✅ iPad แนวตั้ง */
         @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
             .gallery {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(2, 1fr);
             }
             .gallery-container {
             display: flex;
