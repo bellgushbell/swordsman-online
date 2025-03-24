@@ -189,7 +189,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     gtag('event', 'conversion', {'send_to': 'AW-11490628923/nfKGCNqvkJ8aELuqlOcq'});
     </script>
 
-
+    <script src="https://analytics.ahrefs.com/analytics.js" data-key="XQIuBBNfnYVxBEj6iQNvwQ" async></script>
 
     <!-- axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -1100,7 +1100,13 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         <!---- Class Preview Section -->
 
         <section class="class-page-section" id="class">
+              <!-- ✅ หัวข้อ Section -->
+               <!-- <h2 class="class-title text-center mx-auto">สำนัก</h2> -->
+
+
             <div class="container-fluid relative">
+                
+
                 <section class="class-preview-section">
                     <div class="row">
 
@@ -1630,8 +1636,9 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 justify-content: center;
                 padding: 20px 100px 20px 100px;
                 gap: 50px;
-                height: 100%;
+                height: auto;
                 overflow: hidden;
+                align-items: stretch;
             }
 
             .character-container {
@@ -1639,6 +1646,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                
             }
 
             .character-container img {
@@ -1652,6 +1660,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 flex: 0 0 65%;
                 display: flex;
                 flex-direction: column;
+                height: 100%;
             }
 
             .gallery-header {

@@ -2175,6 +2175,10 @@ input.form-control {
     position: relative;
 }
 
+.class-title {
+    margin-top: 10px;
+}
+
 /* กรณีเป็นภาพพื้นหลัง */
 /* รอทำแบบมือืถอ ลองทดสอบก่อน*/
 .bg-image-class {
@@ -2376,15 +2380,12 @@ input.form-control {
     /* จัดแนวไอคอนกับข้อความ */
 }
 
-.class-title {
-    margin-right: 10px;
-}
 
-.class-description {
+
+/* .class-description {
     margin-right: 10px;
     font-size: 18px;
-}
-
+} */
 
 
 
@@ -2499,9 +2500,7 @@ input.form-control {
 
     .class-sidebar {
         height: calc(100% - 60px);
-        /* หักพื้นที่สำหรับปุ่มเลื่อน */
         overflow-y: auto;
-        /* เปิด Scroll สำหรับ Sidebar */
         padding: 10px;
     }
 
@@ -2928,12 +2927,12 @@ input.form-control {
 
 } */
 
-.gallery-title {
+/* .gallery-title {
     text-align: center;
     font-size: 2rem;
     margin-bottom: 20px;
     color: #333;
-}
+} */
 
 /* ==============================
  Sidebar Navigation Bar Toggle Newversion ติดอยู่ทุกหน้า 
