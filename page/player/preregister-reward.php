@@ -241,8 +241,15 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         <input type="checkbox" id="step1-checkbox" style="margin-right: 10px; transform: scale(2);" disabled>
         <input type="checkbox" id="step2-checkbox" style="margin-right: 10px; transform: scale(2);" disabled>   
         <input type="checkbox" id="step3-checkbox" style="margin-right: 10px; transform: scale(2);" disabled>
-     
-       
+        
+        <!-- cartoonmarker -->
+        <div class="character-container">
+        <img src="../../images/RewardPage/cartoonmaker-reward.png" class="floating-char" id="char1">
+        <img src="../../images/RewardPage/cartoonmaker-reward.png" class="floating-char" id="char2">
+        <img src="../../images/RewardPage/cartoonmaker-reward.png" class="floating-char" id="char3">
+        <img src="../../images/RewardPage/cartoonmaker-reward.png" class="floating-char" id="char4">
+        <img src="../../images/RewardPage/cartoonmaker-reward.png" class="floating-char" id="char5">
+        </div>
 
      </div>
      
@@ -305,14 +312,16 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         <span class="close-video-modal" id="closeVideoModal">&times;</span>
 
         <!-- วิดีโอ YouTube Embed -->
-        <iframe id="youtubeVideo" width="560" height="315" 
+        <!-- <iframe id="youtubeVideo" width="560" height="315" 
             src="https://www.youtube.com/embed/i08KHjxYKuw?si=1YaZZll9-L1ETgny"
             title="YouTube video player" 
             frameborder="0" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen>
-        </iframe>
+        </iframe> -->
+       <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/i08KHjxYKuw?si=sQAtIKS9-PbPqLcO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
     </div>
 </div>
 
@@ -1001,8 +1010,89 @@ document.addEventListener("DOMContentLoaded", function() {
     </style>
 
 
+
+<!--  CartoonMarker Section -->
+<!-- cartoonmarker -->
+
+<style>
+.character-container {
+  position: absolute;
+  width: 100%;
+  height: 0;           /* ✅ ไม่ต้องให้กินความสูงทั้งหมด */
+  bottom: 36%;              /* ✅ ชิดขอบล่าง */
+  left: -4.5%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+
+.floating-char {
+  width: 70px;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  animation: floaty 2s ease-in-out infinite;
+}
+
+#char1 { left: 9%; }
+#char2 { left: 27%; }
+#char3 { left: 45%; }
+#char4 { left: 63.2%; }
+#char5 { left: 81.5%; }
+
+@keyframes floaty {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0px); }
+}
+@media only screen and (max-width: 576px) {
+    .floating-char {
+    width: 15px;
+    }
+}
+
+
+@media only screen and (min-width: 576px) and (max-width: 768px){
+    .floating-char {
+    width: 25px;
+  }
+}
+
+
+@media only screen and (max-width: 768px) and (orientation: landscape) {
+    .floating-char {
+    width: 23px;
+    }
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 1200px){
+    .floating-char {
+    width: 35px;
+  }
+}
+@media only screen and (min-width: 1200px) and (max-width: 1400px){
+    .floating-char {
+    width: 45px;
+  }
+}
+  @media only screen and (min-width: 1400px) and (max-width: 1800px){
+    .floating-char {
+    width: 60px;
+  }
+} 
+
+
+
+</style>
+
+
+
+<!-- End CartoonMarker Section -->
+
     <!-- 🎯 Progress Bar -->
     <div class="progress-container">
+
         <div class="progress-bar" id="progress-bar"></div>
         <div class="progress-checkpoints">
             <div class="checkpoint" id="cp1"></div>
@@ -1092,6 +1182,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             //  อัพเดต Checkpoints ตามเปอร์เซ็นต์
             updateCheckpoints(percentage);
+            updateCharacters(count);
 
             //  ถ้า count >= 500000 ให้เปลี่ยนเป็นธีมรุ้ง
             if (count >= 500000) {
@@ -1119,10 +1210,24 @@ function updateCheckpoints(percentage) {
     });
 }
 
+
 //  โหลดข้อมูลเมื่อเปิดหน้า
 document.addEventListener("DOMContentLoaded", updateProgressBar);
 
 
+/*cartoonmaker */
+function updateCharacters(count) {
+    const thresholds = [50000, 100000, 200000, 300000, 500000];
+
+    thresholds.forEach((threshold, index) => {
+        let char = document.getElementById(`char${index + 1}`);
+        if (count >= threshold) {
+            char.style.opacity = 1;
+        } else {
+            char.style.opacity = 0;
+        }
+    });
+}
 
 
 
@@ -1130,13 +1235,18 @@ document.addEventListener("DOMContentLoaded", updateProgressBar);
     </script> 
 
     
-
-
-
   
-
         
     </section>
+
+<!-- End Progress Bar Section-->
+
+
+
+
+
+
+
 
 
 <!-- โค้ดเก่าแบบนับเรื่อยๆ -->
