@@ -1174,7 +1174,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             percentage = Math.min(percentage, 100); //  จำกัดค่าไม่ให้เกิน 100%
 
-            console.log(`🚀 จำนวนลงทะเบียน: ${count} | เปอร์เซ็นต์: ${percentage.toFixed(2)}%`);
+            // console.log(`🚀 จำนวนลงทะเบียน: ${count} | เปอร์เซ็นต์: ${percentage.toFixed(2)}%`);
 
             //  ปรับ progress bar
             let progressBar = document.getElementById('progress-bar');

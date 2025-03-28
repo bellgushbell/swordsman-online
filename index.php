@@ -1117,7 +1117,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                             </video> -->
 
 
-
+                            
                             <img src="images/Class-Pic/butung.jpg" alt="Background Image Class"
                                 class="bg-image-class">
 
@@ -1860,7 +1860,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                     padding: 0px 20px;
                     
                     gap: 10px;
-                    height: 480px;
+                    height: 520px;
                 }
 
                 .character-container img {
@@ -2030,16 +2030,6 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
         <!--End Gallery Game Section-->
-
-
-
-
-
-
-
-
-
-
 
 
         <!--Divider -->
