@@ -41,18 +41,36 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     <link rel="stylesheet" href="css/splitting.css"> -->
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
 
+    <!-- Preload Video -->
+    <link rel="preload" as="video" href="video/swordsman-3-video-web-ver01-final-pc.mp4" type="video/mp4">
+    <link rel="preload" as="video" href="video/swordsman-3-video-web-ver01-final-mobile.mp4" type="video/mp4">
+        <!-- แยกโหลดล่วงหน้ามือถือ/คอม -->
+        <script>
+        const isMobile = window.innerWidth <= 768;
+
+        const preload = document.createElement('link');
+        preload.rel = 'preload';
+        preload.as = 'video';
+        preload.type = 'video/mp4';
+        preload.href = isMobile
+            ? 'video/swordsman-3-video-web-ver01-final-mobile.mp4'
+            : 'video/swordsman-3-video-web-ver01-final-pc.mp4';
+
+        document.head.appendChild(preload);
+        </script>
+
+
     <!-- swiper highlight -->
     <!-- CSS ของ Swiper -->
     <link rel="stylesheet" href="https://unpkg.com/swiper@11.2.6/swiper-bundle.min.css" />
-
     <!-- JS ของ Swiper -->
     <script src="https://unpkg.com/swiper@11.2.6/swiper-bundle.min.js"></script>
 
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+    
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
     <!-- font prompt -->
     <script type="e3b09c3dc2113874ef6e7812-text/javascript">
@@ -214,7 +232,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 </head>
 
 
-<body class="appear-animate">
+<body class="appear-animate" >
 
 
 
@@ -505,7 +523,6 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 </div>
             </div>
 
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
             <style>
                 /* Loader Container */
@@ -1356,18 +1373,18 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 <div class="swiper-wrapper">
                     <!-- Slide 1 -->
                     <div class="swiper-slide">
-                        <img src="images/highlight-game/highlight1.jpg" alt="Promo 1" />
+                        <img src="images/highlight-game/highlight1.jpg" alt="Promo 1" loading="lazy" fetchpriority="low"/>
                     </div>
                     <!-- Slide 2 -->
                     <div class="swiper-slide">
-                        <img src="images/highlight-game/highlight2.jpg" alt="Promo 2" />
+                        <img src="images/highlight-game/highlight2.jpg" alt="Promo 2" loading="lazy" fetchpriority="low"/>
                     </div>
                     <!-- Slide 3 -->
                     <div class="swiper-slide">
-                        <img src="images/highlight-game/highlight3.jpg" alt="Promo 3" />
+                        <img src="images/highlight-game/highlight3.jpg" alt="Promo 3" loading="lazy" fetchpriority="low"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="images/highlight-game/highlight4.jpg" alt="Promo 4" />
+                        <img src="images/highlight-game/highlight4.jpg" alt="Promo 4" loading="lazy" fetchpriority="low"/>
                     </div>
                 </div>
                 <!-- Pagination -->
@@ -1393,13 +1410,13 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                         <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="images/imageCarousel1.jpg" class="d-block" alt="Image 1">
+                                    <img src="images/imageCarousel1.jpg" class="d-block" alt="Image 1" loading="lazy" fetchpriority="low">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="images/imageCarousel2.jpg" class="d-block" alt="Image 2">
+                                    <img src="images/imageCarousel2.jpg" class="d-block" alt="Image 2" loading="lazy" fetchpriority="low">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="images/imageCarousel3.jpg" class="d-block" alt="Image 3">
+                                    <img src="images/imageCarousel3.jpg" class="d-block" alt="Image 3" loading="lazy" fetchpriority="low">
                                 </div>
                             </div>
 
