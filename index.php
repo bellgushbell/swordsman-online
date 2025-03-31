@@ -375,35 +375,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
     <!-- Sidebar Navigation Panel -->
 
-    <!-- Sidebar -->
-    <div id="sidebar" class="sidebar">
-
-
-        <a id="toggle-btn" href="javascript:void(0)" class="nav-item toggle-button" onclick="toggleSidebar()">
-            <i class="fas fa-angle-right"></i>
-        </a>
-        <a href="https://www.facebook.com/profile.php?id=61570578922652" class="nav-item" target="_blank">
-            <img src="images/SideBar-Nav-Icon/facebook.png" alt="Facebook">
-        </a>
-        <a href="https://www.youtube.com/@%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B5%E0%B9%88%E0%B9%80%E0%B8%A2%E0%B9%89%E0%B8%A2%E0%B8%A2%E0%B8%B8%E0%B8%97%E0%B8%98%E0%B8%88%E0%B8%B1%E0%B8%81%E0%B8%A33"
-            class="nav-item" target="_blank">
-            <img src="images/SideBar-Nav-Icon/youtube.png" alt="YouTube">
-        </a>
-        <a href="https://www.tiktok.com/@swordsman3mobile" class="nav-item" target="_blank">
-            <img src="images/SideBar-Nav-Icon/tiktok.png" alt="TikTok">
-        </a>
-        <a href="https://x.com/Swordsman3game" class="nav-item" target="_blank">
-            <img src="images/SideBar-Nav-Icon/x.png" alt="X">
-        </a>
-        <a href="https://www.instagram.com/swordsman3.mobile" class="nav-item" target="_blank">
-            <img src="images/SideBar-Nav-Icon/ig.png" alt="Instagram">
-        </a>
-    </div>
-
-
-
-    <!--End Sidebar Navigation Panel -->
-
+   
 
 
     <main id="main" style="background: url('images/background/bg.jpeg') no-repeat center center; background-size: cover; z-index: -9999;">
@@ -893,6 +865,34 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             <!--End Loading ใช้งาน  loading เปิดม่านฟ้า Loader วิธีใหม่  ปรับแก้ภาพไม่เท่ากัน -->
 
 
+     <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+
+
+        <a id="toggle-btn" href="javascript:void(0)" class="nav-item toggle-button" onclick="toggleSidebar()">
+            <i class="fas fa-angle-right"></i>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61570578922652" class="nav-item" target="_blank">
+            <img src="images/SideBar-Nav-Icon/facebook.png" alt="Facebook">
+        </a>
+        <a href="https://www.youtube.com/@%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B5%E0%B9%88%E0%B9%80%E0%B8%A2%E0%B9%89%E0%B8%A2%E0%B8%A2%E0%B8%B8%E0%B8%97%E0%B8%98%E0%B8%88%E0%B8%B1%E0%B8%81%E0%B8%A33"
+            class="nav-item" target="_blank">
+            <img src="images/SideBar-Nav-Icon/youtube.png" alt="YouTube">
+        </a>
+        <a href="https://www.tiktok.com/@swordsman3mobile" class="nav-item" target="_blank">
+            <img src="images/SideBar-Nav-Icon/tiktok.png" alt="TikTok">
+        </a>
+        <a href="https://x.com/Swordsman3game" class="nav-item" target="_blank">
+            <img src="images/SideBar-Nav-Icon/x.png" alt="X">
+        </a>
+        <a href="https://www.instagram.com/swordsman3.mobile" class="nav-item" target="_blank">
+            <img src="images/SideBar-Nav-Icon/ig.png" alt="Instagram">
+        </a>
+    </div>
+    <!--End Sidebar -->
+
+
+    <!--End Sidebar Navigation Panel -->
 
 
             <!-- Loading แบบจางเฉยๆ -->
@@ -1116,13 +1116,13 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 <!-- ปุ่มลงทะเบียนล่วงหน้า -->
 
                 <div class="pre-register-container">
-                    <a href="page/player/preregister-reward.php" target="_blank" class="pre-register">
+                    <!-- <a href="page/player/preregister-reward.php" target="_blank" class="pre-register">
                         <img src="images/PreregisterButtonandReward/pre-register-home.png" alt="PRE-REGISTER"
                             style="transition: filter 0.3s ease;"
                             onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(255, 215, 0, 0.7))'"
                             onmouseout="this.style.filter='none'" />
 
-                    </a>
+                    </a> -->
 
                     <!-- 👇 ลูกศรลอยอยู่ล่าง section -->
                     <div class="scroll-arrow-container-real">
@@ -1675,7 +1675,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         <!-- <section class="gallery-section">
             <div class="character-container">
               <img src="images/gallery-pic/g-char.png" alt="Character"> -->
-        <img src="images/gallery-pic/g-char.png" alt="Character"
+        <!-- <img src="images/gallery-pic/g-char.png" alt="Character"
             style="transition: filter 0.3s ease;"
             onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(0, 153, 255, 0.7))'"
             onmouseout="this.style.filter='none'" />
@@ -1692,7 +1692,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                     <div class="more-btn">เพิ่มเติม+</div>
                 </a>
 
-            </div>
+            </div> -->
 
             <!-- Photo Gallery -->
             <!-- <div class="gallery" id="photoGallery">
