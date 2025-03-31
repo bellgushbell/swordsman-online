@@ -480,7 +480,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
                     // ✅ บังคับให้เริ่มโหลดวิดีโอทันที
                     videoElement.src = videoUrl;
-                    g
+                    
                     videoElement.style.visibility = "visible";
 
                     // ✅ ถ้าวิดีโอโหลดไม่เสร็จภายใน 2 วินาที → ใช้ภาพพื้นหลังแทน
