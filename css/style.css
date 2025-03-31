@@ -3145,7 +3145,7 @@ input.form-control {
 .swiper-container {
     width: 100%;
     max-width: 100%;
-    height: 60vh !important;
+    height: 100vh !important;
     /* ใช้ 100% ของความสูงหน้าจอ */
     margin: 0 auto;
     position: relative;
@@ -3183,7 +3183,7 @@ input.form-control {
 }
 
 .swiper-slide img {
-    width: 80%;
+    width: 100%;
     /* เพิ่มขนาดรูปภาพ */
     max-width: 100%;
     /* จำกัดขนาดของรูปภาพ */
@@ -3209,6 +3209,15 @@ input.form-control {
 .swiper-button-prev {
     left: 10px;
 } */
+.swiper-pagination {
+    position: absolute;
+    bottom: 13% !important;
+    /* ปรับตามต้องการ */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
 
 /* ปุ่ม Next และ Prev */
 .swiper-button-next,
@@ -3362,7 +3371,7 @@ input.form-control {
     /* ปรับตำแหน่งของ pagination */
     .swiper-pagination {
         position: absolute;
-        bottom: 10px;
+        bottom: 10px !important;
         /* ระยะห่างจากด้านล่างของ Swiper container */
         left: 50%;
         /* จัดให้อยู่ตรงกลางแนวนอน */

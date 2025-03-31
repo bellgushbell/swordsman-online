@@ -42,7 +42,12 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
 
     <!-- swiper highlight -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" defer />
+   <!-- CSS ของ Swiper -->
+<link rel="stylesheet" href="https://unpkg.com/swiper@11.2.6/swiper-bundle.min.css"/>
+
+<!-- JS ของ Swiper -->
+<script src="https://unpkg.com/swiper@11.2.6/swiper-bundle.min.js"></script>
+
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -408,30 +413,27 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
                 <!-- BG Video BG Init -->
                 <!-- Please replace the video files in folder "video" with your own videos -->
-                <!-- ใช้github cloud -->
-                <!-- <video class="bg-video" preload="auto" autoplay muted loop playsinline data-object-fit="cover">
-                    <source src="https://bellgushbell.github.io/video-swordsmanonline/swordsman-3-video-web-ver01-final.mp4"
-                        type="video/mp4">
-                </video> -->
-                <!-- 
+                
+            
+                
                 <div class="bg-video-wrapper">
-               
-                    <video class="bg-video" preload="auto" autoplay muted loop playsinline data-object-fit="cover" >
-                        <source src="video/swordsman-3-video-web-ver01-final.mp4" type="video/mp4">
+                    <video class="bg-video" poster="images/webcover-videoimage.jpg" preload="auto" autoplay muted loop
+                        playsinline>
+                        <source src="video/swordsman-3-video-web-ver01-final-pc.mp4" type="video/mp4">
                     </video>
-                    
-                    <video class="bg-video-mobile bg-dark-alfa-30" preload="auto" autoplay muted loop playsinline
-                        data-object-fit="cover">
-                        <source src="video/swordsman-3-video-web-ver01-final.mp4" type="video/mp4">
+
+                    <video class="bg-video-mobile" poster="images/webcover-videoimage.jpg" preload="auto" autoplay muted
+                        loop playsinline>
+                        <source src="video/swordsman-3-video-web-ver01-final-mobile.mp4" type="video/mp4">
                     </video>
 
                     <div class="text-overlay">
                         <img src="images/text-video.png" alt="Overlay Text" class="overlay-text" loading="lazy">
                     </div>
-                </div> -->
+                </div>
 
-                <!-- BG Video BG Init แบบใหม่ใช้งาน-->
-                <div class="bg-video-wrapper">
+                <!-- BG Video BG Init แบบpreregister opening-->
+                <!-- <div class="bg-video-wrapper">
                     <video class="bg-video" poster="images/webcover-fallback-opening-game.jpg" preload="auto" autoplay muted loop playsinline>
                         <source src="video/opening-game-video-pc.mp4" type="video/mp4">
                     </video>
@@ -439,19 +441,17 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                     <video class="bg-video-mobile" poster="images/webcover-fallback-opening-game.jpg" preload="auto" autoplay muted loop
                         playsinline>
                         <source src="video/opening-game-video-mobile.mp4" type="video/mp4">
-                    </video>
+                    </video> -->
 
-                    <!-- <div class="text-overlay">
-                                        <img src="images/text-video.png" alt="Overlay Text" class="overlay-text" loading="lazy">
-                                    </div> -->
-                </div>
+              
 
 
 
-
+                <!-- BG Image แบบรูป-->
                 <!-- <img src="images/ปกเว็บมือภือ.jpg" class="bg-image-mobile" alt="Background Image mobile">
                     <img src="images/ปกWeb2560x1440.jpg" class="bg-image-landscape"
                         alt="Background Image mobile landscape"> -->
+
                 <div class="bg-video-overlay bg-dark-alfa-30"></div>
             </div>
             <a href="#" role="button" class="bg-video-button-muted"><i class="fa fa-volume-off"></i></a>
@@ -462,70 +462,380 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
             <script>
                 // ฟังก์ชันแสดงข้อความ Overlay
-                // function showTextOverlay() {
-                //     const textOverlay = document.querySelector('.text-overlay');
+                function showTextOverlay() {
+                    const textOverlay = document.querySelector('.text-overlay');
 
-                //     if (textOverlay) {
-                //         gsap.to(textOverlay, {
-                //             opacity: 1, // ทำให้ข้อความค่อยๆ ปรากฏ
-                //             duration: 1.5,
-                //             ease: 'power1.inOut', // ใช้เอฟเฟกต์นุ่มนวล
-                //             delay: 8,
-                //             onStart: () => {
-                //                 textOverlay.style.visibility = 'visible'; // ทำให้ Text Overlay มองเห็น
-                //             }
-                //         });
-                //         // console.log("✅ Text overlay is displayed successfully.");
-                //     } else {
-                //         // console.error("❌ .text-overlay element not found in DOM.");
-                //     }
-                // }
-                // showTextOverlay()
+                    if (textOverlay) {
+                        gsap.to(textOverlay, {
+                            opacity: 1, // ทำให้ข้อความค่อยๆ ปรากฏ
+                            duration: 1.5,
+                            ease: 'power1.inOut', // ใช้เอฟเฟกต์นุ่มนวล
+                            delay: 8,
+                            onStart: () => {
+                                textOverlay.style.visibility = 'visible'; // ทำให้ Text Overlay มองเห็น
+                            }
+                        });
+                        // console.log("✅ Text overlay is displayed successfully.");
+                    } else {
+                        // console.error("❌ .text-overlay element not found in DOM.");
+                    }
+                }
+                showTextOverlay()
 
 
                 //  บังคับเล่นวีดีโอให้ม่านloader เปิดเลย 
                 // แก้วีดีโอ
 
 
-                // document.addEventListener("DOMContentLoaded", async () => {
-                //     const videoDesktop = document.querySelector('.bg-video');
-                //     const videoMobile = document.querySelector('.bg-video-mobile');
-                //     const videoUrlDesktop = "video/opening-game-video.mp4";
-                //     const videoUrlMobile = "video/opening-game-video.mp4";
-                //     const fallbackBackground = "images/webcover2560x1440.jpg";
-                //     const isMobile = window.innerWidth <= 768;
-                //     const videoElement = isMobile ? videoMobile : videoDesktop;
-                //     const videoUrl = isMobile ? videoUrlMobile : videoUrlDesktop;
+                document.addEventListener("DOMContentLoaded", async () => {
+                    const videoDesktop = document.querySelector('.bg-video');
+                    const videoMobile = document.querySelector('.bg-video-mobile');
+                    const videoUrlDesktop = "video/swordsman-3-video-web-ver01-final-pc.mp4";
+                    const videoUrlMobile = "video/swordsman-3-video-web-ver01-final-mobile.mp4";
+                    const fallbackBackground = "images/webcover2560x1440.jpg";
+                    const isMobile = window.innerWidth <= 768;
+                    const videoElement = isMobile ? videoMobile : videoDesktop;
+                    const videoUrl = isMobile ? videoUrlMobile : videoUrlDesktop;
 
 
 
-                //     // ✅ ให้เปิดม่านโดยไม่ต้องรอวิดีโอโหลด
-                //     setTimeout(() => {
-                //         openLoader();
-                //     }, 1000); // 🔥 ลดดีเลย์จาก 3000ms → 1000ms
+                    // ✅ ให้เปิดม่านโดยไม่ต้องรอวิดีโอโหลด
+                    setTimeout(() => {
+                        openLoader();
+                    }, 1000); // 🔥 ลดดีเลย์จาก 3000ms → 1000ms
 
-                //     // ✅ บังคับให้เริ่มโหลดวิดีโอทันที
-                //     videoElement.src = videoUrl;g
-                //     videoElement.style.visibility = "visible";
+                    // ✅ บังคับให้เริ่มโหลดวิดีโอทันที
+                    videoElement.src = videoUrl;g
+                    videoElement.style.visibility = "visible";
 
-                //     // ✅ ถ้าวิดีโอโหลดไม่เสร็จภายใน 2 วินาที → ใช้ภาพพื้นหลังแทน
-                //     setTimeout(() => {
-                //         if (!videoElement.readyState || videoElement.readyState < 3) {
-                //             document.querySelector("#home-section").style.backgroundImage = `url(${fallbackBackground})`;
-                //         }
-                //     }, 2000); // 🔥 ลดจาก 5000ms → 2000ms เพื่อความเร็ว
-                // });
+                    // ✅ ถ้าวิดีโอโหลดไม่เสร็จภายใน 2 วินาที → ใช้ภาพพื้นหลังแทน
+                    setTimeout(() => {
+                        if (!videoElement.readyState || videoElement.readyState < 3) {
+                            document.querySelector("#home-section").style.backgroundImage = `url(${fallbackBackground})`;
+                        }
+                    }, 2000); // 🔥 ลดจาก 5000ms → 2000ms เพื่อความเร็ว
+                });
             </script>
-
 
 
             <!-- End Video BG Init -->
 
+            
+           <!-- Loading ใช้งาน loading เปิดม่านฟ้า Loader -->
+            <div class="page-loader" id="loader">
+                <div class="door left"></div>
+                <div class="door right"></div>
+                <div class="logo-container">
+                    <img id="quote-image" src="" class="loading-icon" style="display: none;" loading="eager">
+                </div>
+            </div>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+            <style>
+                /* Loader Container */
+                .page-loader {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100vw;
+                    height: 100vh;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: transparent;
+                    overflow: hidden;
+                    z-index: 9999;
+                }
+
+                /* Doors */
+                .door {
+                    position: absolute;
+                    width: 50%;
+                    height: 100%;
+                    background-size: cover;
+                    background-position: center;
+                    z-index: 1;
+                    transition: opacity 0.5s ease-in-out;
+                    backface-visibility: hidden;
+                    perspective: 1000px;
+                    will-change: transform, opacity;
+                }
+
+                .door.left {
+                    background-image: url('images/PageLoad/cloud-no-cloud-left.jpg');
+                    left: 0;
+                    transform: translateX(0);
+                    transform-origin: right center;
+                }
+
+                .door.right {
+                    background-image: url('images/PageLoad/cloud-no-cloud-right.jpg');
+                    right: 0;
+                    transform: translateX(0);
+                    transform-origin: left center;
+                }
+
+
+                .logo-container {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    z-index: 2;
+                    width: 100%;
+                    max-width: 800px;
+                    text-align: center;
+                }
+
+
+                .loading-icon {
+                    width: 100%;
+                    max-width: 800px;
+                    height: auto;
+                    /* รักษาอัตราส่วน */
+                    z-index: 2;
+                    opacity: 0;
+                    /* ซ่อนก่อน */
+                    transition: opacity 0.5s ease;
+                    /* เอฟเฟกต์ค่อยๆ ปรากฏ */
+                }
+
+
+                .door.loaded {
+                    opacity: 1;
+                    /* แสดงเมื่อโหลดเสร็จ */
+                }
+
+                /* Responsive for small screens */
+                @media (max-width: 961px) {
+                    .loading-icon {
+                        max-width: 250px !important;
+                    }
+
+                    .door {
+                        position: absolute;
+                        width: 50%;
+                        height: 100%;
+                        background-size: cover;
+                        z-index: 1;
+                        transition: opacity 0.5s ease-in-out;
+                        backface-visibility: hidden;
+                        perspective: 1000px;
+                        will-change: transform, opacity;
+
+                    }
+
+                    .door.left {
+                        background-image: url('images/PageLoad/cloud-no-cloud-left.jpg');
+                        left: 0;
+                        transform: translateX(0);
+                        transform-origin: right center;
+                        width: 50%;
+                        background-size: cover;
+                        background-position: right;
+                    }
+
+                    .door.right {
+                        background-image: url('images/PageLoad/cloud-no-cloud-right.jpg');
+                        right: 0;
+                        transform: translateX(0);
+                        transform-origin: left center;
+                        width: 50%;
+                        background-size: cover;
+                        background-position: left;
+                    }
+
+                    .door.loaded {
+                        opacity: 1;
+                        /* แสดงเมื่อโหลดเสร็จ */
+                    }
+
+                }
+
+                @media (orientation: landscape) and (max-width: 1024px) {
+
+
+                    .door {
+                        position: absolute;
+                        width: 50%;
+                        height: 100%;
+                        background-size: cover;
+                        z-index: 1;
+                        transition: opacity 0.5s ease-in-out;
+                        backface-visibility: hidden;
+                        perspective: 1000px;
+                        will-change: transform, opacity;
+
+                    }
+
+                    .door.left {
+                        background-image: url('images/PageLoad/cloud-no-cloud-left.jpg');
+                        left: 0;
+                        transform: translateX(0);
+                        transform-origin: right center;
+                        width: 50%;
+                        background-size: cover;
+                        background-position: right;
+                    }
+
+                    .door.right {
+                        background-image: url('images/PageLoad/cloud-no-cloud-right.jpg');
+                        right: 0;
+                        transform: translateX(0);
+                        transform-origin: left center;
+                        width: 50%;
+                        background-size: cover;
+                        background-position: left;
+                    }
+
+                    .door.loaded {
+                        opacity: 1;
+                        /* แสดงเมื่อโหลดเสร็จ */
+                    }
+
+                }
+            </style>
+
+            <script>
+                // รายการรูปภาพคำคม
+                const quoteImages = [
+                    'images/PageLoad/pageload-word/01.png',
+                    'images/PageLoad/pageload-word/02.png',
+                    'images/PageLoad/pageload-word/03.png',
+                    'images/PageLoad/pageload-word/04.png',
+                    'images/PageLoad/pageload-word/05.png',
+                    'images/PageLoad/pageload-word/06.png'
+                ];
+
+                function getRandomQuoteImage() {
+                    const randomIndex = Math.floor(Math.random() * quoteImages.length);
+                    return quoteImages[randomIndex];
+                }
+
+                // โหลดภาพประตูซ้ายและขวาก่อนเปิดม่าน
+                const preloadDoors = new Promise((resolve) => {
+                    const doorLeft = new Image();
+                    const doorRight = new Image();
+                    let loadedCount = 0;
+
+                    doorLeft.src = 'images/PageLoad/cloud-no-cloud-left.jpg';
+                    doorRight.src = 'images/PageLoad/cloud-no-cloud-right.jpg';
+
+                    function checkLoaded() {
+                        loadedCount++;
+                        if (loadedCount === 2) {
+                            document.querySelector('.door.left').classList.add('loaded');
+                            document.querySelector('.door.right').classList.add('loaded');
+                            resolve();
+                        }
+                    }
+
+                    doorLeft.onload = checkLoaded;
+                    doorRight.onload = checkLoaded;
+                });
+
+                // ฟังก์ชันเปิดม่านฟ้า
+                function openLoader() {
+                    const timeline = gsap.timeline();
+
+                    if (window.innerWidth <= 768) {
+                        timeline
+                            .set('.door.left', { x: '0' })
+                            .set('.door.right', { x: '0' })
+                            .to({}, { duration: 0.5 }) // ตั้งค่าดีเลย์
+                            .to('.door.left', { x: '-100%', duration: 4, ease: 'power2.inOut' })
+                            .to('.door.right', { x: '100%', duration: 4, ease: 'power2.inOut' }, '<')
+                            .to('.logo-container', { opacity: 0, duration: 0.3, ease: 'power2.inOut' }, '-=0.5')
+                            .to('#loader', { opacity: 0, duration: 0.5, ease: 'power2.inOut' })
+                            .set('#loader', { display: 'none' });
+                    } else {
+                        timeline
+                            .set('.door.left', { x: '0' })
+                            .set('.door.right', { x: '0' })
+                            .to({}, { duration: 0.5 }) // ตั้งค่าดีเลย์
+                            .to('.door.left', { x: '-100%', duration: 5, ease: 'power2.inOut' })
+                            .to('.door.right', { x: '100%', duration: 5, ease: 'power2.inOut' }, '<')
+                            .to('.logo-container', { opacity: 0, duration: 0.5, ease: 'power2.inOut' }, '-=1.5')
+                            .to('#loader', { opacity: 0, duration: 0.5, ease: 'power2.inOut' })
+                            .set('#loader', { display: 'none' });
+                    }
+                }
+
+
+                // สุ่มภาพคำคมทันทีและกำหนดเป็น placeholder ก่อนที่ DOMContentLoaded
+                const randomQuote = getRandomQuoteImage();
+                const quoteImageElement = document.getElementById('quote-image');
+
+                // ถ้าพบ element #quote-image ให้แสดงภาพคำคมทันที
+                if (quoteImageElement) {
+                    quoteImageElement.src = randomQuote;
+                    // console.log("found word", randomQuote);
+                } else {
+                    console.error("❌ ไม่พบ #quote-image ใน DOM ขณะเริ่มต้น");
+                }
+
+                // โหลดภาพคำคมและแสดงทันที
+                function loadAndDisplayQuoteImage() {
+                    const quoteImageElement = document.getElementById('quote-image');
+                    if (!quoteImageElement) {
+                        console.error("❌ ไม่พบ #quote-image ใน DOM");
+                        return;
+                    }
+
+                    const randomQuote = getRandomQuoteImage();
+                    const img = new Image();
+                    img.src = randomQuote;
+
+                    // แสดงภาพทันที (ใช้เป็น placeholder)
+                    quoteImageElement.src = randomQuote;
+                   
+                    // console.log("📜 คำคมแสดงทันที:", randomQuote);
+
+                    // โหลดภาพและตรวจสอบความสำเร็จ
+                    img.onload = () => {
+                        quoteImageElement.src = randomQuote; // อัปเดตภาพเมื่อโหลดเสร็จ
+                         quoteImageElement.style.display = "block";
+                        // console.log("📜 downlaod complete", randomQuote);
+                        gsap.to(quoteImageElement, { opacity: 1, duration: 1, scale: 1.5 });
+                    };
+
+                    img.onerror = () => {
+                        // console.error("❌ โหลดภาพคำคมไม่สำเร็จ:", randomQuote);
+                    };
+                }
+
+                gsap.fromTo(".loading-icon",
+                    { opacity: 0, scale: 0.8 },
+                    { opacity: 1, scale: 1, duration: 1, ease: "power2.out" }
+                );
+
+
+                // เริ่มทำงาน
+                document.addEventListener("DOMContentLoaded", async () => {
+                    const video = document.querySelector('.bg-video');
+                    // const videoUrl = "video/swordsman-3-video-web-ver01-final.mp4";
+                    const fallbackBackground = "images/webcover2560x1440.jpg";
+
+                    // แสดงภาพคำคมทันที
+                    loadAndDisplayQuoteImage();
+
+                    // โหลดภาพประตู -> เปิดม่าน
+                    await preloadDoors;
+                    openLoader();
+
+                    // โหลดวิดีโอ
+                    // preloadVideo(video, videoUrl, fallbackBackground);
+                });
+            </script>
+
+
+            <!--End Loading ใช้งาน  loading เปิดม่านฟ้า Loader วิธีใหม่  ปรับแก้ภาพไม่เท่ากัน -->
 
 
 
 
-            <!-- Loading วิธีใหม่ ใหม่ ใช้งาน -->
+            <!-- Loading แบบจางเฉยๆ -->
 
             <!-- <style>
     /* Page Loader Container */
@@ -653,315 +963,6 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
 
-            <!-- Loading ใช้งาน loading เปิดม่านฟ้า Loader วิธีใหม่  ปรับแก้ภาพไม่เท่ากัน -->
-            <!-- <div class="page-loader" id="loader">
-    <div class="door left"></div>
-    <div class="door right"></div>
-    <div class="logo-container">
-        <img id="quote-image" src="" class="loading-icon" loading="lazy">
-    </div>
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
-<style>
-    /* Loader Container */
-    .page-loader {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: transparent;
-        overflow: hidden;
-        z-index: 9999;
-    }
-
-    /* Doors */
-    .door {
-        position: absolute;
-        width: 50%;
-        height: 100%;
-        background-size: cover;
-        background-position: center;
-        z-index: 1;
-        transition: opacity 0.5s ease-in-out;
-        backface-visibility: hidden;
-        perspective: 1000px;
-        will-change: transform, opacity;
-    }
-
-    .door.left {
-        background-image: url('images/PageLoad/cloud-no-cloud-left.jpg');
-        left: 0;
-        transform: translateX(0);
-        transform-origin: right center;
-    }
-
-    .door.right {
-        background-image: url('images/PageLoad/cloud-no-cloud-right.jpg');
-        right: 0;
-        transform: translateX(0);
-        transform-origin: left center;
-    }
-
-
-    .logo-container {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 2;
-        width: 100%;
-        max-width: 800px;
-        text-align: center;
-    }
-
-
-    .loading-icon {
-        width: 100%;
-        max-width: 800px;
-        height: auto;
-        /* รักษาอัตราส่วน */
-        z-index: 2;
-        opacity: 0;
-        /* ซ่อนก่อน */
-        transition: opacity 0.5s ease;
-        /* เอฟเฟกต์ค่อยๆ ปรากฏ */
-    }
-
-
-    .door.loaded {
-        opacity: 1;
-        /* แสดงเมื่อโหลดเสร็จ */
-    }
-
-    /* Responsive for small screens */
-    @media (max-width: 961px) {
-        .loading-icon {
-            max-width: 250px !important;
-        }
-
-        .door {
-            position: absolute;
-            width: 50%;
-            height: 100%;
-            background-size: cover;
-            z-index: 1;
-            transition: opacity 0.5s ease-in-out;
-            backface-visibility: hidden;
-            perspective: 1000px;
-            will-change: transform, opacity;
-
-        }
-
-        .door.left {
-            background-image: url('images/PageLoad/cloud-no-cloud-left.jpg');
-            left: 0;
-            transform: translateX(0);
-            transform-origin: right center;
-            width: 50%;
-            background-size: cover;
-            background-position: right;
-        }
-
-        .door.right {
-            background-image: url('images/PageLoad/cloud-no-cloud-right.jpg');
-            right: 0;
-            transform: translateX(0);
-            transform-origin: left center;
-            width: 50%;
-            background-size: cover;
-            background-position: left;
-        }
-
-        .door.loaded {
-            opacity: 1;
-            /* แสดงเมื่อโหลดเสร็จ */
-        }
-
-    }
-
-    @media (orientation: landscape) and (max-width: 1024px) {
-
-
-        .door {
-            position: absolute;
-            width: 50%;
-            height: 100%;
-            background-size: cover;
-            z-index: 1;
-            transition: opacity 0.5s ease-in-out;
-            backface-visibility: hidden;
-            perspective: 1000px;
-            will-change: transform, opacity;
-
-        }
-
-        .door.left {
-            background-image: url('images/PageLoad/cloud-no-cloud-left.jpg');
-            left: 0;
-            transform: translateX(0);
-            transform-origin: right center;
-            width: 50%;
-            background-size: cover;
-            background-position: right;
-        }
-
-        .door.right {
-            background-image: url('images/PageLoad/cloud-no-cloud-right.jpg');
-            right: 0;
-            transform: translateX(0);
-            transform-origin: left center;
-            width: 50%;
-            background-size: cover;
-            background-position: left;
-        }
-
-        .door.loaded {
-            opacity: 1;
-            /* แสดงเมื่อโหลดเสร็จ */
-        }
-
-    }
-</style>
-
-<script>
-    // รายการรูปภาพคำคม
-    const quoteImages = [
-        'images/PageLoad/pageload-word/01.png',
-        'images/PageLoad/pageload-word/02.png',
-        'images/PageLoad/pageload-word/03.png',
-        'images/PageLoad/pageload-word/04.png',
-        'images/PageLoad/pageload-word/05.png',
-        'images/PageLoad/pageload-word/06.png'
-    ];
-
-    function getRandomQuoteImage() {
-        const randomIndex = Math.floor(Math.random() * quoteImages.length);
-        return quoteImages[randomIndex];
-    }
-
-    // โหลดภาพประตูซ้ายและขวาก่อนเปิดม่าน
-    const preloadDoors = new Promise((resolve) => {
-        const doorLeft = new Image();
-        const doorRight = new Image();
-        let loadedCount = 0;
-
-        doorLeft.src = 'images/PageLoad/cloud-no-cloud-left.jpg';
-        doorRight.src = 'images/PageLoad/cloud-no-cloud-right.jpg';
-
-        function checkLoaded() {
-            loadedCount++;
-            if (loadedCount === 2) {
-                document.querySelector('.door.left').classList.add('loaded');
-                document.querySelector('.door.right').classList.add('loaded');
-                resolve();
-            }
-        }
-
-        doorLeft.onload = checkLoaded;
-        doorRight.onload = checkLoaded;
-    });
-
-    // ฟังก์ชันเปิดม่านฟ้า
-    function openLoader() {
-        const timeline = gsap.timeline();
-
-        if (window.innerWidth <= 768) {
-            timeline
-                .set('.door.left', { x: '0' })
-                .set('.door.right', { x: '0' })
-                .to({}, { duration: 0.5 }) // ตั้งค่าดีเลย์
-                .to('.door.left', { x: '-100%', duration: 4, ease: 'power2.inOut' })
-                .to('.door.right', { x: '100%', duration: 4, ease: 'power2.inOut' }, '<')
-                .to('.logo-container', { opacity: 0, duration: 0.3, ease: 'power2.inOut' }, '-=0.5')
-                .to('#loader', { opacity: 0, duration: 0.5, ease: 'power2.inOut' })
-                .set('#loader', { display: 'none' });
-        } else {
-            timeline
-                .set('.door.left', { x: '0' })
-                .set('.door.right', { x: '0' })
-                .to({}, { duration: 0.5 }) // ตั้งค่าดีเลย์
-                .to('.door.left', { x: '-100%', duration: 5, ease: 'power2.inOut' })
-                .to('.door.right', { x: '100%', duration: 5, ease: 'power2.inOut' }, '<')
-                .to('.logo-container', { opacity: 0, duration: 0.5, ease: 'power2.inOut' }, '-=1.5')
-                .to('#loader', { opacity: 0, duration: 0.5, ease: 'power2.inOut' })
-                .set('#loader', { display: 'none' });
-        }
-    }
-
-
-    // สุ่มภาพคำคมทันทีและกำหนดเป็น placeholder ก่อนที่ DOMContentLoaded
-    const randomQuote = getRandomQuoteImage();
-    const quoteImageElement = document.getElementById('quote-image');
-
-    // ถ้าพบ element #quote-image ให้แสดงภาพคำคมทันที
-    if (quoteImageElement) {
-        quoteImageElement.src = randomQuote;
-       
-    } else {
-        console.error("❌ ไม่พบ #quote-image ใน DOM ขณะเริ่มต้น");
-    }
-
-    // โหลดภาพคำคมและแสดงทันที
-    function loadAndDisplayQuoteImage() {
-        const quoteImageElement = document.getElementById('quote-image');
-        if (!quoteImageElement) {
-            console.error("❌ ไม่พบ #quote-image ใน DOM");
-            return;
-        }
-
-        const randomQuote = getRandomQuoteImage();
-        const img = new Image();
-        img.src = randomQuote;
-
-        // แสดงภาพทันที (ใช้เป็น placeholder)
-        quoteImageElement.src = randomQuote;
-        // console.log("📜 คำคมแสดงทันที:", randomQuote);
-
-        // โหลดภาพและตรวจสอบความสำเร็จ
-        img.onload = () => {
-            quoteImageElement.src = randomQuote; // อัปเดตภาพเมื่อโหลดเสร็จ
-            // console.log("📜 downlaod complete", randomQuote);
-            gsap.to(quoteImageElement, { opacity: 1, duration: 1, scale: 1.5 });
-        };
-
-        img.onerror = () => {
-            // console.error("❌ โหลดภาพคำคมไม่สำเร็จ:", randomQuote);
-        };
-    }
-
-    gsap.fromTo(".loading-icon",
-        { opacity: 0, scale: 0.8 },
-        { opacity: 1, scale: 1, duration: 1, ease: "power2.out" }
-    );
-
-
-    // เริ่มทำงาน
-    document.addEventListener("DOMContentLoaded", async () => {
-        const video = document.querySelector('.bg-video');
-        const videoUrl = "video/swordsman-3-video-web-ver01-final.mp4";
-        const fallbackBackground = "images/webcover2560x1440.jpg";
-
-        // แสดงภาพคำคมทันที
-        loadAndDisplayQuoteImage();
-
-        // โหลดภาพประตู -> เปิดม่าน
-        await preloadDoors;
-        openLoader();
-
-        // โหลดวิดีโอ
-        // preloadVideo(video, videoUrl, fallbackBackground);
-    });
-</script> -->
-
-
-            <!--End Loading ใช้งาน  loading เปิดม่านฟ้า Loader วิธีใหม่  ปรับแก้ภาพไม่เท่ากัน -->
-
 
 
 
@@ -1055,33 +1056,107 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 <!-- ปุ่มลงทะเบียนล่วงหน้า -->
 
                 <div class="pre-register-container">
-                    <a href="page/player/preregister-reward.php" target="_blank" class="pre-register">
+                    <!-- <a href="page/player/preregister-reward.php" target="_blank" class="pre-register">
                 <img src="images/PreregisterButtonandReward/pre-register-home.png" alt="PRE-REGISTER" 
      style="transition: filter 0.3s ease;"
      onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(255, 215, 0, 0.7))'"
      onmouseout="this.style.filter='none'"/>
 
-                    </a>
+                    </a> -->
+                
+                    <!-- 👇 ลูกศรลอยอยู่ล่าง section -->
+                <div class="scroll-arrow-container-real" >
+                <a href="#" class="scroll-down-button-real" id="scrollToClassBtn">
+                <img src="images/RewardPage/button-down.png" alt="Scroll Down" class="scroll-down-icon-real" />
+                </a>
+
                 </div>
+                        </div>
+
+             
+
+             <!-- End ปุ่มลงทะเบียนล่วงหน้า -->
 
 
 
-
-
-
-
-
-
-
-
-
-                <!--Scroll Down-->
-                <!-- < div class="local-scroll scroll-down-wrap wow fadeInUpShort" data - wow -
+        <!--Scroll Down-->
+        <!-- <div class="local-scroll scroll-down-wrap wow fadeInUpShort" data - wow -
                                     offset="0">
                                     <a href="#about" class="scroll-down"><i class="scroll-down-icon"></i><span
                                             class="sr-only">Scroll to
                                             the next section</span></a>
-                </div> -->
+        </div> -->
+         
+     
+
+            <style>
+            .scroll-arrow-container-real {
+            margin-top: 200px;
+            text-align: center;
+            animation: bounce-real 2s infinite;
+            }
+
+            .scroll-down-button-real {
+            display: inline-block;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            }
+
+            .scroll-down-button-real:hover {
+            transform: scale(1.1);
+            }
+
+            .scroll-down-icon-real {
+            width: 40px;
+            height: auto;
+            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.7));
+            }
+
+            @keyframes bounce-real {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(5px);
+            }
+            }
+
+            @media (max-width: 576px) {
+            .scroll-down-icon-real {
+                width: 28px;
+            }
+            }
+
+            </style>
+            
+            <script>
+            document.addEventListener("DOMContentLoaded", function () {
+            // ลบ hash ออกจาก URL และป้องกัน scroll อัตโนมัติ
+            if (window.location.hash === "#class") {
+                history.replaceState(null, null, window.location.pathname);
+                window.scrollTo(0, 0);
+            }
+
+            const scrollBtn = document.getElementById("scrollToClassBtn");
+            const targetSection = document.getElementById("class");
+
+            scrollBtn.addEventListener("click", function (e) {
+                e.preventDefault();
+
+                if (targetSection) {
+                    const targetY = targetSection.getBoundingClientRect().top + window.scrollY;
+                    
+                    window.scrollTo({
+                        top: targetY,
+                        behavior: "smooth"
+                    });
+                }
+            });
+            });
+            </script>
+
+
+
                 <!--End Scroll Down-->
 
 
@@ -1526,9 +1601,9 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
         <!--ใหม่ใช้งาน New Gallery Game Section-->
         <!--Gallery Game Section-->
-        <section class="gallery-section">
+        <!-- <section class="gallery-section">
             <div class="character-container">
-                <!-- <img src="images/gallery-pic/g-char.png" alt="Character"> -->
+        
                    <img src="images/gallery-pic/g-char.png" alt="Character" 
      style="transition: filter 0.3s ease;"
      onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(0, 153, 255, 0.7))'"
@@ -1546,10 +1621,10 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                         <div class="more-btn">เพิ่มเติม+</div>
                     </a>
 
-                </div>
+                </div> -->
 
                 <!-- Photo Gallery -->
-                <div class="gallery" id="photoGallery">
+                <!-- <div class="gallery" id="photoGallery">
                     <div class="gallery-item large"
                         onclick="openModal('photo', 'images/gallery-pic/g1.jpg')">
                         <img src="images/gallery-pic/g1.jpg" alt="Moonglow Fest">
@@ -1581,10 +1656,10 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                         <img src="images/gallery-pic/g6.jpg" alt="2024 New Year">
                         <h3>บ่อน้ำพุร้อน</h3>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- Video Gallery -->
-                <div class="gallery" id="videoGallery" style="display: none;">
+                <!-- <div class="gallery" id="videoGallery" style="display: none;">
                     <div class="gallery-item large video-overlay"
                         onclick="openModal('video', 'https://www.youtube.com/embed/i08KHjxYKuw?si?autohide=1')">
                         <img src="https://img.youtube.com/vi/i08KHjxYKuw/maxresdefault.jpg" alt="Baking Contest">
@@ -1617,18 +1692,18 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <!-- Modal for Image or Video -->
-        <div id="modal" class="modal" style="display: none;">
+        <!-- <div id="modal" class="modal" style="display: none;">
             <div class="modal-content">
                 <span class="close" onclick="closeModal()">&times;</span>
                 <div id="modal-content"></div>
             </div>
-        </div>
+        </div> -->
 
         <!-- Inline Style -->
-        <style>
+        <!-- <style>
             .gallery-section {
 
                 display: flex;
@@ -1977,10 +2052,10 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
             
-        </style>
+        </style> -->
 
         <!-- Inline Script -->
-        <script>
+        <!-- <script>
             function toggleGallery(tab) {
                 const photoGallery = document.getElementById("photoGallery");
                 const videoGallery = document.getElementById("videoGallery");
@@ -2023,7 +2098,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 }
             }
         </script>
-
+ -->
 
 
 
@@ -2072,7 +2147,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
         <!--Footer -->
-        <footer class="footer-page-section  footer pb-100 pb-sm-50">
+        <!-- <footer class="footer-page-section  footer pb-100 pb-sm-50">
             <div class="container">
 
 
@@ -2111,7 +2186,29 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
 
-        </footer>
+        </footer> -->
+
+<footer class="text-white pt-4 pb-3 mt-5" style="background: transparent; font-family: 'Prompt', sans-serif; font-size: 0.95rem;">
+  <div class="container text-center">
+    <div class="row justify-content-center g-4">
+
+ 
+
+      <!-- บริษัทในเครือ -->
+      <div class="col-12 col-lg-4">
+        <!-- <h5 class="fw-bold mb-2 mt-4 mt-lg-0"></h5> -->
+        <div class="footer-logos d-flex flex-wrap justify-content-center gap-3 mb-2">
+          <img src="images/footer-icon/logo-exp-up-company-original.png" alt="EXP UP Logo" width="30">
+          <img src="images/footer-icon/logo-seasun-black.png" alt="Seasun Logo" width="85">
+        </div>
+        <p class="small text-secondary m-0 mt-2">© กระบี่เย้ยยุทธจักร. All rights reserved.</p>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+
         <!--End Footer-->
 
     </main>
@@ -2155,7 +2252,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     <!-- alert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- <script src="https://unpkg.com/swiper@11.2.6/swiper-bundle.min.js"></script> -->
 
     <script src="js/highlight-game-Swiper.js"></script>
 
