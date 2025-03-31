@@ -2,7 +2,16 @@
 require_once __DIR__ . '/../connect_db.php';
 
 
-$query = "SELECT * FROM title  order by id desc";
+// $query = "SELECT * FROM contents  order by id desc";
+$query = "
+    SELECT contents.*, 
+           category.category_name_en AS category_name
+    FROM contents
+    LEFT JOIN category ON contents.category_id = category.id
+    WHERE contents.status = 'post'
+    AND contents.deleted_at IS NULL
+    ORDER BY contents.id DESC
+";
 $result = mysqli_query($conn, $query);
 
 if ($result) {

@@ -177,7 +177,9 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
     <!-- Event snippet for Website Click conversion page -->
     <script>
-    gtag('event', 'conversion', {'send_to': 'AW-11490628923/nfKGCNqvkJ8aELuqlOcq'});
+        gtag('event', 'conversion', {
+            'send_to': 'AW-11490628923/nfKGCNqvkJ8aELuqlOcq'
+        });
     </script>
 
 
@@ -426,8 +428,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         .news-list {
             list-style: none;
             padding: 0;
-            margin:0;
-            
+            margin: 0;
+
         }
 
         .news-list li {
@@ -521,21 +523,24 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
         /* ✅ Mobile แนวตั้ง (Portrait) */
         @media (max-width: 767px) {
+
             /* ส่วนของlist */
-            .news-item{
-                flex-direction:column;
-                margin:0px;
-                padding:0px;
-                height:auto;
+            .news-item {
+                flex-direction: column;
+                margin: 0px;
+                padding: 0px;
+                height: auto;
             }
-            .type-text-title{   
-            margin-top :0px !important;
+
+            .type-text-title {
+                margin-top: 0px !important;
             }
-            .news-item-div-img{
+
+            .news-item-div-img {
                 width: auto !important;
             }
 
-             /* ส่วนของtab */
+            /* ส่วนของtab */
             .news-tabs-button-box {
                 flex-wrap: wrap;
                 /* ให้ปุ่มแท็บขึ้นบรรทัดใหม่ได้ */
@@ -591,19 +596,21 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
         /* ✅ Mobile ในแนวนอน */
         @media (max-width: 768px) and (orientation: landscape) {
+
             /* ส่วนของlist */
-            .news-item{
-                flex-direction:column;
-                margin:0px;
-                padding:0px;
-                height:auto;
+            .news-item {
+                flex-direction: column;
+                margin: 0px;
+                padding: 0px;
+                height: auto;
             }
-            .type-text-title{   
-            margin-top :0px !important;
+
+            .type-text-title {
+                margin-top: 0px !important;
             }
 
 
-             /* ส่วนของtab */
+            /* ส่วนของtab */
             .news-banner {
                 height: 200px;
             }
@@ -652,19 +659,21 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
         /* ✅ iPad แนวตั้ง */
         @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-            /* ส่วนของlist */
-            .news-item{
-                /* flex-direction:column; */
-                margin:0px;
-                padding:0px;
-                height:auto;
-            }
-            .type-text-title{   
-            margin-top :20px !important;
-            }
-       
 
-             /* ส่วนของtab */
+            /* ส่วนของlist */
+            .news-item {
+                /* flex-direction:column; */
+                margin: 0px;
+                padding: 0px;
+                height: auto;
+            }
+
+            .type-text-title {
+                margin-top: 20px !important;
+            }
+
+
+            /* ส่วนของtab */
             .news-banner {
                 height: 220px;
             }
@@ -699,19 +708,21 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
         /* ✅ iPad และ Tablet (แนวนอน) */
         @media (min-width: 1024px) and (max-width: 1400px) and (orientation: landscape) {
+
             /* ส่วนของlist */
-            .news-item{
+            .news-item {
                 /* flex-direction:column; */
-                margin:0px;
-                padding:0px;
-                height:auto;
+                margin: 0px;
+                padding: 0px;
+                height: auto;
             }
-            .type-text-title{   
-            margin-top :20px !important;
+
+            .type-text-title {
+                margin-top: 20px !important;
             }
 
 
-             /* ส่วนของtab */
+            /* ส่วนของtab */
             .news-banner {
                 height: 220px;
             }
@@ -756,10 +767,10 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         <!-- Tab Navigation -->
         <div class="news-tabs">
             <div class="news-tabs-button-box">
-                <button class="active" data-category="all">ทั้งหมด</button>
-                <button data-category="news">ประกาศ</button>
-                <button data-category="events">กิจกรรม</button>
-                <button data-category="promotions">โปรโมชั่น</button>
+                <button class="active" data-category="All">ทั้งหมด</button>
+                <button data-category="News">ประกาศ</button>
+                <button data-category="Events">กิจกรรม</button>
+                <button data-category="Promotions">โปรโมชั่น</button>
             </div>
         </div>
 
@@ -793,18 +804,18 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
                         let currentPage = 1;
                         const itemsPerPage = 12;
-                        let currentCategory = localStorage.getItem("activeTab") || "all";
+                        let currentCategory = localStorage.getItem("activeTab") || "All"; // เก็บหมวดหมู่ที่เลือกใน localStorage
 
                         // ฟังก์ชันในการกรองข่าวตามหมวดหมู่
                         function filterNewsByCategory() {
-                            return currentCategory === "all" ?
+                            return currentCategory === "All" ?
                                 newsData :
                                 newsData.filter(news => {
-                                    if (currentCategory === "promotions" && news.type === "โปรโมชั่น") {
+                                    if (currentCategory === "Promotions" && news.category_name === "Promotions") {
                                         return true;
-                                    } else if (currentCategory === "events" && news.type === "กิจกรรม") {
+                                    } else if (currentCategory === "Events" && news.category_name === "Events") {
                                         return true;
-                                    } else if (currentCategory === "news" && news.type === "ข่าว") {
+                                    } else if (currentCategory === "News" && news.category_name === "News") {
                                         return true;
                                     }
                                     return false; // กรองข้อมูลที่ไม่ตรงกับประเภทที่เลือก
@@ -828,28 +839,28 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                 const dateOnly = news.created_at.substring(0, 10); // 10 ตัวแรก (YYYY-MM-DD)
                                 // เพิ่มลิงก์ที่แสดงรายละเอียดของข่าว
 
-                                const newtypefilter = news.type === "ข่าว" ? "ประกาศ" : news.type;
+                                const newtypefilter = news.category_name === "News" ? "ประกาศ" : news.category_name;
 
                                 // กำหนดสีตามประเภท
                                 let newTypeColor;
-                               if (news.type === "ข่าว") {
-                                    newTypeColor = "rgb(127,169,209)";  
-                                } else if (news.type === "กิจกรรม") {
-                                    newTypeColor = "rgb(153, 127, 209)";  
-                                } else if (news.type === "โปรโมชั่น") {
+                                if (news.category_name === "News") {
+                                    newTypeColor = "rgb(127,169,209)";
+                                } else if (news.category_name === "Events") {
+                                    newTypeColor = "rgb(153, 127, 209)";
+                                } else if (news.category_name === "Promotions") {
                                     newTypeColor = "rgb(209, 138, 127)";
                                 } else {
-                                    newTypeColor = "rgba(0, 0, 0, 0.8)";  // สีดำ (black)
+                                    newTypeColor = "rgba(0, 0, 0, 0.8)"; // สีดำ (black)
                                 }
-  li.innerHTML = `
+                                li.innerHTML = `
 <div class="news-item" style="cursor: pointer;display: flex; justify-content: flex-start;align-items: flex-start;">
         <div class="news-header" style="display: flex; justify-content: center; align-items: center;">
             <div class="news-item-div-img" style="display: flex; justify-content: center; align-items: center; width: 300px; height: 200px; overflow: hidden; border-radius: 6px !important;">
-                <img src="../../images/news/${news.image}" alt="${news.title}" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                <img src="../../images/news/${news.image}" alt="${news.header_thumbnail}" style="max-width: 100%; max-height: 100%; object-fit: contain;">
             </div>
         </div>
 
-    <div class="type-text-title" style="display: flex; width: 100%; margin-top:20px;">
+    <div class="news-text-title" style="display: flex; width: 100%; margin-top:20px;">
         <div style="display: flex; justify-content: space-between; width: 100%;position: relative;">
             <div display: flex; justify-content: flex-start;  flex-direction: column;  >
             &nbsp;
@@ -858,7 +869,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         ${newtypefilter}
         </span>
             &nbsp;
-            <a href="#" class="text-decoration-none" style="display: block; margin-bottom: 5px; margin-left: 10px;">${news.title}</a>
+            <a href="#" class="text-decoration-none" style="display: block; margin-bottom: 5px; margin-left: 10px;">${news.header_thumbnail}</a>
             <span  class="text-decoration-none" style="display: block; margin-bottom: 5px; margin-left: 10px; font-size: 12px;">${news.highlight_text}...</span>
             </div>
            
@@ -958,11 +969,11 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
                 // ดึงค่า tab จาก URL parameter
                 const urlParams = new URLSearchParams(window.location.search);
-                let activeTab = urlParams.get("tab") || "all"; // ค่าเริ่มต้นเป็น "all"
+                let activeTab = urlParams.get("tab") || "All"; // ค่าเริ่มต้นเป็น "all"
 
                 // ถ้าไม่มีค่าใน URL ใช้ค่าใน localStorage แทน
                 if (!urlParams.has("tab")) {
-                    activeTab = localStorage.getItem("activeTab") || "all";
+                    activeTab = localStorage.getItem("activeTab") || "All";
                 }
 
                 activateTab(activeTab);

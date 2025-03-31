@@ -42,11 +42,11 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
 
     <!-- swiper highlight -->
-   <!-- CSS ของ Swiper -->
-<link rel="stylesheet" href="https://unpkg.com/swiper@11.2.6/swiper-bundle.min.css"/>
+    <!-- CSS ของ Swiper -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@11.2.6/swiper-bundle.min.css" />
 
-<!-- JS ของ Swiper -->
-<script src="https://unpkg.com/swiper@11.2.6/swiper-bundle.min.js"></script>
+    <!-- JS ของ Swiper -->
+    <script src="https://unpkg.com/swiper@11.2.6/swiper-bundle.min.js"></script>
 
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -188,10 +188,12 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         gtag('config', 'AW-11490628923');
     </script>
 
-    
+
     <!-- Event snippet for Website Click conversion page -->
     <script>
-    gtag('event', 'conversion', {'send_to': 'AW-11490628923/nfKGCNqvkJ8aELuqlOcq'});
+        gtag('event', 'conversion', {
+            'send_to': 'AW-11490628923/nfKGCNqvkJ8aELuqlOcq'
+        });
     </script>
 
     <script src="https://analytics.ahrefs.com/analytics.js" data-key="XQIuBBNfnYVxBEj6iQNvwQ" async></script>
@@ -413,9 +415,9 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
                 <!-- BG Video BG Init -->
                 <!-- Please replace the video files in folder "video" with your own videos -->
-                
-            
-                
+
+
+
                 <div class="bg-video-wrapper">
                     <video class="bg-video" poster="images/webcover-videoimage.jpg" preload="auto" autoplay muted loop
                         playsinline>
@@ -443,7 +445,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                         <source src="video/opening-game-video-mobile.mp4" type="video/mp4">
                     </video> -->
 
-              
+
 
 
 
@@ -505,7 +507,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                     }, 1000); // 🔥 ลดดีเลย์จาก 3000ms → 1000ms
 
                     // ✅ บังคับให้เริ่มโหลดวิดีโอทันที
-                    videoElement.src = videoUrl;g
+                    videoElement.src = videoUrl;
+                    g
                     videoElement.style.visibility = "visible";
 
                     // ✅ ถ้าวิดีโอโหลดไม่เสร็จภายใน 2 วินาที → ใช้ภาพพื้นหลังแทน
@@ -520,8 +523,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
             <!-- End Video BG Init -->
 
-            
-           <!-- Loading ใช้งาน loading เปิดม่านฟ้า Loader -->
+
+            <!-- Loading ใช้งาน loading เปิดม่านฟ้า Loader -->
             <div class="page-loader" id="loader">
                 <div class="door left"></div>
                 <div class="door right"></div>
@@ -741,24 +744,72 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
                     if (window.innerWidth <= 768) {
                         timeline
-                            .set('.door.left', { x: '0' })
-                            .set('.door.right', { x: '0' })
-                            .to({}, { duration: 0.5 }) // ตั้งค่าดีเลย์
-                            .to('.door.left', { x: '-100%', duration: 4, ease: 'power2.inOut' })
-                            .to('.door.right', { x: '100%', duration: 4, ease: 'power2.inOut' }, '<')
-                            .to('.logo-container', { opacity: 0, duration: 0.3, ease: 'power2.inOut' }, '-=0.5')
-                            .to('#loader', { opacity: 0, duration: 0.5, ease: 'power2.inOut' })
-                            .set('#loader', { display: 'none' });
+                            .set('.door.left', {
+                                x: '0'
+                            })
+                            .set('.door.right', {
+                                x: '0'
+                            })
+                            .to({}, {
+                                duration: 0.5
+                            }) // ตั้งค่าดีเลย์
+                            .to('.door.left', {
+                                x: '-100%',
+                                duration: 4,
+                                ease: 'power2.inOut'
+                            })
+                            .to('.door.right', {
+                                x: '100%',
+                                duration: 4,
+                                ease: 'power2.inOut'
+                            }, '<')
+                            .to('.logo-container', {
+                                opacity: 0,
+                                duration: 0.3,
+                                ease: 'power2.inOut'
+                            }, '-=0.5')
+                            .to('#loader', {
+                                opacity: 0,
+                                duration: 0.5,
+                                ease: 'power2.inOut'
+                            })
+                            .set('#loader', {
+                                display: 'none'
+                            });
                     } else {
                         timeline
-                            .set('.door.left', { x: '0' })
-                            .set('.door.right', { x: '0' })
-                            .to({}, { duration: 0.5 }) // ตั้งค่าดีเลย์
-                            .to('.door.left', { x: '-100%', duration: 5, ease: 'power2.inOut' })
-                            .to('.door.right', { x: '100%', duration: 5, ease: 'power2.inOut' }, '<')
-                            .to('.logo-container', { opacity: 0, duration: 0.5, ease: 'power2.inOut' }, '-=1.5')
-                            .to('#loader', { opacity: 0, duration: 0.5, ease: 'power2.inOut' })
-                            .set('#loader', { display: 'none' });
+                            .set('.door.left', {
+                                x: '0'
+                            })
+                            .set('.door.right', {
+                                x: '0'
+                            })
+                            .to({}, {
+                                duration: 0.5
+                            }) // ตั้งค่าดีเลย์
+                            .to('.door.left', {
+                                x: '-100%',
+                                duration: 5,
+                                ease: 'power2.inOut'
+                            })
+                            .to('.door.right', {
+                                x: '100%',
+                                duration: 5,
+                                ease: 'power2.inOut'
+                            }, '<')
+                            .to('.logo-container', {
+                                opacity: 0,
+                                duration: 0.5,
+                                ease: 'power2.inOut'
+                            }, '-=1.5')
+                            .to('#loader', {
+                                opacity: 0,
+                                duration: 0.5,
+                                ease: 'power2.inOut'
+                            })
+                            .set('#loader', {
+                                display: 'none'
+                            });
                     }
                 }
 
@@ -789,15 +840,19 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
                     // แสดงภาพทันที (ใช้เป็น placeholder)
                     quoteImageElement.src = randomQuote;
-                   
+
                     // console.log("📜 คำคมแสดงทันที:", randomQuote);
 
                     // โหลดภาพและตรวจสอบความสำเร็จ
                     img.onload = () => {
                         quoteImageElement.src = randomQuote; // อัปเดตภาพเมื่อโหลดเสร็จ
-                         quoteImageElement.style.display = "block";
+                        quoteImageElement.style.display = "block";
                         // console.log("📜 downlaod complete", randomQuote);
-                        gsap.to(quoteImageElement, { opacity: 1, duration: 1, scale: 1.5 });
+                        gsap.to(quoteImageElement, {
+                            opacity: 1,
+                            duration: 1,
+                            scale: 1.5
+                        });
                     };
 
                     img.onerror = () => {
@@ -805,10 +860,15 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                     };
                 }
 
-                gsap.fromTo(".loading-icon",
-                    { opacity: 0, scale: 0.8 },
-                    { opacity: 1, scale: 1, duration: 1, ease: "power2.out" }
-                );
+                gsap.fromTo(".loading-icon", {
+                    opacity: 0,
+                    scale: 0.8
+                }, {
+                    opacity: 1,
+                    scale: 1,
+                    duration: 1,
+                    ease: "power2.out"
+                });
 
 
                 // เริ่มทำงาน
@@ -1056,104 +1116,106 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 <!-- ปุ่มลงทะเบียนล่วงหน้า -->
 
                 <div class="pre-register-container">
-                    <!-- <a href="page/player/preregister-reward.php" target="_blank" class="pre-register">
-                <img src="images/PreregisterButtonandReward/pre-register-home.png" alt="PRE-REGISTER" 
-     style="transition: filter 0.3s ease;"
-     onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(255, 215, 0, 0.7))'"
-     onmouseout="this.style.filter='none'"/>
+                    <a href="page/player/preregister-reward.php" target="_blank" class="pre-register">
+                        <img src="images/PreregisterButtonandReward/pre-register-home.png" alt="PRE-REGISTER"
+                            style="transition: filter 0.3s ease;"
+                            onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(255, 215, 0, 0.7))'"
+                            onmouseout="this.style.filter='none'" />
 
-                    </a> -->
-                
+                    </a>
+
                     <!-- 👇 ลูกศรลอยอยู่ล่าง section -->
-                <div class="scroll-arrow-container-real" >
-                <a href="#" class="scroll-down-button-real" id="scrollToClassBtn">
-                <img src="images/RewardPage/button-down.png" alt="Scroll Down" class="scroll-down-icon-real" />
-                </a>
+                    <div class="scroll-arrow-container-real">
+                        <a href="#" class="scroll-down-button-real" id="scrollToClassBtn">
+                            <img src="images/RewardPage/button-down.png" alt="Scroll Down" class="scroll-down-icon-real" />
+                        </a>
 
+                    </div>
                 </div>
-                        </div>
-
-             
-
-             <!-- End ปุ่มลงทะเบียนล่วงหน้า -->
 
 
 
-        <!--Scroll Down-->
-        <!-- <div class="local-scroll scroll-down-wrap wow fadeInUpShort" data - wow -
+                <!-- End ปุ่มลงทะเบียนล่วงหน้า -->
+
+
+
+                <!--Scroll Down-->
+                <!-- <div class="local-scroll scroll-down-wrap wow fadeInUpShort" data - wow -
                                     offset="0">
                                     <a href="#about" class="scroll-down"><i class="scroll-down-icon"></i><span
                                             class="sr-only">Scroll to
                                             the next section</span></a>
         </div> -->
-         
-     
 
-            <style>
-            .scroll-arrow-container-real {
-            margin-top: 200px;
-            text-align: center;
-            animation: bounce-real 2s infinite;
-            }
 
-            .scroll-down-button-real {
-            display: inline-block;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            }
 
-            .scroll-down-button-real:hover {
-            transform: scale(1.1);
-            }
+                <style>
+                    .scroll-arrow-container-real {
+                        margin-top: 200px;
+                        text-align: center;
+                        animation: bounce-real 2s infinite;
+                    }
 
-            .scroll-down-icon-real {
-            width: 40px;
-            height: auto;
-            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.7));
-            }
+                    .scroll-down-button-real {
+                        display: inline-block;
+                        cursor: pointer;
+                        transition: transform 0.3s ease;
+                    }
 
-            @keyframes bounce-real {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(5px);
-            }
-            }
+                    .scroll-down-button-real:hover {
+                        transform: scale(1.1);
+                    }
 
-            @media (max-width: 576px) {
-            .scroll-down-icon-real {
-                width: 28px;
-            }
-            }
+                    .scroll-down-icon-real {
+                        width: 40px;
+                        height: auto;
+                        filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.7));
+                    }
 
-            </style>
-            
-            <script>
-            document.addEventListener("DOMContentLoaded", function () {
-            // ลบ hash ออกจาก URL และป้องกัน scroll อัตโนมัติ
-            if (window.location.hash === "#class") {
-                history.replaceState(null, null, window.location.pathname);
-                window.scrollTo(0, 0);
-            }
+                    @keyframes bounce-real {
 
-            const scrollBtn = document.getElementById("scrollToClassBtn");
-            const targetSection = document.getElementById("class");
+                        0%,
+                        100% {
+                            transform: translateY(0);
+                        }
 
-            scrollBtn.addEventListener("click", function (e) {
-                e.preventDefault();
+                        50% {
+                            transform: translateY(5px);
+                        }
+                    }
 
-                if (targetSection) {
-                    const targetY = targetSection.getBoundingClientRect().top + window.scrollY;
-                    
-                    window.scrollTo({
-                        top: targetY,
-                        behavior: "smooth"
+                    @media (max-width: 576px) {
+                        .scroll-down-icon-real {
+                            width: 28px;
+                        }
+                    }
+                </style>
+
+                <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                        // ลบ hash ออกจาก URL และป้องกัน scroll อัตโนมัติ
+                        if (window.location.hash === "#class") {
+                            history.replaceState(null, null, window.location.pathname);
+                            window.scrollTo(0, 0);
+                        }
+
+                        const scrollBtn = document.getElementById("scrollToClassBtn");
+                        const targetSection = document.getElementById("class");
+
+                        scrollBtn.addEventListener("click", function(e) {
+                            e.preventDefault();
+
+                            if (targetSection) {
+                                const targetY = targetSection.getBoundingClientRect().top + window.scrollY;
+
+                                window.scrollTo({
+                                    top: targetY,
+                                    behavior: "smooth"
+                                });
+                            }
+                        });
                     });
-                }
-            });
-            });
-            </script>
+                </script>
 
 
 
@@ -1175,12 +1237,12 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         <!---- Class Preview Section -->
 
         <section class="class-page-section" id="class">
-              <!-- ✅ หัวข้อ Section -->
-               <!-- <h2 class="class-title text-center mx-auto">สำนัก</h2> -->
+            <!-- ✅ หัวข้อ Section -->
+            <!-- <h2 class="class-title text-center mx-auto">สำนัก</h2> -->
 
 
             <div class="container-fluid relative">
-                
+
 
                 <section class="class-preview-section">
                     <div class="row">
@@ -1192,7 +1254,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                             </video> -->
 
 
-                            
+
                             <img src="images/Class-Pic/butung.jpg" alt="Background Image Class"
                                 class="bg-image-class">
 
@@ -1207,45 +1269,45 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                 <button class="scroll-btn up" id="scrollUp">▲</button>
                                 <div class="class-sidebar" id="classSidebar">
                                     <ul class="class-menu">
-                                        <li data-class="class1" class="active"  style="transition: filter 0.3s ease;"
+                                        <li data-class="class1" class="active" style="transition: filter 0.3s ease;"
                                             onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(244, 159, 47, 0.93))'"
                                             onmouseout="this.style.filter='none'">
-                                            <img src="images/ClassIcon/class12-icon.png" alt="อาชีพที่ 1" class="menu-icon"    
-                                            style="transition: filter 0.3s ease;"
-                                            onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(244, 151, 30, 0.93))'"
-                                            onmouseout="this.style.filter='none'">
+                                            <img src="images/ClassIcon/class12-icon.png" alt="อาชีพที่ 1" class="menu-icon"
+                                                style="transition: filter 0.3s ease;"
+                                                onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(244, 151, 30, 0.93))'"
+                                                onmouseout="this.style.filter='none'">
                                             บู้ตึ้ง
                                         </li>
-                                        <li data-class="class2"  style="transition: filter 0.3s ease;"
+                                        <li data-class="class2" style="transition: filter 0.3s ease;"
                                             onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(30, 194, 254, 0.93))'"
                                             onmouseout="this.style.filter='none'">
                                             <img src="images/ClassIcon/class11-icon.png" alt="อาชีพที่ 2" class="menu-icon"
-                                            style="transition: filter 0.3s ease;"
-                                            onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(30, 194, 254, 0.93))'"
-                                            onmouseout="this.style.filter='none'">
+                                                style="transition: filter 0.3s ease;"
+                                                onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(30, 194, 254, 0.93))'"
+                                                onmouseout="this.style.filter='none'">
                                             วังวารี
                                         </li>
                                         <li data-class="class3" style="transition: filter 0.3s ease;"
                                             onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(5, 96, 7, 0.93))'"
                                             onmouseout="this.style.filter='none'">
                                             <img src="images/ClassIcon/class8-icon.png" alt="อาชีพที่ 3" class="menu-icon" style="transition: filter 0.3s ease;"
-                                            onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(5, 96, 20, 0.93))'"
-                                            onmouseout="this.style.filter='none'">
+                                                onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(5, 96, 20, 0.93))'"
+                                                onmouseout="this.style.filter='none'">
                                             หมื่นบุปผา
                                         </li>
                                         <li data-class="class4" style="transition: filter 0.3s ease;"
                                             onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(5, 96, 20, 0.93))'" onmouseout="this.style.filter='none'">
                                             <img src="images/ClassIcon/class13-icon.png" alt="อาชีพที่ 4" class="menu-icon" style="transition: filter 0.3s ease;"
-                                            onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(5, 96, 20, 0.93))'" onmouseout="this.style.filter='none'">
+                                                onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(5, 96, 20, 0.93))'" onmouseout="this.style.filter='none'">
                                             ไป๋ลู่
                                         </li>
-                                        <li data-class="class5"  style="transition: filter 0.3s ease;"
+                                        <li data-class="class5" style="transition: filter 0.3s ease;"
                                             onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(251, 9, 9, 0.93))'"
                                             onmouseout="this.style.filter='none'">
                                             <img src="images/ClassIcon/class10-icon.png" alt="อาชีพที่ 5" class="menu-icon"
-                                            style="transition: filter 0.3s ease;"
-                                            onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(251, 9, 9, 0.93))'"
-                                            onmouseout="this.style.filter='none'">
+                                                style="transition: filter 0.3s ease;"
+                                                onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(251, 9, 9, 0.93))'"
+                                                onmouseout="this.style.filter='none'">
                                             เทียนเหริ่น
                                         </li>
                                         <li data-class="class6"
@@ -1253,19 +1315,19 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                             onmouseover="this.style.filter='drop-shadow(0 0 15px #edb518)'"
                                             onmouseout="this.style.filter='none'">
                                             <img src="images/ClassIcon/class9-icon.png" alt="อาชีพที่ 6" class="menu-icon"
-                                             style="transition: filter 0.3s ease;"
-                                            onmouseover="this.style.filter='drop-shadow(0 0 15px #edb518)'"
-                                            onmouseout="this.style.filter='none'">
+                                                style="transition: filter 0.3s ease;"
+                                                onmouseover="this.style.filter='drop-shadow(0 0 15px #edb518)'"
+                                                onmouseout="this.style.filter='none'">
                                             กระบี่ลี้ลับ
                                         </li>
                                         <li data-class="class7"
-                                        style="transition: filter 0.3s ease;"
-                                            onmouseover="this.style.filter='drop-shadow(0 0 15px #edb518)'"
-                                            onmouseout="this.style.filter='none'">
-                                            <img src="images/ClassIcon/class10-icon.png" alt="อาชีพที่ 7" class="menu-icon"
                                             style="transition: filter 0.3s ease;"
                                             onmouseover="this.style.filter='drop-shadow(0 0 15px #edb518)'"
                                             onmouseout="this.style.filter='none'">
+                                            <img src="images/ClassIcon/class10-icon.png" alt="อาชีพที่ 7" class="menu-icon"
+                                                style="transition: filter 0.3s ease;"
+                                                onmouseover="this.style.filter='drop-shadow(0 0 15px #edb518)'"
+                                                onmouseout="this.style.filter='none'">
                                             เทียนหวัง
                                         </li>
 
@@ -1294,22 +1356,18 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 <div class="swiper-wrapper">
                     <!-- Slide 1 -->
                     <div class="swiper-slide">
-                        <img src="images/highlight-game/highlight1.jpg" alt="Promo 1"  
-                  />
+                        <img src="images/highlight-game/highlight1.jpg" alt="Promo 1" />
                     </div>
                     <!-- Slide 2 -->
                     <div class="swiper-slide">
-                        <img src="images/highlight-game/highlight2.jpg" alt="Promo 2" 
-                      />
+                        <img src="images/highlight-game/highlight2.jpg" alt="Promo 2" />
                     </div>
                     <!-- Slide 3 -->
                     <div class="swiper-slide">
-                        <img src="images/highlight-game/highlight3.jpg" alt="Promo 3"
-                       />
+                        <img src="images/highlight-game/highlight3.jpg" alt="Promo 3" />
                     </div>
                     <div class="swiper-slide">
-                        <img src="images/highlight-game/highlight4.jpg" alt="Promo 4" 
-                       />
+                        <img src="images/highlight-game/highlight4.jpg" alt="Promo 4" />
                     </div>
                 </div>
                 <!-- Pagination -->
@@ -1373,56 +1431,56 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
                         <ul class="nav nav-tabs justify-content-center w-100" id="newsTabs" role="tablist">
                             <li class="nav-item-news" role="presentation">
-                                <button class="nav-link text-center active" id="all-tab" data-tab="all" type="button">ทั้งหมด</button>
+                                <button class="nav-link text-center active" id="all-tab" data-tab="All" type="button">ทั้งหมด</button>
                             </li>
                             <li class="nav-item-news" role="presentation">
-                                <button class="nav-link text-center" id="news-tab" data-tab="news" type="button">ประกาศ</button>
+                                <button class="nav-link text-center" id="news-tab" data-tab="News" type="button">ประกาศ</button>
                             </li>
                             <li class="nav-item-news" role="presentation">
-                                <button class="nav-link text-center" id="events-tab" data-tab="events" type="button">กิจกรรม</button>
+                                <button class="nav-link text-center" id="events-tab" data-tab="Events" type="button">กิจกรรม</button>
                             </li>
                             <li class="nav-item-news" role="presentation">
-                                <button class="nav-link text-center" id="promotions-tab" data-tab="promotions"
+                                <button class="nav-link text-center" id="promotions-tab" data-tab="Promotions"
                                     type="button">โปรโมชั่น</button>
                             </li>
                         </ul>
 
                         <div class="tab-content mt-3 w-100" id="newsTabsContent">
-                            <div id="all-tab-pane" class="tab-pane" style="display: block;">
+                            <div id="All-tab-pane" class="tab-pane" style="display: block;">
                                 <div class="image-header">
                                     <img src="images/crop-box-news.png" alt="Header Image" class="header-img">
                                 </div>
-                                <ul class="list-group" id="all-news-list"></ul>
+                                <ul class="list-group" id="All-news-list"></ul>
                                 <div class="bottom-image-header">
                                     <img src="images/crop-box-news-reverse.png" alt="Header Image" class="bottom-img">
                                 </div>
                             </div>
 
-                            <div id="news-tab-pane" class="tab-pane" style="display: none;">
+                            <div id="News-tab-pane" class="tab-pane" style="display: none;">
                                 <div class="image-header">
                                     <img src="images/crop-box-news.png" alt="Header Image" class="header-img">
                                 </div>
-                                <ul class="list-group" id="ข่าว-news-list"></ul>
+                                <ul class="list-group" id="News-news-list"></ul>
                                 <div class="bottom-image-header">
                                     <img src="images/crop-box-news-reverse.png" alt="Header Image" class="bottom-img">
                                 </div>
                             </div>
 
-                            <div id="events-tab-pane" class="tab-pane" style="display: none;">
+                            <div id="Events-tab-pane" class="tab-pane" style="display: none;">
                                 <div class="image-header">
                                     <img src="images/crop-box-news.png" alt="Header Image" class="header-img">
                                 </div>
-                                <ul class="list-group" id="กิจกรรม-news-list"></ul>
+                                <ul class="list-group" id="Events-news-list"></ul>
                                 <div class="bottom-image-header">
                                     <img src="images/crop-box-news-reverse.png" alt="Header Image" class="bottom-img">
                                 </div>
                             </div>
 
-                            <div id="promotions-tab-pane" class="tab-pane" style="display: none;">
+                            <div id="Promotions-tab-pane" class="tab-pane" style="display: none;">
                                 <div class="image-header">
                                     <img src="images/crop-box-news.png" alt="Header Image" class="header-img">
                                 </div>
-                                <ul class="list-group" id="โปรโมชั่น-news-list"></ul>
+                                <ul class="list-group" id="Promotions-news-list"></ul>
                                 <div class="bottom-image-header">
                                     <img src="images/crop-box-news-reverse.png" alt="Header Image" class="bottom-img">
                                 </div>
@@ -1435,7 +1493,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                     // รอให้ DOM โหลดเสร็จ
                                     document.addEventListener('DOMContentLoaded', function() {
                                         // ดึงค่าจาก localStorage สำหรับ 'activeTab' (หรือค่า default เป็น 'all')
-                                        const activeTab = localStorage.getItem("activeTab") || "all";
+                                        const activeTab = localStorage.getItem("activeTab") || "All";
 
                                         // สร้าง URL ใหม่ที่มีพารามิเตอร์ tab
                                         const url = `page/player/contents.php?tab=${activeTab}`;
@@ -1463,12 +1521,14 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
                     // ฟังก์ชันการแสดงแท็บที่ถูกเลือก
                     function activateTab(tabId) {
+
                         // ซ่อน tab-pane ทั้งหมด
                         tabPanes.hide();
                         // แสดง tab-pane ที่เลือก
                         $(`#${tabId}-tab-pane`).show();
                         // ตั้งค่า active ให้ปุ่ม
                         tabButtons.removeClass("active");
+
                         $(`[data-tab="${tabId}"]`).addClass("active");
                         // บันทึกค่า active tab ลง localStorage
                         localStorage.setItem("activeTab", tabId);
@@ -1481,11 +1541,13 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                     // เพิ่ม event listener ให้ปุ่มทั้งหมด
                     tabButtons.on("click", function() {
                         const targetTab = $(this).data("tab");
+
                         activateTab(targetTab);
                     });
 
                     // กำหนดค่า default เป็น "all" ถ้าไม่มีค่าใน localStorage
-                    const storedTab = localStorage.getItem("activeTab") || "all";
+                    const storedTab = localStorage.getItem("activeTab") || "All";
+                    console.log('storedTab', storedTab)
                     activateTab(storedTab);
                 });
 
@@ -1520,11 +1582,10 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                     axios.get('database/player/contents_index.php') // เปลี่ยน URL เป็นไฟล์ PHP ของคุณที่ส่งข้อมูล JSON
                         .then(function(response) {
                             const newsData = response.data; // ข้อมูลที่ได้รับมาในรูปแบบ JSON
-
-                            renderNews(newsData, "all"); // แสดงข่าวทั้งหมด
-                            renderNews(newsData, "ข่าว"); // แสดงข่าวประกาศ
-                            renderNews(newsData, "กิจกรรม"); // แสดงข่าวกิจกรรม
-                            renderNews(newsData, "โปรโมชั่น"); // แสดงข่าวโปรโมชั่น
+                            renderNews(newsData, "All"); // แสดงข่าวทั้งหมด
+                            renderNews(newsData, "News"); // แสดงข่าวประกาศ
+                            renderNews(newsData, "Events"); // แสดงข่าวกิจกรรม
+                            renderNews(newsData, "Promotions"); // แสดงข่าวโปรโมชั่น
                         })
                         .catch(function(error) {
                             console.error('Error fetching data:', error);
@@ -1532,15 +1593,25 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
                     // ฟังก์ชันในการแสดงข่าว
                     function renderNews(newsData, category) {
+                        console.log('category', category)
                         // console.log('newsdata', newsData)
                         const container = document.getElementById(category + "-news-list");
+
                         if (container) { // ตรวจสอบว่า container ไม่เป็น null
                             container.innerHTML = ""; // ล้างข้อมูลเก่า
 
-                            let filteredNews = category === "" ? newsData : newsData.filter(news => news.type === category);
+                            let filteredNews = category === "" ? newsData : newsData.filter(news => news.category_name === category);
+
                             if (filteredNews.length === 0 && category !== "") {
                                 // ถ้าข้อมูลประเภทนี้ไม่มี ให้ดึงข้อมูลทั้งหมดมาแสดง
+                                // filteredNews = newsData;
+                            }
+                            if (category === "All") {
+                                // ถ้าเป็น All ให้แสดงข่าวทั้งหมด
                                 filteredNews = newsData;
+                            } else {
+                                // ถ้าไม่ใช่ All ให้กรองข่าวตามประเภทที่เลือก
+                                filteredNews = newsData.filter(news => news.category_name === category);
                             }
 
                             const limitedNews = filteredNews.slice(0, 6); // แสดงแค่ 6 รายการ
@@ -1548,22 +1619,22 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                             limitedNews.forEach(news => {
                                 const li = document.createElement("li");
                                 const dateOnly = news.created_at.substring(0, 10); // 10 ตัวแรก (YYYY-MM-DD)
-                                
-                                const newtypefilter = news.type == "ข่าว" ? "ประกาศ" : news.type;
 
-                               let newTypeColor;
-                                if (news.type === "ข่าว") {
-                                    newTypeColor = "rgb(127,169,209)";  
-                                } else if (news.type === "กิจกรรม") {
-                                    newTypeColor = "rgb(153, 127, 209)";  
-                                } else if (news.type === "โปรโมชั่น") {
-                                    newTypeColor = "rgb(209, 138, 127)";  
+                                const newtypefilter = news.category_name == "News" ? "ประกาศ" : news.category_name;
+
+                                let newTypeColor;
+                                if (news.category_name === "News") {
+                                    newTypeColor = "rgb(127,169,209)";
+                                } else if (news.category_name === "Events") {
+                                    newTypeColor = "rgb(153, 127, 209)";
+                                } else if (news.category_name === "Promotions") {
+                                    newTypeColor = "rgb(209, 138, 127)";
                                 } else {
-                                    newTypeColor = "rgba(0, 0, 0, 0.8)";  
+                                    newTypeColor = "rgba(0, 0, 0, 0.8)";
                                 }
 
 
-                               li.classList.add("list-group-item");
+                                li.classList.add("list-group-item");
                                 li.innerHTML = `
                                     <div class="news-item" style="display: flex; justify-content: space-between; align-items: center;">
                                         <div style="display: flex; align-items: center;">
@@ -1575,7 +1646,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
                                                 
                                          &nbsp
-                                             <a style="display: inline; cursor: pointer;">${news.title}</a>
+                                             <a style="display: inline; cursor: pointer;">${news.header_thumbnail}</a>
                                         </div>
                                         <span class="date" style="margin-left: 10px;">${dateOnly}</span>
                                     </div>`;
@@ -1603,32 +1674,32 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         <!--Gallery Game Section-->
         <!-- <section class="gallery-section">
             <div class="character-container">
-        
-                   <img src="images/gallery-pic/g-char.png" alt="Character" 
-     style="transition: filter 0.3s ease;"
-     onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(0, 153, 255, 0.7))'"
-     onmouseout="this.style.filter='none'"/>
+              <img src="images/gallery-pic/g-char.png" alt="Character"> -->
+        <img src="images/gallery-pic/g-char.png" alt="Character"
+            style="transition: filter 0.3s ease;"
+            onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(0, 153, 255, 0.7))'"
+            onmouseout="this.style.filter='none'" />
+        </div>
+
+        <div class="gallery-container">
+            <div class="gallery-header">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="photo" onclick="toggleGallery('photo')">รูปภาพ</button>
+                    <span class="divider-gallery">/</span>
+                    <button class="tab-btn" data-tab="video" onclick="toggleGallery('video')">วีดีโอ</button>
+                </div>
+                <a href="page/player/gallery-more.php" target="_blank">
+                    <div class="more-btn">เพิ่มเติม+</div>
+                </a>
+
             </div>
 
-            <div class="gallery-container">
-                <div class="gallery-header">
-                    <div class="tabs">
-                        <button class="tab-btn active" data-tab="photo" onclick="toggleGallery('photo')">รูปภาพ</button>
-                        <span class="divider-gallery">/</span>
-                        <button class="tab-btn" data-tab="video" onclick="toggleGallery('video')">วีดีโอ</button>
-                    </div>
-                    <a href="page/player/gallery-more.php" target="_blank">
-                        <div class="more-btn">เพิ่มเติม+</div>
-                    </a>
-
-                </div> -->
-
-                <!-- Photo Gallery -->
-                <!-- <div class="gallery" id="photoGallery">
+            <!-- Photo Gallery -->
+            <!-- <div class="gallery" id="photoGallery">
                     <div class="gallery-item large"
                         onclick="openModal('photo', 'images/gallery-pic/g1.jpg')">
                         <img src="images/gallery-pic/g1.jpg" alt="Moonglow Fest">
-                        
+
                         <h3>เข้าร่วมสงครามจักพรรดิ์</h3>
                     </div>
                     <div class="gallery-item small-right"
@@ -1658,8 +1729,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                     </div>
                 </div> -->
 
-                <!-- Video Gallery -->
-                <!-- <div class="gallery" id="videoGallery" style="display: none;">
+            <!-- Video Gallery -->
+            <!-- <div class="gallery" id="videoGallery" style="display: none;">
                     <div class="gallery-item large video-overlay"
                         onclick="openModal('video', 'https://www.youtube.com/embed/i08KHjxYKuw?si?autohide=1')">
                         <img src="https://img.youtube.com/vi/i08KHjxYKuw/maxresdefault.jpg" alt="Baking Contest">
@@ -1694,16 +1765,16 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             </div>
         </section> -->
 
-        <!-- Modal for Image or Video -->
-        <!-- <div id="modal" class="modal" style="display: none;">
+            <!-- Modal for Image or Video -->
+            <!-- <div id="modal" class="modal" style="display: none;">
             <div class="modal-content">
                 <span class="close" onclick="closeModal()">&times;</span>
                 <div id="modal-content"></div>
             </div>
         </div> -->
 
-        <!-- Inline Style -->
-        <!-- <style>
+            <!-- Inline Style -->
+            <!-- <style>
             .gallery-section {
 
                 display: flex;
@@ -1721,7 +1792,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                
+
             }
 
             .character-container img {
@@ -1791,17 +1862,17 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
             }
 
-           .gallery-item {
-            background: none;
-            border-radius: 10px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 0;
-            position: relative; 
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-             }
+            .gallery-item {
+                background: none;
+                border-radius: 10px;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 0;
+                position: relative;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            }
 
             .gallery-item img {
                 width: 100%;
@@ -1815,19 +1886,21 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 cursor: pointer;
             }
 
-           .gallery-item h3 {
+            .gallery-item h3 {
                 font-size: 16px;
                 margin-top: 10px;
                 position: absolute;
-                bottom: 10px; /* วางข้อความที่ด้านล่างของรูป */
+                bottom: 10px;
+                /* วางข้อความที่ด้านล่างของรูป */
                 left: 0;
                 right: 0;
-                bottom:0;
+                bottom: 0;
                 text-align: center;
                 color: white;
-                background: linear-gradient(to top, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.001)); 
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.001));
                 padding: 5px;
-                border-radius: 0 0 10px 10px; /* ขอบโค้งล่าง */
+                border-radius: 0 0 10px 10px;
+                /* ขอบโค้งล่าง */
                 margin: 0;
             }
 
@@ -1926,14 +1999,14 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             }
 
 
- /* ✅ สำหรับมือถือ (Mobile Only) */
-        @media only screen and (max-width: 767px) {
-              .gallery-section {
+            /* ✅ สำหรับมือถือ (Mobile Only) */
+            @media only screen and (max-width: 767px) {
+                .gallery-section {
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     padding: 0px 20px;
-                    
+
                     gap: 10px;
                     height: 520px;
                 }
@@ -1978,15 +2051,15 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 }
 
                 .tabs button {
-                background: none;
-                border: none;
-                font-size: 14px;
-                font-weight: bold;
-                cursor: pointer;
-                padding: 2px 5px;
+                    background: none;
+                    border: none;
+                    font-size: 14px;
+                    font-weight: bold;
+                    cursor: pointer;
+                    padding: 2px 5px;
                 }
 
-       
+
 
                 .more-btn {
                     font-size: 14px;
@@ -1995,52 +2068,52 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                     text-decoration: none;
                 }
 
-}
+            }
 
-@media only screen and (min-width: 768px) and (max-width: 1400px)  {
+            @media only screen and (min-width: 768px) and (max-width: 1400px) {
                 .gallery-section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            gap: 10px;
-            }
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 20px;
+                    gap: 10px;
+                }
 
-            .character-container img {
-            display: none;
-         
-            }
+                .character-container img {
+                    display: none;
 
-            .character-container {
-            display: none;
-        
-            }
+                }
 
-            .gallery-container {
-            flex: 0 0 100%;
-            display: flex;
-            flex-direction: column;
-            }
+                .character-container {
+                    display: none;
 
-            .gallery-item h3 {
-            font-size: 13px;
-            margin-top: 5px;
-            margin-bottom: 0px;
-            }
+                }
 
-            .video-overlay::after {
-            content: "▶";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 15px;
-            color: white;
-            font-weight: bold;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 5px 10px;
-            border-radius: 50%;
-            }
+                .gallery-container {
+                    flex: 0 0 100%;
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .gallery-item h3 {
+                    font-size: 13px;
+                    margin-top: 5px;
+                    margin-bottom: 0px;
+                }
+
+                .video-overlay::after {
+                    content: "▶";
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    font-size: 15px;
+                    color: white;
+                    font-weight: bold;
+                    background: rgba(0, 0, 0, 0.5);
+                    padding: 5px 10px;
+                    border-radius: 50%;
+                }
 
             .video-overlay h3 {
             font-size: 13px;
@@ -2052,10 +2125,10 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
             
-        </style> -->
+        </style>
 
-        <!-- Inline Script -->
-        <!-- <script>
+         Inline Script -->
+            <!-- <script>
             function toggleGallery(tab) {
                 const photoGallery = document.getElementById("photoGallery");
                 const videoGallery = document.getElementById("videoGallery");
@@ -2104,15 +2177,12 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
 
-        <!--End Gallery Game Section-->
+            <!--End Gallery Game Section-->
 
 
-        <!--Divider -->
-        <!-- < hr class="mt-0 mb-10" /> -->
-        <!--End Divider-->
-
-
-
+            <!--Divider -->
+            <!-- < hr class="mt-0 mb-10" /> -->
+            <!--End Divider-->
 
 
 
@@ -2141,13 +2211,16 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
 
-        <!--Divider -->
-        <!-- < hr class="mt-0 mb-0" /> -->
-        <!--End Divider-->
 
 
-        <!--Footer -->
-        <!-- <footer class="footer-page-section  footer pb-100 pb-sm-50">
+
+            <!--Divider -->
+            <!-- < hr class="mt-0 mb-0" /> -->
+            <!--End Divider-->
+
+
+            <!--Footer -->
+            <!-- <footer class="footer-page-section  footer pb-100 pb-sm-50">
             <div class="container">
 
 
@@ -2188,28 +2261,28 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
         </footer> -->
 
-<footer class="text-white pt-4 pb-3 mt-5" style="background: transparent; font-family: 'Prompt', sans-serif; font-size: 0.95rem;">
-  <div class="container text-center">
-    <div class="row justify-content-center g-4">
-
- 
-
-      <!-- บริษัทในเครือ -->
-      <div class="col-12 col-lg-4">
-        <!-- <h5 class="fw-bold mb-2 mt-4 mt-lg-0"></h5> -->
-        <div class="footer-logos d-flex flex-wrap justify-content-center gap-3 mb-2">
-          <img src="images/footer-icon/logo-exp-up-company-original.png" alt="EXP UP Logo" width="30">
-          <img src="images/footer-icon/logo-seasun-black.png" alt="Seasun Logo" width="85">
-        </div>
-        <p class="small text-secondary m-0 mt-2">© กระบี่เย้ยยุทธจักร. All rights reserved.</p>
-      </div>
-
-    </div>
-  </div>
-</footer>
+            <footer class="text-white pt-4 pb-3 mt-5" style="background: transparent; font-family: 'Prompt', sans-serif; font-size: 0.95rem;">
+                <div class="container text-center">
+                    <div class="row justify-content-center g-4">
 
 
-        <!--End Footer-->
+
+                        <!-- บริษัทในเครือ -->
+                        <div class="col-12 col-lg-4">
+                            <!-- <h5 class="fw-bold mb-2 mt-4 mt-lg-0"></h5> -->
+                            <div class="footer-logos d-flex flex-wrap justify-content-center gap-3 mb-2">
+                                <img src="images/footer-icon/logo-exp-up-company-original.png" alt="EXP UP Logo" width="30">
+                                <img src="images/footer-icon/logo-seasun-black.png" alt="Seasun Logo" width="85">
+                            </div>
+                            <p class="small text-secondary m-0 mt-2">© กระบี่เย้ยยุทธจักร. All rights reserved.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </footer>
+
+
+            <!--End Footer-->
 
     </main>
 
@@ -2307,14 +2380,15 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                             const seo = data[0]; // Use the first item from the data array
 
                             // Update the title, description, and keywords meta tags dynamically
-                            document.title = seo.title; // Set the page title
+                            document.title = seo.seo_title; // Set the page title
                             // console.log("Updated Title:", document.title); // Debugging line
 
-                            document.querySelector("meta[name='description']").setAttribute("content", seo.description); // Set the description
+                            document.querySelector("meta[name='description']").setAttribute("content", seo.seo_description); // Set the description
                             // console.log("Updated Description:", seo.description); // Debugging line
 
-                            document.querySelector("meta[name='keywords']").setAttribute("content", seo.keywords); // Set the keywords
+                            document.querySelector("meta[name='keywords']").setAttribute("content", seo.seo_keywords); // Set the keywords
                             // console.log("Updated Keywords:", seo.keywords); // Debugging line
+                            document.querySelector("link[rel='canonical']").setAttribute("href", seo.seo_canonical_url);
                         }
                     }
                 })

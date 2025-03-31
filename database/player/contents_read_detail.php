@@ -10,7 +10,7 @@ if (!$id) {
 
 
 // ดึงข้อมูลจากฐานข้อมูล
-$sql = "SELECT d.id, d.id_title, d.description, t.type, t.title, t.image, t.created_at,t.seo_keywords,t.seo_description,t.seo_title FROM description d INNER JOIN title t ON d.id_title = t.id WHERE d.id_title = ?";
+$sql = "SELECT d.id, d.id_title, d.description, t.type, t.title, t.image, t.created_at,t.seo_keywords,t.seo_description,t.seo_title FROM description d INNER JOIN content t ON d.id_title = t.id WHERE d.id_title = ?";
 
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $id);
