@@ -1309,7 +1309,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                                 style="transition: filter 0.3s ease;"
                                                 onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(244, 151, 30, 0.93))'"
                                                 onmouseout="this.style.filter='none'">
-                                            บู้ตึ้ง
+                                            <span class="class-label">บู้ตึ้ง</span>
                                         </li>
                                         <li data-class="class2" style="transition: filter 0.3s ease;"
                                             onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(30, 194, 254, 0.93))'"
@@ -1318,7 +1318,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                                 style="transition: filter 0.3s ease;"
                                                 onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(30, 194, 254, 0.93))'"
                                                 onmouseout="this.style.filter='none'">
-                                            วังวารี
+                                            <span class="class-label">วังวารี</span>
                                         </li>
                                         <li data-class="class3" style="transition: filter 0.3s ease;"
                                             onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(5, 96, 7, 0.93))'"
@@ -1326,13 +1326,13 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                             <img src="images/ClassIcon/class8-icon.png" alt="อาชีพที่ 3" class="menu-icon" style="transition: filter 0.3s ease;"
                                                 onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(5, 96, 20, 0.93))'"
                                                 onmouseout="this.style.filter='none'">
-                                            หมื่นบุปผา
+                                           <span class="class-label">หมื่นบุปผา</span>
                                         </li>
                                         <li data-class="class4" style="transition: filter 0.3s ease;"
                                             onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(5, 96, 20, 0.93))'" onmouseout="this.style.filter='none'">
                                             <img src="images/ClassIcon/class13-icon.png" alt="อาชีพที่ 4" class="menu-icon" style="transition: filter 0.3s ease;"
                                                 onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(5, 96, 20, 0.93))'" onmouseout="this.style.filter='none'">
-                                            ไป๋ลู่
+                                            <span class="class-label">ไป๋ลู่</span>
                                         </li>
                                         <li data-class="class5" style="transition: filter 0.3s ease;"
                                             onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(251, 9, 9, 0.93))'"
@@ -1341,7 +1341,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                                 style="transition: filter 0.3s ease;"
                                                 onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(251, 9, 9, 0.93))'"
                                                 onmouseout="this.style.filter='none'">
-                                            เทียนเหริ่น
+                                            <span class="class-label">เทียนเหริ่น</span>
                                         </li>
                                         <li data-class="class6"
                                             style="transition: filter 0.3s ease;"
@@ -1351,7 +1351,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                                 style="transition: filter 0.3s ease;"
                                                 onmouseover="this.style.filter='drop-shadow(0 0 15px #edb518)'"
                                                 onmouseout="this.style.filter='none'">
-                                            กระบี่ลี้ลับ
+                                            <span class="class-label">กระบี่ลี้ลับ</span>
                                         </li>
                                         <li data-class="class7"
                                             style="transition: filter 0.3s ease;"
@@ -1361,7 +1361,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                                 style="transition: filter 0.3s ease;"
                                                 onmouseover="this.style.filter='drop-shadow(0 0 15px #edb518)'"
                                                 onmouseout="this.style.filter='none'">
-                                            เทียนหวัง
+                                            <span class="class-label">เทียนหวัง</span>
                                         </li>
                                         <li data-class="class8"
                                             style="transition: filter 0.3s ease;"
@@ -1371,7 +1371,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                                 style="transition: filter 0.3s ease;"
                                                 onmouseover="this.style.filter='drop-shadow(0 0 15px #edb518)'"
                                                 onmouseout="this.style.filter='none'">
-                                            ฉางเกอ
+                                            <span class="class-label">ฉางเกอ</span>
                                         </li>
                                         <li data-class="class9"
                                             style="transition: filter 0.3s ease;"
@@ -1381,7 +1381,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                                 style="transition: filter 0.3s ease;"
                                                 onmouseover="this.style.filter='drop-shadow(0 0 15px #edb518)'"
                                                 onmouseout="this.style.filter='none'">
-                                            สุสานโบราณ
+                                            <span class="class-label">สุสานโบราณ</span>
                                         </li>
                                         <li data-class="class10"
                                             style="transition: filter 0.3s ease;"
@@ -1391,7 +1391,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                                 style="transition: filter 0.3s ease;"
                                                 onmouseover="this.style.filter='drop-shadow(0 0 15px #edb518)'"
                                                 onmouseout="this.style.filter='none'">
-                                            พรรคกระยาจก
+                                            <span class="class-label">พรรคกระยาจก</span>
                                         </li>
 
                                     </ul>
