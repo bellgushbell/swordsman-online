@@ -4,8 +4,8 @@
 
 <!-- scroll trigger -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
-
+<!-- scroll Plugin ล้อกสกอเม้าส์-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
 
 <!-- Favicons -->
 <link rel="shortcut icon" href="images/shortcut-icon.png">
@@ -527,7 +527,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             <style>
                 /* Loader Container */
                 .page-loader {
-                    position: fixed;
+                    position: relative;
                     top: 0;
                     left: 0;
                     width: 100vw;
@@ -601,9 +601,25 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
                 /* Responsive for small screens */
                 @media (max-width: 961px) {
-                    .loading-icon {
-                        max-width: 250px !important;
-                    }
+                  .logo-container {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 100%;
+                    padding: 0 0px;
+                    text-align: center;
+                    z-index: 2;
+                }
+
+               .loading-icon {
+                    max-width: 250px !important;
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                    margin: 0 auto;
+                }
+
 
                     .door {
                         position: absolute;
@@ -1253,8 +1269,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
         <!---- Class Preview Section -->
 
-        <section class="class-page-section" id="class">
-            <!-- ✅ หัวข้อ Section -->
+        <section class="class-page-section" id="class" style="background: url('images/background/bg-highlight.jpg') no-repeat center center; background-size: cover;">
+            <!--  หัวข้อ Section -->
             <!-- <h2 class="class-title text-center mx-auto">สำนัก</h2> -->
 
 
@@ -1347,6 +1363,36 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                                 onmouseout="this.style.filter='none'">
                                             เทียนหวัง
                                         </li>
+                                        <li data-class="class8"
+                                            style="transition: filter 0.3s ease;"
+                                            onmouseover="this.style.filter='drop-shadow(0 0 15px #edb518)'"
+                                            onmouseout="this.style.filter='none'">
+                                            <img src="images/ClassIcon/class10-icon.png" alt="อาชีพที่ 8" class="menu-icon"
+                                                style="transition: filter 0.3s ease;"
+                                                onmouseover="this.style.filter='drop-shadow(0 0 15px #edb518)'"
+                                                onmouseout="this.style.filter='none'">
+                                            ฉางเกอ
+                                        </li>
+                                        <li data-class="class9"
+                                            style="transition: filter 0.3s ease;"
+                                            onmouseover="this.style.filter='drop-shadow(0 0 15px #edb518)'"
+                                            onmouseout="this.style.filter='none'">
+                                            <img src="images/ClassIcon/class10-icon.png" alt="อาชีพที่ 9" class="menu-icon"
+                                                style="transition: filter 0.3s ease;"
+                                                onmouseover="this.style.filter='drop-shadow(0 0 15px #edb518)'"
+                                                onmouseout="this.style.filter='none'">
+                                            สุสานโบราณ
+                                        </li>
+                                        <li data-class="class10"
+                                            style="transition: filter 0.3s ease;"
+                                            onmouseover="this.style.filter='drop-shadow(0 0 15px #edb518)'"
+                                            onmouseout="this.style.filter='none'">
+                                            <img src="images/ClassIcon/class10-icon.png" alt="อาชีพที่ 10" class="menu-icon"
+                                                style="transition: filter 0.3s ease;"
+                                                onmouseover="this.style.filter='drop-shadow(0 0 15px #edb518)'"
+                                                onmouseout="this.style.filter='none'">
+                                            พรรคกระยาจก
+                                        </li>
 
                                     </ul>
 
@@ -1368,24 +1414,34 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
         <!-- Highlight Game Section -->
-        <section class="highlight-page-section pt-0 pb-0">
+        <section class="highlight-page-section pt-0 pb-0" style="background: url('images/background/bg-highlight.jpg') no-repeat center center; background-size: cover;">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-                    <!-- Slide 1 -->
-                    <div class="swiper-slide">
-                        <img src="images/highlight-game/highlight1.jpg" alt="Promo 1" loading="lazy" fetchpriority="low"/>
-                    </div>
-                    <!-- Slide 2 -->
-                    <div class="swiper-slide">
-                        <img src="images/highlight-game/highlight2.jpg" alt="Promo 2" loading="lazy" fetchpriority="low"/>
-                    </div>
-                    <!-- Slide 3 -->
-                    <div class="swiper-slide">
-                        <img src="images/highlight-game/highlight3.jpg" alt="Promo 3" loading="lazy" fetchpriority="low"/>
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="images/highlight-game/highlight4.jpg" alt="Promo 4" loading="lazy" fetchpriority="low"/>
-                    </div>
+                  <div class="swiper-slide">
+                    <img src="images/highlight-game/highlight1.png" alt="Promo 1" loading="lazy" fetchpriority="low" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/highlight-game/highlight2.png" alt="Promo 2" loading="lazy" fetchpriority="low" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/highlight-game/highlight3.png" alt="Promo 3" loading="lazy" fetchpriority="low" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/highlight-game/highlight4.png" alt="Promo 4" loading="lazy" fetchpriority="low" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/highlight-game/highlight5.png" alt="Promo 5" loading="lazy" fetchpriority="low" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/highlight-game/highlight6.png" alt="Promo 6" loading="lazy" fetchpriority="low" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/highlight-game/highlight7.png" alt="Promo 7" loading="lazy" fetchpriority="low" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/highlight-game/highlight8.png" alt="Promo 8" loading="lazy" fetchpriority="low" />
+                </div>
+
                 </div>
                 <!-- Pagination -->
                 <div class="swiper-pagination"></div>

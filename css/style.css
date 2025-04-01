@@ -136,8 +136,35 @@ Primary use: Multipurpose Template
     font-display: swap;
 }
 
+/* ==============================
+ปิดสกอบาร์ ล็อกสกอหน้าจอ
+   ============================== */
+
+/* body {
+    overflow-y: scroll;
+
+    scrollbar-width: none;
+
+} */
+.home-section,
+.class-page-section,
+.highlight-page-section,
+.page-section-news {
+    height: 100vh;
+    overflow: hidden;
+    /* ป้องกันเลื่อนไหลล้น */
+}
+
+.class-page-section {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
 
 
+body::-webkit-scrollbar {
+    display: none;
+}
 
 
 /* ==============================
@@ -2218,32 +2245,7 @@ input.form-control {
     /* เปิด/ปิด */
 }
 
-/* วีดีโอพื้นหลัง */
-/* .bg-video-class {
 
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 100vw !important;
-    height: 100vh;
-    object-fit: cover;
-    z-index: 0;
-    pointer-events: none;
-    border-radius: 0px;
-
-} */
-
-
-
-/* .bg-video-overlay-class {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw !important;
-    height: 100vh !important;
-    z-index: 1;
-} */
 
 /* คอนเทนต์ */
 .class-content {
@@ -2257,39 +2259,26 @@ input.form-control {
 
 }
 
-/* ข้อมูลคลาส */
-/* .class-details {
-    position: absolute;
 
-    bottom: 0%;
-
-    right: 0;
-
-    width: 500px;
-
-    height: auto;
-    text-align: right;
-    z-index: 3;
-
-} */
 
 /* แถบ Class Sidebar */
 .class-sidebar-wrapper {
     position: absolute;
-    left: 30px;
+    left: 10px;
     /* ระยะห่างจากด้านซ้าย */
     top: 50%;
     /* ตรงกลางในแนวตั้ง */
     transform: translateY(-50%);
     /* ปรับให้อยู่ตรงกลางพอดี */
-    width: 95px !important;
+    width: 190px;
     /* ลดความกว้างให้สมดุล */
-    height: 650px !important;
+    height: 650px;
     /* ความสูงที่กำหนด */
     font-size: 20px;
-    overflow: hidden;
+    overflow-y: auto;
     border-radius: 8px;
     background-color: rgba(0, 0, 0, 0.1);
+    pointer-events: auto;
 }
 
 .class-sidebar {
@@ -2297,7 +2286,8 @@ input.form-control {
     /* หักพื้นที่สำหรับปุ่มเลื่อน */
     overflow-y: auto;
     /* เปิด Scroll สำหรับ Sidebar */
-    padding: 10px;
+    padding: 5px;
+    padding-bottom: 50px;
 }
 
 .class-menu {
@@ -2307,20 +2297,44 @@ input.form-control {
 }
 
 .class-menu li {
-    padding: 10px;
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    /* 🔄 แกน x แนวนอน */
+    align-items: center;
+    /* ✅ ให้ข้อความอยู่กึ่งกลางแนว y กับไอคอน */
+    justify-content: flex-start;
+    padding: 6px;
+    text-align: left;
     color: white;
     cursor: pointer;
+    font-size: 18px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 5px;
     margin-bottom: 10px;
     transition: background 0.3s ease;
+    gap: 3px;
+    white-space: nowrap;
+    /* ✅ เพิ่มระยะห่างระหว่างไอคอนกับข้อความ */
 }
+
+
 
 .class-menu li.active {
     background: rgba(255, 255, 255, 0.5);
     /* เปลี่ยนสีเมื่อ active */
-    font-weight: bold;
+    /* font-weight: bold; */
+}
+
+/*เมนุไอคอน*/
+.menu-icon {
+    width: 50px;
+    /* กำหนดขนาดความกว้าง */
+    height: 20px;
+    /* กำหนดขนาดความสูง */
+    margin-right: 10px;
+    /* เพิ่มระยะห่างระหว่างไอคอนกับข้อความ */
+    vertical-align: middle;
+    /* จัดแนวไอคอนกับข้อความ */
 }
 
 .scroll-btn {
@@ -2350,14 +2364,7 @@ input.form-control {
     margin-left: 20px;
 }
 
-.stat-image {
-    width: 30%;
-    height: auto;
-    margin-top: 10px;
-    margin-right: 20px;
-    border-radius: 10px;
 
-}
 
 .scroll-btn.down {
     position: absolute;
@@ -2386,181 +2393,65 @@ input.form-control {
 }
 
 
-/*เมนุไอคอน*/
-.menu-icon {
-    width: 50px;
-    /* กำหนดขนาดความกว้าง */
-    height: 20px;
-    /* กำหนดขนาดความสูง */
-    margin-right: 10px;
-    /* เพิ่มระยะห่างระหว่างไอคอนกับข้อความ */
-    vertical-align: middle;
-    /* จัดแนวไอคอนกับข้อความ */
-}
-
-
-
-/* .class-description {
-    margin-right: 10px;
-    font-size: 18px;
-} */
 
 
 
 
-@media(max-width: 568px) {
-
-
-    .class-page-section {
-        width: 100%;
-        height: auto !important;
-        display: block;
-        position: relative;
-        overflow: hidden;
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-        background-position: center center;
-
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-
-        padding: 0px 0;
-
-    }
-
-
-    .bg-image-class {
-        position: absolute;
-        top: -120%;
-        left: 0;
-        width: 100vw !important;
-        height: 100vh !important;
-
-        object-fit: contain;
-        /* ครอบคลุมพื้นที่ */
-        z-index: 0;
-        /* ให้อยู่ด้านหลัง */
-        pointer-events: none;
-        /* ปิดการโต้ตอบ */
-        border-radius: 0px;
-        /* ไม่มีขอบโค้ง */
-        /* ให้รูปภาพอยู่ด้านหลังวิดีโอ */
-        /* display: none; */
-        /* เปิด/ปิด */
-
-    }
-
-    /* คอนเทนต์ */
-    .class-content {
-        position: relative;
-        display: flex;
-        height: 30vh;
-        /* ปรับให้สมดุลกับ bg-video-class */
-        justify-content: space-between;
-        align-items: flex-end;
-        /* ชิดล่าง */
-        z-index: 2;
-        padding-left: 20px;
-        padding-right: 0px !important;
-        font-size: 10px;
-    }
-
-    /* .bg-video-class {
-        position: absolute;
-        top: 0;
-        left: 0;
-
-        width: 100vw !important;
-        height: 55vh !important;
-        object-fit: cover;
-        z-index: -1;
-        pointer-events: none;
-        border-radius: 0px;
-    } */
 
 
 
-    /* .class-details {
-        position: absolute;
-        right: 0;
-     
-        bottom: 0;
-      
-        width: auto !important;
-  
-        height: auto !important;
-   
-        font-size: 10px;
-        overflow: hidden;
-    } */
 
+@media only screen and (max-width: 767px) {
     .class-sidebar-wrapper {
-        position: absolute;
-        left: 2px;
-        /* ระยะห่างจากด้านซ้าย */
-        top: 50%;
-        /* ตรงกลางในแนวตั้ง */
-        transform: translateY(-50%);
-        /* ปรับให้อยู่ตรงกลางพอดี */
-        width: 60px !important;
-        /* ลดความกว้างให้สมดุล */
-        height: 200px !important;
-        /* ความสูงที่กำหนด */
-        font-size: 8px;
-        overflow: hidden;
-        border-radius: 8px;
-        background-color: rgba(0, 0, 0, 0.1);
+        height: 100px !important;
+        /* 🔽 ปรับความสูงให้สั้น */
+        width: 100px !important;
+        /* 🔽 ปรับความกว้างให้เล็กลง */
+        font-size: 7px;
+        /* 🔽 ตัวหนังสือเล็ก */
+        background-color: rgba(0, 0, 0, 0.15);
     }
 
     .class-sidebar {
-        height: calc(100% - 60px);
+        height: calc(100% - 40px);
         overflow-y: auto;
-        padding: 10px;
+        padding: 5px;
     }
 
-    /* .class-stats img {
-        width: 50px !important;
-  
-        height: 50px !important;
-    } */
-
-    /* .class-image img {
-        width: 200px !important;
-
-        height: auto !important;
-
-    } */
-
-    .class-title {
-        margin-right: 10px;
-        font-size: 15px;
+    .class-menu li {
+        font-size: 10px !important;
+        /* 🔽 ตัวหนังสือเล็กลง */
+        padding: 4px 6px !important;
+        /* 🔽 ลด padding */
+        white-space: nowrap;
+        /* 🔒 ไม่ให้ขึ้นบรรทัดใหม่ */
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
     }
 
-    /* .class-description {
-        margin-right: 10px;
-        font-size: 10px;
-    } */
+    .menu-icon {
+        width: 18px !important;
+        /* 🔽 ไอคอนเล็ก */
+        height: 18px !important;
+        margin-right: 6px;
+    }
+
+    .scroll-btn {
+        width: 100%;
+        padding: 2px !important;
+        font-size: 10px !important;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.2);
+        color: white;
+        cursor: pointer;
+        border: none;
+    }
 }
 
 @media (max-width: 768px) and (orientation: landscape) {
 
-    /* .bg-video-class {
-        position: absolute;
-        top: 0;
-        left: 0.7;
-        width: 100vw !important;
-        height: 100vh !important;
-        object-fit: cover;
-        z-index: -1;
-        pointer-events: none;
-        border-radius: 10px;
-    } */
+
     .class-page-section {
         width: auto;
         height: auto !important;
@@ -2617,19 +2508,6 @@ input.form-control {
         font-size: 10px;
     }
 
-    /* รายละเอียดคลาส */
-    /* .class-details {
-        position: absolute;
-        right: 0;
-     
-        bottom: 0;
-   
-        width: 250px;
-  
-        height: auto;
-        font-size: 12px;
-        overflow: hidden;
-    } */
 
     .class-sidebar-wrapper {
         position: absolute;
@@ -2667,23 +2545,83 @@ input.form-control {
         margin: 0 auto;
     }
 
-    /* .class-stats img {
-    width: 50px !important;
 
-    height: 50px !important;
-} */
-
-    /* .class-image img {
-        width: 200px !important;
-
-        height: auto !important;
-
-    } */
 
     .class-title {
         font-size: 15px;
     }
 
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1300px) {
+    .bg-image-class {
+        object-fit: contain;
+    }
+
+    .class-sidebar-wrapper {
+        height: 400px !important;
+        width: 130px !important;
+    }
+
+    .class-menu li {
+        font-size: 13px !important;
+        /* 🔻 ลดขนาดตัวหนังสือ */
+        padding: 6px !important;
+    }
+
+    .menu-icon {
+        width: 24px !important;
+        /* 🔻 ลดขนาดไอคอน */
+        height: 24px !important;
+        margin-right: 8px;
+    }
+
+    .scroll-btn {
+        width: 100%;
+        padding: 2px !important;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.2);
+        color: white;
+        cursor: pointer;
+        border: none;
+    }
+
+}
+
+
+@media only screen and (orientation: portrait) {
+
+    .bg-image-class {
+        object-fit: contain;
+    }
+
+    .class-sidebar-wrapper {
+        height: 400px !important;
+        width: 130px !important;
+    }
+
+    .class-menu li {
+        font-size: 13px !important;
+        /* 🔻 ลดขนาดตัวหนังสือ */
+        padding: 6px !important;
+    }
+
+    .menu-icon {
+        width: 24px !important;
+        /* 🔻 ลดขนาดไอคอน */
+        height: 24px !important;
+        margin-right: 8px;
+    }
+
+    .scroll-btn {
+        width: 100%;
+        padding: 2px !important;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.2);
+        color: white;
+        cursor: pointer;
+        border: none;
+    }
 }
 
 
@@ -3138,14 +3076,14 @@ input.form-control {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-
-    padding: 140px 0;
+    min-height: 100vh;
+    padding: 0px 0;
 }
 
 .swiper-container {
     width: 100%;
     max-width: 100%;
-    height: 100vh !important;
+    height: 100vh;
     /* ใช้ 100% ของความสูงหน้าจอ */
     margin: 0 auto;
     position: relative;
@@ -3191,12 +3129,12 @@ input.form-control {
     object-fit: cover;
     border-radius: 15px;
     /* เพิ่มขอบมน */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); */
     /* เพิ่มเงา */
 }
 
 .swiper-slide-active img {
-    transform: scale(1.8);
+    transform: scale(2.3);
     /* เพิ่มขนาดรูปตรงกลาง */
 }
 
@@ -3279,6 +3217,15 @@ input.form-control {
 
 /* ปรับแต่งสำหรับหน้าจอมือถือ */
 @media (max-width: 768px) {
+    .highlight-page-section {
+        height: auto !important;
+        min-height: unset !important;
+        padding: 40px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
     .swiper-container {
         width: 100%;
         height: 60vw !important;
@@ -3326,12 +3273,12 @@ input.form-control {
         object-fit: cover;
         border-radius: 5px;
         /* เพิ่มขอบมน */
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); */
         /* เพิ่มเงา */
     }
 
     .swiper-slide-active img {
-        transform: scale(3);
+        transform: scale(3.5);
         /* เพิ่มขนาดรูปตรงกลาง */
     }
 

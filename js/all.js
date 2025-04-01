@@ -83,6 +83,121 @@
   });
 
   /* ---------------------------------------------
+        ล็อก Scrollเม้าส์
+        --------------------------------------------- */
+  document.addEventListener("DOMContentLoaded", () => {
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+    const sections = document.querySelectorAll(
+      ".home-section, .class-page-section, .highlight-page-section, .page-section-news"
+    );
+
+    let currentIndex = 0;
+    let isScrolling = false;
+    let scrollTimeout = null;
+
+    // ตรวจจับ scroll ปัจจุบัน → sync currentIndex
+    sections.forEach((section, index) => {
+      ScrollTrigger.create({
+        trigger: section,
+        start: "top center",
+        end: "bottom center",
+        onEnter: () => currentIndex = index,
+        onEnterBack: () => currentIndex = index,
+      });
+    });
+
+    function scrollToSection(index, direction = "down") {
+      if (index < 0 || index >= sections.length) return;
+      isScrolling = true;
+
+      const section = sections[index];
+      let offsetY = 0;
+
+      if (section.classList.contains("class-page-section") && direction === "down") {
+        offsetY = 100; // ยกเว้นเฉพาะ class-page-section
+      }
+      if (section.classList.contains("highlight-page-section") && direction === "down") {
+        offsetY = 75; // ยกเว้นเฉพาะ class-page-section
+      }
+
+      gsap.to(window, {
+        duration: 1,
+        scrollTo: {
+          y: section,
+          offsetY: offsetY,
+        },
+        ease: "power2.inOut",
+        onComplete: () => {
+          isScrolling = false;
+          currentIndex = index;
+        },
+      });
+    }
+
+
+    // ✅ Scroll เม้าส์ + ป้องกันกระพริบ
+    window.addEventListener("wheel", (e) => {
+      const sidebar = document.querySelector("#classSidebar");
+      const isInsideSidebar = sidebar && sidebar.contains(e.target);
+
+      if (isInsideSidebar) {
+        const scrollTop = sidebar.scrollTop;
+        const scrollHeight = sidebar.scrollHeight;
+        const clientHeight = sidebar.clientHeight;
+        const delta = e.deltaY;
+
+        const atTop = scrollTop <= 0;
+        const atBottom = scrollTop + clientHeight >= scrollHeight - 1;
+
+        if (
+          (delta < 0 && !atTop) ||
+          (delta > 0 && !atBottom)
+        ) {
+          return; // ปล่อยให้เลื่อนภายใน sidebar ได้
+        } else {
+          e.preventDefault();
+          e.stopPropagation();
+          return;
+        }
+      }
+
+      if (isScrolling) return;
+      e.preventDefault();
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        if (e.deltaY > 0) {
+          scrollToSection(currentIndex + 1, "down");
+        } else {
+          scrollToSection(currentIndex - 1, "up");
+        }
+      }, 100); // เพิ่ม delay เล็กน้อยลดอาการกระตุก
+    }, { passive: false });
+
+    // ✅ Touch มือถือ
+    let touchStartY = 0;
+    window.addEventListener("touchstart", (e) => {
+      touchStartY = e.touches[0].clientY;
+    });
+
+    window.addEventListener("touchend", (e) => {
+      if (isScrolling) return;
+
+      const isInsideSidebar = e.target.closest("#classSidebar");
+      if (isInsideSidebar) return;
+
+      const touchEndY = e.changedTouches[0].clientY;
+      if (touchStartY > touchEndY + 50) {
+        scrollToSection(currentIndex + 1, "down");
+      } else if (touchStartY < touchEndY - 50) {
+        scrollToSection(currentIndex - 1, "up");
+      }
+    });
+  });
+
+
+
+  /* ---------------------------------------------
      Scripts initialization
      --------------------------------------------- */
 
@@ -805,9 +920,9 @@
         .find(".services-more > .text-link")
         .html(
           services_more +
-            '<span class="sr-only"> about ' +
-            services_title +
-            "</span>"
+          '<span class="sr-only"> about ' +
+          services_title +
+          "</span>"
         );
     });
   }

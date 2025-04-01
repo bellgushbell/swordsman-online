@@ -172,6 +172,9 @@ $(document).ready(function () {
         class5: { detailsImage: 'images/Class-Pic/tian-ren.jpg' },
         class6: { detailsImage: 'images/Class-Pic/mysterious-sword.jpg' },
         class7: { detailsImage: 'images/Class-Pic/tian-wang.jpg' },
+        class8: { detailsImage: 'images/Class-Pic/chang-ger.jpg' },
+        class9: { detailsImage: 'images/Class-Pic/ancient-grave.jpg' },
+        class10: { detailsImage: 'images/Class-Pic/beggar-clan.jpg' },
     };
 
     function updateActiveClass(target) {
@@ -194,14 +197,15 @@ $(document).ready(function () {
 
     $('#scrollUp').on('click', function () {
         const sidebar = $('#classSidebar');
-        sidebar.scrollTop(sidebar.scrollTop() - 50);
+        sidebar.scrollTop(sidebar.scrollTop() - 100);
     });
 
     $('#scrollDown').on('click', function () {
         const sidebar = $('#classSidebar');
-        sidebar.scrollTop(sidebar.scrollTop() + 50);
+        sidebar.scrollTop(sidebar.scrollTop() + 100);
     });
 });
+
 
 
 
