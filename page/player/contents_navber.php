@@ -19,7 +19,7 @@
             </div>
 
             <div class="inner-nav desktop-nav">
-                <ul class="clearlist scroll-nav local-scroll">
+                <!-- <ul class="clearlist scroll-nav local-scroll">
                     <li>
                         <a href="#home">หน้าหลัก</a>
                     </li>
@@ -97,7 +97,7 @@
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="memberDropdown">
                     <li><a class="dropdown-item notify" href="login.html">เข้าสู่ระบบ</a></li>
                     <li><a class="dropdown-item notify" href="register.html">สมัครสมาชิก</a></li>
-                </ul>
+                </ul> -->
             </div>
 
 

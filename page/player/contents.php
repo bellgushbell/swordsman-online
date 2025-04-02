@@ -198,9 +198,9 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 </head>
 
 <body>
-
+<?php include '../../page/player/contents_navber.php'; ?>
     <!-- Navbar -->
-    <nav class="main-nav dark dark-after-scroll transparent stick-fixed wow-menubar">
+    <!-- <nav class="main-nav dark dark-after-scroll transparent stick-fixed wow-menubar">
         <div class=" relative clearfix gradient-bg">
 
 
@@ -301,11 +301,11 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                     <li><a class="dropdown-item notify" href="login.html">เข้าสู่ระบบ</a></li>
                     <li><a class="dropdown-item notify" href="register.html">สมัครสมาชิก</a></li>
                 </ul>
-            </div>
+            </div> -->
 
 
 
-            <script>
+            <!-- <script>
                 document.addEventListener('DOMContentLoaded', function() {
 
                     const notifyLinks = document.querySelectorAll('.notify');
@@ -336,7 +336,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             </script>
 
         </div>
-    </nav>
+    </nav> -->
     <!-- End Navbar -->
 
 
@@ -517,6 +517,14 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             padding: 4px 12px;
             border-radius: 6px;
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+          footer {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                margin-top: 200px;
         }
 
 
@@ -758,6 +766,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 bottom: 0;
                 left: 0;
                 width: 100%;
+                margin-top: 200px;
+            
             }
 
 
@@ -1067,7 +1077,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         <!-- End Google Tag Manager (noscript) -->
 
 
-        <footer class="text-white pt-4 pb-3 mt-5" style="background: transparent; font-family: 'Prompt', sans-serif; font-size: 0.95rem;">
+        <footer class="text-white pt-4 pb-3" style="background: transparent; font-family: 'Prompt', sans-serif; font-size: 0.95rem;">
             <div class="container text-center">
                 <div class="row justify-content-center g-4">
 
@@ -1078,7 +1088,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                         <!-- <h5 class="fw-bold mb-2 mt-4 mt-lg-0"></h5> -->
                         <div class="footer-logos d-flex flex-wrap justify-content-center gap-3 mb-2">
 
-                            <img src="../../images/footer-icon/logo-seasun-black.png" alt="EXP UP Logo" width="30">
+                            <img src="../../images/footer-icon/logo-exp-up-company.png" alt="EXP UP Logo" width="30">
                             <img src="../../images/footer-icon/logo-seasun-black.png" alt="Seasun Logo" width="85">
                         </div>
                         <p class="small text-secondary m-0 mt-2">© กระบี่เย้ยยุทธจักร. All rights reserved.</p>

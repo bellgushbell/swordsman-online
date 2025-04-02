@@ -1267,7 +1267,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
 
-        <!---- Class Preview Section class preview -->
+    <!---- Class Preview Section class preview -->
 
       <!-- Class Preview Section -->
         <section class="class-page-section" id="class" style="background: url('images/background/bg-class.jpg') no-repeat center center; background-size: cover;">
