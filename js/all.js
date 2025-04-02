@@ -174,25 +174,7 @@
       }, 100); // เพิ่ม delay เล็กน้อยลดอาการกระตุก
     }, { passive: false });
 
-    // ✅ Touch มือถือ
-    let touchStartY = 0;
-    window.addEventListener("touchstart", (e) => {
-      touchStartY = e.touches[0].clientY;
-    });
 
-    window.addEventListener("touchend", (e) => {
-      if (isScrolling) return;
-
-      const isInsideSidebar = e.target.closest("#classSidebar");
-      if (isInsideSidebar) return;
-
-      const touchEndY = e.changedTouches[0].clientY;
-      if (touchStartY > touchEndY + 50) {
-        scrollToSection(currentIndex + 1, "down");
-      } else if (touchStartY < touchEndY - 50) {
-        scrollToSection(currentIndex - 1, "up");
-      }
-    });
   });
 
 

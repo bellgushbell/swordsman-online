@@ -42,22 +42,22 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
 
     <!-- Preload Video -->
-    <link rel="preload" as="video" href="video/swordsman-3-video-web-ver01-final-pc.mp4" type="video/mp4">
-    <link rel="preload" as="video" href="video/swordsman-3-video-web-ver01-final-mobile.mp4" type="video/mp4">
-        <!-- แยกโหลดล่วงหน้ามือถือ/คอม -->
-        <script>
-        const isMobile = window.innerWidth <= 768;
+    <!-- <link rel="preload" as="fetch" href="video/swordsman-3-video-web-ver01-final-pc.mp4" type="video/mp4" crossorigin="anonymous">
+    <link rel="preload" as="fetch" href="video/swordsman-3-video-web-ver01-final-mobile.mp4" type="video/mp4" crossorigin="anonymous"> -->
 
+        <!-- แยกโหลดล่วงหน้ามือถือ/คอม -->
+        <!-- <script>
         const preload = document.createElement('link');
         preload.rel = 'preload';
-        preload.as = 'video';
+        preload.as = 'fetch';
         preload.type = 'video/mp4';
         preload.href = isMobile
             ? 'video/swordsman-3-video-web-ver01-final-mobile.mp4'
             : 'video/swordsman-3-video-web-ver01-final-pc.mp4';
-
+        preload.crossOrigin = 'anonymous';
         document.head.appendChild(preload);
-        </script>
+
+        </script> -->
 
 
     <!-- swiper highlight -->
@@ -1267,148 +1267,72 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
 
-        <!---- Class Preview Section -->
+        <!---- Class Preview Section class preview -->
 
-        <section class="class-page-section" id="class" style="background: url('images/background/bg-highlight.jpg') no-repeat center center; background-size: cover;">
-            <!--  หัวข้อ Section -->
-            <!-- <h2 class="class-title text-center mx-auto">สำนัก</h2> -->
+      <!-- Class Preview Section -->
+        <section class="class-page-section" id="class" style="background: url('images/background/bg-class.jpg') no-repeat center center; background-size: cover;">
+        <div class="container-fluid relative">
+            <div class="row">
+            <div class="col-12 class-visual-wrapper">
+                 <div class="bg-fallback" style="background-image: url('images/Class-Pic/butung.jpg');"></div>
+                <img src="images/Class-Pic/butung.jpg" alt="Background Image Class" class="bg-image-class">
 
-
-            <div class="container-fluid relative">
-
-
-                <section class="class-preview-section">
-                    <div class="row">
-
-                        <div class="col-12 class-video-wrapper">
-                            <!-- <video id="classVideo" autoplay muted loop playsinline class="bg-video-class"
-                                disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback">
-                                <source src="video/class1.mp4" type="video/mp4">
-                            </video> -->
-
-
-
-                            <img src="images/Class-Pic/butung.jpg" alt="Background Image Class"
-                                class="bg-image-class">
-
-                            <div class="bg-video-overlay-class"></div>
-                        </div>
-
-
-
-                        <div class="class-content">
-
-                            <div class="class-sidebar-wrapper">
-                                <button class="scroll-btn up" id="scrollUp">▲</button>
-                                <div class="class-sidebar" id="classSidebar">
-                                    <ul class="class-menu">
-                                        <li data-class="class1" class="active" style="transition: filter 0.3s ease;"
-                                            onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(244, 159, 47, 0.93))'"
-                                            onmouseout="this.style.filter='none'">
-                                            <img src="images/ClassIcon/class12-icon.png" alt="อาชีพที่ 1" class="menu-icon"
-                                                style="transition: filter 0.3s ease;"
-                                                onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(244, 151, 30, 0.93))'"
-                                                onmouseout="this.style.filter='none'">
-                                            <span class="class-label">บู้ตึ้ง</span>
-                                        </li>
-                                        <li data-class="class2" style="transition: filter 0.3s ease;"
-                                            onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(30, 194, 254, 0.93))'"
-                                            onmouseout="this.style.filter='none'">
-                                            <img src="images/ClassIcon/class11-icon.png" alt="อาชีพที่ 2" class="menu-icon"
-                                                style="transition: filter 0.3s ease;"
-                                                onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(30, 194, 254, 0.93))'"
-                                                onmouseout="this.style.filter='none'">
-                                            <span class="class-label">วังวารี</span>
-                                        </li>
-                                        <li data-class="class3" style="transition: filter 0.3s ease;"
-                                            onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(5, 96, 7, 0.93))'"
-                                            onmouseout="this.style.filter='none'">
-                                            <img src="images/ClassIcon/class8-icon.png" alt="อาชีพที่ 3" class="menu-icon" style="transition: filter 0.3s ease;"
-                                                onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(5, 96, 20, 0.93))'"
-                                                onmouseout="this.style.filter='none'">
-                                           <span class="class-label">หมื่นบุปผา</span>
-                                        </li>
-                                        <li data-class="class4" style="transition: filter 0.3s ease;"
-                                            onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(5, 96, 20, 0.93))'" onmouseout="this.style.filter='none'">
-                                            <img src="images/ClassIcon/class13-icon.png" alt="อาชีพที่ 4" class="menu-icon" style="transition: filter 0.3s ease;"
-                                                onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(5, 96, 20, 0.93))'" onmouseout="this.style.filter='none'">
-                                            <span class="class-label">ไป๋ลู่</span>
-                                        </li>
-                                        <li data-class="class5" style="transition: filter 0.3s ease;"
-                                            onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(251, 9, 9, 0.93))'"
-                                            onmouseout="this.style.filter='none'">
-                                            <img src="images/ClassIcon/class10-icon.png" alt="อาชีพที่ 5" class="menu-icon"
-                                                style="transition: filter 0.3s ease;"
-                                                onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(251, 9, 9, 0.93))'"
-                                                onmouseout="this.style.filter='none'">
-                                            <span class="class-label">เทียนเหริ่น</span>
-                                        </li>
-                                        <li data-class="class6"
-                                            style="transition: filter 0.3s ease;"
-                                            onmouseover="this.style.filter='drop-shadow(0 0 15px #edb518)'"
-                                            onmouseout="this.style.filter='none'">
-                                            <img src="images/ClassIcon/class9-icon.png" alt="อาชีพที่ 6" class="menu-icon"
-                                                style="transition: filter 0.3s ease;"
-                                                onmouseover="this.style.filter='drop-shadow(0 0 15px #edb518)'"
-                                                onmouseout="this.style.filter='none'">
-                                            <span class="class-label">กระบี่ลี้ลับ</span>
-                                        </li>
-                                        <li data-class="class7"
-                                            style="transition: filter 0.3s ease;"
-                                            onmouseover="this.style.filter='drop-shadow(0 0 15px #edb518)'"
-                                            onmouseout="this.style.filter='none'">
-                                            <img src="images/ClassIcon/class10-icon.png" alt="อาชีพที่ 7" class="menu-icon"
-                                                style="transition: filter 0.3s ease;"
-                                                onmouseover="this.style.filter='drop-shadow(0 0 15px #edb518)'"
-                                                onmouseout="this.style.filter='none'">
-                                            <span class="class-label">เทียนหวัง</span>
-                                        </li>
-                                        <li data-class="class8"
-                                            style="transition: filter 0.3s ease;"
-                                            onmouseover="this.style.filter='drop-shadow(0 0 15px #edb518)'"
-                                            onmouseout="this.style.filter='none'">
-                                            <img src="images/ClassIcon/class10-icon.png" alt="อาชีพที่ 8" class="menu-icon"
-                                                style="transition: filter 0.3s ease;"
-                                                onmouseover="this.style.filter='drop-shadow(0 0 15px #edb518)'"
-                                                onmouseout="this.style.filter='none'">
-                                            <span class="class-label">ฉางเกอ</span>
-                                        </li>
-                                        <li data-class="class9"
-                                            style="transition: filter 0.3s ease;"
-                                            onmouseover="this.style.filter='drop-shadow(0 0 15px #edb518)'"
-                                            onmouseout="this.style.filter='none'">
-                                            <img src="images/ClassIcon/class10-icon.png" alt="อาชีพที่ 9" class="menu-icon"
-                                                style="transition: filter 0.3s ease;"
-                                                onmouseover="this.style.filter='drop-shadow(0 0 15px #edb518)'"
-                                                onmouseout="this.style.filter='none'">
-                                            <span class="class-label">สุสานโบราณ</span>
-                                        </li>
-                                        <li data-class="class10"
-                                            style="transition: filter 0.3s ease;"
-                                            onmouseover="this.style.filter='drop-shadow(0 0 15px #edb518)'"
-                                            onmouseout="this.style.filter='none'">
-                                            <img src="images/ClassIcon/class10-icon.png" alt="อาชีพที่ 10" class="menu-icon"
-                                                style="transition: filter 0.3s ease;"
-                                                onmouseover="this.style.filter='drop-shadow(0 0 15px #edb518)'"
-                                                onmouseout="this.style.filter='none'">
-                                            <span class="class-label">พรรคกระยาจก</span>
-                                        </li>
-
-                                    </ul>
-
-                                </div>
-                                <button class="scroll-btn down" id="scrollDown">▼</button>
-                            </div>
-
-
-                        </div>
-                    </div>
+               
+                <div class="class-sidebar-wrapper">
+                <button class="scroll-btn up" id="scrollUp">▲</button>
+                <div class="class-sidebar" id="classSidebar">
+                    <ul class="class-menu">
+                    <li data-class="class1" class="active">
+                        <img src="images/ClassIcon/butung-icon.png" alt="อาชีพที่ 1" class="menu-icon">
+                        <span class="class-label">บู้ตึ้ง</span>
+                    </li>
+                    <li data-class="class2">
+                        <img src="images/ClassIcon/wangwaree-icon.png" alt="อาชีพที่ 2" class="menu-icon">
+                        <span class="class-label">วังวารี</span>
+                    </li>
+                    <li data-class="class3">
+                        <img src="images/ClassIcon/muenbuppha-icon.png" alt="อาชีพที่ 3" class="menu-icon">
+                        <span class="class-label">หมื่นบุปผา</span>
+                    </li>
+                    <li data-class="class4">
+                        <img src="images/ClassIcon/bailu-icon.png" alt="อาชีพที่ 4" class="menu-icon">
+                        <span class="class-label">ไป๋ลู่</span>
+                    </li>
+                    <li data-class="class5">
+                        <img src="images/ClassIcon/tian-ren-icon.png" alt="อาชีพที่ 5" class="menu-icon">
+                        <span class="class-label">เทียนเหริ่น</span>
+                    </li>
+                    <li data-class="class6">
+                        <img src="images/ClassIcon/mysterioussword-icon.png" alt="อาชีพที่ 6" class="menu-icon">
+                        <span class="class-label">กระบี่ลี้ลับ</span>
+                    </li>
+                    <li data-class="class7">
+                        <img src="images/ClassIcon/tian-wang-icon.png" alt="อาชีพที่ 7" class="menu-icon">
+                        <span class="class-label">เทียนหวัง</span>
+                    </li>
+                    <li data-class="class8">
+                        <img src="images/ClassIcon/changer-icon.png" alt="อาชีพที่ 8" class="menu-icon">
+                        <span class="class-label">ฉางเกอ</span>
+                    </li>
+                    <li data-class="class9">
+                        <img src="images/ClassIcon/ancientgrave-icon.png" alt="อาชีพที่ 9" class="menu-icon">
+                        <span class="class-label">สุสานโบราณ</span>
+                    </li>
+                    <li data-class="class10">
+                        <img src="images/ClassIcon/beggarclan-icon.png" alt="อาชีพที่ 10" class="menu-icon">
+                        <span class="class-label">พรรคกระยาจก</span>
+                    </li>
+                    </ul>
+                </div>
+                <button class="scroll-btn down" id="scrollDown">▼</button>
+                </div>
             </div>
-        </section>
+            </div>
         </div>
         </section>
+        <!-- End Class Preview Section -->
 
-        <!--End Class Preview Section-->
+    
 
 
 
@@ -1416,30 +1340,54 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         <!-- Highlight Game Section -->
         <section class="highlight-page-section pt-0 pb-0" style="background: url('images/background/bg-highlight.jpg') no-repeat center center; background-size: cover;">
             <div class="swiper-container">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <img src="images/highlight-game/highlight1.png" alt="Promo 1" loading="lazy" fetchpriority="low" />
+        <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <picture>
+                    <source srcset="images/highlight-game/highlight1.png" type="image/webp">
+                    <img src="images/highlight-game/highlight1.webp" alt="Promo 1" loading="lazy"/>
+                </picture>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/highlight-game/highlight2.png" alt="Promo 2" loading="lazy" fetchpriority="low" />
+                <picture>
+                    <source srcset="images/highlight-game/highlight2.png" type="image/webp">
+                    <img src="images/highlight-game/highlight2.webp" alt="Promo 2" loading="lazy"/>
+                </picture>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/highlight-game/highlight3.png" alt="Promo 3" loading="lazy" fetchpriority="low" />
+                <picture>
+                    <source srcset="images/highlight-game/highlight3.png" type="image/webp">
+                    <img src="images/highlight-game/highlight3.webp" alt="Promo 3" loading="lazy"/>
+                </picture>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/highlight-game/highlight4.png" alt="Promo 4" loading="lazy" fetchpriority="low" />
+                <picture>
+                    <source srcset="images/highlight-game/highlight4.png" type="image/webp">
+                    <img src="images/highlight-game/highlight4.webp" alt="Promo 4" loading="lazy"/>
+                </picture>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/highlight-game/highlight5.png" alt="Promo 5" loading="lazy" fetchpriority="low" />
+                <picture>
+                    <source srcset="images/highlight-game/highlight5.png" type="image/webp">
+                    <img src="images/highlight-game/highlight5.webp" alt="Promo 5" loading="lazy"/>
+                </picture>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/highlight-game/highlight6.png" alt="Promo 6" loading="lazy" fetchpriority="low" />
+                <picture>
+                    <source srcset="images/highlight-game/highlight6.png" type="image/webp">
+                    <img src="images/highlight-game/highlight6.webp" alt="Promo 6" loading="lazy"/>
+                </picture>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/highlight-game/highlight7.png" alt="Promo 7" loading="lazy" fetchpriority="low" />
+                <picture>
+                    <source srcset="images/highlight-game/highlight7.png" type="image/webp">
+                    <img src="images/highlight-game/highlight7.webp" alt="Promo 7" loading="lazy"/>
+                </picture>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/highlight-game/highlight8.png" alt="Promo 8" loading="lazy" fetchpriority="low" />
+                <picture>
+                    <source srcset="images/highlight-game/highlight8.png" type="image/webp">
+                    <img src="images/highlight-game/highlight8.webp" alt="Promo 8" loading="lazy"/>
+                </picture>
                 </div>
 
                 </div>
@@ -2334,7 +2282,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
         </footer> -->
 
-            <footer class="text-white pt-4 pb-3 mt-5" style="background: transparent; font-family: 'Prompt', sans-serif; font-size: 0.95rem;">
+            <footer class="text-white pt-4 pb-3 custom-footer-swordsman3" style="background: transparent; font-family: 'Prompt', sans-serif; font-size: 0.95rem;">
                 <div class="container text-center">
                     <div class="row justify-content-center g-4">
 
