@@ -1,114 +1,94 @@
-<!-- Hero Section -->
-<section class="hero-section">
-    <div class="hero-content">
-        <!-- วิดีโอพื้นหลัง (ซ่อนเริ่มต้น) -->
-        <video class="hero-video" muted loop></video>
-
-        <!-- ภาพพื้นหลัง -->
-        <img src="../../images/webcover2560x1440.jpg" alt="Swordsman 3" class="hero-image">
-
-        <!-- Overlay ปุ่มวิดีโอ + ข้อความ -->
-        <div class="hero-overlay">
-            <div class="video-toggle-preregister">
-                <img src="../../images/RewardPage/play-video-button.png" alt="Video Button" class="video-button-image">
-            </div>
-            <div class="hero-text">
-                <img src="../../images/PreregisterButtonandReward/preregister-text.png" alt="Hero Text"
-                    class="hero-text-image">
-            </div>
-        </div>
+<div class="class-sidebar-wrapper">
+    <button class="scroll-btn up" id="scrollUp">▲</button>
+    <div class="class-sidebar" id="classSidebar">
+        <ul class="class-menu">
+            <li data-class="class1" class="active" style="transition: filter 0.3s ease;"
+                onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(244, 159, 47, 0.93))'"
+                onmouseout="this.style.filter='none'">
+                <img src="images/ClassIcon/butung-icon.png" alt="อาชีพที่ 1" class="menu-icon"
+                    style="transition: filter 0.3s ease;"
+                    onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(244, 151, 30, 0.93))'"
+                    onmouseout="this.style.filter='none'">
+                <span class="class-label">บู้ตึ้ง</span>
+            </li>
+            <li data-class="class2" style="transition: filter 0.3s ease;"
+                onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(30, 194, 254, 0.93))'"
+                onmouseout="this.style.filter='none'">
+                <img src="images/ClassIcon/wangwaree-icon.png" alt="อาชีพที่ 2" class="menu-icon"
+                    style="transition: filter 0.3s ease;"
+                    onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(30, 194, 254, 0.93))'"
+                    onmouseout="this.style.filter='none'">
+                <span class="class-label">วังวารี</span>
+            </li>
+            <li data-class="class3" style="transition: filter 0.3s ease;"
+                onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(5, 96, 7, 0.93))'"
+                onmouseout="this.style.filter='none'">
+                <img src="images/ClassIcon/muenbuppha-icon.png" alt="อาชีพที่ 3" class="menu-icon"
+                    style="transition: filter 0.3s ease;"
+                    onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(5, 96, 20, 0.93))'"
+                    onmouseout="this.style.filter='none'">
+                <span class="class-label">หมื่นบุปผา</span>
+            </li>
+            <li data-class="class4" style="transition: filter 0.3s ease;"
+                onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(5, 96, 20, 0.93))'"
+                onmouseout="this.style.filter='none'">
+                <img src="images/ClassIcon/bailu-icon.png" alt="อาชีพที่ 4" class="menu-icon"
+                    style="transition: filter 0.3s ease;"
+                    onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(5, 96, 20, 0.93))'"
+                    onmouseout="this.style.filter='none'">
+                <span class="class-label">ไป๋ลู่</span>
+            </li>
+            <li data-class="class5" style="transition: filter 0.3s ease;"
+                onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(251, 9, 9, 0.93))'"
+                onmouseout="this.style.filter='none'">
+                <img src="images/ClassIcon/tian-ren-icon.png" alt="อาชีพที่ 5" class="menu-icon"
+                    style="transition: filter 0.3s ease;"
+                    onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(251, 9, 9, 0.93))'"
+                    onmouseout="this.style.filter='none'">
+                <span class="class-label">เทียนเหริ่น</span>
+            </li>
+            <li data-class="class6" style="transition: filter 0.3s ease;"
+                onmouseover="this.style.filter='drop-shadow(0 0 15px #edb518)'" onmouseout="this.style.filter='none'">
+                <img src="images/ClassIcon/mysterioussword-icon.png" alt="อาชีพที่ 6" class="menu-icon"
+                    style="transition: filter 0.3s ease;"
+                    onmouseover="this.style.filter='drop-shadow(0 0 15px #edb518)'"
+                    onmouseout="this.style.filter='none'">
+                <span class="class-label">กระบี่ลี้ลับ</span>
+            </li>
+            <li data-class="class7" style="transition: filter 0.3s ease;"
+                onmouseover="this.style.filter='drop-shadow(0 0 15px #edb518)'" onmouseout="this.style.filter='none'">
+                <img src="images/ClassIcon/tian-wang-icon.png" alt="อาชีพที่ 7" class="menu-icon"
+                    style="transition: filter 0.3s ease;"
+                    onmouseover="this.style.filter='drop-shadow(0 0 15px #edb518)'"
+                    onmouseout="this.style.filter='none'">
+                <span class="class-label">เทียนหวัง</span>
+            </li>
+            <li data-class="class8" style="transition: filter 0.3s ease;"
+                onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(30, 194, 254, 0.93))'"
+                onmouseout="this.style.filter='none'">
+                <img src="images/ClassIcon/changer-icon.png" alt="อาชีพที่ 8" class="menu-icon"
+                    style="transition: filter 0.3s ease;"
+                    onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(30, 194, 254, 0.93))'"
+                    onmouseout="this.style.filter='none'">
+                <span class="class-label">ฉางเกอ</span>
+            </li>
+            <li data-class="class9" style="transition: filter 0.3s ease;"
+                onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(244, 159, 47, 0.93))'"
+                onmouseout="this.style.filter='none'">
+                <img src="images/ClassIcon/ancientgrave-icon.png" alt="อาชีพที่ 9" class="menu-icon"
+                    style="transition: filter 0.3s ease;"
+                    onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(244, 159, 47, 0.93))'"
+                    onmouseout="this.style.filter='none'">
+                <span class="class-label">สุสานโบราณ</span>
+            </li>
+            <li data-class="class10" style="transition: filter 0.3s ease;"
+                onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(251, 9, 9, 0.93))'"
+                onmouseout="this.style.filter='none'">
+                <img src="images/ClassIcon/beggarclan-icon.png" alt="อาชีพที่ 10" class="menu-icon"
+                    style="transition: filter 0.3s ease;"
+                    onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(251, 9, 9, 0.93))'"
+                    onmouseout="this.style.filter='none'">
+                <span class="class-label">พรรคกระยาจก</span>
+            </li>
+        </ul>
     </div>
-
-    <div class="scroll-down-wrap">
-        <a href="#reward-section" class="scroll-down">
-            <i class="scroll-down-icon"></i>
-            <span class="sr-only">Scroll to the next section</span>
-        </a>
-    </div>
-</section>
-
-
-
-<!-- JavaScript -->
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const videoButton = document.querySelector(".video-toggle-preregister");
-        const heroVideo = document.querySelector(".hero-video");
-        const heroImage = document.querySelector(".hero-image");
-
-        // ตั้งค่า URL วิดีโอ
-        const videoURL = "../../video/opening-game-video.mp4";
-        heroVideo.src = videoURL;
-
-        // เมื่อกดปุ่มให้เปลี่ยนพื้นหลังเป็นวิดีโอ
-        videoButton.addEventListener("click", function () {
-            heroVideo.style.display = "block";  // แสดงวิดีโอ
-            heroImage.style.display = "none";   // ซ่อนรูปพื้นหลัง
-            heroVideo.play();  // เล่นวิดีโอ
-        });
-    });
-
-</script>
-
-<!-- CSS -->
-<style>
-    .hero-section {
-        position: relative;
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-        background-color: black;
-    }
-
-    .hero-image,
-    .hero-video {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        object-fit: cover;
-        object-position: center;
-        margin: 0;
-        padding: 0;
-    }
-
-    .hero-video {
-        display: none;
-        /* ซ่อนวีดีโอเริ่มต้น */
-    }
-
-    .hero-overlay {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-    }
-
-
-    /* ปรับปุ่มวิดีโอ */
-    .video-button-image {
-        width: 80px;
-        height: auto;
-        cursor: pointer;
-        transition: transform 0.3s ease;
-    }
-
-    .video-button-image:hover {
-        transform: scale(1.1);
-    }
-
-    /* ปรับขนาดข้อความ */
-    .hero-text-image {
-        width: auto;
-        max-width: 50%;
-        height: auto;
-    }
-</style>
