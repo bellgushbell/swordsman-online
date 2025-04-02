@@ -11,22 +11,52 @@ if (!$edit_id) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     date_default_timezone_set('Asia/Bangkok');
 
-    $admin_id = $_SESSION['id'];
-    $edit_id_title = $_SESSION['edit_id_title'];
+    $id = $_SESSION['edit_id'];
     $type = mysqli_real_escape_string($conn, $_POST['type']);
-    $title = mysqli_real_escape_string($conn, $_POST['title']);
-    $alt_text = mysqli_real_escape_string($conn, $_POST['alt_text']);
-    $newImageName  = mysqli_real_escape_string($conn, $_POST['rename']);
-    $highlight_text  = mysqli_real_escape_string($conn, $_POST['highlight_text']);
+
+    if ($type == "News") {
+        $category_id = 1;
+    }
+    if ($type == "Promotions") {
+        $category_id = 2;
+    }
+    if ($type == "Events") {
+        $category_id = 3;
+    }
+
     $seo_title  = mysqli_real_escape_string($conn, $_POST['seo_title']);
     $seo_keywords  = mysqli_real_escape_string($conn, $_POST['seo_keywords']);
     $seo_description  = mysqli_real_escape_string($conn, $_POST['seo_description']);
+
+    $header_thumbnail = mysqli_real_escape_string($conn, $_POST['title']);
+    $sub_header_thumbnail  = mysqli_real_escape_string($conn, $_POST['highlight_text']);
     $description = $_POST['description'];
+    $updated_by =  $_SESSION['id'];
+    $alt_text = mysqli_real_escape_string($conn, $_POST['alt_text']);
+    $newImageName  = mysqli_real_escape_string($conn, $_POST['rename']);
+
     $timestamp = date("Y-m-d H:i:s");
     // รับค่า old_image ที่ส่งมาจากฟอร์ม
-    $old_image = $_POST['old_image'];
+    $old_image = $_POST['old_image'] ?? null;
+
+    $image_title_id = null;
+    $seo_canonical_url = null;
+    $image_thumbnail_id = null;
+    $status = "post";
 
 
+    // แสดงค่าที่ได้รับจากฟอร์ม
+    // echo "<pre>";
+    // echo "ID: " . $id . "<br>";
+    // echo "Category Name: " . $type . "<br>";
+    // echo "Updated By: " . $updated_by . "<br>";
+    // echo "Category ID: " . $category_id . "<br>";
+    // echo "Header Thumbnail: " . $header_thumbnail . "<br>";
+
+    // echo "Sub Header Thumbnail: " . $sub_header_thumbnail . "<br>";
+
+
+    // echo "</pre>";
     // กำหนดโฟลเดอร์ปลายทาง
     $target_dir = "../../images/news/";
     $file_name = NULL; // ค่าเริ่มต้น
@@ -76,28 +106,54 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    // ตอนนี้ไฟล์ใหม่ถูกอัปโหลดไปยัง $target_file
+    // // ตอนนี้ไฟล์ใหม่ถูกอัปโหลดไปยัง $target_file
 
 
     // ตรวจสอบว่ามี edit_id_title ก่อนอัปเดต
-    if ($edit_id_title) {
-        // ใช้ Prepared Statement ในการอัปเดต title
-        $stmt_title = $conn->prepare("UPDATE title SET type = ?, title = ?, image = ?, updated_at = ?, update_by = ?, alt_text = ?,highlight_text = ?, seo_title = ?, seo_keywords = ?, seo_description = ? WHERE id = ?");
-        $stmt_title->bind_param("ssssisssssi", $type, $title, $file_name, $timestamp, $admin_id, $alt_text, $highlight_text, $seo_title, $seo_keywords, $seo_description, $edit_id_title);
+    if ($id) {
+        // ใช้ Prepared Statement ในการอัปเดต contents
+        $stmt_title = $conn->prepare("UPDATE contents SET 
+            category_id = ?, 
+            image_title_id = ?,
+            seo_title = ?,
+            seo_description = ?,
+            seo_keywords = ?,
+            seo_canonical_url = ?,
+            updated_by = ?,
+            updated_at = ?,
+            description = ?,
+            header_thumbnail = ?,
+            sub_header_thumbnail = ?,
+            image_thumbnail_id = ?,
+            status = ?,
+            image = ?,
+            alt_text = ?
+            WHERE id = ?");
+
+
+        $stmt_title->bind_param(
+            "iissssissssisssi",  // Adjusted types for each field
+            $category_id,           // Int
+            $image_title_id,       // Int
+            $seo_title,            // String
+            $seo_description,      // String
+            $seo_keywords,         // String
+            $seo_canonical_url,    // String
+            $updated_by,           // Int
+            $timestamp,
+            $description,          // String
+            $header_thumbnail,     // String
+            $sub_header_thumbnail, // String
+            $image_thumbnail_id,   // Int
+            $status,               // Int
+            $file_name,            // String
+            $alt_text,             // String
+            $id                    // Int
+        );
 
         if ($stmt_title->execute()) {
-            // อัปเดต description
-            $stmt_description = $conn->prepare("UPDATE description SET description = ?, updated_at = ?, update_by = ? WHERE id = ?");
-            $stmt_description->bind_param("ssii", $description, $timestamp, $admin_id, $edit_id);
 
-            if ($stmt_description->execute()) {
-                header("Location: ../../page/admin/content_management.php?edit=1");
-                exit();
-            } else {
-                echo "Error: " . $stmt_description->error;
-            }
-
-            $stmt_description->close();
+            header("Location: ../../page/admin/content_management.php?edit=1");
         } else {
             echo "Error: " . $stmt_title->error;
         }

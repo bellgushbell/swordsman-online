@@ -11,7 +11,7 @@ if (!$page) {
 header('Content-Type: application/json; charset=UTF-8'); // Set the proper content type for UTF-8
 
 
-$sql = "SELECT id, seo_title, seo_description, seo_keywords,seo_canonical_url FROM seo_web WHERE page = '$page'";
+$sql = "SELECT * FROM seo_web WHERE page = '$page'";
 $result = $conn->query($sql);
 
 $seoData = [];

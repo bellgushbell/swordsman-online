@@ -3,11 +3,11 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 
     // ดึงข้อมูลจาก session ที่ชื่อว่า edit_data ถ้ามี
-    if (isset($_SESSION['data_news'])) {
-        $data = $_SESSION['data_news'];
-        $type = $data['type'];
-        if ($type === 'ข่าว') {
-            $type = 'ข่าวสาร';
+    if (isset($_SESSION['data_contents'])) {
+        $data = $_SESSION['data_contents'];
+        $type = $data['category_name'];
+        if ($type === 'News') {
+            $type = 'News';
         }
         $date = $data['created_at'];
         $seo_title = $data['seo_title'];
@@ -183,6 +183,32 @@ if (session_status() === PHP_SESSION_NONE) {
 
         gtag('config', 'AW-11490628923');
     </script>
+    <style>
+        @font-face {
+            font-family: 'ABC Paobunjin';
+            /* ตั้งชื่อฟอนต์ */
+            src: url('../../webfonts/ABC-Paobunjin.ttf') format('truetype');
+            font-style: normal;
+        }
+
+        p {
+
+            font-size: 14px !important;
+        }
+
+        .size-large {
+            font-size: 18px;
+        }
+
+        .size-huge {
+            font-size: 20px;
+        }
+
+        .detail img {
+            max-width: 660px !important;
+            max-height: 400px !important;
+        }
+    </style>
 
 </head>
 

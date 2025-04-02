@@ -49,10 +49,15 @@ if (session_status() === PHP_SESSION_NONE) {
     <script src="https://cdn.jsdelivr.net/npm/quill@2/dist/quill.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <!-- รวม Quill CSS -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
     <!-- Include Quill stylesheet -->
     <link
         href="https://cdn.jsdelivr.net/npm/quill@2/dist/quill.snow.css"
         rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/quill-image-resize-module@3.0.0/dist/quill-image-resize.min.css">
+
 
     <script src="https://cdn.jsdelivr.net/npm/spark-md5/spark-md5.min.js"></script>
     <style>
@@ -62,6 +67,28 @@ if (session_status() === PHP_SESSION_NONE) {
             src: url('../../webfonts/ABC-Paobunjin.ttf') format('truetype');
             font-style: normal;
         }
+
+        p {
+
+            font-size: 14px !important;
+        }
+
+        .size-small {
+            font-size: 12px;
+        }
+
+        .size-medium {
+            font-size: 16px;
+        }
+
+        .size-large {
+            font-size: 20px;
+        }
+
+        .size-huge {
+            font-size: 20px;
+        }
+
 
 
         h2 {
@@ -126,7 +153,6 @@ if (session_status() === PHP_SESSION_NONE) {
 
                         <div class="card-body">
                             <!-- <form action="../../page/admin/content_admin_detail.php" method="POST" enctype="multipart/form-data"> -->
-
 
                             <div class="row mb-3">
 
@@ -258,9 +284,10 @@ if (session_status() === PHP_SESSION_NONE) {
                                             <label for="role" style="flex: 0 0 20%;">Type:</label>
                                             <select class="form-control" id="type" name="type" required style="flex: 1;">
                                                 <option value="" disabled <?php echo !isset($_GET['edit_id']) ? 'selected' : ''; ?>>เลือกประเภท</option>
-                                                <option value="ข่าว" <?php echo isset($data['type']) && $data['type'] == 'ข่าว' ? 'selected' : ''; ?>>ข่าว</option>
-                                                <option value="กิจกรรม" <?php echo isset($data['type']) && $data['type'] == 'กิจกรรม' ? 'selected' : ''; ?>>กิจกรรม</option>
-                                                <option value="โปรโมชั่น" <?php echo isset($data['type']) && $data['type'] == 'โปรโมชั่น' ? 'selected' : ''; ?>>โปรโมชั่น</option>
+
+                                                <option value="News" <?php echo isset($data['category_name']) && $data['category_name'] == 'News' ? 'selected' : ''; ?>>ข่าว</option>
+                                                <option value="Events" <?php echo isset($data['category_name']) && $data['category_name'] == 'Events' ? 'selected' : ''; ?>>กิจกรรม</option>
+                                                <option value="Promotions" <?php echo isset($data['category_name']) && $data['category_name'] == 'Promotions' ? 'selected' : ''; ?>>โปรโมชั่น</option>
                                             </select>
                                         </div>
 
@@ -268,7 +295,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                         <div class="form-group d-flex align-items-center mt-3" style="width: 100%; max-width: 500px;">
                                             <label for="name" style="flex: 0 0 20%;">Header :</label>
                                             <input type="text" class="form-control" id="title" name="title"
-                                                value="<?php echo isset($data['title']) ? $data['title'] : ''; ?>" style="flex: 1;"
+                                                value="<?php echo isset($data['header_thumbnail']) ? $data['header_thumbnail'] : ''; ?>" style="flex: 1;"
                                                 data-toggle="tooltip" title="หัวข้อเนื้อหา" required>
 
                                         </div>
@@ -276,16 +303,13 @@ if (session_status() === PHP_SESSION_NONE) {
                                         <!-- Sub Header -->
                                         <div class=" form-group d-flex align-items-center mt-3" style="width: 100%; max-width: 500px;">
                                             <label for="highlight_text" style="flex: 0 0 20%;">Sub Header:</label>
-                                            <textarea class="form-control" id="highlight_text" name="highlight_text" rows="5" style="resize: none;" data-toggle="tooltip" title="ส่วนแนะนำก่อนเนื้อหา"> <?php echo isset($data['highlight_text']) ? trim($data['highlight_text']) : ''; ?></textarea>
+                                            <textarea class="form-control" id="highlight_text" name="highlight_text" rows="5" style="resize: none;" data-toggle="tooltip" title="ส่วนแนะนำก่อนเนื้อหา"> <?php echo isset($data['sub_header_thumbnail']) ? trim($data['sub_header_thumbnail']) : ''; ?></textarea>
                                         </div>
 
 
                                     </div>
                                 </div>
                                 <hr style="width: calc(100% - 40px); border-top: 2px solid #aaa; margin-top: 30px; margin-bottom: 30px; margin-left: 20px; margin-right: 20px;">
-
-
-
 
 
 
@@ -300,14 +324,14 @@ if (session_status() === PHP_SESSION_NONE) {
                                         </div>
                                         <?php
                                         // กำหนดค่าใหม่ให้ตัวแปรใหม่ตามประเภทของข่าว
-                                        if (isset($data['type'])) {
+                                        if (isset($data['category_name'])) {
                                             $newTypeColor = ''; // กำหนดตัวแปรใหม่
 
-                                            if ($data['type'] === "ข่าว") {
+                                            if ($data['category_name'] === "News") {
                                                 $newTypeColor = "rgb(127,169,209)";
-                                            } else if ($data['type'] === "กิจกรรม") {
+                                            } else if ($data['category_name'] === "Events") {
                                                 $newTypeColor = "rgb(153, 127, 209)";
-                                            } else if ($data['type'] === "โปรโมชั่น") {
+                                            } else if ($data['category_name'] === "Promotions") {
                                                 $newTypeColor = "rgb(209, 138, 127)";
                                             } else {
                                                 $newTypeColor = "rgba(0, 0, 0, 0.8)";  // สีดำ (black)
@@ -324,11 +348,11 @@ if (session_status() === PHP_SESSION_NONE) {
                                                     <span id="type_2" class="newsall-type-text" style="color: white; display: inline-block; padding: 2px 8px !important; border-radius: 5px;  
                                                 background: linear-gradient(135deg, <?php echo $newTypeColor ? $newTypeColor : ''; ?> 0%, <?php echo $newTypeColor ? $newTypeColor : ''; ?> 100%, #fff 100%);
                                                 margin-bottom: 5px;">
-                                                        <?php echo isset($data['type']) ? $data['type'] : ""; ?>
+                                                        <?php echo isset($data['category_name']) ? $data['category_name'] : ""; ?>
                                                     </span>
                                                     &nbsp;
-                                                    <label id="title_2" class="text-decoration-none" style="display: block; margin-bottom: 5px; margin-left: 10px;"><?php echo isset($data['title']) ? $data['title'] : ""; ?></label>
-                                                    <span class="text-decoration-none" id="highlight_text_2" style="display: block; margin-bottom: 5px; margin-left: 10px; font-size: 12px;"><?php echo isset($data['highlight_text']) ? $data['highlight_text'] : ""; ?></span>
+                                                    <label id="title_2" class="text-decoration-none" style="display: block; margin-bottom: 5px; margin-left: 10px;"><?php echo isset($data['header_thumbnail']) ? $data['header_thumbnail'] : ""; ?></label>
+                                                    <span class="text-decoration-none" id="highlight_text_2" style="display: block; margin-bottom: 5px; margin-left: 10px; font-size: 12px;"><?php echo isset($data['sub_header_thumbnail']) ? $data['sub_header_thumbnail'] : ""; ?></span>
                                                 </div>
 
                                                 <?php
@@ -434,7 +458,7 @@ if (session_status() === PHP_SESSION_NONE) {
                     <div style="background-color: rgb(255, 255, 255); border: none; " class="mt-3">
                         <div class=" text-center">
                             <h2 class="mb-1" style="color:rgb(110, 93, 0); font-weight: bold;" id="type_3">
-                                <?php echo isset($data['type']) ? $data['type'] : ""; ?>
+                                <?php echo isset($data['category_name']) ? $data['category_name'] : ""; ?>
                             </h2>
                             <div class="d-flex align-items-center justify-content-center" style="gap: 10px;">
                                 <hr style="width: 30%; border-top: 3px solid rgb(110, 93, 0); margin: 0;">
@@ -454,7 +478,7 @@ if (session_status() === PHP_SESSION_NONE) {
                             <div class="col-md-11" style="border: 1px solid rgb(196, 169, 15); backdrop-filter: blur(8px); border-radius: 10px; padding: 20px;margin-left: 50px; margin-right: 20px;position: relative;">
                                 <div class="row">
                                     <div class="p-3 text-center">
-                                        <h5><?php echo isset($data['title']) ? $data['title'] : ""; ?></h5>
+                                        <h5><?php echo isset($data['header_thumbnail']) ? $data['header_thumbnail'] : ""; ?></h5>
                                     </div>
                                 </div>
 

@@ -9,10 +9,13 @@ if (!$id) {
 }
 
 // ดึงข้อมูลจากฐานข้อมูล
-$sql = "SELECT d.id, d.id_title, d.description, t.type, t.title, t.image, t.alt_text, t.highlight_text, t.seo_title, t.seo_keywords, t.seo_description, t.created_at 
-        FROM description d
-        INNER JOIN title t ON d.id_title = t.id 
-        WHERE id_title = ?";
+$sql = "SELECT contents.*, category.category_name_en AS category_name, created_users.username AS created_by, updated_users.username AS updated_by
+        FROM contents   
+        INNER JOIN category ON contents.category_id = category.id 
+        INNER JOIN users AS created_users ON contents.created_by = created_users.id
+        LEFT JOIN users AS updated_users ON contents.updated_by = updated_users.id
+        WHERE contents.id = ?";
+
 
 $stmt = $conn->prepare($sql);
 
@@ -29,7 +32,6 @@ if ($result->num_rows > 0) {
 
     $_SESSION['edit_data'] = $data;
     $_SESSION['edit_id'] = $data['id']; // ตั้งค่าให้แน่ใจว่ามีค่าจริงๆ
-    $_SESSION['edit_id_title'] = $data['id_title'];
     $_SESSION['post'] = "edit";
 
     // Redirect ไป content_admin.php

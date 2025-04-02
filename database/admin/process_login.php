@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = trim($_POST['password'] ?? '');
 
     // ค้นหาผู้ใช้ในฐานข้อมูล
-    $stmt = $conn->prepare("SELECT * FROM admin_user WHERE username = ?");
+    $stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
     $stmt->bind_param("s", $username);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($password, $user['password'])) {
 
 
-            $_SESSION['roles'] = $user['roles'];
+            $_SESSION['role'] = $user['role'];
 
             $_SESSION['username'] = $user['username'];
             $_SESSION['id'] = $user['id'];

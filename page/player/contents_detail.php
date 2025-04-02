@@ -19,7 +19,7 @@
                 <div class="d-flex align-items-center justify-content-center" style="gap: 10px;">
                     <hr style="width: 30%; border-top: 3px solid rgb(110, 93, 0); margin: 0;">
                     <p style="color:rgb(110, 93, 0); font-style: italic; margin: 0;">
-                        <?php echo date("Y-m-d", strtotime($date)); ?>
+
                     </p>
                     <hr style="width: 30%; border-top: 3px solid  rgb(110, 93, 0); margin: 0;">
                 </div>
@@ -35,13 +35,13 @@
                     </div> -->
                     <div class="row">
                         <div class="p-3 text-center ">
-                            <h5 class="fw-bold"><?php echo $data['title']; ?></h5>
+                            <h3 class="fw-bold"><?php echo $data['header_thumbnail']; ?></้>
                         </div>
                     </div>
 
                     <div class="row">
 
-                        <div class="p-3">
+                        <div class="p-3 detail">
                             <?php
                             $description = $data['description'];
                             $description = str_replace('ql-', '', $description); // แทนที่ 'ql-' ด้วยค่าว่าง
@@ -60,13 +60,13 @@
             <div style=" margin: 20px; text-align: center;">
                 <div style=" margin: 20px; text-align: center;">
                     <?php
-                    $tab = 'all';
-                    if ($type == 'โปรโมชั่น') {
-                        $tab = 'promotions';
-                    } elseif ($type == 'กิจกรรม') {
-                        $tab = 'events';
-                    } elseif ($type == 'ข่าวสาร') {
-                        $tab = 'news';
+                    $tab = 'All';
+                    if ($type == 'Promotions') {
+                        $tab = 'Promotions';
+                    } elseif ($type == 'Events') {
+                        $tab = 'Events';
+                    } elseif ($type == 'News') {
+                        $tab = 'News';
                     }
                     ?>
                     <a href="contents.php?tab=<?php echo $tab; ?>" class="btn" style="background-color: #FFD700; color: black; font-weight: bold; border: none; padding: 10px 20px;">เมนู<?php echo $type; ?></a>

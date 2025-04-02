@@ -59,12 +59,12 @@
                     // ถ้าไม่มีรูป ให้แสดงข้อความ "ไม่มีรูป"
                     'ไม่มีรูป') +
                 '</td>' +
-                '<td>' + content.type + '</td>' +
-                '<td style="text-align: left;">' + content.title + '</td>' +
+                '<td>' + content.category_name + '</td>' +
+                '<td style="text-align: left;">' + content.header_thumbnail + '</td>' +
                 '<td>' + formatDate(content.created_at) + '<br>' + formatDate(content.updated_at) + '</td>' +
-                '<td>' + ((content.first_name === content.update_by || content.update_by == null) ? content.first_name : content.first_name + '<br>' + content.update_by) + '</td>' +
+                '<td>' + ((content.created_by === content.update_by || content.update_by == null) ? content.created_by : content.created_by + '<br>' + content.update_by) + '</td>' +
                 '<td>' +
-                '<button class="btn btn-outline-warning btn-sm me-2 edit-btn" data-id="' + content.id + '" data-title="' + content.title + '" data-type="' + content.type + '" data-image="' + content.image + '"><i class="bi bi-pencil"></i></button>' +
+                '<button class="btn btn-outline-warning btn-sm me-2 edit-btn" data-id="' + content.id + '" data-title="' + content.header_thumbnail + '" data-type="' + content.category_name + '" data-image="' + content.image + '"><i class="bi bi-pencil"></i></button>' +
 
                 '<button class="btn btn-outline-danger btn-sm delete-btn" data-id="' + content.id + '" data-image="' + content.image + '"><i class="bi bi-trash3"></i></button>' +
                 '</td>' +
@@ -240,7 +240,7 @@
 
     // โหลดหน้าเสร็จให้ดึงข้อมูล "ทั้งหมด" อัตโนมัติ
     window.onload = function() {
-        changeCategory('ทั้งหมด');
+        changeCategory('ALL'); // เรียกฟังก์ชัน changeCategory เพื่อโหลดข้อมูล "ทั้งหมด"
     };
 
     function loadData(category) {

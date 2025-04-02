@@ -168,18 +168,18 @@ if (session_status() === PHP_SESSION_NONE) {
                                 <!-- Type Dropdown -->
                                 <div class="form-group">
                                     <label for="title">Title:</label>
-                                    <textarea id="title" name="title" rows="1" style="resize: none;"><?php echo isset($_POST['title']) ? $_POST['title'] : ''; ?></textarea>
+                                    <textarea id="title" name="title" rows="1" style="resize: none;"><?php echo isset($_POST['seo_title']) ? $_POST['seo_title'] : ''; ?></textarea>
                                 </div>
 
                                 <!-- Description Textarea -->
                                 <div class="form-group">
                                     <label for="description">Meta description:</label>
-                                    <textarea id="description" name="description" rows="5" style="resize: none;"><?php echo isset($_POST['description']) ? $_POST['description'] : ''; ?></textarea>
+                                    <textarea id="description" name="description" rows="5" style="resize: none;"><?php echo isset($_POST['seo_description']) ? $_POST['seo_description'] : ''; ?></textarea>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="keywords">Keywords:</label>
-                                    <input type="text" id="keywords" name="keywords" placeholder="Enter keywords and press Enter" value="<?php echo isset($_POST['keywords']) ? implode(", ", $_POST['keywords']) : ''; ?>">
+                                    <input type="text" id="keywords" name="keywords" placeholder="Enter keywords and press Enter" value="<?php echo isset($_POST['seo_keywords']) ? implode(", ", $_POST['seo_keywords']) : ''; ?>">
                                 </div>
 
 
@@ -239,7 +239,7 @@ if (session_status() === PHP_SESSION_NONE) {
             <script>
                 function handlePageChange() {
                     var selectedValue = document.getElementById('page').value;
-                    // หากต้องการทำการส่งข้อมูลไปยัง server หรือ redirect ไปที่หน้าต่างๆ สามารถทำได้ที่นี่
+
                     if (selectedValue) {
                         fetchSEOData();
                     }
@@ -255,12 +255,12 @@ if (session_status() === PHP_SESSION_NONE) {
                                 // ล้างข้อมูลเก่าก่อนเพิ่มข้อมูลใหม่
                                 clearPreviousData();
                                 // กรอกข้อมูลที่ได้จาก API ลงในฟอร์ม
-                                document.getElementById("title").value = data[0].title || ''; // Access the first object in the array
-                                document.getElementById("description").value = data[0].description || '';
+                                document.getElementById("title").value = data[0].seo_title || ''; // Access the first object in the array
+                                document.getElementById("description").value = data[0].seo_description || '';
                                 document.getElementById("seo-id").value = data[0].id || ''; // เพิ่มค่า 'id' สำหรับส่งในฟอร์ม
 
-                                if (data[0].keywords) {
-                                    let keywordsArray = data[0].keywords.split(',').map(keyword => keyword.trim());
+                                if (data[0].seo_keywords) {
+                                    let keywordsArray = data[0].seo_keywords.split(',').map(keyword => keyword.trim());
                                     let tagContainer = document.getElementById("tags-container");
 
                                     keywordsArray.forEach(keyword => {

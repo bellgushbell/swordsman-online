@@ -16,6 +16,7 @@
             modules: {
                 toolbar: [
 
+
                     ['bold', 'italic', 'underline'],
                     [{
                         'color': []
@@ -31,9 +32,37 @@
                         // 'size': ['11px', '14px', '16px', '18px', '20px', '22px', '24px'] // ขนาดตัวอักษรที่ต้องการ
                     }],
                     ['clean']
-                ]
+
+                ],
+
             }
         });
+
+        // Custom handler for image insertion
+        const toolbar = quill.getModule('toolbar');
+        toolbar.addHandler('image', function() {
+            const input = document.createElement('input');
+            input.setAttribute('type', 'file');
+            input.setAttribute('accept', 'image/*');
+            input.click();
+
+            input.onchange = function() {
+                const file = input.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function() {
+                        const range = quill.getSelection();
+                        const imageUrl = reader.result;
+
+                        // Insert the image with specific dimensions
+                        const image = `<img src="${imageUrl}" max-width="900" max-height="400" />`;
+                        quill.clipboard.dangerouslyPasteHTML(range.index, image);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            };
+        });
+
 
         // ตรวจสอบค่าจาก PHP และใส่ลงใน Quill Editor
         <?php if (isset($data['description']) && !empty($data['description'])): ?>
@@ -303,11 +332,11 @@
             if (type_2) {
                 // กำหนดสีตามประเภท
                 let newTypeColor;
-                if (type === "ข่าว") {
+                if (type === "News") {
                     newTypeColor = "rgb(127,169,209)";
-                } else if (type === "กิจกรรม") {
+                } else if (type === "Events") {
                     newTypeColor = "rgb(153, 127, 209)";
-                } else if (type === "โปรโมชั่น") {
+                } else if (type === "Promotions") {
                     newTypeColor = "rgb(209, 138, 127)";
                 } else {
                     newTypeColor = "rgba(0, 0, 0, 0.8)"; // สีดำ (black)

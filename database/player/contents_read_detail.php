@@ -8,11 +8,24 @@ if (!$id) {
     die("Error: ID not provided.");
 }
 
-
-// ดึงข้อมูลจากฐานข้อมูล
-$sql = "SELECT d.id, d.id_title, d.description, t.type, t.title, t.image, t.created_at,t.seo_keywords,t.seo_description,t.seo_title FROM description d INNER JOIN content t ON d.id_title = t.id WHERE d.id_title = ?";
+// Corrected SQL Query
+$sql  = "
+SELECT contents.*, 
+       category.category_name_th AS category_name
+FROM contents
+LEFT JOIN category ON contents.category_id = category.id
+WHERE contents.status = 'post'
+AND contents.deleted_at IS NULL
+AND contents.id = ?
+ORDER BY contents.id DESC
+";
 
 $stmt = $conn->prepare($sql);
+
+if (!$stmt) {
+    die("Error: " . $conn->error);
+}
+
 $stmt->bind_param("i", $id);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -20,9 +33,11 @@ $result = $stmt->get_result();
 if ($result->num_rows > 0) {
     $data = $result->fetch_assoc();
 
-    $_SESSION['data_news'] = $data;
+    // Store data in session
+    $_SESSION['data_contents'] = $data;
 
-    header("Location: ../../page/player/contents_detail.php?data=" . $_SESSION['data_news']);
+    // Redirect with ID only (not full session data)
+    header("Location: ../../page/player/contents_detail.php?id=" . $id);
     exit();
 } else {
     die("Error: Data not found.");

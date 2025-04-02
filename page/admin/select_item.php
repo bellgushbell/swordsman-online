@@ -143,7 +143,7 @@ if (isset($_SESSION['alert'])) {
                         </div>
                     </div>
                 </div>
-                <?php if ($_SESSION['roles'] == 1): ?>
+                <?php if ($_SESSION['role'] == 1): ?>
                     <div class="col-sm-3">
                         <div class="card" style="height: 100%; background: transparent; border: 1px solid #ccc; cursor: pointer;" data-toggle="modal" data-target="#addUserModal">
                             <div class="card-body" style="background: transparent; display: flex; flex-direction: column; justify-content: space-between;">

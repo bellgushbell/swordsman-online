@@ -8,7 +8,7 @@ if (session_status() === PHP_SESSION_NONE) {
         exit();
     }
 }
-$roles = isset($_SESSION['roles']) ? $_SESSION['roles'] : null;
+$roles = isset($_SESSION['role']) ? $_SESSION['role'] : null;
 unset($_SESSION['edit_data']);
 ?>
 <!-- ContentManagementLog.php -->
@@ -51,10 +51,10 @@ unset($_SESSION['edit_data']);
                 <div class="d-flex justify-content-between align-items-center mb-1 p-3 rounded shadow-sm"
                     style="background-color: rgba(255, 255, 255, 0.5); backdrop-filter: blur(8px); border-radius: 10px;">
                     <div class="gap-2">
-                        <a href="javascript:void(0);" class="btn btn-outline-info" onclick="loadData('ทั้งหมด')">ALL</a>
-                        <a href="javascript:void(0);" class="btn btn-outline-info" onclick="loadData('ข่าว')">News</a>
-                        <a href="javascript:void(0);" class="btn btn-outline-info" onclick="loadData('โปรโมชั่น')">Promotions</a>
-                        <a href="javascript:void(0);" class="btn btn-outline-info" onclick="loadData('กิจกรรม')">Events</a>
+                        <a href="javascript:void(0);" class="btn btn-outline-info" onclick="loadData('ALL')">ALL</a>
+                        <a href="javascript:void(0);" class="btn btn-outline-info" onclick="loadData('News')">News</a>
+                        <a href="javascript:void(0);" class="btn btn-outline-info" onclick="loadData('Promotions')">Promotions</a>
+                        <a href="javascript:void(0);" class="btn btn-outline-info" onclick="loadData('Events')">Events</a>
                     </div>
                     <div class="d-flex gap-2">
 

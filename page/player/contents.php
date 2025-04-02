@@ -753,6 +753,14 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 padding: 7px 14px;
             }
 
+            footer {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+            }
+
+
         }
     </style>
     </head>
@@ -853,43 +861,37 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                     newTypeColor = "rgba(0, 0, 0, 0.8)"; // สีดำ (black)
                                 }
                                 li.innerHTML = `
-<div class="news-item" style="cursor: pointer;display: flex; justify-content: flex-start;align-items: flex-start;">
-        <div class="news-header" style="display: flex; justify-content: center; align-items: center;">
-            <div class="news-item-div-img" style="display: flex; justify-content: center; align-items: center; width: 300px; height: 200px; overflow: hidden; border-radius: 6px !important;">
-                <img src="../../images/news/${news.image}" alt="${news.header_thumbnail}" style="max-width: 100%; max-height: 100%; object-fit: contain;">
-            </div>
-        </div>
+                                                <div class="news-item" style="cursor: pointer;display: flex; justify-content: flex-start;align-items: flex-start;">
+                                                        <div class="news-header" style="display: flex; justify-content: center; align-items: center;">
+                                                            <div class="news-item-div-img" style="display: flex; justify-content: center; align-items: center; width: 300px; height: 200px; overflow: hidden; border-radius: 6px !important;">
+                                                                <img src="../../images/news/${news.image}" alt="${news.header_thumbnail}" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                                                            </div>
+                                                        </div>
 
-    <div class="news-text-title" style="display: flex; width: 100%; margin-top:20px;">
-        <div style="display: flex; justify-content: space-between; width: 100%;position: relative;">
-            <div display: flex; justify-content: flex-start;  flex-direction: column;  >
-            &nbsp;
-          <span class="newsall-type-text" style="color: white; display: inline-block; padding: 2px 8px !important; border-radius: 5px;  
-        background: linear-gradient(135deg, ${newTypeColor} 0%, ${newTypeColor} 100%, #fff 100%); margin-bottom: 5px;">
-        ${newtypefilter}
-        </span>
-            &nbsp;
-            <a href="#" class="text-decoration-none" style="display: block; margin-bottom: 5px; margin-left: 10px;">${news.header_thumbnail}</a>
-            <span  class="text-decoration-none" style="display: block; margin-bottom: 5px; margin-left: 10px; font-size: 12px;">${news.highlight_text}...</span>
-            </div>
-           
-        
-       
-           <div style="position: absolute; top: 0; right: 5px;">
-        <span class="date">${dateOnly}</span>
-    </div>
-        
-        </div>
+                                                    <div class="news-text-title" style="display: flex; width: 100%; margin-top:20px;">
+                                                        <div style="display: flex; justify-content: space-between; width: 100%;position: relative;">
+                                                            <div display: flex; justify-content: flex-start;  flex-direction: column;  >
+                                                            &nbsp;
+                                                        <span class="newsall-type-text" style="color: white; display: inline-block; padding: 2px 8px !important; border-radius: 5px;  
+                                                        background: linear-gradient(135deg, ${newTypeColor} 0%, ${newTypeColor} 100%, #fff 100%); margin-bottom: 5px;">
+                                                        ${newtypefilter}
+                                                        </span>
+                                                            &nbsp;
+                                                            <a href="#" class="text-decoration-none" style="display: block; margin-bottom: 5px; margin-left: 10px;">${news.header_thumbnail}</a>
+                                                            <span  class="text-decoration-none" style="display: block; margin-bottom: 5px; margin-left: 10px; font-size: 12px;">${news.sub_header_thumbnail}...</span>
+                                                            </div>
+                                                        
+                                                        
+                                                    
+                                                        <div style="position: absolute; top: 0; right: 5px;">
+                                                        <span class="date">${dateOnly}</span>
+                                                    </div>
+                                                        
+                                                        </div>
 
-    </div>
-</div>
-`;
-
-
-
-
-
-
+                                                    </div>
+                                                </div>
+                                                `;
 
                                 // ฟังก์ชันเมื่อคลิกที่ <li> จะไปที่หน้า news detail
                                 li.addEventListener("click", function() {
@@ -1065,6 +1067,26 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         <!-- End Google Tag Manager (noscript) -->
 
 
+        <footer class="text-white pt-4 pb-3 mt-5" style="background: transparent; font-family: 'Prompt', sans-serif; font-size: 0.95rem;">
+            <div class="container text-center">
+                <div class="row justify-content-center g-4">
+
+
+
+                    <!-- บริษัทในเครือ -->
+                    <div class="col-12 col-lg-4">
+                        <!-- <h5 class="fw-bold mb-2 mt-4 mt-lg-0"></h5> -->
+                        <div class="footer-logos d-flex flex-wrap justify-content-center gap-3 mb-2">
+
+                            <img src="../../images/footer-icon/logo-seasun-black.png" alt="EXP UP Logo" width="30">
+                            <img src="../../images/footer-icon/logo-seasun-black.png" alt="Seasun Logo" width="85">
+                        </div>
+                        <p class="small text-secondary m-0 mt-2">© กระบี่เย้ยยุทธจักร. All rights reserved.</p>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
     </body>
 
 </html>
