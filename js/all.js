@@ -89,7 +89,7 @@
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
     const sections = document.querySelectorAll(
-      ".home-section, .class-page-section, .highlight-page-section, .page-section-news"
+      ".home-section, .class-page-section, .highlight-page-section, .page-section-news,.gallery-section,.custom-footer-swordsman3"
     );
 
     let currentIndex = 0;

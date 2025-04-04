@@ -229,6 +229,50 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     <script src="https://cdn.jsdelivr.net/npm/@motionone/dom"></script> -->
 
 
+
+         <!-- preload image คำคมที่สุ่ม -->
+        <!-- สุ่มภาพคำคมและ preload ล่วงหน้า -->
+               <!-- สุ่มภาพคำคม + preload -->
+    <head>
+  <!-- preload image คำคมที่สุ่ม -->
+        <script>
+            // ตรวจว่าเบราว์เซอร์รองรับ WebP หรือไม่
+            function supportsWebP() {
+            const elem = document.createElement('canvas');
+            return !!(elem.getContext && elem.getContext('2d')) && elem.toDataURL('image/webp').indexOf('data:image/webp') === 0;
+            }
+
+            const isWebpSupported = supportsWebP();
+            const extension = isWebpSupported ? 'webp' : 'png';
+
+            const quoteImages = [
+            `images/PageLoad/pageload-word/01.${extension}`,
+            `images/PageLoad/pageload-word/02.${extension}`,
+            `images/PageLoad/pageload-word/03.${extension}`,
+            `images/PageLoad/pageload-word/04.${extension}`,
+            `images/PageLoad/pageload-word/05.${extension}`,
+            `images/PageLoad/pageload-word/06.${extension}`
+            ];
+
+            const randomIndex = Math.floor(Math.random() * quoteImages.length);
+            const selectedQuote = quoteImages[randomIndex];
+            window.selectedQuoteImage = selectedQuote; // เก็บไว้ใช้ทีหลัง
+
+            // preload รูปภาพ
+            const preload = new Image();
+            preload.src = selectedQuote;
+
+            // preload เป็น link ก็ได้ (แนะนำทั้งสองแบบ)
+            const preloadLink = document.createElement('link');
+            preloadLink.rel = 'preload';
+            preloadLink.as = 'image';
+            preloadLink.href = selectedQuote;
+            document.head.appendChild(preloadLink);
+        </script>
+        </head>
+
+
+
 </head>
 
 
@@ -706,192 +750,132 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             </style>
 
             <script>
+                /**แบบไม่webp */
                 // รายการรูปภาพคำคม
-                const quoteImages = [
-                    'images/PageLoad/pageload-word/01.png',
-                    'images/PageLoad/pageload-word/02.png',
-                    'images/PageLoad/pageload-word/03.png',
-                    'images/PageLoad/pageload-word/04.png',
-                    'images/PageLoad/pageload-word/05.png',
-                    'images/PageLoad/pageload-word/06.png'
-                ];
+                // const quoteImages = [
+                //     'images/PageLoad/pageload-word/01.png',
+                //     'images/PageLoad/pageload-word/02.png',
+                //     'images/PageLoad/pageload-word/03.png',
+                //     'images/PageLoad/pageload-word/04.png',
+                //     'images/PageLoad/pageload-word/05.png',
+                //     'images/PageLoad/pageload-word/06.png'
+                // ];
 
-                function getRandomQuoteImage() {
-                    const randomIndex = Math.floor(Math.random() * quoteImages.length);
-                    return quoteImages[randomIndex];
-                }
+                // function getRandomQuoteImage() {
+                //     const randomIndex = Math.floor(Math.random() * quoteImages.length);
+                //     return quoteImages[randomIndex];
+                // }
+                /** End แบบไม่webp */
 
+                // ตรวจว่าเบราว์เซอร์รองรับ WebP หรือไม่
+
+
+               // โหลดภาพคำคมและแสดงพร้อมเอฟเฟกต์
                 // โหลดภาพประตูซ้ายและขวาก่อนเปิดม่าน
-                const preloadDoors = new Promise((resolve) => {
-                    const doorLeft = new Image();
-                    const doorRight = new Image();
-                    let loadedCount = 0;
+                    // preload ภาพ quote และแสดงทันที
+                    // โหลดภาพประตูซ้ายและขวาก่อนเปิดม่าน
+  const preloadDoors = new Promise((resolve) => {
+    const doorLeft = new Image();
+    const doorRight = new Image();
+    let loadedCount = 0;
 
-                    doorLeft.src = 'images/PageLoad/cloud-no-cloud-left.jpg';
-                    doorRight.src = 'images/PageLoad/cloud-no-cloud-right.jpg';
+    doorLeft.src = 'images/PageLoad/cloud-no-cloud-left.jpg';
+    doorRight.src = 'images/PageLoad/cloud-no-cloud-right.jpg';
 
-                    function checkLoaded() {
-                        loadedCount++;
-                        if (loadedCount === 2) {
-                            document.querySelector('.door.left').classList.add('loaded');
-                            document.querySelector('.door.right').classList.add('loaded');
-                            resolve();
-                        }
-                    }
+    function checkLoaded() {
+      loadedCount++;
+      if (loadedCount === 2) {
+        document.querySelector('.door.left').classList.add('loaded');
+        document.querySelector('.door.right').classList.add('loaded');
+        resolve();
+      }
+    }
 
-                    doorLeft.onload = checkLoaded;
-                    doorRight.onload = checkLoaded;
-                });
+    doorLeft.onload = checkLoaded;
+    doorRight.onload = checkLoaded;
+  });
 
-                // ฟังก์ชันเปิดม่านฟ้า
-                function openLoader() {
-                    const timeline = gsap.timeline();
+  // ฟังก์ชันเปิดม่าน
+  function openLoader() {
+    const timeline = gsap.timeline();
 
-                    if (window.innerWidth <= 768) {
-                        timeline
-                            .set('.door.left', {
-                                x: '0'
-                            })
-                            .set('.door.right', {
-                                x: '0'
-                            })
-                            .to({}, {
-                                duration: 0.5
-                            }) // ตั้งค่าดีเลย์
-                            .to('.door.left', {
-                                x: '-100%',
-                                duration: 4,
-                                ease: 'power2.inOut'
-                            })
-                            .to('.door.right', {
-                                x: '100%',
-                                duration: 4,
-                                ease: 'power2.inOut'
-                            }, '<')
-                            .to('.logo-container', {
-                                opacity: 0,
-                                duration: 0.3,
-                                ease: 'power2.inOut'
-                            }, '-=0.5')
-                            .to('#loader', {
-                                opacity: 0,
-                                duration: 0.5,
-                                ease: 'power2.inOut'
-                            })
-                            .set('#loader', {
-                                display: 'none'
-                            });
-                    } else {
-                        timeline
-                            .set('.door.left', {
-                                x: '0'
-                            })
-                            .set('.door.right', {
-                                x: '0'
-                            })
-                            .to({}, {
-                                duration: 0.5
-                            }) // ตั้งค่าดีเลย์
-                            .to('.door.left', {
-                                x: '-100%',
-                                duration: 5,
-                                ease: 'power2.inOut'
-                            })
-                            .to('.door.right', {
-                                x: '100%',
-                                duration: 5,
-                                ease: 'power2.inOut'
-                            }, '<')
-                            .to('.logo-container', {
-                                opacity: 0,
-                                duration: 0.5,
-                                ease: 'power2.inOut'
-                            }, '-=1.5')
-                            .to('#loader', {
-                                opacity: 0,
-                                duration: 0.5,
-                                ease: 'power2.inOut'
-                            })
-                            .set('#loader', {
-                                display: 'none'
-                            });
-                    }
-                }
+    const isMobile = window.innerWidth <= 768;
+    const doorDuration = isMobile ? 4 : 5;
+    const logoFadeDuration = isMobile ? 0.3 : 0.5;
+    const logoFadeDelay = isMobile ? '-=0.5' : '-=1.5';
 
+    timeline
+      .set('.door.left', { x: '0' })
+      .set('.door.right', { x: '0' })
+      .to({}, { duration: 0.5 }) // delay
+      .to('.door.left', {
+        x: '-100%',
+        duration: doorDuration,
+        ease: 'power2.inOut'
+      })
+      .to('.door.right', {
+        x: '100%',
+        duration: doorDuration,
+        ease: 'power2.inOut'
+      }, '<')
+      .to('.logo-container', {
+        opacity: 0,
+        duration: logoFadeDuration,
+        ease: 'power2.inOut'
+      }, logoFadeDelay)
+      .to('#loader', {
+        opacity: 0,
+        duration: 0.5,
+        ease: 'power2.inOut'
+      })
+      .set('#loader', { display: 'none' });
+  }
 
-                // สุ่มภาพคำคมทันทีและกำหนดเป็น placeholder ก่อนที่ DOMContentLoaded
-                const randomQuote = getRandomQuoteImage();
+            // โหลดภาพคำคมและแสดงพร้อมเอฟเฟกต์
+            function loadAndDisplayQuoteImage() {
                 const quoteImageElement = document.getElementById('quote-image');
-
-                // ถ้าพบ element #quote-image ให้แสดงภาพคำคมทันที
-                if (quoteImageElement) {
-                    quoteImageElement.src = randomQuote;
-                    // console.log("found word", randomQuote);
-                } else {
-                    console.error("❌ ไม่พบ #quote-image ใน DOM ขณะเริ่มต้น");
+                if (!quoteImageElement || !window.selectedQuoteImage) {
+                console.error("❌ ไม่พบ #quote-image หรือ selectedQuoteImage");
+                return;
                 }
 
-                // โหลดภาพคำคมและแสดงทันที
-                function loadAndDisplayQuoteImage() {
-                    const quoteImageElement = document.getElementById('quote-image');
-                    if (!quoteImageElement) {
-                        console.error("❌ ไม่พบ #quote-image ใน DOM");
-                        return;
-                    }
+                const img = new Image();
+                img.src = window.selectedQuoteImage;
+                quoteImageElement.src = window.selectedQuoteImage;
 
-                    const randomQuote = getRandomQuoteImage();
-                    const img = new Image();
-                    img.src = randomQuote;
-
-                    // แสดงภาพทันที (ใช้เป็น placeholder)
-                    quoteImageElement.src = randomQuote;
-
-                    // console.log("📜 คำคมแสดงทันที:", randomQuote);
-
-                    // โหลดภาพและตรวจสอบความสำเร็จ
-                    img.onload = () => {
-                        quoteImageElement.src = randomQuote; // อัปเดตภาพเมื่อโหลดเสร็จ
-                        quoteImageElement.style.display = "block";
-                        // console.log("📜 downlaod complete", randomQuote);
-                        gsap.to(quoteImageElement, {
-                            opacity: 1,
-                            duration: 1,
-                            scale: 1.5
-                        });
-                    };
-
-                    img.onerror = () => {
-                        // console.error("❌ โหลดภาพคำคมไม่สำเร็จ:", randomQuote);
-                    };
-                }
-
-                gsap.fromTo(".loading-icon", {
-                    opacity: 0,
-                    scale: 0.8
-                }, {
+                img.onload = () => {
+                quoteImageElement.style.display = "block";
+                gsap.to(quoteImageElement, {
                     opacity: 1,
-                    scale: 1,
                     duration: 1,
-                    ease: "power2.out"
+                    scale: 1.5
                 });
+                };
+            }
 
+            // เอฟเฟกต์เริ่มต้นของภาพคำคม
+            gsap.fromTo(".loading-icon", {
+                opacity: 0,
+                scale: 0.8
+            }, {
+                opacity: 1,
+                scale: 1,
+                duration: 1,
+                ease: "power2.out"
+            });
 
-                // เริ่มทำงาน
-                document.addEventListener("DOMContentLoaded", async () => {
-                    const video = document.querySelector('.bg-video');
-                    // const videoUrl = "video/swordsman-3-video-web-ver01-final.mp4";
-                    const fallbackBackground = "images/webcover2560x1440.jpg";
+            // เริ่มทำงานเมื่อ DOM โหลดเสร็จ
+            document.addEventListener("DOMContentLoaded", async () => {
+                const quoteImageElement = document.getElementById('quote-image');
+                if (quoteImageElement && window.selectedQuoteImage) {
+                quoteImageElement.src = window.selectedQuoteImage;
+                }
 
-                    // แสดงภาพคำคมทันที
-                    loadAndDisplayQuoteImage();
+                loadAndDisplayQuoteImage();
+                await preloadDoors;
+                openLoader();
+            });
 
-                    // โหลดภาพประตู -> เปิดม่าน
-                    await preloadDoors;
-                    openLoader();
-
-                    // โหลดวิดีโอ
-                    // preloadVideo(video, videoUrl, fallbackBackground);
-                });
             </script>
 
 
@@ -1224,31 +1208,37 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                     }
                 </style>
 
-                <script>
-                    document.addEventListener("DOMContentLoaded", function() {
-                        // ลบ hash ออกจาก URL และป้องกัน scroll อัตโนมัติ
-                        if (window.location.hash === "#class") {
-                            history.replaceState(null, null, window.location.pathname);
-                            window.scrollTo(0, 0);
+              <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    if (window.location.hash === "#class") {
+                        history.replaceState(null, null, window.location.pathname);
+                        window.scrollTo(0, 0);
+                    }
+
+                    const scrollBtn = document.getElementById("scrollToClassBtn");
+                    const targetSection = document.getElementById("class");
+
+                    scrollBtn.addEventListener("click", function (e) {
+                        e.preventDefault();
+
+                        if (targetSection) {
+                            const offset = 100; 
+                            const targetY = targetSection.getBoundingClientRect().top + window.scrollY - offset;
+
+                            gsap.to(window, {
+                                scrollTo: {
+                                    y: targetY,
+                                    autoKill: true
+                                },
+                                duration: 1,
+                                ease: "power2.out"
+                            });
                         }
-
-                        const scrollBtn = document.getElementById("scrollToClassBtn");
-                        const targetSection = document.getElementById("class");
-
-                        scrollBtn.addEventListener("click", function(e) {
-                            e.preventDefault();
-
-                            if (targetSection) {
-                                const targetY = targetSection.getBoundingClientRect().top + window.scrollY;
-
-                                window.scrollTo({
-                                    top: targetY,
-                                    behavior: "smooth"
-                                });
-                            }
-                        });
                     });
-                </script>
+                });
+            </script>
+
+
 
 
 
@@ -1264,51 +1254,25 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
 
+    <!---- Class Preview Section class preview -->
+        <!-- Class Preview Section -->
+        <section id="class" class="class-page-section" style="background: url('images/background/bg-class.jpg') no-repeat center center; background-size: cover; z-index: 0; ">
 
 
+        <!-- รูปภาพพื้นหลัง -->
+        <div class="image-container">
+            <img src="images/Class-Pic/butung.jpg" alt="Background" class="bg-image-class" />
 
-        <!---- Class Preview Section class preview -->
-
-         <!-- Class Preview Section -->
-        <section class="class-page-section" id="class">
-           <!-- ปุ่มวิดีโอลอย -->
+            <!-- ปุ่มวิดีโอลอยบนภาพ -->
             <!-- <div class="floating-video-button">
-            <img src="images/Class-Pic/playbutton.png" alt="Play Video" class="video-play-button" id="openVideoModal" />
+            <img src="images/Class-Pic/playbutton.png" class="video-play-button" id="openVideoModal" />
             </div> -->
 
-            
-             <!-- <div
-                class="bg-blur-background"
-                style="
-                position: absolute;
-                inset: 0;
-                background: url('images/background/bg-class.jpg') no-repeat center center;
-                background-size: cover;
-                filter: blur(20px) brightness(0.7);
-                z-index: -1;
-                pointer-events: none;"
-            ></div> -->
-        <div class="container-fluid relative">
-            <div class="row">
-          
-            <div class="col-12 class-visual-wrapper">
-                 <!-- <div class="bg-fallback" style="background-image: url('images/Class-Pic/butung.jpg');"></div> -->
-                
-               
-                <img src="images/Class-Pic/butung.jpg" alt="Background Image Class" class="bg-image-class">
-                
-
-                 <!-- กล่องรวมปุ่มวิดีโอ + sidebar -->
-                <div class="left-side-tools">
-                
-
-                <div class="class-sidebar-wrapper">
-
-             
-                <button class="scroll-btn up" id="scrollUp">▲</button>
-                <div class="class-sidebar" id="classSidebar">
-                    <ul class="class-menu">
-                    <li data-class="class1" class="active" style="transition: filter 0.3s ease;"
+        <div class="class-sidebar-wrapper">
+            <button class="scroll-btn up" id="scrollUp">▲</button>
+            <div class="class-sidebar" id="classSidebar">
+            <ul class="class-menu">
+              <li data-class="class1" class="active" style="transition: filter 0.3s ease;"
                         onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(244, 159, 47, 0.93))'"
                         onmouseout="this.style.filter='none'">
                         <img src="images/ClassIcon/butung-icon.png" alt="อาชีพที่ 1" class="menu-icon"
@@ -1394,72 +1358,15 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                             onmouseout="this.style.filter='none'">
                         <span class="class-label">พรรคกระยาจก</span>
                     </li>
-                    </ul>
-                </div>
-                
-                <button class="scroll-btn down" id="scrollDown">▼</button>
-                </div><!-- /class-sidebar-wrapper -->
-                <!-- ปุ่มเล่นวิดีโอ -->
-                <!-- <div class="video-button-container">
-                    <img src="images/Class-Pic/playbutton.png" alt="Play Video" class="video-play-button" id="openVideoModal" />
-                </div> -->
-                </div><!-- /left-side-tools -->
-            </div><!-- /class-visual-wrapper -->
-           
-       
-    </div>
-
-
-       <!-- Modal สำหรับแสดงวิดีโอ -->
-            <div id="videoModal" class="video-modal">
-            <div class="video-modal-content">
-                <!-- ปุ่มปิด Modal -->
-                <span class="close-video-modal" id="closeVideoModal">&times;</span>
-
-                <!-- วิดีโอ YouTube Embed -->
-                <iframe width="853" height="480"
-                src="https://www.youtube.com/embed/xqSF_zi2-7M"
-                title="บรรยากาศในเกมกระบี่เย้ยยุทธจักร3  มีสภาพอากาศเปลี่ยนแปลงสมจริงตลอด 24 ชั่วโมง #กระบี่เย้ยยุทธจักร3"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen>
-                </iframe>
+            </ul>
             </div>
-            </div>
+              <button class="scroll-btn down" id="scrollDown">▼</button>
+        </div>
 
-
-
+          
+        </div>
 
         </section>
-        
-        <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const playBtn = document.querySelector(".video-play-button");
-            const modal = document.getElementById("videoModal");
-            const closeBtn = document.getElementById("closeVideoModal");
-
-            playBtn.addEventListener("click", () => {
-            modal.style.display = "flex";
-            });
-
-            closeBtn.addEventListener("click", () => {
-            modal.style.display = "none";
-            // หยุดวิดีโอเมื่อปิด
-            const iframe = modal.querySelector("iframe");
-            iframe.src = iframe.src;
-            });
-
-            // ปิด modal เมื่อคลิกนอกกรอบ
-            window.addEventListener("click", (e) => {
-            if (e.target === modal) {
-                modal.style.display = "none";
-                const iframe = modal.querySelector("iframe");
-                iframe.src = iframe.src;
-            }
-            });
-        });
-        </script>
 
 
         <!--End Class Preview Section-->
@@ -1532,9 +1439,12 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         <!--End Highlight Game Section-->
 
 
+
+
+
         <!--News and Promotion Section-->
 
-        <section class="page-section-news" id="news">
+        <!-- <section class="page-section-news" id="news">
             <div class="container">
                 <div class="row gy-4">
 
@@ -1574,11 +1484,11 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
                         </div>
-                    </div>
+                    </div> -->
 
 
                     <!-- News and Promotion Select Tab -->
-                    <div class="col-12 col-lg-6 d-flex flex-column align-items-center">
+                    <!-- <div class="col-12 col-lg-6 d-flex flex-column align-items-center">
 
                         <ul class="nav nav-tabs justify-content-center w-100" id="newsTabs" role="tablist">
                             <li class="nav-item-news" role="presentation">
@@ -1663,9 +1573,9 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
                 </div>
             </div>
-            </div>
+            </div> -->
 
-            <script>
+            <!-- <script>
                 $(document).ready(function() {
                     const tabButtons = $(".nav-link");
                     const tabPanes = $(".tab-pane");
@@ -1814,7 +1724,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 });
             </script>
 
-        </section>
+        </section> -->
 
         <!--End News and Promotion Section-->
 
@@ -2425,7 +2335,10 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                 <img src="images/footer-icon/logo-exp-up-company-original.png" alt="EXP UP Logo" width="30">
                                 <img src="images/footer-icon/logo-seasun-black.png" alt="Seasun Logo" width="85">
                             </div>
-                            <p class="small text-secondary m-0 mt-2">© กระบี่เย้ยยุทธจักร. All rights reserved.</p>
+                           <p class="small text-secondary m-0 mt-2">
+                            Copyright © 2025 กระบี่เย้ยยุทธจักร. All rights reserved.
+                            </p>
+
                         </div>
 
                     </div>

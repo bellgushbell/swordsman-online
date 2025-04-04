@@ -1,312 +1,196 @@
-@media (max-width: 768px) and (orientation: landscape) {
-    /* .bg-video-class {
-        position: absolute;
-        top: 0;
-        left: 0.7;
-        width: 100vw !important;
-        height: 100vh !important;
-        object-fit: cover;
-        z-index: -1;
-        pointer-events: none;
-        border-radius: 10px;
-    } */
+ <!---- Class Preview Section class preview -->
 
-    .bg-image-class {
-        position: absolute;
-        top: 0 !important;
-        /* ✅ เอารูปกลับมาอยู่บนจอ */
-        left: 0 !important;
-        width: 100vw !important;
-        height: 100vh !important;
-        object-fit: contain !important;
-        /* ✅ ปรับให้ครอบจอ */
-        z-index: 0;
-        pointer-events: none;
-    }
+         <!-- Class Preview Section -->
+        <section class="class-page-section" id="class">
+           <!-- ปุ่มวิดีโอลอย -->
+            <!-- <div class="floating-video-button">
+            <img src="images/Class-Pic/playbutton.png" alt="Play Video" class="video-play-button" id="openVideoModal" />
+            </div> -->
 
-    /* คอนเทนต์ */
-    .class-content {
-        position: relative;
-        display: flex;
-        height: 100vh;
-        flex-direction: column;
-        /* ปรับให้สมดุลกับ bg-video-class */
-        justify-content: space-between;
-        align-items: flex-end;
-        /* ชิดล่าง */
-        z-index: 2;
-        padding-left: 20px;
-        padding-right: 0px !important;
-        font-size: 10px;
-    }
+            
+             <!-- <div
+                class="bg-blur-background"
+                style="
+                position: absolute;
+                inset: 0;
+                background: url('images/background/bg-class.jpg') no-repeat center center;
+                background-size: cover;
+                filter: blur(20px) brightness(0.7);
+                z-index: -1;
+                pointer-events: none;"
+            ></div> -->
+        <div class="container-fluid relative">
+            <div class="row">
+          
+            <div class="col-12 class-visual-wrapper">
+                 <!-- <div class="bg-fallback" style="background-image: url('images/Class-Pic/butung.jpg');"></div> -->
+                
+               
+                <img src="images/Class-Pic/butung.jpg" alt="Background Image Class" class="bg-image-class">
+                
 
-    /* รายละเอียดคลาส */
-    /* .class-details {
-        position: absolute;
-        right: 0;
-     
-        bottom: 0;
-   
-        width: 250px;
-  
-        height: auto;
-        font-size: 12px;
-        overflow: hidden;
-    } */
+                 <!-- กล่องรวมปุ่มวิดีโอ + sidebar -->
+                <div class="left-side-tools">
+                
 
-    .class-sidebar-wrapper {
-        position: absolute;
-        left: 100px;
-        /* ระยะห่างจากด้านซ้าย */
-        top: 50%;
-        /* ตรงกลางในแนวตั้ง */
-        transform: translateY(-50%);
-        /* ปรับให้อยู่ตรงกลางพอดี */
-        width: 80px !important;
-        /* ลดความกว้างให้สมดุล */
-        height: 250px !important;
-        /* ความสูงที่กำหนด */
-        font-size: 8px;
-        overflow: hidden;
-        border-radius: 8px;
-        background-color: rgba(0, 0, 0, 0.1);
-    }
+                <div class="class-sidebar-wrapper">
 
-    .class-menu li {
-        display: flex;
-        flex-direction: column;
-        /* ✅ จัดให้แนวตั้ง */
-        align-items: center;
-        /* ✅ จัดให้อยู่กลาง */
-        justify-content: center;
-        /* padding: 5px; */
-        text-align: center;
-    }
+             
+                <button class="scroll-btn up" id="scrollUp">▲</button>
+                <div class="class-sidebar" id="classSidebar">
+                    <ul class="class-menu">
+                    <li data-class="class1" class="active" style="transition: filter 0.3s ease;"
+                        onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(244, 159, 47, 0.93))'"
+                        onmouseout="this.style.filter='none'">
+                        <img src="images/ClassIcon/butung-icon.png" alt="อาชีพที่ 1" class="menu-icon"
+                            style="transition: filter 0.3s ease;"
+                            onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(244, 151, 30, 0.93))'"
+                            onmouseout="this.style.filter='none'">
+                        <span class="class-label">บู้ตึ้ง</span>
+                    </li>
+                    <li data-class="class2" style="transition: filter 0.3s ease;"
+                        onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(30, 194, 254, 0.93))'"
+                        onmouseout="this.style.filter='none'">
+                        <img src="images/ClassIcon/wangwaree-icon.png" alt="อาชีพที่ 2" class="menu-icon"
+                            style="transition: filter 0.3s ease;"
+                            onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(30, 194, 254, 0.93))'"
+                            onmouseout="this.style.filter='none'">
+                        <span class="class-label">วังวารี</span>
+                    </li>
+                    <li data-class="class3" style="transition: filter 0.3s ease;"
+                        onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(5, 96, 7, 0.93))'"
+                        onmouseout="this.style.filter='none'">
+                        <img src="images/ClassIcon/muenbuppha-icon.png" alt="อาชีพที่ 3" class="menu-icon"
+                            style="transition: filter 0.3s ease;"
+                            onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(5, 96, 20, 0.93))'"
+                            onmouseout="this.style.filter='none'">
+                        <span class="class-label">หมื่นบุปผา</span>
+                    </li>
+                    <li data-class="class4" style="transition: filter 0.3s ease;"
+                        onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(5, 96, 20, 0.93))'"
+                        onmouseout="this.style.filter='none'">
+                        <img src="images/ClassIcon/bailu-icon.png" alt="อาชีพที่ 4" class="menu-icon"
+                            style="transition: filter 0.3s ease;"
+                            onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(5, 96, 20, 0.93))'"
+                            onmouseout="this.style.filter='none'">
+                        <span class="class-label">ไป๋ลู่</span>
+                    </li>
+                    <li data-class="class5" style="transition: filter 0.3s ease;"
+                        onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(251, 9, 9, 0.93))'"
+                        onmouseout="this.style.filter='none'">
+                        <img src="images/ClassIcon/tian-ren-icon.png" alt="อาชีพที่ 5" class="menu-icon"
+                            style="transition: filter 0.3s ease;"
+                            onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(251, 9, 9, 0.93))'"
+                            onmouseout="this.style.filter='none'">
+                        <span class="class-label">เทียนเหริ่น</span>
+                    </li>
+                    <li data-class="class6" style="transition: filter 0.3s ease;"
+                        onmouseover="this.style.filter='drop-shadow(0 0 15px #edb518)'" onmouseout="this.style.filter='none'">
+                        <img src="images/ClassIcon/mysterioussword-icon.png" alt="อาชีพที่ 6" class="menu-icon"
+                            style="transition: filter 0.3s ease;" onmouseover="this.style.filter='drop-shadow(0 0 15px #edb518)'"
+                            onmouseout="this.style.filter='none'">
+                        <span class="class-label">กระบี่ลี้ลับ</span>
+                    </li>
+                    <li data-class="class7" style="transition: filter 0.3s ease;"
+                        onmouseover="this.style.filter='drop-shadow(0 0 15px #edb518)'" onmouseout="this.style.filter='none'">
+                        <img src="images/ClassIcon/tian-wang-icon.png" alt="อาชีพที่ 7" class="menu-icon"
+                            style="transition: filter 0.3s ease;" onmouseover="this.style.filter='drop-shadow(0 0 15px #edb518)'"
+                            onmouseout="this.style.filter='none'">
+                        <span class="class-label">เทียนหวัง</span>
+                    </li>
+                    <li data-class="class8" style="transition: filter 0.3s ease;"
+                        onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(30, 194, 254, 0.93))'"
+                        onmouseout="this.style.filter='none'">
+                        <img src="images/ClassIcon/changer-icon.png" alt="อาชีพที่ 8" class="menu-icon"
+                            style="transition: filter 0.3s ease;"
+                            onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(30, 194, 254, 0.93))'"
+                            onmouseout="this.style.filter='none'">
+                        <span class="class-label">ฉางเกอ</span>
+                    </li>
+                    <li data-class="class9" style="transition: filter 0.3s ease;"
+                        onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(244, 159, 47, 0.93))'"
+                        onmouseout="this.style.filter='none'">
+                        <img src="images/ClassIcon/ancientgrave-icon.png" alt="อาชีพที่ 9" class="menu-icon"
+                            style="transition: filter 0.3s ease;"
+                            onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(244, 159, 47, 0.93))'"
+                            onmouseout="this.style.filter='none'">
+                        <span class="class-label">สุสานโบราณ</span>
+                    </li>
+                    <li data-class="class10" style="transition: filter 0.3s ease;"
+                        onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(251, 9, 9, 0.93))'"
+                        onmouseout="this.style.filter='none'">
+                        <img src="images/ClassIcon/beggarclan-icon.png" alt="อาชีพที่ 10" class="menu-icon"
+                            style="transition: filter 0.3s ease;"
+                            onmouseover="this.style.filter='drop-shadow(0 0 15px rgba(251, 9, 9, 0.93))'"
+                            onmouseout="this.style.filter='none'">
+                        <span class="class-label">พรรคกระยาจก</span>
+                    </li>
+                    </ul>
+                </div>
+                
+                <button class="scroll-btn down" id="scrollDown">▼</button>
+                </div><!-- /class-sidebar-wrapper -->
+                <!-- ปุ่มเล่นวิดีโอ -->
+                <!-- <div class="video-button-container">
+                    <img src="images/Class-Pic/playbutton.png" alt="Play Video" class="video-play-button" id="openVideoModal" />
+                </div> -->
+                </div><!-- /left-side-tools -->
+            </div><!-- /class-visual-wrapper -->
+           
+       
+    </div>
 
 
-    .menu-icon {
-        width: 30px !important;
-        height: 30px !important;
-        margin: 0 auto;
-    }
+       <!-- Modal สำหรับแสดงวิดีโอ -->
+            <div id="videoModal" class="video-modal">
+            <div class="video-modal-content">
+                <!-- ปุ่มปิด Modal -->
+                <span class="close-video-modal" id="closeVideoModal">&times;</span>
 
-    /* .class-stats img {
-    width: 50px !important;
-
-    height: 50px !important;
-} */
-
-    /* .class-image img {
-        width: 200px !important;
-
-        height: auto !important;
-
-    } */
-
-    .class-title {
-        font-size: 15px;
-    }
-}
-
-/* ✅ iPad แนวตั้ง */
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-
-    .class-page-section {
-        width: 100%;
-        height: auto;
-        display: block;
-        position: relative;
-        overflow: hidden;
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-        background-position: center center;
-
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-
-        padding: 0px 0;
-    }
-
-
-    .bg-image-class {
-        position: absolute;
-        top: -120%;
-        left: 0;
-        width: 100vw !important;
-        height: 100vh !important;
-
-        object-fit: contain;
-        /* ครอบคลุมพื้นที่ */
-        z-index: 0;
-        /* ให้อยู่ด้านหลัง */
-        pointer-events: none;
-        /* ปิดการโต้ตอบ */
-        border-radius: 0px;
-        /* ไม่มีขอบโค้ง */
-        /* ให้รูปภาพอยู่ด้านหลังวิดีโอ */
-        /* display: none; */
-        /* เปิด/ปิด */
-
-    }
-
-    /* คอนเทนต์ */
-    .class-content {
-        position: relative;
-        display: flex;
-        height: 30vh;
-        /* ปรับให้สมดุลกับ bg-video-class */
-        justify-content: space-between;
-        align-items: flex-end;
-        /* ชิดล่าง */
-        z-index: 2;
-        padding-left: 20px;
-        padding-right: 0px !important;
-        font-size: 10px;
-    }
-
-    /* .bg-video-class {
-        position: absolute;
-        top: 0;
-        left: 0;
-
-        width: 100vw !important;
-        height: 55vh !important;
-        object-fit: cover;
-        z-index: -1;
-        pointer-events: none;
-        border-radius: 0px;
-    } */
+                <!-- วิดีโอ YouTube Embed -->
+                <iframe width="853" height="480"
+                src="https://www.youtube.com/embed/xqSF_zi2-7M"
+                title="บรรยากาศในเกมกระบี่เย้ยยุทธจักร3  มีสภาพอากาศเปลี่ยนแปลงสมจริงตลอด 24 ชั่วโมง #กระบี่เย้ยยุทธจักร3"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
+                </iframe>
+            </div>
+            </div>
 
 
 
-    /* .class-details {
-        position: absolute;
-        right: 0;
-     
-        bottom: 0;
-      
-        width: auto !important;
-  
-        height: auto !important;
-   
-        font-size: 10px;
-        overflow: hidden;
-    } */
 
-    .class-sidebar-wrapper {
-        position: absolute;
-        left: 2px;
-        /* ระยะห่างจากด้านซ้าย */
-        top: 50%;
-        /* ตรงกลางในแนวตั้ง */
-        transform: translateY(-50%);
-        /* ปรับให้อยู่ตรงกลางพอดี */
-        width: 60px !important;
-        /* ลดความกว้างให้สมดุล */
-        height: 150px !important;
-        /* ความสูงที่กำหนด */
-        font-size: 10px;
-        overflow: hidden;
-        border-radius: 8px;
-        background-color: rgba(0, 0, 0, 0.1);
-    }
+        </section>
+        
+        <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const playBtn = document.querySelector(".video-play-button");
+            const modal = document.getElementById("videoModal");
+            const closeBtn = document.getElementById("closeVideoModal");
 
-    .class-sidebar {
-        height: calc(100% - 60px);
-        /* หักพื้นที่สำหรับปุ่มเลื่อน */
-        overflow-y: auto;
-        /* เปิด Scroll สำหรับ Sidebar */
-        padding: 10px;
-    }
+            playBtn.addEventListener("click", () => {
+            modal.style.display = "flex";
+            });
 
-    /* .class-stats img {
-        width: 50px !important;
-  
-        height: 50px !important;
-    } */
+            closeBtn.addEventListener("click", () => {
+            modal.style.display = "none";
+            // หยุดวิดีโอเมื่อปิด
+            const iframe = modal.querySelector("iframe");
+            iframe.src = iframe.src;
+            });
 
-    /* .class-image img {
-        width: 200px !important;
-
-        height: auto !important;
-
-    } */
-
-    .class-title {
-        margin-right: 10px;
-        font-size: 15px;
-    }
-
-    /* .class-description {
-        margin-right: 10px;
-        font-size: 10px;
-    } */
-}
+            // ปิด modal เมื่อคลิกนอกกรอบ
+            window.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                modal.style.display = "none";
+                const iframe = modal.querySelector("iframe");
+                iframe.src = iframe.src;
+            }
+            });
+        });
+        </script>
 
 
-/* ✅ iPad และ Tablet (แนวนอน) */
-@media (min-width: 1024px) and (max-width: 1400px) and (orientation: landscape) {
-    .bg-image-class {
-        position: absolute;
-        top: 0 !important;
-        /* ✅ เอารูปกลับมาอยู่บนจอ */
-        left: 0 !important;
-        width: 100vw !important;
-        height: 100vh !important;
-        object-fit: contain !important;
-        /* ✅ ปรับให้ครอบจอ */
-        z-index: 0;
-        pointer-events: none;
-    }
-
-
-    .class-content {
-        position: relative;
-        display: flex;
-        height: 100vh;
-        flex-direction: column;
-
-        justify-content: space-between;
-        align-items: flex-end;
-
-        z-index: 2;
-        padding-left: 20px;
-        padding-right: 0px !important;
-        font-size: 10px;
-    }
-
-
-    .class-sidebar-wrapper {
-        position: absolute;
-        left: 30px;
-
-        top: 50%;
-
-        transform: translateY(-50%);
-
-        width: 90px !important;
-
-        height: 250px !important;
-
-        font-size: 8px;
-        overflow: hidden;
-        border-radius: 8px;
-        background-color: rgba(0, 0, 0, 0.1);
-    }
-
-    .menu-icon {
-        width: 30px !important;
-        height: 30px !important;
-        margin: 0 auto;
-    }
-
-    .class-title {
-        font-size: 15px;
-    }
-}
+        <!--End Class Preview Section-->

@@ -524,7 +524,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 bottom: 0;
                 left: 0;
                 width: 100%;
-                margin-top: 200px;
+                margin-top: 300px;
         }
 
 
@@ -600,6 +600,13 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 font-size: 16px;
                 padding: 6px 12px;
             }
+              footer {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                margin-top: 300px;
+        }
         }
 
         /* ✅ Mobile ในแนวนอน */
@@ -1100,3 +1107,17 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
