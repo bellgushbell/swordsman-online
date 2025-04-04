@@ -54,16 +54,16 @@ document.addEventListener("DOMContentLoaded", () => {
                         const usedSrc = img.currentSrc || img.getAttribute("src");
 
                         if (!usedSrc) {
-                            console.warn(`⚠️ Slide ${index + 1} ยังโหลด src ไม่เสร็จ`);
+                            // console.warn(`⚠️ Slide ${index + 1} ยังโหลด src ไม่เสร็จ`);
                             return;
                         }
 
                         if (usedSrc.includes(".webp")) {
-                            console.log(`✅ Slide ${index + 1} ใช้ WebP:`, usedSrc);
+                            // console.log(`✅ Slide ${index + 1} ใช้ WebP:`, usedSrc);
                         } else if (usedSrc.includes(".png")) {
-                            console.log(`🟡 Slide ${index + 1} fallback PNG:`, usedSrc);
+                            // console.log(`🟡 Slide ${index + 1} fallback PNG:`, usedSrc);
                         } else {
-                            console.warn(`❌ Slide ${index + 1} ไม่รู้ว่าใช้ไฟล์อะไร:`, usedSrc);
+                            // console.warn(`❌ Slide ${index + 1} ไม่รู้ว่าใช้ไฟล์อะไร:`, usedSrc);
                         }
                     });
                 }, 1000); // รอโหลดรูปให้เสร็จก่อนเช็ก

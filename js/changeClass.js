@@ -58,7 +58,7 @@ $(document).ready(function () {
     }
 
     const isWebpSupported = supportsWebP();
-    console.log(`🔍Class รองรับ WebP: ${isWebpSupported ? '✅ ใช้ WebP' : '🟡 fallback เป็น JPG'}`);
+    // console.log(`🔍Class รองรับ WebP: ${isWebpSupported ? '✅ ใช้ WebP' : '🟡 fallback เป็น JPG'}`);
 
     const classData = {
         class1: 'butung',
@@ -79,7 +79,7 @@ $(document).ready(function () {
             ? `images/Class-Pic/${name}.webp`
             : `images/Class-Pic/${name}.jpg`;
 
-        console.log(`🖼️ Class ${i + 1} (${key}) → ไฟล์ที่จะโหลด: ${file}`);
+        // console.log(`🖼️ Class ${i + 1} (${key}) → ไฟล์ที่จะโหลด: ${file}`);
     });
 
     function updateActiveClass(target) {
@@ -96,9 +96,9 @@ $(document).ready(function () {
 
             $('.bg-image-class').attr('src', imagePath);
 
-            console.log(`🎯 คลิก ${classId} → โหลดไฟล์: ${imagePath}`);
+            // console.log(`🎯 คลิก ${classId} → โหลดไฟล์: ${imagePath}`);
         } else {
-            console.error('❌ ไม่พบ classId หรือชื่อภาพ:', classId);
+            // console.error('❌ ไม่พบ classId หรือชื่อภาพ:', classId);
         }
     }
 

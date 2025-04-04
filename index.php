@@ -228,48 +228,98 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     <!-- <script src="https://cdn.jsdelivr.net/npm/@motionone/dom/dist/motion.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@motionone/dom"></script> -->
 
+<script>
+  // ✅ ตรวจ WebP
+  function supportsWebP() {
+    const elem = document.createElement('canvas');
+    return !!(elem.getContext && elem.getContext('2d')) &&
+      elem.toDataURL('image/webp').indexOf('data:image/webp') === 0;
+  }
 
+  const isWebpSupported = supportsWebP();
+  const extension = isWebpSupported ? 'webp' : 'png';
+  const quoteImages = [
+    `images/PageLoad/pageload-word/01.${extension}`,
+    `images/PageLoad/pageload-word/02.${extension}`,
+    `images/PageLoad/pageload-word/03.${extension}`,
+    `images/PageLoad/pageload-word/04.${extension}`,
+    `images/PageLoad/pageload-word/05.${extension}`,
+    `images/PageLoad/pageload-word/06.${extension}`
+  ];
+  const selectedQuote = quoteImages[Math.floor(Math.random() * quoteImages.length)];
+  window.selectedQuoteImage = selectedQuote;
 
-         <!-- preload image คำคมที่สุ่ม -->
-        <!-- สุ่มภาพคำคมและ preload ล่วงหน้า -->
-               <!-- สุ่มภาพคำคม + preload -->
-    <head>
-  <!-- preload image คำคมที่สุ่ม -->
-        <script>
-            // ตรวจว่าเบราว์เซอร์รองรับ WebP หรือไม่
-            function supportsWebP() {
-            const elem = document.createElement('canvas');
-            return !!(elem.getContext && elem.getContext('2d')) && elem.toDataURL('image/webp').indexOf('data:image/webp') === 0;
-            }
+  // ✅ preload quote image
+  const preload = new Image();
+  preload.src = selectedQuote;
 
-            const isWebpSupported = supportsWebP();
-            const extension = isWebpSupported ? 'webp' : 'png';
+  const preloadLink = document.createElement('link');
+  preloadLink.rel = 'preload';
+  preloadLink.as = 'image';
+  preloadLink.href = selectedQuote;
+  document.head.appendChild(preloadLink);
 
-            const quoteImages = [
-            `images/PageLoad/pageload-word/01.${extension}`,
-            `images/PageLoad/pageload-word/02.${extension}`,
-            `images/PageLoad/pageload-word/03.${extension}`,
-            `images/PageLoad/pageload-word/04.${extension}`,
-            `images/PageLoad/pageload-word/05.${extension}`,
-            `images/PageLoad/pageload-word/06.${extension}`
-            ];
+  // ✅ ป้องกันรันซ้ำ
+  window.hasOpenedLoader = false;
 
-            const randomIndex = Math.floor(Math.random() * quoteImages.length);
-            const selectedQuote = quoteImages[randomIndex];
-            window.selectedQuoteImage = selectedQuote; // เก็บไว้ใช้ทีหลัง
+  // ✅ ฟังก์ชันเปิดม่าน
+  function openLoader() {
+    if (window.hasOpenedLoader) return;
+    window.hasOpenedLoader = true;
 
-            // preload รูปภาพ
-            const preload = new Image();
-            preload.src = selectedQuote;
+    const quoteImage = document.getElementById('quote-image');
+    if (quoteImage && window.selectedQuoteImage) {
+      quoteImage.src = window.selectedQuoteImage;
+      quoteImage.style.display = "block";
+      gsap.fromTo(quoteImage, {
+        opacity: 0,
+        scale: 0.8
+      }, {
+        opacity: 1,
+        scale: 1.1,
+        duration: 1,
+        ease: "power2.out"
+      });
+    }
 
-            // preload เป็น link ก็ได้ (แนะนำทั้งสองแบบ)
-            const preloadLink = document.createElement('link');
-            preloadLink.rel = 'preload';
-            preloadLink.as = 'image';
-            preloadLink.href = selectedQuote;
-            document.head.appendChild(preloadLink);
-        </script>
-        </head>
+    const isMobile = window.innerWidth <= 768;
+    const doorDuration = isMobile ? 2.5 : 3.5;
+
+    const tl = gsap.timeline();
+    tl
+      .set('.door.left', { x: '0' })
+      .set('.door.right', { x: '0' })
+      .to('.door.left', {
+        x: '-100%',
+        duration: doorDuration,
+        ease: 'power2.inOut'
+      })
+      .to('.door.right', {
+        x: '100%',
+        duration: doorDuration,
+        ease: 'power2.inOut'
+      }, '<')
+      .to('.logo-container', {
+        opacity: 0,
+        duration: 0.3,
+        ease: 'power2.inOut'
+      }, '-=0.5')
+      .to('#loader', {
+        opacity: 0,
+        duration: 0.5,
+        ease: 'power2.inOut'
+      })
+      .set('#loader', { display: 'none' });
+  }
+
+  // ✅ รอจนมั่นใจว่า DOM ของ loader มาแล้ว → ค่อยเปิด
+  const interval = setInterval(() => {
+    if (document.getElementById('quote-image') && document.querySelector('.door.left')) {
+      clearInterval(interval);
+      openLoader();
+    }
+  }, 50);
+</script>
 
 
 
@@ -536,9 +586,9 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
                     // ✅ ให้เปิดม่านโดยไม่ต้องรอวิดีโอโหลด
-                    setTimeout(() => {
-                        openLoader();
-                    }, 1000); // 🔥 ลดดีเลย์จาก 3000ms → 1000ms
+                    // setTimeout(() => {
+                        // openLoader();
+                    // }, 1000); // 🔥 ลดดีเลย์จาก 3000ms → 1000ms
 
                     // ✅ บังคับให้เริ่มโหลดวิดีโอทันที
                     videoElement.src = videoUrl;
@@ -749,87 +799,253 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 }
             </style>
 
-            <script>
-                /**แบบไม่webp */
+            <!-- <script>
                 // รายการรูปภาพคำคม
-                // const quoteImages = [
-                //     'images/PageLoad/pageload-word/01.png',
-                //     'images/PageLoad/pageload-word/02.png',
-                //     'images/PageLoad/pageload-word/03.png',
-                //     'images/PageLoad/pageload-word/04.png',
-                //     'images/PageLoad/pageload-word/05.png',
-                //     'images/PageLoad/pageload-word/06.png'
-                // ];
+                const quoteImages = [
+                    'images/PageLoad/pageload-word/01.png',
+                    'images/PageLoad/pageload-word/02.png',
+                    'images/PageLoad/pageload-word/03.png',
+                    'images/PageLoad/pageload-word/04.png',
+                    'images/PageLoad/pageload-word/05.png',
+                    'images/PageLoad/pageload-word/06.png'
+                ];
 
-                // function getRandomQuoteImage() {
-                //     const randomIndex = Math.floor(Math.random() * quoteImages.length);
-                //     return quoteImages[randomIndex];
-                // }
-                /** End แบบไม่webp */
+                function getRandomQuoteImage() {
+                    const randomIndex = Math.floor(Math.random() * quoteImages.length);
+                    return quoteImages[randomIndex];
+                }
 
-                // ตรวจว่าเบราว์เซอร์รองรับ WebP หรือไม่
-
-
-               // โหลดภาพคำคมและแสดงพร้อมเอฟเฟกต์
                 // โหลดภาพประตูซ้ายและขวาก่อนเปิดม่าน
-                    // preload ภาพ quote และแสดงทันที
+                const preloadDoors = new Promise((resolve) => {
+                    const doorLeft = new Image();
+                    const doorRight = new Image();
+                    let loadedCount = 0;
+
+                    doorLeft.src = 'images/PageLoad/cloud-no-cloud-left.jpg';
+                    doorRight.src = 'images/PageLoad/cloud-no-cloud-right.jpg';
+
+                    function checkLoaded() {
+                        loadedCount++;
+                        if (loadedCount === 2) {
+                            document.querySelector('.door.left').classList.add('loaded');
+                            document.querySelector('.door.right').classList.add('loaded');
+                            resolve();
+                        }
+                    }
+
+                    doorLeft.onload = checkLoaded;
+                    doorRight.onload = checkLoaded;
+                });
+
+                // ฟังก์ชันเปิดม่านฟ้า
+                function openLoader() {
+                    const timeline = gsap.timeline();
+
+                    if (window.innerWidth <= 768) {
+                        timeline
+                            .set('.door.left', {
+                                x: '0'
+                            })
+                            .set('.door.right', {
+                                x: '0'
+                            })
+                            .to({}, {
+                                duration: 0.5
+                            }) // ตั้งค่าดีเลย์
+                            .to('.door.left', {
+                                x: '-100%',
+                                duration: 4,
+                                ease: 'power2.inOut'
+                            })
+                            .to('.door.right', {
+                                x: '100%',
+                                duration: 4,
+                                ease: 'power2.inOut'
+                            }, '<')
+                            .to('.logo-container', {
+                                opacity: 0,
+                                duration: 0.3,
+                                ease: 'power2.inOut'
+                            }, '-=0.5')
+                            .to('#loader', {
+                                opacity: 0,
+                                duration: 0.5,
+                                ease: 'power2.inOut'
+                            })
+                            .set('#loader', {
+                                display: 'none'
+                            });
+                    } else {
+                        timeline
+                            .set('.door.left', {
+                                x: '0'
+                            })
+                            .set('.door.right', {
+                                x: '0'
+                            })
+                            .to({}, {
+                                duration: 0.5
+                            }) // ตั้งค่าดีเลย์
+                            .to('.door.left', {
+                                x: '-100%',
+                                duration: 5,
+                                ease: 'power2.inOut'
+                            })
+                            .to('.door.right', {
+                                x: '100%',
+                                duration: 5,
+                                ease: 'power2.inOut'
+                            }, '<')
+                            .to('.logo-container', {
+                                opacity: 0,
+                                duration: 0.5,
+                                ease: 'power2.inOut'
+                            }, '-=1.5')
+                            .to('#loader', {
+                                opacity: 0,
+                                duration: 0.5,
+                                ease: 'power2.inOut'
+                            })
+                            .set('#loader', {
+                                display: 'none'
+                            });
+                    }
+                }
+
+
+                // สุ่มภาพคำคมทันทีและกำหนดเป็น placeholder ก่อนที่ DOMContentLoaded
+                const randomQuote = getRandomQuoteImage();
+                const quoteImageElement = document.getElementById('quote-image');
+
+                // ถ้าพบ element #quote-image ให้แสดงภาพคำคมทันที
+                if (quoteImageElement) {
+                    quoteImageElement.src = randomQuote;
+                    // console.log("found word", randomQuote);
+                } else {
+                    console.error("❌ ไม่พบ #quote-image ใน DOM ขณะเริ่มต้น");
+                }
+
+                // โหลดภาพคำคมและแสดงทันที
+                function loadAndDisplayQuoteImage() {
+                    const quoteImageElement = document.getElementById('quote-image');
+                    if (!quoteImageElement) {
+                        console.error("❌ ไม่พบ #quote-image ใน DOM");
+                        return;
+                    }
+
+                    const randomQuote = getRandomQuoteImage();
+                    const img = new Image();
+                    img.src = randomQuote;
+
+                    // แสดงภาพทันที (ใช้เป็น placeholder)
+                    quoteImageElement.src = randomQuote;
+
+                    // console.log("📜 คำคมแสดงทันที:", randomQuote);
+
+                    // โหลดภาพและตรวจสอบความสำเร็จ
+                    img.onload = () => {
+                        quoteImageElement.src = randomQuote; // อัปเดตภาพเมื่อโหลดเสร็จ
+                        quoteImageElement.style.display = "block";
+                        // console.log("📜 downlaod complete", randomQuote);
+                        gsap.to(quoteImageElement, {
+                            opacity: 1,
+                            duration: 1,
+                            scale: 1.5
+                        });
+                    };
+
+                    img.onerror = () => {
+                        // console.error("❌ โหลดภาพคำคมไม่สำเร็จ:", randomQuote);
+                    };
+                }
+
+                gsap.fromTo(".loading-icon", {
+                    opacity: 0,
+                    scale: 0.8
+                }, {
+                    opacity: 1,
+                    scale: 1,
+                    duration: 1,
+                    ease: "power2.out"
+                });
+
+
+                // เริ่มทำงาน
+                document.addEventListener("DOMContentLoaded", async () => {
+                    const video = document.querySelector('.bg-video');
+                    // const videoUrl = "video/swordsman-3-video-web-ver01-final.mp4";
+                    const fallbackBackground = "images/webcover2560x1440.jpg";
+
+                    // แสดงภาพคำคมทันที
+                    loadAndDisplayQuoteImage();
+
+                    // โหลดภาพประตู -> เปิดม่าน
+                    await preloadDoors;
+                    openLoader();
+
+                    // โหลดวิดีโอ
+                    // preloadVideo(video, videoUrl, fallbackBackground);
+                });
+            </script> -->
+
+                  <!-- <script>
                     // โหลดภาพประตูซ้ายและขวาก่อนเปิดม่าน
-  const preloadDoors = new Promise((resolve) => {
-    const doorLeft = new Image();
-    const doorRight = new Image();
-    let loadedCount = 0;
+            const preloadDoors = new Promise((resolve) => {
+                const doorLeft = new Image();
+                const doorRight = new Image();
+                let loadedCount = 0;
 
-    doorLeft.src = 'images/PageLoad/cloud-no-cloud-left.jpg';
-    doorRight.src = 'images/PageLoad/cloud-no-cloud-right.jpg';
+                doorLeft.src = 'images/PageLoad/cloud-no-cloud-left.jpg';
+                doorRight.src = 'images/PageLoad/cloud-no-cloud-right.jpg';
 
-    function checkLoaded() {
-      loadedCount++;
-      if (loadedCount === 2) {
-        document.querySelector('.door.left').classList.add('loaded');
-        document.querySelector('.door.right').classList.add('loaded');
-        resolve();
-      }
-    }
+                function checkLoaded() {
+                loadedCount++;
+                if (loadedCount === 2) {
+                    document.querySelector('.door.left').classList.add('loaded');
+                    document.querySelector('.door.right').classList.add('loaded');
+                    resolve();
+                }
+                }
 
-    doorLeft.onload = checkLoaded;
-    doorRight.onload = checkLoaded;
-  });
+                doorLeft.onload = checkLoaded;
+                doorRight.onload = checkLoaded;
+            });
 
-  // ฟังก์ชันเปิดม่าน
-  function openLoader() {
-    const timeline = gsap.timeline();
+            // ฟังก์ชันเปิดม่าน
+            function openLoader() {
+                const timeline = gsap.timeline();
 
-    const isMobile = window.innerWidth <= 768;
-    const doorDuration = isMobile ? 4 : 5;
-    const logoFadeDuration = isMobile ? 0.3 : 0.5;
-    const logoFadeDelay = isMobile ? '-=0.5' : '-=1.5';
+                const isMobile = window.innerWidth <= 768;
+                const doorDuration = isMobile ? 4 : 5;
+                const logoFadeDuration = isMobile ? 0.3 : 0.5;
+                const logoFadeDelay = isMobile ? '-=0.5' : '-=1.5';
 
-    timeline
-      .set('.door.left', { x: '0' })
-      .set('.door.right', { x: '0' })
-      .to({}, { duration: 0.5 }) // delay
-      .to('.door.left', {
-        x: '-100%',
-        duration: doorDuration,
-        ease: 'power2.inOut'
-      })
-      .to('.door.right', {
-        x: '100%',
-        duration: doorDuration,
-        ease: 'power2.inOut'
-      }, '<')
-      .to('.logo-container', {
-        opacity: 0,
-        duration: logoFadeDuration,
-        ease: 'power2.inOut'
-      }, logoFadeDelay)
-      .to('#loader', {
-        opacity: 0,
-        duration: 0.5,
-        ease: 'power2.inOut'
-      })
-      .set('#loader', { display: 'none' });
-  }
+                timeline
+                .set('.door.left', { x: '0' })
+                .set('.door.right', { x: '0' })
+                .to({}, { duration: 0.1 }) // delay
+                .to('.door.left', {
+                    x: '-100%',
+                    duration: doorDuration,
+                    ease: 'power2.inOut'
+                })
+                .to('.door.right', {
+                    x: '100%',
+                    duration: doorDuration,
+                    ease: 'power2.inOut'
+                }, '<')
+                .to('.logo-container', {
+                    opacity: 0,
+                    duration: logoFadeDuration,
+                    ease: 'power2.inOut'
+                }, logoFadeDelay)
+                .to('#loader', {
+                    opacity: 0,
+                    duration: 0.5,
+                    ease: 'power2.inOut'
+                })
+                .set('#loader', { display: 'none' });
+            }
 
             // โหลดภาพคำคมและแสดงพร้อมเอฟเฟกต์
             function loadAndDisplayQuoteImage() {
@@ -872,11 +1088,16 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 }
 
                 loadAndDisplayQuoteImage();
-                await preloadDoors;
-                openLoader();
+                openLoader(); // 🔥 เปิดม่านทันที โดยไม่รอโหลดประตู
+                preloadDoors.then(() => {
+                document.querySelector('.door.left').classList.add('loaded');
+                document.querySelector('.door.right').classList.add('loaded');
+                });
+
             });
 
-            </script>
+            </script> -->
+
 
 
             <!--End Loading ใช้งาน  loading เปิดม่านฟ้า Loader วิธีใหม่  ปรับแก้ภาพไม่เท่ากัน -->
@@ -2336,7 +2557,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                 <img src="images/footer-icon/logo-seasun-black.png" alt="Seasun Logo" width="85">
                             </div>
                            <p class="small text-secondary m-0 mt-2">
-                            Copyright © 2025 กระบี่เย้ยยุทธจักร. All rights reserved.
+                            Copyright © 2025 กระบี่เย้ยยุทธจักร 3. All rights reserved.
                             </p>
 
                         </div>
@@ -2428,14 +2649,14 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     <script>
         // Ensure the DOM is fully loaded before running the script
         document.addEventListener("DOMContentLoaded", function() {
-            console.log("Fetching SEO data..."); // Debugging line
+            // console.log("Fetching SEO data..."); // Debugging line
 
             // Fetch the SEO data from content_read_seo.php
             fetch('database/admin/content_read_seo.php') // Make sure the path is correct
                 .then(response => response.json())
                 .then(data => {
                     if (data.error) {
-                        console.error(data.error); // Log any error
+                        // console.error(data.error); // Log any error
                     } else {
                         // console.log(data); // Check what data is returned
 
