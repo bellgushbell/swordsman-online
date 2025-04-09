@@ -228,6 +228,9 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     <!-- <script src="https://cdn.jsdelivr.net/npm/@motionone/dom/dist/motion.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@motionone/dom"></script> -->
 
+
+
+
 <script>
   // ✅ ตรวจ WebP
   function supportsWebP() {
@@ -1690,6 +1693,34 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                 </div>
                             </div>
 
+                              <!--ส่วนที่เพิ่ม จะดึงดาต้าเบส-->
+                        <!-- <div class="carousel-inner" id="carousel-images"></div> -->
+
+                        <!-- <script>
+                        
+                        document.addEventListener("DOMContentLoaded", function () {
+                        axios.get("database/player/contents_index.php")
+                            .then(function (response) {
+                            const newsData = response.data;
+
+                           
+                            console.log("✅ ดึงข้อมูลมาสำเร็จ:", newsData);
+
+                            // ถ้าอยาก log ทีละอัน
+                            newsData.forEach((item, index) => {
+                                console.log(`📰 [${index + 1}]`, item);
+                            });
+
+                            })
+                            .catch(function (error) {
+                            console.error("❌ ดึงข้อมูลไม่สำเร็จ:", error);
+                            });
+                        });
+                        </script> -->
+
+                      
+
+                        <!--ส่วนที่เพิ่ม จะดึงดาต้าเบส-->
 
                             <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel"
                                 data-bs-slide="prev">
