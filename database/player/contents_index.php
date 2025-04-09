@@ -8,7 +8,7 @@ $query = "
            category.category_name_en AS category_name
     FROM contents
     LEFT JOIN category ON contents.category_id = category.id
-    WHERE contents.status = 'post'
+    WHERE contents.status = 'published'
     AND contents.deleted_at IS NULL
     ORDER BY contents.id DESC
 ";
