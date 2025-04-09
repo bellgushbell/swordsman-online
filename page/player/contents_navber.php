@@ -4,7 +4,7 @@
 
 
             <div class="nav-logo-wrap local-scroll">
-                <a href="#" class="logo">
+                <a href="../../index.php" class="logo">
 
                     <img src="../../images/Logo SwordMan3-Final-white-transparent.png" alt="Company logo" width="250"
                         height="50" class="logo-white" />

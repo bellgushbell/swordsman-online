@@ -1318,13 +1318,9 @@ a.bg-video-button-muted {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
-    /* อยู่เหนือพื้นหลังวิดีโอ */
     opacity: 0;
-    /* ซ่อนก่อน */
     visibility: hidden;
-    /* ทำให้ไม่สามารถมองเห็นและคลิกได้ */
     transition: opacity 1s ease-in-out;
-    /* สำหรับเอฟเฟกต์ fade */
 }
 
 .overlay-text {
@@ -1435,7 +1431,8 @@ a.bg-video-button-muted {
    ============================== */
 .page-section-news {
     width: 100%;
-    height: 600px;
+    /* height: 600px; */
+    height: 100vh;
     display: block;
     position: relative;
     overflow: hidden;
@@ -2201,6 +2198,7 @@ input.form-control {
 .class-page-section {
     position: relative;
     width: 100%;
+    min-height: 100% !important;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -2603,7 +2601,7 @@ input.form-control {
         font-size: 6.5px;
         padding: 3px 1px;
         margin-bottom: 3px;
-        gap: 0.5px;
+        gap: 1px;
         border-radius: 4px;
         text-align: center;
         word-break: break-word;
