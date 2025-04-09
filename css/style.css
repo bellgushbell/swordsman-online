@@ -1465,7 +1465,7 @@ a.bg-video-button-muted {
 }
 
 #imageCarousel img {
-    height: 95%;
+    height: 100%;
     object-fit: contain;
     width: 100%;
     padding: 0px;
@@ -1802,7 +1802,7 @@ a.bg-video-button-muted {
     .carousel-control-prev,
     .carousel-control-next {
         position: absolute;
-        top: 38%;
+        top: 50% !important;
         transform: translateY(-50%);
         z-index: 1;
         width: 30px;
@@ -2198,7 +2198,6 @@ input.form-control {
 .class-page-section {
     position: relative;
     width: 100%;
-    min-height: 100% !important;
     display: flex;
     justify-content: center;
     align-items: center;
