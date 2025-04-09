@@ -513,10 +513,15 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                         <source src="video/swordsman-3-video-web-ver01-final-mobile.mp4" type="video/mp4">
                     </video>
 
+
+
                     <div class="text-overlay">
                         <img src="images/text-video.png" alt="Overlay Text" class="overlay-text" loading="lazy">
                     </div>
+  
+
                 </div>
+
 
                 <!-- BG Video BG Init แบบpreregister opening-->
                 <!-- <div class="bg-video-wrapper">
@@ -1665,7 +1670,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
         <!--News and Promotion Section-->
 
-        <!-- <section class="page-section-news" id="news">
+        <section class="page-section-news" id="news">
             <div class="container">
                 <div class="row gy-4">
 
@@ -1705,11 +1710,11 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
 
                         </div>
-                    </div> -->
+                    </div>
 
 
                     <!-- News and Promotion Select Tab -->
-                    <!-- <div class="col-12 col-lg-6 d-flex flex-column align-items-center">
+                    <div class="col-12 col-lg-6 d-flex flex-column align-items-center">
 
                         <ul class="nav nav-tabs justify-content-center w-100" id="newsTabs" role="tablist">
                             <li class="nav-item-news" role="presentation">
@@ -1794,9 +1799,9 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
                 </div>
             </div>
-            </div> -->
+            </div>
 
-            <!-- <script>
+            <script>
                 $(document).ready(function() {
                     const tabButtons = $(".nav-link");
                     const tabPanes = $(".tab-pane");
@@ -1945,7 +1950,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                 });
             </script>
 
-        </section> -->
+        </section>
 
         <!--End News and Promotion Section-->
 
