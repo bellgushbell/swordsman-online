@@ -2,49 +2,69 @@
 session_start();
 require __DIR__ . '/../connect_db.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = trim($_POST['username'] ?? '');
-    $password = trim($_POST['password'] ?? '');
+// ให้ใช้ URL ของ frontend ที่เรียกจาก React
+header("Access-Control-Allow-Origin: http://localhost:5173"); // URL ของ React frontend
+header("Access-Control-Allow-Credentials: true"); // ใช้ cookies / session
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+header("Access-Control-Allow-Methods: POST, OPTIONS");
 
-    // ค้นหาผู้ใช้ในฐานข้อมูล
-    $stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
-    $stmt->bind_param("s", $username);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $user = $result->fetch_assoc();
-
-    if ($user) {
-        // ตรวจสอบรหัสผ่าน (ใช้ password_verify หากรหัสผ่านถูกเข้ารหัส)
-        if (password_verify($password, $user['password'])) {
-
-
-            $_SESSION['role'] = $user['role'];
-
-            $_SESSION['username'] = $user['username'];
-            $_SESSION['id'] = $user['id'];
-            $_SESSION['logged_in'] = true;
-
-            // เพิ่มวันที่และเวลาปัจจุบันในเซสชัน
-            // เก็บเวลาปัจจุบันใน sessionStorage ด้วย JavaScript
-            echo "<script>
-           sessionStorage.setItem('currentDateTime', '" . date('l, F j, Y g:i A') . "');
-           window.location = '../../page/admin/select_item.php';
-         </script>";
-
-            // header("Location: ../../page/admin/content_management.php");
-            exit();
-        } else {
-            $_SESSION['error'] = "รหัสผ่านไม่ถูกต้อง";
-        }
-    } else {
-        $_SESSION['error'] = "ชื่อผู้ใช้ไม่ถูกต้อง";
-    }
-
-    // กลับไปหน้าล็อกอินถ้าผิดพลาด
-    header("Location: ../../page/admin/login.php");
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
     exit();
 }
 
+
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+    echo json_encode(['error' => 'Invalid request method.']);
+    exit;
+}
+
+// รับ JSON จาก body
+$json = file_get_contents('php://input');
+$data = json_decode($json, true);
+
+// รับค่าจาก JSON
+$username = trim($data['username'] ?? '');
+$password = trim($data['password'] ?? '');
+
+if (empty($username) || empty($password)) {
+    echo json_encode(['error' => 'Username or password is missing']);
+    exit;
+}
+
+// ค้นหาผู้ใช้ในฐานข้อมูล
+$stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
+$stmt->bind_param("s", $username);
+$stmt->execute();
+$result = $stmt->get_result();
+$user = $result->fetch_assoc();
+
+if ($user) {
+    if (password_verify($password, $user['password'])) {
+        // สร้าง session
+        $_SESSION['id'] = $user['id'];
+        $_SESSION['username'] = $user['username'];
+        $_SESSION['role'] = $user['role'];
+        $_SESSION['logged_in'] = true;
+
+        // ส่งข้อมูลกลับไปให้ frontend
+        echo json_encode([
+            'status' => 'success',
+            'data' => [
+                'id' => $user['id'],
+                'username' => $user['username'],
+                'role' => $user['role'],
+
+            ]
+        ]);
+    } else {
+        echo json_encode(['status' => 'error', 'message' => 'Invalid password']);
+    }
+} else {
+    echo json_encode(['status' => 'error', 'message' => 'User not found']);
+}
+$stmt->close();
+$conn->close();
 
 // ไว้เช็ค password_verify
 // $new_hashed_password = password_hash("123456", PASSWORD_DEFAULT);
