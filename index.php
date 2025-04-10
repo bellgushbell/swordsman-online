@@ -1723,13 +1723,21 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                 carouselItem.classList.add("carousel-item");
                                 if (index === 0) carouselItem.classList.add("active");
 
+                                // carouselItem.innerHTML = `
+                                // <img src="images/news/${item.image}" class="d-block w-100" 
+                                //     alt="${item.alt_text || item.header_thumbnail || 'news-image'}" 
+                                //     style="max-height: 400px; object-fit: contain;" 
+                                //     loading="lazy" fetchpriority="low">
+                                // `;
+                                
                                 carouselItem.innerHTML = `
-                                <img src="images/news/${item.image}" class="d-block w-100" 
+                                <img src="images/news/${item.image}" 
+                                    class="d-block w-100" 
                                     alt="${item.alt_text || item.header_thumbnail || 'news-image'}" 
-                                    style="max-height: 400px; object-fit: contain;" 
                                     loading="lazy" fetchpriority="low">
                                 `;
 
+                         
                                 carouselInner.appendChild(carouselItem);
 
                                 // สร้าง indicator

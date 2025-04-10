@@ -200,6 +200,8 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 </head>
 
 <body>
+
+
      <!-- Sidebar Navigation Panel -->
 
     <!-- Sidebar -->
@@ -231,7 +233,180 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
     <!--End Sidebar Navigation Panel -->
 
+<style>/* ==============================
+ Sidebar Navigation Bar Toggle Newversion ติดอยู่ทุกหน้า 
+   ============================== */
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    /* จัดให้ปุ่มอยู่ตำแหน่งเดิม */
+    height: 300px;
+    width: 30px;
+    /* กำหนดความสูงคงที่ */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 999;
+    opacity: 1;
+}
 
+/* เมื่อ Sidebar ถูกซ่อน */
+.sidebar.collapsed {
+    height: auto;
+    /* หรือกำหนดความสูงที่เหมาะสม */
+    justify-content: center;
+    /* จัดปุ่มให้อยู่ตรงกลาง */
+}
+
+/* Navigation Items */
+.nav-item {
+    margin: 0px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Toggle Button */
+.toggle-button {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    /* กำหนดขนาดเท่ากัน */
+    height: 20px !important;
+    background-color: rgba(0, 0, 0, 0.001);
+    color: transparent;
+    outline: none;
+    /* วงกลมสมบูรณ์ */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+
+    border: none;
+    /* ลบขอบ */
+    line-height: normal;
+    /* แก้ไขปัญหา icon แสดงผิดตำแหน่ง */
+}
+
+.toggle-button i {
+    font-size: 25px;
+    color: white;
+    /* ปรับขนาดของไอคอนให้เหมาะสม */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#toggle-btn {
+    text-decoration: none;
+    /* ลบการตกแต่งข้อความ */
+}
+
+#toggle-btn i {
+    text-decoration: none;
+    /* ลบการตกแต่งข้อความสำหรับไอคอน */
+    border: none;
+    /* ลบเส้นขอบที่อาจมี */
+    display: inline-block;
+    /* ป้องกันการเกิดบรรทัดที่ไม่ต้องการ */
+    line-height: 1;
+    /* ปรับให้ไอคอนอยู่กึ่งกลาง */
+}
+
+
+.toggle-button:hover {
+    /* background-color: #f5f6f8; */
+    transform: scale(1.1);
+    /* เพิ่มเอฟเฟกต์ hover */
+}
+
+.nav-item:hover {
+
+    transform: scale(1.1);
+    /* เพิ่มเอฟเฟกต์ hover */
+}
+
+/* เมื่อ Sidebar ถูกซ่อน */
+.sidebar.collapsed .toggle-button {
+    transform: translate(0, 0);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+@media (max-width: 961px) {
+
+    /* Sidebar */
+    .sidebar {
+        height: 170px;
+        /* ลดความสูงของ Sidebar */
+        width: 25px;
+        /* ปรับความกว้าง */
+        padding: 0px;
+        /* ลด Padding */
+        right: 2px;
+    }
+
+    /* Navigation Items */
+    .nav-item {
+        width: 20px;
+        /* ลดขนาดของไอเทม */
+        height: 20px;
+        /* ลดขนาดของไอเทม */
+        margin: 5px 0;
+        /* ลดระยะห่างระหว่างไอเทม */
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+        /* ลดเงา */
+    }
+
+    .nav-item i {
+        font-size: 100px;
+        /* ลดขนาดของไอคอน */
+    }
+
+    /* Toggle Button */
+    .toggle-button {
+
+        width: 20px;
+        /* ลดขนาดของปุ่ม */
+        height: 20px;
+        /* ลดขนาดของปุ่ม */
+    }
+
+    .toggle-button i {
+        font-size: 20px;
+        /* ลดขนาดไอคอนในปุ่ม */
+    }
+
+    /* เมื่อ Sidebar ถูกซ่อน */
+    .sidebar.collapsed {
+        height: auto;
+        /* ปรับความสูงเมื่อ Sidebar ถูกซ่อน */
+    }
+
+    /* เพิ่มเอฟเฟกต์ hover */
+    .toggle-button:hover,
+    .nav-item:hover {
+        transform: scale(1.2);
+        /* ลดเอฟเฟกต์ hover เล็กน้อย */
+    }
+}
+</style>
 
   
     <!-- Reward Section -->
@@ -1497,6 +1672,479 @@ function updateCharacters(count) {
     }
 }
 
+/* ==============================
+  Preregister Section
+   ============================== */
+/* ✅ คง absolute ไว้ และ ปรับ top ให้เหมาะสม */
+.home-content {
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    top: 80%;
+    right: 0%;
+}
+
+/* ✅ ให้ pre-register-container อยู่กลาง home-content */
+.pre-register-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* 🔹 ปรับขนาดปุ่ม */
+.pre-register img {
+    width: 400px;
+    max-width: 80%;
+    transition: transform 0.2s ease-in-out;
+}
+
+.pre-register img:hover {
+    transform: scale(1.1);
+}
+
+/* ✅ Mobile แนวตั้ง (Portrait) */
+/* @media (max-width: 768px) {
+    .home-content {
+        top: 30%;
+    }
+
+    .pre-register-container {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .pre-register img {
+        width: 300px;
+    }
+}
+ */
+
+/* ✅ iPad และ Tablet (แนวนอน) */
+/* @media (max-width: 1024px) and (orientation: landscape) {
+    .home-content {
+        top: 70%;
+    }
+
+    .pre-register-container {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .pre-register img {
+        width: 350px;
+    }
+} */
+
+/* ✅ iPad แนวตั้ง */
+/* @media (max-width: 768px) and (orientation: portrait) {
+    .home-content {
+        top: 30% !important;
+    }
+
+    .pre-register-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .pre-register img {
+        width: 350px;
+    }
+} */
+
+
+/* ✅ ครอบคลุม iPhone 6-8, iPhone 6-8 Plus, iPhone X, Pixel 2 ในแนวนอน */
+/* @media (min-width: 667px) and (max-width: 736px) and (orientation: landscape) {
+    .home-content {
+        top: 30% !important;
+    }
+
+    .pre-register-container {
+        flex-direction: row;
+        gap: 15px;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .pre-register img {
+        width: 260px;
+    }
+} */
+
+/* ✅ Mobile แนวตั้ง (Portrait) */
+/* สำหรับมือถือ */
+@media (max-width: 767px) {
+    .home-content {
+        top: 30%;
+    }
+
+    .pre-register-container {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .pre-register img {
+        width: 300px;
+    }
+}
+
+
+/* ✅ Mobile ในแนวนอน */
+@media (max-width: 768px) and (orientation: landscape) {
+    .home-content {
+        top: 30% !important;
+    }
+
+    .pre-register-container {
+        /* flex-direction: row; */
+        gap: 15px;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .pre-register img {
+        width: 260px;
+    }
+}
+
+
+/* ✅ iPad แนวตั้ง */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .home-content {
+        top: 80% !important;
+    }
+
+    .pre-register-container {
+        /* flex-direction: column; */
+        gap: 15px;
+    }
+
+    .pre-register-container {
+        /* flex-direction: row; */
+        gap: 15px;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .pre-register img {
+        width: 300px;
+    }
+}
+
+/* ✅ iPad และ Tablet (แนวนอน) */
+@media (min-width: 1024px) and (max-width: 1400px) and (orientation: landscape) {
+    .home-content {
+        top: 80%;
+    }
+
+    .pre-register-container {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .pre-register img {
+        width: 350px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*ปุ่มเก่าไม่ได้ใช้*/
+.game-buttons-container {
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    /* ปรับขนาดระยะห่างตามที่เหมาะสม */
+}
+
+.download-buttons {
+    display: flex;
+
+    flex-direction: row;
+    /* เรียงปุ่มในแนวนอน */
+    gap: 30px;
+    /* ระยะห่างระหว่างปุ่ม */
+    justify-content: center;
+    /* จัดปุ่มให้อยู่กึ่งกลาง */
+    align-items: center;
+    margin-left: 50px 0;
+    z-index: 3;
+}
+
+.download-buttons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 200px;
+    /* ขนาดปุ่มในหน้าจอปกติ */
+    width: 200px;
+    height: auto;
+
+}
+
+.download-buttons img {
+    width: 100%;
+    /* ปรับภาพให้เต็มปุ่ม */
+    height: auto;
+
+
+}
+
+
+.download-buttons .btn,
+.action-buttons .btn {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    width: 250px;
+    /* Uniform button width */
+    height: 50px;
+    /* Uniform button height */
+    box-sizing: border-box;
+
+}
+
+
+.video-button {
+    width: 80px !important;
+}
+
+
+/* สำหรับหน้าจอขนาดเล็ก */
+@media (max-width: 768px) {
+    .home-content {
+        width: 100%;
+        height: 100vh !important;
+        position: absolute;
+        text-align: center;
+        bottom: 40%;
+        right: 0%;
+    }
+
+    .game-buttons-container {
+        margin-top: 0%;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+
+    }
+
+    .download-buttons {
+        display: flex;
+        flex-direction: row;
+        /* เรียงปุ่มในแนวนอน */
+        justify-content: space-around;
+        /* ใช้ space-around แทน space-between */
+        align-items: center;
+        /* จัดกึ่งกลางในแนวตั้ง */
+        width: 100%;
+        /* กำหนดความกว้างของพื้นที่ทั้งหมด */
+        gap: 10px;
+
+    }
+
+    .download-buttons a {
+        flex: 0 1 auto;
+        /* ปรับขนาดตามเนื้อหาของปุ่ม */
+        max-width: 45%;
+        /* ให้แต่ละปุ่มครอบครองพื้นที่ประมาณครึ่งหนึ่ง */
+        text-align: center;
+    }
+
+    .download-buttons img {
+        width: 100%;
+        /* รูปภาพขยายเต็มปุ่ม */
+        height: auto;
+
+
+    }
+
+    .ios-button img,
+    .android-button img {
+        max-width: 140px;
+        /* จำกัดขนาดของภาพ */
+    }
+}
+
+/* สำหรับหน้าจอขนาดเล็กในแนวนอน (landscape) */
+@media (max-width: 768px) and (orientation: landscape) {
+    .home-content {
+        width: 100%;
+        height: 100vh !important;
+        position: absolute;
+        text-align: center;
+        top: 0;
+        /* ลดตำแหน่งในแนวตั้ง */
+        right: 0;
+    }
+
+    .game-buttons-container {
+        margin-top: 20%;
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        /* อนุญาตให้ปุ่มล้นไปยังแถวถัดไป */
+    }
+
+    .download-buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        /* กระจายปุ่มในพื้นที่ */
+        align-items: center;
+        width: 80%;
+        /* ลดความกว้างใน landscape */
+        gap: 10px;
+    }
+
+    .download-buttons a {
+        flex: 0 1 auto;
+        max-width: 30%;
+        /* ลดความกว้างของปุ่ม */
+        text-align: center;
+    }
+
+    .download-buttons img {
+        width: 100%;
+        height: auto;
+    }
+
+    .ios-button img,
+    .android-button img {
+        max-width: 100px;
+        /* ลดขนาดปุ่มใน landscape */
+    }
+}
+
+/* iPad Portrait (ความกว้าง 768px) */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .home-content {
+        width: 100%;
+        position: absolute;
+        text-align: center;
+        top: 60%;
+        /* ปรับตำแหน่งในแนวตั้ง */
+        right: 0;
+    }
+
+    .game-buttons-container {
+        margin-top: 20%;
+        padding: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        /* ให้ปุ่มล้นไปยังแถวถัดไป */
+        justify-content: center;
+    }
+
+    .download-buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        /* กระจายปุ่มให้มีช่องว่างสม่ำเสมอ */
+        align-items: center;
+        width: 90%;
+        /* ลดความกว้างใน iPad Portrait */
+        gap: 20px;
+    }
+
+    .download-buttons a {
+        flex: 0 1 auto;
+        max-width: 40%;
+        /* จำกัดขนาดปุ่ม */
+        text-align: center;
+    }
+
+    .download-buttons img {
+        width: 100%;
+        height: auto;
+    }
+
+    .ios-button img,
+    .android-button img {
+        max-width: 120px;
+        /* ลดขนาดรูปภาพของปุ่ม */
+    }
+}
+
+
+
+/*-----------------  ปุ่มนูน*/
+/* iOS Button */
+.ios-button img {
+    transition: transform 0.3s ease;
+}
+
+.ios-button img:hover {
+    transform: scale(1.1);
+
+}
+
+/* Android Button */
+.android-button img {
+    transition: transform 0.3s ease;
+}
+
+.android-button img:hover {
+    transform: scale(1.1);
+
+}
+
+.video-button img {
+    transition: transform 0.3s ease;
+}
+
+.video-button img:hover {
+    transform: scale(1.1);
+
+}
+
 
 
 /*----------Home Section----------- */
@@ -1505,8 +2153,13 @@ function updateCharacters(count) {
 html, body {
     margin: 0;
     padding: 0;
-    /* overflow-x: hidden;  */
+    overflow-x: hidden; 
+    overflow-y: auto;  
 }
+body::-webkit-scrollbar {
+    display: visible;
+}
+
 /* ปรับให้ reward section อยู่กึ่งกลาง */
 .reward-section {
     display: flex;
@@ -2840,7 +3493,7 @@ footer {
     <script src="js/wow.min.js" defer></script>
     <script src="js/morphext.js" defer></script>
     <script src="js/typed.min.js" defer></script> -->
-<script src="../../js/all.js"></script>
+<!-- <script src="../../js/all.js"></script> -->
 <!-- <script src="js/contact-form.js" defer></script> -->
 <!-- <script src="js/jquery.ajaxchimp.min.js"></script>
     <script src="js/objectFitPolyfill.min.js" defer></script>

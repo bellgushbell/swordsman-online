@@ -531,6 +531,16 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
         /* ✅ Mobile แนวตั้ง (Portrait) */
         @media (max-width: 767px) {
+             .news-banner {
+                background: url('../../images/webcover2560x1440.jpg') no-repeat top center;
+                background-size: cover;
+                height: 150px !important;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                text-align: center;
+            }
 
             /* ส่วนของlist */
             .news-item {
