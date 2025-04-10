@@ -1721,16 +1721,16 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                     carouselItem.classList.add("carousel-item");
                                     if (index === 0) carouselItem.classList.add("active");
 
-                                            
-                            carouselItem.innerHTML = `
-                            <a href="database/player/contents_read_detail.php?id=${item.id}" style="display: block;">
-                                <img src="images/news/${item.image}" 
-                                    class="d-block w-100" 
-                                    alt="${item.alt_text || item.header_thumbnail || 'news-image'}"
-                                    loading="lazy" fetchpriority="low">
-                            </a>
-                        `;
+                      
 
+                                    carouselItem.innerHTML = `
+                                    <a href="page/player/contents_detail.php?id=${item.id}" style="display: block;">
+                                        <img src="images/news/${item.image}" 
+                                            class="d-block w-100" 
+                                            alt="${item.alt_text || item.header_thumbnail || 'news-image'}"
+                                            loading="lazy" fetchpriority="low">
+                                    </a>
+                                    `;
 
 
 
@@ -1749,6 +1749,18 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                 console.error("❌ ดึงข้อมูลไม่สำเร็จ:", error);
                             });
                     });
+
+
+
+                                          
+                        //     carouselItem.innerHTML = `
+                        //     <a href="database/player/contents_read_detail.php?id=${item.id}" style="display: block;">
+                        //         <img src="images/news/${item.image}" 
+                        //             class="d-block w-100" 
+                        //             alt="${item.alt_text || item.header_thumbnail || 'news-image'}"
+                        //             loading="lazy" fetchpriority="low">
+                        //     </a>
+                        // `;
                     </script>
 
 
