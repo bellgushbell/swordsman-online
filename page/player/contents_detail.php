@@ -1,3 +1,4 @@
+
 <?php include '../../page/player/contents_head.php'; ?>
 <?php include '../../page/player/contents_navber.php'; ?>
 

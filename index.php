@@ -1691,74 +1691,71 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                             </div> -->
 
                         <!--ส่วนที่เพิ่ม จะดึงดาต้าเบส-->
-                        <div class="carousel-inner" id="carousel-images"></div>
+                      <!-- ภายใน index.php -->
+                <div class="carousel-inner" id="carousel-images"></div>
 
-                       <script>
-                        document.addEventListener("DOMContentLoaded", function () {
+              <script>
+                    document.addEventListener("DOMContentLoaded", function () {
                         axios.get("database/player/contents_index.php")
                             .then(function (response) {
-                            const newsData = response.data;
-                            console.log("✅ ดึงข้อมูลข่าว:", newsData);
+                                console.log("ดึงข้อมูลสำเร็จ:", response.data);
+                                const newsData = response.data;
+                                const carouselInner = document.getElementById("carousel-images");
+                                const indicatorsWrapper = document.querySelector(".carousel-indicators-custom");
 
-                            const carouselInner = document.getElementById("carousel-images");
-                            const indicatorsWrapper = document.querySelector(".carousel-indicators-custom");
+                                carouselInner.innerHTML = "";
+                                indicatorsWrapper.innerHTML = "";
 
-                            // ล้างข้อมูลเก่าก่อน
-                            carouselInner.innerHTML = "";
-                            indicatorsWrapper.innerHTML = "";
+                                if (!Array.isArray(newsData) || newsData.length === 0) {
+                                    carouselInner.innerHTML = `
+                                        <div class="carousel-item active text-center p-5">
+                                            <p class="text-muted m-0">🕵️‍♂️ ยังไม่มีข่าวให้แสดง</p>
+                                        </div>`;
+                                    return;
+                                }
 
-                            if (!Array.isArray(newsData) || newsData.length === 0) {
-                                carouselInner.innerHTML = `
-                                <div class="carousel-item active text-center p-5">
-                                    <p class="text-muted m-0">🕵️‍♂️ ยังไม่มีข่าวให้แสดง</p>
-                                </div>`;
-                                return;
-                            }
+                                const limitedNews = newsData.slice(0, 3);
 
-                            // จำกัดแค่ 3 ข่าวแรก
-                            const limitedNews = newsData.slice(0, 3);
+                                limitedNews.forEach((item, index) => {
+                                    const carouselItem = document.createElement("div");
+                                    carouselItem.classList.add("carousel-item");
+                                    if (index === 0) carouselItem.classList.add("active");
 
-                            limitedNews.forEach((item, index) => {
-                                const carouselItem = document.createElement("div");
-                                carouselItem.classList.add("carousel-item");
-                                if (index === 0) carouselItem.classList.add("active");
-
-                                // carouselItem.innerHTML = `
-                                // <img src="images/news/${item.image}" class="d-block w-100" 
-                                //     alt="${item.alt_text || item.header_thumbnail || 'news-image'}" 
-                                //     style="max-height: 400px; object-fit: contain;" 
-                                //     loading="lazy" fetchpriority="low">
-                                // `;
-                                
-                                carouselItem.innerHTML = `
+                                            
+                            carouselItem.innerHTML = `
+                            <a href="database/player/contents_read_detail.php?id=${item.id}" style="display: block;">
                                 <img src="images/news/${item.image}" 
                                     class="d-block w-100" 
-                                    alt="${item.alt_text || item.header_thumbnail || 'news-image'}" 
+                                    alt="${item.alt_text || item.header_thumbnail || 'news-image'}"
                                     loading="lazy" fetchpriority="low">
-                                `;
+                            </a>
+                        `;
 
-                         
-                                carouselInner.appendChild(carouselItem);
 
-                                // สร้าง indicator
-                                const indicator = document.createElement("span");
-                                indicator.classList.add("indicator");
-                                if (index === 0) indicator.classList.add("active");
-                                indicator.setAttribute("data-bs-target", "#imageCarousel");
-                                indicator.setAttribute("data-bs-slide-to", index.toString());
-                                indicatorsWrapper.appendChild(indicator);
-                            });
+
+
+
+                                    carouselInner.appendChild(carouselItem);
+
+                                    const indicator = document.createElement("span");
+                                    indicator.classList.add("indicator");
+                                    if (index === 0) indicator.classList.add("active");
+                                    indicator.setAttribute("data-bs-target", "#imageCarousel");
+                                    indicator.setAttribute("data-bs-slide-to", index.toString());
+                                    indicatorsWrapper.appendChild(indicator);
+                                });
                             })
                             .catch(function (error) {
-                            console.error("❌ ดึงข้อมูลไม่สำเร็จ:", error);
+                                console.error("❌ ดึงข้อมูลไม่สำเร็จ:", error);
                             });
-                        });
-                        </script>
+                    });
+                    </script>
+
 
 
                       
 
-                        <!--ส่วนที่เพิ่ม จะดึงดาต้าเบส-->
+                        <!--Endส่วนที่เพิ่ม จะดึงดาต้าเบส-->
 
 
                             <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel"
